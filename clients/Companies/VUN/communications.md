@@ -15,6 +15,12 @@ Notion backup: `notion-backup.md`.
 | Client POC | Nathan Mawali A Vandy |
 | POC contact details | `../../Individuals/Nathan Mawali A Vandy/notes-and-updates.md` |
 
+## WhatsApp Chat IDs
+
+| Contact / label | WhatsApp chat ID | Status | Source | Imported | Review |
+| --- | --- | --- | --- | --- | --- |
+| Eran Peer test contact | `491773931663@s.whatsapp.net` | provisional | WhatsApp MCP contact search and user instruction in Codex chat | 2026-05-05 | Confirm Eran Peer role/relationship to VUN and whether this is the preferred VUN WhatsApp contact. |
+
 ## Linked Correspondence
 
 Company record links correspondence records:

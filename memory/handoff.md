@@ -28,6 +28,8 @@ Repo-local helpers now exist. Gmail drafts must use `accounting@richmondblackwoo
 
 Optional WhatsApp MCP is ported but provisional. Use `setup/mcp/start-whatsapp-bridge.sh` only to manage the local bridge and use the `whatsapp` MCP tools for normal WhatsApp reads/sends. Do not commit QR/session state, SQLite databases, downloaded media, transcripts, or personal Codex config. Do not send WhatsApp messages/files without explicit user instruction and tool approval.
 
+WhatsApp chat IDs may be saved as client communication pointers only after resolving the contact through the MCP tools and disambiguating any multiple matches with the user. File company-client pointers under `clients/Companies/<client-reference>/communications.md`, add a matching client source-register row, and keep the pointer provisional until the contact relationship and preferred-contact status are confirmed.
+
 ## Verification
 
 Last checked 2026-05-04:

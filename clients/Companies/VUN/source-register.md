@@ -23,3 +23,4 @@ Notion backup: `notion-backup.md`.
 | Notion backfill search | 2026-05-05 | Fetched/routed filing registrations, filings, and key VUN task records into `tax-vat-filings.md`, `accounting-bookkeeping-payroll.md`, and `client-project.md`. |
 | Notion Assets / Tax Payments / Tax Prepayments searches | 2026-05-05 | Fetched table schemas and searched for VUN/VANDY/Nathan matches. No records surfaced by search. SQL/query export was unavailable with `notion-query-data-sources not found`, so relation-filtered export still needs a future pass. |
 | Gmail books/payroll backfill | 2026-05-05 | Read/routed Stripe, Wamo, Lexware, Workhub, DappRadar, and Schultze & Braun messages. Downloaded additional Gmail attachments into the VUN export. |
+| WhatsApp MCP contact search / user instruction | 2026-05-05 | User selected the second Eran Peer WhatsApp contact and asked to save the chat ID under VUN; recorded pointer in `communications.md`. |

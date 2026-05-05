@@ -67,6 +67,22 @@ Open questions:
 - Confirm whether RB wants a dedicated Communications database.
 - Confirm whether optional WhatsApp MCP should be enabled for all operators or only local Codex workstations.
 
+## 2026-05-05 - WhatsApp Chat ID Filing Process
+
+Applied:
+
+- Added a reusable process for saving WhatsApp chat IDs as client communication pointers.
+- Mirrored the workflow into `skills/rb-whatsapp-comms/SKILL.md`.
+- Filed the selected VUN WhatsApp chat ID pointer in `clients/Companies/VUN/communications.md`.
+
+Verification:
+
+- `git diff --check` passed.
+
+Open questions:
+
+- Confirm Eran Peer role/relationship to VUN and whether the selected chat ID is the preferred VUN WhatsApp contact.
+
 ## 2026-05-05 - VUN And Individual Routing Recovery
 
 Applied:
