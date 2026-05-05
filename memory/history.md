@@ -42,11 +42,11 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 
 ## 2026-05-06 - Direct-Send Communications Rule
 
-- User request: Create a new PR adding the rule that communication drafts should happen in chat, email drafts always show sender, subject, and source thread, email replies prefer existing threads, sends happen directly, and sent communications are stored in the Communications database.
+- User request: Create a new PR adding the rule that communication drafts should happen in chat, email drafts always show sender, `Subject`, and source thread, email replies prefer existing threads, sends happen directly, and sent communications are stored in the Communications database.
 - Context read: `AGENTS.md`, communications process, Gmail/WhatsApp skills, and memory decisions.
-- Actions taken: Added central `rb-communications` skill and updated AGENTS, README, communications, Gmail, WhatsApp, and memory docs. After user correction, kept `rb-gmail-drafts` as the email-specific skill for sender/subject/source-thread/signoff and verified draft fallback behavior.
+- Actions taken: Added central `rb-communications` skill and updated AGENTS, README, communications, Gmail, WhatsApp, and memory docs. After user correction, kept `rb-gmail-drafts` as the email-specific skill for sender/`Subject`/source-thread/signoff and verified draft fallback behavior.
 - Files changed: `AGENTS.md`, `README.md`, `processes/communications.md`, `processes/signature-and-gmail.md`, `skills/rb-communications/SKILL.md`, `skills/rb-gmail-drafts/SKILL.md`, `skills/rb-whatsapp-comms/SKILL.md`, `skills/index.md`, and memory files.
-- Decisions made: Normal outbound communications are chat-drafted, sender-visible, direct-sent after approval, and logged to Communications; email previews always show subject and source/reply thread when available; existing email threads are preferred; software drafts are exception-only. Email communications still use `rb-gmail-drafts` for Gmail-specific rules.
+- Decisions made: Normal outbound communications are chat-drafted, sender-visible, direct-sent after approval, and logged to Communications; email previews always show `Subject` and source/reply thread when available; existing email threads are preferred; software drafts are exception-only. Email communications still use `rb-gmail-drafts` for Gmail-specific rules.
 - Verification: `npm run typecheck`, `git diff --check`, and source-specific/conflicting-rule scan passed.
 - Limitations or gaps: Communications database URL/schema still needs confirmation.
 - Next step: Commit, push, and open a new PR.
