@@ -1,0 +1,3 @@
+display_name: WhatsApp Communications
+short_description: Read, summarize, send, and route WhatsApp communications through the local WhatsApp MCP server.
+default_prompt: Use the local WhatsApp MCP server to find the relevant chat or contact, handle only the minimum needed WhatsApp context, and route material Richmond Blackwood facts to the existing repo or Notion destination when clear.

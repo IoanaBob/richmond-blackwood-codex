@@ -1,0 +1,40 @@
+{
+  "name": "richmond-blackwood-codex",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Durable memory and local workflow helpers for Richmond Blackwood Codex.",
+  "type": "commonjs",
+  "engines": {
+    "node": "18.7.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "drive:organize": "node --require ts-node/register skills/rb-file-uploads/scripts/drive_organize.ts",
+    "drive:upload": "node --require ts-node/register skills/rb-file-uploads/scripts/upload_to_drive.ts",
+    "drive:export-google-doc-to-drive": "node --require ts-node/register skills/rb-file-uploads/scripts/export_google_doc_to_drive.ts",
+    "drive:transform-google-doc": "node --require ts-node/register skills/rb-signature-workflow/scripts/transform_google_doc.ts",
+    "gmail:create-alias-draft": "node --require ts-node/register skills/rb-gmail-drafts/scripts/create_alias_draft.ts",
+    "gmail:delete-draft": "node --require ts-node/register skills/rb-gmail-drafts/scripts/delete_draft.ts",
+    "pdf:prepare-signing-plan": "node --require ts-node/register skills/rb-signature-workflow/scripts/prepare_pdf_signing_plan.ts",
+    "signnow:upload": "node --require ts-node/register skills/rb-signature-workflow/scripts/signnow_upload_document.ts",
+    "signnow:get-document": "node --require ts-node/register skills/rb-signature-workflow/scripts/signnow_get_document.ts",
+    "signnow:update-fields": "node --require ts-node/register skills/rb-signature-workflow/scripts/signnow_update_document_fields.ts",
+    "signnow:embedded-review-link": "node --require ts-node/register skills/rb-signature-workflow/scripts/signnow_create_embedded_review_link.ts",
+    "signnow:signature-status": "node --require ts-node/register skills/rb-signature-status-sync/scripts/signnow_signature_status.ts"
+  },
+  "dependencies": {
+    "@signnow/api-client": "^3.2.0",
+    "dotenv": "^16.4.7",
+    "googleapis": "^171.4.0",
+    "mime-types": "^2.1.35",
+    "node-fetch": "^2.7.0",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^3.0.1",
+    "@types/node": "^18.19.127",
+    "@types/node-fetch": "^2.6.13",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

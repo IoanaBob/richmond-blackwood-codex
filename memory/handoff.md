@@ -6,11 +6,13 @@ Imported: 2026-05-04.
 ## Next Session
 
 1. Read `AGENTS.md`, `memory/storage-rules.md`, and `memory/current-state.md`.
-2. Review the active VUN pilot in `clients/VUN/`.
-3. Resolve `memory/open-questions.md` before creating client Notion pages or Drive folders.
-4. Use Notion Companies `Reference` for client folders; do not invent slugs.
-5. Do not run senior review, commits, or push until the user confirms the first review.
-6. For growth work, use `internal/growth-sales-marketing.md` and `internal/marketing-creative-review.md`; HubSpot/API account analysis is on-demand only.
+2. Skim `memory/history.md` and `memory/skill-runs.md`.
+3. Check `skills/index.md` before using repo-local helpers.
+4. Review the active VUN pilot in `clients/VUN/`.
+5. Resolve `memory/open-questions.md` before creating client Notion pages or Drive folders.
+6. Use Notion Companies `Reference` for client folders; do not invent slugs.
+7. For growth work, use `internal/growth-sales-marketing.md` and `internal/marketing-creative-review.md`; HubSpot/API account analysis is on-demand only.
+8. For WhatsApp work, read `setup/mcp/whatsapp.md` and `skills/rb-whatsapp-comms/SKILL.md` first.
 
 ## Caution
 
@@ -20,6 +22,10 @@ Do not move or create Drive client documents until group/external classification
 
 Do not delete earlier name-derived client folders until the user explicitly confirms deletion.
 
+Repo-local helpers now exist. Gmail drafts must use `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`. SignNow helpers are generic only; do not infer RB signer identity or signing policy.
+
+Optional WhatsApp MCP is ported but provisional. Use `setup/mcp/start-whatsapp-bridge.sh` only to manage the local bridge and use the `whatsapp` MCP tools for normal WhatsApp reads/sends. Do not commit QR/session state, SQLite databases, downloaded media, transcripts, or personal Codex config. Do not send WhatsApp messages/files without explicit user instruction and tool approval.
+
 ## Verification
 
 Last checked 2026-05-04:
@@ -27,4 +33,21 @@ Last checked 2026-05-04:
 - `git diff --check` passed.
 - Markdown trailing whitespace scan passed.
 - Prior-template business keyword scans passed.
-- TypeScript check was skipped because this repo currently has no TypeScript helpers or `package.json`.
+
+Neutral infrastructure port verification on 2026-05-05:
+
+- `npm install` completed with an `@signnow/api-client` engine warning on Node 18.7.0 and four high-severity npm audit findings.
+- `npm run typecheck` passed.
+- Helper smoke checks passed.
+- `git diff --check` passed.
+- Forbidden source carryover scans passed.
+
+WhatsApp MCP port verification on 2026-05-05:
+
+- Submodule status confirmed the pinned compatibility commit.
+- `bash -n setup/mcp/start-whatsapp-bridge.sh` passed.
+- `go test ./...` passed in `third_party/whatsapp-mcp/whatsapp-bridge` after sandbox escalation for Go build-cache writes.
+- `python3 -m py_compile main.py whatsapp.py audio.py` passed in the MCP server.
+- `npm run typecheck` passed.
+- `git diff --check` passed.
+- Source-specific business keyword scan passed.

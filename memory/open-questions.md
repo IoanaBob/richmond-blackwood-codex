@@ -57,3 +57,9 @@ Updated: 2026-05-05.
 - Confirm the owner for German filings and VAT cleanup.
 - Confirm the canonical payroll runbook source, especially for external clients on Lexware.
 - Confirm the authority liaison / POA process owner and current escalation process.
+
+## WhatsApp MCP Questions
+
+- Confirm whether optional WhatsApp MCP should be enabled for all RB operators or only this local Codex setup.
+- Confirm which WhatsApp account or number should be linked for RB work.
+- Confirm whether RB wants a dedicated Communications database or whether WhatsApp summaries should route only to existing client/internal records.

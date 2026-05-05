@@ -10,6 +10,7 @@ This is the high-level source map. Detailed imports live in [sources/import-log.
 | `my-memory/memory/companies/richmond-blackwood` | Local repo | Imported partially | Company profile, services, systems, communications, strategy, open questions. |
 | `richmond-blackwood-landing` | Local repo | Imported partially | Public landing app, lead form, HubSpot, DatoCMS, Stripe/API flows. |
 | `richmond_blackwood_backend` | Local repo | Imported partially | Rails API, lead/company/accounting integrations, document ingestion. |
+| `everguard-research-codex` | Local repo | Neutral operating infrastructure ported | Source for reusable helper/process/skill patterns and optional WhatsApp MCP setup; company-specific workflows excluded. |
 | RB Internal Knowledge Base | Notion | Schema fetched | General SOP/process backup target. |
 | Client Databases | Notion | Hub and schemas fetched | Client Notes & Updates and Companies schemas fetched. |
 | RB Slack channels | Slack | Searched partially | Channel names and sample operational themes recorded. |
