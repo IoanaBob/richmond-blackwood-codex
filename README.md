@@ -72,6 +72,10 @@ Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmond
 
 SignNow helpers are generic mechanics only; RB signer identity, routing order, and template policy remain provisional until approved.
 
+## Communications Rule
+
+Outbound communications are drafted in chat with Codex, not as software drafts. Every preview must show the sending identity; for email, show the exact `From` name and email address. After approval, Codex should send directly through the supported connector or MCP tool and store the sent communication in the Communications database.
+
 ## Optional MCP Layer
 
 WhatsApp MCP setup is documented in [setup/mcp/whatsapp.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/whatsapp.md). It is optional and local-only: QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed.

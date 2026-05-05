@@ -80,4 +80,19 @@ Consequence:
 - Do not send WhatsApp messages/files unless the user explicitly asks and tool approval confirms recipient and content.
 
 Source: user instruction on 2026-05-05 and local source repo inspection.
-Review: confirm the RB WhatsApp account, whether WhatsApp should be enabled for all operators, and whether RB wants a dedicated Communications database.
+Review: confirm the RB WhatsApp account, whether WhatsApp should be enabled for all operators, and the canonical Communications database URL/schema.
+
+## 2026-05-06 - Chat Draft, Direct Send, Communications Log
+
+Decision: All Richmond Blackwood communication drafting should happen in chat with Codex, not as software drafts for the user to manually send.
+
+Consequence:
+
+- Every outbound communication preview must show the sending identity before approval.
+- Email previews must show the exact `From` name and email address.
+- After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
+- After sending, Codex should store the sent communication in the Communications database.
+- Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
+
+Source: user instruction on 2026-05-06.
+Review: approved as an operating rule by user instruction; confirm the canonical Communications database URL/schema.

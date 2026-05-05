@@ -34,10 +34,10 @@ When Codex starts or monitors the WhatsApp bridge and a QR code is printed in te
 
 - WhatsApp reads and media downloads are private-data operations. Keep queries narrow: contact, chat, date range, search term, and small limits.
 - Do not send messages or files automatically unless the user explicitly asks to send and the tool approval confirms recipient and content.
-- For suggested WhatsApp responses, draft in chat first unless the user explicitly asks to send.
+- For suggested WhatsApp responses, draft in chat and show the sending WhatsApp account/number or resolved sender context before approval.
 - Do not store QR state, SQLite databases, downloaded media, voice-note files, transcripts, or private WhatsApp exports in git.
 - Do not copy full private chat history into memory or Notion. Summarize only the business-relevant facts.
-- Route material WhatsApp facts to existing RB destinations only. Do not create a new Communications database or parallel Notion structure without user approval.
+- Store sent WhatsApp communications in the Communications database after sending. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
 
 ## Read Workflow
 
@@ -59,9 +59,10 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 2. If more than one plausible contact is returned, ask the user to choose before sending.
 3. Ensure the local bridge is listening. If not, start `setup/mcp/start-whatsapp-bridge.sh start` outside the sandbox so it persists beyond the current chat turn.
 4. Draft the message in chat unless the user already supplied exact text and asked to send.
-5. Confirm files are the intended files and contain no wrong-side or confidential disclosure.
-6. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
-7. Record the material business consequence in the right RB place.
+5. Show the sending WhatsApp account/number or resolved sender context before approval.
+6. Confirm files are the intended files and contain no wrong-side or confidential disclosure.
+7. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
+8. Store the sent communication in the Communications database.
 
 ## Richmond Blackwood Routing
 
@@ -70,6 +71,6 @@ When logging WhatsApp:
 - Client-specific facts belong under `clients/<client-reference>/`; the folder name must be the exact Notion Companies `Reference`.
 - Non-client private company facts belong under `internal/`.
 - General process rules belong under `processes/`, `memory/`, and the RB Internal Knowledge Base when a backup destination is clear.
-- If the right Notion/Drive/client destination is unclear, record the blocker in `memory/open-questions.md` and ask for review.
+- If the right Notion/Drive/client/Communications destination is unclear, record the blocker in `memory/open-questions.md` and ask for review.
 
 For voice notes, store a concise summary and the operating consequence, not full transcript text unless the user asks and it is safe.

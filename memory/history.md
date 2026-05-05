@@ -37,5 +37,16 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Files changed: `.gitmodules`, `third_party/whatsapp-mcp`, `setup/mcp/`, `skills/rb-whatsapp-comms/`, process docs, memory docs, and source logs.
 - Decisions made: WhatsApp work should use the MCP tools for normal reads/sends, keep QR/session/media/transcripts local-only, and require explicit send approval.
 - Verification: Submodule status, bridge shell syntax, Go bridge test, Python compile check, TypeScript check, `git diff --check`, and source-specific business keyword scan passed.
-- Limitations or gaps: RB WhatsApp account, operator rollout, and any dedicated Communications database remain unapproved.
+- Limitations or gaps: RB WhatsApp account, operator rollout, and canonical Communications database URL/schema remain unconfirmed.
 - Next step: Run validation, commit, push, and update PR #1.
+
+## 2026-05-06 - Direct-Send Communications Rule
+
+- User request: Create a new PR adding the rule that communication drafts should happen in chat, show the sender email, send directly, and store sent communications in the Communications database.
+- Context read: `AGENTS.md`, communications process, Gmail/WhatsApp skills, and memory decisions.
+- Actions taken: Added central `rb-communications` skill and updated AGENTS, README, communications, Gmail, WhatsApp, and memory docs. After user correction, kept `rb-gmail-drafts` as the email-specific skill for sender/thread/signoff and verified draft fallback behavior.
+- Files changed: `AGENTS.md`, `README.md`, `processes/communications.md`, `processes/signature-and-gmail.md`, `skills/rb-communications/SKILL.md`, `skills/rb-gmail-drafts/SKILL.md`, `skills/rb-whatsapp-comms/SKILL.md`, `skills/index.md`, and memory files.
+- Decisions made: Normal outbound communications are chat-drafted, sender-visible, direct-sent after approval, and logged to Communications; software drafts are exception-only. Email communications still use `rb-gmail-drafts` for Gmail-specific rules.
+- Verification: `npm run typecheck`, `git diff --check`, and source-specific/conflicting-rule scan passed.
+- Limitations or gaps: Communications database URL/schema still needs confirmation.
+- Next step: Commit, push, and open a new PR.

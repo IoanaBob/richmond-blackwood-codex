@@ -13,6 +13,7 @@ Imported: 2026-05-04.
 6. Use Notion Companies `Reference` for client folders; do not invent slugs.
 7. For growth work, use `internal/growth-sales-marketing.md` and `internal/marketing-creative-review.md`; HubSpot/API account analysis is on-demand only.
 8. For WhatsApp work, read `setup/mcp/whatsapp.md` and `skills/rb-whatsapp-comms/SKILL.md` first.
+9. For outbound communications, use `skills/rb-communications/SKILL.md`.
 
 ## Caution
 
@@ -22,9 +23,11 @@ Do not move or create Drive client documents until group/external classification
 
 Do not delete earlier name-derived client folders until the user explicitly confirms deletion.
 
-Repo-local helpers now exist. Gmail drafts must use `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`. SignNow helpers are generic only; do not infer RB signer identity or signing policy.
+Repo-local helpers now exist. Use `rb-gmail-drafts` for email-specific sender, thread, signoff, and verified Gmail draft fallback rules. SignNow helpers are generic only; do not infer RB signer identity or signing policy.
 
 Optional WhatsApp MCP is ported but provisional. Use `setup/mcp/start-whatsapp-bridge.sh` only to manage the local bridge and use the `whatsapp` MCP tools for normal WhatsApp reads/sends. Do not commit QR/session state, SQLite databases, downloaded media, transcripts, or personal Codex config. Do not send WhatsApp messages/files without explicit user instruction and tool approval.
+
+Outbound communication drafting happens in chat. Always show the sender identity before approval, including exact `From` name and email address for email. After approval, send directly through the supported connector/MCP tool and log the sent communication in the Communications database. Software drafts are exception-only.
 
 ## Verification
 

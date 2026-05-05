@@ -83,10 +83,18 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 - Prefer app connectors for app-native workspace state: Notion records/pages, Drive/Docs reads and edits, Gmail search/read/thread context, Slack reads/drafts/sends, and SignNow supported sends/status/document operations.
 - Use repo-local `npm` helpers only for connector gaps and mechanical actions: Drive local upload/export/organize, Gmail drafts that must save from `accounting@richmondblackwood.com`, generic SignNow local-file upload/field/review/status work, and explicit PDF/Google Doc transforms.
 - Helper output is support material, not final business state. A task is complete only when the relevant live source of truth is updated, verified, and recorded.
-- Gmail drafts must use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and fail closed if Gmail stores another sender.
+- Email communication rules live in `skills/rb-gmail-drafts/SKILL.md`; email previews must show `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender. If a Gmail draft fallback is used, it must fail closed if Gmail stores another sender.
 - SignNow helpers are generic only. Do not invent RB signer identities, routing order, templates, or signing policy.
 - Native Google Docs content edits should use the Google Drive/Docs connector when available. Local helpers may export/upload or apply explicit mechanical transforms only when that is the chosen supported path.
 - Optional WhatsApp work must use the repo-pinned `whatsapp` MCP path for normal reads, contact search, sends, media, and voice notes. Keep WhatsApp QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config out of git. Do not send WhatsApp messages/files unless the user explicitly asks and the tool approval confirms recipient and content.
+
+## Outbound Communications
+
+- Draft all outbound communications in chat with the user, not as software drafts for manual send.
+- Every communication preview must show the sending identity before approval. For email, show the exact `From` name and email address.
+- After the user approves or explicitly asks to send, send directly through the supported connector or MCP tool.
+- After sending, store the communication in the Communications database. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
+- Do not create Gmail, Slack, WhatsApp, Notion, or other app drafts unless the user explicitly asks for that exception.
 
 ## Memory And Skills
 
