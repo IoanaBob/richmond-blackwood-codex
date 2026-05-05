@@ -14,7 +14,7 @@ This repo intentionally keeps unsanitised operational context. Live secrets, cre
 4. Skim [memory/history.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/history.md) and [memory/skill-runs.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/skill-runs.md).
 5. Check [memory/open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md) before filing client or Drive evidence.
 6. Check [sources/import-log.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/sources/import-log.md) before importing a source twice.
-7. For client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/<client-reference>/`.
+7. For company client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/Companies/<client-reference>/`. For individual work, use the Notion legal name and `clients/Individuals/<legal-name>/`.
 
 ## Storage Rules
 
@@ -25,8 +25,9 @@ General SOPs and process knowledge:
 
 Client-specific knowledge:
 
-- Repo location: `clients/<client-reference>/`.
+- Repo location: `clients/Companies/<client-reference>/`.
 - Folder name: exact Notion Companies `Reference` value, not an invented slug.
+- Individual-specific repo location: `clients/Individuals/<legal-name>/`.
 - Notion backup: relevant page or database under `https://www.notion.so/Client-Databases-f272baa16c3b45069cbd896624e04b5c`.
 - Broad docs must link to the client folder instead of repeating private detail.
 

@@ -36,7 +36,7 @@ If the bridge prints a QR code in terminal output or `.codex-local/whatsapp-brid
 
 ## Private Data Routing
 
-Client-specific communication facts belong under `clients/<client-reference>/`, using the exact Notion Companies `Reference`.
+Client-specific communication facts belong under `clients/Companies/<client-reference>/`, using the exact Notion Companies `Reference`.
 
 Non-client private company communication facts belong under `internal/`.
 

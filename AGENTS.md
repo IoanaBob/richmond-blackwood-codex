@@ -23,16 +23,26 @@ Every meaningful factual claim should include:
 
 ## Private Data Routing
 
-Client-specific private details must live under `clients/<client-reference>/`.
+Company-specific private details must live under `clients/Companies/<client-reference>/`.
 
 The folder name must be the exact Notion Companies `Reference` value. Do not invent slugs from company names. For now, apply this rule to company clients only.
 
-Client export/offboarding packages live under `clients/<client-reference>/Client export - <client-reference>/`. They should contain actual downloaded/exported files where possible, with `export-manifest.json` and `download-log.md` tracking source filenames, target paths, and blockers.
+Individual-specific private details must live under `clients/Individuals/<legal-name>/`.
+
+The folder name must be the individual's legal name as recorded in Notion. If Notion includes middle names or initials, preserve that spelling until the user approves a shorter folder name.
+
+Company-to-individual relationships must be represented structurally:
+
+- Company folder: `linked-individuals.md`.
+- Individual folder: `linked-companies.md`.
+- Individual linked entities: `linked-entities.md`, with bank accounts, tax filings, assets, correspondence, and expenses kept in their matching individual files.
+
+Client backup/export packages live under `clients/Companies/<client-reference>/Client export - <client-reference>/`. They should contain actual downloaded/exported files where possible, with `backup-manifest.json` and `download-log.md` tracking source filenames, target paths, and blockers.
 
 General docs may contain pointers only, for example:
 
 ```md
-Detailed client history: `clients/<client-reference>/tax-vat-filings.md`
+Detailed client history: `clients/Companies/<client-reference>/tax-vat-filings.md`
 Notion backup: <client DB/page URL>
 Drive evidence: <client folder URL>
 ```
@@ -46,11 +56,17 @@ General SOPs, operating rules, and process docs:
 - Repo: `processes/` plus supporting memory files.
 - Notion: RB Internal Knowledge Base at `https://www.notion.so/181e4130131480b6ac6fff8a1379c3fc`.
 
-Client-specific facts:
+Company-specific facts:
 
-- Repo: `clients/<client-reference>/`.
+- Repo: `clients/Companies/<client-reference>/`.
 - Notion: relevant database/page under Client Databases at `https://www.notion.so/Client-Databases-f272baa16c3b45069cbd896624e04b5c`.
 - If the company relation is unclear, do not create the client backup page. Record the pending backup in the client folder and in `memory/open-questions.md`.
+
+Individual-specific facts:
+
+- Repo: `clients/Individuals/<legal-name>/`.
+- Notion: relevant individual/person and client database records under Client Databases.
+- If the linked company or individual identity is unclear, record the uncertainty before filing.
 
 ## Drive Routing
 
@@ -60,23 +76,24 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 - Client documents: `Richmond Blackwood -> finance and accounting -> <group or external> -> <company name>`.
 - Never guess the group/external classification.
 
-## Client Export Packages
+## Client Backup And Export Packages
 
-- Use `processes/client-offboarding-export.schema.json` as the machine-readable manifest shape.
+- Use `backup-manifest.json` as the package manifest until a schema is approved on the active branch.
 - Retain source filenames in full, especially signed contracts.
-- Store key exported/downloaded client files inside the client-specific export package when access allows.
+- Store key exported/downloaded client files inside the client-specific git-held backup package when access allows.
 - Mark blocked or pending downloads explicitly; do not imply a file is present when only its filename is known.
-- Require compliance review before any completed package is sent to the client.
+- Offboarding or external handover is separate and only runs when the user explicitly asks for it.
 
 ## Source Import Workflow
 
 1. Register the source in `sources/source-register.md`.
 2. Read the Notion company `Reference` property before creating a client folder.
 3. Import general company/process knowledge into `memory/`, `processes/`, or `internal/`.
-4. Import private client knowledge only into `clients/<client-reference>/`.
-5. Back up general SOP/process content to the Internal Knowledge Base.
-6. Back up client-specific content to the relevant client database once the destination is clear.
-7. Update `sources/import-log.md` with source, date, scope, and unresolved questions.
+4. Import private company-client knowledge only into `clients/Companies/<client-reference>/`.
+5. Import private individual-client knowledge only into `clients/Individuals/<legal-name>/`.
+6. Back up general SOP/process content to the Internal Knowledge Base.
+7. Back up client-specific content to the relevant client database once the destination is clear.
+8. Update `sources/import-log.md` with source, date, scope, and unresolved questions.
 
 ## Helper And Connector Boundary
 

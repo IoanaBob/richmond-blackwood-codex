@@ -13,8 +13,9 @@ The repo keeps unsanitised operational context. The only excluded categories are
 | --- | --- | --- | --- |
 | General SOPs and process docs | `processes/` and `memory/` | RB Internal Knowledge Base | Only if large evidence or source docs are needed |
 | Company-wide private history | `internal/` | RB Internal Knowledge Base if generally useful | General Drive archive if not needed all the time |
-| Client-specific private history | `clients/<client-reference>/` | Relevant database/page under Client Databases | Existing RB finance/accounting client folder |
-| Client offboarding/key export package | `clients/<client-reference>/Client export - <client-reference>/` | Relevant client backup/page once destination is clear | Existing client Drive folder after compliance review if approved |
+| Client-specific private history | `clients/Companies/<client-reference>/` | Relevant database/page under Client Databases | Existing RB finance/accounting client folder |
+| Individual-specific private history | `clients/Individuals/<legal-name>/` | Relevant individual/person records and client database pages | Existing RB finance/accounting client folder when tied to a company |
+| Recurring client backup package | `clients/Companies/<client-reference>/Client export - <client-reference>/` | Relevant client backup/page once destination is clear | Pointer only unless a Drive mirror is explicitly requested |
 | Raw documents not needed in every Codex session | Pointer in repo | Pointer in Notion where relevant | Drive archive or client Drive folder |
 | Ambiguous client or filing destination | `memory/open-questions.md` | Do not write yet | Do not move or create yet |
 
@@ -29,7 +30,20 @@ Client folder names must come from Notion Companies -> `Reference`.
 
 Pilot folder:
 
-- `clients/VUN/` for VANDY UN LIMITED.
+- `clients/Companies/VUN/` for VANDY UN LIMITED.
+- `clients/Individuals/Nathan Mawali A Vandy/` for the linked individual pilot.
+
+## Individual Routing Rule
+
+If RB serves an individual for personal tax or another individual-specific matter, keep their private detail under `clients/Individuals/<legal-name>/`.
+
+Every linked company/individual pair should have both sides recorded:
+
+- Company: `clients/Companies/<client-reference>/linked-individuals.md`.
+- Individual: `clients/Individuals/<legal-name>/linked-companies.md`.
+- Individual linked entities: bank accounts, tax filings, assets, correspondence, and expenses in the matching individual files.
+
+If Notion correspondence or another linked record is attached to the wrong entity, first link the correct company/individual, then unlink the incorrect entity, and record the correction in the relevant source/register files.
 
 ## Notion Destinations
 
@@ -61,9 +75,9 @@ Do not infer `<group or external>` from the client name alone. Ask for review if
 Broad process and memory files should point to private client details instead of repeating them:
 
 ```md
-Detailed client history: `clients/<client-reference>/history.md`
-Notion backup: `clients/<client-reference>/notion-backup.md`
-Drive evidence: `clients/<client-reference>/drive-locations.md`
+Detailed client history: `clients/Companies/<client-reference>/history.md`
+Notion backup: `clients/Companies/<client-reference>/notion-backup.md`
+Drive evidence: `clients/Companies/<client-reference>/drive-locations.md`
 ```
 
 ## Backup Discipline
@@ -72,5 +86,6 @@ Drive evidence: `clients/<client-reference>/drive-locations.md`
 - If Notion backup is pending, write the reason and the exact missing decision.
 - Every client folder keeps a `drive-locations.md`.
 - If Drive backup is pending, write the reason and the exact missing folder/classification.
-- Every client export package keeps an `export-manifest.json` and `download-log.md`.
-- Client export packages can store actual downloaded/exported client files, but never live secrets, tokens, private keys, certificate bundles, or credential exports.
+- Every client backup package keeps a `backup-manifest.json` and `download-log.md`.
+- Client backup packages can store actual downloaded/exported client files in git, but never live secrets, tokens, private keys, certificate bundles, or credential exports.
+- Offboarding/export delivery is separate from recurring backup. Create or send a zip only when the user explicitly asks for offboarding or external handover.

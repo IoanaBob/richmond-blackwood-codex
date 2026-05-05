@@ -19,4 +19,4 @@ Provisional:
 
 ## Important Caveat
 
-This file is internal and non-client-specific. Client histories belong under `clients/<client-reference>/`.
+This file is internal and non-client-specific. Client histories belong under `clients/Companies/<client-reference>/`.

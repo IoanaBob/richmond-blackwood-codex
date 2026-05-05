@@ -28,7 +28,7 @@ Provisional:
 
 Active reference-based client pilot:
 
-- `clients/VUN/`
+- `clients/Companies/VUN/`
 
 Earlier name-derived provisional client folders are pending explicit deletion review and should not be used as the model for future client folders.
 

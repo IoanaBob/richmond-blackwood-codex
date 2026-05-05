@@ -41,7 +41,7 @@ Themes observed:
 
 ## Gmail Sources
 
-Searches found accounting and invoice operation threads for RB and client aliases. Specific private client fragments were routed into the matching `clients/<client-reference>/` folders.
+Searches found accounting and invoice operation threads for RB and client aliases. Specific private client fragments were routed into the matching `clients/Companies/<client-reference>/` folders.
 
 ## Google Drive Sources
 
