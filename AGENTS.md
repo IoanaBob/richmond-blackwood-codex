@@ -86,6 +86,7 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 - Gmail drafts must use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and fail closed if Gmail stores another sender.
 - SignNow helpers are generic only. Do not invent RB signer identities, routing order, templates, or signing policy.
 - Native Google Docs content edits should use the Google Drive/Docs connector when available. Local helpers may export/upload or apply explicit mechanical transforms only when that is the chosen supported path.
+- Optional WhatsApp work must use the repo-pinned `whatsapp` MCP path for normal reads, contact search, sends, media, and voice notes. Keep WhatsApp QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config out of git. Do not send WhatsApp messages/files unless the user explicitly asks and the tool approval confirms recipient and content.
 
 ## Memory And Skills
 

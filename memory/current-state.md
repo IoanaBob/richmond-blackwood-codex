@@ -19,6 +19,7 @@ Current implementation includes:
 - Reference-based client folder pilot under `clients/VUN/`.
 - Client offboarding export package guideline and VUN export manifest.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
+- Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 
 ## Helper State
 
@@ -32,10 +33,13 @@ Available helper areas:
 - Generic SignNow upload/field/review/status: `skills/rb-signature-workflow/scripts/` and `skills/rb-signature-status-sync/scripts/`.
 - Google Doc and PDF mechanical transforms: `drive:transform-google-doc` and `pdf:prepare-signing-plan`.
 - Task PR helper: `skills/rb-task-pr/scripts/task_pr.sh`.
+- Optional WhatsApp MCP bridge: `setup/mcp/start-whatsapp-bridge.sh`.
 
 Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and fail closed if Gmail stores another sender.
 
 SignNow helpers are generic mechanics only. RB signer identity, routing order, template catalog, and signing policy are not approved by this port.
+
+WhatsApp MCP is optional and local-only. QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed. Normal WhatsApp reads/sends should use the `whatsapp` MCP tools, not direct REST or SQLite access.
 
 ## Notion State
 
@@ -113,8 +117,18 @@ Checks run 2026-05-04:
 
 Checks run for the 2026-05-05 neutral infrastructure port:
 
-- `npm install`: completed; reported an `@signnow/api-client` engine warning on Node 18.7.0 and four high-severity npm audit findings.
+- `npm install`: completed; the final install after removing IMAP/mail-composer dependencies reported zero vulnerabilities and still reported an `@signnow/api-client` engine warning on Node 18.7.0.
 - `npm run typecheck`: passed.
 - Helper smoke checks passed for Drive organize/upload/export, Gmail alias draft, SignNow upload/get/update/review/status, Google Doc transform, and PDF signing plan.
 - `git diff --check`: clean.
 - Forbidden source carryover scans found no matches for source company/client/asset names, source sender addresses, source Notion/Drive IDs, or controlled-sharing terminology.
+
+Checks run for the 2026-05-05 WhatsApp MCP port:
+
+- `git submodule status third_party/whatsapp-mcp`: confirmed the pinned compatibility commit.
+- `bash -n setup/mcp/start-whatsapp-bridge.sh`: passed.
+- `go test ./...` in `third_party/whatsapp-mcp/whatsapp-bridge`: passed after rerunning outside the sandbox so Go could write to its build cache.
+- `python3 -m py_compile main.py whatsapp.py audio.py` in the MCP server: passed.
+- `npm run typecheck`: passed.
+- `git diff --check`: clean.
+- Source-specific business keyword scan found no matches outside intentional source-repo references.

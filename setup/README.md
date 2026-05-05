@@ -9,6 +9,7 @@ Status: provisional.
 - Slack: required for operational history and channel context.
 - Gmail: required for accounting, invoice, and client communication context.
 - SignNow: optional/generic helper support for document upload, review links, and status checks where RB uses SignNow.
+- WhatsApp MCP: optional local MCP support for user-controlled WhatsApp access.
 - GitHub or local git: required for repo sync if publishing changes.
 
 ## Confirmed On 2026-05-04
@@ -53,6 +54,23 @@ Local-only files belong under `.codex-local/` or `.env`; both are ignored by git
 - Do not use Gmail IMAP, app passwords, or stored mailbox passwords for repo-local helpers.
 - SignNow helpers use `.env` only for local SignNow API credentials. Never commit or print those values.
 - Gmail client-facing drafts must save from `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`.
+
+## Optional Local MCP Servers
+
+Optional repo-pinned MCP setup guides live under `setup/mcp/`.
+
+- WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
+
+Quick WhatsApp MCP install path:
+
+```sh
+git submodule update --init --recursive
+brew install go
+brew install ffmpeg
+setup/mcp/start-whatsapp-bridge.sh start
+```
+
+Scan the QR code from WhatsApp Linked Devices if prompted, add the MCP server snippet from [setup/mcp/whatsapp.md](mcp/whatsapp.md) to `~/.codex/config.toml`, then restart or reload Codex. The background bridge log and PID are stored under `.codex-local/`.
 
 ## Connector Safety
 

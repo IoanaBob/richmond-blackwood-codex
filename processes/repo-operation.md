@@ -45,6 +45,7 @@ Prefer connectors for app-native workspace state:
 - Notion connector for Notion pages, databases, records, and backup pages.
 - Slack connector for Slack reads, drafts, and sends.
 - SignNow connector for supported document, send, and status operations.
+- MCP tools for optional local services such as WhatsApp when the server is configured and available.
 
 Use repo-local helpers only for connector gaps and mechanical actions:
 
@@ -52,6 +53,7 @@ Use repo-local helpers only for connector gaps and mechanical actions:
 - Gmail API helper for drafts that must save from `accounting@richmondblackwood.com`.
 - SignNow helpers for local-file upload, explicit field setup, review-link creation, and status checks.
 - PDF/Google Doc helpers for mechanical transforms from explicit plans.
+- WhatsApp bridge helper for starting or checking the local bridge only; normal WhatsApp work should go through the `whatsapp` MCP tools, not direct REST or SQLite reads.
 
 `npm` scripts are support tools, not business workflow engines. A task is complete only when the relevant live source of truth is updated, verified, and recorded.
 

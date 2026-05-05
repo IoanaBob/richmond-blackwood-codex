@@ -26,5 +26,16 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Files changed: Package metadata, helper scripts under `skills/rb-*`, memory/process/setup/source documentation.
 - Decisions made: Gmail drafts default to `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`; SignNow helpers remain generic mechanics only.
 - Verification: `npm install`, `npm run typecheck`, helper `--help` smoke checks, `git diff --check`, and forbidden carryover scans passed.
-- Limitations or gaps: `npm install` reported an `@signnow/api-client` engine warning on Node 18.7.0 and four high-severity npm audit findings; RB signing policy, signer identity, template catalog, and Drive group/external classifications remain open unless already confirmed elsewhere.
+- Limitations or gaps: `npm install` still reports an `@signnow/api-client` engine warning on Node 18.7.0; RB signing policy, signer identity, template catalog, and Drive group/external classifications remain open unless already confirmed elsewhere.
 - Next step: User review before any senior-review/commit/push workflow.
+
+## 2026-05-05 - Port WhatsApp MCP Setup
+
+- User request: Port the newly merged WhatsApp MCP server work from `everguard-research-codex` into the currently open RB PR.
+- Context read: Source WhatsApp MCP setup guide, persistent bridge helper, WhatsApp communications skill, memory/process rules, and pinned submodule state.
+- Actions taken: Added optional RB WhatsApp MCP submodule, setup guide, background bridge helper, WhatsApp communications skill, communication process, and memory/source records.
+- Files changed: `.gitmodules`, `third_party/whatsapp-mcp`, `setup/mcp/`, `skills/rb-whatsapp-comms/`, process docs, memory docs, and source logs.
+- Decisions made: WhatsApp work should use the MCP tools for normal reads/sends, keep QR/session/media/transcripts local-only, and require explicit send approval.
+- Verification: Submodule status, bridge shell syntax, Go bridge test, Python compile check, TypeScript check, `git diff --check`, and source-specific business keyword scan passed.
+- Limitations or gaps: RB WhatsApp account, operator rollout, and any dedicated Communications database remain unapproved.
+- Next step: Run validation, commit, push, and update PR #1.

@@ -14,4 +14,5 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-gmail-drafts`: create verified Gmail drafts from `accounting@richmondblackwood.com`.
 - `rb-signature-workflow`: run generic SignNow, Google Doc transform, and PDF signing-plan helper workflows.
 - `rb-signature-status-sync`: check SignNow signature status and require signed-file evidence before completion.
+- `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.

@@ -52,6 +52,7 @@ Every Richmond Blackwood fact imported into this repo is marked provisional unle
 - `sources/`: source register, import log, and connector boundaries.
 - `skills/`: repo-local Codex skills adapted for RB work.
 - `setup/`: connector setup and verification.
+- `third_party/`: pinned external helper sources such as the optional WhatsApp MCP submodule.
 
 ## Local Helper Layer
 
@@ -70,6 +71,18 @@ npm run signnow:upload -- --help
 Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and must fail closed if Gmail stores another sender.
 
 SignNow helpers are generic mechanics only; RB signer identity, routing order, and template policy remain provisional until approved.
+
+## Optional MCP Layer
+
+WhatsApp MCP setup is documented in [setup/mcp/whatsapp.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/whatsapp.md). It is optional and local-only: QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed.
+
+Normal WhatsApp work should use the `whatsapp` MCP tools after the bridge is running. The bridge can be started with:
+
+```sh
+setup/mcp/start-whatsapp-bridge.sh start
+```
+
+Do not create a new RB Communications database or send WhatsApp messages/files without explicit user approval.
 
 ## Notion Backup Status
 

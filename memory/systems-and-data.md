@@ -35,13 +35,15 @@ Provisional tools and systems observed:
 - Gmail threads for accounting and invoice operations.
 - Notion Client Databases and Internal Knowledge Base for process and client data.
 - Google Drive for source documents and finance/accounting folders.
+- Optional local WhatsApp MCP for user-controlled WhatsApp reads/sends/media once explicitly enabled.
 
 ## Data Boundary
 
-Secrets and credentials may be referenced by name but must not be committed. `.env`, `.env.*`, node modules, and `.codex-local/` are ignored.
+Secrets and credentials may be referenced by name but must not be committed. `.env`, `.env.*`, node modules, and `.codex-local/` are ignored. WhatsApp QR/session state, SQLite databases, downloaded media, and transcripts must also stay out of git.
 
 ## Review Needed
 
 - Confirm active production systems and owners.
 - Confirm whether backend integrations are all live or partly historical.
 - Confirm where current operational runbooks live in Notion.
+- Confirm whether optional WhatsApp MCP should be enabled and which account/number should be linked.

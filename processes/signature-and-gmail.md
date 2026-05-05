@@ -41,3 +41,5 @@ npm run pdf:prepare-signing-plan -- <source-pdf> <signing-plan-json>
 ## Connector Boundary
 
 Prefer connectors for app-native search/read/send/status operations. Use local helpers for gaps: verified sender drafts, local file upload, field setup, explicit PDF signing plans, and Drive upload/export mechanics.
+
+For WhatsApp and other non-email communications, use [communications.md](communications.md). WhatsApp sends require explicit user instruction and tool approval.

@@ -22,6 +22,9 @@ Imported: 2026-05-04.
 | Confirm whether DatoCMS EUR 99 / EUR 19 consult pricing and "Free Forever" language are active or legacy. | 2026-05-05 |
 | After user review confirmation, run senior team-member review, apply findings, commit, push, then run architecture review. | 2026-05-05 |
 | Confirm RB signing policy, signer identity, routing order, and whether SignNow is an active standard signing tool. | 2026-05-05 |
+| Confirm whether RB should enable optional WhatsApp MCP for all operators or only this local Codex setup. | 2026-05-05 |
+| Confirm which WhatsApp account/number should be linked for RB work. | 2026-05-05 |
+| Confirm whether RB wants a dedicated Communications database or should route WhatsApp summaries only to existing client/internal records. | 2026-05-05 |
 
 ## Done
 
@@ -39,3 +42,4 @@ Imported: 2026-05-04.
 | Added client offboarding export package guideline and VUN export manifest. | 2026-05-05 | 2026-05-05 |
 | Added product offerings, pricing signals, and bundle catalogue. | 2026-05-05 | 2026-05-05 |
 | Ported neutral npm/TypeScript helper infrastructure and RB helper skills. | 2026-05-05 | 2026-05-05 |
+| Ported optional WhatsApp MCP setup and RB WhatsApp communications skill into PR #1. | 2026-05-05 | 2026-05-05 |

@@ -65,3 +65,19 @@ Consequence:
 
 Source: user instruction on 2026-05-05.
 Review: RB signing policy remains open.
+
+## 2026-05-05 - Optional WhatsApp MCP Only Through Local MCP
+
+Decision: Port the neutral WhatsApp MCP server setup into RB as an optional local MCP service.
+
+Consequence:
+
+- Pin `third_party/whatsapp-mcp` as a submodule at compatibility commit `018ea770ca9524c43000910ada7611fa1a503fe6`.
+- Use `setup/mcp/start-whatsapp-bridge.sh` only to start, stop, or inspect the local bridge.
+- Use the `whatsapp` MCP tools for normal WhatsApp reads, contact searches, sends, media downloads, and voice-note handling.
+- Do not use direct REST or SQLite access as the normal execution path.
+- Do not commit WhatsApp QR/session state, SQLite databases, downloaded media, transcripts, or personal Codex config.
+- Do not send WhatsApp messages/files unless the user explicitly asks and tool approval confirms recipient and content.
+
+Source: user instruction on 2026-05-05 and local source repo inspection.
+Review: confirm the RB WhatsApp account, whether WhatsApp should be enabled for all operators, and whether RB wants a dedicated Communications database.
