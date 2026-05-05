@@ -47,6 +47,6 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Created branch `codex/vun-client-routing-backup` from `origin/main`, reapplied the task-owned VUN/Nathan work, migrated client roots to `clients/Companies/` and `clients/Individuals/`, removed stale non-VUN backup references, and left newly created process files stashed.
 - Files changed: Client company/individual records, VUN backup package, client templates, routing docs, source/memory logs, and the German personal tax analysis skill.
 - Decisions made: Treat upstream main as authoritative for repo workflow; keep recurring backup in git; keep offboarding/delivery separate; route personal correspondence and personal tax material to the individual root.
-- Verification: `git diff --check`, `git diff --cached --check`, VUN manifest JSON parse, VUN evidence count, and `npm run typecheck` passed; branch push pending.
+- Verification: `git diff --check`, `git diff --cached --check`, VUN manifest JSON parse, VUN evidence count, and `npm run typecheck` passed; branch pushed and draft PR opened at `https://github.com/IoanaBob/richmond-blackwood-codex/pull/2`.
 - Limitations or gaps: VUN relation-filtered Notion table backfill and Nathan personal tax analysis creation remain active tasks.
 - Next step: Validate, commit in scoped commits, push the recovery branch, then continue review from the PR workflow.

@@ -84,7 +84,7 @@ Verification:
 - VUN `backup-manifest.json` parsed as valid JSON.
 - Evidence count confirmed 32 real files excluding `.gitkeep` and the package README.
 - `npm run typecheck` passed using installed Node 18.17.1 because the repo-pinned Node 18.7.0 is not installed locally.
-- Branch push pending.
+- Branch pushed and draft PR opened: `https://github.com/IoanaBob/richmond-blackwood-codex/pull/2`.
 
 ## 2026-05-05 - Review Prompt Application
 
