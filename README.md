@@ -11,9 +11,10 @@ This repo intentionally keeps unsanitised operational context. Live secrets, cre
 1. Read [AGENTS.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/AGENTS.md).
 2. Read [memory/storage-rules.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/storage-rules.md).
 3. Read [memory/current-state.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/current-state.md).
-4. Check [memory/open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md) before filing client or Drive evidence.
-5. Check [sources/import-log.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/sources/import-log.md) before importing a source twice.
-6. For client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/<client-reference>/`.
+4. Skim [memory/history.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/history.md) and [memory/skill-runs.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/skill-runs.md).
+5. Check [memory/open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md) before filing client or Drive evidence.
+6. Check [sources/import-log.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/sources/import-log.md) before importing a source twice.
+7. For client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/<client-reference>/`.
 
 ## Storage Rules
 
@@ -51,6 +52,24 @@ Every Richmond Blackwood fact imported into this repo is marked provisional unle
 - `sources/`: source register, import log, and connector boundaries.
 - `skills/`: repo-local Codex skills adapted for RB work.
 - `setup/`: connector setup and verification.
+
+## Local Helper Layer
+
+The root `package.json` is the local helper registry. Helpers are support tools for connector gaps and validation, not business workflow engines.
+
+Common checks:
+
+```sh
+npm install
+npm run typecheck
+npm run drive:organize -- --help
+npm run gmail:create-alias-draft -- --help
+npm run signnow:upload -- --help
+```
+
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and must fail closed if Gmail stores another sender.
+
+SignNow helpers are generic mechanics only; RB signer identity, routing order, and template policy remain provisional until approved.
 
 ## Notion Backup Status
 

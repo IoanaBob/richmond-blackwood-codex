@@ -2,6 +2,34 @@
 
 Status: active.
 
+## 2026-05-05 - Neutral Operating Infrastructure Port
+
+Imported:
+
+- Root npm/TypeScript helper structure from neutral source patterns.
+- Generic Drive, Gmail, Google auth, SignNow, Google Doc transform, PDF signing-plan, and task PR helpers.
+- Repo-local skills for helper workflows and memory/skill-run closeout.
+- Memory/process docs for Notion standards, file uploads, repo operation, setup/access, and signatures/Gmail.
+
+Adapted:
+
+- Gmail sender defaults to `accounting@richmondblackwood.com`.
+- Gmail display/signoff identity defaults to `Richmond Blackwood Accounting Team`.
+- Drive docs point to RB general archive and existing RB finance/accounting client folder routing.
+- SignNow helpers remain generic mechanics only; no RB signer identity or template policy was invented.
+
+Excluded:
+
+- Source-company auctions, bonds, physical/digital/financial workflows, client names, asset names, seller/buyer confidentiality rules, controlled-sharing rules, and source Notion/Drive IDs.
+
+Verification:
+
+- `npm install` completed with an `@signnow/api-client` engine warning on Node 18.7.0 and four high-severity npm audit findings.
+- `npm run typecheck` passed.
+- Helper `--help` smoke checks passed.
+- `git diff --check` passed.
+- Forbidden source carryover scans passed.
+
 ## 2026-05-05 - Review Prompt Application
 
 Applied:
