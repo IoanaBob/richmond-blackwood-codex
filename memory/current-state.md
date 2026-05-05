@@ -16,8 +16,9 @@ Current implementation includes:
 - Root npm/TypeScript helper layer with Drive, Gmail, generic SignNow, Google Doc transform, PDF signing-plan, and task PR helper scripts.
 - Company profile, service positioning, systems context, and internal history.
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.
-- Reference-based client folder pilot under `clients/VUN/`.
-- Client offboarding export package guideline and VUN export manifest.
+- Reference-based client folder pilot under `clients/Companies/VUN/`.
+- Git-held VUN client backup package with actual downloaded/exported evidence files where connector access allowed.
+- Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 
@@ -67,16 +68,7 @@ General SOP/process backup pages created in the RB Internal Knowledge Base:
 
 Client-specific backups use the company `Reference` from Notion Companies. Do not invent client folder slugs.
 
-Previous broad provisional client-note backups were created for exact company matches before the reference-standard review instruction:
-
-- CBMAX: `https://www.notion.so/356e413013148123b1fff0e8de5c3c4f`
-- Monochromatic: `https://www.notion.so/356e4130131481ae908df5ad201b9082`
-- Techpacito: `https://www.notion.so/356e41301314811783a3c755a0c1caba`
-- Agile Lincs: `https://www.notion.so/356e413013148130b78ec75395dbb232`
-- Pacheco Cruz Limited: `https://www.notion.so/356e413013148142aa57e716cc89ecb6`
-- Ana Kova Studio: `https://www.notion.so/356e4130131481868586f20bb01a41b7`
-
-Those earlier name-derived client folders are superseded by the VUN reference-based pilot and remain pending explicit deletion review.
+Earlier non-VUN provisional client backup references were removed because the referenced pages/folders were incorrect. Redo non-VUN client imports only after reading the Notion Companies `Reference` property and confirming the correct destination.
 
 VUN active pilot source records:
 
@@ -88,15 +80,21 @@ VUN active pilot source records:
 
 VUN client export package:
 
-- Repo folder: `clients/VUN/Client export - VUN/`
-- Manifest: `clients/VUN/Client export - VUN/export-manifest.json`
-- Status: structure created; known documents are recorded as `not_downloaded`.
+- Repo folder: `clients/Companies/VUN/Client export - VUN/`
+- Manifest: `clients/Companies/VUN/Client export - VUN/backup-manifest.json`
+- Status: actual files have been downloaded/exported into git where connector access allowed; remaining unresolved Notion attachment handles are recorded as `not_downloaded`.
+
+Nathan Mawali A Vandy individual root:
+
+- Repo folder: `clients/Individuals/Nathan Mawali A Vandy/`
+- Linked company: `clients/Companies/VUN/linked-individuals.md`
+- Status: personal correspondence, bank account, assets, expenses, legal/solvency, and personal tax filing context found during the VUN pass has been routed into the individual folder.
 
 ## Drive State
 
 General Drive archive folder URL is known. The VUN folder supplied by the user listed no files through the connector, and metadata lookup returned not found. Drive writes remain blocked pending review of access and group/external classification.
 
-The Notion offboarding export task references a Drive export template folder: `https://drive.google.com/drive/u/0/folders/1I3C3oBobspLcQFt2Zas1SNAwSYmxuFT2`. It is registered as a template source but has not been copied through the connector.
+The Notion offboarding export task is treated as a historical source for the backup/offboarding split. Recurring backups stay in git by default; Drive export folders or zips are created only when explicitly requested for offboarding or external handover.
 
 ## Review State
 
@@ -132,3 +130,11 @@ Checks run for the 2026-05-05 WhatsApp MCP port:
 - `npm run typecheck`: passed.
 - `git diff --check`: clean.
 - Source-specific business keyword scan found no matches outside intentional source-repo references.
+
+Checks run for the 2026-05-05 VUN recovery branch:
+
+- `git diff --check`: clean.
+- `git diff --cached --check`: clean.
+- VUN `backup-manifest.json`: valid JSON.
+- VUN backup evidence count: 32 real files, excluding `.gitkeep` and the package README.
+- `npm run typecheck`: passed using installed Node 18.17.1 because the repo-pinned Node 18.7.0 is not installed locally.

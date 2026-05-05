@@ -13,7 +13,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Context read: User instructions, RB Notion destinations, local RB source repos, Slack/Gmail/Drive search summaries.
 - Actions taken: Created initial RB memory, source, process, client, and skill structure.
 - Files changed: Initial repository structure.
-- Decisions made: Keep unsanitised operational context in repo except secrets/credentials; route client-specific private detail under `clients/<client-reference>/`.
+- Decisions made: Keep unsanitised operational context in repo except secrets/credentials; route client-specific private detail under `clients/Companies/<client-reference>/`.
 - Verification: `git diff --check` and source keyword scans were clean in the initial pass.
 - Limitations or gaps: Full Slack, Gmail, Drive, and Notion client imports remain partial.
 - Next step: Continue source-backed imports and resolve open routing questions before external filing.
@@ -39,3 +39,14 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: Submodule status, bridge shell syntax, Go bridge test, Python compile check, TypeScript check, `git diff --check`, and source-specific business keyword scan passed.
 - Limitations or gaps: RB WhatsApp account, operator rollout, and any dedicated Communications database remain unapproved.
 - Next step: Run validation, commit, push, and update PR #1.
+
+## 2026-05-05 - Recover VUN Client Backup And Individual Routing
+
+- User request: Rebase/recover the VUN work after important teammate changes landed on main, favouring the upstream workflow/memory/skills conventions.
+- Context read: `origin/main` PR #1 commit, `AGENTS.md`, `processes/repo-operation.md`, `skills/rb-task-pr/SKILL.md`, memory standards, current stashes, and VUN/Nathan client files.
+- Actions taken: Created branch `codex/vun-client-routing-backup` from `origin/main`, reapplied the task-owned VUN/Nathan work, migrated client roots to `clients/Companies/` and `clients/Individuals/`, removed stale non-VUN backup references, and left newly created process files stashed.
+- Files changed: Client company/individual records, VUN backup package, client templates, routing docs, source/memory logs, and the German personal tax analysis skill.
+- Decisions made: Treat upstream main as authoritative for repo workflow; keep recurring backup in git; keep offboarding/delivery separate; route personal correspondence and personal tax material to the individual root.
+- Verification: `git diff --check`, `git diff --cached --check`, VUN manifest JSON parse, VUN evidence count, and `npm run typecheck` passed; branch push pending.
+- Limitations or gaps: VUN relation-filtered Notion table backfill and Nathan personal tax analysis creation remain active tasks.
+- Next step: Validate, commit in scoped commits, push the recovery branch, then continue review from the PR workflow.
