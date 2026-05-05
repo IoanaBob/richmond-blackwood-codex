@@ -40,13 +40,13 @@ Imported: 2026-05-04.
 | Split client roots into `clients/Companies/<client-reference>/` and `clients/Individuals/<legal-name>/`. | 2026-05-05 | 2026-05-05 |
 | Added active Nathan Mawali A Vandy individual folder and linked it to VUN. | 2026-05-05 | 2026-05-05 |
 | Added individual template files for bank accounts, tax filings, assets, correspondence, expenses, linked companies, and linked entities. | 2026-05-05 | 2026-05-05 |
-| Downloaded/exported available VUN evidence into `clients/Companies/VUN/Client export - VUN/` and recorded remaining blockers in the manifest. | 2026-05-05 | 2026-05-05 |
+| Removed the mistaken VUN git-held evidence package from PR branch history and reverted procedure to Drive-based evidence storage with repo pointers. | 2026-05-05 | 2026-05-05 |
 | Removed invalid non-VUN backup references so those clients can be redone directly in the correct reference format. | 2026-05-05 | 2026-05-05 |
 | Created repo-local German personal tax analysis skill from the Notion SOP. | 2026-05-05 | 2026-05-05 |
 | Created general SOP/process backup pages in the RB Internal Knowledge Base. | 2026-05-04 | 2026-05-05 |
 | Added review and PR workflow process. | 2026-05-05 | 2026-05-05 |
 | Added growth channels, creative-source, and Authority Calling service positioning notes. | 2026-05-04 | 2026-05-05 |
-| Added git-held VUN client backup package guidance and manifest. | 2026-05-05 | 2026-05-05 |
+| Added VUN Drive evidence pointer guidance. | 2026-05-05 | 2026-05-05 |
 | Added product offerings, pricing signals, and bundle catalogue. | 2026-05-05 | 2026-05-05 |
 | Ported neutral npm/TypeScript helper infrastructure and RB helper skills. | 2026-05-05 | 2026-05-05 |
 | Ported optional WhatsApp MCP setup and RB WhatsApp communications skill into PR #1. | 2026-05-05 | 2026-05-05 |

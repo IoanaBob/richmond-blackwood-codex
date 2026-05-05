@@ -15,7 +15,7 @@ The repo keeps unsanitised operational context. The only excluded categories are
 | Company-wide private history | `internal/` | RB Internal Knowledge Base if generally useful | General Drive archive if not needed all the time |
 | Client-specific private history | `clients/Companies/<client-reference>/` | Relevant database/page under Client Databases | Existing RB finance/accounting client folder |
 | Individual-specific private history | `clients/Individuals/<legal-name>/` | Relevant individual/person records and client database pages | Existing RB finance/accounting client folder when tied to a company |
-| Recurring client backup package | `clients/Companies/<client-reference>/Client export - <client-reference>/` | Relevant client backup/page once destination is clear | Pointer only unless a Drive mirror is explicitly requested |
+| Recurring client backup/export evidence | Pointers in `drive-locations.md`, `backup-locations.md`, `source-register.md`, and domain files | Relevant client backup/page once destination is clear | Find-or-create folder in existing RB finance/accounting client Drive tree |
 | Raw documents not needed in every Codex session | Pointer in repo | Pointer in Notion where relevant | Drive archive or client Drive folder |
 | Ambiguous client or filing destination | `memory/open-questions.md` | Do not write yet | Do not move or create yet |
 
@@ -86,6 +86,7 @@ Drive evidence: `clients/Companies/<client-reference>/drive-locations.md`
 - If Notion backup is pending, write the reason and the exact missing decision.
 - Every client folder keeps a `drive-locations.md`.
 - If Drive backup is pending, write the reason and the exact missing folder/classification.
-- Every client backup package keeps a `backup-manifest.json` and `download-log.md`.
-- Client backup packages can store actual downloaded/exported client files in git, but never live secrets, tokens, private keys, certificate bundles, or credential exports.
+- Git stores evidence pointers and source registers, not downloaded/exported client binaries.
+- Downloaded/exported client files belong in Drive under the existing RB finance/accounting client folder structure.
+- For each backed-up file, record the Drive URL, source filename, source system/table/filter, destination folder, and blocker/status in the relevant client repo file.
 - Offboarding/export delivery is separate from recurring backup. Create or send a zip only when the user explicitly asks for offboarding or external handover.

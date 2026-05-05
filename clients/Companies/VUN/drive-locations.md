@@ -23,17 +23,13 @@ Nathan-specific personal tax and solvency Drive locations are stored in:
 
 - `../../Individuals/Nathan Mawali A Vandy/drive-locations.md`
 
-## Repo Backup Package
+## Drive Backup/Export Folder
 
-Actual downloaded/exported client files should be stored in:
+Actual downloaded/exported client files should be stored in Drive, not git.
 
-- `clients/Companies/VUN/Client export - VUN/`
+Use find-or-create for the VUN Drive backup/export folder under the existing RB finance/accounting client structure. If the folder is created or found, record the URL in `backup-locations.md` and add file-level pointers in the relevant domain file.
 
-This git package is the default backup destination. Do not mirror the package to Drive as part of routine backup.
-
-The backup package manifest records when a source file is downloaded, blocked, not applicable, or still pending.
-
-Local package locations are tracked in `backup-locations.md`.
+The git repo should record whether each source file is uploaded, blocked, not applicable, or still pending.
 
 ## Review Needed
 

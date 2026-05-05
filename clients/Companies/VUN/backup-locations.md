@@ -10,21 +10,11 @@ Client folder:
 
 - `clients/Companies/VUN/`
 
-Recurring backup/export package:
+Evidence pointers:
 
-- `clients/Companies/VUN/Client export - VUN/`
-
-Manifest:
-
-- `clients/Companies/VUN/Client export - VUN/backup-manifest.json`
-
-Download log:
-
-- `clients/Companies/VUN/Client export - VUN/download-log.md`
-
-Individual-specific files:
-
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/`
+- `drive-locations.md`
+- `source-register.md`
+- Domain files such as `contracts-and-authority.md`, `invoices-payments-expenses.md`, and `../../Individuals/Nathan Mawali A Vandy/drive-locations.md`
 
 ## Notion Filter Anchor
 
@@ -36,7 +26,7 @@ Use this Companies record as the standard filter anchor for relevant Notion tabl
 
 ## Drive Locations
 
-Git is the default backup destination for this package. A Drive package is not required unless specifically requested.
+Drive is the default storage destination for downloaded/exported evidence. Git stores pointers and blockers only.
 
 Supplied VUN Drive folder:
 
@@ -51,10 +41,20 @@ Historical Drive export template:
 
 - `https://drive.google.com/drive/u/0/folders/1I3C3oBobspLcQFt2Zas1SNAwSYmxuFT2`
 
-Use that template only if a Drive-based backup or offboarding package is explicitly requested. If used, record the copied/created folder URL here.
+Use find-or-create for the VUN Drive backup/export folder. If the folder does not exist and the destination is clear, copy/create it from the approved template and record the new folder URL here.
+
+## File Pointer Rule
+
+For every backed-up document, record:
+
+- Original source filename.
+- Source system and Notion table/filter where relevant.
+- Drive folder/file URL.
+- Whether the file is company-specific or individual-specific.
+- Any blocker preventing export or upload.
 
 ## Offboarding Location
 
 No offboarding zip has been created.
 
-Create a temporary zip from `clients/Companies/VUN/Client export - VUN/` only when the user explicitly requests offboarding or external handover.
+Create a temporary zip from the Drive evidence folder only when the user explicitly requests offboarding or external handover.

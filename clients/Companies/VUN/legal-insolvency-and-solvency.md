@@ -10,7 +10,7 @@ This company file is a pointer only. The detailed unsanitised insolvency/solvenc
 
 Company-linked exported evidence remains in:
 
-- `Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/`
+- `../../Individuals/Nathan Mawali A Vandy/legal-insolvency-and-solvency.md`
 
 ## Review Needed
 

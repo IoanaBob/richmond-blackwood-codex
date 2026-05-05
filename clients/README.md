@@ -55,7 +55,6 @@ clients/Companies/<client-reference>/
     process-overrides.md
   skills/
     README.md
-  Client export - <client-reference>/
   open-questions.md
 ```
 
@@ -129,14 +128,12 @@ When correspondence is linked to the wrong entity in Notion, correct Notion too:
 - Company correspondence linked to an individual: add the company relation, then remove the individual relation.
 - Genuinely shared correspondence can keep both relations, but the reason must be documented.
 
-## Client Backup Packages
+## Client Evidence And Backup Pointers
 
-Recurring client backup packages should live inside each company client folder as:
+Recurring client backup/export folders should live in Drive, not inside the git client folder.
 
-```text
-clients/Companies/<client-reference>/Client export - <client-reference>/
-```
+For each company, use the current Drive structure:
 
-These folders are allowed to contain actual downloaded/exported client files, not only pointers. They must include `backup-manifest.json` and `download-log.md`.
+- `Richmond Blackwood -> finance and accounting -> <group or external> -> <company name>`
 
-Do not store live credentials, private keys, tokens, certificate bundles, or credential exports in a client backup package.
+The git repo should reference the correct Drive files and folders in `drive-locations.md`, `backup-locations.md`, `source-register.md`, and the relevant domain file. Do not store downloaded/exported client binaries in git unless the user explicitly approves a narrow exception.

@@ -39,6 +39,6 @@ Detailed crawl notes: `legal-insolvency-and-solvency.md`.
 
 ## Local Evidence Pointer
 
-Downloaded/exported individual evidence from this Drive context currently lives under the VUN company backup package:
+Downloaded/exported individual evidence from this Drive context should live in Drive, not git.
 
-- `../../Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/`
+Record file-level Drive URLs here or in the relevant individual domain file when evidence is uploaded or found.

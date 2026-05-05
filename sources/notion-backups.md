@@ -14,9 +14,9 @@ Updated: 2026-05-05.
 | Client reference folder standard | `https://www.notion.so/357e41301314812e9e8fdfd53073359e` |
 | Review and PR workflow | `https://www.notion.so/357e4130131481029be3d17a8ec2eb8b` |
 
-## Active Client Backup Standard
+## Active Client Backup Pointer Standard
 
-Client backups now use Notion Companies `Reference` for the repo folder. Active pilot:
+Client backup pointers now use Notion Companies `Reference` for the repo folder. Evidence files live in Drive. Active pilot:
 
 | Client reference | Company record | Repo folder | Summary backup |
 | --- | --- | --- | --- |

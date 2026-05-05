@@ -45,8 +45,18 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - User request: Rebase/recover the VUN work after important teammate changes landed on main, favouring the upstream workflow/memory/skills conventions.
 - Context read: `origin/main` PR #1 commit, `AGENTS.md`, `processes/repo-operation.md`, `skills/rb-task-pr/SKILL.md`, memory standards, current stashes, and VUN/Nathan client files.
 - Actions taken: Created branch `codex/vun-client-routing-backup` from `origin/main`, reapplied the task-owned VUN/Nathan work, migrated client roots to `clients/Companies/` and `clients/Individuals/`, removed stale non-VUN backup references, and left newly created process files stashed.
-- Files changed: Client company/individual records, VUN backup package, client templates, routing docs, source/memory logs, and the German personal tax analysis skill.
-- Decisions made: Treat upstream main as authoritative for repo workflow; keep recurring backup in git; keep offboarding/delivery separate; route personal correspondence and personal tax material to the individual root.
-- Verification: `git diff --check`, `git diff --cached --check`, VUN manifest JSON parse, VUN evidence count, and `npm run typecheck` passed; branch pushed and draft PR opened at `https://github.com/IoanaBob/richmond-blackwood-codex/pull/2`.
+- Files changed: Client company/individual records, client templates, routing docs, source/memory logs, and the German personal tax analysis skill.
+- Decisions made: Treat upstream main as authoritative for repo workflow; keep evidence files in Drive with repo pointers; keep offboarding/delivery separate; route personal correspondence and personal tax material to the individual root.
+- Verification: `git diff --check`, `git diff --cached --check`, and `npm run typecheck` passed; branch pushed and draft PR opened at `https://github.com/IoanaBob/richmond-blackwood-codex/pull/2`.
 - Limitations or gaps: VUN relation-filtered Notion table backfill and Nathan personal tax analysis creation remain active tasks.
 - Next step: Validate, commit in scoped commits, push the recovery branch, then continue review from the PR workflow.
+
+## 2026-05-05 - Revert Client Evidence Storage To Drive
+
+- User request: Treat downloading all VUN client export files into git as a mistake and return to the Drive-folder procedure.
+- Context read: Current VUN/Nathan repo pointers, client storage rules, PR branch history, and evidence package references.
+- Actions taken: Rewrote the PR branch to drop the mistaken binary evidence commit, removed the `Client export - VUN/` package from the branch, and updated procedures so Drive stores downloaded/exported client evidence while git stores pointers and blockers only.
+- Files changed: Storage rules, VUN/Nathan location files, source/memory logs, and client routing docs.
+- Decisions made: Use find-or-create for Drive backup/export folders; do not store downloaded/exported client binaries in git unless the user explicitly approves a narrow exception.
+- Verification: `git diff --check` passed, typecheck passed with installed Node 18.17.1, and no `Client export - VUN`, `backup-manifest`, or `download-log` paths remain tracked.
+- Next step: Validate, force-push the rewritten PR branch, and update PR #2 notes.

@@ -72,7 +72,7 @@ Gmail backfill on 2026-05-05 found payment/receipt evidence:
 
 The company record comment says a 2026-03 change of company email happened because the previous email address was `accounts+ninetwofive@richmondblackwood.com`; do not lose the historical connection when searching payments.
 
-Backed-up invoice/receipt attachments live under `Client export - VUN/files/books/2025/` and `Client export - VUN/files/books/2026/`. See `Client export - VUN/download-log.md`.
+Backed-up invoice/receipt attachments should live in the VUN Drive backup/export folder. Record each Drive file URL here once uploaded or found.
 
 ## Review Needed
 

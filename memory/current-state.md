@@ -17,7 +17,7 @@ Current implementation includes:
 - Company profile, service positioning, systems context, and internal history.
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.
 - Reference-based client folder pilot under `clients/Companies/VUN/`.
-- Git-held VUN client backup package with actual downloaded/exported evidence files where connector access allowed.
+- VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
@@ -78,11 +78,10 @@ VUN active pilot source records:
 - Client dashboard: `https://www.notion.so/1c1e41301314811fb006f5721365780d?v=1c1e41301314816abda0000ca16f7f3e`
 - Supplied Drive folder: `https://drive.google.com/drive/folders/1R93FDUsJ6WH2U1Bi_G5TdywAW5xFaFbR`
 
-VUN client export package:
+VUN client evidence storage:
 
-- Repo folder: `clients/Companies/VUN/Client export - VUN/`
-- Manifest: `clients/Companies/VUN/Client export - VUN/backup-manifest.json`
-- Status: actual files have been downloaded/exported into git where connector access allowed; remaining unresolved Notion attachment handles are recorded as `not_downloaded`.
+- Repo pointers: `clients/Companies/VUN/backup-locations.md` and `clients/Companies/VUN/drive-locations.md`
+- Status: the mistaken git-held export package was removed from the PR branch history. Actual downloaded/exported evidence should be uploaded to or located in Drive and linked from repo files.
 
 Nathan Mawali A Vandy individual root:
 
@@ -94,7 +93,7 @@ Nathan Mawali A Vandy individual root:
 
 General Drive archive folder URL is known. The VUN folder supplied by the user listed no files through the connector, and metadata lookup returned not found. Drive writes remain blocked pending review of access and group/external classification.
 
-The Notion offboarding export task is treated as a historical source for the backup/offboarding split. Recurring backups stay in git by default; Drive export folders or zips are created only when explicitly requested for offboarding or external handover.
+The Notion offboarding export task is treated as a historical source for the backup/offboarding split. Recurring backup/export evidence belongs in Drive; offboarding zips are created only when explicitly requested for external handover.
 
 ## Review State
 
@@ -135,7 +134,6 @@ Checks run for the 2026-05-05 VUN recovery branch:
 
 - `git diff --check`: clean.
 - `git diff --cached --check`: clean.
-- VUN `backup-manifest.json`: valid JSON.
-- VUN backup evidence count: 32 real files, excluding `.gitkeep` and the package README.
+- The mistaken VUN git-held evidence commit was removed from the PR branch history before force-push.
 - `npm run typecheck`: passed using installed Node 18.17.1 because the repo-pinned Node 18.7.0 is not installed locally.
 - Branch pushed and draft PR opened: `https://github.com/IoanaBob/richmond-blackwood-codex/pull/2`.

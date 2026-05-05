@@ -11,7 +11,7 @@ Use this file for bank account records, balances, statements, account restrictio
 
 - Individual solvency evidence and bank-statement files are summarized in `legal-insolvency-and-solvency.md`.
 - Individual Drive locations are recorded in `drive-locations.md`.
-- Downloaded/exported evidence currently sits under `../../Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/bank-statements/`.
+- Evidence should be stored in Drive and linked here once uploaded or found.
 
 ## Review Needed
 

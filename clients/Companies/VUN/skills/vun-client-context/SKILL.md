@@ -16,8 +16,8 @@ Before acting on VUN work, read:
 
 - Keep VUN private details under `clients/Companies/VUN/`.
 - Use the Notion Companies `Reference` value `VUN`; do not rename the folder from the legal name.
-- Use `clients/Companies/VUN/Client export - VUN/` as the default git-held backup package.
-- Use `clients/Companies/VUN/backup-locations.md` before creating or locating any Drive-based package.
+- Use Drive as the evidence/export storage layer.
+- Use `clients/Companies/VUN/backup-locations.md` before creating or locating any Drive backup/export folder.
 - Do not create or send an offboarding zip unless the user explicitly requests external handover.
 
 ## Known Client Quirks

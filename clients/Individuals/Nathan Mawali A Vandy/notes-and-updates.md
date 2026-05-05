@@ -7,7 +7,7 @@ Linked company: VANDY UN LIMITED.
 Individual: Nathan Mawali A Vandy.
 Notion individual record: `https://www.notion.so/182e4130131480cead22dd69fd3f2dc7`.
 
-This root-level file is the Codex working backup for individual-specific notes and updates linked to VUN. It is not part of the binary client export package.
+This root-level file is the Codex working backup for individual-specific notes and updates linked to VUN. Binary/source evidence belongs in Drive and should be referenced here by URL.
 
 ## Current Summary
 
@@ -28,7 +28,7 @@ Known provisional individual facts:
 
 Individual-specific source files are kept in:
 
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/`
+- Drive evidence pointers should be recorded in `drive-locations.md` or the relevant domain file.
 
 Current individual export subfolders:
 
@@ -186,7 +186,7 @@ Slack searches returned no Nathan/VUN results on 2026-05-05.
 
 Nathan-specific source files are stored at:
 
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/`
+- Drive evidence pointers should be recorded in `drive-locations.md` or the relevant domain file.
 
 Current subfolders:
 

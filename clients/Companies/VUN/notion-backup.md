@@ -33,7 +33,7 @@ Company record links include:
 
 ## Backup Decision
 
-The source-of-truth records already exist in Notion. The Codex working backups for notes and updates live in the company and individual client roots, not inside the export package:
+The source-of-truth records already exist in Notion. The Codex working backups for notes and updates live in the company and individual client roots. Binary/source evidence belongs in Drive and should be linked from repo files:
 
 - `company-notes-and-updates.md`
 - `../../Individuals/Nathan Mawali A Vandy/notes-and-updates.md`
@@ -48,15 +48,15 @@ A provisional internal Client Notes & Updates page was previously created for th
 
 ## Backup Package Status
 
-The earlier general client offboarding export package rule was backed up to the RB Internal Knowledge Base and is now superseded by the split backup/offboarding process:
+The earlier general client offboarding export package rule was backed up to the RB Internal Knowledge Base and remains a historical source for the split backup/offboarding process:
 
 - `https://www.notion.so/357e41301314810a8be3e30267c35ea6`
 - Split process backup: `https://www.notion.so/357e4130131481259cf3e2a98f515a01`
 
-The VUN-specific backup package remains local pending review:
+VUN-specific Drive backup/export folder pointers remain pending review:
 
-- `clients/Companies/VUN/Client export - VUN/`
-- `clients/Companies/VUN/Client export - VUN/backup-manifest.json`
+- `clients/Companies/VUN/backup-locations.md`
+- `clients/Companies/VUN/drive-locations.md`
 
 VUN-specific process and skill extensions remain local pending review:
 

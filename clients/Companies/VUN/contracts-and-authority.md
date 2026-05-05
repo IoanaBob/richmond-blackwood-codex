@@ -30,14 +30,14 @@ Notion company record includes:
 
 ## Backup Package Rule
 
-Retain full filenames for contract and authority documents. For recurring backup or evidence export, store the actual downloaded/exported files inside:
+Retain full filenames for contract and authority documents. For recurring backup or evidence export, store the actual downloaded/exported files in Drive and record the Drive pointers here.
 
-- `clients/Companies/VUN/Client export - VUN/files/co-sec/company-information/`
-- `clients/Companies/VUN/Client export - VUN/files/contracts/`
+Expected Drive categories:
 
-The VUN backup manifest currently records these known filenames as `not_downloaded` until the source files are fetched from Notion, Drive, or the source system.
+- Company information.
+- Contracts.
 
-Detailed manifest: `Client export - VUN/backup-manifest.json`.
+The VUN file pointers remain pending until the source files are fetched from Notion, Drive, or the source system and uploaded/found in the correct Drive folder.
 
 The manifest also records the Notion attachment handles for the company documents and signed contract.
 
@@ -60,4 +60,4 @@ Personal Workhub/Nexudus identity and address-check correspondence belongs in Na
 
 ## Review Needed
 
-- Download the actual contract and authority documents into `Client export - VUN/`.
+- Upload or locate the actual contract and authority documents in the correct Drive folder, then record Drive URLs here.

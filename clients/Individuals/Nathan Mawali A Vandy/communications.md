@@ -20,7 +20,7 @@ Related evidence and correspondence:
 
 - `correspondence.md`
 - `legal-insolvency-and-solvency.md`
-- `../../Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/`
+- Drive evidence pointers should be recorded in `drive-locations.md` or the relevant domain file.
 
 ## Review Needed
 

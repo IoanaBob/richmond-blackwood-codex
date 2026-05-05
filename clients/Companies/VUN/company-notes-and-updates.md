@@ -6,7 +6,7 @@ Client reference: `VUN`.
 Company: VANDY UN LIMITED.
 Notion company record: `https://www.notion.so/175e41301314801eaa61ce1977979936`.
 
-This root-level file is the Codex working backup for company-level VUN notes and updates. It is not part of the binary client export package.
+This root-level file is the Codex working backup for company-level VUN notes and updates. Binary/source evidence belongs in Drive and should be referenced here by URL.
 
 ## Current Summary
 
@@ -27,7 +27,7 @@ Known provisional company facts:
 ## Operating Notes
 
 - Use `clients/Companies/VUN/` as the client root because `VUN` is the Notion Companies `Reference`.
-- Use `clients/Companies/VUN/Client export - VUN/` for actual downloaded/exported source files.
+- Use the VUN Drive backup/export folder for actual downloaded/exported source files and record Drive URLs in repo files.
 - Company-level documents stay in company-level export folders such as `files/co-sec/company-information/`, `files/contracts/`, and `files/books/<year>/`.
 - Linked individual-specific files are routed to `files/Individuals/<full name>/`.
 
@@ -153,9 +153,7 @@ Slack searches on 2026-05-05 returned no results for:
 
 ### Local Export
 
-The 2026-05-05 backup pass downloaded/exported 32 actual evidence files into:
-
-- `clients/Companies/VUN/Client export - VUN/`
+The 2026-05-05 git-held backup pass was superseded after review. Evidence files should live in Drive, with repo pointers in the relevant company or individual files.
 
 Company-level export locations currently include:
 
@@ -169,8 +167,8 @@ Individual-specific material linked to the company is under:
 
 Manifest and log:
 
-- `clients/Companies/VUN/Client export - VUN/backup-manifest.json`
-- `clients/Companies/VUN/Client export - VUN/download-log.md`
+- `clients/Companies/VUN/backup-locations.md`
+- `clients/Companies/VUN/drive-locations.md`
 
 ## Review Needed
 

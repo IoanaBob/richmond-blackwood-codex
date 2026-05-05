@@ -15,7 +15,7 @@ Detailed history: `history.md`.
 Company notes and updates: `company-notes-and-updates.md`.
 Individual notes and updates: `../../Individuals/Nathan Mawali A Vandy/notes-and-updates.md`.
 Linked individuals: `linked-individuals.md`.
-Client backup package: `Client export - VUN/`.
+Evidence and backup pointers: `backup-locations.md`.
 Client process extensions: `processes/`.
 Client skills: `skills/`.
 Legal/insolvency/solvency pointer: `legal-insolvency-and-solvency.md`.
@@ -38,13 +38,13 @@ Client folders must use the Notion Companies `Reference` value. For this client,
 
 ## Backup Rule
 
-Actual downloaded/exported client files belong in `Client export - VUN/`, with every item tracked in `Client export - VUN/backup-manifest.json` and `Client export - VUN/download-log.md`.
+Actual downloaded/exported client files belong in Drive. This git folder keeps pointers, source context, and blockers only.
 
-Individual-specific exported evidence linked to the VUN company backup currently lives under `Client export - VUN/files/Individuals/<full name>/`. Nathan's individual durable notes live under `../../Individuals/Nathan Mawali A Vandy/`.
+Individual-specific evidence pointers for Nathan belong in `../../Individuals/Nathan Mawali A Vandy/`. Nathan's individual durable notes live under `../../Individuals/Nathan Mawali A Vandy/`.
 
 When VUN context includes personal correspondence or personal tax return work for Nathan, route the unsanitised detail to `../../Individuals/Nathan Mawali A Vandy/` and keep only pointers here.
 
-Offboarding is not automatic. Create a handover zip from this package only when explicitly requested.
+Offboarding is not automatic. Create a handover zip from the Drive evidence folder only when explicitly requested.
 
 ## Client Extensions
 

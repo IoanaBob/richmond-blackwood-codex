@@ -48,9 +48,9 @@ Fetched database schemas and searched the relevant Notion data sources on 2026-0
 
 | Table | Search result | Current backup state |
 | --- | --- | --- |
-| Assets | No VUN, VANDY, or Nathan Vandy records surfaced by workspace/data-source search. | Export folder exists at `Client export - VUN/files/assets/`; individual asset folder exists at `Client export - VUN/files/Individuals/Nathan Mawali A Vandy/assets/`. |
-| Tax Payments | No VUN or VANDY records surfaced by workspace/data-source search. | Export folder exists at `Client export - VUN/files/tax-payments/`; individual tax payment folder exists at `Client export - VUN/files/Individuals/Nathan Mawali A Vandy/tax-payments/`. |
-| Tax Prepayments | No VUN or VANDY records surfaced by workspace/data-source search. | Export folder exists at `Client export - VUN/files/tax-prepayments/`; individual tax prepayment folder exists at `Client export - VUN/files/Individuals/Nathan Mawali A Vandy/tax-prepayments/`. |
+| Assets | No VUN, VANDY, or Nathan Vandy records surfaced by workspace/data-source search. | Record Drive evidence pointers here or in the linked individual asset file when found. |
+| Tax Payments | No VUN or VANDY records surfaced by workspace/data-source search. | Record Drive evidence pointers here or in the linked individual tax payment file when found. |
+| Tax Prepayments | No VUN or VANDY records surfaced by workspace/data-source search. | Record Drive evidence pointers here or in the linked individual tax prepayment file when found. |
 
 Review: The Notion SQL/query endpoint is unavailable in this session (`notion-query-data-sources not found`), so this is search-backed evidence only. A filtered table export by Company relation should still be run when Notion query/export access works.
 

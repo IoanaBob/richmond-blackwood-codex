@@ -37,7 +37,7 @@ Company-to-individual relationships must be represented structurally:
 - Individual folder: `linked-companies.md`.
 - Individual linked entities: `linked-entities.md`, with bank accounts, tax filings, assets, correspondence, and expenses kept in their matching individual files.
 
-Client backup/export packages live under `clients/Companies/<client-reference>/Client export - <client-reference>/`. They should contain actual downloaded/exported files where possible, with `backup-manifest.json` and `download-log.md` tracking source filenames, target paths, and blockers.
+Client backup/export evidence belongs in Drive, not in git. The repo should keep pointers, source registers, and routing notes under `clients/Companies/<client-reference>/` and `clients/Individuals/<legal-name>/`.
 
 General docs may contain pointers only, for example:
 
@@ -78,9 +78,10 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 
 ## Client Backup And Export Packages
 
-- Use `backup-manifest.json` as the package manifest until a schema is approved on the active branch.
+- Use Drive as the storage layer for downloaded/exported client files.
+- In git, record Drive folder/file URLs, source filenames, Notion filters, and blockers in the relevant client `drive-locations.md`, `backup-locations.md`, `source-register.md`, or domain file.
+- Use find-or-create for the Drive export folder. If the expected Drive folder does not exist, create/copy it from the approved Drive template only when the client destination and group/external classification are clear.
 - Retain source filenames in full, especially signed contracts.
-- Store key exported/downloaded client files inside the client-specific git-held backup package when access allows.
 - Mark blocked or pending downloads explicitly; do not imply a file is present when only its filename is known.
 - Offboarding or external handover is separate and only runs when the user explicitly asks for it.
 

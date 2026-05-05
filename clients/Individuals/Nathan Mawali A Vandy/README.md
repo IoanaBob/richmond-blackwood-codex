@@ -35,8 +35,6 @@ Nathan-specific private context belongs here, especially:
 - Individual KYC, identity, residence, and contact facts.
 - Individual asset, tax payment, and tax prepayment history.
 
-Exported evidence currently collected during the VUN backup pass remains in the VUN backup package:
+Exported evidence should be stored in Drive and referenced from the relevant company or individual repo file.
 
-- `../../Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/`
-
-If a future backup pass creates individual-level export packages, record the location here and update `../../Companies/VUN/backup-locations.md` with a pointer.
+If a future backup pass creates or finds individual-level Drive folders, record the location here and update `../../Companies/VUN/backup-locations.md` with a pointer.

@@ -165,24 +165,11 @@ Later 2026-03-30 forwarded email attachments:
 - `IE_Einverständniserklärung_Schuldner_Auskunftsvollmacht.pdf`
 - `IE_Auskunftsbogen_natürliche_Person_mit_selbstständiger_Tätigkeit.pdf`
 
-## Backup Status
+## Evidence Status
 
-The Drive and Gmail documents found in the 2026-05-05 crawl have been downloaded/exported into the VUN git-held backup package.
+The Drive and Gmail documents found in the 2026-05-05 crawl should be stored in Drive and referenced here by URL. The earlier git-held backup package was removed from the PR branch history.
 
-Primary package folder:
-
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/`
-
-Related backed-up evidence also lives in:
-
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/bank-statements/`
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/crypto-holdings/`
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/identity/`
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/income-contracts/`
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/shareholdings-roles/`
-- `clients/Companies/VUN/Client export - VUN/files/Individuals/Nathan Mawali A Vandy/legal-insolvency/tenancy/`
-
-Detailed file-level log: `clients/Companies/VUN/Client export - VUN/download-log.md`.
+Known Drive URLs are listed above. Gmail attachments without Drive URLs remain pending upload/location in the correct Drive folder.
 
 ## Review Needed
 
