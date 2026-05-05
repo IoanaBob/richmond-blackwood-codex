@@ -50,3 +50,13 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck`, `git diff --check`, and source-specific/conflicting-rule scan passed.
 - Limitations or gaps: Communications database URL/schema still needs confirmation.
 - Next step: Commit, push, and open a new PR.
+
+## 2026-05-06 - Gcloud Gmail Drafting Rule
+
+- User request: Update PR #4 so Gmail email drafting always uses gcloud.
+- Context read: Gmail communication skill, Google auth skill, Gmail helper scripts, AGENTS, README, process docs, and memory.
+- Actions taken: Made Gmail draft/delete helper defaults run `gcloud auth application-default login` by default and documented that Gmail drafting actions touching Gmail must always use the repo-local gcloud-managed Gmail API helper path.
+- Files changed: `skills/rb-gmail-drafts/`, `skills/rb-google-auth/`, `AGENTS.md`, `README.md`, `processes/signature-and-gmail.md`, and memory files.
+- Decisions made: Gmail draft fallback, sender verification, helper reply-context reads, and unsafe-draft deletion must not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts.
+- Verification: `npm run typecheck`, Gmail draft/delete helper `--help` smoke checks, `git diff --check`, and stale auth-default scan passed.
+- Next step: Commit, push, and update PR #4.

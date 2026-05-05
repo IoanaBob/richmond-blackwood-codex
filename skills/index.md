@@ -12,7 +12,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-handoff`: prepare next-session handoff.
 - `rb-google-auth`: authenticate Drive/Gmail helper access through gcloud without committing credentials.
 - `rb-file-uploads`: upload, export, attach, and catalog Drive/Notion-backed files.
-- `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and verified Gmail draft fallback rules for `accounting@richmondblackwood.com`.
+- `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and gcloud-managed verified Gmail draft fallback rules for `accounting@richmondblackwood.com`.
 - `rb-signature-workflow`: run generic SignNow, Google Doc transform, and PDF signing-plan helper workflows.
 - `rb-signature-status-sync`: check SignNow signature status and require signed-file evidence before completion.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.

@@ -68,7 +68,7 @@ npm run gmail:create-alias-draft -- --help
 npm run signnow:upload -- --help
 ```
 
-Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and must fail closed if Gmail stores another sender.
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, must always use the repo-local gcloud-managed Gmail API helper path for drafting actions, and must fail closed if Gmail stores another sender.
 
 SignNow helpers are generic mechanics only; RB signer identity, routing order, and template policy remain provisional until approved.
 

@@ -50,8 +50,9 @@ Consequence:
 
 - The Gmail helper fails closed if any other sender is requested.
 - If Gmail stores a draft with another sender, the draft must be deleted or marked unsafe.
+- Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions.
 
-Source: user instruction on 2026-05-05.
+Source: user instruction on 2026-05-05; reinforced by user instruction on 2026-05-06.
 Review: approved as a sender rule by user instruction; confirm whether this applies to every RB communication type or only accounting/client drafts.
 
 ## 2026-05-05 - Generic SignNow Only

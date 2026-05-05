@@ -20,7 +20,7 @@ Prepare documents, review links, drafts, and communication follow-ups without se
 - If a Gmail draft fallback is used, the saved Gmail draft must show `accounting@richmondblackwood.com` in the stored `From` header. If Gmail stores another sender, delete or mark the draft unsafe and stop.
 - Sign off as `Richmond Blackwood Accounting Team`.
 - Use existing Gmail threads when possible.
-- Repo-local Gmail helpers use gcloud-managed Gmail API OAuth only. Do not use IMAP, app passwords, or stored mailbox credentials.
+- Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path, including draft fallback, sender verification, helper reply-context reads, and unsafe-draft deletion. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions.
 - Use `skills/rb-gmail-drafts/SKILL.md` for email-specific sender, thread, signoff, and Gmail fallback behavior. The skill is still required for email communications even when the final action is direct send instead of software draft creation.
 
 ## SignNow Rules

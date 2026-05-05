@@ -16,16 +16,16 @@ This skill carries the email-specific rules. Use it together with `rb-communicat
 - Prefer replying in the existing Gmail thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - Client-facing email must use `From: Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender.
 - If this helper is used as an exception, the saved Gmail draft must also show `accounting@richmondblackwood.com` in the stored `From` header. If Gmail stores another sender, delete or mark the draft unsafe and stop.
-- Use gcloud-managed Gmail API OAuth only. Do not use IMAP, app passwords, or mailbox password storage.
+- Always use gcloud-managed Gmail API OAuth for Gmail email drafting actions, including verified Gmail draft fallback, sender verification, reply-thread context reads performed by the helper, and unsafe-draft deletion. Do not use IMAP, app passwords, mailbox password storage, or non-gcloud Gmail draft creation paths.
 - Sign off as:
 
 ```text
 Richmond Blackwood Accounting Team
 ```
 
-- Prefer the Gmail connector for searching and reading messages or threads.
+- Prefer the Gmail connector for searching and reading messages or threads only. Do not use the connector to create Gmail software drafts when the repo-local Gmail helper can perform the draft action through gcloud.
 - Prefer direct send through the supported Gmail connector/API path after user approval.
-- Use the repo-local helper for verified Gmail draft fallback when the user explicitly asks for a software draft, direct send is unavailable, or sender verification requires the helper.
+- Use the repo-local gcloud-backed helper for verified Gmail draft fallback when the user explicitly asks for a software draft, direct send is unavailable, or sender verification requires the helper.
 - If the Gmail connector is disconnected, ask the user to reconnect it. Do not confuse connector auth failures with local gcloud/OAuth setup unless a repo-local helper is failing.
 - Keep replies in the existing Gmail thread whenever possible by passing `--reply-message-id <gmail-message-id>` or the connector's thread-aware reply path.
 
@@ -58,6 +58,6 @@ Useful options:
 - `--oauth-client-file .codex-local/google-oauth-client.json`
 - `--reply-message-id <gmail-message-id>`
 - `--verify-only`
-- `--auth-login auto|always|never`
+- `--auth-login auto|always|never` (defaults to `always`; use gcloud for Gmail drafting every time)
 
 Do not commit tokens, passwords, or downloaded auth artifacts.

@@ -36,7 +36,7 @@ Available helper areas:
 - Task PR helper: `skills/rb-task-pr/scripts/task_pr.sh`.
 - Optional WhatsApp MCP bridge: `setup/mcp/start-whatsapp-bridge.sh`.
 
-Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and fail closed if Gmail stores another sender.
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, always use the repo-local gcloud-managed Gmail API helper path for Gmail drafting actions, and fail closed if Gmail stores another sender.
 
 SignNow helpers are generic mechanics only. RB signer identity, routing order, template catalog, and signing policy are not approved by this port.
 
