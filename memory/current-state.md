@@ -20,7 +20,7 @@ Current implementation includes:
 - Client offboarding export package guideline and VUN export manifest.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
-- Communications rule: draft outbound communication in chat, always show sender identity, always show subject and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to the Communications database.
+- Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to the Communications database.
 
 ## Helper State
 
@@ -42,7 +42,7 @@ SignNow helpers are generic mechanics only. RB signer identity, routing order, t
 
 WhatsApp MCP is optional and local-only. QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed. Normal WhatsApp reads/sends should use the `whatsapp` MCP tools, not direct REST or SQLite access.
 
-Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show the subject and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in the Communications database. The canonical Communications database URL/schema still needs confirmation.
+Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in the Communications database. The canonical Communications database URL/schema still needs confirmation.
 
 ## Notion State
 
