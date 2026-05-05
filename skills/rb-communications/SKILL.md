@@ -11,6 +11,8 @@ Use this skill for any Richmond Blackwood outbound communication.
 
 - Draft communication text in chat with the user, not as an app/software draft.
 - Always show the sender before the user approves the message.
+- For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- Prefer replying in the existing email thread when email context exists. Start a new email thread only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
 - After sending, store the sent communication in the Communications database.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
@@ -23,7 +25,8 @@ Before sending, show:
 - From: exact sender identity, including email address for email.
 - To: recipients or destination.
 - Cc/Bcc: if email and applicable.
-- Subject: if email.
+- Subject: always for email.
+- Source/reply thread: always for email when thread context exists.
 - Attachments/files: if any.
 - Message body.
 

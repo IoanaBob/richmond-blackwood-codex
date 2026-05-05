@@ -16,7 +16,8 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Keep reads narrow and purpose-bound.
 - Do not send messages automatically unless the user explicitly asks to send and the tool approval confirms recipient, content, and any attachment.
 - Draft outbound communications in chat with the user. Do not create app/software drafts for the user to manually hit send unless the user explicitly asks for that exception.
-- Always show the sending identity before approval. For email, show the exact `From` name and email address.
+- Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 
@@ -28,7 +29,8 @@ Before sending any communication, show:
 - From, including email address for email.
 - To or destination.
 - Cc/Bcc when relevant.
-- Subject when relevant.
+- Subject, always for email.
+- Source/reply thread, always for email when thread context exists.
 - Attachments or files.
 - Message body.
 

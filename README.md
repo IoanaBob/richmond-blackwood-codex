@@ -74,7 +74,7 @@ SignNow helpers are generic mechanics only; RB signer identity, routing order, a
 
 ## Communications Rule
 
-Outbound communications are drafted in chat with Codex, not as software drafts. Every preview must show the sending identity; for email, show the exact `From` name and email address. After approval, Codex should send directly through the supported connector or MCP tool and store the sent communication in the Communications database.
+Outbound communications are drafted in chat with Codex, not as software drafts. Every preview must show the sending identity; for email, always show the exact `From` name, email address, `Subject`, and source/reply thread. Email should reply in the existing thread whenever context exists. After approval, Codex should send directly through the supported connector or MCP tool and store the sent communication in the Communications database.
 
 ## Optional MCP Layer
 

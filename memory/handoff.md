@@ -27,7 +27,7 @@ Repo-local helpers now exist. Use `rb-gmail-drafts` for email-specific sender, t
 
 Optional WhatsApp MCP is ported but provisional. Use `setup/mcp/start-whatsapp-bridge.sh` only to manage the local bridge and use the `whatsapp` MCP tools for normal WhatsApp reads/sends. Do not commit QR/session state, SQLite databases, downloaded media, transcripts, or personal Codex config. Do not send WhatsApp messages/files without explicit user instruction and tool approval.
 
-Outbound communication drafting happens in chat. Always show the sender identity before approval, including exact `From` name and email address for email. After approval, send directly through the supported connector/MCP tool and log the sent communication in the Communications database. Software drafts are exception-only.
+Outbound communication drafting happens in chat. Always show the sender identity before approval, including exact `From` name, email address, `Subject`, and source/reply thread for email when thread context exists. Prefer replying in the existing email thread whenever email context exists. After approval, send directly through the supported connector/MCP tool and log the sent communication in the Communications database. Software drafts are exception-only.
 
 ## Verification
 

@@ -91,7 +91,8 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 ## Outbound Communications
 
 - Draft all outbound communications in chat with the user, not as software drafts for manual send.
-- Every communication preview must show the sending identity before approval. For email, show the exact `From` name and email address.
+- Every communication preview must show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- Prefer replying in the existing email thread whenever email context exists. Start a new email only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly asks to send, send directly through the supported connector or MCP tool.
 - After sending, store the communication in the Communications database. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
 - Do not create Gmail, Slack, WhatsApp, Notion, or other app drafts unless the user explicitly asks for that exception.
