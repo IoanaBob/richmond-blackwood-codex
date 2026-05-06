@@ -16,5 +16,6 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-signature-workflow`: run generic SignNow, Google Doc transform, and PDF signing-plan helper workflows.
 - `rb-signature-status-sync`: check SignNow signature status and require signed-file evidence before completion.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
+- `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process correspondence attachments, create Notion tasks, notify Slack, and update checkpoints.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.

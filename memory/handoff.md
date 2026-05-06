@@ -31,6 +31,10 @@ Optional WhatsApp MCP is ported but provisional. Use `setup/mcp/start-whatsapp-b
 
 Outbound communication drafting happens in chat. Always show the sender identity before approval, including exact `From` name, email address, `Subject`, and source/reply thread for email when thread context exists. Prefer replying in the existing email thread whenever email context exists. After approval, send directly through the supported connector/MCP tool and log the sent communication in the Communications database. Software drafts are exception-only.
 
+WhatsApp chat IDs may be saved as client communication pointers only after resolving the contact through the MCP tools and disambiguating any multiple matches with the user. File company-client pointers under `clients/Companies/<client-reference>/communications.md`, add a matching client source-register row, and keep the pointer provisional until the contact relationship and preferred-contact status are confirmed.
+
+Manual WhatsApp inbound monitoring now has a provisional process and skill. Use `skills/rb-whatsapp-inbound-monitor/SKILL.md` only when the user explicitly asks to check a saved client chat. For VUN, the saved Eran Peer chat checkpoint starts at 2026-05-05 23:41 IST with no historical backfill; first live run should inspect only messages after that checkpoint and store the latest inspected message ID after successful handling.
+
 ## Verification
 
 Last checked 2026-05-04:

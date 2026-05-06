@@ -3,13 +3,18 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 bridge_dir="$repo_root/third_party/whatsapp-mcp/whatsapp-bridge"
+bridge_repo="$repo_root/third_party/whatsapp-mcp"
+bridge_patch="$repo_root/setup/mcp/patches/whatsapp-mcp-localhost-bridge.patch"
 state_dir="$repo_root/.codex-local"
 pid_file="$state_dir/whatsapp-bridge.pid"
 log_file="$state_dir/whatsapp-bridge.log"
 binary_file="$state_dir/whatsapp-bridge-bin"
 plist_file="$state_dir/com.richmondblackwood.whatsapp-bridge.plist"
+go_cache_dir="$state_dir/go-build-cache"
+go_mod_cache_dir="$state_dir/go/pkg/mod"
 launch_label="com.richmondblackwood.whatsapp-bridge"
 port="${WHATSAPP_BRIDGE_PORT:-8080}"
+bridge_host="${WHATSAPP_BRIDGE_HOST:-127.0.0.1}"
 command="${1:-start}"
 
 is_listening() {
@@ -18,6 +23,23 @@ is_listening() {
 
 pid_is_running() {
   [[ -f "$pid_file" ]] && kill -0 "$(cat "$pid_file")" >/dev/null 2>&1
+}
+
+ensure_bridge_patch() {
+  if grep -q "WHATSAPP_BRIDGE_HOST" "$bridge_dir/main.go"; then
+    return 0
+  fi
+
+  if [[ ! -f "$bridge_patch" ]]; then
+    echo "Missing WhatsApp bridge patch: $bridge_patch" >&2
+    return 1
+  fi
+
+  (
+    cd "$bridge_repo"
+    git apply "$bridge_patch"
+  )
+  echo "Applied local WhatsApp bridge safety patch."
 }
 
 print_status() {
@@ -50,7 +72,7 @@ start_with_launchd() {
   <array>
     <string>/bin/zsh</string>
     <string>-lc</string>
-    <string>cd "$bridge_dir" &amp;&amp; exec "$binary_file"</string>
+    <string>cd "$bridge_dir" &amp;&amp; WHATSAPP_BRIDGE_HOST="$bridge_host" WHATSAPP_BRIDGE_PORT="$port" exec "$binary_file"</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
@@ -73,14 +95,14 @@ PLIST
 start_with_nohup() {
   (
     cd "$bridge_dir"
-    nohup "$binary_file" >> "$log_file" 2>&1 < /dev/null &
+    WHATSAPP_BRIDGE_HOST="$bridge_host" WHATSAPP_BRIDGE_PORT="$port" nohup "$binary_file" >> "$log_file" 2>&1 < /dev/null &
     echo "$!" > "$pid_file"
   )
   echo "Started WhatsApp bridge process $(cat "$pid_file")."
 }
 
 start_bridge() {
-  mkdir -p "$state_dir"
+  mkdir -p "$state_dir" "$go_cache_dir" "$go_mod_cache_dir"
 
   if is_listening; then
     echo "WhatsApp bridge is already listening on port $port."
@@ -96,10 +118,12 @@ start_bridge() {
       return 1
     fi
 
+    ensure_bridge_patch
+
     if [[ ! -x "$binary_file" || "$bridge_dir/main.go" -nt "$binary_file" ]]; then
       (
         cd "$bridge_dir"
-        go build -o "$binary_file" .
+        GOCACHE="$go_cache_dir" GOMODCACHE="$go_mod_cache_dir" go build -o "$binary_file" .
       )
     fi
 

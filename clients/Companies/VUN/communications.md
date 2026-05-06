@@ -15,6 +15,20 @@ Notion backup: `notion-backup.md`.
 | Client POC | Nathan Mawali A Vandy |
 | POC contact details | `../../Individuals/Nathan Mawali A Vandy/notes-and-updates.md` |
 
+## WhatsApp Chat IDs
+
+| Contact / label | WhatsApp chat ID | Status | Source | Imported | Review |
+| --- | --- | --- | --- | --- | --- |
+| Eran Peer test contact | `491773931663@s.whatsapp.net` | provisional | WhatsApp MCP contact search and user instruction in Codex chat | 2026-05-05 | Confirm Eran Peer role/relationship to VUN and whether this is the preferred VUN WhatsApp contact. |
+
+## WhatsApp Monitoring Checkpoints
+
+Initial checkpoint starts from monitoring setup time, with no historical backfill.
+
+| Chat label | Chat JID | Monitor enabled | Last read through | Last read message ID | Last run | Status | Source | Review |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Eran Peer test contact | `491773931663@s.whatsapp.net` | yes, manual-run only | 2026-05-05 23:41 IST | Not captured at setup | Not run | provisional | User instruction in Codex chat and saved WhatsApp MCP chat ID pointer | Confirm Eran Peer role/relationship to VUN and preferred-contact status; first live run must inspect only messages after this timestamp and store the latest inspected message ID after successful handling. |
+
 ## Linked Correspondence
 
 Company record links correspondence records:

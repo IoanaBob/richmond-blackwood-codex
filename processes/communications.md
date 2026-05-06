@@ -87,6 +87,27 @@ General communication operating rules belong under `processes/` and `memory/`, a
 
 If the logging destination is unclear, record the blocker in `memory/open-questions.md` and ask for review.
 
+## WhatsApp Chat ID Pointers
+
+Use WhatsApp chat IDs as pointers only. Do not treat a saved chat ID as approval to import chat history, download media, or send future messages without explicit user instruction.
+
+When a user asks to save a WhatsApp chat ID for a known company client:
+
+1. Resolve the contact or chat through the `whatsapp` MCP tools.
+2. If search returns multiple plausible contacts, ask the user to choose the intended contact before filing.
+3. Store the selected JID in `clients/Companies/<client-reference>/communications.md` under a WhatsApp chat ID table.
+4. Include `Status`, `Source`, `Imported`, and `Review` fields for the pointer.
+5. Mark the pointer `provisional` unless the user explicitly approves the contact relationship and preferred-contact status.
+6. Add a matching source row in `clients/Companies/<client-reference>/source-register.md`.
+
+The general process document should describe the filing pattern only. Keep client names, phone numbers, JIDs, and role assumptions inside the relevant client folder.
+
+## WhatsApp Monitoring Checkpoints
+
+Manual inbound monitoring is covered by `processes/whatsapp-inbound-monitoring.md` and `skills/rb-whatsapp-inbound-monitor/SKILL.md`.
+
+Use saved checkpoints only for explicit manual runs. A checkpoint may authorize a narrow read window for processing inbound items, but it does not authorize background monitoring, historical backfill, or outbound WhatsApp replies.
+
 ## Voice Notes And Media
 
 - Download media locally only when needed.

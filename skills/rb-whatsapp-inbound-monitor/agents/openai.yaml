@@ -1,0 +1,3 @@
+display_name: WhatsApp Inbound Monitor
+short_description: Manually check saved client WhatsApp chats, process inbound correspondence, create tasks, notify Slack, and update checkpoints.
+default_prompt: Use the saved client WhatsApp checkpoint to inspect only new inbound messages, route attachments into Correspondence, create actionable Notion tasks, notify rb-client-updates, and advance the checkpoint only after successful processing.

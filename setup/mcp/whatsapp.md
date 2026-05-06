@@ -15,9 +15,12 @@ Use this only for WhatsApp accounts the user controls. WhatsApp data is private 
 - Fork used by this repository: `https://github.com/raen79/whatsapp-mcp`
 - Upstream source: `https://github.com/lharries/whatsapp-mcp`
 - Pinned compatibility commit: `018ea770ca9524c43000910ada7611fa1a503fe6`
+- Repo-local bridge patch: `setup/mcp/patches/whatsapp-mcp-localhost-bridge.patch`
 - This setup guide and the Codex config snippet below.
 
 The fork is intentional. The upstream project is the base, but as of 2026-05-05 the upstream-pinned WhatsApp dependency failed to connect to WhatsApp Web. The fork contains the minimal compatibility update that reaches the QR pairing step and keeps setup reproducible.
+
+The repo-local bridge patch is applied by `setup/mcp/start-whatsapp-bridge.sh` before build when the submodule source has not already been patched. It keeps the REST bridge bound to `127.0.0.1` by default, supports explicit `WHATSAPP_BRIDGE_HOST` and `WHATSAPP_BRIDGE_PORT` overrides, and keeps Python cache noise ignored inside the submodule.
 
 ## What Must Stay Local
 
@@ -108,8 +111,12 @@ The script stores local state under `.codex-local/`, which is ignored by git:
 .codex-local/whatsapp-bridge.pid
 .codex-local/whatsapp-bridge.log
 .codex-local/whatsapp-bridge-bin
+.codex-local/go-build-cache/
+.codex-local/go/pkg/mod/
 .codex-local/com.richmondblackwood.whatsapp-bridge.plist
 ```
+
+The local bridge binds to `127.0.0.1:8080` by default. Override `WHATSAPP_BRIDGE_HOST` only for deliberate local debugging after reviewing the exposure risk.
 
 When Codex needs to send or read WhatsApp and port `8080` is not listening, Codex should start the bridge with this script outside the sandbox and leave it running in the background.
 
@@ -182,6 +189,7 @@ Contact search in this repository's fork searches both the message chat index an
 - Client-specific WhatsApp facts belong under `clients/Companies/<client-reference>/` and should use the exact Notion Companies `Reference` before a client file is created.
 - Non-client private company WhatsApp facts belong under `internal/`.
 - Do not create a new RB Communications database or Notion structure unless the user approves it. If the logging destination is unclear, record the blocker in `memory/open-questions.md` and ask for review.
+- Manual inbound client monitoring uses `processes/whatsapp-inbound-monitoring.md` and `skills/rb-whatsapp-inbound-monitor/SKILL.md`. It must run only from saved checkpoints and only after an explicit user request for the specific client or chat.
 
 ## Verification
 

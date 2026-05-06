@@ -2,6 +2,32 @@
 
 Status: active.
 
+## 2026-05-05 - WhatsApp Inbound Monitoring Process
+
+Applied:
+
+- Added a manual-run WhatsApp inbound monitoring process with checkpoint, correspondence, task, Slack notification, and blocker handling.
+- Added `rb-whatsapp-inbound-monitor` as a repo-local skill and registered it in the skills index.
+- Added the WhatsApp Monitoring Checkpoints pattern to VUN communications from setup time, without historical backfill.
+- Recorded inbound task assignment defaults in `internal/people-roles.md`.
+- Included the local WhatsApp bridge hardening patch in scope: localhost binding by default, configurable host/port, and local Go build caches under `.codex-local/`.
+
+Verification:
+
+- `bash -n setup/mcp/start-whatsapp-bridge.sh` passed.
+- `git diff --check` passed.
+- Submodule `git diff --check` passed.
+- WhatsApp bridge `go test ./...` passed with repo-local Go caches.
+- WhatsApp MCP server Python compile passed with repo-local pycache.
+- Skill metadata and `skills/index.md` registration were inspected.
+- Dry-run scenario coverage was checked in the process document.
+
+Open questions:
+
+- Confirm Eran Peer role/relationship to VUN and preferred-contact status.
+- Confirm Notion file-property upload support before the first live run.
+- Confirm assignment defaults with the team before approving automation.
+
 ## 2026-05-05 - Neutral Operating Infrastructure Port
 
 Imported:
@@ -66,6 +92,22 @@ Open questions:
 - Confirm the RB WhatsApp account/number.
 - Confirm the canonical Communications database URL/schema.
 - Confirm whether optional WhatsApp MCP should be enabled for all operators or only local Codex workstations.
+
+## 2026-05-05 - WhatsApp Chat ID Filing Process
+
+Applied:
+
+- Added a reusable process for saving WhatsApp chat IDs as client communication pointers.
+- Mirrored the workflow into `skills/rb-whatsapp-comms/SKILL.md`.
+- Filed the selected VUN WhatsApp chat ID pointer in `clients/Companies/VUN/communications.md`.
+
+Verification:
+
+- `git diff --check` passed.
+
+Open questions:
+
+- Confirm Eran Peer role/relationship to VUN and whether the selected chat ID is the preferred VUN WhatsApp contact.
 
 ## 2026-05-05 - VUN And Individual Routing Recovery
 

@@ -64,6 +64,24 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 7. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
 8. Store the sent communication in the Communications database.
 
+## Chat ID Filing Workflow
+
+When the user asks to save a WhatsApp contact or chat ID for a known company client:
+
+1. Resolve the contact or chat through the WhatsApp MCP tools.
+2. If multiple plausible contacts are returned, ask the user to choose before filing.
+3. Store only the selected JID/contact pointer in `clients/Companies/<client-reference>/communications.md`.
+4. Include `Status`, `Source`, `Imported`, and `Review` fields.
+5. Mark the pointer `provisional` unless the user explicitly approves the contact relationship and preferred-contact status.
+6. Add the source to `clients/Companies/<client-reference>/source-register.md`.
+7. Do not import chat history, media, transcripts, or future-send approval just because the pointer was saved.
+
+## Manual Inbound Monitoring
+
+When the user explicitly asks to monitor a saved client WhatsApp chat for new inbound items, switch to `skills/rb-whatsapp-inbound-monitor/SKILL.md` and follow `processes/whatsapp-inbound-monitoring.md`.
+
+Saved chat IDs alone do not authorize monitoring. Monitoring must use the client checkpoint, read only new inbound messages, and update the checkpoint only after the required Notion and Slack work succeeds.
+
 ## Richmond Blackwood Routing
 
 When logging WhatsApp:
