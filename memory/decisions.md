@@ -8,7 +8,8 @@ Decision: This repository keeps unsanitised operational context.
 
 Boundaries:
 
-- Private client-specific knowledge goes under `clients/<client-reference>/`.
+- Private client-specific knowledge goes under `clients/Companies/<client-reference>/`.
+- Private individual-specific knowledge goes under `clients/Individuals/<legal-name>/`.
 - Private non-client company history goes under `internal/`.
 - Live secrets, tokens, private keys, certificate files, and credential dumps remain excluded.
 

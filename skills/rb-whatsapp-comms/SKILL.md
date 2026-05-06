@@ -68,7 +68,7 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 
 When logging WhatsApp:
 
-- Client-specific facts belong under `clients/<client-reference>/`; the folder name must be the exact Notion Companies `Reference`.
+- Client-specific facts belong under `clients/Companies/<client-reference>/`; the folder name must be the exact Notion Companies `Reference`.
 - Non-client private company facts belong under `internal/`.
 - General process rules belong under `processes/`, `memory/`, and the RB Internal Knowledge Base when a backup destination is clear.
 - If the right Notion/Drive/client/Communications destination is unclear, record the blocker in `memory/open-questions.md` and ask for review.

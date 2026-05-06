@@ -22,7 +22,7 @@ Use Drive for raw documents, evidence, and files not needed in every Codex sessi
 
 ## Slack
 
-Use Slack for operational context, decisions, handoffs, and source evidence. When importing client-specific Slack context, write the detail only under `clients/<client-reference>/`.
+Use Slack for operational context, decisions, handoffs, and source evidence. When importing client-specific Slack context, write the detail only under `clients/Companies/<client-reference>/`.
 
 ## Gmail
 

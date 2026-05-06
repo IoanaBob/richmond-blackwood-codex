@@ -43,4 +43,5 @@ The current Notion connector does not expose native `Turn into Tasks` conversion
 - Put each business fact in the database or repo file that owns it.
 - Use relations or pointers instead of copying private client detail into broad process docs.
 - Use one-way relations by default. Create reciprocal relations only when the reverse database needs that relationship as an operational surface.
-- Client-specific private detail belongs under `clients/<client-reference>/` in the repo and in the relevant Client Databases destination in Notion.
+- Company-specific private detail belongs under `clients/Companies/<client-reference>/` in the repo and in the relevant Client Databases destination in Notion.
+- Individual-specific private detail belongs under `clients/Individuals/<legal-name>/` and should relate to the correct Notion individual/person records.

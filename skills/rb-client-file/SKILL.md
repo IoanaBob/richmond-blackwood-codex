@@ -9,7 +9,7 @@ Use this whenever source context contains private client-specific information.
 
 ## Required Files
 
-Use the pattern in `clients/_template/`.
+Use the pattern in `clients/Companies/_template/`.
 
 ## Routing
 

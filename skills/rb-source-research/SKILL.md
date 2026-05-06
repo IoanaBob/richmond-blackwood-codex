@@ -13,7 +13,7 @@ Use this when gathering Richmond Blackwood context from local repos, Notion, Goo
 2. Register the source in `sources/source-register.md` before importing facts.
 3. Separate general process/company knowledge from client-specific private knowledge.
 4. Write general knowledge to `memory/`, `processes/`, or `internal/`.
-5. Write client-specific detail only to `clients/<client-reference>/`.
+5. Write client-specific detail only to `clients/Companies/<client-reference>/`.
 6. Mark facts provisional unless already approved in `memory/decisions.md`.
 7. Update `sources/import-log.md`.
 

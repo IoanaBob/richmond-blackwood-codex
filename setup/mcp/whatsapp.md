@@ -179,7 +179,7 @@ Contact search in this repository's fork searches both the message chat index an
 - Do not send WhatsApp messages or files automatically. Draft the intended message in chat unless the user explicitly asks to send and the tool approval confirms destination and content.
 - If contact search is ambiguous, ask which contact is correct before sending.
 - For voice notes, download media locally, transcribe or summarize only what is needed, then route the business-relevant summary to the right existing RB destination. Do not commit downloaded media or transcripts.
-- Client-specific WhatsApp facts belong under `clients/<client-reference>/` and should use the exact Notion Companies `Reference` before a client file is created.
+- Client-specific WhatsApp facts belong under `clients/Companies/<client-reference>/` and should use the exact Notion Companies `Reference` before a client file is created.
 - Non-client private company WhatsApp facts belong under `internal/`.
 - Do not create a new RB Communications database or Notion structure unless the user approves it. If the logging destination is unclear, record the blocker in `memory/open-questions.md` and ask for review.
 

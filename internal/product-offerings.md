@@ -282,10 +282,10 @@ Do not duplicate private client pricing here.
 
 Client-specific service/pricing examples exist under:
 
-- `clients/VUN/history.md`
-- `clients/VUN/invoices-payments-expenses.md`
-- `clients/VUN/accounting-bookkeeping-payroll.md`
-- `clients/VUN/personal-tax-returns.md`
+- `clients/Companies/VUN/history.md`
+- `clients/Companies/VUN/invoices-payments-expenses.md`
+- `clients/Companies/VUN/accounting-bookkeeping-payroll.md`
+- `clients/Companies/VUN/personal-tax-returns.md`
 
 Use those files for unsanitised client-level pricing and service context. Treat client-specific pricing as evidence, not as canonical package pricing.
 

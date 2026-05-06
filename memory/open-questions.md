@@ -6,9 +6,9 @@ Updated: 2026-05-06.
 
 ## Notion Backup Questions
 
-- Confirm whether Codex should create a Client Notes & Updates backup page for the VUN summary after user review.
-- Confirm whether VUN personal tax data should remain inside `clients/VUN/` or later move to an individual-reference structure.
-- Confirm whether earlier broad provisional Client Notes & Updates imports should be marked superseded in Notion.
+- Create company and individual Client Notes & Updates backup pages for VUN/Nathan at the root-level client records after user review.
+- Backfill those VUN/Nathan backup pages from all available sources after the repo records are reviewed.
+- Redo non-VUN client imports directly from Notion Companies `Reference` records; earlier non-VUN backup references were incorrect and have been removed.
 
 ## Drive Filing Questions
 
@@ -18,8 +18,7 @@ Updated: 2026-05-06.
 
 ## Client Folder Cleanup Questions
 
-- Confirm whether to delete the earlier name-derived provisional client folders now that client folders must use Notion Companies `Reference`.
-- Broad deletion of `clients/` was blocked by the sandbox safety reviewer; explicit user confirmation is needed before removing those private folders.
+- Confirm whether any remaining old flat client folders outside `clients/Companies/` and `clients/Individuals/` are user-owned local work before deleting them.
 
 ## Business Truth Questions
 
