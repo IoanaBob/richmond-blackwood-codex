@@ -9,15 +9,19 @@ Review: confirm RB signing policy, authorized signers, template catalog, and whe
 
 Prepare documents, review links, drafts, and communication follow-ups without sending from the wrong account or treating helper output as final business state.
 
-## Gmail Draft Rules
+## Gmail Send Rules
 
-- Draft only unless the user explicitly approves sending through a supported connector.
+- Draft email text in chat with the user, not as a Gmail draft for manual send.
+- Always show the exact `From` name, email address, `Subject`, and source/reply thread before asking for approval.
+- Prefer replying in the existing Gmail thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
+- After user approval, send directly through the supported Gmail connector/API path and then store the sent email in the Communications database.
 - Client-facing drafts use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
-- The saved Gmail draft must show `accounting@richmondblackwood.com` in the stored `From` header.
-- If Gmail stores another sender, delete or mark the draft unsafe and stop.
+- Do not create a Gmail draft unless the user explicitly asks for that exception or direct send is blocked and the user approves a draft fallback.
+- If a Gmail draft fallback is used, the saved Gmail draft must show `accounting@richmondblackwood.com` in the stored `From` header. If Gmail stores another sender, delete or mark the draft unsafe and stop.
 - Sign off as `Richmond Blackwood Accounting Team`.
 - Use existing Gmail threads when possible.
-- Repo-local Gmail helpers use gcloud-managed Gmail API OAuth only. Do not use IMAP, app passwords, or stored mailbox credentials.
+- Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path, including draft fallback, sender verification, helper reply-context reads, and unsafe-draft deletion. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions.
+- Use `skills/rb-gmail-drafts/SKILL.md` for email-specific sender, thread, signoff, and Gmail fallback behavior. The skill is still required for email communications even when the final action is direct send instead of software draft creation.
 
 ## SignNow Rules
 
@@ -42,4 +46,4 @@ npm run pdf:prepare-signing-plan -- <source-pdf> <signing-plan-json>
 
 Prefer connectors for app-native search/read/send/status operations. Use local helpers for gaps: verified sender drafts, local file upload, field setup, explicit PDF signing plans, and Drive upload/export mechanics.
 
-For WhatsApp and other non-email communications, use [communications.md](communications.md). WhatsApp sends require explicit user instruction and tool approval.
+For cross-channel outbound communication rules, use [communications.md](communications.md). WhatsApp sends require explicit user instruction and tool approval.

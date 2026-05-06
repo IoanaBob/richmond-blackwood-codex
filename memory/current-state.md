@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-05.
+Updated: 2026-05-06.
 
 ## Repo State
 
@@ -21,6 +21,7 @@ Current implementation includes:
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
+- Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to the Communications database.
 
 ## Helper State
 
@@ -29,18 +30,20 @@ The root `package.json` is the local helper registry. Helper scripts are low-lev
 Available helper areas:
 
 - Drive organize/upload/export: `skills/rb-file-uploads/scripts/`.
-- Gmail verified alias drafts: `skills/rb-gmail-drafts/scripts/`.
+- Gmail sender/thread/signoff rules and verified draft fallback: `skills/rb-gmail-drafts/`.
 - Google auth: `skills/rb-google-auth/scripts/`.
 - Generic SignNow upload/field/review/status: `skills/rb-signature-workflow/scripts/` and `skills/rb-signature-status-sync/scripts/`.
 - Google Doc and PDF mechanical transforms: `drive:transform-google-doc` and `pdf:prepare-signing-plan`.
 - Task PR helper: `skills/rb-task-pr/scripts/task_pr.sh`.
 - Optional WhatsApp MCP bridge: `setup/mcp/start-whatsapp-bridge.sh`.
 
-Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and fail closed if Gmail stores another sender.
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, always use the repo-local gcloud-managed Gmail API helper path for Gmail drafting actions, and fail closed if Gmail stores another sender.
 
 SignNow helpers are generic mechanics only. RB signer identity, routing order, template catalog, and signing policy are not approved by this port.
 
 WhatsApp MCP is optional and local-only. QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed. Normal WhatsApp reads/sends should use the `whatsapp` MCP tools, not direct REST or SQLite access.
+
+Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in the Communications database. The canonical Communications database URL/schema still needs confirmation.
 
 ## Notion State
 
@@ -129,6 +132,13 @@ Checks run for the 2026-05-05 WhatsApp MCP port:
 - `npm run typecheck`: passed.
 - `git diff --check`: clean.
 - Source-specific business keyword scan found no matches outside intentional source-repo references.
+
+Checks run for the 2026-05-06 direct-send communications rule:
+
+- `npm run typecheck`: passed.
+- `git diff --check`: clean.
+- Gmail draft/delete helper `--help` smoke checks passed.
+- Source-specific/conflicting-rule and stale auth-default scans found no problematic matches; remaining IMAP/app-password mentions are intentional prohibitions.
 
 Checks run for the 2026-05-05 VUN recovery branch:
 

@@ -26,7 +26,7 @@ class CreateAliasDraftCommand {
 
     const fromEmail = this.requireRbSender(this.cli.stringOption(options, "from", RB_SENDER_EMAIL));
     const fromName = this.cli.stringOption(options, "fromName", "Richmond Blackwood Accounting Team");
-    const authLogin = this.cli.stringOption(options, "authLogin", "auto");
+    const authLogin = this.cli.stringOption(options, "authLogin", "always");
 
     if (this.cli.booleanOption(options, "verifyOnly")) {
       printJson(await this.verify(fromEmail, authLogin, options));
@@ -95,7 +95,7 @@ Options:
   --oauth-client-file PATH           Gmail API/gcloud OAuth client JSON. Defaults to .codex-local/google-oauth-client.json when present.
   --in-reply-to MESSAGE_ID_HEADER    Optional RFC Message-ID header for threaded replies.
   --references MESSAGE_ID_HEADERS    Optional RFC References header for draft threading.
-  --auth-login auto|always|never     Defaults to auto. Uses gcloud application-default OAuth.
+  --auth-login auto|always|never     Defaults to always. Uses gcloud application-default OAuth.
   --reply-message-id GMAIL_MESSAGE_ID   Requires the Gmail metadata scope.
   --attachment /absolute/path/file.pdf   Repeat for multiple attachments.
   --verify-only`;

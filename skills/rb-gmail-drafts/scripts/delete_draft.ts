@@ -18,7 +18,7 @@ class DeleteDraftCommand {
     }
 
     const gmail = new GmailClient(this.env.readApiConfig(
-      this.cli.stringOption(options, "authLogin", "auto"),
+      this.cli.stringOption(options, "authLogin", "always"),
       this.requiredOauthClientFile(options),
     ));
 
@@ -40,7 +40,7 @@ Deletes Gmail drafts by ID. Use this to remove unsafe Richmond Blackwood drafts 
 
 Options:
   --oauth-client-file PATH
-  --auth-login auto|always|never`;
+  --auth-login auto|always|never     Defaults to always. Uses gcloud application-default OAuth.`;
   }
 
   private requiredOauthClientFile(options: Record<string, string | boolean | string[]>): string {

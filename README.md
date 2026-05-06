@@ -69,9 +69,13 @@ npm run gmail:create-alias-draft -- --help
 npm run signnow:upload -- --help
 ```
 
-Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` and must fail closed if Gmail stores another sender.
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, must always use the repo-local gcloud-managed Gmail API helper path for drafting actions, and must fail closed if Gmail stores another sender.
 
 SignNow helpers are generic mechanics only; RB signer identity, routing order, and template policy remain provisional until approved.
+
+## Communications Rule
+
+Outbound communications are drafted in chat with Codex, not as software drafts. Every preview must show the sending identity; for email, always show the exact `From` name, email address, `Subject`, and source/reply thread. Email should reply in the existing thread whenever context exists. After approval, Codex should send directly through the supported connector or MCP tool and store the sent communication in the Communications database.
 
 ## Optional MCP Layer
 

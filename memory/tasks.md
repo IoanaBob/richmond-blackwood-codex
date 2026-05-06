@@ -25,7 +25,7 @@ Imported: 2026-05-04.
 | Confirm RB signing policy, signer identity, routing order, and whether SignNow is an active standard signing tool. | 2026-05-05 |
 | Confirm whether RB should enable optional WhatsApp MCP for all operators or only this local Codex setup. | 2026-05-05 |
 | Confirm which WhatsApp account/number should be linked for RB work. | 2026-05-05 |
-| Confirm whether RB wants a dedicated Communications database or should route WhatsApp summaries only to existing client/internal records. | 2026-05-05 |
+| Confirm the canonical Communications database URL/schema and required fields. | 2026-05-06 |
 
 ## Done
 
@@ -50,3 +50,4 @@ Imported: 2026-05-04.
 | Added product offerings, pricing signals, and bundle catalogue. | 2026-05-05 | 2026-05-05 |
 | Ported neutral npm/TypeScript helper infrastructure and RB helper skills. | 2026-05-05 | 2026-05-05 |
 | Ported optional WhatsApp MCP setup and RB WhatsApp communications skill into PR #1. | 2026-05-05 | 2026-05-05 |
+| Added direct-send communications rule and chat-first drafting workflow. | 2026-05-06 | 2026-05-06 |
