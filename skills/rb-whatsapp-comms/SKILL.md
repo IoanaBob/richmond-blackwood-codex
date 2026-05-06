@@ -75,6 +75,12 @@ When the user asks to save a WhatsApp contact or chat ID for a known company cli
 6. Add the source to `clients/Companies/<client-reference>/source-register.md`.
 7. Do not import chat history, media, transcripts, or future-send approval just because the pointer was saved.
 
+## Manual Inbound Monitoring
+
+When the user explicitly asks to monitor a saved client WhatsApp chat for new inbound items, switch to `skills/rb-whatsapp-inbound-monitor/SKILL.md` and follow `processes/whatsapp-inbound-monitoring.md`.
+
+Saved chat IDs alone do not authorize monitoring. Monitoring must use the client checkpoint, read only new inbound messages, and update the checkpoint only after the required Notion and Slack work succeeds.
+
 ## Richmond Blackwood Routing
 
 When logging WhatsApp:

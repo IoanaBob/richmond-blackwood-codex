@@ -16,6 +16,7 @@ This directory is the source-controlled process and SOP mirror for Richmond Blac
 - `setup-and-access.md` - human setup and health checks.
 - `signature-and-gmail.md` - generic approvals, signing, Gmail draft, and communication rules.
 - `communications.md` - communication connector/MCP rules, WhatsApp routing, private-data handling, and follow-up capture.
+- `whatsapp-inbound-monitoring.md` - manual WhatsApp client-chat monitoring, correspondence handling, task creation, Slack notifications, and checkpoint updates.
 
 ## Maintenance
 

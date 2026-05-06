@@ -1,0 +1,118 @@
+---
+name: rb-whatsapp-inbound-monitor
+description: Use when explicitly asked to manually monitor a saved Richmond Blackwood client WhatsApp chat for new inbound messages, create Correspondence records and Notion tasks, post Slack notifications, and update the client's checkpoint.
+---
+
+# RB WhatsApp Inbound Monitor
+
+Use this skill only when the user explicitly asks to check or monitor a specific saved client WhatsApp chat. This is a manual-run workflow, not a background service.
+
+## Required Context
+
+Before reading WhatsApp messages:
+
+1. Read `processes/whatsapp-inbound-monitoring.md`.
+2. Read `skills/rb-whatsapp-comms/SKILL.md` for WhatsApp MCP setup and safety.
+3. Read the relevant client communication file, usually `clients/Companies/<client-reference>/communications.md`.
+4. Read linked-company or linked-individual files when a company chat may contain personal correspondence.
+5. Verify the checkpoint has a saved `Chat JID`, `Monitor enabled`, and `Last read through` or `Last read message ID`.
+
+If the checkpoint is missing or disabled, stop and ask for review before reading messages.
+
+## Run Boundary
+
+- Read only messages newer than the saved checkpoint.
+- Do not perform historical backfill unless the user explicitly asks.
+- Do not send WhatsApp replies as part of monitoring.
+- Do not store WhatsApp SQLite databases, QR/session state, downloaded media, transcripts, or raw chat exports in git.
+- Advance the checkpoint only after all required writes and notifications succeed.
+
+## Classification
+
+For each new inbound item:
+
+- Attachment message: create a Correspondence record and a task.
+- Text-only actionable request: create a task and Slack notification only.
+- Casual or non-actionable text: skip after inspection.
+
+If a text-only message asks Richmond Blackwood to do something, create a task even when there is no attachment.
+
+## Company Chat Entity Matching
+
+For company chats, inspect the inbound body and attachments before choosing the Notion linkage.
+
+- Company-related item: link the company.
+- Personally related item: link the specific `Individual` only when the individual is already linked to the monitored company.
+- Unlinked, ambiguous, or unclear personal item: default to the company.
+- Do not link unrelated individuals from a company chat.
+- Link either the company or the individual for this workflow, not both, unless the user approves dual-linking later.
+
+## Correspondence Handling
+
+Use Correspondence data source `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
+
+Set:
+
+- `Type = Incoming`
+- `Sent/Received On` to the WhatsApp received date
+- `Title` to a concise sender/date/subject title
+- `Company` or `Individual` according to the entity matching rules
+- `Notes` to a concise summary with purpose, requests, deadlines, obligations, and follow-up implications
+- `Document(s)` to all relevant original inbound attachments
+- `Translated Doc(s)` to full English translations for non-English documents
+
+Upload originals directly into the Notion `Document(s)` file property. If local Notion file upload is unavailable, stop, record a blocker, and leave the checkpoint unchanged.
+
+## Attachment And Translation Rules
+
+- Inspect the message body and every relevant attachment.
+- Use attachments as primary evidence when they contain the invoice, receipt, letter, notice, or client document.
+- Process all relevant attachments.
+- Do not upload the same file twice for the same inbound item.
+- For non-English documents, read the full document and create a faithful full English translation, not a summary.
+- Prefer PDF for layout-sensitive translations; otherwise DOCX is acceptable.
+
+## Task Handling
+
+Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` and template `New Task` at `https://www.notion.so/342e4130131480ca9dc5e781a3e0f55a`.
+
+For every correspondence item and actionable text request:
+
+1. Use the Company Project linked to the matched company or individual.
+2. Set `Status = To Do`.
+3. Assess `Priority`.
+4. Add label `Client Inbound` and any relevant `Bookkeeping`, `Tax`, `Legal`, or `Sales` labels.
+5. Assign by competency using `internal/people-roles.md`:
+   - Johnpaul Okolie for legal and banking.
+   - Simoneta Vicente for bookkeeping and general queries.
+   - Ioana Surdu-Bob for sales, software engineering, product, and structuring.
+6. Make the task clearly actionable and reference the Correspondence record or existing uploaded file when files exist.
+
+If no matched company or individual exists, create a task only when the correct related project can be identified confidently from existing Notion context.
+
+## Slack Notification
+
+After task creation, post to `#rb-client-updates` (`C0B1UTJJDLJ`).
+
+Include:
+
+- client or entity;
+- summary;
+- task URL;
+- priority;
+- assignee;
+- Correspondence URL, when one exists.
+
+If the task is not created, do not post the Slack notification.
+
+## Checkpoint Update
+
+Update the client checkpoint only after all required work succeeds:
+
+- `Last read through`: newest successfully inspected message timestamp in the run.
+- `Last read message ID`: newest successfully inspected message ID in the run, when available.
+- `Last run`: current run timestamp.
+- `Status`: keep `provisional` unless the user approves the process.
+- `Review`: update remaining blockers or confirmations.
+
+If a run partially succeeds, record the blocker and enough retry detail to avoid duplicates, then leave the checkpoint unchanged.

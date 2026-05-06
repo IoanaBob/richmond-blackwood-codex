@@ -59,6 +59,12 @@ When a user asks to save a WhatsApp chat ID for a known company client:
 
 The general process document should describe the filing pattern only. Keep client names, phone numbers, JIDs, and role assumptions inside the relevant client folder.
 
+## WhatsApp Monitoring Checkpoints
+
+Manual inbound monitoring is covered by `processes/whatsapp-inbound-monitoring.md` and `skills/rb-whatsapp-inbound-monitor/SKILL.md`.
+
+Use saved checkpoints only for explicit manual runs. A checkpoint may authorize a narrow read window for processing inbound items, but it does not authorize background monitoring, historical backfill, or outbound WhatsApp replies.
+
 ## Voice Notes And Media
 
 - Download media locally only when needed.
