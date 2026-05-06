@@ -37,7 +37,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Files changed: `.gitmodules`, `third_party/whatsapp-mcp`, `setup/mcp/`, `skills/rb-whatsapp-comms/`, process docs, memory docs, and source logs.
 - Decisions made: WhatsApp work should use the MCP tools for normal reads/sends, keep QR/session/media/transcripts local-only, and require explicit send approval.
 - Verification: Submodule status, bridge shell syntax, Go bridge test, Python compile check, TypeScript check, `git diff --check`, and source-specific business keyword scan passed.
-- Limitations or gaps: RB WhatsApp account, operator rollout, and any dedicated Communications database remain unapproved.
+- Limitations or gaps: RB WhatsApp account, operator rollout, and canonical Communications database URL/schema remain unconfirmed.
 - Next step: Run validation, commit, push, and update PR #1.
 
 ## 2026-05-05 - Recover VUN Client Backup And Individual Routing
@@ -60,3 +60,24 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Use find-or-create for Drive backup/export folders; do not store downloaded/exported client binaries in git unless the user explicitly approves a narrow exception.
 - Verification: `git diff --check` passed, typecheck passed with installed Node 18.17.1, and no `Client export - VUN`, `backup-manifest`, or `download-log` paths remain tracked.
 - Next step: Validate, force-push the rewritten PR branch, and update PR #2 notes.
+
+## 2026-05-06 - Direct-Send Communications Rule
+
+- User request: Create a new PR adding the rule that communication drafts should happen in chat, email drafts always show sender, `Subject`, and source thread, email replies prefer existing threads, sends happen directly, and sent communications are stored in the Communications database.
+- Context read: `AGENTS.md`, communications process, Gmail/WhatsApp skills, and memory decisions.
+- Actions taken: Added central `rb-communications` skill and updated AGENTS, README, communications, Gmail, WhatsApp, and memory docs. After user correction, kept `rb-gmail-drafts` as the email-specific skill for sender/`Subject`/source-thread/signoff and verified draft fallback behavior.
+- Files changed: `AGENTS.md`, `README.md`, `processes/communications.md`, `processes/signature-and-gmail.md`, `skills/rb-communications/SKILL.md`, `skills/rb-gmail-drafts/SKILL.md`, `skills/rb-whatsapp-comms/SKILL.md`, `skills/index.md`, and memory files.
+- Decisions made: Normal outbound communications are chat-drafted, sender-visible, direct-sent after approval, and logged to Communications; email previews always show `Subject` and source/reply thread when available; existing email threads are preferred; software drafts are exception-only. Email communications still use `rb-gmail-drafts` for Gmail-specific rules.
+- Verification: `npm run typecheck`, `git diff --check`, and source-specific/conflicting-rule scan passed.
+- Limitations or gaps: Communications database URL/schema still needs confirmation.
+- Next step: Commit, push, and open a new PR.
+
+## 2026-05-06 - Gcloud Gmail Drafting Rule
+
+- User request: Update PR #4 so Gmail email drafting always uses gcloud.
+- Context read: Gmail communication skill, Google auth skill, Gmail helper scripts, AGENTS, README, process docs, and memory.
+- Actions taken: Made Gmail draft/delete helper defaults run `gcloud auth application-default login` by default and documented that Gmail drafting actions touching Gmail must always use the repo-local gcloud-managed Gmail API helper path.
+- Files changed: `skills/rb-gmail-drafts/`, `skills/rb-google-auth/`, `AGENTS.md`, `README.md`, `processes/signature-and-gmail.md`, and memory files.
+- Decisions made: Gmail draft fallback, sender verification, helper reply-context reads, and unsafe-draft deletion must not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts.
+- Verification: `npm run typecheck`, Gmail draft/delete helper `--help` smoke checks, `git diff --check`, and stale auth-default scan passed.
+- Next step: Commit, push, and update PR #4.

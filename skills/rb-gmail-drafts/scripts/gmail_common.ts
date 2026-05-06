@@ -117,7 +117,7 @@ export class CliArguments {
 }
 
 export class GmailEnvironment {
-  public readApiConfig(authLogin = "auto", oauthClientFile = "", extraScopes: string[] = []): GmailConfig {
+  public readApiConfig(authLogin = "always", oauthClientFile = "", extraScopes: string[] = []): GmailConfig {
     return {
       accessToken: new GcloudTokenProvider().getAccessToken(
         parseGcloudLoginMode(authLogin),

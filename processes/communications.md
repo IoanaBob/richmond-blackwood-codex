@@ -3,7 +3,7 @@
 Status: provisional.
 Source: neutral WhatsApp MCP and communication-routing decisions ported from local `everguard-research-codex`, adapted to RB storage rules.
 Imported: 2026-05-05.
-Review: confirm whether RB wants a dedicated Communications database, which WhatsApp account should be connected, and which communication types should be mirrored to Notion.
+Review: confirm the canonical Communications database URL/schema, which WhatsApp account should be connected, and which communication types should be mirrored to Notion.
 
 ## Purpose
 
@@ -15,7 +15,50 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Do not invent transcripts or communication context.
 - Keep reads narrow and purpose-bound.
 - Do not send messages automatically unless the user explicitly asks to send and the tool approval confirms recipient, content, and any attachment.
+- Draft outbound communications in chat with the user. Do not create app/software drafts for the user to manually hit send unless the user explicitly asks for that exception.
+- Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
+- After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
+
+## Direct Send Preview
+
+Before sending any communication, show:
+
+- Channel.
+- From, including email address for email.
+- To or destination.
+- Cc/Bcc when relevant.
+- Subject, always for email.
+- Source/reply thread, always for email when thread context exists.
+- Attachments or files.
+- Message body.
+
+For Richmond Blackwood accounting/client email, default to:
+
+```text
+Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>
+```
+
+If another sender is required, stop and confirm it before drafting.
+
+## Communications Database Logging
+
+After sending, create or update the Communications database record with:
+
+- Communication time.
+- Channel.
+- Direction.
+- From.
+- To / participants.
+- Subject or short title.
+- Summary.
+- Full content when safe and useful.
+- Source link, message ID, thread ID, or connector status when available.
+- Related client/company/person/project if known.
+- Follow-up owner, action, deadline, and priority when needed.
+
+If the Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
 
 ## WhatsApp MCP Rules
 

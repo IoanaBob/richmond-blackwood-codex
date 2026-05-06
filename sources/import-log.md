@@ -64,7 +64,7 @@ Verification:
 Open questions:
 
 - Confirm the RB WhatsApp account/number.
-- Confirm whether RB wants a dedicated Communications database.
+- Confirm the canonical Communications database URL/schema.
 - Confirm whether optional WhatsApp MCP should be enabled for all operators or only local Codex workstations.
 
 ## 2026-05-05 - VUN And Individual Routing Recovery

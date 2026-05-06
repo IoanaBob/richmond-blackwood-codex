@@ -51,8 +51,9 @@ Consequence:
 
 - The Gmail helper fails closed if any other sender is requested.
 - If Gmail stores a draft with another sender, the draft must be deleted or marked unsafe.
+- Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions.
 
-Source: user instruction on 2026-05-05.
+Source: user instruction on 2026-05-05; reinforced by user instruction on 2026-05-06.
 Review: approved as a sender rule by user instruction; confirm whether this applies to every RB communication type or only accounting/client drafts.
 
 ## 2026-05-05 - Generic SignNow Only
@@ -81,4 +82,20 @@ Consequence:
 - Do not send WhatsApp messages/files unless the user explicitly asks and tool approval confirms recipient and content.
 
 Source: user instruction on 2026-05-05 and local source repo inspection.
-Review: confirm the RB WhatsApp account, whether WhatsApp should be enabled for all operators, and whether RB wants a dedicated Communications database.
+Review: confirm the RB WhatsApp account, whether WhatsApp should be enabled for all operators, and the canonical Communications database URL/schema.
+
+## 2026-05-06 - Chat Draft, Direct Send, Communications Log
+
+Decision: All Richmond Blackwood communication drafting should happen in chat with Codex, not as software drafts for the user to manually send.
+
+Consequence:
+
+- Every outbound communication preview must show the sending identity before approval.
+- Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
+- Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
+- After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
+- After sending, Codex should store the sent communication in the Communications database.
+- Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
+
+Source: user instruction on 2026-05-06.
+Review: approved as an operating rule by user instruction; confirm the canonical Communications database URL/schema.

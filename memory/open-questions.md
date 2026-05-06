@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-05.
+Updated: 2026-05-06.
 
 ## Notion Backup Questions
 
@@ -61,4 +61,7 @@ Updated: 2026-05-05.
 
 - Confirm whether optional WhatsApp MCP should be enabled for all RB operators or only this local Codex setup.
 - Confirm which WhatsApp account or number should be linked for RB work.
-- Confirm whether RB wants a dedicated Communications database or whether WhatsApp summaries should route only to existing client/internal records.
+
+## Communications Database Questions
+
+- Confirm the canonical Communications database URL/schema and required fields for direct-send logging.
