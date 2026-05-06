@@ -13,7 +13,7 @@ Make Richmond Blackwood evidence findable, structured, and linked to the correct
 
 - General file rules: `memory/file-uploads.md`.
 - Storage rules: `memory/storage-rules.md`.
-- Client folders: `clients/<client-reference>/`.
+- Client folders: `clients/Companies/<client-reference>/`.
 - Client Drive routing: existing `Richmond Blackwood -> finance and accounting -> <group or external> -> <company name>` tree.
 
 ## Process

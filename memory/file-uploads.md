@@ -32,4 +32,4 @@ Track durable operating rules for Richmond Blackwood files that need to be store
 - Do not infer missing Drive destinations.
 - Do not upload into arbitrary personal Drive folders.
 - Do not commit live credentials, private keys, certificate bundles, credential exports, or unsafe secret material.
-- Client export packages may contain downloaded/exported client files when access allows, but completed packages require compliance review before being sent to a client.
+- Client backup/export files belong in Drive. Git keeps pointers, source registers, and blockers only. External delivery is a separate offboarding/handover task and must only happen when the user explicitly asks.

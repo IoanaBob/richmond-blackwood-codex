@@ -31,7 +31,7 @@ Every new memory file or section should include:
 
 - General company memory: `memory/`.
 - Non-client private company history: `internal/`.
-- Client-specific private detail: `clients/<client-reference>/`.
+- Client-specific private detail: `clients/Companies/<client-reference>/`.
 - General SOP/processes: `processes/`.
 
 ## Review

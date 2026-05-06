@@ -20,11 +20,11 @@ Keep Codex repo memory, Notion, and Drive aligned without spreading private clie
 
 1. Fetch the official Notion Companies record.
 2. Read the `Reference` property.
-3. Write unsanitised detail under `clients/<client-reference>/`, using the exact `Reference` value.
+3. Write unsanitised detail under `clients/Companies/<client-reference>/`, using the exact `Reference` value.
 4. Link source evidence in the client source register.
 5. Choose the most specific client database: Client Notes & Updates, Correspondence, Companies, Invoicing, Filings, Payroll, Employment, Tax Payments, Bank Accounts, Personal Tax Filings, or another relevant database.
 6. Create or update the backup.
-7. Add the Notion URL to `clients/<client-reference>/notion-backup.md`.
+7. Add the Notion URL to `clients/Companies/<client-reference>/notion-backup.md`.
 
 If any step is unclear, stop and record the blocker.
 

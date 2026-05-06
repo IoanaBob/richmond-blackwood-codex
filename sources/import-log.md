@@ -67,12 +67,33 @@ Open questions:
 - Confirm whether RB wants a dedicated Communications database.
 - Confirm whether optional WhatsApp MCP should be enabled for all operators or only local Codex workstations.
 
+## 2026-05-05 - VUN And Individual Routing Recovery
+
+Applied:
+
+- Adopted `origin/main` as the workflow/memory/skills authority after PR #1 merged.
+- Created recovery branch `codex/vun-client-routing-backup` from `origin/main`.
+- Migrated the client tree to `clients/Companies/<client-reference>/` and `clients/Individuals/<legal-name>/`.
+- Kept VUN as the active company pilot and Nathan Mawali A Vandy as the active individual pilot.
+- Left newly created process files stashed for later review, per user instruction not to commit new process files yet.
+
+Verification:
+
+- `git diff --check` passed.
+- `git diff --cached --check` passed.
+- `npm run typecheck` passed using installed Node 18.17.1 because the repo-pinned Node 18.7.0 is not installed locally.
+- Branch pushed and draft PR opened: `https://github.com/IoanaBob/richmond-blackwood-codex/pull/2`.
+
+Correction:
+
+- The VUN binary evidence commit was later removed from the PR branch history after user review. Downloaded/exported client evidence should live in Drive, with git retaining pointers and blockers only.
+
 ## 2026-05-05 - Review Prompt Application
 
 Applied:
 
 - Added client-reference rule: client folders use Notion Companies `Reference`.
-- Created active VUN pilot folder at `clients/VUN/`.
+- Created active VUN pilot folder at `clients/Companies/VUN/`.
 - Imported VUN company, individual, project, dashboard, Drive, and personal tax filing context.
 - Added review and PR workflow process from `setup/review-prompts.md`.
 
@@ -96,7 +117,7 @@ Imported:
 - Prior RB memory from local `my-memory`.
 - Local landing and backend architecture summaries.
 - Slack, Gmail, and Drive search summaries from initial exploration.
-- Initial private client fragments into `clients/<client-reference>/`.
+- Initial private client fragments into `clients/Companies/<client-reference>/`.
 
 Notion general backup created:
 
@@ -104,14 +125,9 @@ Notion general backup created:
 - RB Codex Process Map - Provisional: `https://www.notion.so/356e41301314814ab294c21a6eb6d063`
 - RB Codex Source Register And Backup Routing: `https://www.notion.so/356e41301314817b9b46e38a767f5735`
 
-Superseded note: Notion client backup was created in Client Notes & Updates for exact company matches before the client-reference review instruction:
+Correction:
 
-- CBMAX: `https://www.notion.so/356e413013148123b1fff0e8de5c3c4f`
-- Monochromatic: `https://www.notion.so/356e4130131481ae908df5ad201b9082`
-- Techpacito: `https://www.notion.so/356e41301314811783a3c755a0c1caba`
-- Agile Lincs: `https://www.notion.so/356e413013148130b78ec75395dbb232`
-- Pacheco Cruz Limited: `https://www.notion.so/356e413013148142aa57e716cc89ecb6`
-- Ana Kova Studio: `https://www.notion.so/356e4130131481868586f20bb01a41b7`
+- Earlier non-VUN provisional client backup references were removed because the referenced pages/folders were incorrect. Non-VUN client imports must be redone directly from Notion Companies `Reference` records.
 
 Not imported yet:
 

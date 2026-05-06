@@ -28,6 +28,19 @@ Notion company record includes:
 - Submitted incorporation form: `Vandy_Constitution_(1).pdf`.
 - Signed initial contract: `Richmond_Blackwood_Agreement_-_Ioana_Surdu-Bob__Nathan_Mawali.pdf`.
 
+## Backup Package Rule
+
+Retain full filenames for contract and authority documents. For recurring backup or evidence export, store the actual downloaded/exported files in Drive and record the Drive pointers here.
+
+Expected Drive categories:
+
+- Company information.
+- Contracts.
+
+The VUN file pointers remain pending until the source files are fetched from Notion, Drive, or the source system and uploaded/found in the correct Drive folder.
+
+The manifest also records the Notion attachment handles for the company documents and signed contract.
+
 ## Risk Assessment Extract
 
 Provisional extract from Notion:
@@ -39,7 +52,12 @@ Provisional extract from Notion:
 - Industry sector risk: IT, Low.
 - Volumes risk: EUR 20,000, Medium.
 
+## Personal Identity / Address Checks
+
+Personal Workhub/Nexudus identity and address-check correspondence belongs in Nathan's individual folder:
+
+- `../../Individuals/Nathan Mawali A Vandy/communications.md`
+
 ## Review Needed
 
-- Confirm whether the signed contract filename should be retained in full.
-- Confirm whether any contract or authority documents should be mirrored to Drive pointers here.
+- Upload or locate the actual contract and authority documents in the correct Drive folder, then record Drive URLs here.

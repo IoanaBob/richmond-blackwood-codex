@@ -8,9 +8,9 @@ Imported: 2026-05-04.
 1. Read `AGENTS.md`, `memory/storage-rules.md`, and `memory/current-state.md`.
 2. Skim `memory/history.md` and `memory/skill-runs.md`.
 3. Check `skills/index.md` before using repo-local helpers.
-4. Review the active VUN pilot in `clients/VUN/`.
+4. Review the active VUN company pilot in `clients/Companies/VUN/` and the linked individual pilot in `clients/Individuals/Nathan Mawali A Vandy/`.
 5. Resolve `memory/open-questions.md` before creating client Notion pages or Drive folders.
-6. Use Notion Companies `Reference` for client folders; do not invent slugs.
+6. Use Notion Companies `Reference` for company folders and Notion legal names for individual folders; do not invent slugs.
 7. For growth work, use `internal/growth-sales-marketing.md` and `internal/marketing-creative-review.md`; HubSpot/API account analysis is on-demand only.
 8. For WhatsApp work, read `setup/mcp/whatsapp.md` and `skills/rb-whatsapp-comms/SKILL.md` first.
 
@@ -20,7 +20,9 @@ Do not mark provisional facts approved without explicit user review.
 
 Do not move or create Drive client documents until group/external classification and company folder are confirmed.
 
-Do not delete earlier name-derived client folders until the user explicitly confirms deletion.
+Do not resurrect earlier incorrect non-VUN client backup references. Redo each non-VUN client from the Notion Companies `Reference` property.
+
+New process files from the pre-rebase work are intentionally stashed and should be restored only after review.
 
 Repo-local helpers now exist. Gmail drafts must use `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`. SignNow helpers are generic only; do not infer RB signer identity or signing policy.
 

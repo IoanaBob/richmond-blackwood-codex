@@ -10,7 +10,7 @@ Use this skill whenever a local or cloud file should be preserved for Richmond B
 ## Workflow
 
 1. Identify the target destination before moving files.
-   - For client-specific files, use `clients/<client-reference>/` where `<client-reference>` is the exact Notion Companies `Reference`.
+   - For client-specific files, use `clients/Companies/<client-reference>/` where `<client-reference>` is the exact Notion Companies `Reference`.
    - For Notion updates, fetch the target schema first and use a `FILES` property for Drive-backed documents where available.
 2. Confirm the source file exists or the cloud URL is accessible.
 3. Record filename, type, size, and SHA-256 in memory when the file is signed, confidential, or operationally important.
