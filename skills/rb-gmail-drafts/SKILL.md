@@ -42,7 +42,7 @@ Before sending email, show:
 - Attachments.
 - Body.
 
-After approval, send directly through the supported Gmail connector/API path and log the sent email in the Communications database. If direct send is unavailable and the user approves a fallback, create a verified Gmail draft with the helper below.
+After approval, send directly through the supported Gmail connector/API path and log the sent email in RB Communications. If direct send is unavailable and the user approves a fallback, create a verified Gmail draft with the helper below.
 
 ## Draft Helper
 

@@ -2,6 +2,89 @@
 
 Status: active.
 
+## 2026-05-07 - Richmond Blackwood Follow-Up Task Rule
+
+Applied:
+
+- Added the rule that Richmond Blackwood action follow-ups must be created in the Notion Tasks database and linked to the relevant company project.
+- Recorded `Richmond Blackwood Backlog` as the default project for this repository: `https://www.notion.so/25de4130131481769758f5f2d465a141`.
+- Updated the communications process, client backup process, Notion operations process, communications skill, client filing skill, Notion database standards, AGENTS instructions, and handoff memory.
+
+Verification:
+
+- Fetched the Richmond Blackwood Backlog project and an existing linked task to confirm the Tasks data source and core task fields.
+
+## 2026-05-07 - Entity Ownership Rule For Client Records
+
+Applied:
+
+- Corrected the VUN Slack closeout record in RB Communications so it is linked to VANDY UN LIMITED only.
+- Updated RB Communications database guidance so each communication belongs to either a company or an individual, not both.
+- Added the same either/or ownership rule for communications, bank accounts, assets, and expenses to the client backup process, client filing skill, communications process, communications skill, Notion database standards, storage rules, and client templates.
+
+Verification:
+
+- Directly fetched the VUN Slack closeout record to confirm it is company-only in RB Communications.
+
+## 2026-05-07 - RB Communications Database Correction
+
+Applied:
+
+- Created the canonical `RB Communications` database under RB Client Databases: `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
+- Added company and individual relation fields so each communication record can belong to either a company or an individual, not both.
+- Added table views for all communications, by company, by individual, and follow-ups.
+- Moved the VUN Slack closeout communication record out of the Everguard/research Communications table and into RB Communications.
+- Linked the moved VUN Slack closeout record to VANDY UN LIMITED only because it is a company-operational closeout.
+- Updated communication process rules so future RB communication logging uses RB Communications only, with a single owning entity relation.
+
+Verification:
+
+- Directly fetched the new RB Communications database and moved VUN Slack closeout record.
+- Directly fetched the moved record to confirm its new RB Communications parent and company-only relation.
+
+## 2026-05-07 - VUN Personal Tax Task Split And Filing Follow-Ups
+
+Applied:
+
+- Narrowed the VUN 2023 + 2024 VAT/tax analysis task in Notion.
+- Kept the 2025 personal tax analysis as a separate Notion task because it has a separate spreadsheet/source set.
+- Added review comments to the Notion analysis tasks so progress is visible inside Notion.
+- Created separate 2023 + 2024 and 2025 personal tax filing follow-up tasks in Notion, assigned to Johnpaul Okolie.
+- Set `Dependent on` on each filing follow-up task to the relevant analysis task and added dependency comments.
+- Added task-comment and filing-follow-up standards to the client backfill and personal tax process rules.
+- Updated VUN and Nathan local routing files to reflect the Notion task changes.
+
+Verification:
+
+- Fetched the updated Notion analysis tasks and new filing tasks to confirm comments, assignment, labels, and VUN project relation.
+
+Follow-up:
+
+- Filing task completion still needs filing evidence before any filed status is recorded.
+
+## 2026-05-07 - VUN Task And Correspondence History Refresh
+
+Applied:
+
+- Fetched the VUN company record, client project, linked task records, and linked correspondence records from Notion.
+- Updated VUN task history in `clients/Companies/VUN/client-project.md`, separating active/review tasks, completed/historical tasks, and deleted task records.
+- Updated VUN correspondence history in `clients/Companies/VUN/communications.md`, replacing the unresolved link list with dated summaries.
+- Added a task/correspondence timeline to `clients/Companies/VUN/history.md`.
+- Registered the source pass in `clients/Companies/VUN/source-register.md`.
+- Added standard Slack closeout reporting to `processes/knowledge-backup-and-source-control.md` and `skills/rb-client-file/SKILL.md`.
+- Sent and corrected the requested closeout in `#rb-client-updates`: `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1778160684561399`.
+- Logged the closeout in RB Communications: `https://www.notion.so/359e4130131481c2aa5aed36559669d0`.
+
+Verification:
+
+- Direct Notion page fetches completed for all linked VUN project tasks and company correspondence records.
+- `git diff --check` passed.
+
+Follow-up:
+
+- Future task/correspondence refreshes should use the most reliable available Notion read path and keep Slack closeouts Notion-facing.
+- Individual-specific personal insolvency and personal tax details may need further routing under `clients/Individuals/Nathan Mawali A Vandy/`.
+
 ## 2026-05-05 - WhatsApp Inbound Monitoring Process
 
 Applied:
@@ -90,7 +173,7 @@ Verification:
 Open questions:
 
 - Confirm the RB WhatsApp account/number.
-- Confirm the canonical Communications database URL/schema.
+- Superseded on 2026-05-07 when RB Communications was created under RB Client Databases.
 - Confirm whether optional WhatsApp MCP should be enabled for all operators or only local Codex workstations.
 
 ## 2026-05-05 - WhatsApp Chat ID Filing Process

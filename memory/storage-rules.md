@@ -45,6 +45,15 @@ Every linked company/individual pair should have both sides recorded:
 
 If Notion correspondence or another linked record is attached to the wrong entity, first link the correct company/individual, then unlink the incorrect entity, and record the correction in the relevant source/register files.
 
+## Entity Ownership Rule
+
+Communications, bank accounts, assets, and expenses should belong to either a company or an individual, not both.
+
+- Link company-owned or company-operational records to the company only.
+- Link personal or individual-owned records to the individual only.
+- If a record is discovered through one entity but belongs to the other, link the correct entity first, then unlink the incorrect entity.
+- If both entities are useful context, keep the Notion record attached to the owner and add a pointer from the other entity's repo file instead of dual-linking.
+
 ## Notion Destinations
 
 General SOP and process destination:

@@ -14,7 +14,7 @@ Use this skill for any Richmond Blackwood outbound communication.
 - For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - Prefer replying in the existing email thread when email context exists. Start a new email thread only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
-- After sending, store the sent communication in the Communications database.
+- After sending, store the sent communication in the RB Communications database.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
 
 ## Required Preview
@@ -45,10 +45,17 @@ If a different email sender is needed, stop and confirm it before drafting.
 3. Ask for approval unless the user already supplied exact final text and explicitly asked to send it.
 4. Send directly through the supported connector or MCP tool.
 5. Verify the send result when the connector returns a message link, ID, timestamp, or status.
-6. Store the communication in the Communications database.
-7. If the Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
+6. Store the communication in the RB Communications database.
+7. If the RB Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
 
 ## Communications Database Logging
+
+Canonical Notion database:
+
+- RB Communications: `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`
+- Data source: `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`
+
+Do not use the Everguard/research Communications table for Richmond Blackwood records.
 
 Record enough detail to reconstruct the business action without dumping unnecessary private history:
 
@@ -61,7 +68,18 @@ Record enough detail to reconstruct the business action without dumping unnecess
 - Summary.
 - Full content when safe and useful.
 - Source link, message ID, or thread ID when available.
-- Related client/company/person/project if known.
+- Related company or individual when known. A communication record should be linked to either a company or an individual, not both.
 - Follow-up owner, action, deadline, and priority when needed.
 
 Client-specific communication facts must still follow the `clients/<client-reference>/` routing rule when repo storage is needed.
+
+Use the company relation for company/client-operational communications. Use the individual relation for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency communications. If both seem relevant, choose the entity that owns the subject matter and keep a pointer in the other entity's repo file if needed.
+
+## Follow-Up Tasks
+
+When a sent or received communication requires Richmond Blackwood action, create a task in the Notion Tasks database instead of leaving the work only in `Follow-Up Action`.
+
+- Link the task to the relevant company project. In this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required.
+- Use the Tasks fields `Name`, `Status`, `Assigned To`, and `Project`; add due date, source communication, and relation fields when useful.
+- Assign the task to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If ownership is unclear, ask before creating the task.
+- Keep the RB Communications record as the audit/source log.

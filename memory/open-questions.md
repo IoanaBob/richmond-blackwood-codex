@@ -2,12 +2,13 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-06.
+Updated: 2026-05-07.
 
 ## Notion Backup Questions
 
 - Create company and individual Client Notes & Updates backup pages for VUN/Nathan at the root-level client records after user review.
 - Backfill those VUN/Nathan backup pages from all available sources after the repo records are reviewed.
+- Confirm whether VUN-linked personal insolvency and personal tax task/correspondence summaries should remain in the VUN company folder as pointers or be fully routed only under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Redo non-VUN client imports directly from Notion Companies `Reference` records; earlier non-VUN backup references were incorrect and have been removed.
 
 ## Drive Filing Questions
@@ -61,7 +62,3 @@ Updated: 2026-05-06.
 
 - Confirm whether optional WhatsApp MCP should be enabled for all RB operators or only this local Codex setup.
 - Confirm which WhatsApp account or number should be linked for RB work.
-
-## Communications Database Questions
-
-- Confirm the canonical Communications database URL/schema and required fields for direct-send logging.

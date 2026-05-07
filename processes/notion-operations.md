@@ -39,6 +39,16 @@ When a Notion database is intended to track ongoing RB work, include:
 
 The connector does not expose native `Turn into Tasks`. If native task visibility is needed, tell the user to complete conversion in the Notion UI.
 
+## Tasks Database
+
+Use the existing Notion Tasks database for Richmond Blackwood action items.
+
+- Tasks data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
+- Create follow-up tasks with `Name`, `Status`, `Assigned To`, and `Project`.
+- Link each task to the relevant company project. For this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required.
+- Use explicit user instructions, project owner/inherited owner, established process rules, or `internal/people-roles.md` to choose the assignee. If none is clear, ask before creating the task.
+- Communication records, client notes, and repo files can be source context, but they are not substitutes for a Tasks database row when RB action is required.
+
 ## Known Connector Limits
 
 - Existing view tabs may not be reorderable or deletable through the connector.

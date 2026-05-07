@@ -3,7 +3,7 @@
 Status: provisional.
 Source: neutral WhatsApp MCP and communication-routing decisions ported from local `everguard-research-codex`, adapted to RB storage rules.
 Imported: 2026-05-05.
-Review: confirm the canonical Communications database URL/schema, which WhatsApp account should be connected, and which communication types should be mirrored to Notion.
+Review: confirm which WhatsApp account should be connected and which communication types should be mirrored to Notion.
 
 ## Purpose
 
@@ -18,7 +18,7 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Draft outbound communications in chat with the user. Do not create app/software drafts for the user to manually hit send unless the user explicitly asks for that exception.
 - Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
-- After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the Communications database.
+- After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the RB Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 
 ## Direct Send Preview
@@ -44,7 +44,14 @@ If another sender is required, stop and confirm it before drafting.
 
 ## Communications Database Logging
 
-After sending, create or update the Communications database record with:
+Canonical Notion database:
+
+- RB Communications: `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`
+- Data source: `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`
+
+Do not use the Everguard/research Communications table for Richmond Blackwood records.
+
+After sending, create or update the RB Communications database record with:
 
 - Communication time.
 - Channel.
@@ -55,10 +62,12 @@ After sending, create or update the Communications database record with:
 - Summary.
 - Full content when safe and useful.
 - Source link, message ID, thread ID, or connector status when available.
-- Related client/company/person/project if known.
+- Related company or individual when known. A communication record should be linked to either a company or an individual, not both.
 - Follow-up owner, action, deadline, and priority when needed.
 
-If the Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
+Use the company relation for company/client-operational communications. Use the individual relation for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency communications. If both seem relevant, choose the entity that owns the subject matter and keep a pointer in the other entity's repo file if needed.
+
+If the RB Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
 
 ## WhatsApp MCP Rules
 
@@ -118,6 +127,10 @@ Use saved checkpoints only for explicit manual runs. A checkpoint may authorize 
 
 When a communication creates work:
 
-- Record the follow-up in `memory/tasks.md` if it is repo/process work.
+- Create the follow-up as a row in the Notion Tasks database whenever Richmond Blackwood needs to take action.
+- Link the task to the relevant company project. In this repository, use the Richmond Blackwood project unless a more specific RB project is clearly required: `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`).
+- Use the Tasks database fields `Name`, `Status`, `Assigned To`, and `Project`; include due date, description, source communication, and relation fields when useful.
+- Assign the task to the right person from the user request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.
+- Keep the RB Communications record as the audit log/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
+- Record the follow-up in `memory/tasks.md` only when it is repo/process work that also needs local tracking.
 - Record the follow-up in the relevant client file if it is client-specific and the client `Reference` is known.
-- Use the appropriate Notion database only when the destination is clear and existing.
