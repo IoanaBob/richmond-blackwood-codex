@@ -22,6 +22,18 @@ Nathan Mawali A Vandy:
 | 2024 | `https://www.notion.so/2cae4130131480409442daeb9e9ffbec` | Germany | Filed | Attached in Drive | 2026-04-30 | 2026-01-15 | `https://drive.google.com/drive/folders/1VnnhYdnuep-b2-1SQP5DlbWO_yeJLEfk?usp=drive_link` |
 | 2025 | `https://www.notion.so/342e4130131480849114fe02636b759a` | Germany | Pending | Not provided | 2026-07-31 | blank | blank |
 
+## Linked Task Tracking
+
+Status: provisional.
+Source: VUN Notion project task review on 2026-05-07.
+Imported: 2026-05-07.
+Review: Confirm filing task completion only against filing evidence.
+
+- 2023 + 2024 analysis: `VUN add VAT to 2023 + 2024 tax analysis` (`https://www.notion.so/34be4130131480db998dd3bfb292da55`) was narrowed from a combined 2023/2024 + 2025 task because 2025 has a separate spreadsheet/source set.
+- 2025 analysis: `Nathan - 2025 Personal Tax Analysis` (`https://www.notion.so/332e41301314813aadb4fca120d13eae`) remains the separate 2025 analysis task.
+- 2023 + 2024 filing follow-up: `Nathan - 2023 + 2024 personal tax filing` (`https://www.notion.so/359e4130131481d581d7c9f68213a54c`) was created in Notion, assigned to Johnpaul Okolie, and marked `Dependent on` the 2023 + 2024 analysis task.
+- 2025 filing follow-up: `Nathan - 2025 personal tax filing` (`https://www.notion.so/359e4130131481628a34c1f252a3637b`) was created in Notion, assigned to Johnpaul Okolie, and marked `Dependent on` the 2025 analysis task.
+
 ## Submission Attachments In Notion
 
 - 2023 submission: `Nathan_2023_tax_filing.zip`.

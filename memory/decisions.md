@@ -82,7 +82,7 @@ Consequence:
 - Do not send WhatsApp messages/files unless the user explicitly asks and tool approval confirms recipient and content.
 
 Source: user instruction on 2026-05-05 and local source repo inspection.
-Review: confirm the RB WhatsApp account, whether WhatsApp should be enabled for all operators, and the canonical Communications database URL/schema.
+Review: confirm the RB WhatsApp account and whether WhatsApp should be enabled for all operators.
 
 ## 2026-05-06 - Chat Draft, Direct Send, Communications Log
 
@@ -94,8 +94,8 @@ Consequence:
 - Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
 - Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
 - After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
-- After sending, Codex should store the sent communication in the Communications database.
+- After sending, Codex should store the sent communication in RB Communications.
 - Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
 
 Source: user instruction on 2026-05-06.
-Review: approved as an operating rule by user instruction; confirm the canonical Communications database URL/schema.
+Review: approved as an operating rule by user instruction.

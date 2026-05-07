@@ -38,6 +38,17 @@ When an RB database is intended to track ongoing work, design it as task-ready:
 
 The current Notion connector does not expose native `Turn into Tasks` conversion. If a database should appear in Notion My Tasks or a master calendar, create the task-ready schema and tell the user to complete `Turn into Tasks` in the Notion UI.
 
+## Follow-Up Tasks
+
+Richmond Blackwood action items should use the existing Notion Tasks database, not free-text follow-up fields as the only work tracker.
+
+- Tasks database: `https://www.notion.so/25de413013148145b24ee8728c582650`
+- Tasks data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
+- Required fields for task creation: `Name`, `Status`, `Assigned To`, and `Project`.
+- Link each task to the relevant company project. In this repository, default to `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required.
+- Assign the task to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.
+- Keep communications, notes, or source records as audit/source context and link or reference them from the task where useful.
+
 ## Data Ownership
 
 - Put each business fact in the database or repo file that owns it.
@@ -45,3 +56,5 @@ The current Notion connector does not expose native `Turn into Tasks` conversion
 - Use one-way relations by default. Create reciprocal relations only when the reverse database needs that relationship as an operational surface.
 - Company-specific private detail belongs under `clients/Companies/<client-reference>/` in the repo and in the relevant Client Databases destination in Notion.
 - Individual-specific private detail belongs under `clients/Individuals/<legal-name>/` and should relate to the correct Notion individual/person records.
+- Communications, bank accounts, assets, and expenses must belong to either a company or an individual, not both. If both entities are contextually relevant, link the record to the entity that owns the subject matter and add a pointer from the other entity's repo file when useful.
+- For those either/or records, use company relations for company operating matters and individual relations for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency matters.

@@ -68,6 +68,13 @@ Individual-specific facts:
 - Notion: relevant individual/person and client database records under Client Databases.
 - If the linked company or individual identity is unclear, record the uncertainty before filing.
 
+Richmond Blackwood follow-up tasks:
+
+- Follow-ups that require Richmond Blackwood action must be created in the Notion Tasks database, not left only as free-text follow-up fields on communication records.
+- Tasks must be linked to the relevant Notion project for the responsible company. In this repository, use the Richmond Blackwood company project unless a more specific RB project is clearly required.
+- Current RB project: `Richmond Blackwood Backlog` at `https://www.notion.so/25de4130131481769758f5f2d465a141`.
+- Assign the task to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If the assignee is unclear, stop and ask rather than creating an unowned task.
+
 ## Drive Routing
 
 Use Drive for raw documents or evidence that does not need always-on Codex access.

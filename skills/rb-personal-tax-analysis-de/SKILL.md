@@ -30,6 +30,8 @@ Note: the fuller process document is pending review and should not be treated as
 
 1. Confirm the individual legal name, Notion individual record, filing year, and linked company reference.
 2. Determine whether the filing period includes freelancer status, employee status, RB company-director status, or a mixed period.
+   - Keep one Notion task per real piece of work. If separate spreadsheets/source sets exist, split them into separate analysis tasks rather than combining years by habit.
+   - When reviewing, narrowing, or creating tasks, add Notion task comments that explain the progress and next step so the requester/team can see what changed.
 3. Create/find the Drive folder structure from the company client folder:
    - `Personal tax filings/<individual legal name>/<year>/Documents from Client - <year> - <first name>/`
 4. Record Drive folder URLs in the individual `drive-locations.md`.
@@ -51,8 +53,14 @@ Note: the fuller process document is pending review and should not be treated as
    - Assets to `assets.md`.
    - Correspondence to `correspondence.md`.
    - Expenses to `expenses.md`.
-10. If Notion relation routing is wrong, fix the relation: link the correct individual/company first, then unlink the incorrect entity.
-11. Record missing data in `open-questions.md` and update source registers.
+10. After the analysis task is clear or complete, create separate filing follow-up task(s) in Notion:
+   - Assign personal tax filing follow-up tasks to Johnpaul Okolie unless the user specifies another owner.
+   - Keep filing tasks separate from analysis tasks.
+   - Split filing follow-up tasks to match the underlying work/source sets, for example one filing task for a combined 2023 + 2024 analysis spreadsheet and one filing task for a separate 2025 spreadsheet.
+   - Set `Dependent on` on each filing follow-up task to the analysis task it depends on. Use `Is blocking` on the initial task only when that direction is more natural for an existing workflow.
+   - Add a comment on each filing task explaining the analysis dependency and why the task was created.
+11. If Notion relation routing is wrong, fix the relation: link the correct individual/company first, then unlink the incorrect entity.
+12. Record missing data in `open-questions.md` and update source registers.
 
 ## Output
 
@@ -61,6 +69,9 @@ After setup, leave:
 - Updated individual tax filing status.
 - Drive folder pointers.
 - Client upload request draft or sent-status note.
+- Notion analysis task comments showing review progress.
+- Separate Notion filing follow-up task(s), assigned to Johnpaul Okolie unless another owner is specified.
+- Task dependency links using `Dependent on` for connected follow-up work.
 - List of missing data/documents.
 - Links to payroll/payslip evidence when applicable.
 - Linked-entity records routed to the correct files.

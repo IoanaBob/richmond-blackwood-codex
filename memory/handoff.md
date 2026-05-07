@@ -14,6 +14,7 @@ Imported: 2026-05-04.
 7. For growth work, use `internal/growth-sales-marketing.md` and `internal/marketing-creative-review.md`; HubSpot/API account analysis is on-demand only.
 8. For WhatsApp work, read `setup/mcp/whatsapp.md` and `skills/rb-whatsapp-comms/SKILL.md` first.
 9. For outbound communications, use `skills/rb-communications/SKILL.md`.
+10. For client history refreshes, use `skills/rb-client-file/SKILL.md`; after changing repo files, send `#rb-client-updates` a Notion-facing closeout listing only what was added or modified in Notion.
 
 ## Caution
 
@@ -29,11 +30,17 @@ Repo-local helpers now exist. Use `rb-gmail-drafts` for email-specific sender, t
 
 Optional WhatsApp MCP is ported but provisional. Use `setup/mcp/start-whatsapp-bridge.sh` only to manage the local bridge and use the `whatsapp` MCP tools for normal WhatsApp reads/sends. Do not commit QR/session state, SQLite databases, downloaded media, transcripts, or personal Codex config. Do not send WhatsApp messages/files without explicit user instruction and tool approval.
 
-Outbound communication drafting happens in chat. Always show the sender identity before approval, including exact `From` name, email address, `Subject`, and source/reply thread for email when thread context exists. Prefer replying in the existing email thread whenever email context exists. After approval, send directly through the supported connector/MCP tool and log the sent communication in the Communications database. Software drafts are exception-only.
+Outbound communication drafting happens in chat. Always show the sender identity before approval, including exact `From` name, email address, `Subject`, and source/reply thread for email when thread context exists. Prefer replying in the existing email thread whenever email context exists. After approval, send directly through the supported connector/MCP tool and log the sent communication in RB Communications (`https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`, data source `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`). Do not use the Everguard/research Communications table for RB records. Software drafts are exception-only.
 
 WhatsApp chat IDs may be saved as client communication pointers only after resolving the contact through the MCP tools and disambiguating any multiple matches with the user. File company-client pointers under `clients/Companies/<client-reference>/communications.md`, add a matching client source-register row, and keep the pointer provisional until the contact relationship and preferred-contact status are confirmed.
 
 Manual WhatsApp inbound monitoring now has a provisional process and skill. Use `skills/rb-whatsapp-inbound-monitor/SKILL.md` only when the user explicitly asks to check a saved client chat. For VUN, the saved Eran Peer chat checkpoint starts at 2026-05-05 23:41 IST with no historical backfill; first live run should inspect only messages after that checkpoint and store the latest inspected message ID after successful handling.
+
+VUN task and correspondence history was refreshed on 2026-05-07 from direct Notion page fetches. Future per-client backfills may need direct fetches when bulk Notion export is unavailable.
+
+Connected follow-up tasks should use `Dependent on` on the follow-up task when the follow-up cannot start until the initial task is complete. Use `Is blocking` on the initial task only when that direction is clearer in the existing workflow.
+
+Richmond Blackwood action follow-ups should be created in the Notion Tasks database and linked to the responsible company project. In this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required. Assign the task to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`; ask if ownership is unclear.
 
 ## Verification
 
