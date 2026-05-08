@@ -43,6 +43,9 @@ This process covers daily inbound email triage for Richmond Blackwood, focusing 
   - Do **not** log routine invoices/receipts as Correspondence unless they carry additional non-invoice operational context; log invoices/receipts as Expenses only.
   - Do **not** log invoice payment-failed notices, upcoming direct-debit notices, ordinary payment reminders, or payment receipts as Correspondence by default. Route them to Expenses, Invoicing/AR, or ignore/no-op as appropriate unless the message also contains a separate operational request.
   - If an item was mistakenly logged as Correspondence, mark it **Superseded** (rename title + note) rather than creating a second “correct” correspondence row.
+- Keep no-op triage finite:
+  - If a message is clearly irrelevant/no-op and no Notion, Drive, Slack, or supplier/client action is required, record the classification in the run ledger and apply Gmail `Triaged` after verification so it does not recur in future daily runs.
+  - Do not create Notion records, Drive files, tasks, or Slack messages for no-op-only items.
 - Keep **Expenses** complete:
   - Resolve the owning company before writing or updating the Expense:
     - Set the Notion `Company` relation to the client/company receiving the invoice or receipt.
@@ -89,13 +92,14 @@ This process covers daily inbound email triage for Richmond Blackwood, focusing 
   2. **New Expenses** — list each Expense record created or materially updated with a clickable Notion link, amount, status, owning company/internal company, and whether the `Receipt / Invoice` field is verified, human-uploaded, rejected/correction-required, or blocked.
   3. **Received Invoices** — list non-expense invoice records, especially contractor invoices routed to Contracts/Invoicing, with the clickable invoice line, linked contract, file status, and confirmation that no duplicate upload/task was created where applicable.
 - Do not post a final Slack overview until each section has been checked for omissions. If a section has no entries, write `None` for that section rather than deleting the heading.
+- If there are no actionable items and no Notion/Drive records were created or updated, do not post Slack; return a concise no-op summary in the automation response only.
 
 ## Completion Criteria (per message)
 
 For each Gmail message processed:
 
-1. Required Notion actions (create or update) are completed and verified.
+1. Required Notion/Drive actions (create or update) are completed and verified, or the run ledger verifies that no Notion/Drive action is required for a no-op message.
 2. Invoice/receipt attachments are present in the Expense `Receipt / Invoice` field, or the record explicitly says a human already uploaded the file and no duplicate was uploaded.
 3. Non-invoice correspondence is linked to an existing client-project task or a newly created task in the right client project.
-4. Only then apply Gmail label `Triaged`.
+4. Apply Gmail label `Triaged` only after required handling for that classification is complete; leave messages unlabelled when a specific exception or unresolved blocker requires future action.
 5. Do not archive by default.

@@ -877,6 +877,14 @@ All RB-specific imported facts remain provisional.
 - Status: provisional.
 - Unresolved questions: confirm whether Workhub plan amounts are VAT-exclusive and whether any additional companies have upgraded plans.
 
+## 2026-05-08 Targeted Exception And No-Op Triage Review
+
+- Source: user instruction and review in Codex thread.
+- Scope: targeted Workhub exception lookup and recurring-run no-op handling.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved for targeted Workhub lookup; provisional for verified no-op Gmail labelling pending next live run validation.
+- Unresolved questions: none.
+
 Checks run 2026-05-04:
 
 - `git diff --check`: clean.

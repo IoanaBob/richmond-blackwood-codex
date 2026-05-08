@@ -31,7 +31,7 @@ Use this skill when running the Daily Gmail inbound triage automation.
    - Do not let performance shortcuts skip required verification for mutable records, files, ownership, or Gmail labels.
 1. **Search** Gmail for `in:inbox -label:Triaged` across accounting/client aliases. Start with metadata/snippets/attachment filenames; download full bodies or files only after classification shows they are needed.
 2. **Classify** each email:
-   - Ignore/no-op (newsletters, marketing, generic notifications) → do nothing, do not label Triaged unless policy says otherwise.
+   - Ignore/no-op (newsletters, marketing, generic notifications) → record the no-op classification in the run ledger, apply Gmail `Triaged` after verifying no Notion/Drive/Slack/supplier action is required, and do not create Notion records, Drive files, tasks, or Slack messages.
    - Expense/payable/receipt → create/update **Expenses** row and attach the source file to `Receipt / Invoice`; do not create a task.
    - Before saving an Expense, resolve the correct company:
      - Set the Expense `Company` relation to the verified client/company.
@@ -69,9 +69,10 @@ Use this skill when running the Daily Gmail inbound triage automation.
      2. **New Expenses** — every expense row created/updated, with Expense link, amount, status, owning company/internal company, and attachment/evidence state.
      3. **Received Invoices** — non-expense invoice records such as contractor invoices routed to Contracts/Invoicing, with Invoice line, contract link, file status, and no-duplicate/no-task note.
    - If a section is empty, keep the heading and write `None`.
+   - If there are no actionable items and no Notion/Drive records were created or updated, do not post Slack; return a concise no-op summary in the automation response only.
    - Do not send if interrupted; on restart, send one full overview only.
 6. **Gmail labeling**:
-   - Apply label `Triaged` only to messages whose required handling succeeded.
+   - Apply label `Triaged` only after required handling for that classification succeeded, including verified no-op classifications; leave messages unlabelled when a specific exception or unresolved blocker requires future action.
    - Do not archive by default.
 
 ## Output / Reporting
