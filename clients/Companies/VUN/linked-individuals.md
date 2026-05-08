@@ -4,13 +4,13 @@ Status: provisional.
 Imported: 2026-05-05.
 Source: Notion company and individual records, user routing instruction.
 
-This file is the structured link between the VUN company client and individuals connected to the client relationship.
+This file maps people and contacts connected to the VUN company client. It replaces a separate `people-and-contacts.md` file for company-level people routing.
 
-## Individuals
+## People And Linked Individuals
 
-| Individual | Individual folder | Relationship to company | Personal service scope | Routing rule |
+| Person | Local folder | Relationship to company | Source | Notes |
 | --- | --- | --- | --- | --- |
-| Nathan Mawali A Vandy | `../../Individuals/Nathan Mawali A Vandy/` | Director, UBO, shareholder individual, client POC | Personal tax returns; individual insolvency/solvency evidence; individual KYC/contact/identity context | Store personal correspondence and personal tax material in the individual folder. Keep only pointers here and in company files. |
+| Nathan Mawali A Vandy | `../../Individuals/Nathan Mawali A Vandy/` | Director, UBO, shareholder individual, client POC | `https://www.notion.so/182e4130131480cead22dd69fd3f2dc7` | Store personal correspondence, personal tax, KYC, and personal identifier details in the individual folder. Keep only company-side context here. |
 
 ## Personal Service Link Rule
 
@@ -18,7 +18,7 @@ When Richmond Blackwood serves a company and also serves an individual connected
 
 1. Keep the company client root under `clients/Companies/<client-reference>/`.
 2. Keep the individual root under `clients/Individuals/<legal-name>/`.
-3. Add the person to this file in the company folder.
+3. Add the person/contact to this file in the company folder.
 4. Add the company to `clients/Individuals/<legal-name>/linked-companies.md`.
 5. Route personal correspondence, personal tax, KYC, personal identifiers, personal assets, and individual insolvency/solvency details to the individual folder.
 6. Put only pointers in the company folder unless the fact is genuinely company-level.
