@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-06.
+Updated: 2026-05-08.
 
 ## Repo State
 
@@ -91,6 +91,27 @@ Nathan Mawali A Vandy individual root:
 - Repo folder: `clients/Individuals/Nathan Mawali A Vandy/`
 - Linked company: `clients/Companies/VUN/linked-individuals.md`
 - Status: personal correspondence, bank account, assets, expenses, legal/solvency, and personal tax filing context found during the VUN pass has been routed into the individual folder.
+- 2026-05-06 German personal-tax template status: future German personal-tax work should use the native machine-readable Google Sheets template `RB German Personal Tax Analysis - Machine-Readable Template v1` at `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`. The template supersedes the Nathan/VUN-era separate `codex - ...` workbook-tab workflow for new analyses.
+- 2026-05-06 Nathan workbook audit trail: the 2023/2024 VAT workbook and 2025 personal tax workbook still contain the formula-backed Codex annual/discrepancy/investment tabs in Drive as historical audit work. The latest 2025 revision adds `codex - invoices - 2026-05-06` as an invoice evidence index, corrects DappRadar/UAB and Vandy UN as provided invoice evidence, formula-tracks the remaining DappRadar EUR 1,500 as unpaid/unmatched after full bank-statement recheck, classifies USDC as a transfer/stablecoin bridge rather than an investment, restores investment in/out with staking income, and revises bank-reconciliation expense tabs with business-expense rules. Remaining Nathan tax work is payment/source reconciliation, other missing evidence, non-USDC investment cost-basis, N26 October 2025, and receipt/business-purpose support for claimed expenses. New work should be migrated into/copy from the machine-readable template rather than extending the legacy tab pattern.
+
+Selin Ozkohen / CLV German personal-tax pilot:
+
+- Individual folder: `clients/Individuals/Selin Ozkohen/`
+- Company folder: `clients/Companies/CLV/`
+- 2024 workbook: `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`
+- 2024 payslip folder: `https://drive.google.com/drive/folders/1IUAeKdp8IOcuwVYWIty2ykjxsOw9Ofwr`
+- Status: revenue rows are populated and linked to Notion payroll pages and Drive payslip evidence. Payslips were attached to the employment-linked payroll-run `Payslip` fields. Remaining workbook failures are prior-year opening balances, expense confirmation, and investment confirmation.
+- 2026-05-07 template iteration: the maintained native master template now includes `Deductibles`, `Tax Credits`, `Tax Payments`, `Tax Analysis`, and ELSTER-style `Summary` tabs. Active workflow: copy the maintained native Sheet through the Google Drive/Sheets connector; do not use local TypeScript/XLSX generation. Selin 2024/2025 use the daily home-office allowance / `Tagespauschale` at 210 days x EUR 6 = EUR 1,260, with the room route inactive and `Summary` summing only `home-office-daily`.
+- 2026-05-07 approval: user approved the current template/process and Selin pilot state for commit. Payroll revenue now reflects payslip wage-tax withholding/net pay, January/February zero withholding is flagged for explanation, the EUR 9,785.30 healthcare deduction is included pending evidence URL, the Section 10c/Sonderausgaben-Pauschbetrag baseline is included as `Baseline only`, and false-positive tax-payment review counts were repaired. Filing remains incomplete until open questions are resolved.
+- 2026-05-07 2025 setup: Notion 2025 filing `https://www.notion.so/342e4130131480eab03dd8498d24d23e` was set to in progress and linked to Drive folder `https://drive.google.com/drive/folders/127-k82-g8Ix3eUGEjLVhbA_1OAglGI7Z`. The copied 2025 workbook is `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`; the payslip folder is `https://drive.google.com/drive/folders/1ustYGqTraDcaqv0LwQSqa1lk6M-vYIMq`. January-June 2025 payroll run `Payslip` fields were linked to Drive PDFs; July-December already had payslips. Revenue read-back is EUR 28,800 gross employment income and EUR 3,096.96 wage tax withheld. The special expense lump-sum baseline read-back is EUR 36, and the home-office daily allowance is EUR 1,260, making 2025 income after deductions EUR 27,504.00. Remaining checks are prior-year opening balance, expense document review, investment/no-investment confirmation, direct tax payment/prepayment confirmation, deductible review, and tax-credit review.
+- 2026-05-07 2025 task links: the filing record now links an analysis task assigned to Ioana Surdu-Bob (`https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f`) through `Preparation Task` and a filing task assigned to Johnpaul Okolie (`https://www.notion.so/359e4130131481d88a99df5939bbe6ed`) through `Filing Task`. The filing task is dependent on the analysis task and has an actual Notion comment with the workbook and filing context.
+
+Communication workflow update:
+
+- For Slack messages requiring review, put the proposed text in Codex chat first. After user approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
+- For workflow completion notifications, capture the triggering Slack user/channel/thread at intake when available. If a task is triggered outside Slack and no Slack identity is available, ask the operator for the Slack recipient before sending the ready-for-review message.
+- For personal-tax filings, the live Notion Personal Tax Filings entry is a required sync point: update `Status` whenever analysis status changes, update `Document gathering status` as evidence moves from `In progress` to `Attached in Drive`, and attach any newly created/discovered Drive filing folder in `GDrive Docs`.
+- For personal-tax filings with no task relation, create a preparation/analysis task assigned to Ioana Surdu-Bob and a separate filing task assigned to Johnpaul Okolie. Link both to the correct client project, set filing `Dependent on` to the analysis task, link them back through `Preparation Task` and `Filing Task`, and comment on the filing task with the spreadsheet URL once the analysis is ready.
 
 ## Drive State
 
