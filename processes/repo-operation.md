@@ -28,6 +28,7 @@ Keep this repository as Richmond Blackwood's durable operating memory, local ski
 - Never include unrelated user changes in a task branch or commit.
 - If the worktree is dirty, identify whether changes belong to the current task before branching or committing.
 - Do not use destructive git commands to make the tree clean.
+- Ask the user to review the diff before every commit, even when local or tool-level approval is set to auto-review.
 - Run focused validation before finalizing.
 
 ## Skill Run Register
