@@ -57,10 +57,10 @@ This process covers daily inbound email triage for Richmond Blackwood, focusing 
   - If a matching Invoicing record already exists and a human already uploaded the invoice file, update that record with the Gmail/source evidence and do not upload a duplicate.
   - Do not create a payment task for contractor invoices.
   - If a contractor invoice was mistakenly created as an Expense, remove it from the Expenses database if the connector permits; otherwise mark it `Rejected`/removed with a pointer to the correct Invoicing record.
-- Company-specific exceptions:
-  - Keep volatile company/supplier exception details in the relevant `clients/Companies/<Reference>/` file, not duplicated in this general process.
-  - Before processing a supplier/client exception, check whether the owning company has a local exception file and apply that file’s rule.
-  - Current example: RBL Workhub / Stein Commercial / Camden Street invoice handling lives in `clients/Companies/RBL/invoices-payments-expenses.md`.
+- Targeted invoice exception lookups:
+  - Do not scan every company folder for possible exceptions during normal triage.
+  - Use explicit supplier triggers to load only the relevant company exception file.
+  - Current trigger: if the item is an invoice, renewal notice, payment notice, or invoice correction request and the sender, subject, body snippet, attachment filename, or parsed invoice text indicates Workhub, Stein Commercial, or Camden Street, load `clients/Companies/RBL/invoices-payments-expenses.md` and apply the Workhub rules before creating or updating Expense/Invoicing records.
   - If a company-specific exception says an invoice should not be processed, do not log it as a payable Expense and do not mark Gmail `Triaged`; record or update the audit pointer/blocker required by that company file.
   - If the user has already reviewed and approved a company-specific exception as correct, do not override it during automation cleanup. Report it as human-reviewed/approved in the Slack overview and leave the record unchanged.
 - Do **not** create per-invoice or per-expense Tasks. Richmond Blackwood already uses the recurring weekly task for invoice/expense processing across companies.
