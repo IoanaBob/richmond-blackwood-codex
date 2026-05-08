@@ -26,6 +26,9 @@ export interface DriveFile {
   parents?: string[];
   size?: string;
   md5Checksum?: string;
+  trashed?: boolean;
+  createdTime?: string;
+  modifiedTime?: string;
 }
 
 export interface FolderPathResult {
@@ -45,6 +48,21 @@ export interface CopyFileOptions {
   sourceFileId: string;
   title: string;
   parentFolderId?: string;
+  fields?: string;
+}
+
+export interface UpdateFileContentOptions {
+  fileId: string;
+  sourceFile: string;
+  title?: string;
+  mimeType?: string;
+  fields?: string;
+}
+
+export interface ImportSpreadsheetOptions {
+  sourceFile: string;
+  folderId: string;
+  title?: string;
   fields?: string;
 }
 
@@ -169,6 +187,62 @@ export class DriveApiClient {
     });
   }
 
+  public async listFolder(folderId: string, fields = DEFAULT_UPLOAD_FIELDS): Promise<DriveFile[]> {
+    const query = `'${this.quoteQuery(folderId)}' in parents and trashed = false`;
+    const params = this.params({
+      q: query,
+      fields: `files(${fields})`,
+      supportsAllDrives: "true",
+      includeItemsFromAllDrives: "true",
+      pageSize: "1000",
+      orderBy: "folder,name",
+    });
+    const response = await this.requestJson<{ files?: DriveFile[] }>(
+      `https://www.googleapis.com/drive/v3/files?${params}`,
+    );
+    if (!Array.isArray(response.files)) {
+      throw new Error(`Unexpected Drive files response: ${JSON.stringify(response)}`);
+    }
+    return response.files;
+  }
+
+  public async trashFile(fileId: string): Promise<DriveFile> {
+    const params = this.params({ fields: DEFAULT_UPLOAD_FIELDS, supportsAllDrives: "true" });
+    return this.requestJson<DriveFile>(`https://www.googleapis.com/drive/v3/files/${fileId}?${params}`, {
+      method: "PATCH",
+      body: { trashed: true },
+    });
+  }
+
+  public async downloadFile(fileId: string): Promise<Buffer> {
+    const params = this.params({ alt: "media", supportsAllDrives: "true" });
+    return this.requestBuffer(`https://www.googleapis.com/drive/v3/files/${fileId}?${params}`);
+  }
+
+  public async importSpreadsheet(options: ImportSpreadsheetOptions): Promise<DriveFile> {
+    const sourceFile = this.resolveFile(options.sourceFile);
+    const title = options.title || path.basename(sourceFile, path.extname(sourceFile));
+    const metadata = {
+      name: title,
+      parents: [options.folderId],
+      mimeType: "application/vnd.google-apps.spreadsheet",
+    };
+    const mediaMimeType =
+      mime.lookup(sourceFile) || "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    const { boundary, body } = this.buildMultipart(metadata, sourceFile, mediaMimeType);
+    const fields = options.fields || "id,name,mimeType,webViewLink,parents,createdTime,modifiedTime";
+    const params = new URLSearchParams({ uploadType: "multipart", fields, supportsAllDrives: "true" });
+
+    return this.requestJson<DriveFile>(`https://www.googleapis.com/upload/drive/v3/files?${params}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": `multipart/related; boundary=${boundary}`,
+        "Content-Length": String(body.length),
+      },
+      body,
+    });
+  }
+
   public async uploadFile(options: UploadFileOptions): Promise<DriveFile> {
     const sourceFile = this.resolveFile(options.sourceFile);
     const title = options.title || path.basename(sourceFile);
@@ -201,8 +275,66 @@ export class DriveApiClient {
     );
   }
 
+  public async updateFileContent(options: UpdateFileContentOptions): Promise<DriveFile> {
+    const sourceFile = this.resolveFile(options.sourceFile);
+    const metadata: Record<string, unknown> = {};
+    if (options.title) {
+      metadata.name = options.title;
+    }
+    const mimeType = options.mimeType || this.guessMimeType(sourceFile);
+    const { boundary, body } = this.buildMultipart(metadata, sourceFile, mimeType);
+    const fields = options.fields || DEFAULT_UPLOAD_FIELDS;
+    const params = new URLSearchParams({ uploadType: "multipart", fields, supportsAllDrives: "true" });
+
+    return this.requestJson<DriveFile>(
+      `https://www.googleapis.com/upload/drive/v3/files/${options.fileId}?${params}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": `multipart/related; boundary=${boundary}`,
+          "Content-Length": String(body.length),
+        },
+        body,
+      },
+    );
+  }
+
   public async getDocument(documentId: string): Promise<Record<string, unknown>> {
     return this.requestJson<Record<string, unknown>>(`https://docs.googleapis.com/v1/documents/${documentId}`);
+  }
+
+  public async getSpreadsheet(spreadsheetId: string, fields?: string): Promise<Record<string, unknown>> {
+    const params = this.params({
+      includeGridData: "false",
+      ...(fields ? { fields } : {}),
+    });
+    return this.requestJson<Record<string, unknown>>(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?${params}`,
+    );
+  }
+
+  public async getSpreadsheetValues(
+    spreadsheetId: string,
+    range: string,
+    valueRenderOption = "FORMULA",
+  ): Promise<Record<string, unknown>> {
+    const params = this.params({ valueRenderOption });
+    return this.requestJson<Record<string, unknown>>(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}?${params}`,
+    );
+  }
+
+  public async batchUpdateSpreadsheet(
+    spreadsheetId: string,
+    requests: Record<string, unknown>[],
+  ): Promise<Record<string, unknown>> {
+    return this.requestJson<Record<string, unknown>>(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}:batchUpdate`,
+      {
+        method: "POST",
+        body: { requests },
+      },
+    );
   }
 
   public async batchUpdateDocument(documentId: string, requests: Record<string, unknown>[]): Promise<unknown> {

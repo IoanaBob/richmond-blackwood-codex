@@ -22,6 +22,7 @@ When the target database, company relation, or client reference is unclear, reco
 
 - Titles stay plain. Emoji belongs in icon metadata when the connector supports it.
 - Notes fields describe the record itself, not connector status, upload history, or debug commentary.
+- If a database page has actual Notion comments and the update is a comment/update note, use the page comments section rather than a database text property such as `Comments`. If tooling cannot create the actual comment, record a blocker and ask for review instead of silently writing into the database field.
 - Google Drive-backed documents should use Notion file/files properties where possible, not plain URL fields as the primary file reference.
 - URL properties are appropriate for public web sources or external sharing links.
 - New databases should include useful filtered views where the schema has meaningful dimensions.

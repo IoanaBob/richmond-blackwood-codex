@@ -28,11 +28,20 @@ Make Richmond Blackwood evidence findable, structured, and linked to the correct
 8. Verify the target record or folder after writing.
 9. Update source registers, import logs, and client `drive-locations.md` / `notion-backup.md`.
 
+## Spreadsheet Handling
+
+For German personal-tax spreadsheet analyses, use the native Google Sheets template `RB German Personal Tax Analysis - Machine-Readable Template v1` rather than adding new ad hoc `codex - ...` tabs to legacy Office-mode workbooks. The active template is `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`.
+
+Treat that live native Google Sheet as the maintained template source of truth. Create client workbooks by copying the existing spreadsheet through the Google Drive/Sheets connector into the filing folder and renaming the copy. Do not regenerate the template from local TypeScript, XLSX builders, CSV exports, or ad hoc scripts.
+
+Keep revenue, expense, raw bank, and investment exports in flat, filterable tabs with one header row, frozen row 1 only, and compact widths/heights. Use formulas to derive categorisations, journal rows, PNL, balance sheet, missing-info lists, and checks from source data, invoice/evidence registers, investment lots, and `Category Rules`; do not hardcode derived results into source tabs. The former separated-Codex-tab workflow is preserved only as historical audit trail for already-edited workbooks.
+
 ## Helper Commands
 
 ```bash
 npm run drive:organize -- ensure-folder <root-folder-id> "<folder/path>"
 npm run drive:upload -- <local-file> <folder-id> --title "<filename>"
+npm run drive:organize -- get-spreadsheet <spreadsheet-id>
 npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"
 ```
 

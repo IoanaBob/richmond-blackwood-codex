@@ -23,6 +23,7 @@ Do not create client-specific Notion pages when the company relation or target d
 - Keep page/database titles plain.
 - Use icon metadata where supported.
 - `Notes` fields describe the record itself, not connector/debug history.
+- When a database page has actual Notion comments and the work is a comment/update note, write into the page's comments section rather than a database text field such as `Comments`. If the connector cannot create the actual page comment, stop and report the blocker instead of falling back to the database field.
 - Use file/files properties for Drive-backed documents where possible.
 - Create useful filtered views for new databases.
 - Use `WRAP CELLS true` for table views when view DSL is available.

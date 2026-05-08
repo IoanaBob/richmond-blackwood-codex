@@ -20,6 +20,7 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the RB Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
+- For Slack messages that need user review, put the proposed message text in the Codex chat first and wait for approval. After approval, send the approved text directly in Slack; do not create a Slack draft as the default review step unless the user explicitly asks for a Slack draft.
 
 ## Direct Send Preview
 
@@ -134,3 +135,14 @@ When a communication creates work:
 - Keep the RB Communications record as the audit log/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
 - Record the follow-up in `memory/tasks.md` only when it is repo/process work that also needs local tracking.
 - Record the follow-up in the relevant client file if it is client-specific and the client `Reference` is known.
+- Use the appropriate Notion database only when the destination is clear and existing.
+
+## Slack Completion Notifications
+
+For workflow-triggered analysis tasks, such as German personal tax analysis setup, notify the triggering person in Slack when the analysis is ready for review.
+
+- Capture the triggering Slack user ID, channel ID, and thread/message URL at intake when the request starts in Slack.
+- If the request starts outside Slack and no Slack identity is available, ask the operator for the recipient before sending.
+- Draft the Slack text in Codex chat first, including the workbook/source URL, completed scope, and remaining review flags.
+- After the user approves the exact text, send it directly through Slack and log the sent notification in the relevant Notion task/comment or client source register.
+- Do not create a Slack draft by default. Use a draft only when the user explicitly asks for one.
