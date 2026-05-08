@@ -837,6 +837,38 @@ Open routing blockers:
 
 All RB-specific imported facts remain provisional.
 
+## 2026-05-08 Gmail Triage Slack Overview Rule Import
+
+- Source: user instruction in Codex thread.
+- Scope: required final Slack overview structure for Gmail inbound triage.
+- Imported to: `processes/gmail-inbound-triage.md` and `skills/rb-gmail-inbound-triage/SKILL.md`.
+- Status: provisional.
+- Unresolved questions: none; continue validating against the next daily run.
+
+## 2026-05-08 Gmail Triage Ambiguity Cleanup
+
+- Source: user instruction in Codex thread.
+- Scope: remove old incorrect process/memory paths after the final Slack message was accepted as correct.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, automation memory, and RBL Workhub memory.
+- Status: approved for current Slack canonical message and Workhub CC-INV-19364 approval; provisional for future Workhub invoice checks.
+- Unresolved questions: confirm VAT treatment for future Workhub plan checks.
+
+## 2026-05-08 Gmail Triage Performance Review
+
+- Source: user instruction in Codex thread.
+- Scope: whole-branch review for future-run performance without changing triage functionality.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, and automation memory.
+- Status: provisional.
+- Unresolved questions: none; validate performance behavior on the next live run.
+
+## 2026-05-08 RBL Workhub Rule Import
+
+- Source: user instruction in Codex thread.
+- Scope: RBL-specific Workhub invoice addressee and plan schedule rule.
+- Imported to: `clients/Companies/RBL/invoices-payments-expenses.md` and `clients/Companies/RBL/source-register.md`.
+- Status: provisional.
+- Unresolved questions: confirm whether Workhub plan amounts are VAT-exclusive and whether any additional companies have upgraded plans.
+
 Checks run 2026-05-04:
 
 - `git diff --check`: clean.
