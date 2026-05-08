@@ -849,9 +849,17 @@ All RB-specific imported facts remain provisional.
 
 - Source: user instruction in Codex thread.
 - Scope: remove old incorrect process/memory paths after the final Slack message was accepted as correct.
-- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, automation memory, and RBL Workhub memory.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, automation memory, and RBL company memory.
 - Status: approved for current Slack canonical message and Workhub CC-INV-19364 approval; provisional for future Workhub invoice checks.
 - Unresolved questions: confirm VAT treatment for future Workhub plan checks.
+
+## 2026-05-08 Company-Specific Exception Routing Refactor
+
+- Source: user instruction in Codex thread.
+- Scope: avoid duplicating company-specific exceptions in the general Gmail triage process.
+- Imported to: `processes/gmail-inbound-triage.md` and `skills/rb-gmail-inbound-triage/SKILL.md`.
+- Status: approved.
+- Unresolved questions: none.
 
 ## 2026-05-08 Gmail Triage Performance Review
 

@@ -57,14 +57,12 @@ This process covers daily inbound email triage for Richmond Blackwood, focusing 
   - If a matching Invoicing record already exists and a human already uploaded the invoice file, update that record with the Gmail/source evidence and do not upload a duplicate.
   - Do not create a payment task for contractor invoices.
   - If a contractor invoice was mistakenly created as an Expense, remove it from the Expenses database if the connector permits; otherwise mark it `Rejected`/removed with a pointer to the correct Invoicing record.
-- Workhub-specific invoice rule:
-  - All Workhub / Stein Commercial / Camden Street invoices must be issued and addressed to **RICHMOND BLACKWOOD LIMITED**.
-  - Approved Workhub plan schedule:
-    - CBMAX, Pacheco Cruz Limited (PCL), NA Capital Ventures Limited (NACV), and Konvi are on the upgraded/non-essential plan at **€199**.
-    - All other companies are on the essential plan at **€99**.
-  - If a Workhub invoice is addressed to a client company, uses the wrong plan, or otherwise conflicts with the approved schedule, do **not** log it as a payable Expense and do **not** mark it `Triaged`.
-  - If a wrong Workhub invoice was already logged, mark the Expense `Rejected`, record the reason, keep only an audit pointer, and prepare/request a corrected invoice from Workhub.
-  - If the user has already reviewed and approved a Workhub Expense as correct, do not override it during automation cleanup. Report it as human-reviewed/approved in the Slack overview and leave the record unchanged.
+- Company-specific exceptions:
+  - Keep volatile company/supplier exception details in the relevant `clients/Companies/<Reference>/` file, not duplicated in this general process.
+  - Before processing a supplier/client exception, check whether the owning company has a local exception file and apply that file’s rule.
+  - Current example: RBL Workhub / Stein Commercial / Camden Street invoice handling lives in `clients/Companies/RBL/invoices-payments-expenses.md`.
+  - If a company-specific exception says an invoice should not be processed, do not log it as a payable Expense and do not mark Gmail `Triaged`; record or update the audit pointer/blocker required by that company file.
+  - If the user has already reviewed and approved a company-specific exception as correct, do not override it during automation cleanup. Report it as human-reviewed/approved in the Slack overview and leave the record unchanged.
 - Do **not** create per-invoice or per-expense Tasks. Richmond Blackwood already uses the recurring weekly task for invoice/expense processing across companies.
 - Evidence and files:
   - Do not claim files were attached in Notion unless verified.
