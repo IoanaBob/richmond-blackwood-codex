@@ -43,7 +43,6 @@ Use this skill when running the Daily Gmail inbound triage automation.
      - If a human already uploaded the invoice file to the Invoicing line, record that it was found and do not upload a duplicate.
      - Never create a separate contractor-payment task for an invoice.
      - If a contractor invoice was wrongly logged as an Expense, remove it from Expenses if possible; otherwise mark it rejected/removed and point to the correct Invoicing record.
-   - Targeted invoice exception lookups: do not scan every company folder for possible exceptions during normal triage. Use explicit supplier triggers to load only the relevant company exception file. Current trigger: if the item is an invoice, renewal notice, payment notice, or invoice correction request and the sender, subject, body snippet, attachment filename, or parsed invoice text indicates Workhub, Stein Commercial, or Camden Street, load `clients/Companies/RBL/invoices-payments-expenses.md` and apply the Workhub rules before creating or updating Expense/Invoicing records. If a company-specific exception says an invoice should not be processed, do not log it as a payable Expense and do not mark Gmail `Triaged`; record or update the audit pointer/blocker required by that company file. If the user has already reviewed and approved a company-specific exception as correct, do not override it; report it as human-reviewed/approved in the final Slack overview.
    - If a human already uploaded the invoice/receipt, record that it was found and no duplicate upload was made.
    - Client/tax/compliance letter or other real non-invoice correspondence → create/update **Correspondence** row.
    - Payment-failed invoice notices, upcoming direct-debit notices, payment reminders, and payment receipts are not Correspondence by default; route them to Expenses, Invoicing/AR, or ignore/no-op unless they include a separate operational request.
@@ -56,13 +55,19 @@ Use this skill when running the Daily Gmail inbound triage automation.
 3. **De-duplicate** before writing:
    - Search Notion for invoice numbers, message IDs, and unique refs.
    - Update existing records; avoid “parallel duplicates”.
-4. **Handle tasks only for correspondence**:
+4. **Apply targeted exception hooks**:
+   - Do not scan every company folder for possible exceptions during normal triage.
+   - Load an exception file only when a specific Gmail or matched-Notion trigger matches; the process owns the trigger and the client/company file owns the rule.
+   - Current hook: for invoice-like Workhub / Stein Commercial / Camden Street items, open `clients/Companies/RBL/edge-cases.md` starting at the line `## Workhub Invoice Validation` before creating/updating Expense or Invoicing records, applying Gmail `Triaged`, or reporting in Slack.
+   - If a hook says an invoice should not be processed, do not log it as a payable Expense; record/update the required audit pointer or blocker and leave Gmail unlabelled until the correction/review path is complete.
+   - If the user already reviewed and approved an exception item as correct, do not override it; report it as human-reviewed/approved in the final Slack overview.
+5. **Handle tasks only for correspondence**:
    - Do not create tasks for invoices or expenses; the weekly recurring invoice/expense task covers those.
    - For actionable correspondence, search the relevant client project first.
    - If a matching task exists, add/update the task comments or status context and link the Correspondence record.
    - If no matching task exists, create one task in the right client project and link the Correspondence record.
    - If entity/supplier/contract is ambiguous, create a Notion Task under the relevant client project where known; otherwise use RB Clients with Status `Blocked` and a short “what decision is needed”.
-5. **Slack overview**:
+6. **Slack overview**:
    - Prepare a single, personal “I updated the team” message with clickable links.
    - Use the required section order:
      1. **New Correspondence** — every correspondence row one by one, with the Correspondence link, Drive file link when present, linked task, task status, and tagged Slack owner.
@@ -71,7 +76,7 @@ Use this skill when running the Daily Gmail inbound triage automation.
    - If a section is empty, keep the heading and write `None`.
    - If there are no actionable items and no Notion/Drive records were created or updated, do not post Slack; return a concise no-op summary in the automation response only.
    - Do not send if interrupted; on restart, send one full overview only.
-6. **Gmail labeling**:
+7. **Gmail labeling**:
    - Apply label `Triaged` only after required handling for that classification succeeded, including verified no-op classifications; leave messages unlabelled when a specific exception or unresolved blocker requires future action.
    - Do not archive by default.
 

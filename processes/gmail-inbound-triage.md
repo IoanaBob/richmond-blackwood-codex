@@ -60,12 +60,6 @@ This process covers daily inbound email triage for Richmond Blackwood, focusing 
   - If a matching Invoicing record already exists and a human already uploaded the invoice file, update that record with the Gmail/source evidence and do not upload a duplicate.
   - Do not create a payment task for contractor invoices.
   - If a contractor invoice was mistakenly created as an Expense, remove it from the Expenses database if the connector permits; otherwise mark it `Rejected`/removed with a pointer to the correct Invoicing record.
-- Targeted invoice exception lookups:
-  - Do not scan every company folder for possible exceptions during normal triage.
-  - Use explicit supplier triggers to load only the relevant company exception file.
-  - Current trigger: if the item is an invoice, renewal notice, payment notice, or invoice correction request and the sender, subject, body snippet, attachment filename, or parsed invoice text indicates Workhub, Stein Commercial, or Camden Street, load `clients/Companies/RBL/invoices-payments-expenses.md` and apply the Workhub rules before creating or updating Expense/Invoicing records.
-  - If a company-specific exception says an invoice should not be processed, do not log it as a payable Expense and do not mark Gmail `Triaged`; record or update the audit pointer/blocker required by that company file.
-  - If the user has already reviewed and approved a company-specific exception as correct, do not override it during automation cleanup. Report it as human-reviewed/approved in the Slack overview and leave the record unchanged.
 - Do **not** create per-invoice or per-expense Tasks. Richmond Blackwood already uses the recurring weekly task for invoice/expense processing across companies.
 - Evidence and files:
   - Do not claim files were attached in Notion unless verified.
@@ -81,6 +75,21 @@ This process covers daily inbound email triage for Richmond Blackwood, focusing 
   - If an actionable non-invoice item belongs to a specific client (for example Pacheco Cruz Limited), search that client project first.
   - If a matching task already exists in the client project, update it with a comment/status note rather than creating a duplicate task.
   - If no matching task exists, create a task in that client project and link the Correspondence record.
+
+## Targeted Exception Hooks
+
+Use exception hooks for narrow, supplier- or client-specific deviations from the normal triage rules.
+
+- Exception hooks are conditional pointers, not general reading assignments: do not scan every company folder for possible exceptions during normal triage.
+- Load an exception file only when the Gmail metadata, snippet, attachment filename, parsed text, or verified Notion match satisfies that hook’s trigger.
+- The general process owns the trigger and lookup path; the client/company file owns the business rule and required handling.
+- Store company-specific edge cases in `clients/Companies/<Reference>/edge-cases.md`; if a client has multiple edge cases later, keep each entry under its own `##` heading in that file.
+- If a hook’s rule says an invoice should not be processed, do not log it as a payable Expense. Record or update the audit pointer/blocker required by the rule file, and leave Gmail unlabelled until the required correction/review path is complete.
+- If the user has already reviewed and approved an exception item as correct, do not override it during automation cleanup. Report it as human-reviewed/approved in the Slack overview and leave the record unchanged.
+
+| Hook | Trigger | Rule entry | Apply before |
+| --- | --- | --- | --- |
+| RBL Workhub invoice validation | Invoice, renewal notice, payment notice, or invoice correction request where the sender, subject, body snippet, attachment filename, parsed invoice text, or matched Notion record indicates Workhub, Stein Commercial, or Camden Street | `clients/Companies/RBL/edge-cases.md`, starting at `## Workhub Invoice Validation` | Creating/updating Expense or Invoicing records, applying Gmail `Triaged`, or reporting the item in Slack |
 
 ## No-Spam Slack Rule
 

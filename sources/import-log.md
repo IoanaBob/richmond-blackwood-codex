@@ -873,7 +873,7 @@ All RB-specific imported facts remain provisional.
 
 - Source: user instruction in Codex thread.
 - Scope: RBL-specific Workhub invoice addressee and plan schedule rule.
-- Imported to: `clients/Companies/RBL/invoices-payments-expenses.md` and `clients/Companies/RBL/source-register.md`.
+- Imported to: `clients/Companies/RBL/edge-cases.md` and `clients/Companies/RBL/source-register.md`; `clients/Companies/RBL/invoices-payments-expenses.md` keeps only the pointer.
 - Status: provisional.
 - Unresolved questions: confirm whether Workhub plan amounts are VAT-exclusive and whether any additional companies have upgraded plans.
 
@@ -883,6 +883,14 @@ All RB-specific imported facts remain provisional.
 - Scope: targeted Workhub exception lookup and recurring-run no-op handling.
 - Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
 - Status: approved for targeted Workhub lookup; provisional for verified no-op Gmail labelling pending next live run validation.
+- Unresolved questions: none.
+
+## 2026-05-10 Gmail Triage Edge-Case File Structure
+
+- Source: user instruction in Codex thread.
+- Scope: make edge cases live in per-client files and make the skill point to the exact entry to load.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `clients/Companies/RBL/edge-cases.md`, `clients/Companies/RBL/invoices-payments-expenses.md`, `clients/Companies/RBL/source-register.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved.
 - Unresolved questions: none.
 
 Checks run 2026-05-04:
