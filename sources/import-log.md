@@ -837,6 +837,14 @@ Open routing blockers:
 
 All RB-specific imported facts remain provisional.
 
+## 2026-05-11 Generalized Inbound Operating Triage
+
+- Source: user-approved implementation plan in Codex thread.
+- Scope: replace Gmail-specific triage with generalized inbound operating triage across configured channels.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, `clients/Companies/RBL/edge-cases.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: provisional.
+- Unresolved questions: validate channel windows, active-index matching, safe direct writes, and batched approval packets on the next live multi-channel run.
+
 ## 2026-05-08 Gmail Triage Slack Overview Rule Import
 
 - Source: user instruction in Codex thread.
