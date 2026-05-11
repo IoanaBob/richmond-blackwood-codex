@@ -119,17 +119,18 @@ Use these rules whenever you create or update the German personal-tax workbook.
 
 ### Sheet Roles
 
-- `Revenue`: payroll, employment income, invoices, and other income. For RB-linked employment, fetch the employment record and payroll runs; use payslip gross where available, otherwise mark gross from the employment record as provisional and link the payroll record.
-- `Expenses`: support personal deduction/expense evidence when no bank extract is available. If a bank extract is available, raw bank tabs remain the source of truth and `Expenses` should support evidence/review rather than duplicate bank-sourced journal rows.
+- `Revenue`: payroll, employment income, invoices, and other income. For RB-linked employment, fetch the employment record and payroll runs; use payslip gross where available, otherwise mark gross from the employment record as provisional and link the payroll record. Keep `Net Paid EUR` as a formula-driven EUR output and preserve source-currency detail in `Original Amount`, `Original Currency`, `FX Rate To EUR`, and `FX Date`.
+- `Expenses`: support personal deduction/expense evidence when no bank extract is available. If a bank extract is available, raw bank tabs remain the source of truth and `Expenses` should support evidence/review rather than duplicate bank-sourced journal rows. Keep `Amount EUR` as a formula-driven EUR output and preserve source-currency detail in `Original Amount`, `Original Currency`, `FX Rate To EUR`, and `FX Date`.
 - `Deductibles`: source-backed personal deductions and allowances, including home office, employee lump sum, special expense lump sum, commuting, equipment/training, pension, health/care insurance, childcare, donations, maintenance, and extraordinary burdens.
 - `Tax Credits`: reductions to tax liability, including household services, handyman services, political-party credits, foreign tax credits, investment withholding, and energy-renovation reductions.
 - `Tax Payments`: direct/non-payroll tax payments and prepayments from bank statements, broker tax certificates, or Finanzamt notices. Payroll withholding stays visible in `Revenue`; `Tax Analysis` combines payroll withholding with direct payments/prepayments.
-- `Summary`: ELSTER-facing filing figures. `Tax Analysis`: bridge from gross income to income after deductions, credits, and known payments. Treat both as analysis support, not final tax-liability calculation.
+- `Summary`: ELSTER-facing filing figures. `Tax Analysis`: bridge from gross income to income after deductions, credits, and known payments; show business/freelance total income and total expenses separately before calculating net PNL. Treat both as analysis support, not final tax-liability calculation.
 
 ### Formula And Control Requirements
 
 - Preserve complete raw bank and investment exports in matching raw export tabs. Raw export tabs must have one header row, frozen row 1 only, filters enabled, compact widths/heights for a 13-inch laptop, and no oversized title or instruction blocks above the table.
-- Drive summaries from formulas reading raw exports, revenue, expenses, deductibles, tax credits, tax payments, invoices, investment lots, assets, depreciation, loans/debt, category rules, and journal. Do not hardcode derived categorisation, reconciliation, PNL, balance sheet, checks, missing-info, or filing-summary outputs.
+- Drive summaries from formulas reading raw exports, revenue, expenses, deductibles, tax credits, tax payments, invoices, investment lots, assets, depreciation, loans/debt, `FX Rates`, category rules, and journal. Do not hardcode derived categorisation, reconciliation, PNL, balance sheet, checks, missing-info, or filing-summary outputs.
+- Place high-level review tabs first (`Setup`, `Summary`, `Tax Analysis`, `PNL`, `Balance Sheet`, `Missing Info`, `Checks`) and helper tables such as `Category Rules` and `FX Rates` at the end of the workbook.
 - Use `Category Rules` as the shared categorisation source. Seed and maintain it with German SKR04 account numbers, account names, PNL/balance-sheet mapping, tax treatment, invoice requirement, VAT treatment, and review notes.
 - Maintain double-entry bookkeeping through `Journal` and `Checks`; every generated transaction should net to zero, and failures must surface in `Checks` and `Missing Info`.
 - Link each year's opening balance sheet to the prior year's closing balance sheet. If prior records are unavailable, use an explicit provisional opening balance plug and label it clearly.

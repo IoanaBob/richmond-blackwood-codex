@@ -34,14 +34,15 @@ For German personal-tax spreadsheet analyses, use the native Google Sheets templ
 
 Treat that live native Google Sheet as the maintained template source of truth. Create client workbooks by copying the existing spreadsheet through the Google Drive/Sheets connector into the filing folder and renaming the copy. Do not regenerate the template from local TypeScript, XLSX builders, CSV exports, or ad hoc scripts.
 
-Keep revenue, expense, raw bank, and investment exports in flat, filterable tabs with one header row, frozen row 1 only, and compact widths/heights. Use formulas to derive categorisations, journal rows, PNL, balance sheet, missing-info lists, and checks from source data, invoice/evidence registers, investment lots, and `Category Rules`; do not hardcode derived results into source tabs. The former separated-Codex-tab workflow is preserved only as historical audit trail for already-edited workbooks.
+Keep revenue, expense, raw bank, and investment exports in flat, filterable tabs with one header row, frozen row 1 only, and compact widths/heights. In `Revenue` and `Expenses`, keep EUR calculation columns separate from source-currency evidence: capture `Original Amount`, `Original Currency`, `FX Rate To EUR`, and `FX Date`, then calculate `Net Paid EUR` or `Amount EUR` by formula. Use formulas to derive categorisations, journal rows, PNL, balance sheet, missing-info lists, and checks from source data, invoice/evidence registers, investment lots, `FX Rates`, and `Category Rules`; do not hardcode derived results into source tabs. The former separated-Codex-tab workflow is preserved only as historical audit trail for already-edited workbooks.
+
+Place high-level review tabs first (`Setup`, `Summary`, `Tax Analysis`, `PNL`, `Balance Sheet`, `Missing Info`, `Checks`) and helper tables such as `Category Rules` and `FX Rates` at the end. In `Tax Analysis`, show business/freelance total income and total expenses separately before subtracting them into the net PNL line.
 
 ## Helper Commands
 
 ```bash
 npm run drive:organize -- ensure-folder <root-folder-id> "<folder/path>"
 npm run drive:upload -- <local-file> <folder-id> --title "<filename>"
-npm run drive:organize -- get-spreadsheet <spreadsheet-id>
 npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"
 ```
 

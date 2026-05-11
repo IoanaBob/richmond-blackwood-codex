@@ -42,10 +42,12 @@ Active rules:
 
 - Treat the live native Google Sheet as the maintained template source of truth. Copy that existing spreadsheet into the filing folder through the Google Drive/Sheets connector; do not regenerate the template from a local TypeScript or XLSX builder.
 - Use raw bank and investment export tabs with one header row, frozen row 1 only, filters enabled, and compact widths/heights.
-- Use `Revenue` for payroll, employment income, invoices, and other income evidence. Link payroll runs, payslips, invoices, and source records.
-- Use `Expenses` for personal deductions and expenses when no bank extract is available. If a bank extract is available, raw bank tabs remain source of truth.
+- Use `Revenue` for payroll, employment income, invoices, and other income evidence. Link payroll runs, payslips, invoices, and source records. Keep `Net Paid EUR` as the formula-driven EUR output and preserve source-currency detail in `Original Amount`, `Original Currency`, `FX Rate To EUR`, and `FX Date`.
+- Use `Expenses` for personal deductions and expenses when no bank extract is available. If a bank extract is available, raw bank tabs remain source of truth. Keep `Amount EUR` as the formula-driven EUR output and preserve source-currency detail in `Original Amount`, `Original Currency`, `FX Rate To EUR`, and `FX Date`.
 - Keep bank statements and investment statements as the source of truth. Do not hardcode derived categorisation, reconciliation, PNL, balance sheet, checks, or missing-info outputs.
-- Drive summaries through formulas reading revenue rows, expense rows, raw export tabs, invoice/evidence register, investment lots, category rules, and journal rows.
+- Drive summaries through formulas reading revenue rows, expense rows, raw export tabs, invoice/evidence register, investment lots, `FX Rates`, category rules, and journal rows.
+- Place high-level review tabs first and helper tables such as `Category Rules` and `FX Rates` at the end.
+- In `Tax Analysis`, show business/freelance total income and total expenses as separate lines, then calculate business/freelance net PNL as income less expenses.
 - Use `Category Rules` for SKR04 account number, account name, PNL/balance-sheet mapping, tax treatment, invoice requirement, VAT treatment, and review notes.
 - Enforce double-entry through `Journal` and `Checks`; every generated transaction should net to zero and failed checks must surface in `Checks` and `Missing Info`.
 - Link opening balance sheets to prior-year closing balances where available. If unavailable, use an explicit provisional opening balance plug and label it clearly.
