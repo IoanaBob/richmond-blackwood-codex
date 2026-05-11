@@ -40,6 +40,8 @@ Place high-level review tabs first (`Setup`, `Summary`, `Tax Analysis`, `PNL`, `
 
 For the employee lump sum, keep the statutory baseline visible in `Deductibles`, but cap the amount used in `Tax Analysis` against gross employment income. If there is no employment income, the included employee lump sum should be EUR 0.
 
+For self-employed or freelance clients, use the business/EÜR home-office daily route (`home-office-daily-business`, group `business-betriebsausgaben`) rather than the employment `Anlage N` home-office row. Show the potential EUR 6/day amount, capped at EUR 1,260, but keep it unclaimed until the qualifying day count is confirmed; exclude or separately justify business-trip days before claiming.
+
 ## Helper Commands
 
 ```bash

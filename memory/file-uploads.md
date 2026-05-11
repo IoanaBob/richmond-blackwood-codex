@@ -49,6 +49,7 @@ Active rules:
 - Place high-level review tabs first and helper tables such as `Category Rules` and `FX Rates` at the end.
 - In `Tax Analysis`, show business/freelance total income and total expenses as separate lines, then calculate business/freelance net PNL as income less expenses.
 - Cap the employee lump-sum baseline against gross employment income; for no-employment cases it should remain visible as a statutory baseline in `Deductibles` but contribute EUR 0 in `Tax Analysis`.
+- For self-employed/freelance cases, use the business/EÜR home-office daily route (`home-office-daily-business`, group `business-betriebsausgaben`) rather than the employment `Anlage N` route. Show potential EUR 6/day capped at EUR 1,260, but do not include it until the qualifying business home-office day count is confirmed.
 - Use `Category Rules` for SKR04 account number, account name, PNL/balance-sheet mapping, tax treatment, invoice requirement, VAT treatment, and review notes.
 - Enforce double-entry through `Journal` and `Checks`; every generated transaction should net to zero and failed checks must surface in `Checks` and `Missing Info`.
 - Link opening balance sheets to prior-year closing balances where available. If unavailable, use an explicit provisional opening balance plug and label it clearly.
