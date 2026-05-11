@@ -26,17 +26,18 @@ Use this skill for generalized inbound triage. The goal is to move active work f
    - active client projects and relevant company/individual records;
    - open RB Communications follow-ups;
    - active source records tied to onboarding, signatures, approvals, contracts, evidence, finance, correspondence, settlement, or follow-up.
+   - create a run change ledger before writes; append every verified task/record/file/channel change as it happens and use that ledger for the final report or Slack/channel overview.
 2. **Read channel windows**:
    - Gmail: search configured RB/accounting/client aliases for inbound messages not labelled `Triaged`; label only after handling or verified no-op classification succeeds.
    - Slack: read configured channels since the last successful checkpoint, or the current local day if no checkpoint exists; read full threads only when needed for an active-task match or task-created/update decision.
-   - WhatsApp: read saved client chat checkpoints only; no backfill unless requested.
+   - WhatsApp: read saved client chat checkpoints only; use `Last read message ID` first, otherwise `Last read through`; skip and record a blocker if neither exists or monitoring is disabled; no backfill unless requested.
    - Notion: fetch all open Tasks for the active index, then fetch changed task comments/statuses and open Communications follow-ups since the last successful run.
    - SignNow/status systems: check only document/request IDs linked from active work or inbound notifications.
    - Drive/Docs/files: inspect files linked from inbound items or active work; do not browse broad folders unless evidence is required.
    - Calendar/calls: read current local day plus active-work-linked future meetings needed for next actions.
    - DocSend/HubSpot/other systems: read only active-work-linked records or notifications since the last successful run.
    - If a connector is unavailable, mark the channel skipped in the run ledger/final report and do not infer missing context.
-3. **Classify each inbound item** as no-op, task update, new task, Correspondence, Expense/Invoicing, blocker, or approval-required action.
+3. **Classify each inbound item** as no-op, task update, new task(s), Correspondence, Expense/Invoicing, blocker, or approval-required action.
 4. **Perform safe direct writes** after verification:
    - task comments/creation;
    - Correspondence, Expense/Invoicing, Communications, and source-record updates;
@@ -47,11 +48,12 @@ Use this skill for generalized inbound triage. The goal is to move active work f
 
 ## Task Handling
 
-- For client requests with no document/correspondence artifact, do not create a Correspondence row just to have one.
+- For requests/instructions from clients, counterparties, or the internal RB team with no document/correspondence artifact, do not create a Correspondence row just to have one.
 - Search the relevant client project first; comment on the matching task with source context and next step.
-- If no task matches and RB action is required, create one task in the client project with source link/message ID, owner, priority, status, and due date when known.
+- If no task matches and RB action is required, create task(s) in the client project with source link/message ID, owner, priority, status, and due date when known; split into multiple tasks only for separate owners, deadlines, or deliverables.
+- If related records/files are created or updated, include their links in the task description/comment and link the task back from the related record where supported.
 - If company, individual, supplier, contract, owner, or project is ambiguous, create/update a blocked task with the exact decision needed instead of guessing.
-- If the task was created from Slack, post a factual source-thread reply after verification: task created, assignee, and task URL. If the Slack reply would include substantive advice, an answer, a promise, or sensitive context, include it in the approval packet instead.
+- If task(s) were created from Slack, post a factual source-thread reply after verification: task title, assignee, and task URL for each task. If the Slack reply would include substantive advice, an answer, a promise, or sensitive context, include it in the approval packet instead.
 - Do not proactively chase every stale task in this v1 workflow; move tasks only when inbound/status evidence or an obvious active-work match triggers action.
 
 ## Finance And Correspondence Rules

@@ -23,6 +23,10 @@ Build the active worklist before reading channel detail:
 
 Prefer one global active index over client-by-client polling. Fetch schemas/data source IDs once, batch Notion searches where possible, and fetch full pages only for records that affect a matching or write decision.
 
+## Run Change Ledger Prerequisite
+
+Before writing anything, create a run change ledger. Append every verified change as it happens: source channel/link/message ID, classification, created/updated Notion/Drive/source records, associated task links, assignees, verification performed, report section, and approval-packet item ID when relevant. Build the final Slack/channel overview or approval-ready report from this verified ledger, not from memory.
+
 ## Channel Registry
 
 Use these default read windows. If a connector is unavailable, mark that channel `Skipped - connector unavailable` in the run ledger/final report, use only user-provided or already-verified context, and do not infer what might have happened in that channel.
@@ -30,8 +34,8 @@ Use these default read windows. If a connector is unavailable, mark that channel
 | Channel | Read window / checkpoint | Completion marker |
 | --- | --- | --- |
 | Gmail | Search configured RB/accounting/client aliases for inbound messages that are not labelled `Triaged`; start with metadata, snippets, recipients, subjects, message IDs, and attachment filenames before fetching full bodies/files. | For any Gmail item from the accounting/client inbound scope, apply Gmail `Triaged` only after required handling or verified no-op classification succeeds. Do not archive by default. |
-| Slack | Read configured RB channels since the last successful run checkpoint; if no checkpoint exists, read the current local day. Also read full threads for messages that match active tasks, are replies/mentions, or are needed to understand a task-created/update decision. | Record reviewed source links/timestamps in the run ledger or Communications. When a task is created from a Slack message, reply in the source thread after task creation is verified with the task URL and assignee. |
-| WhatsApp | Saved client chat checkpoints only (`Last read through` / `Last read message ID`). No historical backfill unless the user explicitly asks. | Advance the client checkpoint only after required handling for inspected messages succeeds. |
+| Slack | Read configured RB channels since the last successful run checkpoint; if no checkpoint exists, read the current local day. Also read full threads for messages that match active tasks, are replies/mentions, or are needed to understand a task-created/update decision. | Record reviewed source links/timestamps in the run ledger or Communications. When task(s) are created from a Slack message, reply in the source thread after verification with each task title, assignee, and task URL. |
+| WhatsApp | Saved client chat checkpoints only. If `Last read message ID` exists, read messages after that ID; otherwise read messages after `Last read through`. If neither exists or monitoring is disabled, skip the chat and record a blocker. No historical backfill unless the user explicitly approves the backfill window. | Advance the client checkpoint only after required handling for inspected messages succeeds. |
 | Notion | Fetch all open Tasks for the global active index; fetch task comments/status changes and open Communications follow-ups changed since the last successful run. | Update task/source records directly when safe and verified. |
 | SignNow / signing systems | Check only document/request IDs already linked from active tasks, Communications, contracts, or inbound notifications; do not broad-scan signing systems. | Status alone is evidence only; do not complete signature work until signed files are retrieved/attached. |
 | Drive / Docs / files | Inspect files linked from inbound items, active tasks, Communications, or source records; do not browse broad client folders unless the active item requires file evidence. | Attach/link files only in the verified destination; do not claim attachments exist until fetched back. |
@@ -44,7 +48,7 @@ Classify each inbound item against the active index:
 
 - `no-op`: no Notion, Drive, Slack, supplier/client, or source action required; mark the channel completion marker after verification.
 - `task update`: comment/update the matched active task with new context, source link, and next step.
-- `new task`: create one task in the relevant client project when no matching task exists and RB action is required.
+- `new task`: create task(s) in the relevant client project when no matching task exists and RB action is required; create multiple tasks only when the inbound item contains distinct actionable workstreams.
 - `Correspondence`: create/update only for real non-invoice correspondence or source documents/messages that should be filed.
 - `Expense/Invoicing`: create/update payables, receipts, contractor invoices, or AR records under the finance rules below.
 - `blocker`: create/update a blocked task when entity, supplier, contract, evidence, or destination is ambiguous.
@@ -52,16 +56,17 @@ Classify each inbound item against the active index:
 
 Safe direct writes are allowed after verification: Notion task comments/creation, Correspondence, Expense/Invoicing updates, Communications logs, labels, and checkpoints. Do not make irreversible or sensitive changes as a safe write.
 
-## Client Requests Without Correspondence
+## Action Requests Without Correspondence
 
-If an inbound client request has no document or correspondence artifact to file:
+If an inbound request or instruction has no document or correspondence artifact to file, handle it as task work whether it came from a client/counterparty or from the internal RB team in Gmail, Slack, WhatsApp, Notion, or another configured channel:
 
 - Do not force a Correspondence row.
 - Search the relevant client project first.
 - If a matching task exists, add a task comment with the source channel, source link/message ID, new context, and proposed/actual next action.
-- If no matching task exists, create one task in the client project with source context, owner, status, priority, and due date when known.
+- If no matching task exists, create task(s) in the client project with source context, owner, status, priority, and due date when known. Use one task for one coherent workstream; split into multiple tasks only when the inbound item clearly contains separate owners, deadlines, or deliverables.
+- If the run creates or updates related records such as Correspondence, Expense, Invoicing, Communications, Drive files, or source records, include those associated links in the task description or task comment, and include the task link back in the related record where supported.
 - Assign using explicit instructions, the project owner/inherited owner, established process rule, or `internal/people-roles.md`; if ownership is unclear, create a blocked task rather than an unowned task.
-- If the new task came from Slack, reply in the source Slack thread after the task is verified. Keep the reply factual: task created, assignee, and task URL. If the reply would include substantive advice, a client answer, a promise, or sensitive context, put that reply in the batch approval packet instead.
+- If new task(s) came from Slack, reply in the source Slack thread after the task(s) are verified. Keep the reply factual: task title, assignee, and task URL for each task. If the reply would include substantive advice, a client answer, a promise, or sensitive context, put that reply in the batch approval packet instead.
 
 ## Finance And Document Rules
 
@@ -116,7 +121,7 @@ Finish with:
 - channels checked and checkpoints/labels advanced;
 - active work matched;
 - tasks commented, created, updated, or blocked;
-- Correspondence, Expense, Invoicing, Communications, source records, and files created/updated;
+- Correspondence, Expense, Invoicing, Communications, source records, and files created/updated, with associated task links where applicable;
 - batch approval packet item IDs and approval status;
 - outbound actions executed after approval;
 - no-op counts;

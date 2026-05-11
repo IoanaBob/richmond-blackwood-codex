@@ -861,6 +861,14 @@ All RB-specific imported facts remain provisional.
 - Status: approved.
 - Unresolved questions: none.
 
+## 2026-05-11 Task Splitting And Run Ledger Review
+
+- Source: PR review comments and user instruction in Codex thread.
+- Scope: support multiple tasks per inbound item when workstreams differ, handle internal-team-originated client tasks, link related created records from tasks, build reports from a run change ledger, and define WhatsApp checkpoint ordering.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved.
+- Unresolved questions: none.
+
 ## 2026-05-08 Gmail Triage Slack Overview Rule Import
 
 - Source: user instruction in Codex thread.
