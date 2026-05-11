@@ -20,8 +20,8 @@ Use this skill whenever a local or cloud file should be preserved for Richmond B
    - Do not infer `<group or external>` or create replacement Drive structures.
 5. If the file is already in Drive or Notion, attach that URL and verify the record.
 6. For generic local files when the connector lacks upload support:
-   - Resolve or create the final folder with `npm run drive:organize -- ensure-folder <root-folder-id> "<folder/path>"`.
-   - Upload with `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"`.
+   - Resolve or create the final folder through the Google Drive connector.
+   - Upload with `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"` only when connector upload is insufficient.
    - Attach the returned `webViewLink` to Notion and verify by fetching the record.
 7. For native Google Docs that have already been edited through the connector, export/upload PDF with `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`.
 8. Update the relevant repo memory, source register, import log, tasks, and handoff.

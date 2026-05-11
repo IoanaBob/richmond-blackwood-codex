@@ -38,10 +38,11 @@ Keep revenue, expense, raw bank, and investment exports in flat, filterable tabs
 
 Place high-level review tabs first (`Setup`, `Summary`, `Tax Analysis`, `PNL`, `Balance Sheet`, `Missing Info`, `Checks`) and helper tables such as `Category Rules` and `FX Rates` at the end. In `Tax Analysis`, show business/freelance total income and total expenses separately before subtracting them into the net PNL line.
 
+For the employee lump sum, keep the statutory baseline visible in `Deductibles`, but cap the amount used in `Tax Analysis` against gross employment income. If there is no employment income, the included employee lump sum should be EUR 0.
+
 ## Helper Commands
 
 ```bash
-npm run drive:organize -- ensure-folder <root-folder-id> "<folder/path>"
 npm run drive:upload -- <local-file> <folder-id> --title "<filename>"
 npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"
 ```

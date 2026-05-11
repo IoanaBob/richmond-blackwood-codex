@@ -21,8 +21,8 @@ Track durable operating rules for Richmond Blackwood files that need to be store
    - Client documents: existing `Richmond Blackwood -> finance and accounting -> <group or external> -> <company name>` tree.
 7. If the file is already in Drive/Notion, attach the accessible URL and verify the record.
 8. For local binary uploads when connector support is insufficient:
-   - `npm run drive:organize -- ensure-folder <root-folder-id> "<folder/path>"`
-   - `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"`
+   - Resolve or create the final folder through the Google Drive connector.
+   - `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"` only when connector upload is insufficient.
 9. For edited Google Docs that need a PDF in Drive:
    - `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`
 10. Fetch the target Notion record and verify the intended file property is populated.
@@ -48,6 +48,7 @@ Active rules:
 - Drive summaries through formulas reading revenue rows, expense rows, raw export tabs, invoice/evidence register, investment lots, `FX Rates`, category rules, and journal rows.
 - Place high-level review tabs first and helper tables such as `Category Rules` and `FX Rates` at the end.
 - In `Tax Analysis`, show business/freelance total income and total expenses as separate lines, then calculate business/freelance net PNL as income less expenses.
+- Cap the employee lump-sum baseline against gross employment income; for no-employment cases it should remain visible as a statutory baseline in `Deductibles` but contribute EUR 0 in `Tax Analysis`.
 - Use `Category Rules` for SKR04 account number, account name, PNL/balance-sheet mapping, tax treatment, invoice requirement, VAT treatment, and review notes.
 - Enforce double-entry through `Journal` and `Checks`; every generated transaction should net to zero and failed checks must surface in `Checks` and `Missing Info`.
 - Link opening balance sheets to prior-year closing balances where available. If unavailable, use an explicit provisional opening balance plug and label it clearly.

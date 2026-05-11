@@ -139,7 +139,7 @@ Use these rules whenever you create or update the German personal-tax workbook.
 ### Deductibles And Credits
 
 - Keep all optional deductible and credit rows at `Needs operator review` until the operator answers the applicability questions. Use `Yes` only after facts/evidence support inclusion, and `No` when the operator rules the item out.
-- Employee lump sum may be `Baseline only` because it is a comparator for employment income, not an optional evidence claim.
+- Employee lump sum may be `Baseline only` because it is a comparator for employment income, not an optional evidence claim. Cap the baseline against gross employment income; when the filing has no employment income, the included employee lump sum should be EUR 0 even though the statutory baseline remains visible in `Deductibles`.
 - The normal German home-office route is the days-based `Tagespauschale`: ask for qualifying days and calculate EUR 6/day, capped at EUR 1,260, without requiring a dedicated room. If the operator instructs the maximum daily claim, enter 210 days on `home-office-daily`; keep the dedicated-room row inactive with no potential amount unless the operator separately approves the room route.
 - The ELSTER-facing `Summary` should show home-office daily allowance separately and sum only `home-office-daily` by default.
 - The German `Sonderausgaben-Pauschbetrag` / Section 10c EStG special expense lump sum belongs in `Deductibles` as `Baseline only`, not as an employment/work expense. Set evidence status to `Not required` and include the statutory baseline automatically unless higher covered special expenses make it redundant.
