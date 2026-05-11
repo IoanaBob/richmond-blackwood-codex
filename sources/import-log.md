@@ -853,6 +853,14 @@ All RB-specific imported facts remain provisional.
 - Status: approved.
 - Unresolved questions: none.
 
+## 2026-05-11 Concrete Channel Windows Review
+
+- Source: user instruction in Codex thread.
+- Scope: replace abstract channel-window wording with explicit default read windows and unavailable-connector handling.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved.
+- Unresolved questions: none.
+
 ## 2026-05-08 Gmail Triage Slack Overview Rule Import
 
 - Source: user instruction in Codex thread.

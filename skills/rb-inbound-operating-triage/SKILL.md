@@ -27,11 +27,15 @@ Use this skill for generalized inbound triage. The goal is to move active work f
    - open RB Communications follow-ups;
    - active source records tied to onboarding, signatures, approvals, contracts, evidence, finance, correspondence, settlement, or follow-up.
 2. **Read channel windows**:
-   - Gmail: unhandled/new accounting/client inbound; label `Triaged` only after handling or verified no-op classification succeeds.
-   - Slack: configured channels, task-linked threads, or user-requested context since last successful run/checkpoint; when creating a task from a Slack message, reply in the source thread after task creation is verified with the task URL and assignee.
-   - WhatsApp: saved client chat checkpoints only; no backfill unless requested.
-   - Notion: task comments/status changes and open Communications follow-ups.
-   - SignNow/status systems, Drive/Docs/files, Calendar/calls, DocSend/HubSpot: only when linked to active work or inbound status.
+   - Gmail: search configured RB/accounting/client aliases for inbound messages not labelled `Triaged`; label only after handling or verified no-op classification succeeds.
+   - Slack: read configured channels since the last successful checkpoint, or the current local day if no checkpoint exists; read full threads only when needed for an active-task match or task-created/update decision.
+   - WhatsApp: read saved client chat checkpoints only; no backfill unless requested.
+   - Notion: fetch all open Tasks for the active index, then fetch changed task comments/statuses and open Communications follow-ups since the last successful run.
+   - SignNow/status systems: check only document/request IDs linked from active work or inbound notifications.
+   - Drive/Docs/files: inspect files linked from inbound items or active work; do not browse broad folders unless evidence is required.
+   - Calendar/calls: read current local day plus active-work-linked future meetings needed for next actions.
+   - DocSend/HubSpot/other systems: read only active-work-linked records or notifications since the last successful run.
+   - If a connector is unavailable, mark the channel skipped in the run ledger/final report and do not infer missing context.
 3. **Classify each inbound item** as no-op, task update, new task, Correspondence, Expense/Invoicing, blocker, or approval-required action.
 4. **Perform safe direct writes** after verification:
    - task comments/creation;

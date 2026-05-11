@@ -25,18 +25,18 @@ Prefer one global active index over client-by-client polling. Fetch schemas/data
 
 ## Channel Registry
 
-Read the smallest useful window for each channel. Do not invent context for unavailable connectors.
+Use these default read windows. If a connector is unavailable, mark that channel `Skipped - connector unavailable` in the run ledger/final report, use only user-provided or already-verified context, and do not infer what might have happened in that channel.
 
 | Channel | Read window / checkpoint | Completion marker |
 | --- | --- | --- |
-| Gmail | New/unhandled inbound for configured RB/accounting/client aliases; start with metadata, snippets, recipients, subjects, message IDs, and attachment filenames. | For any Gmail item from the accounting/client inbound scope, apply Gmail `Triaged` only after required handling or verified no-op classification succeeds. Do not archive by default. |
-| Slack | Configured RB channels, relevant task-linked threads, or user-requested channels since the last successful run/checkpoint. | Record reviewed source links/timestamps in the run ledger or Communications. When a task is created from a Slack message, reply in the source thread after task creation is verified with the task URL and assignee. |
+| Gmail | Search configured RB/accounting/client aliases for inbound messages that are not labelled `Triaged`; start with metadata, snippets, recipients, subjects, message IDs, and attachment filenames before fetching full bodies/files. | For any Gmail item from the accounting/client inbound scope, apply Gmail `Triaged` only after required handling or verified no-op classification succeeds. Do not archive by default. |
+| Slack | Read configured RB channels since the last successful run checkpoint; if no checkpoint exists, read the current local day. Also read full threads for messages that match active tasks, are replies/mentions, or are needed to understand a task-created/update decision. | Record reviewed source links/timestamps in the run ledger or Communications. When a task is created from a Slack message, reply in the source thread after task creation is verified with the task URL and assignee. |
 | WhatsApp | Saved client chat checkpoints only (`Last read through` / `Last read message ID`). No historical backfill unless the user explicitly asks. | Advance the client checkpoint only after required handling for inspected messages succeeds. |
-| Notion | Open Tasks, task comments/status changes, Communications follow-ups, and relevant source-record changes from the active index. | Update task/source records directly when safe and verified. |
-| SignNow / signing systems | Check only records linked to active work or inbound status. | Status alone is evidence only; do not complete signature work until signed files are retrieved/attached. |
-| Drive / Docs / files | Inspect only files linked from inbound items or active work. | Attach/link files only in the verified destination; do not claim attachments exist until fetched back. |
-| Calendar / calls | Inspect only relevant meetings/call records where available and tied to active work. | Log material outcomes in Communications or task comments. |
-| DocSend / HubSpot / other source systems | Inspect only when available and relevant to active work or inbound status. | Update source records only from verified source data. |
+| Notion | Fetch all open Tasks for the global active index; fetch task comments/status changes and open Communications follow-ups changed since the last successful run. | Update task/source records directly when safe and verified. |
+| SignNow / signing systems | Check only document/request IDs already linked from active tasks, Communications, contracts, or inbound notifications; do not broad-scan signing systems. | Status alone is evidence only; do not complete signature work until signed files are retrieved/attached. |
+| Drive / Docs / files | Inspect files linked from inbound items, active tasks, Communications, or source records; do not browse broad client folders unless the active item requires file evidence. | Attach/link files only in the verified destination; do not claim attachments exist until fetched back. |
+| Calendar / calls | Read meetings/call records from the current local day and any active-work-linked future meetings needed for the next action. | Log material outcomes in Communications or task comments. |
+| DocSend / HubSpot / other source systems | Read only records or notifications linked from active work or inbound status since the last successful run. | Update source records only from verified source data. |
 
 ## Classification And Safe Direct Writes
 
