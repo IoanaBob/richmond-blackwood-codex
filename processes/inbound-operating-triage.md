@@ -29,8 +29,8 @@ Read the smallest useful window for each channel. Do not invent context for unav
 
 | Channel | Read window / checkpoint | Completion marker |
 | --- | --- | --- |
-| Gmail | New/unhandled inbound for configured RB/accounting/client aliases; start with metadata, snippets, recipients, subjects, message IDs, and attachment filenames. | Apply Gmail `Triaged` only after required handling succeeds. Do not archive by default. |
-| Slack | Configured RB channels, relevant task-linked threads, or user-requested channels since the last successful run/checkpoint. | Record reviewed source links/timestamps in the run ledger or Communications; do not post channel updates until the final reporting/approval step. |
+| Gmail | New/unhandled inbound for configured RB/accounting/client aliases; start with metadata, snippets, recipients, subjects, message IDs, and attachment filenames. | For any Gmail item from the accounting/client inbound scope, apply Gmail `Triaged` only after required handling or verified no-op classification succeeds. Do not archive by default. |
+| Slack | Configured RB channels, relevant task-linked threads, or user-requested channels since the last successful run/checkpoint. | Record reviewed source links/timestamps in the run ledger or Communications. When a task is created from a Slack message, reply in the source thread after task creation is verified with the task URL and assignee. |
 | WhatsApp | Saved client chat checkpoints only (`Last read through` / `Last read message ID`). No historical backfill unless the user explicitly asks. | Advance the client checkpoint only after required handling for inspected messages succeeds. |
 | Notion | Open Tasks, task comments/status changes, Communications follow-ups, and relevant source-record changes from the active index. | Update task/source records directly when safe and verified. |
 | SignNow / signing systems | Check only records linked to active work or inbound status. | Status alone is evidence only; do not complete signature work until signed files are retrieved/attached. |
@@ -61,6 +61,7 @@ If an inbound client request has no document or correspondence artifact to file:
 - If a matching task exists, add a task comment with the source channel, source link/message ID, new context, and proposed/actual next action.
 - If no matching task exists, create one task in the client project with source context, owner, status, priority, and due date when known.
 - Assign using explicit instructions, the project owner/inherited owner, established process rule, or `internal/people-roles.md`; if ownership is unclear, create a blocked task rather than an unowned task.
+- If the new task came from Slack, reply in the source Slack thread after the task is verified. Keep the reply factual: task created, assignee, and task URL. If the reply would include substantive advice, a client answer, a promise, or sensitive context, put that reply in the batch approval packet instead.
 
 ## Finance And Document Rules
 
@@ -93,6 +94,7 @@ Approval-required actions include:
 
 - outbound emails, Slack/WhatsApp messages, or other external replies;
 - final Slack/channel overview posts unless the current run prompt explicitly pre-authorizes direct posting to that channel;
+- substantive Slack task-thread replies beyond a minimal factual task-created acknowledgement;
 - app/software draft creation;
 - signature request cancellation, sending, or signer redirection;
 - final signed-package distribution;

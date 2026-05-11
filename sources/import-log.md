@@ -845,6 +845,14 @@ All RB-specific imported facts remain provisional.
 - Status: provisional.
 - Unresolved questions: validate channel windows, active-index matching, safe direct writes, and batched approval packets on the next live multi-channel run.
 
+## 2026-05-11 Generalized Triage Review Comments
+
+- Source: PR review comment and user instruction in Codex thread.
+- Scope: keep Gmail completion handling as a general accounting/client inbox rule and add Slack source-thread acknowledgement when a task is created from a Slack message.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `clients/Companies/RBL/edge-cases.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved.
+- Unresolved questions: none.
+
 ## 2026-05-08 Gmail Triage Slack Overview Rule Import
 
 - Source: user instruction in Codex thread.

@@ -30,7 +30,7 @@ Use this edge case only when an item is an invoice, renewal notice, payment noti
 
 - Creating or updating an Expense.
 - Creating or updating an Invoicing record.
-- Marking the source channel item complete, including applying Gmail `Triaged` when the source is email.
+- Completing the Workhub-specific validation before normal channel completion.
 - Reporting the item in the final run report or Slack overview.
 
 ### Rule
@@ -47,7 +47,7 @@ Approved Workhub plan schedule:
 - If the invoice matches the addressee and plan schedule, process it through the normal Expense/Invoicing path and report it normally.
 - If Workhub sends an invoice addressed to a client company, with the wrong plan, or otherwise inconsistent with this schedule, do not process it as a payable expense.
 - For an incorrect Workhub invoice, request or prepare a request for a corrected invoice, and keep any existing Notion Expense row only as a rejected/correction-required audit pointer.
-- Leave the source channel item incomplete until the correction/review path required for that item is complete; for Gmail, do not apply `Triaged` until then.
+- Leave the source channel item incomplete until the correction/review path required for that item is complete.
 - If the user has already reviewed and approved a Workhub item as correct, do not reverse it during automation cleanup; report it as human-reviewed/approved.
 
 ### Current Human-Reviewed State

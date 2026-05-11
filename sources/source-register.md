@@ -50,6 +50,7 @@ Searches found accounting and invoice operation threads for RB and client aliase
 
 | Source | Scope | Status |
 | --- | --- | --- |
+| Codex thread PR review, 2026-05-11 | Gmail `Triaged` handling is a general accounting/client inbox rule, and Slack-originated task creation should be acknowledged in the source Slack thread with task URL and assignee | Routed to `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `clients/Companies/RBL/edge-cases.md`, and `memory/skill-runs.md`; approved |
 | Codex thread instruction, 2026-05-11 | Replace Gmail-specific inbound triage with generalized inbound operating triage across configured channels, active-work matching, safe direct writes, and batched approval packets | Routed to `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, process/skill indexes, `clients/Companies/RBL/edge-cases.md`, and memory/import logs; provisional pending next live multi-channel run |
 | Codex thread instruction, 2026-05-08 | General Gmail triage process should reference company-specific exception files instead of duplicating volatile exception details | Routed to `processes/gmail-inbound-triage.md` and `skills/rb-gmail-inbound-triage/SKILL.md`; approved |
 | Codex thread instruction, 2026-05-08 | Workhub exception lookup should be targeted by invoice/supplier signal rather than broad exception scanning | Routed to `processes/gmail-inbound-triage.md` and `skills/rb-gmail-inbound-triage/SKILL.md`; approved |

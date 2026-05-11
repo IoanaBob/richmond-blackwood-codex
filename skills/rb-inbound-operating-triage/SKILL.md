@@ -27,8 +27,8 @@ Use this skill for generalized inbound triage. The goal is to move active work f
    - open RB Communications follow-ups;
    - active source records tied to onboarding, signatures, approvals, contracts, evidence, finance, correspondence, settlement, or follow-up.
 2. **Read channel windows**:
-   - Gmail: unhandled/new inbound; label `Triaged` only after handling succeeds.
-   - Slack: configured channels, task-linked threads, or user-requested context since last successful run/checkpoint.
+   - Gmail: unhandled/new accounting/client inbound; label `Triaged` only after handling or verified no-op classification succeeds.
+   - Slack: configured channels, task-linked threads, or user-requested context since last successful run/checkpoint; when creating a task from a Slack message, reply in the source thread after task creation is verified with the task URL and assignee.
    - WhatsApp: saved client chat checkpoints only; no backfill unless requested.
    - Notion: task comments/status changes and open Communications follow-ups.
    - SignNow/status systems, Drive/Docs/files, Calendar/calls, DocSend/HubSpot: only when linked to active work or inbound status.
@@ -47,6 +47,7 @@ Use this skill for generalized inbound triage. The goal is to move active work f
 - Search the relevant client project first; comment on the matching task with source context and next step.
 - If no task matches and RB action is required, create one task in the client project with source link/message ID, owner, priority, status, and due date when known.
 - If company, individual, supplier, contract, owner, or project is ambiguous, create/update a blocked task with the exact decision needed instead of guessing.
+- If the task was created from Slack, post a factual source-thread reply after verification: task created, assignee, and task URL. If the Slack reply would include substantive advice, an answer, a promise, or sensitive context, include it in the approval packet instead.
 - Do not proactively chase every stale task in this v1 workflow; move tasks only when inbound/status evidence or an obvious active-work match triggers action.
 
 ## Finance And Correspondence Rules
