@@ -1,0 +1,6 @@
+# History
+
+Status: provisional.
+Notion backup: `notion-backup.md`.
+
+Add chronological unsanitised client history here.

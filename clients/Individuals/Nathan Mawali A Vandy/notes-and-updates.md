@@ -40,7 +40,7 @@ Use this location for personal tax, identity, personal solvency/insolvency, pers
 ## Current Individual Workstreams
 
 - Personal tax context is recorded in `personal-tax-returns.md`.
-- People/contact and KYC context is recorded in `people-and-contacts.md`.
+- People/contact and KYC context is recorded in this file and linked from the relevant company `linked-individuals.md`.
 - Personal correspondence is recorded in `communications.md`.
 - Insolvency/solvency evidence from Gmail and Drive is recorded in `legal-insolvency-and-solvency.md`.
 - Identity/address-check operational emails are referenced in `contracts-and-authority.md`.

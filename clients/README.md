@@ -43,7 +43,6 @@ clients/Companies/<client-reference>/
   drive-locations.md
   backup-locations.md
   linked-individuals.md
-  people-and-contacts.md
   contracts-and-authority.md
   accounting-bookkeeping-payroll.md
   tax-vat-filings.md
@@ -90,7 +89,7 @@ Every company client folder must have:
 
 - A Notion backup target or blocker in `notion-backup.md`.
 - A Drive destination or blocker in `drive-locations.md`.
-- A structured individual relationship map in `linked-individuals.md` when any person is a director, UBO, shareholder, POC, payroll employee, personal-tax client, or personal-service client.
+- A structured people and individual relationship map in `linked-individuals.md` when any person is a director, UBO, shareholder, POC, payroll employee, personal-tax client, or personal-service client.
 - Source pointers in `source-register.md`.
 - Any private fact marked provisional until reviewed.
 
@@ -130,7 +129,9 @@ When correspondence is linked to the wrong entity in Notion, correct Notion too:
 
 ## Client Evidence And Backup Pointers
 
-Recurring client backup/export folders should live in Drive, not inside the git client folder.
+Use Notion first for long-lived operational records that need frequent access and fit an existing table: company information, individual information, contracts, employment, payslips, invoices, expenses, correspondence, tasks, and filings.
+
+Use Drive for source documents and evidence that do not fit cleanly in Notion or do not need frequent operational access. Recurring client backup/export folders should live in Drive, not inside the git client folder.
 
 For each company, use the current Drive structure:
 

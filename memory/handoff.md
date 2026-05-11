@@ -15,12 +15,20 @@ Imported: 2026-05-04.
 8. For WhatsApp work, read `setup/mcp/whatsapp.md` and `skills/rb-whatsapp-comms/SKILL.md` first.
 9. For outbound communications, use `skills/rb-communications/SKILL.md`.
 10. For client history refreshes, use `skills/rb-client-file/SKILL.md`; after changing repo files, send `#rb-client-updates` a Notion-facing closeout listing only what was added or modified in Notion.
+11. For German personal-tax spreadsheet work, start from the native machine-readable template `RB German Personal Tax Analysis - Machine-Readable Template v1` (`https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`) and use formula-driven revenue, expenses, raw exports, category rules, journal, PNL, balance sheet, checks, and missing-info tabs. Do not create new analyses through ad hoc `codex - ...` tabs in legacy workbooks.
+12. For Notion database pages with actual comments, write comment/update notes in the page comments section rather than a database `Comments` field; if the connector cannot write the actual comment, stop and report the blocker.
+13. For Slack messages requiring review, paste the proposed text in the Codex chat first. After user approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
+14. For personal-tax analysis completion notifications, capture the triggering Slack user/channel/thread at intake when available. If the trigger comes from Codex/Notion/Drive without a Slack identity, ask the operator for the Slack recipient before sending the ready-for-review message.
+15. For personal-tax filings, keep the live Notion Personal Tax Filings fields in sync whenever analysis, evidence, or Drive state changes: update `Status`, `Document gathering status`, and `GDrive Docs`, and verify by read-back. Use exact document-gathering options such as `In progress` and `Attached in Drive`.
+16. For personal-tax filings without task relations, create a `Preparation Task` analysis task assigned to Ioana Surdu-Bob and a separate `Filing Task` assigned to Johnpaul Okolie, both attached to the correct client project. Set the filing task's `Dependent on` relation to the analysis task, and comment on the filing task with the analysis spreadsheet URL once it is ready for filing.
 
 ## Caution
 
 Do not mark provisional facts approved without explicit user review.
 
 Do not move or create Drive client documents until group/external classification and company folder are confirmed.
+
+Always ask the user to review the diff before committing, even when the environment/tooling is set to auto-review.
 
 Do not resurrect earlier incorrect non-VUN client backup references. Redo each non-VUN client from the Notion Companies `Reference` property.
 
@@ -41,6 +49,8 @@ VUN task and correspondence history was refreshed on 2026-05-07 from direct Noti
 Connected follow-up tasks should use `Dependent on` on the follow-up task when the follow-up cannot start until the initial task is complete. Use `Is blocking` on the initial task only when that direction is clearer in the existing workflow.
 
 Richmond Blackwood action follow-ups should be created in the Notion Tasks database and linked to the responsible company project. In this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required. Assign the task to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`; ask if ownership is unclear.
+
+Selin Ozkohen / CLV is the active German personal-tax pilot. Local folders are `clients/Individuals/Selin Ozkohen/` and `clients/Companies/CLV/`. 2024 workbook: `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`. 2025 workbook: `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`. The 2025 setup linked January-June Drive payslips into Notion payroll `Payslip` fields and populated payroll revenue at EUR 28,800 gross and EUR 3,096.96 wage tax. Remaining 2025 checks are prior-year opening balance, expense document review, investment/no-investment confirmation, deductible review, and tax-credit review. The Google Sheets connector returned `403` on the helper-created 2025 workbook during setup; the Drive helper could read/write it.
 
 ## Verification
 

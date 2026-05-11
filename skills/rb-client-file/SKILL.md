@@ -16,7 +16,7 @@ Use the pattern in `clients/Companies/_template/`.
 - Before creating a client folder, fetch the Notion Companies record and use its exact `Reference` value.
 - Do not invent slugs from legal names.
 - History and chronology: `history.md`.
-- People and contacts: `people-and-contacts.md`.
+- People, contacts, and linked individuals: `linked-individuals.md`.
 - Contracts and authority: `contracts-and-authority.md`.
 - Accounting, bookkeeping, payroll: `accounting-bookkeeping-payroll.md`.
 - Tax, VAT, filings: `tax-vat-filings.md`.
@@ -31,6 +31,10 @@ Use the pattern in `clients/Companies/_template/`.
 ## External Backup
 
 Do not create Notion or Drive client entries when the company relation, target database, or group/external folder is unclear.
+
+Use Notion first for long-lived operational records that need frequent access and fit an existing table: company information, individual information, contracts, employment, payslips, invoices, expenses, correspondence, tasks, and filings.
+
+Use Drive for source documents and evidence that do not fit cleanly in Notion or do not need frequent operational access. In git, record only pointers, routing notes, and blockers.
 
 ## Entity Ownership
 

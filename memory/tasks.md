@@ -13,7 +13,6 @@ Imported: 2026-05-04.
 | Backfill missing VUN relation-filtered Notion tables, including Assets, Tax Payments, Tax Prepayments, filings, invoice/payment records, correspondence, contracts, payroll, employment, and task history. | 2026-05-05 |
 | Audit VUN and Nathan correspondence records for entity-routing mistakes; when found, link the correct individual/company first and then unlink the incorrect entity in Notion. | 2026-05-05 |
 | Create company and individual Client Notes & Updates backup pages for VUN/Nathan after user review. | 2026-05-05 |
-| Resolve the source spreadsheet/template for German personal tax analysis and create the first Nathan/VUN personal tax analysis when requested. | 2026-05-05 |
 | Analyse Meta, Reddit, and Google ads accounts when the user asks for a specific account-analysis task. | 2026-05-04 |
 | Resolve access to the video creative Drive folder. | 2026-05-04 |
 | Review static creative batches in Figma in more depth, using a new tab for each batch. | 2026-05-04 |
@@ -25,6 +24,7 @@ Imported: 2026-05-04.
 | Confirm RB signing policy, signer identity, routing order, and whether SignNow is an active standard signing tool. | 2026-05-05 |
 | Confirm whether RB should enable optional WhatsApp MCP for all operators or only this local Codex setup. | 2026-05-05 |
 | Confirm which WhatsApp account/number should be linked for RB work. | 2026-05-05 |
+| Finalise Nathan 2025 personal tax audit after the missing N26 October 2025 statement, invoice/receipt evidence, Revolut GBP FX review, prepayment amounts, and non-USDC investment cost-basis lots are supplied or confirmed in Drive. | 2026-05-06 |
 
 ## Done
 
@@ -51,3 +51,5 @@ Imported: 2026-05-04.
 | Ported optional WhatsApp MCP setup and RB WhatsApp communications skill into PR #1. | 2026-05-05 | 2026-05-05 |
 | Added direct-send communications rule and chat-first drafting workflow. | 2026-05-06 | 2026-05-06 |
 | Created canonical RB Communications database and moved VUN Slack closeout record out of the Everguard/research Communications table. | 2026-05-06 | 2026-05-07 |
+| Resolved access to Nathan's Office-mode 2023/2024 VAT missing-invoices workbook and 2025 personal-tax analysis workbook, then added formula-backed Codex categorisation/audit tabs. | 2026-05-06 | 2026-05-06 |
+| Created the machine-readable native Google Sheets personal-tax template and superseded the separated-Codex-tab workflow for future personal-tax work. | 2026-05-06 | 2026-05-06 |

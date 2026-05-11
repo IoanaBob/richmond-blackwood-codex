@@ -1,0 +1,158 @@
+# Personal Tax Returns
+
+Status: approved.
+Source: Notion 2024 personal tax filing `https://www.notion.so/2cae413013148010823aedea9376e6a5`; Notion employment record `https://www.notion.so/19eb44945e544186baf7be0d9fb3612d`; Drive payslip folder `https://drive.google.com/drive/folders/1IUAeKdp8IOcuwVYWIty2ykjxsOw9Ofwr`; workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Imported: 2026-05-06.
+Review: Payroll gross, wage-tax withholding, social/health deductions, and net pay have been extracted from the payslips and annual wage-tax certificate; final filing still needs review of optional deductions, expenses, investments, and prior-year/opening-balance items.
+Approval: User approved the current workbook/process state for commit on 2026-05-07; this does not mean the 2024 filing is complete.
+
+## 2024 German Personal Tax Pilot
+
+Filing page: `https://www.notion.so/2cae413013148010823aedea9376e6a5`.
+Filing period: 2024-01-01 to 2024-12-31.
+Jurisdiction: Germany.
+Status in Notion: In progress.
+
+Workbook: `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Template used: `RB German Personal Tax Analysis - Machine-Readable Template v1`.
+
+Revenue status: 12 payroll-led revenue rows were added. The employment record shows employment started 2023-09-01, before the 2024 filing period. The matching 2024 payslips were found in Drive and attached to the linked Notion payroll run `Payslip` file fields. Payslip extraction now ties to EUR 28,800 gross employment income, EUR 2,656 wage tax withheld, EUR 0 payroll social/health deductions, and EUR 26,144 net paid.
+
+Payslip folder: `https://drive.google.com/drive/folders/1IUAeKdp8IOcuwVYWIty2ykjxsOw9Ofwr`.
+Jan-Feb 2024: the associated payroll entries include both original and March correction payslip PDFs in `Payslip`.
+Annual wage-tax certificate: `https://drive.google.com/file/d/1OZw7NIlnSFeXkGQ8T6UJfRKgJw3mROPh/view?usp=drivesdk`.
+
+Open workbook checks after payslip attachment:
+
+| Check | Status |
+| --- | --- |
+| Journal balances | OK |
+| Revenue rows needing review | FAIL - January/February zero wage-tax withholding explanation still needed |
+| Prior-year opening links | FAIL - opening balance source still needed |
+| Missing expense confirmation | FAIL - no expense evidence or no-expense confirmation found |
+| Missing investment confirmation | FAIL - no investment evidence or no-investment confirmation found |
+| Missing direct tax payment/prepayment confirmation | FAIL - no bank extract/direct payment review completed |
+
+## 2026-05-07 Template Update Status
+
+Status: approved.
+Source: User instruction on 2026-05-07; maintained native Google Sheets template `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`.
+Imported: 2026-05-07.
+Review: Final deductible eligibility still needs review before filing; Selin's home-office daily allowance is filled at the maximum day count per operator instruction and should be reviewed against the no-external-office/workplace assumption if needed.
+
+The live German personal-tax template and Selin workbook now include source-backed `Deductibles`, `Tax Credits`, `Tax Payments`, `Tax Analysis`, and ELSTER-style `Summary` tabs. Selin worked from home in 2024 per user instruction, and the workbook now uses the daily home-office allowance / `Tagespauschale` rather than the dedicated-room route. Per operator instruction on 2026-05-08, Selin's 2024 and 2025 workbooks claim the maximum 210 days on the daily row, producing EUR 1,260 included deduction in each year; the dedicated-room row is inactive, has no potential amount, and contributes EUR 0.
+
+## 2026-05-07 Summary Formula Repair
+
+Status: approved.
+Source: User screenshot/report on 2026-05-07; Selin workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Imported: 2026-05-07.
+Review: Remaining failed checks are expected review items, not formula parse errors.
+
+The Selin `Summary` tab showed `#REF!` on rows referencing `Tax Analysis` because formulas had been written in the same batch as newly created tabs. The repair rewrote the affected formula-driven tabs after all referenced tabs existed and cleared true blanks before writing values, so blank template rows do not count as populated. Read-back confirmed `Summary!C5:C20` now shows calculated values, including gross employment income EUR 28,800 and no `#REF!`/`#ERROR!` in the Summary value column.
+
+## 2026-05-07 Tax Analysis Logic Repair
+
+Status: approved.
+Source: User review on 2026-05-07; Selin workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Imported: 2026-05-07.
+Review: Final filing still needs payslip/tax certificate extraction and review of optional deductions.
+
+`Tax Analysis!B7` now uses the employee lump-sum potential amount as the baseline when employment income exists, rather than waiting for the `Deductibles` row to be marked `Yes`. `Tax Analysis!B19` now excludes tax credits from payments/withholding, and row 20 separately totals known credits, payments, and withholding before final tax calculation. Later home-office and healthcare updates changed Selin's current 2024 read-back to EUR 1,260 employment work expenses used and EUR 17,718.70 income after deductions before tax-rate calculation.
+
+## 2026-05-07 Deductible Review Process Correction
+
+Status: approved.
+Source: User review on 2026-05-07; Selin workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Imported: 2026-05-07.
+Review: Operator must answer the deductible/tax-credit question list before any optional row is marked as claimed.
+
+The `Deductibles` and `Tax Credits` tabs now use `Needs operator review` by default rather than `Candidate`, so the workbook does not imply those items are planned claims. The employee lump sum remains `Baseline only` as a formula comparator for employment income. The applicability questions are recorded in `open-questions.md`.
+
+## 2026-05-07 Payroll Withholding Repair
+
+Status: approved.
+Source: User review on 2026-05-07; Drive payslip folder `https://drive.google.com/drive/folders/1IUAeKdp8IOcuwVYWIty2ykjxsOw9Ofwr`; annual wage-tax certificate `https://drive.google.com/file/d/1OZw7NIlnSFeXkGQ8T6UJfRKgJw3mROPh/view?usp=drivesdk`; Selin workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Imported: 2026-05-07.
+Review: Confirm no additional payroll certificate fields beyond wage tax, solidarity surcharge, church tax, and statutory/social deductions are needed for the filing summary.
+
+The earlier revenue rows were wrong because net pay was still calculated as gross while payroll withholding columns were blank. Payslip extraction shows January and February gross EUR 2,400 with EUR 0 wage tax each; March through November gross EUR 2,400 with EUR 269 wage tax each; December gross EUR 2,400 with EUR 235 wage tax. Social/health payroll deduction rows on the payslips are EUR 0 throughout. The annual wage-tax certificate ties to gross employment income EUR 28,800 and wage tax withheld EUR 2,656.
+
+The Selin workbook now shows wage tax withheld in `Revenue!F2:F13`, net paid in `Revenue!I2:I13`, and `Tax Analysis!B16` / `Summary!C6` at EUR 2,656. The master template was updated so salary rows with blank payroll tax/social extraction fields are flagged as needing extraction rather than marked ready.
+
+January and February 2024 remain a payroll review point: both the original payslips and March correction payslips show EUR 0 wage tax withheld on EUR 2,400 monthly gross, and the annual wage-tax certificate total of EUR 2,656 ties to March-December only. The workbook flags those two revenue rows as `Needs payroll withholding explanation`.
+
+## 2026-05-07 Healthcare Deduction Added
+
+Status: approved.
+Source: User instruction on 2026-05-07 reporting Selin's client information; Selin workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+Imported: 2026-05-07.
+Review: Need insurer bill and personal payment evidence before final filing.
+
+Selin reportedly had a 2024 healthcare bill of EUR 9,785.30, paid personally because she is a controlling director. The workbook now records this on `Deductibles!A11:W11` as `health-insurance-basic` / `Anlage Vorsorgeaufwand`, with `Claim Decision = Yes`, `Included Deduction EUR = 9,785.30`, and review status `Needs evidence URL`. `Summary` now shows health/care insurance included at EUR 9,785.30, and `Tax Analysis` includes this in other personal deductions.
+
+The master template deductible review formula now requires an evidence URL for claimed deductible rows unless evidence is marked `Not required`, so client-reported claims remain visible as evidence gaps.
+
+## 2026-05-07 Special Expense Baseline Correction
+
+Status: approved.
+Source: User instruction on 2026-05-07; maintained German template `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`; Selin 2024 workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`; Selin 2025 workbook `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`.
+Imported: 2026-05-07.
+Review: Joint assessment would double the statutory baseline; final filing still needs professional/operator review before submission.
+
+The German special expense lump sum / `Sonderausgaben-Pauschbetrag` is now included in the maintained template and in Selin's 2024 and 2025 workbooks as `ded-special-expense-lump-sum`, with `Claim Decision = Baseline only` and `Evidence Status = Not required`. The formula includes EUR 36 automatically for single assessment, but zeros the row if higher covered special expenses in the workbook are claimed, so it is not double-counted. `Deductibles!B2:B18` now reads the tax year from `Setup!B3` so copied workbooks do not keep stale allowance years.
+
+Current read-back after the later home-office daily max-day update shows 2024 other personal deductions at EUR 9,821.30, employment work expenses used at EUR 1,260, and income after deductions at EUR 17,718.70. Selin 2025 now includes the EUR 36 baseline, employment work expenses used at EUR 1,260, and income after deductions at EUR 27,504.00.
+
+## 2026-05-07 Home-Office Daily-Allowance Correction
+
+Status: approved.
+Source: User instruction on 2026-05-07; maintained German template `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`; Selin 2024 workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`; Selin 2025 workbook `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`.
+Imported: 2026-05-07; updated 2026-05-08.
+Review: Final filing review should confirm the 210 WFH-day/no-external-office assumption if required; the amount is now filled per operator instruction.
+
+The home-office treatment was clarified as the days-based daily allowance / `Tagespauschale`, not the dedicated-room route. The maintained template now describes `ded-home-office-daily` as the default route: enter qualifying days in `Units / Days`, calculate EUR 6 per day, and cap at EUR 1,260. The dedicated-room row remains a separate non-default route and is inactive unless explicitly approved.
+
+Follow-up correction after workbook review: Selin's 2024 and 2025 workbooks now claim the maximum 210 days on `ded-home-office-daily`, with `Rate EUR = 6`, cap EUR 1,260, `Claim Decision = Yes`, and `Included Deduction EUR = 1,260`. The dedicated-room row is `No`, has no potential amount, and contributes EUR 0.
+
+Second follow-up correction: the `Summary` output previously summed both `home-office-daily` and `home-office-room`, which made the return outcome look like the room route was counted even though the room row was `No`. The 2024 and 2025 summaries now say `Home-office daily allowance included` and only sum `home-office-daily`. Read-back shows the home-office daily allowance included at EUR 1,260 in both years, with the room route inactive.
+
+## 2025 German Personal Tax Setup
+
+Status: provisional.
+Source: Notion 2025 personal tax filing `https://www.notion.so/342e4130131480eab03dd8498d24d23e`; Notion employment record `https://www.notion.so/19eb44945e544186baf7be0d9fb3612d`; Drive payslip folder `https://drive.google.com/drive/folders/1ustYGqTraDcaqv0LwQSqa1lk6M-vYIMq`; workbook `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`.
+Imported: 2026-05-07.
+Review: This is setup/revenue pilot work only. Final filing still needs expense evidence review, investment/no-investment confirmation, deductible/tax-credit operator review, and prior-year balance-sheet tie-out.
+
+Filing page: `https://www.notion.so/342e4130131480eab03dd8498d24d23e`.
+Filing period: 2025-01-01 to 2025-12-31.
+Jurisdiction: Germany.
+Status in Notion after setup: In progress.
+
+Workbook: `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`.
+Template used: `RB German Personal Tax Analysis - Machine-Readable Template v1`.
+
+Revenue status: 12 payroll-led revenue rows were added. The employment record shows employment started 2023-09-01, before the 2025 filing period. The 2025 payslips in Drive show EUR 2,400 gross, EUR 258.08 wage tax withheld, EUR 0 payroll social/health deductions, and EUR 2,141.92 formula-derived net pay for each month. Workbook totals read back as EUR 28,800 gross employment income, EUR 3,096.96 wage tax withheld, and EUR 25,703.04 net pay.
+
+Payslip linking: January-June 2025 payroll run `Payslip` fields were blank in Notion and were linked to the matching Drive payslip PDFs. July-December 2025 already had payslip files in Notion and were left in place.
+
+Drive folders:
+
+| Folder | URL |
+| --- | --- |
+| 2025 filing folder | `https://drive.google.com/drive/folders/127-k82-g8Ix3eUGEjLVhbA_1OAglGI7Z` |
+| 2025 payslips | `https://drive.google.com/drive/folders/1ustYGqTraDcaqv0LwQSqa1lk6M-vYIMq` |
+| Documents from client | `https://drive.google.com/drive/folders/1CBoFCpdifCb1xP3HmWedTyLGEgNE_DO5` |
+
+Open workbook checks after setup:
+
+| Check | Status |
+| --- | --- |
+| Journal balances | OK |
+| Revenue rows needing review | OK |
+| Prior-year opening links | FAIL - opening balance tie-out still needed |
+| Missing expense confirmation | FAIL - documents are present but need date/year/category review before claiming |
+| Missing investment confirmation | FAIL - no investment evidence or no-investment confirmation found |
+| Deductibles review | FAIL - operator must review applicability before claims |
+| Tax credit review | FAIL - operator must review applicability before claims |
+| Direct tax payment/prepayment confirmation | FAIL - review bank statements/notices or confirm none |

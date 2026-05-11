@@ -1,3 +1,4 @@
 [submodule "third_party/whatsapp-mcp"]
 	path = third_party/whatsapp-mcp
 	url = https://github.com/raen79/whatsapp-mcp.git
+	ignore = dirty

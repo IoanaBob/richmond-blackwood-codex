@@ -57,6 +57,22 @@ Updated: 2026-05-07.
 - Confirm the owner for German filings and VAT cleanup.
 - Confirm the canonical payroll runbook source, especially for external clients on Lexware.
 - Confirm the authority liaison / POA process owner and current escalation process.
+- For Slack completion notifications, confirm the integration source for the triggering person: Slack user ID/channel/thread from the intake event, Notion requester-to-Slack mapping, or an operator-provided recipient when the trigger comes from Codex.
+
+## Selin / CLV Personal Tax Questions
+
+- For Selin's 2025 German personal tax workbook, review the `Documents from client - 2025 - Selin` folder before claiming expenses; it contains files with 2024 filenames and needs date/year/category review.
+- Confirm whether Selin had any private investments in 2025, or confirm no private investments, before clearing the investment check.
+- Confirm whether Selin had any direct Finanzamt tax payments/prepayments in 2025 outside payroll withholding, or confirm none, before clearing the tax-payment confirmation check.
+- Review deductible and tax-credit applicability for Selin 2025 before marking any optional rows as claimed, including the days-based home-office allowance, commuting, equipment/training, health/care insurance, pension/retirement, donations, childcare, household services, and foreign/investment withholding credits.
+- Tie the 2025 opening balance sheet to the 2024 workbook closing balances or add an explicit provisional opening baseline note.
+
+## Nathan VAT And Personal Tax Questions
+
+- Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.
+- Confirm and collect the missing evidence identified in the 2026-05-06 Nathan workbook audit trail, including potential `INV-00013`, 2025 non-EU invoice evidence, the remaining unmatched DappRadar July 2025 [August] payment, expense receipts, Vandy UN bank receipt/payment evidence, blank prepayment amounts, and non-USDC investment cost-basis lots. Future continuation should use the machine-readable personal-tax template rather than extending separated Codex tabs.
+- Obtain prior-year Coinbase acquisition lots for DOT, ETH, ARB, and MATIC, plus the Kraken XRP acquisition lot, before finalising 2025 capital-gains vs income treatment. USDC should be reconciled as a transfer/stablecoin bridge rather than an investment lot.
+- Confirm whether the copied 2025 Vandy UN Limited invoices are sales-invoice evidence, employment compensation evidence, or a corrected intercompany/related-party invoice trail before final categorisation.
 
 ## WhatsApp MCP Questions
 

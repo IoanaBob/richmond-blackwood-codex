@@ -33,7 +33,6 @@ Never commit credentials, tokens, OAuth JSON files, certificate bundles, private
 ```bash
 npm install
 npm run typecheck
-npm run drive:organize -- --help
 npm run gmail:create-alias-draft -- --help
 npm run signnow:upload -- --help
 npm run signnow:get-document -- --help
