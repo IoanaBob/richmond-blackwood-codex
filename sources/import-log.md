@@ -837,21 +837,38 @@ Open routing blockers:
 
 All RB-specific imported facts remain provisional.
 
+## 2026-05-11 Diff Review: RBL Invoice Validation And RB Commitments
+
+- Source: user diff review in Codex thread.
+- Scope: move Workhub invoice validation out of `clients/Companies/RBL/edge-cases.md` because it is normal RBL invoice validation, not an edge case; add a rule that actionable Richmond Blackwood team commitments such as “we will do/look/check/tell/update/send” or “I will” should create or update tasks.
+- Imported to: `clients/Companies/RBL/invoices-payments-expenses.md`, `clients/Companies/RBL/source-register.md`, `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/communications.md`, `sources/source-register.md`, `memory/history.md`, and `memory/skill-runs.md`.
+- Removed: `clients/Companies/RBL/edge-cases.md`.
+- Status: provisional pending user review.
+- Unresolved questions: none.
+
+## 2026-05-11 Communications-First Triage Review
+
+- Source: user workflow review in Codex thread.
+- Scope: make inbound operating triage communication-first instead of active-index-first; prioritize Gmail inbox and WhatsApp topic extraction; exclude Slack, signatures, files, and status systems as inbound channels; split expenses/invoices before other work; route contractor/business-partner invoices through Business Partners, associated contracts, and contract-linked Invoicing records, including existing paid/completed records before Expenses; group remaining work by company/topic; require correspondence translations to be usable in tasks; require one assignee-tagged Slack closeout per triage when requested.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, `sources/source-register.md`, `memory/handoff.md`, `memory/open-questions.md`, and `memory/skill-runs.md`.
+- Status: provisional pending next live run validation.
+- Unresolved questions: confirm live Business Partners/Contract/Invoicing field names during the next run and confirm Slack user mappings for assignee tags.
+
 ## 2026-05-11 Generalized Inbound Operating Triage
 
 - Source: user-approved implementation plan in Codex thread.
 - Scope: replace Gmail-specific triage with generalized inbound operating triage across configured channels.
-- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, `clients/Companies/RBL/edge-cases.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
-- Status: provisional.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: provisional; later narrowed by communication-first review and RBL invoice validation routing review.
 - Unresolved questions: validate channel windows, active-index matching, safe direct writes, and batched approval packets on the next live multi-channel run.
 
 ## 2026-05-11 Generalized Triage Review Comments
 
 - Source: PR review comment and user instruction in Codex thread.
 - Scope: keep Gmail completion handling as a general accounting/client inbox rule and add Slack source-thread acknowledgement when a task is created from a Slack message.
-- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `clients/Companies/RBL/edge-cases.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
-- Status: approved.
-- Unresolved questions: none.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: Gmail completion handling remains approved; Slack-source acknowledgement is superseded for the Gmail/WhatsApp communication-first workflow by the 2026-05-11 Communications-First Triage Review.
+- Unresolved questions: none for Gmail completion handling.
 
 ## 2026-05-11 Concrete Channel Windows Review
 
@@ -905,7 +922,7 @@ All RB-specific imported facts remain provisional.
 
 - Source: user instruction in Codex thread.
 - Scope: RBL-specific Workhub invoice addressee and plan schedule rule.
-- Imported to: `clients/Companies/RBL/edge-cases.md` and `clients/Companies/RBL/source-register.md`; `clients/Companies/RBL/invoices-payments-expenses.md` keeps only the pointer.
+- Imported to: `clients/Companies/RBL/invoices-payments-expenses.md` and `clients/Companies/RBL/source-register.md`.
 - Status: provisional.
 - Unresolved questions: confirm whether Workhub plan amounts are VAT-exclusive and whether any additional companies have upgraded plans.
 
@@ -921,8 +938,8 @@ All RB-specific imported facts remain provisional.
 
 - Source: user instruction in Codex thread.
 - Scope: make edge cases live in per-client files and make the skill point to the exact entry to load.
-- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `clients/Companies/RBL/edge-cases.md`, `clients/Companies/RBL/invoices-payments-expenses.md`, `clients/Companies/RBL/source-register.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
-- Status: approved.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `clients/Companies/RBL/invoices-payments-expenses.md`, `clients/Companies/RBL/source-register.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: superseded by 2026-05-11 review that Workhub is normal RBL invoice validation rather than an edge case.
 - Unresolved questions: none.
 
 Checks run 2026-05-04:

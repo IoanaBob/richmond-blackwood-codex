@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-08.
+Updated: 2026-05-11.
 
 ## Repo State
 
@@ -22,6 +22,7 @@ Current implementation includes:
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
+- Inbound operating triage rule: process client-speaking communications first, prioritizing Gmail inbox and WhatsApp topic extraction; split finance items before other work; create tasks for actionable RB-side commitments; use supporting systems only when needed to save, verify, route, or notify.
 
 ## Helper State
 

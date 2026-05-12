@@ -1,95 +1,143 @@
 ---
 title: Inbound Operating Triage
 status: provisional
-source: user instruction (generalized inbound triage plan + AGENTS.md)
+source: user instruction (communications-first inbound triage review + AGENTS.md)
 imported: 2026-05-11
-review: Validate channel windows and active-index performance on the next live multi-channel run.
+review: Validate Gmail-inbox-first capture, WhatsApp topic extraction, and finance split behavior on the next live run.
 ---
 
 # Inbound Operating Triage
 
 ## Purpose
 
-Use this process to turn inbound signals into operating progress. A triage run is not just a status report: it reads configured inbound channels, reconciles signals against active client work, performs safe verified updates, and batches approval-required actions into one execution packet.
+Use this process to turn client-speaking inbound communications into operating progress. A triage run is not just a status report: it reads the minimum needed client communication channels, separates finance items first, files true correspondence, creates or updates tasks, and batches approval-required actions into one execution packet.
 
-## Start With A Global Active Index
+This workflow is for channels where clients or counterparties talk to Richmond Blackwood. Current input priority is:
 
-Build the active worklist before reading channel detail:
+1. Gmail inbox only.
+2. WhatsApp, queried and grouped by discussion topic.
 
-- open Notion Tasks across client projects and general RB work;
-- active client projects and relevant client/company/individual records;
-- open RB Communications follow-ups;
-- active source records connected to onboarding, signatures, approvals, contracts, evidence, finance, correspondence, settlement, or follow-up where discoverable.
+Do not treat Slack, signatures, files, Drive folders, Notion, SignNow, status systems, or other tooling as channels for this workflow. Query those systems only when they are needed to verify, route, upload, save, or notify about a communication already captured from Gmail or WhatsApp.
 
-Prefer one global active index over client-by-client polling. Fetch schemas/data source IDs once, batch Notion searches where possible, and fetch full pages only for records that affect a matching or write decision.
+## Communication Capture First
+
+Do not build a global active index before reading communications. First capture the communication batch, with enough source metadata to route and verify it later.
+
+- Gmail: read the inbox only for configured RB/accounting/client inbound addresses. Start with metadata, snippets, sender, recipients, subject, message/thread IDs, labels, source link, date, and attachment filenames. Fetch full bodies and files only for messages that plausibly contain finance, correspondence, or actionable client work.
+- WhatsApp: use targeted WhatsApp queries by client/contact, date window, and topic terms. Extract discussion chunks by topic rather than processing each message one by one when a topic group tells the same story. Use saved checkpoints where available; if chat identity or checkpoint scope is unclear, record a blocker instead of backfilling broadly.
+- Do not query every available channel because access exists. Query Notion, Drive, file helpers, Business Partners, client folders, or tasks only after the captured communication requires that lookup.
+- Keep a local run scratch list or ledger containing source channel, source link, message/thread IDs, timestamps, sender, recipients, subject/title, attachment names, likely company/client, topic, language, classification, needed writes, assignee candidate, and verification state.
 
 ## Run Change Ledger Prerequisite
 
-Before writing anything, create a run change ledger. Append every verified change as it happens: source channel/link/message ID, classification, created/updated Notion/Drive/source records, associated task links, assignees, verification performed, report section, and approval-packet item ID when relevant. Build the final Slack/channel overview or approval-ready report from this verified ledger, not from memory.
+Before writing anything, create a run change ledger from the captured communication batch. Append every verified change as it happens: source channel/link/message ID, classification, created/updated Notion/Drive/source records, associated task links, assignees, verification performed, report section, and approval-packet item ID when relevant. Build the final Slack closeout or approval-ready report from this verified ledger, not from memory.
 
 ## Channel Registry
 
-Use these default read windows. If a connector is unavailable, mark that channel `Skipped - connector unavailable` in the run ledger/final report, use only user-provided or already-verified context, and do not infer what might have happened in that channel.
+Use these default read windows. If a connector is unavailable, mark that source `Skipped - connector unavailable` in the run ledger/final report, use only user-provided or already-verified context, and do not infer what might have happened there.
 
 | Channel | Read window / checkpoint | Completion marker |
 | --- | --- | --- |
-| Gmail | Search configured RB/accounting/client aliases for inbound messages that are not labelled `Triaged`; start with metadata, snippets, recipients, subjects, message IDs, and attachment filenames before fetching full bodies/files. | For any Gmail item from the accounting/client inbound scope, apply Gmail `Triaged` only after required handling or verified no-op classification succeeds. Do not archive by default. |
-| Slack | Read configured RB channels since the last successful run checkpoint; if no checkpoint exists, read the current local day. Also read full threads for messages that match active tasks, are replies/mentions, or are needed to understand a task-created/update decision. | Record reviewed source links/timestamps in the run ledger or Communications. When task(s) are created from a Slack message, reply in the source thread after verification with each task title, assignee, and task URL. |
-| WhatsApp | Saved client chat checkpoints only. If `Last read message ID` exists, read messages after that ID; otherwise read messages after `Last read through`. If neither exists or monitoring is disabled, skip the chat and record a blocker. No historical backfill unless the user explicitly approves the backfill window. | Advance the client checkpoint only after required handling for inspected messages succeeds. |
-| Notion | Fetch all open Tasks for the global active index; fetch task comments/status changes and open Communications follow-ups changed since the last successful run. | Update task/source records directly when safe and verified. |
-| SignNow / signing systems | Check only document/request IDs already linked from active tasks, Communications, contracts, or inbound notifications; do not broad-scan signing systems. | Status alone is evidence only; do not complete signature work until signed files are retrieved/attached. |
-| Drive / Docs / files | Inspect files linked from inbound items, active tasks, Communications, or source records; do not browse broad client folders unless the active item requires file evidence. | Attach/link files only in the verified destination; do not claim attachments exist until fetched back. |
-| Calendar / calls | Read meetings/call records from the current local day and any active-work-linked future meetings needed for the next action. | Log material outcomes in Communications or task comments. |
-| DocSend / HubSpot / other source systems | Read only records or notifications linked from active work or inbound status since the last successful run. | Update source records only from verified source data. |
+| Gmail | Inbox only. Read inbound messages in the current triage window that are not labelled `Triaged`; start with metadata, snippets, recipients, subjects, message IDs, labels, and attachment filenames before fetching full bodies/files. | Apply Gmail `Triaged` only after the item is fully saved/updated or a verified no-op classification succeeds. Do not archive by default. |
+| WhatsApp | Query saved or explicitly identified client chats by topic and time window. If `Last read message ID` exists, read after that ID; otherwise read after `Last read through`; if neither exists, use only the user-approved query/window and record the checkpoint blocker. | Advance the client checkpoint only after required handling for inspected topic chunks succeeds. |
+| Supporting systems | Not inbound channels for this workflow. Query Notion, Business Partners, Drive/files, client folders, Tasks, Invoicing, Expenses, and Communications only when a captured Gmail/WhatsApp item needs saving, matching, verification, or final notification. | Record verified writes/readbacks in the run ledger. |
 
 ## Classification And Safe Direct Writes
 
-Classify each inbound item against the active index:
+Classify each captured communication chunk after the source capture pass:
 
 - `no-op`: no Notion, Drive, Slack, supplier/client, or source action required; mark the channel completion marker after verification.
 - `task update`: comment/update the matched active task with new context, source link, and next step.
 - `new task`: create task(s) in the relevant client project when no matching task exists and RB action is required; create multiple tasks only when the inbound item contains distinct actionable workstreams.
 - `Correspondence`: create/update only for real non-invoice correspondence or source documents/messages that should be filed.
-- `Expense/Invoicing`: create/update payables, receipts, contractor invoices, or AR records under the finance rules below.
+- `Expense/Invoicing`: create/update expenses, receipts, contractor invoices, or invoicing records under the finance split below.
 - `blocker`: create/update a blocked task when entity, supplier, contract, evidence, or destination is ambiguous.
 - `approval-required`: add the exact proposed action to the batch execution packet.
 
 Safe direct writes are allowed after verification: Notion task comments/creation, Correspondence, Expense/Invoicing updates, Communications logs, labels, and checkpoints. Do not make irreversible or sensitive changes as a safe write.
 
+## Finance Split First
+
+After the communication capture pass, split all expense and invoice items out of the working set before handling general correspondence or tasks.
+
+- De-duplicate finance items by source message ID, invoice/receipt number, supplier + amount + date, and unique references.
+- Routine invoices, receipts, payment reminders, upcoming direct-debit notices, and payment receipts are not Correspondence unless they include a separate non-invoice operational request.
+- Do not create per-invoice or per-expense payment tasks; recurring finance processing covers those.
+- Expense records must have verified `Receipt / Invoice` evidence or an explicit blocker/human-uploaded-file note before the source item is complete.
+
+For contractor or business-partner invoices:
+
+1. Identify the billed party/person/supplier from the source message, invoice text, attachment filename, or parsed document.
+2. Query the Business Partners database for that party before deciding Expense vs Invoicing: `https://www.notion.so/Business-Partners-834796d901db48adb6273fb7db89eaf7?source=copy_link`.
+3. If no matching Business Partner is found, save the item in Expenses and associate it with the relevant company/client using the established entity-routing rules.
+4. If a Business Partner is found, do not create an Expense yet. Fetch and inspect all associated contract links first; a Business Partner with any associated contract is a hard stop before Expense creation. Supplier-to-RB wording, a negative contract amount, or an invoice addressed to Richmond Blackwood does not by itself make the item an Expense.
+5. Use a contract only when the associated contract's Company/other-party field matches the counterparty context for the bill. If that relationship is unclear, create/update a blocker instead of guessing.
+6. For a usable associated contract, query all related Invoicing records for that contract, including paid, completed, booked, and incomplete records, before assuming new work is required.
+7. Match the respective invoice by invoice number, supplier, period, amount, date, and source metadata. Compare net/excl.-VAT contract or Invoicing amounts against gross invoice totals where applicable; do not treat a gross/net amount difference as a failed match when the contract, party, period, and invoice metadata line up. If the matching invoice record already exists and is paid/completed/booked, record the verified no-op/matched-existing result and do not create a duplicate Expense or payment task. If the matched record is incomplete and needs evidence, set/attach the source file on that invoice record and record the source metadata.
+8. If a Business Partner has an associated contract but no matching invoice record can be verified, create/update a blocked finance follow-up with the attempted matches and source metadata; do not fall back to Expenses unless a user-approved or documented business rule confirms the invoice is off-contract.
+9. Only create an Expense for a matched Business Partner after all associated contract links have been fetched and ruled out for the billed company/counterparty context.
+
+For Gmail finance items, apply Gmail `Triaged` only after the Expense or Invoicing record has been saved/updated and the file/source attachment has been verified, or after a verified no-op/correction-required classification succeeds.
+
 ## Action Requests Without Correspondence
 
-If an inbound request or instruction has no document or correspondence artifact to file, handle it as task work whether it came from a client/counterparty or from the internal RB team in Gmail, Slack, WhatsApp, Notion, or another configured channel:
+After finance items are removed, group the remaining chunks by company/client and topic. Merge multiple chunks about the same topic before writing records so the run creates one coherent task/correspondence trail instead of one record per message.
+
+If an inbound request or instruction has no document or correspondence artifact to file, handle it as task work whether it came from a client/counterparty or from the internal RB team:
 
 - Do not force a Correspondence row.
 - Search the relevant client project first.
+- If Richmond Blackwood has already said something actionable in the source conversation, create or update a task for it even if the message came from the RB side. Treat wording such as "we will do", "we will look", "we will check", "we will tell/update/send", "I will", or equivalent commitments as RB-owned action unless the surrounding context clearly shows it is already complete or owned elsewhere.
 - If a matching task exists, add a task comment with the source channel, source link/message ID, new context, and proposed/actual next action.
 - If no matching task exists, create task(s) in the client project with source context, owner, status, priority, and due date when known. Use one task for one coherent workstream; split into multiple tasks only when the inbound item clearly contains separate owners, deadlines, or deliverables.
 - If the run creates or updates related records such as Correspondence, Expense, Invoicing, Communications, Drive files, or source records, include those associated links in the task description or task comment, and include the task link back in the related record where supported.
 - Assign using explicit instructions, the project owner/inherited owner, established process rule, or `internal/people-roles.md`; if ownership is unclear, create a blocked task rather than an unowned task.
-- If new task(s) came from Slack, reply in the source Slack thread after the task(s) are verified. Keep the reply factual: task title, assignee, and task URL for each task. If the reply would include substantive advice, a client answer, a promise, or sensitive context, put that reply in the batch approval packet instead.
+- Payment, bookkeeping, accounting-document, and routine client-operation requests belong with the bookkeeping owner unless another owner is explicit; under current defaults this is Simoneta Vicente.
+- Task descriptions/comments must include the actionable information from the communication or translated correspondence, not just a link to the source. Include source metadata and the next concrete action.
 
-## Finance And Document Rules
+## Correspondence And Document Rules
 
-- Do not create per-invoice or per-expense payment tasks; recurring invoice/expense processing covers those.
-- Before creating finance records, de-duplicate by source message ID, invoice/receipt number, supplier + amount + date, and unique references.
-- Expense records must have verified `Receipt / Invoice` evidence or an explicit blocker/human-uploaded-file note before the source item is complete.
-- Contractor invoices under active contracts belong in Invoicing linked to the Contract and Company, not Expenses.
-- Routine invoices, receipts, payment reminders, upcoming direct-debit notices, and payment receipts are not Correspondence by default unless they include separate non-invoice operational requests.
-- Correspondence attachments belong in the verified client Drive folder under `Correspondence/Incoming` or `Correspondence/Outgoing`, then linked back to Notion/task context.
+- Create or update Correspondence only for real non-invoice correspondence or source documents/messages that should be filed.
+- Correspondence attachments belong in the verified client Drive folder under `Correspondence/Incoming` or `Correspondence/Outgoing`, or in the supported Notion file property when that is the verified destination, then linked back to Notion/task context.
+- Attach all relevant original files once and verify the final file links/readback before marking the source complete.
+- For non-English correspondence or documents, create a faithful full English translation, not just a summary. Upload or attach the translation in the `Translated Doc(s)` destination where supported, and note the source language.
+- Correspondence notes should include the source channel, source message/thread IDs, sender, recipients, received date, subject/title, short summary, and any extracted deadline or requested action.
+- Any related task must include the useful information from the translated correspondence in the task body/comment so the assignee can act without opening every file first.
+- If the document cannot be read, uploaded, translated, or linked, create/update a blocker and do not mark the source item complete.
 
-## Targeted Edge Cases
+## Slack Closeout
 
-Company-specific edge cases live in `clients/Companies/<Reference>/edge-cases.md`, each under its own `##` heading.
+Slack is not an inbound channel for this workflow. Use Slack only for the final triage closeout when the run prompt requests or pre-authorizes it, or when the user approves it in the batch approval packet.
 
-- Do not scan every company folder for possible edge cases during normal triage.
-- Load an edge-case entry only when channel metadata, content, attachment filename, parsed text, or a verified Notion match satisfies its trigger.
+- Send one Slack message per triage run, not one per channel or per item.
+- Send the closeout to `#rb-client-updates` unless the user explicitly specifies another destination.
+- Build the message from the verified run ledger.
+- Tag the assignee on each task row when a Slack user mapping is available; if the Slack user mapping is unavailable, include the assignee name and record the missing tag as a blocker or verification gap.
+- Write the Slack closeout as if it came from the user, in a concise first-person operating style. Do not use generic assistant-report headings such as `main things done`.
+- Use this section order when a section has entries:
+  - Opening sentence: `I've finished the corrected <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.`
+  - `New Correspondence`: one row per correspondence item as `<name>: <Correspondence link> / <Task link> - assigned to <@owner>`. Include the task link because the task must contain the actionable translated/read information.
+  - `New expenses (tag Simoneta)`: tag Simoneta and list each new expense as a linked expense name, with blockers inline only when they affect completion.
+  - `Received invoices (tag Simoneta)`: tag Simoneta and list each received/matched invoice as a linked invoice or finance blocker. Use this for incoming invoices, payment notices, receipts, and blocked finance matching that needs bookkeeping follow-up.
+  - `New tasks`: list standalone tasks created from communications that are not already covered by a Correspondence row, as `<task link> - assigned to <@owner>`.
+  - `Updated tasks`: list updated existing tasks as linked task names with the assignee tag and the short update made.
+  - `Blocked / left open`: list only source items that intentionally remain incomplete, such as Workhub correction-required items or missing attachment/upload blockers.
+- Include created/updated Correspondence, Expenses, Invoicing records, tasks, Gmail `Triaged` counts, WhatsApp checkpoint changes, and blockers in the relevant sections instead of as a generic run log.
+- Do not include substantive client advice, promises, or sensitive context in Slack unless explicitly approved.
+
+## Targeted Client Validation Rules
+
+Company-specific validation rules live in the relevant client domain file, such as `invoices-payments-expenses.md`, `contracts-and-authority.md`, or another matching file.
+
+- Do not scan every company folder for possible validation rules during normal triage.
+- Load a client validation rule only when channel metadata, content, attachment filename, parsed text, or a verified Notion match satisfies its trigger.
 - The process owns the trigger and lookup path; the client file owns the business rule and handling.
 
 Current hook:
 
 | Hook | Trigger | Rule entry | Apply before |
 | --- | --- | --- | --- |
-| RBL Workhub invoice validation | Invoice, renewal notice, payment notice, or invoice correction request where sender, subject, body snippet, attachment filename, parsed invoice text, or matched Notion record indicates Workhub, Stein Commercial, or Camden Street | `clients/Companies/RBL/edge-cases.md`, starting at `## Workhub Invoice Validation` | Creating/updating Expense or Invoicing records, marking channel completion, or reporting the item |
+| RBL Workhub invoice validation | Invoice, renewal notice, payment notice, or invoice correction request where sender, subject, body snippet, attachment filename, parsed invoice text, or matched Notion record indicates Workhub, Stein Commercial, or Camden Street | `clients/Companies/RBL/invoices-payments-expenses.md`, starting at `## Workhub Invoice Validation` | Creating/updating Expense or Invoicing records, marking channel completion, or reporting the item |
 
 ## Batch Approval Packet
 
@@ -98,8 +146,7 @@ Collect approval-required actions into one packet at the end of investigation an
 Approval-required actions include:
 
 - outbound emails, Slack/WhatsApp messages, or other external replies;
-- final Slack/channel overview posts unless the current run prompt explicitly pre-authorizes direct posting to that channel;
-- substantive Slack task-thread replies beyond a minimal factual task-created acknowledgement;
+- final Slack closeout posts unless the current run prompt explicitly pre-authorizes direct posting;
 - app/software draft creation;
 - signature request cancellation, sending, or signer redirection;
 - final signed-package distribution;
@@ -118,8 +165,9 @@ Suppression does not apply to inbound questions, replies to inbound messages, ac
 
 Finish with:
 
-- channels checked and checkpoints/labels advanced;
-- active work matched;
+- communication sources checked and checkpoints/labels advanced;
+- Gmail inbox items captured and Gmail `Triaged` labels applied;
+- WhatsApp topic groups captured and checkpoint changes;
 - tasks commented, created, updated, or blocked;
 - Correspondence, Expense, Invoicing, Communications, source records, and files created/updated, with associated task links where applicable;
 - batch approval packet item IDs and approval status;
@@ -128,4 +176,4 @@ Finish with:
 - skipped same-day nudges;
 - remaining blockers with next owner/action/date.
 
-If no actionable items and no Notion/Drive/source records changed, do not post Slack; return a concise no-op summary only. If a Slack/channel overview is needed and not explicitly pre-authorized by the run prompt, include it in the batch approval packet.
+If no actionable items and no Notion/Drive/source records changed, do not post Slack; return a concise no-op summary only. If a Slack closeout is needed and not explicitly pre-authorized by the run prompt, include it in the batch approval packet.
