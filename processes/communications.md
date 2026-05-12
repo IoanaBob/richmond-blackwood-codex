@@ -129,6 +129,7 @@ Use saved checkpoints only for explicit manual runs. A checkpoint may authorize 
 When a communication creates work:
 
 - Create the follow-up as a row in the Notion Tasks database whenever Richmond Blackwood needs to take action.
+- If a Richmond Blackwood team message says or implies that RB will do something, create or update a task for it. Examples include "we will do", "we will look", "we will check", "we will tell/update/send", "I will", and equivalent commitments, unless the surrounding context clearly shows the action is already complete or owned elsewhere.
 - Link the task to the relevant company project. In this repository, use the Richmond Blackwood project unless a more specific RB project is clearly required: `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`).
 - Use the Tasks database fields `Name`, `Status`, `Assigned To`, and `Project`; include due date, description, source communication, and relation fields when useful.
 - Assign the task to the right person from the user request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.

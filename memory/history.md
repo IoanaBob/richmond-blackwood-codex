@@ -292,3 +292,25 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Use `Preparation Task` for the analysis task and `Filing Task` for the filing task; set the filing task's `Dependent on` relation to the analysis task; use actual Notion comments for the filing-task handoff note and spreadsheet URL.
 - Verification: Notion fetch verified `Preparation Task`, `Filing Task`, `Project`, `Dependent on`, and the template URL before editing process docs.
 - Limitations or gaps: This was a process-only update; no live task pair was created in Notion during this step.
+
+## 2026-05-11 - Communications-First Inbound Triage Review
+
+- User request: Adjust the inbound triage workflow to remove slow global indexing and broad channel reads, prioritizing Gmail inbox and WhatsApp topic extraction instead.
+- Context read: `AGENTS.md`, `skills/index.md`, inbound triage process/skill, process maintenance skill, memory capture skill, memory ledgers, handoff, source logs, and people-role defaults.
+- Actions taken: Reworked inbound triage to capture communications first, split invoices/expenses before other work, query Business Partners/contracts/contract-linked Invoicing for contractor/business-partner invoices, check existing paid/completed records before creating Expenses, group remaining items by company/topic, require correspondence translations to feed task content, and use one assignee-tagged Slack closeout per triage when requested.
+- Files changed: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, process/skill indexes, source logs, and memory files.
+- Decisions made: Slack, signatures, files, Drive, Notion, and status systems are supporting systems for this workflow, not inbound channels to be queried just because access exists.
+- Verification: `git diff --check` passed.
+- Limitations or gaps: Next live run must verify Business Partners, Contract, and Invoicing field names plus Slack user mappings for assignee tags.
+- Next step: Validate the workflow on the next supervised live triage.
+
+## 2026-05-11 - RBL Invoice Validation And RB Commitment Task Rule
+
+- User request: Address diff comments that Workhub validation is not an edge case, and add a rule that actionable RB-team statements should create tasks.
+- Context read: RBL invoice files, inbound triage process/skill, communications process, source registers, import log, and existing memory ledgers.
+- Actions taken: Moved Workhub invoice validation into `clients/Companies/RBL/invoices-payments-expenses.md`, deleted `clients/Companies/RBL/edge-cases.md`, renamed the general triage hook to client validation rules, and added task triggers for RB-side commitments such as “we will do/look/check/tell/update/send” or “I will”.
+- Files changed: RBL client files, inbound triage process/skill, communications process, source logs, and memory files.
+- Decisions made: Workhub validation is normal invoice validation inside the RBL finance domain, not a separate edge-case file.
+- Verification: `git diff --check` passed.
+- Limitations or gaps: User review still needed before running the senior-review/commit/push sequence.
+- Next step: Ask the user to review.

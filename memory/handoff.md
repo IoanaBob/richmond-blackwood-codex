@@ -44,6 +44,10 @@ WhatsApp chat IDs may be saved as client communication pointers only after resol
 
 Manual WhatsApp inbound monitoring now has a provisional process and skill. Use `skills/rb-whatsapp-inbound-monitor/SKILL.md` only when the user explicitly asks to check a saved client chat. For VUN, the saved Eran Peer chat checkpoint starts at 2026-05-05 23:41 IST with no historical backfill; first live run should inspect only messages after that checkpoint and store the latest inspected message ID after successful handling.
 
+Inbound operating triage is now communication-first for client-speaking channels. Use `skills/rb-inbound-operating-triage/SKILL.md` for this workflow: read Gmail inbox first, then query WhatsApp by topic; do not query Slack, signatures, files, Drive, Notion, or status systems as inbound channels. Split invoices/expenses out before other work, route business-partner invoices through Business Partners/contracts/contract-linked Invoicing, check existing paid/completed records before creating Expenses, group the remaining chunks by company/topic, and send one assignee-tagged Slack closeout per triage only when requested/pre-authorized or approved.
+
+When reviewing client communications, create or update tasks for actionable Richmond Blackwood commitments even if the source message was sent by RB. Wording like "we will do", "we will look", "we will check", "we will tell/update/send", or "I will" should be treated as RB-owned action unless already complete or clearly owned elsewhere. RBL Workhub validation now lives directly in `clients/Companies/RBL/invoices-payments-expenses.md`; there is no separate RBL edge-case file.
+
 VUN task and correspondence history was refreshed on 2026-05-07 from direct Notion page fetches. Future per-client backfills may need direct fetches when bulk Notion export is unavailable.
 
 Connected follow-up tasks should use `Dependent on` on the follow-up task when the follow-up cannot start until the initial task is complete. Use `Is blocking` on the initial task only when that direction is clearer in the existing workflow.

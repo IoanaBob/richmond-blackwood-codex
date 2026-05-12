@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-07.
+Updated: 2026-05-11.
 
 ## Notion Backup Questions
 
@@ -58,6 +58,8 @@ Updated: 2026-05-07.
 - Confirm the canonical payroll runbook source, especially for external clients on Lexware.
 - Confirm the authority liaison / POA process owner and current escalation process.
 - For Slack completion notifications, confirm the integration source for the triggering person: Slack user ID/channel/thread from the intake event, Notion requester-to-Slack mapping, or an operator-provided recipient when the trigger comes from Codex.
+- During the next live inbound triage, confirm the exact Business Partners, Contract, and Invoicing field names used for business-partner invoice routing.
+- Confirm Slack user mappings for assignee tags in one-message-per-triage Slack closeouts.
 
 ## Selin / CLV Personal Tax Questions
 
