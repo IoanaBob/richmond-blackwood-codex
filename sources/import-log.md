@@ -1051,3 +1051,30 @@ Actions:
 Unresolved:
 
 - No live filing tasks were created by this process update; each filing still needs its task/project relations checked before task creation.
+
+## 2026-05-13 - Claudio Brivio Individual Context Load
+
+Imported:
+
+- Notion individual record `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`.
+- Notion 2025 personal tax filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`.
+- Notion employment record `https://www.notion.so/7d77ff003f1a4f1c8799bdd2e477025b`.
+- Notion tasks `https://www.notion.so/352e4130131480e0b6f4deb6917c972b` and `https://www.notion.so/358e413013148053bb73e0bc8e7247b3`.
+- Drive 2024 personal-tax folder `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`, client documents folder `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`, and uploaded `_2024-tax-filings` package `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`.
+- WhatsApp chat `Brivio, Claudio | Richmond Blackwood`.
+- Gmail searches for Claudio personal-tax terms.
+
+Actions:
+
+- Created `clients/Individuals/Claudio Brivio/` using the legal name from Notion.
+- Routed personal-tax/private evidence pointers into individual domain files.
+- Updated `clients/Companies/CBMAX/linked-individuals.md` to point to the new individual folder.
+- Added durable memory, source-register, skill-run, and open-question entries.
+
+Unresolved:
+
+- Reconcile the Notion 2024 filing Drive folder with the active Drive folder.
+- Confirm whether Claudio's existing `.xlsx` workbook should be migrated to the maintained native machine-readable template.
+- Confirm whether existing Notion tasks are linked to the filing before creating any new task pair.
+- Resolve 2024 filing questions for February CBMAX payroll, CBMAX wage-tax certificate, TK/Hallesche reconciliation, Section 138 AO, Joblift travel classification, and the N26 investment-folder file.

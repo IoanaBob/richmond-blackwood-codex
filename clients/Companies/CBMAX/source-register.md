@@ -7,6 +7,7 @@ Notion backup: `notion-backup.md`.
 | --- | --- | --- |
 | Notion Companies record | 2026-05-13 | CBMAX FORGEMATE VENTURES LIMITED company data, reference `CBMAX`, dashboard, project, filings, invoices, expenses, contracts, bank accounts, employment, and tax-history callout. |
 | Notion Individuals records | 2026-05-13 | Claudio Brivio and Eran Peer relationship context; personal details not copied into the company folder. |
+| Claudio Brivio individual context load | 2026-05-13 | Personal-tax/private individual detail for Claudio routed to `clients/Individuals/Claudio Brivio/`; company files keep only the relationship pointer. |
 | User clarification | 2026-05-13 | User confirmed that Simon is Semen, that Semen is an employee, and that the relationship is simply Employment. |
 | Notion Employment records | 2026-05-13 | Claudio, Semen, and Viktor employment status, DE employment context, start/first payroll dates, gross monthly salaries, and payroll-run relation counts. |
 | Notion Filing Registrations | 2026-05-13 | RBO, annual returns, IE CT/VAT/VIES, DE corporation tax, trade tax, solidarity surcharge, DE VAT/USt-IdNr., and payroll registration context. |

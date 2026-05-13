@@ -24,6 +24,7 @@ Active individual pilot:
 
 - `clients/Individuals/Nathan Mawali A Vandy/` for Nathan Mawali A Vandy.
 - `clients/Individuals/Selin Ozkohen/` for Selin Ozkohen.
+- `clients/Individuals/Claudio Brivio/` for Claudio Brivio.
 
 Templates:
 
