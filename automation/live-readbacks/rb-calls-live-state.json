@@ -2,7 +2,7 @@
   "status": "provisional",
   "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
   "imported": "2026-05-13",
-  "synced_at": "2026-05-13T18:21:08.130Z",
+  "synced_at": "2026-05-13T18:36:30.721Z",
   "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
   "n8n": [
     {
@@ -171,9 +171,9 @@
   "elevenlabs": {
     "agent_id": "agent_2001kq39ea0hf5yb86c4a7hj9gp1",
     "name": "RB Call Bot",
-    "version_id": "agtvrsn_9801krh941ypfwt9me281gafr9ws",
+    "version_id": "agtvrsn_0701krha08p6ewwv0fygbnjv0k6p",
     "first_message": "Hello, my name is Alexander Gulin. I am calling regarding an administrative matter for a client and would like to make sure I am speaking with the right department.",
-    "prompt_chars": 17285,
+    "prompt_chars": 19759,
     "root_tool_ids": [],
     "workflow_node_count": 17,
     "workflow_edge_count": 41,

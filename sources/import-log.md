@@ -1137,3 +1137,37 @@ Verification:
 Open questions:
 
 - None.
+
+## 2026-05-13 - RB Calls Abbreviation And Timing Pronunciation
+
+Imported:
+
+- User instruction that spelling alphabets should be used when the authority is confused, that literal `pause` and ellipses should not be used for spoken timing, that commas and periods should be used for timing, that abbreviations should use hyphens rather than commas, and that abbreviation handling must work in all languages with English treated as important.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_0701krha08p6ewwv0fygbnjv0k6p`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- Private ignored ElevenLabs patchers under `.codex-local/automation/elevenlabs/rb-calls/`.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- Abbreviations are now explicitly handled in all call languages, including English, as hyphenated letter runs.
+- Confusion-triggered fallback uses NATO for English, German Buchstabiertafel for German, and the closest recognized spelling alphabet for other call languages.
+- Identifier examples now use commas for short numeric grouping and periods for longer breaks.
+- The live prompt no longer uses literal `pause` words or ellipses for spoken identifier timing.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, client call payloads, or private patch-script contents.
+
+Verification:
+
+- Live readback verified `agtvrsn_0701krha08p6ewwv0fygbnjv0k6p`.
+- Prompt scan confirmed zero ellipses and zero `pause` words in the live prompt.
+- Prompt scan confirmed the all-language abbreviation rule, hyphenated abbreviation examples, NATO fallback, and German Buchstabiertafel fallback.
+
+Open questions:
+
+- Run English and German test calls to verify real TTS timing and spelling behavior.
