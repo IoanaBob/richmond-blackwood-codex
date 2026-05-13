@@ -99,9 +99,10 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 3. Import general company/process knowledge into `memory/`, `processes/`, or `internal/`.
 4. Import private company-client knowledge only into `clients/Companies/<client-reference>/`.
 5. Import private individual-client knowledge only into `clients/Individuals/<legal-name>/`.
-6. Back up general SOP/process content to the Internal Knowledge Base.
-7. Back up client-specific content to the relevant client database once the destination is clear.
-8. Update `sources/import-log.md` with source, date, scope, and unresolved questions.
+6. If WhatsApp is used during the import/export/backfill, resolve the relevant client contact or group through the repo-pinned WhatsApp MCP and store the selected chat/contact JID in the owning entity's `communications.md` and `source-register.md`.
+7. Back up general SOP/process content to the Internal Knowledge Base.
+8. Back up client-specific content to the relevant client database once the destination is clear.
+9. Update `sources/import-log.md` with source, date, scope, and unresolved questions.
 
 ## Helper And Connector Boundary
 
@@ -111,7 +112,7 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 - Email communication rules live in `skills/rb-gmail-drafts/SKILL.md`; email previews must show `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender. Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. If a Gmail draft fallback is used, it must fail closed if Gmail stores another sender.
 - SignNow helpers are generic only. Do not invent RB signer identities, routing order, templates, or signing policy.
 - Native Google Docs content edits should use the Google Drive/Docs connector when available. Local helpers may export/upload or apply explicit mechanical transforms only when that is the chosen supported path.
-- Optional WhatsApp work must use the repo-pinned `whatsapp` MCP path for normal reads, contact search, sends, media, and voice notes. Keep WhatsApp QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config out of git. Do not send WhatsApp messages/files unless the user explicitly asks and the tool approval confirms recipient and content.
+- Optional WhatsApp work must use the repo-pinned `whatsapp` MCP path for normal reads, contact search, sends, media, and voice notes. Keep WhatsApp QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config out of git. Store resolved WhatsApp chat/contact IDs only as route/source pointers when WhatsApp is used for a client export/backfill. Do not send WhatsApp messages/files unless the user explicitly asks and the tool approval confirms recipient and content.
 
 ## Outbound Communications
 

@@ -114,6 +114,51 @@ Client Notes & Updates review on 2026-05-13:
 - Read the existing `Codex provisional import - CBMAX` Client Notes & Updates page; it is an internal record with the old `clients/cbmax/` path and fragments for invoice correction, `CBMAX Financial Analysis`, and possible employment/accounting context.
 - Updated CBMAX backup/open-question files and the general client backup process/skill; no live Notion Client Notes & Updates page was changed.
 
+## 2026-05-13 - AGL And Byron Context Import
+
+Applied:
+
+- Created `clients/Companies/AGL/` from the Notion company `Reference` and populated company-side context from Notion, Drive, Gmail, and user instruction.
+- Created `clients/Individuals/Byron Jarvis Frasier/` for Byron-specific personal-tax, US asset/investment, bank-account, and filing context.
+- Recorded AGL's current tax position: Irish tax resident, Ioana as sole director, German PE for Byron/staff, filings in IE and DE, 80%/20% IE/DE profit attribution, 2024 German filings submitted and awaiting Finanzamt feedback, and 2024 IE corporation tax still pending.
+- Captured the weekly Syntentia billing rule, monthly planned vacation/off-days check, and exact future email format in `clients/Companies/AGL/invoices-payments-expenses.md`.
+- Added the general recurring outbound invoicing rule and AGL Syntentia hook to inbound operating triage process/skill so this does not become a bespoke AGL task.
+
+Verification:
+
+- Notion, Drive, and Gmail sources were read directly through connectors; no Notion, Drive, Gmail, Slack, or WhatsApp records were modified.
+- Canonical Drive folder `04. Agile Lincs Limited (AGL)` was found under the external client root.
+
+Follow-up:
+
+- Wait for Finanzamt feedback before treating the 2024 German PE allocation as accepted; user confirmed no feedback yet on 2026-05-13.
+- Confirm next Dublin quarterly board meeting and complete the 2024 IE corporation tax filing once the use-case handling is settled.
+- Set up Byron personal-tax analysis from the maintained native German personal-tax template when active work begins.
+
+WhatsApp export update on 2026-05-13:
+
+- Resolved WhatsApp chat `Frasier, Byron | Richmond Blackwood` / `120363222065866778@g.us` through Byron contact search and contact-chat lookup.
+- Searched targeted terms for AGL/Syntentia/tax/holiday/expense/Dublin/remote/salary/bond context.
+- Added source pointers and summarized context to AGL communications, source register, contracts/authority, invoicing, open questions, and Byron individual personal-tax, tax-filings, bank-account, expense, and source-register files.
+- Recorded that passwords/raw transcript/media were not copied into git.
+- Open follow-ups: verify 2026-02-24 board-meeting attendance/minutes, confirm payroll/personal-tax evidence against Drive/source files, and keep using source invoices/Gmail/Notion records as evidence of amounts billed.
+
+Review follow-up and Notion writes on 2026-05-13:
+
+- User confirmed AGL is both Ireland/Germany operationally but mainly Ireland for the company `Tax Residence` field.
+- Updated live Notion company `Tax Residence` from Germany to Ireland and added a page comment explaining German PE/filings remain active.
+- User confirmed there is no Finanzamt feedback yet, so German PE allocation acceptance and 2024 IE corporation tax timing remain open.
+- User confirmed future Syntentia sends should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
+- User confirmed the old payroll-only task is superseded by the file-in-both position and live registrations; archived task `https://www.notion.so/332e41301314818d8e09ea455a3d61b2` with a comment.
+- Created monthly task `https://www.notion.so/35fe41301314814096b2cdc5beb780fa` assigned to Simoneta to ask Byron about planned vacation/off days for the next month.
+
+Process update on 2026-05-13:
+
+- Source: user instruction that exports/backfills using WhatsApp must store the client chat ID because future approved sends or communication reads often need that route.
+- Imported to: `AGENTS.md`, `processes/knowledge-backup-and-source-control.md`, `processes/communications.md`, `skills/rb-source-research/SKILL.md`, `skills/rb-client-file/SKILL.md`, `skills/rb-whatsapp-comms/SKILL.md`, company/individual communication templates, `clients/README.md`, `sources/source-register.md`, and durable memory.
+- Status: provisional.
+- Unresolved: future exports must still ask the operator to choose before filing if multiple WhatsApp contacts or groups are plausible.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:

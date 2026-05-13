@@ -441,3 +441,39 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat Client Notes & Updates as a client-facing context/update table, not a generic Codex repo-summary backup; keep the Slack closeout limitation as a general client-backfill rule rather than CBMAX-specific context.
 - Verification: Notion fetch read the existing internal Client Notes page; `git diff --check` passed.
 - Limitations or gaps: No live Notion Client Notes & Updates page was changed during this cleanup.
+
+## 2026-05-13 - AGL And Byron Context Import
+
+- User request: Load AGL context the same way as the other clients, route Byron's personal tax, record weekly Syntentia invoicing, and start from fresh `origin/main` after the Claudio branch merge.
+- Context read: Notion company/project/employment/contracts/tax filings/personal-tax records, Google Drive AGL folders, Gmail Syntentia/ELSTER/SteuerGo threads, repo client templates, inbound triage process/skill, and memory/source logs.
+- Actions taken: Created `clients/Companies/AGL/` and `clients/Individuals/Byron Jarvis Frasier/`, routed company facts and Byron personal-tax facts separately, captured the active Syntentia weekly service/expense invoicing format, and added a general recurring outbound invoicing rule plus AGL client hook to inbound triage.
+- Decisions made: Treat AGL's Irish tax-residence/German PE/80-20 profit attribution as the current user-instructed operating position while marking Notion tax residence for review; record Ioana as the only director and Byron as UBO/board observer; keep Byron's US apartment, Roth/IRA, and brokerage context in the individual folder.
+- Verification: Connector reads completed for Notion, Drive, and Gmail; no live Notion/Drive/Gmail records were modified during the import.
+- Limitations or gaps: Needs user review, Notion reconciliation for stale company fields, Finanzamt feedback, next Dublin board meeting confirmation, and active Byron personal-tax workbook setup.
+
+## 2026-05-13 - AGL WhatsApp Context Export
+
+- User request: Export WhatsApp context for AGL as well.
+- Context read: Repo WhatsApp skill and targeted WhatsApp MCP searches for Byron, AGL, Syntentia, tax, holidays, expenses, Dublin, remote, salary, and bond context in `Frasier, Byron | Richmond Blackwood`.
+- Actions taken: Added the WhatsApp chat pointer to AGL communications/source files; added Syntentia day-count, delayed-expense, monthly holiday-check, Week 16 correction, Week 18/19 delayed-expense, AGL bond, 2026-02-24 Dublin/remote, and Byron personal-tax/payroll evidence pointers to the relevant AGL and Byron files.
+- Decisions made: Store only source pointers and business-relevant summaries; do not copy passwords, raw transcripts, or media into git.
+- Verification: Targeted WhatsApp MCP reads succeeded for the RB group chat. A second Byron contact lookup returned the known response-type error, but the relevant named RB group chat was resolved through `search_contacts` and `get_contact_chats`.
+- Limitations or gaps: Board-meeting attendance/minutes still need Drive/source verification; payroll and personal-tax evidence still need workbook/source-document review.
+
+## 2026-05-13 - WhatsApp Chat ID Export Rule
+
+- User request: Make sure client exports/backfills that use WhatsApp also store the client chat ID, because future approved sends or communication reads often need that route.
+- Context read: AGENTS, client backup process, communications process, source/client/WhatsApp skills, company and individual communication templates, client README, source register, and durable memory.
+- Actions taken: Added the rule to file resolved WhatsApp contact/group JIDs in the owning company or individual `communications.md` and `source-register.md` during client exports/backfills when the route is clear.
+- Decisions made: Treat saved WhatsApp IDs as route/source pointers only. They help future approved communication find the right route, but do not authorize monitoring, historical backfill, media downloads, or outbound messages.
+- Verification: Repo-only process/template update; no live WhatsApp read or send was needed.
+- Limitations or gaps: Ambiguous WhatsApp search results still require operator choice before filing.
+
+## 2026-05-13 - AGL Review Follow-up And Notion Updates
+
+- User request: Apply review decisions on AGL tax residence, open Finanzamt/IE filing items, Syntentia sender identity, the stale payroll-only tax task, and the monthly Byron vacation/off-days check.
+- Context read: AGL repo files, Notion company record/schema, AGL project, Tasks schema, old AGL tax-registration task, PE task, and existing AGL/Syntentia task search results.
+- Actions taken: Updated live Notion company `Tax Residence` from Germany to Ireland, added a company comment explaining Ireland is primary while German PE/filings remain active, archived the stale payroll-only tax-registration task with a supersession comment, and created monthly Notion task `https://www.notion.so/35fe41301314814096b2cdc5beb780fa` assigned to Simoneta with first due date 2026-05-25.
+- Decisions made: Keep Finanzamt feedback and IE 2024 corporation-tax timing open because user confirmed there is no feedback yet. Future Syntentia sends should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
+- Verification: Notion read-back confirmed `Tax Residence` = Ireland, old task `Status` = Archived, and the new monthly task fields.
+- Limitations or gaps: Board-meeting minutes/attendance evidence still needs review, and Finanzamt feedback is still pending.

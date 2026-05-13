@@ -141,3 +141,7 @@ For each company, use the current Drive structure:
 - `Richmond Blackwood -> finance and accounting -> <group or external> -> <company name>`
 
 The git repo should reference the correct Drive files and folders in `drive-locations.md`, `backup-locations.md`, `source-register.md`, and the relevant domain file. Do not store downloaded/exported client binaries in git unless the user explicitly approves a narrow exception.
+
+## Client Communication Pointers
+
+When a client export/backfill uses WhatsApp, resolve the relevant contact or group through the WhatsApp MCP and store the selected JID in the owning entity's `communications.md` plus `source-register.md`. Use company folders for company-operational chats and individual folders for personal-tax, KYC, bank, asset, expense, or other individual-owned chats. Treat saved JIDs as route/source pointers only; they do not authorize monitoring, historical backfill, media downloads, or outbound messages.

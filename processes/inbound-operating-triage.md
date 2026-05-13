@@ -90,6 +90,17 @@ For contractor or business-partner invoices:
 
 For Gmail finance items, apply Gmail `Triaged` only after the Expense or Invoicing record has been saved/updated and the file/source attachment has been verified, or after a verified no-op/correction-required classification succeeds.
 
+## Recurring Outbound Client Invoicing
+
+Some client billing cases are regular operating cadence, not one-off tasks. When a client-specific rule says a recurring invoice already exists or should be handled by the weekly/monthly finance process, do not create bespoke tasks such as `make invoices for <client>`.
+
+- Route the item through the general recurring invoice process and the contract-linked Invoicing records.
+- When the contract/source requires both services and expenses for the same period, create or update separate service and expense invoice records instead of combining them.
+- If time/services evidence is available but expense evidence is delayed, process the service invoice and leave the expense invoice/report pending until reviewed evidence arrives.
+- For day-based recurring invoices, the general process may include a monthly planned-absence check with the billing contact so future service invoices use the right day count.
+- If a client or director repeatedly delays expense evidence, raise reminders through the general finance evidence-aging/reminder routine, not a client-only standing task.
+- Outbound invoice emails remain approval-required unless the current workflow explicitly pre-authorizes sending. Use the client domain file for the exact recipient/body format and source evidence.
+
 ## Action Requests Without Correspondence
 
 After finance items are removed, group the remaining chunks by company/client and topic. Merge multiple chunks about the same topic before writing records so the run creates one coherent task/correspondence trail instead of one record per message.
@@ -152,6 +163,7 @@ Current hook:
 | Hook | Trigger | Rule entry | Apply before |
 | --- | --- | --- | --- |
 | RBL Workhub invoice validation | Invoice, renewal notice, payment notice, or invoice correction request where sender, subject, body snippet, attachment filename, parsed invoice text, or matched Notion record indicates Workhub, Stein Commercial, or Camden Street | `clients/Companies/RBL/invoices-payments-expenses.md`, starting at `## Workhub Invoice Validation` | Creating/updating Expense or Invoicing records, marking channel completion, or reporting the item |
+| AGL Syntentia weekly invoicing | Gmail/contract/invoicing item involving AGL, AGILE LINCS, Byron weekly timesheets/expenses, Syntentia, Michelle Howard, Nick Howard, or `accounting@lincs.one` | `clients/Companies/AGL/invoices-payments-expenses.md`, starting at `## AGL Syntentia Weekly Invoicing` | Creating/updating Invoicing or Expense records, marking channel completion, reporting the item, or preparing/sending invoice emails |
 
 ## Batch Approval Packet
 
