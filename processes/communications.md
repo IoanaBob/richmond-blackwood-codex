@@ -20,7 +20,13 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the RB Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
-- For Slack messages that need user review, put the proposed message text in the Codex chat first and wait for approval. After approval, send the approved text directly in Slack; do not create a Slack draft as the default review step unless the user explicitly asks for a Slack draft.
+- For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
+- The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
+- Do not report that a Codex approval notification was sent unless the prompt tool call succeeds and returns a user-visible prompt.
+- If the native Codex approval prompt is unavailable and the operator has approved a popup fallback, use a local macOS approval dialog as the fallback. First show the exact Slack message as a rendered, clickable Codex preview. Then request sandbox permission only to run the local dialog command. The dialog itself must ask whether to send the exact Slack message shown in chat to the named Slack destination and must include Send and Do Not Send choices.
+- Treat the sandbox command-permission prompt only as permission to show the local dialog, never as approval to send Slack. Send Slack only if the local dialog command returns the explicit Send choice.
+- If neither a native Codex approval prompt nor an approved local approval-dialog fallback is available, stop and report that blocker instead of asking the user to type approval.
+- After approval, send the approved text directly in Slack; do not create a Slack draft as the default review step unless the user explicitly asks for a Slack draft.
 
 ## Direct Send Preview
 
@@ -34,6 +40,8 @@ Before sending any communication, show:
 - Source/reply thread, always for email when thread context exists.
 - Attachments or files.
 - Message body.
+
+For Slack previews, do not use a code block by default. Use normal Codex-rendered text with clickable named links so the operator can review destinations and records without copying URLs.
 
 For Richmond Blackwood accounting/client email, default to:
 
@@ -145,5 +153,5 @@ For workflow-triggered analysis tasks, such as German personal tax analysis setu
 - Capture the triggering Slack user ID, channel ID, and thread/message URL at intake when the request starts in Slack.
 - If the request starts outside Slack and no Slack identity is available, ask the operator for the recipient before sending.
 - Draft the Slack text in Codex chat first, including the workbook/source URL, completed scope, and remaining review flags.
-- After the user approves the exact text, send it directly through Slack and log the sent notification in the relevant Notion task/comment or client source register.
+- After the user approves the exact text, send it directly through Slack and log the sent notification in the relevant Notion task/comment or client source register. Use the Codex approval prompt/notification for Slack send approval when available and especially when the operator asks for notification-based approval; in Default mode, use the approved local approval-dialog fallback when the operator wants a popup.
 - Do not create a Slack draft by default. Use a draft only when the user explicitly asks for one.
