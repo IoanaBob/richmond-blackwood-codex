@@ -58,6 +58,14 @@ Follow-up confirmation on 2026-05-13:
 - User confirmed `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` are valid CBMAX-related sibling folders to link from the client folder and organize under the canonical folder when Drive cleanup is in scope.
 - Repo pointers were updated; no live Drive move/organization was performed during this update.
 
+Client Notes & Updates review on 2026-05-13:
+
+- User confirmed the 2026-05-13 CBMAX repo summary does not need to be backed up as a new Client Notes & Updates page or used to update the existing `Codex provisional import - CBMAX` page.
+- User clarified that Client Notes & Updates is used for important client-facing information and can be read as context during future client work.
+- User noted that the Slack closeout rule about listing only Notion records actually added or modified is a general process rule, not CBMAX-specific.
+- Read the existing `Codex provisional import - CBMAX` Client Notes & Updates page; it is an internal record with the old `clients/cbmax/` path and fragments for invoice correction, `CBMAX Financial Analysis`, and possible employment/accounting context.
+- Updated CBMAX backup/open-question files and the general client backup process/skill; no live Notion Client Notes & Updates page was changed.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:

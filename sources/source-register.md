@@ -82,6 +82,8 @@ User review on 2026-05-13 confirmed the CBMAX Drive folder `https://drive.google
 
 User follow-up confirmation on 2026-05-13 confirmed `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older pending Drive-folder question from the 2026-05-04 provisional import, and confirmed related folders `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` should be linked from the CBMAX client folder and organized under the canonical folder when Drive cleanup is in scope.
 
+User review on 2026-05-13 confirmed the CBMAX 2026-05-13 repo summary does not need a new or updated Client Notes & Updates page. Client Notes & Updates should be read as context and used for important client-facing information, not generic Codex repo-summary backup. The Slack closeout rule about listing only added/modified Notion records is a general client-backfill process rule, not a CBMAX-specific open question.
+
 Claudio Brivio personal-tax/private individual sources are routed to `clients/Individuals/Claudio Brivio/source-register.md`. The 2026-05-13 load used Claudio's Notion individual/employment/personal-tax filing/task records, the Drive 2024 personal-tax folder and `_2024-tax-filings` package, the Drive tracker and notes for Steuerberater, WhatsApp personal-tax updates, and Gmail searches that found no dedicated personal-tax email thread.
 
 ## WhatsApp Sources

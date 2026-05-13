@@ -359,3 +359,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not treat `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, or `CBMAX-payslips` as competing roots; treat them as CBMAX-related folders attached to the canonical folder decision.
 - Verification: Repo-only edit; `git diff --check` passed.
 - Limitations or gaps: No live Drive move/organization was performed during this repo update.
+
+## 2026-05-13 - CBMAX Client Notes Review Cleanup
+
+- User request: Resolve the CBMAX Client Notes & Updates backup question and clarify why the Slack closeout rule appeared in CBMAX-specific notes.
+- Context read: CBMAX Notion backup files, backup locations, open questions, source logs, general client backup process, `rb-client-file`, and the existing `Codex provisional import - CBMAX` Client Notes & Updates page.
+- Actions taken: Removed the CBMAX-specific open question about backing up the repo summary to Client Notes & Updates, recorded that no new/update page is needed for the 2026-05-13 repo summary, read back the existing internal Client Notes entry, and moved the Client Notes & Updates usage guidance into the general backup process/skill.
+- Decisions made: Treat Client Notes & Updates as a client-facing context/update table, not a generic Codex repo-summary backup; keep the Slack closeout limitation as a general client-backfill rule rather than CBMAX-specific context.
+- Verification: Notion fetch read the existing internal Client Notes page; `git diff --check` passed.
+- Limitations or gaps: No live Notion Client Notes & Updates page was changed during this cleanup.

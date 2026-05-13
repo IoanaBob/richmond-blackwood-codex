@@ -18,10 +18,6 @@ Review: Resolve before treating CBMAX context as complete.
 - Confirm Semen's full legal name before creating an individual folder or importing personal payroll/bank identifiers.
 - Confirm whether Eran Peer should get a CBMAX-linked individual folder or remain a company-side relationship pointer for now.
 
-## Drive And Evidence
-
-- Confirm whether to create/update a Notion Client Notes & Updates backup page after user review.
-
 ## Invoice Backfill
 
 - Fetch current Notion invoice records for April and May 2026 and confirm invoice number, service period, amount, VAT, and payment status.
