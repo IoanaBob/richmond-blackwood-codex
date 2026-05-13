@@ -176,7 +176,7 @@ export class DriveApiClient {
     const fields = options.fields || DEFAULT_UPLOAD_FIELDS;
     const metadata = { name: title, parents: [options.folderId], mimeType };
     const { boundary, body } = this.buildMultipart(metadata, sourceFile, mimeType);
-    const params = new URLSearchParams({ uploadType: "multipart", fields });
+    const params = new URLSearchParams({ uploadType: "multipart", fields, supportsAllDrives: "true" });
 
     return this.requestJson<DriveFile>(`https://www.googleapis.com/upload/drive/v3/files?${params}`, {
       method: "POST",
