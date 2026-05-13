@@ -262,9 +262,10 @@ Current RB call-opening and language patch target as of 2026-05-13:
 - For company-subject calls, Richmond Blackwood Limited is introduced after the opener as the company secretary, which is the representative position.
 - Power of Attorney / Vollmacht is not the default opening authority. Use it only when `Requires PoA?` is true or the authority specifically requires it.
 
-Current RB slow-identifier and startup-payload patch target as of 2026-05-12:
+Current RB slow-identifier and startup-payload patch target as of 2026-05-13:
 
-- Current ElevenLabs prompt version `agtvrsn_9201krge2pp3fa7vhmhdz11c5p1g` contains `Identifier Pronunciation - Prompt Controlled`, `Slow Number Delivery - Hard Rule`, the startup-safe static first-message rule, no root custom `tool_ids`, Notion lookup-before-live-help rules, lookup routing through the dedicated `node_rb_lookup_tool_v1` and `node_rb_lookup_result_v1` workflow nodes, and live-help routing through `node_rb_live_start_v2` and `node_rb_live_check_v2`.
+- Current ElevenLabs prompt version `agtvrsn_9801krh941ypfwt9me281gafr9ws` contains `Pronunciation And Spelling`, `Identifier Pronunciation - Prompt Controlled`, `Slow Number Delivery - Hard Rule`, the startup-safe static first-message rule, no root custom `tool_ids`, Notion lookup-before-live-help rules, lookup routing through the dedicated `node_rb_lookup_tool_v1` and `node_rb_lookup_result_v1` workflow nodes, and live-help routing through `node_rb_live_start_v2` and `node_rb_live_check_v2`.
+- Identifier pronunciation is language-specific. English calls use English digit and letter names. German calls must use German digit words (`null`, `eins`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`) and German letter names; English digit words and NATO spelling words such as `Delta`, `Echo`, `Oscar`, and `Hotel` are disallowed in German calls unless the authority explicitly asks for them. Do not implement pronunciation normalization in n8n; keep n8n sending exact raw identifiers and enforce spoken delivery in the ElevenLabs prompt.
 
 ## Current RB Context Lookup Target
 

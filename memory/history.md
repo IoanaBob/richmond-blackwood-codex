@@ -332,3 +332,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Prompt-only `{{language}}` is insufficient for call language selection; the n8n outbound API payload must set the ElevenLabs language override.
 - Verification: n8n workflow `3xJh7hNK0Zl9T4zS` was validated, updated, and published at active version `360489d3-02da-4a84-bfbd-0a0d168054e9`; ElevenLabs `RB Call Bot` verified at version `agtvrsn_2001krh88kp2f49sq04f81qemvb3`; live readbacks confirm the API override payload and German preset first message.
 - Limitations or gaps: A real German test call is still needed to verify ElevenLabs selects the `de` preset and speaks German from the opening.
+
+## 2026-05-13 - RB Calling Bot Language-Specific Identifier Pronunciation
+
+- User request: Fix German calls saying numbers in English because English prompt examples were leaking into non-English calls, or find a translated system-prompt approach.
+- Context read: Live ElevenLabs prompt readback, slow-identifier patch helper, language-opening patch helpers, calling-bot implementation map, setup guide, and live-state readbacks.
+- Actions taken: Updated the ElevenLabs prompt patch so `Pronunciation And Spelling` and `Identifier Pronunciation - Prompt Controlled` require spoken digits, letters, abbreviations, and identifiers to match the current call language. German calls must use German digit words and German letter names, must not use English digit words or NATO spelling words unless requested, and use `Ich sage das langsam` before important identifiers. Removed the stale public-disclosure example that still used `Delta ... Echo`. Mirrored the German-number guard into language-control patch helpers so future opening/stability patches do not remove it.
+- Decisions made: Keep one canonical prompt with language-specific pronunciation rules rather than separate translated full system prompts, because separate full prompts would be harder to keep aligned across workflow, live-help, lookup, and disclosure-boundary changes.
+- Verification: ElevenLabs `RB Call Bot` was updated and read back at version `agtvrsn_9801krh941ypfwt9me281gafr9ws`; readback verified German digit words, no default NATO spelling instruction, no stale `Delta ... Echo` example, slow identifier rules, and the German language-preset opener.
+- Limitations or gaps: A real German test call is still needed to confirm TTS delivery follows the prompt during an authority-style conversation.

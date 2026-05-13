@@ -1074,3 +1074,36 @@ Verification:
 Open questions:
 
 - Run a German test call and confirm the first message uses the German preset.
+
+## 2026-05-13 - RB Calls Language-Specific Identifier Pronunciation
+
+Imported:
+
+- User instruction that German calls were still saying numbers in English because of the system prompt, and that the prompt should be fixed or translated.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_9801krh941ypfwt9me281gafr9ws`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- `npm run calls:patch-elevenlabs-slow-identifiers` using the local ElevenLabs API configuration.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- The ElevenLabs prompt now has language-specific identifier pronunciation rules.
+- German calls must use German digit words and German letter names for tax numbers, registration numbers, abbreviations, and alphanumeric identifiers.
+- English digit words and NATO spelling words are disallowed in German calls unless the authority explicitly asks for them.
+- The stale public-disclosure example that used `Delta ... Echo` was removed from the live prompt.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, or client call payloads.
+
+Verification:
+
+- ElevenLabs patch read-back verified the language-specific pronunciation section, German digit words, slow identifier rules, no default NATO spelling instruction, and no stale `Delta ... Echo` example.
+- Live readback snapshots were refreshed.
+
+Open questions:
+
+- Run a German test call and confirm the agent says identifiers with German number words under real call conditions.

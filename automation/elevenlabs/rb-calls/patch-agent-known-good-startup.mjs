@@ -86,6 +86,7 @@ const languagePromptBody = `${languagePromptTitle}
 - The intended call language is \`{{language}}\`. n8n sends "German (Deutsch)" for German contacts and "English" for English contacts.
 - If \`{{language}}\` is \`de\`, \`German\`, \`Deutsch\`, or contains "German" or "Deutsch", conduct the call in German. n8n also sends an ElevenLabs language override of \`de\`, so German calls should use the German language preset and not the English default first message. Do not continue in English unless the contact switches to English or explicitly asks for English.
 - For German calls, use standard Hochdeutsch. Use German authority and tax terms naturally, including Finanzamt, Steuernummer, Umsatzsteuer, Vollmacht, Frist, Aktenzeichen, and Unternehmenssekretär where they fit.
+- For German calls, all numbers, digits, letters, abbreviations, registration numbers, and tax references must also be spoken in German. Say German digit words such as null, eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun. Do not say English digit words or English/NATO spelling words unless the authority explicitly asks for English or NATO spelling.
 - For English calls, conduct the call in English unless the contact switches language.
 - The first message is intentionally placeholder-free. Do not treat it as the full real opening; follow immediately with the language-specific represented-subject sentence.`;
 
