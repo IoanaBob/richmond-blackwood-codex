@@ -1107,3 +1107,33 @@ Verification:
 Open questions:
 
 - Run a German test call and confirm the agent says identifiers with German number words under real call conditions.
+
+## 2026-05-13 - RB Calls ElevenLabs Automation Boundary
+
+Imported:
+
+- User instruction that `automation/elevenlabs` should keep only actually reusable files and that one-off patch scripts should remain in a private folder.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- Local repository cleanup of `automation/elevenlabs/rb-calls/` and private ignored copy under `.codex-local/automation/elevenlabs/rb-calls/`.
+
+Imported details:
+
+- Source-controlled `automation/elevenlabs/` is now for reusable read-only diagnostics/utilities.
+- One-off ElevenLabs prompt patchers, live mutators, and migration scripts belong under ignored `.codex-local/automation/elevenlabs/`.
+- Shared npm scripts should not expose one-off ElevenLabs patchers.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, client call payloads, or private patch-script contents.
+
+Verification:
+
+- `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed after cleanup.
+- `git ls-files .codex-local automation/elevenlabs/rb-calls package.json` confirmed `.codex-local` private patchers are not tracked and source-controlled `automation/elevenlabs/rb-calls/` contains only inspectors.
+
+Open questions:
+
+- None.

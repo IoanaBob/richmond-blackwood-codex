@@ -341,3 +341,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep one canonical prompt with language-specific pronunciation rules rather than separate translated full system prompts, because separate full prompts would be harder to keep aligned across workflow, live-help, lookup, and disclosure-boundary changes.
 - Verification: ElevenLabs `RB Call Bot` was updated and read back at version `agtvrsn_9801krh941ypfwt9me281gafr9ws`; readback verified German digit words, no default NATO spelling instruction, no stale `Delta ... Echo` example, slow identifier rules, and the German language-preset opener.
 - Limitations or gaps: A real German test call is still needed to confirm TTS delivery follows the prompt during an authority-style conversation.
+
+## 2026-05-13 - RB Calling Bot ElevenLabs Automation Boundary
+
+- User request: Keep only actually reusable helpers under `automation/elevenlabs`; move one-off patch scripts into a private folder and remember that boundary.
+- Context read: Current automation source tree, npm helper registry, setup guide, automation README, and calling-bot memory.
+- Actions taken: Copied the existing one-off `patch-agent-*` scripts into ignored `.codex-local/automation/elevenlabs/rb-calls/`, removed those patchers from source-controlled `automation/elevenlabs/rb-calls/`, removed shared npm patch commands, and updated docs/memory to reserve source-controlled ElevenLabs automation for reusable read-only diagnostics/utilities.
+- Decisions made: One-off ElevenLabs live mutators, prompt patchers, and emergency migration scripts are private operational scratch files. Commit only reusable helpers, documentation, and non-secret live readbacks.
+- Verification: `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed after cleanup. `git ls-files .codex-local automation/elevenlabs/rb-calls package.json` confirmed `.codex-local` private patchers are not tracked and source-controlled `automation/elevenlabs/rb-calls/` contains only inspectors.
+- Limitations or gaps: Future reusable ElevenLabs deploy/edit tooling may be added to source control only if it is generic and not a one-off patch for the current live agent state.

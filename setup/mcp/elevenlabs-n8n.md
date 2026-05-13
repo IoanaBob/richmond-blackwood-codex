@@ -191,50 +191,12 @@ For ElevenLabs changes that MCP cannot perform:
 
 1. Confirm the exact live change with the user.
 2. Put `ELEVENLABS_API_KEY` and, if needed, `RB_ELEVENLABS_AGENT_ID` in local ignored `.env` or `~/.codex/config.toml`.
-3. Run a dry run:
+3. Create or reuse a private one-off patch script under `.codex-local/automation/elevenlabs/`.
+4. Run a dry run from that private folder when the script supports it, then apply after approval.
+5. Verify by re-reading the live agent through MCP or API readback. Do not commit or print the API key.
+6. Commit only reusable shared helpers, docs, and non-secret live readbacks. Do not commit one-off ElevenLabs mutators or add npm scripts that call them.
 
-```bash
-node automation/elevenlabs/rb-calls/patch-agent-live-help.mjs --dry-run
-```
-
-4. Apply after approval:
-
-```bash
-npm run calls:patch-elevenlabs-live-help
-```
-
-5. For call-opening / representative-authority changes, run:
-
-```bash
-npm run calls:patch-elevenlabs-representation-opening
-```
-
-6. For slow number, registration-number, tax-reference, and alphanumeric identifier delivery changes, run:
-
-```bash
-npm run calls:patch-elevenlabs-slow-identifiers
-```
-
-7. For on-demand Notion context lookup tool changes, run:
-
-```bash
-npm run calls:patch-elevenlabs-context-lookup
-```
-
-8. For startup stability after short technical-failure calls, run:
-
-```bash
-npm run calls:patch-elevenlabs-startup-stability
-```
-
-9. To remove stale/unknown workflow tool calls and keep live-help tools only on the dedicated workflow tool nodes, run:
-
-```bash
-npm run calls:patch-elevenlabs-workflow-tools -- --dry-run
-npm run calls:patch-elevenlabs-workflow-tools
-```
-
-10. Verify by re-reading the live agent through MCP or API readback. Do not commit or print the API key.
+The source-controlled `automation/elevenlabs/` folder is reserved for reusable read-only diagnostics and reusable utilities. Prompt patchers, migration scripts, and emergency live mutators belong in the private ignored `.codex-local/automation/elevenlabs/` folder.
 
 This is a development accelerator only. It does not add local runtime functions to the calling bot.
 
