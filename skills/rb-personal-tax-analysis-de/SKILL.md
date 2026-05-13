@@ -30,6 +30,7 @@ Note: the fuller process document is pending review and should not be treated as
 - Task template: `[Annually] Personal Tax Filing` at `https://www.notion.so/32ee413013148090a435e5858b918f25`
 - Default analysis assignee: Ioana Surdu-Bob, Notion user `3a46f87a-9bc2-408f-baff-b4c23326e0f2`
 - Default filing assignee: Johnpaul Okolie, Notion user `b85bb822-968a-4f79-809a-5ee2f3e6d828`
+- Reusable operator prompt: `processes/personal-tax-return-prompt.md`
 
 ## Workflow
 
@@ -130,6 +131,7 @@ Use these rules whenever you create or update the German personal-tax workbook.
 
 - Preserve complete raw bank and investment exports in matching raw export tabs. Raw export tabs must have one header row, frozen row 1 only, filters enabled, compact widths/heights for a 13-inch laptop, and no oversized title or instruction blocks above the table.
 - Drive summaries from formulas reading raw exports, revenue, expenses, deductibles, tax credits, tax payments, invoices, investment lots, assets, depreciation, loans/debt, `FX Rates`, category rules, and journal. Do not hardcode derived categorisation, reconciliation, PNL, balance sheet, checks, missing-info, or filing-summary outputs.
+- When populating a client workbook, enter client-specific facts only in input/source cells such as `Setup`, source rows in `Revenue`, `Expenses`, `Deductibles`, `Tax Credits`, `Tax Payments`, raw export tabs, evidence/source registers, and reviewed rule tables. Do not paste client-specific static totals into calculation tabs such as `Summary`, `Tax Analysis`, `PNL`, `Balance Sheet`, `Missing Info`, or `Checks`; formula cells on those tabs may be changed only as a documented template/formula repair.
 - Place high-level review tabs first (`Setup`, `Summary`, `Tax Analysis`, `PNL`, `Balance Sheet`, `Missing Info`, `Checks`) and helper tables such as `Category Rules` and `FX Rates` at the end of the workbook.
 - Use `Category Rules` as the shared categorisation source. Seed and maintain it with German SKR04 account numbers, account names, PNL/balance-sheet mapping, tax treatment, invoice requirement, VAT treatment, and review notes.
 - Maintain double-entry bookkeeping through `Journal` and `Checks`; every generated transaction should net to zero, and failures must surface in `Checks` and `Missing Info`.

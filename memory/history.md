@@ -218,6 +218,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Rebuilt the expense discrepancy/rules/account tabs with compact summary rows, 42px account transaction rows, compact wrapped column widths, visible rule key/category/status/tax/evidence/review columns, cached formula results, and corrected Revolut GBP rows to use statement EUR conversions where available.
 - Decisions made: Count London and Dubai business-location spend as business travel unless the merchant is a supermarket/convenience store; exclude Iceland/Icelandair/Reykjavik unless separately confirmed; count sensible electronics, telecom, software, subscriptions, professional fees, and bank fees as business expenses subject to support.
 - Verification: Uploaded the workbook to Drive and downloaded it back; md5 matched `629dd8a72be498e8fab26cc6e667a969`, modified `2026-05-06T15:11:52.312Z`, size `495500`; zip validation passed and cached sample classifications survived read-back.
+
 - Limitations or gaps: N26 October 2025 is still missing; final filing still needs receipts/business-purpose support for claimed rows and review of uncategorised/non-business review flags.
 - Limitations or gaps: N26 October 2025 was not present in the provided ZIP. Revolut GBP-statement rows with no EUR amount are flagged for FX/EUR review before amounts are claimed.
 
@@ -292,6 +293,78 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Use `Preparation Task` for the analysis task and `Filing Task` for the filing task; set the filing task's `Dependent on` relation to the analysis task; use actual Notion comments for the filing-task handoff note and spreadsheet URL.
 - Verification: Notion fetch verified `Preparation Task`, `Filing Task`, `Project`, `Dependent on`, and the template URL before editing process docs.
 - Limitations or gaps: This was a process-only update; no live task pair was created in Notion during this step.
+
+## 2026-05-13 - Future Personal Tax Prompt
+
+- User request: Prepare a prompt that gets ideal results for future personal-tax returns, then publish the changes as a PR.
+- Context read: Mark 2024 correction history, active German personal-tax skill, process index, and task-PR guidance.
+- Actions taken: Added `processes/personal-tax-return-prompt.md` with a fill-in operator prompt covering source intake, fresh template-copy use, formula protection, evidence-backed expense rows, Notion filing/task synchronization, notifications, and read-back verification.
+- Files changed: `processes/personal-tax-return-prompt.md`, `processes/index.md`, `skills/rb-personal-tax-analysis-de/SKILL.md`, and memory/source ledgers.
+- Decisions made: Keep the prompt generic and reusable; do not encode Mark-only facts except as lessons in workflow form.
+- Verification: The prompt reflects the current maintained-template workflow and asks future runs to verify tax-year-specific rules rather than assuming future statutory caps.
+
+## 2026-05-13 - Mark 2024 Personal Tax Analysis Update
+
+- User request: Prepare an updated personal-tax filing for Mark from the supplied Drive folder, excluding lower home costs/non-mobile Telekom and naturalization/non-business invoices, claiming home-office allowance, and adding EUR 15,000 GbR profit on top of EUR 7,000 stated revenue.
+- Context read: User-provided Drive folder, V2 Office-mode workbook, receipts and TK certificate PDFs, Notion individual/filing/task context, and German personal-tax/home-office/business-meal source rules.
+- Actions taken: Created and verified a V3 Office-mode workbook with revised income, expenses, home-office allowance, health/care insurance, and review notes; uploaded the workbook through the Google Drive connector; added Notion comments to the filing record and linked task; created Mark individual routing files and a minimal WEW linked-individual pointer.
+- Files changed: `clients/Individuals/Mark James Frederick Wilshin/`, `clients/Companies/WEW/`, `memory/skill-runs.md`, `memory/open-questions.md`, `sources/source-register.md`, and `sources/import-log.md`.
+- Decisions made: Keep raw receipt evidence in Drive; store only source pointers, analysis numbers, and blockers in git. The EUR 180 Catalanglish language-learning line was initially marked provisional, then confirmed in the same session as business language learning for the translation business.
+- Verification: Local XLSX zip/import/read-back checks passed; key summary values are income EUR 22,000, expenses EUR 3,219.24, home-office EUR 1,260, gross income after expenses EUR 17,520.76, and health/care insurance EUR 6,232.81.
+- Limitations or gaps: The uploaded V3 workbook exists in Drive but is not yet in the supplied Mark folder because the helper gcloud token lacks Drive scope and the connector upload path did not expose parent-folder placement.
+
+## 2026-05-13 - Mark Language-Learning Expense Confirmation
+
+- User request: Clarified that language learning is a business expense for Mark because the business is translation.
+- Context read: Existing Mark V3 workbook and Mark individual routing notes from the same-day personal-tax update.
+- Actions taken: Rebuilt and uploaded a corrected V3 Office-mode workbook marking the EUR 180 Catalanglish language-learning item as included business language learning; added Notion follow-up comments to the filing record and task; removed the language-learning business-purpose open question from local memory.
+- Files changed: Mark individual files plus memory/source ledgers.
+- Decisions made: Keep the expense amount unchanged at EUR 180; update only classification/review notes.
+- Verification: Local XLSX file/zip/import read-back passed and still shows total business expenses EUR 3,219.24.
+- Limitations or gaps: Corrected workbook upload still landed under connector parent `0APO_eChhDoQPUk9PVA`, not the supplied Mark folder.
+
+## 2026-05-13 - Mark Template-Basis Correction
+
+- User request: Asked why the current rule to create from the maintained machine-readable template was not followed.
+- Context read: Active German personal-tax skill/template rules, Mark Office-mode V3 outputs, maintained RB German Personal Tax Analysis template, Drive helper auth state, and Google Drive/Notion connector capabilities.
+- Actions taken: Acknowledged the earlier mistake, created a corrected machine-readable native Google Sheets artifact from the maintained template export, added Notion correction comments on the filing record and linked task, and marked the earlier Office-mode V3 workbooks as superseded in Mark's repo files.
+- Files changed: Mark individual files plus global memory/source ledgers.
+- Decisions made: Treat the earlier Office-mode V3 workbooks as historical/superseded; use `https://docs.google.com/spreadsheets/d/1vg2gcux923SDZi1RDKlowSf-dguLrSqMVv7HTCCScYk/edit` as the current review artifact.
+- Verification: Local workbook import/read-back confirmed the machine-readable workbook figures: revenue EUR 22,000, business expenses incl. home-office EUR 4,479.24, business/freelance net PNL EUR 17,520.76, and health/care EUR 6,232.81. The initial income-after-deductions read-back was later superseded by the formula-tab repair entry. Google Drive metadata confirmed the uploaded artifact is a native Google Sheet with 28 tabs.
+- Limitations or gaps: A true Drive-native template copy into Mark's supplied folder remains blocked because gcloud account auth lacks Drive scope and non-interactive reauthentication failed; the connector import path created the native Sheet but did not expose folder placement.
+
+## 2026-05-13 - Mark Calculation-Tab Formula Repair
+
+- User request: Reported that Mark's calculation tabs appeared to use hardcoded values instead of the template formulas and instructed that client-specific edits should stay out of formula cells.
+- Context read: Google Sheets edit/formula workflow, RB German personal-tax skill, Mark source/client files, and the current Mark machine-readable workbook.
+- Actions taken: Restored formula-driven calculation tabs and formula columns in the current Mark workbook, confined Mark-specific values to source/input cells, corrected the Mark workbook's `Tax Analysis` other-deductions formula so the business home-office route is not double-counted, applied the same deductible-group formula repair to the maintained template, added an explicit formula-tab guardrail to the German personal-tax skill, and updated Mark/repo records.
+- Files changed: Mark individual files, German personal-tax skill, and global memory/source ledgers.
+- Decisions made: Treat the earlier hardcoded calculation-tab figures as superseded. Current formula-driven figures are revenue EUR 22,000, business expenses incl. home-office EUR 4,479.24, net business PNL EUR 17,520.76, other personal deductions EUR 6,268.81, and income after deductions before tax-rate calculation EUR 11,251.95.
+- Verification: Sheets range read-back confirmed formulas are present on the key Mark calculation outputs, maintained-template read-back confirmed the `Tax Analysis!B12` deductible-group formula, `git diff --check` passed, and `npm run typecheck` passed.
+
+## 2026-05-13 - Mark Fresh Template Copy Invoice Rebuild
+
+- User request: Instructed Codex to copy the template and fill it in again, only on the tabs actually populated, and questioned why the prior pass used Mark's doc rather than the actual invoices.
+- Context read: Supplied Mark Drive folder, actual receipt PDFs where OCR was available, maintained native German personal-tax template, previous corrected workbook, and Drive helper auth state.
+- Actions taken: Reauthenticated the Drive helper with Drive scope, created a true Drive-native copy of the maintained template in Mark's supplied folder, populated only `Setup`, `Revenue`, `Expenses`, and `Deductibles`, and rebuilt the inputs from actual invoice/receipt PDFs plus the explicit EUR 15,000 GbR-profit instruction.
+- Decisions made: Supersede the intermediate corrected workbook `https://docs.google.com/spreadsheets/d/1vg2gcux923SDZi1RDKlowSf-dguLrSqMVv7HTCCScYk/edit`; the current workbook is `https://docs.google.com/spreadsheets/d/1JtxaRuqQZv_2JhvPBND6R6uQkWN2xahokg0q24Rt5iw/edit`. Exclude home costs/non-mobile Telekom, naturalization/non-business invoices, the second Catalanglish ticket, the missing M1-3 iCloud invoice, and unclaimed receipt rows.
+- Verification: Sheets read-back confirmed formula-driven summary outputs: revenue EUR 22,000, business expenses incl. home-office EUR 4,466.18, net business PNL EUR 17,533.82, health/care EUR 6,232.81, other personal deductions EUR 6,268.81, and income after deductions EUR 11,265.01. The Mark-specific review checks noted at that point were later resolved on 2026-05-13.
+
+## 2026-05-13 - Mark Expense Receipt Evidence Correction
+
+- User request: Reported that the expense rows still were not backed by the individual receipts.
+- Context read: Current fresh template-copy workbook, receipts folder `https://drive.google.com/drive/folders/1uAhkg_wsKd_GA1ABy_s5m5J0J81eF7sN`, existing Mark source/register files, and Google Sheets edit workflow.
+- Actions taken: Rewrote only non-formula `Expenses` input cells into receipt-level rows with exact receipt-file URLs, split iCloud, Telekom mobile, EE mobile, and business meals into individual invoice/receipt rows, rendered scanned meal receipts where Drive OCR was empty, and added Notion correction comments to the filing record and linked task.
+- Decisions made: Keep formulas untouched in `Expenses` and calculation tabs. Correct the business-meal claim from the prior aggregate to EUR 506.59, representing 70 percent of EUR 723.70 receipt-backed gross/tip-supported meal amounts.
+- Verification: Sheets read-back found no receipts-folder URL remaining in `Expenses!A1:Q80`, confirmed formula cells remain present in key `Expenses` formula columns and `Tax Analysis!B3:B14`, and confirmed current formula-driven values: revenue EUR 22,000, business expenses incl. home-office EUR 4,479.95, net business PNL EUR 17,520.05, other personal deductions EUR 6,268.81, and income after deductions EUR 11,251.24.
+
+## 2026-05-13 - Mark Final Open Questions Resolved
+
+- User request: Resolved the Mark/WEW open questions: confirmed the EUR 15,000 GbR profit support, approved Telekom/EE mobile business-use treatment, instructed trust in the client for missing M1-3 iCloud and business-meal support, and asked whether the MacBook can legally be fully deducted.
+- Context read: Mark individual open questions and tax-return notes, global memory questions/tasks, and BMF EStH 2024 computer-hardware/software useful-life guidance.
+- Actions taken: Recorded the resolved decisions in Mark's individual files, global memory, source registers, and import log; moved the Mark finalisation task to done; added Notion comments to the filing record and filing task for filer visibility.
+- Decisions made: Retain the full 2024 MacBook deduction route as a provisional tax-law analysis point because BMF guidance supports one-year useful-life treatment for notebook/computer hardware and does not require monthly acquisition-year pro-rating.
+- Verification: Notion comments were created on the filing record and filing task. Repo records now show no active Mark/WEW personal-tax open questions from the 2026-05-13 list.
 
 ## 2026-05-11 - Communications-First Inbound Triage Review
 

@@ -53,3 +53,5 @@ Imported: 2026-05-04.
 | Created canonical RB Communications database and moved VUN Slack closeout record out of the Everguard/research Communications table. | 2026-05-06 | 2026-05-07 |
 | Resolved access to Nathan's Office-mode 2023/2024 VAT missing-invoices workbook and 2025 personal-tax analysis workbook, then added formula-backed Codex categorisation/audit tabs. | 2026-05-06 | 2026-05-06 |
 | Created the machine-readable native Google Sheets personal-tax template and superseded the separated-Codex-tab workflow for future personal-tax work. | 2026-05-06 | 2026-05-06 |
+| Created Mark's fresh 2024 machine-readable personal-tax workbook as a true Drive-native copy of the maintained template in the supplied Mark Drive folder. | 2026-05-13 | 2026-05-13 |
+| Finalised Mark's 2024 personal-tax analysis open questions after operator confirmation of GbR profit support, MacBook treatment, mobile business-use percentages, missing M1-3 iCloud treatment, and business-meal formality support. | 2026-05-13 | 2026-05-13 |

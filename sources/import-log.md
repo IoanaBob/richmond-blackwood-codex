@@ -2,6 +2,54 @@
 
 Status: active.
 
+## 2026-05-13 - Future Personal Tax Prompt
+
+Applied:
+
+- Added `processes/personal-tax-return-prompt.md` as a reusable operator prompt for future German personal-tax analysis requests.
+- Linked the prompt from `processes/index.md` and `skills/rb-personal-tax-analysis-de/SKILL.md`.
+
+Verification:
+
+- Prompt incorporates the Mark correction lessons: fresh maintained-template copies, formula-tab protection, invoice/receipt-backed rows, exact evidence URLs, Notion preparation/filing task links, and read-back checks.
+
+## 2026-05-13 - Mark 2024 Personal Tax Analysis Update
+
+Applied:
+
+- Reviewed the user-provided Mark Drive folder and V2 Office-mode workbook for the 2024 German personal-tax analysis.
+- Initially prepared `Mark V3 Personal Tax Analysis Template - updated 2026-05-13.xlsx` from the V2 workbook, preserving Office-mode `.xlsx` format. This was later identified as the wrong template basis and is superseded.
+- Updated the analysis to include EUR 22,000 income: EUR 7,000 TorUG revenue plus EUR 15,000 GbR profit per operator instruction.
+- Excluded home costs and non-mobile Telekom/internet items from expenses and claimed the EUR 1,260 home-office daily allowance instead.
+- Excluded naturalization/non-business invoices and the entertainment ticket line; included the narrower EUR 180 Catalanglish language-learning expense, later confirmed by the operator as business language learning for the translation business.
+- Updated included business expenses to EUR 3,219.24 and health/care insurance to EUR 6,232.81.
+- Uploaded the prepared V3 workbook through the Google Drive connector and added Notion page comments on the filing record and linked task. These comments were superseded by later correction comments.
+- After operator clarification, rebuilt and uploaded a corrected V3 workbook marking the EUR 180 Catalanglish language-learning item as a confirmed business expense because Mark's business is translation. This Office-mode workbook is also superseded by the machine-readable correction.
+- After operator review of the template-basis rule, created a corrected native Google Sheets artifact from the maintained RB German Personal Tax Analysis machine-readable template export: `https://docs.google.com/spreadsheets/d/1vg2gcux923SDZi1RDKlowSf-dguLrSqMVv7HTCCScYk/edit`.
+- Added Notion correction comments on the filing record and linked task stating that both Office-mode V3 workbooks are superseded.
+- After operator review of hardcoded calculation-tab values, repaired the current machine-readable workbook so calculation tabs are formula-driven again and Mark-specific data is confined to input/source cells.
+- Applied the same `Tax Analysis` deductible-group formula repair to the maintained machine-readable template so future business-home-office workbooks do not double-count `business-betriebsausgaben` as personal deductions.
+- After the operator instructed a clean rebuild, reauthenticated the Drive helper with Drive scope and created a true Drive-native copy of the maintained template in Mark's supplied folder: `https://docs.google.com/spreadsheets/d/1JtxaRuqQZv_2JhvPBND6R6uQkWN2xahokg0q24Rt5iw/edit`.
+- Refilled only `Setup`, `Revenue`, `Expenses`, and `Deductibles` from actual invoice/receipt evidence where available and the explicit EUR 15,000 GbR-profit instruction. The intermediate corrected machine-readable workbook is superseded.
+- After operator review of folder-level expense evidence links, rewrote `Expenses` receipt-backed rows so claimed expense entries point to exact receipt-file URLs. The business-meal row was split into F100-F107 receipt rows, correcting the claimed 70 percent meal share to EUR 506.59 from receipt-backed gross/tip-supported amounts.
+- Added fresh Notion comments to the filing record and linked task with the new workbook URL, formula-driven read-back values, supersession note, and remaining review points.
+- Added correction comments to the Notion filing record and linked task after the receipt-level `Expenses` repair.
+- Created Mark's individual client routing folder and a minimal WEW linked-individuals pointer.
+- After operator review of the final open questions, recorded confirmed EUR 15,000 GbR support, approved mobile business-use percentages, client-trusted missing M1-3 iCloud and business-meal support, and full 2024 MacBook treatment under BMF one-year computer-hardware useful-life guidance. Added matching Notion comments to the filing record and filing task.
+
+Verification:
+
+- Local XLSX zip validation and spreadsheet-tool import/read-back passed.
+- Read-back confirmed summary values in the corrected machine-readable workbook: revenue EUR 22,000, business expenses before home-office EUR 3,219.24, business home-office allowance EUR 1,260, business expenses including home-office EUR 4,479.24, business/freelance net PNL EUR 17,520.76, health/care insurance EUR 6,232.81, special expense lump-sum baseline EUR 36, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,251.95.
+- Google Drive metadata confirmed the corrected artifact exists as a native Google Sheet with 28 tabs. A later Sheets range read-back confirmed formula-driven `Tax Analysis` values for revenue EUR 22,000, business expenses EUR 4,479.24, net PNL EUR 17,520.76, other personal deductions EUR 6,268.81, and income after deductions EUR 11,251.95. Maintained-template read-back confirmed `Tax Analysis!B12` now excludes both `employment-werbungskosten` and `business-betriebsausgaben`.
+- Fresh template-copy read-back confirmed formula-driven summary values: revenue EUR 22,000, business expenses before home-office EUR 3,206.18, business home-office allowance EUR 1,260, business expenses including home-office EUR 4,466.18, business/freelance net PNL EUR 17,533.82, health/care insurance EUR 6,232.81, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,265.01.
+- Receipt-level expense correction read-back confirmed no receipts-folder URL remains in `Expenses!A1:Q80`, formula cells remain present in key `Expenses` formula columns and `Tax Analysis!B3:B14`, and current formula-driven values are business expenses before home-office EUR 3,219.95, business expenses including home-office EUR 4,479.95, net business PNL EUR 17,520.05, and income after deductions EUR 11,251.24.
+- BMF EStH 2024 source review supports the provisional analysis route for full 2024 MacBook treatment through one-year computer-hardware useful-life guidance.
+
+Follow-up:
+
+- The fresh template-copy workbook is in the supplied Mark folder. The prior Mark open questions were resolved by operator review on 2026-05-13; final filing still needs normal professional/operator review before submission.
+
 ## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
 
 Imported:
