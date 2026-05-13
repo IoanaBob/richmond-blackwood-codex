@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-08.
+Updated: 2026-05-13.
 
 ## Repo State
 
@@ -105,6 +105,15 @@ Selin Ozkohen / CLV German personal-tax pilot:
 - 2026-05-07 approval: user approved the current template/process and Selin pilot state for commit. Payroll revenue now reflects payslip wage-tax withholding/net pay, January/February zero withholding is flagged for explanation, the EUR 9,785.30 healthcare deduction is included pending evidence URL, the Section 10c/Sonderausgaben-Pauschbetrag baseline is included as `Baseline only`, and false-positive tax-payment review counts were repaired. Filing remains incomplete until open questions are resolved.
 - 2026-05-07 2025 setup: Notion 2025 filing `https://www.notion.so/342e4130131480eab03dd8498d24d23e` was set to in progress and linked to Drive folder `https://drive.google.com/drive/folders/127-k82-g8Ix3eUGEjLVhbA_1OAglGI7Z`. The copied 2025 workbook is `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`; the payslip folder is `https://drive.google.com/drive/folders/1ustYGqTraDcaqv0LwQSqa1lk6M-vYIMq`. January-June 2025 payroll run `Payslip` fields were linked to Drive PDFs; July-December already had payslips. Revenue read-back is EUR 28,800 gross employment income and EUR 3,096.96 wage tax withheld. The special expense lump-sum baseline read-back is EUR 36, and the home-office daily allowance is EUR 1,260, making 2025 income after deductions EUR 27,504.00. Remaining checks are prior-year opening balance, expense document review, investment/no-investment confirmation, direct tax payment/prepayment confirmation, deductible review, and tax-credit review.
 - 2026-05-07 2025 task links: the filing record now links an analysis task assigned to Ioana Surdu-Bob (`https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f`) through `Preparation Task` and a filing task assigned to Johnpaul Okolie (`https://www.notion.so/359e4130131481d88a99df5939bbe6ed`) through `Filing Task`. The filing task is dependent on the analysis task and has an actual Notion comment with the workbook and filing context.
+
+Mark James Frederick Wilshin / WEW German personal-tax update:
+
+- Individual folder: `clients/Individuals/Mark James Frederick Wilshin/`
+- Company pointer folder: `clients/Companies/WEW/`
+- 2024 source folder: `https://drive.google.com/drive/folders/1muPUJMt8AT3pIf2dGesb6yTfrOBSL83l`
+- Current fresh template-copy workbook: `https://docs.google.com/spreadsheets/d/1JtxaRuqQZv_2JhvPBND6R6uQkWN2xahokg0q24Rt5iw/edit`
+- Status: earlier Office-mode V3 workbooks and the intermediate corrected machine-readable workbook are superseded. The current workbook is a true Drive-native copy of the maintained template in Mark's supplied folder. Only `Setup`, `Revenue`, `Expenses`, and `Deductibles` were populated from invoice/receipt evidence and operator instruction; calculation tabs and formula cells were left template-driven. After operator review, `Expenses` was corrected to receipt-level rows with exact receipt-file URLs rather than folder-level evidence links. Key read-back values are revenue EUR 22,000, business expenses including business home-office allowance EUR 4,479.95, business/freelance net PNL EUR 17,520.05, TK health/care EUR 6,232.81, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,251.24.
+- Remaining checks: confirm support for EUR 15,000 GbR profit, MacBook immediate deduction vs depreciation, mobile-phone business-use percentages, missing March iCloud invoice if it exists elsewhere, and business-meal receipt/formality support.
 
 Communication workflow update:
 

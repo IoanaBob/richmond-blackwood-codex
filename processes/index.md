@@ -12,6 +12,7 @@ This directory is the source-controlled process and SOP mirror for Richmond Blac
 - `knowledge-backup-and-source-control.md` - source import, backup routing, client reference standard, and Drive/Notion filing.
 - `repo-operation.md` - repository memory, branch/PR, connector/helper boundary, and closeout.
 - `file-uploads.md` - Drive and Notion file attachment rules.
+- `personal-tax-return-prompt.md` - reusable prompt for future German personal-tax analysis requests.
 - `notion-operations.md` - Notion database, view, relation, file-property, and task-ready standards.
 - `setup-and-access.md` - human setup and health checks.
 - `signature-and-gmail.md` - generic approvals, signing, Gmail draft, and communication rules.

@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-07.
+Updated: 2026-05-13.
 
 ## Notion Backup Questions
 
@@ -66,6 +66,14 @@ Updated: 2026-05-07.
 - Confirm whether Selin had any direct Finanzamt tax payments/prepayments in 2025 outside payroll withholding, or confirm none, before clearing the tax-payment confirmation check.
 - Review deductible and tax-credit applicability for Selin 2025 before marking any optional rows as claimed, including the days-based home-office allowance, commuting, equipment/training, health/care insurance, pension/retirement, donations, childcare, household services, and foreign/investment withholding credits.
 - Tie the 2025 opening balance sheet to the 2024 workbook closing balances or add an explicit provisional opening baseline note.
+
+## Mark / WEW Personal Tax Questions
+
+- Confirm source support for the EUR 15,000 GbR profit included per operator instruction.
+- Confirm whether the MacBook Pro should be fully deducted in 2024 or depreciated for final filing.
+- Confirm whether the 80 percent Telekom mobile business-use apportionment and full EE mobile business-use treatment are acceptable for final filing.
+- Confirm whether Mark has an M1-3 iCloud invoice elsewhere; it was not found in the supplied receipts folder and was not claimed.
+- Review business-meal receipt/formality requirements before final filing.
 
 ## Nathan VAT And Personal Tax Questions
 
