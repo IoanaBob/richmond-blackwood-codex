@@ -314,3 +314,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `git diff --check` passed.
 - Limitations or gaps: User review still needed before running the senior-review/commit/push sequence.
 - Next step: Ask the user to review.
+
+## 2026-05-13 - RB Calling Bot Live Runtime Sync
+
+- User request: Check n8n and ElevenLabs, update the repo with all new manual calling-bot changes, and create a PR for review.
+- Context read: Live n8n workflow readbacks, live ElevenLabs agent/tool readbacks, existing calling-bot automation helpers, setup docs, and RB task PR workflow.
+- Actions taken: Added `automation/sync-rb-calls-live-state.mjs`, `npm run calls:sync-live-state`, source-controlled readbacks under `automation/live-readbacks/`, the RB authority call setup skill, calling-bot setup guide, implementation map, test plan, and memory/source-log updates.
+- Decisions made: Live readbacks are configuration evidence only; do not store API keys, MCP tokens, phone numbers, recordings, transcripts, or client call payloads in git.
+- Verification: `npm run calls:sync-live-state`, `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed before commit. A targeted readback scan found only policy text, header/variable names, and `shareable_token: null`.
+- Limitations or gaps: `RB Calls ElevenLabs Events` has active version `29dc070e-2951-4f7f-931b-6b24ea793fc5` and draft version `48d12009-db89-4c75-8df1-6e48564f12ed`; review before publishing or deploying over it.

@@ -1007,3 +1007,36 @@ Actions:
 Unresolved:
 
 - No live filing tasks were created by this process update; each filing still needs its task/project relations checked before task creation.
+
+## 2026-05-13 - RB Calls Live Runtime Readback Sync
+
+Imported:
+
+- n8n `RB Calls Voice Execution` workflow `3xJh7hNK0Zl9T4zS`, active version `c7d84f52-ae58-4073-889f-89eb2000a937`.
+- n8n `RB Calls Live Help` workflow `qtwbaCjt8lqqjS6o`, active version `9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1`.
+- n8n `RB Calls ElevenLabs Events` workflow `uBEMuAtKiJQzJAWw`, active version `29dc070e-2951-4f7f-931b-6b24ea793fc5`, draft version `48d12009-db89-4c75-8df1-6e48564f12ed`.
+- n8n `RB Calls Context Lookup` workflow `i3rv4G6FmfosQm5j`, active version `b8b439eb-0587-4600-a93a-89a27ca2e8fc`.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_9501krh4qjm7e6n9jy079k5tgea5`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- Added repeatable live readback helper `automation/sync-rb-calls-live-state.mjs`.
+- Added compact registry and per-runtime snapshots under `automation/live-readbacks/`.
+- Documented the readback workflow in `automation/README.md` and `setup/mcp/elevenlabs-n8n.md`.
+
+Not imported:
+
+- No API keys, MCP tokens, webhook secrets, call recordings, call transcripts, phone numbers, or client document files.
+
+Verification:
+
+- `npm run calls:sync-live-state` completed successfully and wrote all readback files.
+
+Open questions:
+
+- Review why `RB Calls ElevenLabs Events` has a current draft version different from the active version before publishing or deploying over it.

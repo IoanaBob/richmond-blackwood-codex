@@ -1,0 +1,1574 @@
+{
+  "synced_at": "2026-05-13T17:22:14.943Z",
+  "status": "provisional",
+  "source": "n8n MCP get_workflow_details",
+  "review": "Compare with source-controlled workflow and publish intentionally after review.",
+  "workflow": {
+    "workflow": {
+      "id": "uBEMuAtKiJQzJAWw",
+      "name": "RB Calls ElevenLabs Events",
+      "active": true,
+      "isArchived": false,
+      "versionId": "48d12009-db89-4c75-8df1-6e48564f12ed",
+      "activeVersionId": "29dc070e-2951-4f7f-931b-6b24ea793fc5",
+      "triggerCount": 1,
+      "createdAt": "2026-05-08T19:12:07.623Z",
+      "updatedAt": "2026-05-13T17:08:44.347Z",
+      "settings": {
+        "executionOrder": "v1",
+        "availableInMCP": true,
+        "binaryMode": "separate"
+      },
+      "connections": {
+        "ElevenLabs Events Webhook": {
+          "main": [
+            [
+              {
+                "node": "Normalize ElevenLabs Event",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize ElevenLabs Event": {
+          "main": [
+            [
+              {
+                "node": "Has Call Page?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Has Call Page?": {
+          "main": [
+            [
+              {
+                "node": "Create Post-Call Note",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Respond Missing Call ID",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Create Post-Call Note": {
+          "main": [
+            [
+              {
+                "node": "Update Call Outcome",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Call Outcome": {
+          "main": [
+            [
+              {
+                "node": "Respond Success",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get Started Calls": {
+          "main": [
+            [
+              {
+                "node": "Prepare Status Sweep",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Prepare Status Sweep": {
+          "main": [
+            [
+              {
+                "node": "Loop Started Calls",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Has Conversation ID?": {
+          "main": [
+            [
+              {
+                "node": "Get ElevenLabs Conversation",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Normalize Missing Conversation",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get ElevenLabs Conversation": {
+          "main": [
+            [
+              {
+                "node": "Normalize Swept Conversation",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize Swept Conversation": {
+          "main": [
+            [
+              {
+                "node": "Should Update Swept Call?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Should Update Swept Call?": {
+          "main": [
+            [
+              {
+                "node": "Create Swept Status Note",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Skip Swept Call",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Create Swept Status Note": {
+          "main": [
+            [
+              {
+                "node": "Update Swept Call Outcome",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Swept Call Outcome": {
+          "main": [
+            [
+              {
+                "node": "Loop Started Calls",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Loop Started Calls": {
+          "main": [
+            [
+              {
+                "node": "Sweep Done",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Has Conversation ID?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Skip Swept Call": {
+          "main": [
+            [
+              {
+                "node": "Loop Started Calls",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize Missing Conversation": {
+          "main": [
+            [
+              {
+                "node": "Should Update Swept Call?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Every 30 mins": {
+          "main": [
+            [
+              {
+                "node": "Get Started Calls",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "nodes": [
+        {
+          "parameters": {
+            "content": "Receives ElevenLabs post-call and failure webhooks, plus runs a one-minute no-answer watchdog so accepted outbound calls that never start a human conversation do not remain locked. Routine post-call and sweep state changes update Notion only; Slack is reserved for live human-help requests. Uses ElevenLabs static egress IP allowlist; add HMAC validation before production if n8n raw-body support is available.",
+            "height": 980,
+            "width": 2920,
+            "color": 6
+          },
+          "id": "f0eeee95-acd5-4a7c-b5cb-e6644e583c78",
+          "name": "Sticky Note cd66aced",
+          "type": "n8n-nodes-base.stickyNote",
+          "typeVersion": 1,
+          "position": [
+            -768,
+            -352
+          ]
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "rb-calls-elevenlabs-events",
+            "responseMode": "responseNode",
+            "options": {
+              "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
+            }
+          },
+          "id": "cb29e6ae-79d1-4c79-8154-98c32f0b589b",
+          "name": "ElevenLabs Events Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -720,
+            -160
+          ],
+          "webhookId": "8ebbef01-b7be-4ca6-993c-af93f609eedf"
+        },
+        {
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "jsCode": "const body = $json.body || {};\nconst data = body.data || body;\nconst dynamic = data.conversation_initiation_client_data?.dynamic_variables || body.dynamic_variables || {};\nconst eventType = String(body.type || data.type || 'unknown');\nconst conversationId = String(data.conversation_id || body.conversation_id || dynamic.system__conversation_id || '').trim();\nconst callPageId = String(dynamic.call_id || body.call_id || data.call_id || '').trim();\nconst callPublicId = String(dynamic.call_public_id || callPageId || conversationId || 'unknown-call').trim();\nconst ownerSlackId = String(dynamic.owner_slack_member_id || body.owner_slack_member_id || '').replace(/[<@>]/g, '').trim();\nconst explicitOwnerMention = String(dynamic.owner_mention || body.owner_mention || '').trim();\nconst ownerName = String(dynamic.owner_name || body.owner_name || '').trim();\nconst ownerMention = ownerSlackId ? '<@' + ownerSlackId + '>' : (explicitOwnerMention || ownerName || 'owner not resolved');\nconst messageTopic = String(dynamic.message_topic || body.message_topic || dynamic.reason_for_call || dynamic.main_question || eventType || 'ElevenLabs event').trim();\nconst analysis = data.analysis || {};\nconst metadata = data.metadata || {};\nconst failureReason = String(data.failure_reason || body.failure_reason || data.error || body.error || '').trim();\nconst status = String(data.status || body.status || data.call_status || body.call_status || metadata.status || '').toLowerCase().trim();\nconst duration = Number(metadata.call_duration_secs || metadata.duration_seconds || metadata.duration_secs || metadata.duration || data.duration_seconds || data.duration || 0);\nconst disconnectionReason = String(\n  data.disconnection_reason ||\n  body.disconnection_reason ||\n  data.termination_reason ||\n  body.termination_reason ||\n  metadata.disconnection_reason ||\n  metadata.termination_reason ||\n  metadata.twilio_status ||\n  ''\n).toLowerCase().trim();\nconst transcript = Array.isArray(data.transcript) ? data.transcript : [];\nconst transcriptText = transcript\n  .map((turn) => [turn.role || 'unknown', turn.message || turn.text || ''].filter(Boolean).join(': '))\n  .filter(Boolean)\n  .join(String.fromCharCode(10));\nconst messageCount = transcript.length;\nconst summaryFromEvent = String(analysis.transcript_summary || body.summary || '').trim();\nconst noAnswerReason = [failureReason, status, disconnectionReason].join(' ').toLowerCase();\nconst noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;\nconst isExplicitFailure = eventType === 'call_initiation_failure' || Boolean(failureReason);\nconst postCallNoPickup = /post[-_ ]?call|transcription|ended|completed|done/i.test(eventType) && messageCount === 0 && duration === 0 && ['initiated', 'queued', 'ringing', ''].includes(status);\nconst isNoAnswer = isExplicitFailure ||\n  postCallNoPickup ||\n  (messageCount === 0 && noAnswerPattern.test(noAnswerReason)) ||\n  (messageCount === 0 && analysis.call_successful && analysis.call_successful !== 'success') ||\n  (messageCount === 0 && ['failed', 'done', 'ended', 'completed'].includes(status) && analysis.call_successful !== 'success');\nconst summary = String(\n  summaryFromEvent ||\n  (isNoAnswer ? 'Outbound call did not reach a human conversation. ElevenLabs status: ' + (status || eventType) + (failureReason ? '. Reason: ' + failureReason : '') : '') ||\n  (failureReason ? 'Call initiation failed: ' + failureReason : '')\n).trim();\nconst twilioSid = String(\n  data.callSid ||\n  data.call_sid ||\n  metadata.callSid ||\n  metadata.call_sid ||\n  metadata.body?.CallSid ||\n  metadata.body?.call_sid ||\n  ''\n).trim();\nconst callStatus = isNoAnswer ? 'Call Unanswered' : 'Call Completed';\nconst outcomeStatus = isNoAnswer ? 'No answer' : (analysis.call_successful === 'success' ? 'Resolved' : 'Follow-up needed');\nconst requiresFollowUp = isNoAnswer || (analysis.call_successful && analysis.call_successful !== 'success');\nconst noteEventType = isNoAnswer ? 'Error' : 'Post-call';\nreturn {\n  event_type: eventType,\n  note_event_type: noteEventType,\n  call_page_id: callPageId,\n  has_call_page: Boolean(callPageId),\n  call_public_id: callPublicId,\n  conversation_id: conversationId,\n  twilio_call_sid: twilioSid,\n  owner_mention: ownerMention,\n  owner_name: ownerName,\n  owner_slack_member_id: ownerSlackId,\n  message_topic: messageTopic,\n  summary: summary.slice(0, 1900),\n  transcript: transcriptText.slice(0, 1900),\n  raw_event_excerpt: JSON.stringify(body).slice(0, 1800),\n  call_status: callStatus,\n  outcome_status: outcomeStatus,\n  requires_follow_up: Boolean(requiresFollowUp),\n  failure_reason: failureReason || disconnectionReason,\n  note_title: (isNoAnswer ? 'No answer - ' : 'Post-call - ') + callPublicId,\n};"
+          },
+          "id": "a6ae7511-6b91-46ba-8719-42963437110d",
+          "name": "Normalize ElevenLabs Event",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -464,
+            -160
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "has-call-page",
+                  "leftValue": "={{ $json.has_call_page }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "d6e6fe94-8f2c-41d7-8b4f-5e58e3a23cca",
+          "name": "Has Call Page?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -208,
+            -160
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "databaseId": {
+              "__rl": true,
+              "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+              "mode": "id",
+              "cachedResultName": "Call Notes"
+            },
+            "title": "={{ $json.note_title }}",
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Summary|rich_text",
+                  "textContent": "={{ $json.summary || $json.failure_reason || \"\" }}"
+                },
+                {
+                  "key": "Transcript|rich_text",
+                  "textContent": "={{ $json.transcript || $json.raw_event_excerpt }}"
+                },
+                {
+                  "key": "Event Type|select",
+                  "selectValue": "={{ $json.note_event_type }}"
+                },
+                {
+                  "key": "Outcome Status|select",
+                  "selectValue": "={{ $json.outcome_status }}"
+                },
+                {
+                  "key": "ElevenLabs Conversation ID|rich_text",
+                  "textContent": "={{ $json.conversation_id }}"
+                },
+                {
+                  "key": "Twilio Call SID|rich_text",
+                  "textContent": "={{ $json.twilio_call_sid }}"
+                },
+                {
+                  "key": "Call|relation",
+                  "relationValue": "={{ [$json.call_page_id] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "295bfe8a-8ba0-423a-917e-0c13a0c61aa6",
+          "name": "Create Post-Call Note",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            80,
+            -304
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Normalize ElevenLabs Event\").item.json.call_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Call Status|status",
+                  "statusValue": "={{ $(\"Normalize ElevenLabs Event\").item.json.call_status }}"
+                },
+                {
+                  "key": "Outcome|rich_text",
+                  "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.summary || $(\"Normalize ElevenLabs Event\").item.json.failure_reason }}"
+                },
+                {
+                  "key": "Requires follow-up?|checkbox",
+                  "checkboxValue": "={{ $(\"Normalize ElevenLabs Event\").item.json.requires_follow_up }}"
+                },
+                {
+                  "key": "ElevenLabs Conversation ID|rich_text",
+                  "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.conversation_id }}"
+                },
+                {
+                  "key": "Twilio Call SID|rich_text",
+                  "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.twilio_call_sid }}"
+                },
+                {
+                  "key": "Voice Error|rich_text",
+                  "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.call_status === \"Call Unanswered\" ? $(\"Normalize ElevenLabs Event\").item.json.summary : \"\" }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "b25269c6-c7a1-42f3-8bf1-14008e17b25c",
+          "name": "Update Call Outcome",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            368,
+            -304
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"received\", call_id: $(\"Normalize ElevenLabs Event\").item.json.call_page_id, conversation_id: $(\"Normalize ElevenLabs Event\").item.json.conversation_id } }}",
+            "options": {
+              "responseCode": 200
+            }
+          },
+          "id": "74144a46-f0f5-415e-a2eb-39ce3177c9e6",
+          "name": "Respond Success",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            640,
+            -304
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"received_missing_call_id\", conversation_id: $(\"Normalize ElevenLabs Event\").item.json.conversation_id } }}",
+            "options": {
+              "responseCode": 200
+            }
+          },
+          "id": "c2100279-03e7-4d18-839e-73c538dbdfa5",
+          "name": "Respond Missing Call ID",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            368,
+            32
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "342e4130-1314-8012-964a-d969a860dd93",
+              "mode": "id",
+              "cachedResultName": "Calls"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Call Status|status",
+                  "condition": "equals",
+                  "statusValue": "Call Started"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "75e2fb75-c7ea-458a-ad3f-24d20c37ba1d",
+          "name": "Get Started Calls",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            -464,
+            368
+          ],
+          "alwaysOutputData": true
+        },
+        {
+          "parameters": {
+            "jsCode": "function prop(page, name) { return page?.properties?.[name] || {}; }\nfunction richText(value) { return (value?.title || value?.rich_text || []).map((part) => part.plain_text || part.text?.content || '').join('').trim(); }\nfunction text(page, name) { return richText(prop(page, name)); }\nfunction uniqueId(page) {\n  const value = prop(page, 'ID').unique_id;\n  return value ? [value.prefix, value.number].filter((part) => part !== undefined && part !== null && String(part) !== '').join('-') : page.id;\n}\nfunction dateValue(page, name) { return prop(page, name).date?.start || ''; }\nfunction statusValue(page, name) { return prop(page, name).status?.name || prop(page, name).select?.name || ''; }\nconst now = Date.now();\nconst normalStaleAfterMinutes = 2;\nconst claimOnlyStaleAfterMinutes = 2;\nreturn $input.all()\n  .map((item) => item.json || {})\n  .filter((page) => page.id && statusValue(page, 'Call Status') === 'Call Started')\n  .map((page) => {\n    const lastAttemptAt = dateValue(page, 'Last Call Attempt At');\n    const lastAttemptMs = Date.parse(lastAttemptAt);\n    const ageMinutes = Number.isFinite(lastAttemptMs) ? Math.floor((now - lastAttemptMs) / 60000) : 9999;\n    const conversationId = text(page, 'ElevenLabs Conversation ID');\n    const voiceError = text(page, 'Voice Error');\n    const claimOnlyLock = /^rb-call-lock:/.test(voiceError) && !conversationId;\n    const staleAfterMinutes = claimOnlyLock ? claimOnlyStaleAfterMinutes : normalStaleAfterMinutes;\n    const callPublicId = uniqueId(page);\n    const messageTopic = text(page, 'Short reason') || text(page, 'Reason for call') || text(page, 'Main question') || 'Call execution';\n    return {\n      json: {\n        call_page_id: page.id,\n        call_url: page.url || '',\n        call_public_id: callPublicId,\n        conversation_id: conversationId,\n        has_conversation_id: Boolean(conversationId),\n        last_attempt_at: lastAttemptAt,\n        attempt_age_minutes: ageMinutes,\n        claim_only_lock: claimOnlyLock,\n        stale_after_minutes: staleAfterMinutes,\n        stale_enough: ageMinutes >= staleAfterMinutes,\n        message_topic: messageTopic,\n      },\n    };\n  })\n  .filter((item) => item.json.stale_enough);"
+          },
+          "id": "79000138-55f2-40a1-acc5-929de86a6665",
+          "name": "Prepare Status Sweep",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -208,
+            368
+          ]
+        },
+        {
+          "parameters": {},
+          "id": "d61c735c-bbe5-455e-b21b-16ff30b90afd",
+          "name": "Sweep Done",
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            368,
+            224
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "has-conversation-id",
+                  "leftValue": "={{ $json.has_conversation_id }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "0c0c6477-02dd-4a7e-8024-29d27c3c6f1d",
+          "name": "Has Conversation ID?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            368,
+            464
+          ]
+        },
+        {
+          "parameters": {
+            "url": "=https://api.elevenlabs.io/v1/convai/conversations/{{ $json.conversation_id }}",
+            "authentication": "predefinedCredentialType",
+            "nodeCredentialType": "elevenLabsApi",
+            "sendHeaders": true,
+            "headerParameters": {
+              "parameters": [
+                {
+                  "name": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "name": "xi-api-key",
+                  "value": "={{ $vars.ELEVENLABS_API_KEY || \"\" }}"
+                }
+              ]
+            },
+            "options": {
+              "response": {
+                "response": {
+                  "fullResponse": true,
+                  "neverError": true,
+                  "responseFormat": "json"
+                }
+              },
+              "timeout": 30000
+            }
+          },
+          "id": "1cb55321-91bc-4ba0-ba2d-ee36103b83bb",
+          "name": "Get ElevenLabs Conversation",
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            640,
+            368
+          ]
+        },
+        {
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "jsCode": "const candidate = $('Prepare Status Sweep').item.json;\nconst response = $json || {};\nlet body = response.body !== undefined ? response.body : response;\nif (typeof body === 'string') {\n  try { body = JSON.parse(body); } catch (error) { body = { raw: body }; }\n}\nconst data = body.data || body.conversation || body;\nconst metadata = data.metadata || {};\nconst analysis = data.analysis || {};\nconst transcript = Array.isArray(data.transcript) ? data.transcript : (Array.isArray(data.messages) ? data.messages : []);\nconst transcriptText = transcript\n  .map((turn) => [turn.role || turn.speaker || 'unknown', turn.message || turn.text || ''].filter(Boolean).join(': '))\n  .filter(Boolean)\n  .join(String.fromCharCode(10));\nconst messageCount = Number(data.message_count || data.messages_count || metadata.message_count || transcript.length || 0);\nconst status = String(data.status || body.status || metadata.status || '').toLowerCase().trim();\nconst callSuccessful = String(analysis.call_successful || data.call_successful || '').toLowerCase().trim();\nconst duration = Number(metadata.duration_seconds || metadata.duration_secs || metadata.duration || data.duration_seconds || data.duration || 0);\nconst reason = String(\n  data.failure_reason ||\n  data.error ||\n  data.disconnection_reason ||\n  data.termination_reason ||\n  metadata.disconnection_reason ||\n  metadata.termination_reason ||\n  metadata.twilio_status ||\n  ''\n).toLowerCase().trim();\nconst httpFailed = Number(response.statusCode || response.status || 0) >= 400;\nconst reasonText = [status, callSuccessful, reason].filter(Boolean).join(' ');\nconst noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;\nconst authFailed = [401, 403].includes(Number(response.statusCode || response.status || 0));\nconst staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 2;\nconst noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2 && ['initiated', 'queued', 'ringing', ''].includes(status);\nconst ringingInProgressNoAudio = status === 'in-progress' && messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2;\nconst stuckInProgressNoMessages = status === 'in-progress' && messageCount === 0 && candidate.attempt_age_minutes >= 25;\nconst terminalNoMessages = ['failed', 'done', 'ended', 'completed'].includes(status) && messageCount === 0 && callSuccessful !== 'success';\nconst explicitNoAnswer = messageCount === 0 && noAnswerPattern.test(reasonText);\nconst isUnanswered = !authFailed && (httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);\nconst isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);\nconst shouldUpdate = !authFailed && (isUnanswered || isCompleted);\nconst summaryFromElevenLabs = String(analysis.transcript_summary || data.summary || '').trim();\nconst statusSummary = authFailed\n  ? 'ElevenLabs conversation lookup was not authorized. Configure n8n variable ELEVENLABS_API_KEY before relying on the no-answer watchdog.'\n  : 'ElevenLabs status=' + (status || 'unknown') + ', messages=' + messageCount + ', duration=' + duration + 's, age=' + candidate.attempt_age_minutes + 'm' + (reason ? ', reason=' + reason : '') + '.';\nconst summary = isUnanswered\n  ? 'Outbound call did not reach a human conversation. ' + statusSummary\n  : (summaryFromElevenLabs || 'Recovered completed call status from ElevenLabs status sweep. ' + statusSummary);\nreturn {\n  ...candidate,\n  source: 'status_sweep',\n  should_update: shouldUpdate,\n  call_status: isUnanswered ? 'Call Unanswered' : (isCompleted ? 'Call Completed' : 'Call Started'),\n  outcome_status: isUnanswered ? 'No answer' : (callSuccessful === 'success' ? 'Resolved' : 'Follow-up needed'),\n  requires_follow_up: isUnanswered || (callSuccessful && callSuccessful !== 'success'),\n  note_event_type: isUnanswered ? 'Error' : 'Post-call',\n  note_title: (isUnanswered ? 'No answer sweep - ' : 'Status sweep - ') + (candidate.call_public_id || candidate.call_page_id),\n  summary: summary.slice(0, 1900),\n  transcript: (transcriptText || 'No transcript available.').slice(0, 1900),\n  raw_event_excerpt: JSON.stringify(body).slice(0, 1800),\n  twilio_call_sid: String(data.callSid || data.call_sid || metadata.callSid || metadata.call_sid || '').trim(),\n  voice_error: isUnanswered ? summary.slice(0, 1900) : '',\n};"
+          },
+          "id": "da45cb86-904a-4695-be7c-80806d19ddb7",
+          "name": "Normalize Swept Conversation",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            912,
+            368
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "should-update",
+                  "leftValue": "={{ $json.should_update }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "47c3eae4-3c51-4f50-a0d9-5854b5d16533",
+          "name": "Should Update Swept Call?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            1168,
+            464
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "databaseId": {
+              "__rl": true,
+              "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+              "mode": "id",
+              "cachedResultName": "Call Notes"
+            },
+            "title": "={{ $json.note_title }}",
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Summary|rich_text",
+                  "textContent": "={{ $json.summary || \"\" }}"
+                },
+                {
+                  "key": "Transcript|rich_text",
+                  "textContent": "={{ $json.transcript || $json.raw_event_excerpt || \"\" }}"
+                },
+                {
+                  "key": "Event Type|select",
+                  "selectValue": "={{ $json.note_event_type }}"
+                },
+                {
+                  "key": "Outcome Status|select",
+                  "selectValue": "={{ $json.outcome_status }}"
+                },
+                {
+                  "key": "ElevenLabs Conversation ID|rich_text",
+                  "textContent": "={{ $json.conversation_id }}"
+                },
+                {
+                  "key": "Twilio Call SID|rich_text",
+                  "textContent": "={{ $json.twilio_call_sid }}"
+                },
+                {
+                  "key": "Call|relation",
+                  "relationValue": "={{ [$json.call_page_id] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "d35cf5fb-cd10-4ed3-904f-18169d770e52",
+          "name": "Create Swept Status Note",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            1440,
+            368
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Should Update Swept Call?\").item.json.call_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Call Status|status",
+                  "statusValue": "={{ $(\"Should Update Swept Call?\").item.json.call_status }}"
+                },
+                {
+                  "key": "Outcome|rich_text",
+                  "textContent": "={{ $(\"Should Update Swept Call?\").item.json.summary || \"\" }}"
+                },
+                {
+                  "key": "Requires follow-up?|checkbox",
+                  "checkboxValue": "={{ $(\"Should Update Swept Call?\").item.json.requires_follow_up }}"
+                },
+                {
+                  "key": "ElevenLabs Conversation ID|rich_text",
+                  "textContent": "={{ $(\"Should Update Swept Call?\").item.json.conversation_id }}"
+                },
+                {
+                  "key": "Twilio Call SID|rich_text",
+                  "textContent": "={{ $(\"Should Update Swept Call?\").item.json.twilio_call_sid }}"
+                },
+                {
+                  "key": "Voice Error|rich_text",
+                  "textContent": "={{ $(\"Should Update Swept Call?\").item.json.voice_error || \"\" }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "8635ff9c-edc4-4417-a254-e8bb17dc1a14",
+          "name": "Update Swept Call Outcome",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            1728,
+            368
+          ]
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "id": "a4b05094-25dc-469b-a0c4-064adbb242b5",
+          "name": "Loop Started Calls",
+          "type": "n8n-nodes-base.splitInBatches",
+          "typeVersion": 3,
+          "position": [
+            64,
+            368
+          ]
+        },
+        {
+          "parameters": {},
+          "id": "35890745-fed0-48c4-8e1b-866caf11b161",
+          "name": "Skip Swept Call",
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            1440,
+            624
+          ]
+        },
+        {
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "jsCode": "const candidate = $json;\nconst summary = candidate.claim_only_lock\n  ? 'Outbound call lock was claimed ' + candidate.attempt_age_minutes + ' minutes ago, but the workflow did not store a new ElevenLabs conversation ID. Treating as a canceled/failed start for manual follow-up.'\n  : 'Outbound call stayed Call Started for ' + candidate.attempt_age_minutes + ' minutes, but n8n has no ElevenLabs conversation ID to verify. Treating as unanswered for manual follow-up.';\nreturn {\n  ...candidate,\n  source: 'status_sweep_missing_conversation_id',\n  should_update: true,\n  call_status: 'Call Unanswered',\n  outcome_status: 'No answer',\n  requires_follow_up: true,\n  note_event_type: 'Error',\n  note_title: 'No answer sweep - ' + (candidate.call_public_id || candidate.call_page_id),\n  summary,\n  transcript: 'No transcript available.',\n  twilio_call_sid: '',\n  voice_error: summary,\n};"
+          },
+          "id": "9316f0b1-fef8-44dc-83e7-e90eeef04f6b",
+          "name": "Normalize Missing Conversation",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            640,
+            624
+          ]
+        },
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "field": "minutes",
+                  "minutesInterval": 30
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            -688,
+            368
+          ],
+          "id": "e59a2f30-5407-4afa-8fd9-102946fe88f6",
+          "name": "Every 30 mins"
+        }
+      ],
+      "activeVersion": {
+        "nodes": [
+          {
+            "parameters": {
+              "content": "Receives ElevenLabs post-call and failure webhooks, plus runs a one-minute no-answer watchdog so accepted outbound calls that never start a human conversation do not remain locked. Routine post-call and sweep state changes update Notion only; Slack is reserved for live human-help requests. Uses ElevenLabs static egress IP allowlist; add HMAC validation before production if n8n raw-body support is available.",
+              "height": 980,
+              "width": 2920,
+              "color": 6
+            },
+            "id": "f0eeee95-acd5-4a7c-b5cb-e6644e583c78",
+            "name": "Sticky Note cd66aced",
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              -768,
+              -352
+            ]
+          },
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "rb-calls-elevenlabs-events",
+              "responseMode": "responseNode",
+              "options": {
+                "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
+              }
+            },
+            "id": "cb29e6ae-79d1-4c79-8154-98c32f0b589b",
+            "name": "ElevenLabs Events Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -720,
+              -160
+            ],
+            "webhookId": "8ebbef01-b7be-4ca6-993c-af93f609eedf"
+          },
+          {
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "jsCode": "const body = $json.body || {};\nconst data = body.data || body;\nconst dynamic = data.conversation_initiation_client_data?.dynamic_variables || body.dynamic_variables || {};\nconst eventType = String(body.type || data.type || 'unknown');\nconst conversationId = String(data.conversation_id || body.conversation_id || dynamic.system__conversation_id || '').trim();\nconst callPageId = String(dynamic.call_id || body.call_id || data.call_id || '').trim();\nconst callPublicId = String(dynamic.call_public_id || callPageId || conversationId || 'unknown-call').trim();\nconst ownerSlackId = String(dynamic.owner_slack_member_id || body.owner_slack_member_id || '').replace(/[<@>]/g, '').trim();\nconst explicitOwnerMention = String(dynamic.owner_mention || body.owner_mention || '').trim();\nconst ownerName = String(dynamic.owner_name || body.owner_name || '').trim();\nconst ownerMention = ownerSlackId ? '<@' + ownerSlackId + '>' : (explicitOwnerMention || ownerName || 'owner not resolved');\nconst messageTopic = String(dynamic.message_topic || body.message_topic || dynamic.reason_for_call || dynamic.main_question || eventType || 'ElevenLabs event').trim();\nconst analysis = data.analysis || {};\nconst metadata = data.metadata || {};\nconst failureReason = String(data.failure_reason || body.failure_reason || data.error || body.error || '').trim();\nconst status = String(data.status || body.status || data.call_status || body.call_status || metadata.status || '').toLowerCase().trim();\nconst duration = Number(metadata.call_duration_secs || metadata.duration_seconds || metadata.duration_secs || metadata.duration || data.duration_seconds || data.duration || 0);\nconst disconnectionReason = String(\n  data.disconnection_reason ||\n  body.disconnection_reason ||\n  data.termination_reason ||\n  body.termination_reason ||\n  metadata.disconnection_reason ||\n  metadata.termination_reason ||\n  metadata.twilio_status ||\n  ''\n).toLowerCase().trim();\nconst transcript = Array.isArray(data.transcript) ? data.transcript : [];\nconst transcriptText = transcript\n  .map((turn) => [turn.role || 'unknown', turn.message || turn.text || ''].filter(Boolean).join(': '))\n  .filter(Boolean)\n  .join(String.fromCharCode(10));\nconst messageCount = transcript.length;\nconst summaryFromEvent = String(analysis.transcript_summary || body.summary || '').trim();\nconst noAnswerReason = [failureReason, status, disconnectionReason].join(' ').toLowerCase();\nconst noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;\nconst isExplicitFailure = eventType === 'call_initiation_failure' || Boolean(failureReason);\nconst postCallNoPickup = /post[-_ ]?call|transcription|ended|completed|done/i.test(eventType) && messageCount === 0 && duration === 0 && ['initiated', 'queued', 'ringing', ''].includes(status);\nconst isNoAnswer = isExplicitFailure ||\n  postCallNoPickup ||\n  (messageCount === 0 && noAnswerPattern.test(noAnswerReason)) ||\n  (messageCount === 0 && analysis.call_successful && analysis.call_successful !== 'success') ||\n  (messageCount === 0 && ['failed', 'done', 'ended', 'completed'].includes(status) && analysis.call_successful !== 'success');\nconst summary = String(\n  summaryFromEvent ||\n  (isNoAnswer ? 'Outbound call did not reach a human conversation. ElevenLabs status: ' + (status || eventType) + (failureReason ? '. Reason: ' + failureReason : '') : '') ||\n  (failureReason ? 'Call initiation failed: ' + failureReason : '')\n).trim();\nconst twilioSid = String(\n  data.callSid ||\n  data.call_sid ||\n  metadata.callSid ||\n  metadata.call_sid ||\n  metadata.body?.CallSid ||\n  metadata.body?.call_sid ||\n  ''\n).trim();\nconst callStatus = isNoAnswer ? 'Call Unanswered' : 'Call Completed';\nconst outcomeStatus = isNoAnswer ? 'No answer' : (analysis.call_successful === 'success' ? 'Resolved' : 'Follow-up needed');\nconst requiresFollowUp = isNoAnswer || (analysis.call_successful && analysis.call_successful !== 'success');\nconst noteEventType = isNoAnswer ? 'Error' : 'Post-call';\nreturn {\n  event_type: eventType,\n  note_event_type: noteEventType,\n  call_page_id: callPageId,\n  has_call_page: Boolean(callPageId),\n  call_public_id: callPublicId,\n  conversation_id: conversationId,\n  twilio_call_sid: twilioSid,\n  owner_mention: ownerMention,\n  owner_name: ownerName,\n  owner_slack_member_id: ownerSlackId,\n  message_topic: messageTopic,\n  summary: summary.slice(0, 1900),\n  transcript: transcriptText.slice(0, 1900),\n  raw_event_excerpt: JSON.stringify(body).slice(0, 1800),\n  call_status: callStatus,\n  outcome_status: outcomeStatus,\n  requires_follow_up: Boolean(requiresFollowUp),\n  failure_reason: failureReason || disconnectionReason,\n  note_title: (isNoAnswer ? 'No answer - ' : 'Post-call - ') + callPublicId,\n};"
+            },
+            "id": "a6ae7511-6b91-46ba-8719-42963437110d",
+            "name": "Normalize ElevenLabs Event",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -464,
+              -160
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "has-call-page",
+                    "leftValue": "={{ $json.has_call_page }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "d6e6fe94-8f2c-41d7-8b4f-5e58e3a23cca",
+            "name": "Has Call Page?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -208,
+              -160
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "databaseId": {
+                "__rl": true,
+                "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+                "mode": "id",
+                "cachedResultName": "Call Notes"
+              },
+              "title": "={{ $json.note_title }}",
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Summary|rich_text",
+                    "textContent": "={{ $json.summary || $json.failure_reason || \"\" }}"
+                  },
+                  {
+                    "key": "Transcript|rich_text",
+                    "textContent": "={{ $json.transcript || $json.raw_event_excerpt }}"
+                  },
+                  {
+                    "key": "Event Type|select",
+                    "selectValue": "={{ $json.note_event_type }}"
+                  },
+                  {
+                    "key": "Outcome Status|select",
+                    "selectValue": "={{ $json.outcome_status }}"
+                  },
+                  {
+                    "key": "ElevenLabs Conversation ID|rich_text",
+                    "textContent": "={{ $json.conversation_id }}"
+                  },
+                  {
+                    "key": "Twilio Call SID|rich_text",
+                    "textContent": "={{ $json.twilio_call_sid }}"
+                  },
+                  {
+                    "key": "Call|relation",
+                    "relationValue": "={{ [$json.call_page_id] }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "295bfe8a-8ba0-423a-917e-0c13a0c61aa6",
+            "name": "Create Post-Call Note",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              80,
+              -304
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Normalize ElevenLabs Event\").item.json.call_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Call Status|status",
+                    "statusValue": "={{ $(\"Normalize ElevenLabs Event\").item.json.call_status }}"
+                  },
+                  {
+                    "key": "Outcome|rich_text",
+                    "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.summary || $(\"Normalize ElevenLabs Event\").item.json.failure_reason }}"
+                  },
+                  {
+                    "key": "Requires follow-up?|checkbox",
+                    "checkboxValue": "={{ $(\"Normalize ElevenLabs Event\").item.json.requires_follow_up }}"
+                  },
+                  {
+                    "key": "ElevenLabs Conversation ID|rich_text",
+                    "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.conversation_id }}"
+                  },
+                  {
+                    "key": "Twilio Call SID|rich_text",
+                    "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.twilio_call_sid }}"
+                  },
+                  {
+                    "key": "Voice Error|rich_text",
+                    "textContent": "={{ $(\"Normalize ElevenLabs Event\").item.json.call_status === \"Call Unanswered\" ? $(\"Normalize ElevenLabs Event\").item.json.summary : \"\" }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "b25269c6-c7a1-42f3-8bf1-14008e17b25c",
+            "name": "Update Call Outcome",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              368,
+              -304
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"received\", call_id: $(\"Normalize ElevenLabs Event\").item.json.call_page_id, conversation_id: $(\"Normalize ElevenLabs Event\").item.json.conversation_id } }}",
+              "options": {
+                "responseCode": 200
+              }
+            },
+            "id": "74144a46-f0f5-415e-a2eb-39ce3177c9e6",
+            "name": "Respond Success",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              640,
+              -304
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"received_missing_call_id\", conversation_id: $(\"Normalize ElevenLabs Event\").item.json.conversation_id } }}",
+              "options": {
+                "responseCode": 200
+              }
+            },
+            "id": "c2100279-03e7-4d18-839e-73c538dbdfa5",
+            "name": "Respond Missing Call ID",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              368,
+              32
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "342e4130-1314-8012-964a-d969a860dd93",
+                "mode": "id",
+                "cachedResultName": "Calls"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Call Status|status",
+                    "condition": "equals",
+                    "statusValue": "Call Started"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "75e2fb75-c7ea-458a-ad3f-24d20c37ba1d",
+            "name": "Get Started Calls",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              -464,
+              368
+            ],
+            "alwaysOutputData": true
+          },
+          {
+            "parameters": {
+              "jsCode": "function prop(page, name) { return page?.properties?.[name] || {}; }\nfunction richText(value) { return (value?.title || value?.rich_text || []).map((part) => part.plain_text || part.text?.content || '').join('').trim(); }\nfunction text(page, name) { return richText(prop(page, name)); }\nfunction uniqueId(page) {\n  const value = prop(page, 'ID').unique_id;\n  return value ? [value.prefix, value.number].filter((part) => part !== undefined && part !== null && String(part) !== '').join('-') : page.id;\n}\nfunction dateValue(page, name) { return prop(page, name).date?.start || ''; }\nfunction statusValue(page, name) { return prop(page, name).status?.name || prop(page, name).select?.name || ''; }\nconst now = Date.now();\nconst normalStaleAfterMinutes = 2;\nconst claimOnlyStaleAfterMinutes = 2;\nreturn $input.all()\n  .map((item) => item.json || {})\n  .filter((page) => page.id && statusValue(page, 'Call Status') === 'Call Started')\n  .map((page) => {\n    const lastAttemptAt = dateValue(page, 'Last Call Attempt At');\n    const lastAttemptMs = Date.parse(lastAttemptAt);\n    const ageMinutes = Number.isFinite(lastAttemptMs) ? Math.floor((now - lastAttemptMs) / 60000) : 9999;\n    const conversationId = text(page, 'ElevenLabs Conversation ID');\n    const voiceError = text(page, 'Voice Error');\n    const claimOnlyLock = /^rb-call-lock:/.test(voiceError) && !conversationId;\n    const staleAfterMinutes = claimOnlyLock ? claimOnlyStaleAfterMinutes : normalStaleAfterMinutes;\n    const callPublicId = uniqueId(page);\n    const messageTopic = text(page, 'Short reason') || text(page, 'Reason for call') || text(page, 'Main question') || 'Call execution';\n    return {\n      json: {\n        call_page_id: page.id,\n        call_url: page.url || '',\n        call_public_id: callPublicId,\n        conversation_id: conversationId,\n        has_conversation_id: Boolean(conversationId),\n        last_attempt_at: lastAttemptAt,\n        attempt_age_minutes: ageMinutes,\n        claim_only_lock: claimOnlyLock,\n        stale_after_minutes: staleAfterMinutes,\n        stale_enough: ageMinutes >= staleAfterMinutes,\n        message_topic: messageTopic,\n      },\n    };\n  })\n  .filter((item) => item.json.stale_enough);"
+            },
+            "id": "79000138-55f2-40a1-acc5-929de86a6665",
+            "name": "Prepare Status Sweep",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -208,
+              368
+            ]
+          },
+          {
+            "parameters": {},
+            "id": "d61c735c-bbe5-455e-b21b-16ff30b90afd",
+            "name": "Sweep Done",
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              368,
+              224
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "has-conversation-id",
+                    "leftValue": "={{ $json.has_conversation_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "0c0c6477-02dd-4a7e-8024-29d27c3c6f1d",
+            "name": "Has Conversation ID?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              368,
+              464
+            ]
+          },
+          {
+            "parameters": {
+              "url": "=https://api.elevenlabs.io/v1/convai/conversations/{{ $json.conversation_id }}",
+              "sendHeaders": true,
+              "headerParameters": {
+                "parameters": [
+                  {
+                    "name": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "name": "xi-api-key",
+                    "value": "={{ $vars.ELEVENLABS_API_KEY || \"\" }}"
+                  }
+                ]
+              },
+              "options": {
+                "response": {
+                  "response": {
+                    "fullResponse": true,
+                    "neverError": true,
+                    "responseFormat": "json"
+                  }
+                },
+                "timeout": 30000
+              }
+            },
+            "id": "1cb55321-91bc-4ba0-ba2d-ee36103b83bb",
+            "name": "Get ElevenLabs Conversation",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              640,
+              368
+            ]
+          },
+          {
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "jsCode": "const candidate = $('Prepare Status Sweep').item.json;\nconst response = $json || {};\nlet body = response.body !== undefined ? response.body : response;\nif (typeof body === 'string') {\n  try { body = JSON.parse(body); } catch (error) { body = { raw: body }; }\n}\nconst data = body.data || body.conversation || body;\nconst metadata = data.metadata || {};\nconst analysis = data.analysis || {};\nconst transcript = Array.isArray(data.transcript) ? data.transcript : (Array.isArray(data.messages) ? data.messages : []);\nconst transcriptText = transcript\n  .map((turn) => [turn.role || turn.speaker || 'unknown', turn.message || turn.text || ''].filter(Boolean).join(': '))\n  .filter(Boolean)\n  .join(String.fromCharCode(10));\nconst messageCount = Number(data.message_count || data.messages_count || metadata.message_count || transcript.length || 0);\nconst status = String(data.status || body.status || metadata.status || '').toLowerCase().trim();\nconst callSuccessful = String(analysis.call_successful || data.call_successful || '').toLowerCase().trim();\nconst duration = Number(metadata.duration_seconds || metadata.duration_secs || metadata.duration || data.duration_seconds || data.duration || 0);\nconst reason = String(\n  data.failure_reason ||\n  data.error ||\n  data.disconnection_reason ||\n  data.termination_reason ||\n  metadata.disconnection_reason ||\n  metadata.termination_reason ||\n  metadata.twilio_status ||\n  ''\n).toLowerCase().trim();\nconst httpFailed = Number(response.statusCode || response.status || 0) >= 400;\nconst reasonText = [status, callSuccessful, reason].filter(Boolean).join(' ');\nconst noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;\nconst authFailed = [401, 403].includes(Number(response.statusCode || response.status || 0));\nconst staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 2;\nconst noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2 && ['initiated', 'queued', 'ringing', ''].includes(status);\nconst ringingInProgressNoAudio = status === 'in-progress' && messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2;\nconst stuckInProgressNoMessages = status === 'in-progress' && messageCount === 0 && candidate.attempt_age_minutes >= 25;\nconst terminalNoMessages = ['failed', 'done', 'ended', 'completed'].includes(status) && messageCount === 0 && callSuccessful !== 'success';\nconst explicitNoAnswer = messageCount === 0 && noAnswerPattern.test(reasonText);\nconst isUnanswered = !authFailed && (httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);\nconst isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);\nconst shouldUpdate = !authFailed && (isUnanswered || isCompleted);\nconst summaryFromElevenLabs = String(analysis.transcript_summary || data.summary || '').trim();\nconst statusSummary = authFailed\n  ? 'ElevenLabs conversation lookup was not authorized. Configure n8n variable ELEVENLABS_API_KEY before relying on the no-answer watchdog.'\n  : 'ElevenLabs status=' + (status || 'unknown') + ', messages=' + messageCount + ', duration=' + duration + 's, age=' + candidate.attempt_age_minutes + 'm' + (reason ? ', reason=' + reason : '') + '.';\nconst summary = isUnanswered\n  ? 'Outbound call did not reach a human conversation. ' + statusSummary\n  : (summaryFromElevenLabs || 'Recovered completed call status from ElevenLabs status sweep. ' + statusSummary);\nreturn {\n  ...candidate,\n  source: 'status_sweep',\n  should_update: shouldUpdate,\n  call_status: isUnanswered ? 'Call Unanswered' : (isCompleted ? 'Call Completed' : 'Call Started'),\n  outcome_status: isUnanswered ? 'No answer' : (callSuccessful === 'success' ? 'Resolved' : 'Follow-up needed'),\n  requires_follow_up: isUnanswered || (callSuccessful && callSuccessful !== 'success'),\n  note_event_type: isUnanswered ? 'Error' : 'Post-call',\n  note_title: (isUnanswered ? 'No answer sweep - ' : 'Status sweep - ') + (candidate.call_public_id || candidate.call_page_id),\n  summary: summary.slice(0, 1900),\n  transcript: (transcriptText || 'No transcript available.').slice(0, 1900),\n  raw_event_excerpt: JSON.stringify(body).slice(0, 1800),\n  twilio_call_sid: String(data.callSid || data.call_sid || metadata.callSid || metadata.call_sid || '').trim(),\n  voice_error: isUnanswered ? summary.slice(0, 1900) : '',\n};"
+            },
+            "id": "da45cb86-904a-4695-be7c-80806d19ddb7",
+            "name": "Normalize Swept Conversation",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              912,
+              368
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "should-update",
+                    "leftValue": "={{ $json.should_update }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "47c3eae4-3c51-4f50-a0d9-5854b5d16533",
+            "name": "Should Update Swept Call?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              1168,
+              464
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "databaseId": {
+                "__rl": true,
+                "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+                "mode": "id",
+                "cachedResultName": "Call Notes"
+              },
+              "title": "={{ $json.note_title }}",
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Summary|rich_text",
+                    "textContent": "={{ $json.summary || \"\" }}"
+                  },
+                  {
+                    "key": "Transcript|rich_text",
+                    "textContent": "={{ $json.transcript || $json.raw_event_excerpt || \"\" }}"
+                  },
+                  {
+                    "key": "Event Type|select",
+                    "selectValue": "={{ $json.note_event_type }}"
+                  },
+                  {
+                    "key": "Outcome Status|select",
+                    "selectValue": "={{ $json.outcome_status }}"
+                  },
+                  {
+                    "key": "ElevenLabs Conversation ID|rich_text",
+                    "textContent": "={{ $json.conversation_id }}"
+                  },
+                  {
+                    "key": "Twilio Call SID|rich_text",
+                    "textContent": "={{ $json.twilio_call_sid }}"
+                  },
+                  {
+                    "key": "Call|relation",
+                    "relationValue": "={{ [$json.call_page_id] }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "d35cf5fb-cd10-4ed3-904f-18169d770e52",
+            "name": "Create Swept Status Note",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              1440,
+              368
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Should Update Swept Call?\").item.json.call_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Call Status|status",
+                    "statusValue": "={{ $(\"Should Update Swept Call?\").item.json.call_status }}"
+                  },
+                  {
+                    "key": "Outcome|rich_text",
+                    "textContent": "={{ $(\"Should Update Swept Call?\").item.json.summary || \"\" }}"
+                  },
+                  {
+                    "key": "Requires follow-up?|checkbox",
+                    "checkboxValue": "={{ $(\"Should Update Swept Call?\").item.json.requires_follow_up }}"
+                  },
+                  {
+                    "key": "ElevenLabs Conversation ID|rich_text",
+                    "textContent": "={{ $(\"Should Update Swept Call?\").item.json.conversation_id }}"
+                  },
+                  {
+                    "key": "Twilio Call SID|rich_text",
+                    "textContent": "={{ $(\"Should Update Swept Call?\").item.json.twilio_call_sid }}"
+                  },
+                  {
+                    "key": "Voice Error|rich_text",
+                    "textContent": "={{ $(\"Should Update Swept Call?\").item.json.voice_error || \"\" }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "8635ff9c-edc4-4417-a254-e8bb17dc1a14",
+            "name": "Update Swept Call Outcome",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              1728,
+              368
+            ]
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "id": "a4b05094-25dc-469b-a0c4-064adbb242b5",
+            "name": "Loop Started Calls",
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+              64,
+              368
+            ]
+          },
+          {
+            "parameters": {},
+            "id": "35890745-fed0-48c4-8e1b-866caf11b161",
+            "name": "Skip Swept Call",
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              1440,
+              624
+            ]
+          },
+          {
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "jsCode": "const candidate = $json;\nconst summary = candidate.claim_only_lock\n  ? 'Outbound call lock was claimed ' + candidate.attempt_age_minutes + ' minutes ago, but the workflow did not store a new ElevenLabs conversation ID. Treating as a canceled/failed start for manual follow-up.'\n  : 'Outbound call stayed Call Started for ' + candidate.attempt_age_minutes + ' minutes, but n8n has no ElevenLabs conversation ID to verify. Treating as unanswered for manual follow-up.';\nreturn {\n  ...candidate,\n  source: 'status_sweep_missing_conversation_id',\n  should_update: true,\n  call_status: 'Call Unanswered',\n  outcome_status: 'No answer',\n  requires_follow_up: true,\n  note_event_type: 'Error',\n  note_title: 'No answer sweep - ' + (candidate.call_public_id || candidate.call_page_id),\n  summary,\n  transcript: 'No transcript available.',\n  twilio_call_sid: '',\n  voice_error: summary,\n};"
+            },
+            "id": "9316f0b1-fef8-44dc-83e7-e90eeef04f6b",
+            "name": "Normalize Missing Conversation",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              640,
+              624
+            ]
+          }
+        ],
+        "connections": {
+          "ElevenLabs Events Webhook": {
+            "main": [
+              [
+                {
+                  "node": "Normalize ElevenLabs Event",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Normalize ElevenLabs Event": {
+            "main": [
+              [
+                {
+                  "node": "Has Call Page?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Has Call Page?": {
+            "main": [
+              [
+                {
+                  "node": "Create Post-Call Note",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Respond Missing Call ID",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Create Post-Call Note": {
+            "main": [
+              [
+                {
+                  "node": "Update Call Outcome",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Call Outcome": {
+            "main": [
+              [
+                {
+                  "node": "Respond Success",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get Started Calls": {
+            "main": [
+              [
+                {
+                  "node": "Prepare Status Sweep",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Prepare Status Sweep": {
+            "main": [
+              [
+                {
+                  "node": "Loop Started Calls",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Has Conversation ID?": {
+            "main": [
+              [
+                {
+                  "node": "Get ElevenLabs Conversation",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Normalize Missing Conversation",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get ElevenLabs Conversation": {
+            "main": [
+              [
+                {
+                  "node": "Normalize Swept Conversation",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Normalize Swept Conversation": {
+            "main": [
+              [
+                {
+                  "node": "Should Update Swept Call?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Should Update Swept Call?": {
+            "main": [
+              [
+                {
+                  "node": "Create Swept Status Note",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Skip Swept Call",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Create Swept Status Note": {
+            "main": [
+              [
+                {
+                  "node": "Update Swept Call Outcome",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Swept Call Outcome": {
+            "main": [
+              [
+                {
+                  "node": "Loop Started Calls",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Loop Started Calls": {
+            "main": [
+              [
+                {
+                  "node": "Sweep Done",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Has Conversation ID?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Skip Swept Call": {
+            "main": [
+              [
+                {
+                  "node": "Loop Started Calls",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Normalize Missing Conversation": {
+            "main": [
+              [
+                {
+                  "node": "Should Update Swept Call?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "meta": {
+        "aiBuilderAssisted": true
+      },
+      "parentFolderId": null,
+      "description": "Handles ElevenLabs post-call/failure events and runs a one-minute no-answer watchdog for accepted calls that never start a human conversation.",
+      "scopes": [
+        "workflow:create",
+        "workflow:delete",
+        "workflow:execute",
+        "workflow:execute-chat",
+        "workflow:list",
+        "workflow:move",
+        "workflow:publish",
+        "workflow:read",
+        "workflow:share",
+        "workflow:unpublish",
+        "workflow:unshare",
+        "workflow:update",
+        "workflow:updateRedactionSetting"
+      ],
+      "canExecute": true
+    },
+    "triggerInfo": "This workflow has the following trigger(s):\n\n\nWebhook trigger(s):\n\n\n\t\t\t\t<trigger 1>\n\t\t\t\t\t - Node name: ElevenLabs Events Webhook\n\t\t\t\t\t - Base URL: https://eipventures.app.n8n.cloud/\n\t\t\t\t\t - Production path: /webhook/rb-calls-elevenlabs-events\n\t\t\t\t\t - Test path: /webhook-test/rb-calls-elevenlabs-events\n\t\t\t\t\t - HTTP Method: POST\n\t\t\t\t\t - Response Mode: Webhook is configured to respond using \"Respond to Webhook\" node.\n\t\t\t\t\t - No credentials required for this webhook.\n\t\t\t\t</trigger 1>\n\nSchedule trigger(s):\n\n\n\t\t\t\t<trigger 1>\n\t\t\t\t\t - Node name: Every 30 mins\n\t\t\t\t</trigger 1>\n\nScheduled workflows can be executed directly through MCP clients and do not require external inputs."
+  }
+}

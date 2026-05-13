@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-11.
+Updated: 2026-05-13.
 
 ## Repo State
 
@@ -16,6 +16,7 @@ Current implementation includes:
 - Root npm/TypeScript helper layer with Drive, Gmail, generic SignNow, Google Doc transform, PDF signing-plan, and task PR helper scripts.
 - Company profile, service positioning, systems context, and internal history.
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.
+- Provisional RB calling bot implementation map at `internal/calling-bot-implementation-map.md`.
 - Reference-based client folder pilot under `clients/Companies/VUN/`.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
@@ -45,6 +46,8 @@ SignNow helpers are generic mechanics only. RB signer identity, routing order, t
 WhatsApp MCP is optional and local-only. QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed. Normal WhatsApp reads/sends should use the `whatsapp` MCP tools, not direct REST or SQLite access.
 
 Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in RB Communications (`https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`, data source `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`). Do not use the Everguard/research Communications table for RB records.
+
+RB calling bot build state is mapped in `internal/calling-bot-implementation-map.md`, with a full test plan in `internal/calling-bot-test-plan.md`, and the setup guide at `setup/mcp/elevenlabs-n8n.md`. Latest source-controlled live readbacks are under `automation/live-readbacks/`. As of the 2026-05-13 readback, current active n8n calling workflow versions are `RB Calls Voice Execution` `c7d84f52-ae58-4073-889f-89eb2000a937`, `RB Calls Live Help` `9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1`, `RB Calls ElevenLabs Events` `29dc070e-2951-4f7f-931b-6b24ea793fc5`, and `RB Calls Context Lookup` `b8b439eb-0587-4600-a93a-89a27ca2e8fc`. `RB Calls ElevenLabs Events` also has current draft version `48d12009-db89-4c75-8df1-6e48564f12ed`, so review draft-versus-active behavior before publishing or assuming production changed. The live `RB Call Bot` is version `agtvrsn_9501krh4qjm7e6n9jy079k5tgea5`, has no custom root `tool_ids`, and uses dedicated workflow tool nodes for `lookup_call_context`, `request_creator_help`, and `check_creator_help`.
 
 ## Notion State
 

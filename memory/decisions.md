@@ -99,3 +99,16 @@ Consequence:
 
 Source: user instruction on 2026-05-06.
 Review: approved as an operating rule by user instruction.
+
+## 2026-05-12 - Calling Bot Minimal Startup Context
+
+Decision: RB authority calls should not preload every linked record into ElevenLabs. Startup context is limited to tax registration/reference context, Contact JSON, Company JSON, Individual JSON, routing/owner metadata, live-help sentinels, and the public-safe call brief. Other approved categories must be fetched on demand through the n8n `RB Calls Context Lookup` workflow and ElevenLabs `lookup_call_context` tool.
+
+Consequence:
+
+- `RB Calls Voice Execution` must avoid generic linked-record crawling before the outbound call.
+- New call-critical context categories require an explicit allowlisted n8n lookup branch before they are available to the agent.
+- Lookup responses may be `partial` when a permitted Notion source is unavailable; the agent should ask the call creator rather than assume no records exist.
+
+Source: user instruction on 2026-05-12.
+Review: provisional until a controlled live call confirms startup stability and lookup behavior.

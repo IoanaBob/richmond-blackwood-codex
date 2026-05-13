@@ -76,6 +76,23 @@ Updated: 2026-05-12.
 - Obtain prior-year Coinbase acquisition lots for DOT, ETH, ARB, and MATIC, plus the Kraken XRP acquisition lot, before finalising 2025 capital-gains vs income treatment. USDC should be reconciled as a transfer/stablecoin bridge rather than an investment lot.
 - Confirm whether the copied 2025 Vandy UN Limited invoices are sales-invoice evidence, employment compensation evidence, or a corrected intercompany/related-party invoice trail before final categorisation.
 
+## Calling Bot Questions
+
+- Verify the user-configured ElevenLabs phone number, n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`, the selected n8n ElevenLabs credential on `Make ElevenLabs Outbound Call`, and the selected n8n ElevenLabs credential on `Get ElevenLabs Conversation` through a controlled post-fix retry; do not record the phone number or phone ID in git.
+- Confirm ElevenLabs privacy/retention settings before live calls; the inspected agent currently records voice, retains indefinitely, and does not delete transcript/PII or audio.
+- Confirm the updated ElevenLabs live-help behavior in a synthetic call: agent-level dynamic-variable placeholders and the n8n outbound payload must include every required tool variable, `request_creator_help` should run once per issue, and `check_creator_help` should poll without duplicate Slack posts for up to five minutes.
+- Test the active n8n `RB Calls Slack Replies` PoA file-upload branch with a synthetic file before production reliance.
+- Fix the legacy `RB Calls` validation workflow node `If (PoA Required AND Missing) OR (PoA not required)`, which still references missing node `Loop Over Not Started Calls`.
+- Confirm whether `Company` should remain optional for call requests; the new voice workflow still assumes Company, Individual, and Contact relations are present before it fetches related pages.
+- Align the original `RB Calls` validation workflow with the new voice workflow PoA rule: company calls use `Company PoA`, individual calls use `Individual PoA`, and one file is sufficient.
+- Confirm Slack app interactivity URL/scopes for the RB calls workflow.
+- Confirm whether n8n can validate ElevenLabs webhook HMAC signatures with raw request body support, or whether IP allowlisting plus a secondary header secret is the approved protection.
+- Confirm detailed contact-availability timezone interpretation, retry windows, business-hour rules, and maximum pickup/contact-attempt limits before production activation. Availability presence itself is required for call-eligible Front Office Contacts.
+- Confirm whether any call-critical Notion databases store records only as one-way backlinks rather than relation properties on the Call, Company, Individual, Contact, Filing Registration, Tax Payment, or Tax Prepayment pages. The 2026-05-12 voice workflow dereferences relation-property linked pages; one-way backlink-only data needs explicit n8n database query paths.
+- Confirm whether the Notion integration should be granted access to the Contracts database for `lookup_call_context`. Production lookup execution `3776` returned `status: partial` because the permitted Contracts source is not accessible to the integration.
+- Confirm legal/consent/disclosure rules before enabling automated outbound authority calls or call recording/transcription.
+- Confirm whether all new authority call requests should use a default Notion reviewer, and if so which user.
+
 ## WhatsApp MCP Questions
 
 - Confirm whether optional WhatsApp MCP should be enabled for all RB operators or only this local Codex setup.
