@@ -16,12 +16,10 @@ Review: Resolve before treating CBMAX context as complete.
 ## People And Personal Routing
 
 - Confirm Semen's full legal name before creating an individual folder or importing personal payroll/bank identifiers.
-- Confirm whether Claudio Brivio personal tax filings should get an individual folder now or only when personal-tax work is actively imported.
 - Confirm whether Eran Peer should get a CBMAX-linked individual folder or remain a company-side relationship pointer for now.
 
 ## Drive And Evidence
 
-- Confirm whether `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` is the canonical CBMAX client folder.
 - Confirm whether sibling folders `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` belong under the CBMAX client folder or should only be linked as source folders.
 - Confirm whether to create/update a Notion Client Notes & Updates backup page after user review.
 

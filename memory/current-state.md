@@ -115,8 +115,9 @@ CBMAX client folder:
 - Company Notion record: `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`
 - Client project: `https://www.notion.so/32fe413013148034830cf9a1281b2f10`
 - Client dashboard: `https://www.notion.so/67a175a2d9f44c55853a64f106b44752?v=f446b59bf86e4c469e5eae001bd9222c`
-- Drive folder found: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`
-- Status: first reference-based company context loaded on 2026-05-13. Latest WhatsApp plus user-correction context keeps the 2025 tax/VAT position in limbo: IE VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so the 2026-03-30 Irish-VAT/no-German-VAT guidance must not be treated as settled. High-signal open items are Notion tax-history cleanup, ROS final backdate/filing status, Hamburg/Berlin VAT tax-number mismatch, May 2026 letter review, invoice 28 correction trail, and whether to split Claudio/Eran/Semen/Viktor individual folders.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`
+- Fee note: EUR 950 is the discounted monthly rate after six-month bulk payment discount; the client pays H1/H2 in bulk, and H1 has already been paid according to user review, with evidence in Richmond Blackwood invoices.
+- Status: first reference-based company context loaded on 2026-05-13. Latest WhatsApp plus user-correction context keeps the 2025 tax/VAT position in limbo: IE VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so the 2026-03-30 Irish-VAT/no-German-VAT guidance must not be treated as settled. High-signal open items are Notion tax-history cleanup, ROS final backdate/filing status, Hamburg/Berlin VAT tax-number mismatch, May 2026 letter review, invoice 28 correction trail, and whether to split Eran/Semen/Viktor individual folders before importing private individual detail.
 - User clarification: Simon is the employee Semen, and the CBMAX relationship is Employment.
 
 Claudio Brivio individual context:
@@ -129,7 +130,7 @@ Claudio Brivio individual context:
 - Client documents folder: `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`
 - Uploaded `_2024-tax-filings` package: `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`
 - Analysis spreadsheet file: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`
-- Status: personal-tax/private context loaded on 2026-05-13. 2024 is in progress in Notion and evidence exists in Drive, but review remains open for February 2024 CBMAX payroll, CBMAX 2024 Lohnsteuerbescheinigung, TK/Hallesche reconciliation, Section 138 AO filing approach for CBMAX and Job Guardian, Joblift Reisekosten vs Pendlerpauschale, and whether the existing `.xlsx` analysis should be migrated to the maintained native machine-readable template. 2025 filing is pending with no Drive docs recorded in Notion.
+- Status: personal-tax/private context loaded on 2026-05-13. The former company-side question about whether Claudio needs an individual folder is resolved; avoid duplicating Claudio personal-tax detail in CBMAX company files. 2024 is in progress in Notion and evidence exists in Drive, but review remains open for February 2024 CBMAX payroll, CBMAX 2024 Lohnsteuerbescheinigung, TK/Hallesche reconciliation, Section 138 AO filing approach for CBMAX and Job Guardian, Joblift Reisekosten vs Pendlerpauschale, and whether the existing `.xlsx` analysis should be migrated to the maintained native machine-readable template. 2025 filing is pending with no Drive docs recorded in Notion.
 
 Communication workflow update:
 

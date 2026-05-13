@@ -1,9 +1,9 @@
 # Accounting, Bookkeeping, And Payroll
 
 Status: provisional.
-Source: Notion company record; Notion employment records; Notion filing-registration records; Gmail search on 2026-05-13; user clarification on 2026-05-13.
+Source: Notion company record; Notion employment records; Notion filing-registration records; Gmail search on 2026-05-13; user clarification on 2026-05-13; user review on 2026-05-13.
 Imported: 2026-05-13.
-Review: Fetch payroll-run records before recording run-level amounts, payslip evidence, or filing completion status.
+Review: Fetch payroll-run records before recording run-level amounts, payslip evidence, or filing completion status. Fetch Richmond Blackwood invoice records before linking exact invoice IDs for H1/H2 billing.
 
 ## Accounting Setup
 
@@ -13,9 +13,20 @@ Review: Fetch payroll-run records before recording run-level amounts, payslip ev
 | Accounting software email in company property | `contact+cbmaxforgemateventures@richmondblackwood.com` |
 | Company email | `contact+cbmaxforgemateventures@richmondblackwood.com` |
 | Betriebsnummer email note | Company-page comment says `accounts+cbmax@richmondblackwood.com` was used for the Betriebsnummer. |
-| Monthly fee to RB | EUR 950 |
+| Monthly fee to RB | EUR 950 discounted bulk-prepaid rate |
+| Fee billing cadence | Paid in bulk every six months, for H1 and H2 |
+| Current payment note | H1 has already been paid and is recorded in Richmond Blackwood invoices |
 | Company revenue monthly | EUR 8,000 |
 | Expected net salary of UBO | EUR 2,203.67 |
+
+## RB Fee Billing
+
+Status: provisional.
+Source: User review on 2026-05-13; Richmond Blackwood invoices referenced by the user but not fetched during this pass.
+Imported: 2026-05-13.
+Review: Link exact RB invoice records during the invoice backfill.
+
+The EUR 950 monthly fee is the discounted rate after the client pays in six-month bulk periods. The billing pattern is H1 and H2, and the client has already paid H1 according to the user review. Evidence should be available in Richmond Blackwood invoice records.
 
 Gmail search on 2026-05-13 found recent Lexware emails to `contact+cbmaxforgemateventures@richmondblackwood.com`, including a May 2026 Lexware invoice email and several low-signal Lexware product/news messages.
 

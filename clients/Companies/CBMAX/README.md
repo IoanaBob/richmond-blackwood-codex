@@ -1,9 +1,9 @@
 # CBMAX - CBMAX FORGEMATE VENTURES LIMITED
 
 Status: provisional.
-Source: Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`; Drive folder search; Gmail search; WhatsApp chat `Brivio, Claudio | Richmond Blackwood`; user clarifications on 2026-05-13.
+Source: Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`; Drive folder search; Gmail search; WhatsApp chat `Brivio, Claudio | Richmond Blackwood`; user clarifications on 2026-05-13; user review on 2026-05-13.
 Imported: 2026-05-13.
-Review: Confirm whether the discovered Drive folder is the canonical long-term CBMAX folder, sync the pending/limbo VAT backdate position back into Notion, and decide whether any personal-tax/person files should be split into individual folders now.
+Review: Sync the pending/limbo VAT backdate position back into Notion. Claudio's individual personal-tax context is already split to `clients/Individuals/Claudio Brivio/`; avoid duplicating private personal-tax detail here.
 
 Company reference: `CBMAX`.
 Legal name: CBMAX FORGEMATE VENTURES LIMITED.
@@ -11,7 +11,7 @@ Service: Managed Services.
 Notion company record: `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`.
 Client project: `https://www.notion.so/32fe413013148034830cf9a1281b2f10`.
 Client dashboard: `https://www.notion.so/67a175a2d9f44c55853a64f106b44752?v=f446b59bf86e4c469e5eae001bd9222c`.
-Drive folder found: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`.
+Canonical Drive folder: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`.
 
 Notion backup: `notion-backup.md`.
 Drive evidence: `drive-locations.md`.
@@ -34,7 +34,8 @@ Client project context: `client-project.md`.
 | Company email | `contact+cbmaxforgemateventures@richmondblackwood.com` |
 | Accounting software | Lexoffice |
 | Accounting software email | `contact+cbmaxforgemateventures@richmondblackwood.com` |
-| Monthly fee to RB | EUR 950 |
+| Monthly fee to RB | EUR 950 discounted bulk-prepaid rate |
+| Fee billing cadence | Six-month H1/H2 billing; H1 already paid and recorded in Richmond Blackwood invoices |
 
 ## Record Routing
 
@@ -42,7 +43,7 @@ Long-lived operational records should live in the matching Notion table and link
 
 Drive should hold source documents and records that do not fit cleanly into Notion or do not need frequent operational access. In git, keep pointers and routing notes only.
 
-Individual-specific details for Claudio Brivio, Eran Peer, Semen, Viktor, or other linked people should be placed under `clients/Individuals/<legal-name>/` before importing personal tax, KYC, personal identifier, personal bank, personal asset, or personal correspondence detail.
+Claudio Brivio's individual-specific details are routed under `clients/Individuals/Claudio Brivio/`. For Eran Peer, Semen, Viktor, or other linked people, create/use `clients/Individuals/<legal-name>/` before importing personal tax, KYC, personal identifier, personal bank, personal asset, or personal correspondence detail.
 
 ## Current High-Signal Context
 

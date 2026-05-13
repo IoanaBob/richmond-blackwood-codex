@@ -1,7 +1,7 @@
 # History
 
 Status: provisional.
-Source: Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`; Notion client project; Drive and Gmail searches; WhatsApp chat `Brivio, Claudio | Richmond Blackwood`; user correction on 2026-05-13.
+Source: Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`; Notion client project; Drive and Gmail searches; WhatsApp chat `Brivio, Claudio | Richmond Blackwood`; user correction and review on 2026-05-13.
 Imported: 2026-05-13.
 Review: Sync the pending/limbo Irish VAT backdate position into Notion and confirm the final ROS backdate response.
 
@@ -22,7 +22,7 @@ Provisional company facts from Notion:
 - Approval status: Approved.
 - Secretary: Richmond Blackwood Limited.
 - Service: Managed Services.
-- Monthly fee to RB: EUR 950.
+- Monthly fee to RB: EUR 950 discounted bulk-prepaid rate, billed in six-month H1/H2 periods. User review on 2026-05-13 says H1 has already been paid and is recorded in Richmond Blackwood invoices.
 - Company revenue monthly: EUR 8,000.
 - Accounting software: Lexoffice.
 
@@ -64,8 +64,10 @@ Current company-side links:
 - Semen: employee through the Employment table. User clarified on 2026-05-13 that Simon is Semen and that the relationship is simply employment.
 - Viktor: historical/inactive employee through the Employment table.
 
+Claudio's personal-tax/private context has been imported separately under `clients/Individuals/Claudio Brivio/`. Keep this company history to company-side pointers and do not duplicate Claudio's private personal-tax detail here.
+
 ## Review Needed
 
 - Confirm ROS's final response to the January 2025 Irish VAT backdate request and clean up the older Notion tax-house wording.
-- Confirm whether Claudio Brivio personal tax filings should get an individual folder now or only when personal-tax work is actively imported.
-- Confirm the canonical Drive folder and any group/external classification needed for future Drive writes.
+- Confirm whether Eran Peer, Semen, or Viktor need individual folders before importing private individual detail.
+- Confirm any group/external classification needed for future Drive writes beyond the canonical CBMAX Drive folder.

@@ -78,6 +78,8 @@ Selin Ozkohen / CLV personal-tax pilot sources are routed to `clients/Individual
 
 CBMAX company sources are routed to `clients/Companies/CBMAX/source-register.md`. The 2026-05-13 load used the Notion company record, project, employment, filing-registration, contract, correspondence, and task records; Drive search/listing for the discovered CBMAX folder; Gmail search for invoice/correspondence threads; WhatsApp chat `Brivio, Claudio | Richmond Blackwood` for latest tax/VAT context; and user clarifications that Simon is Semen, an employee through the Employment relation, and that the 2026-03-30 Irish-VAT/no-German-VAT guidance remains pending retroactive acceptance.
 
+User review on 2026-05-13 confirmed the CBMAX Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`, clarified the EUR 950 RB monthly fee as the discounted rate from six-month H1/H2 bulk billing with H1 already paid, and resolved the Claudio individual-folder question because Claudio personal-tax context was imported separately.
+
 Claudio Brivio personal-tax/private individual sources are routed to `clients/Individuals/Claudio Brivio/source-register.md`. The 2026-05-13 load used Claudio's Notion individual/employment/personal-tax filing/task records, the Drive 2024 personal-tax folder and `_2024-tax-filings` package, the Drive tracker and notes for Steuerberater, WhatsApp personal-tax updates, and Gmail searches that found no dedicated personal-tax email thread.
 
 ## WhatsApp Sources

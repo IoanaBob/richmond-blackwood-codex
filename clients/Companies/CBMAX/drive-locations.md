@@ -1,13 +1,13 @@
 # Drive Locations
 
 Status: provisional.
-Source: Google Drive search/list/metadata on 2026-05-13; Notion correspondence record.
+Source: Google Drive search/list/metadata on 2026-05-13; Notion correspondence record; user review on 2026-05-13.
 Imported: 2026-05-13.
-Review: Confirm whether `05. CBMAX Forgemate Ventures Limited (CBMAX)` is the canonical long-term client folder and whether future folder creation should use any group/external classification.
+Review: The user confirmed the canonical CBMAX Drive folder. Confirm only whether future folder creation needs any additional group/external classification.
 
-## Found Client Folder
+## Canonical Client Folder
 
-Drive folder found:
+Canonical Drive folder confirmed by user review on 2026-05-13:
 
 - `05. CBMAX Forgemate Ventures Limited (CBMAX)`: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`
 
@@ -69,5 +69,4 @@ These appear related but were not traced to canonical folder hierarchy during th
 
 ## Review Needed
 
-- Confirm whether `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older pending question from the 2026-05-04 provisional import.
 - Confirm whether the sibling folders `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` should be linked from this client folder or moved/organized under the canonical folder.

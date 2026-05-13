@@ -31,7 +31,7 @@ Imported:
 - Notion individual records for Claudio Brivio and Eran Peer, used only for company-side relationship mapping.
 - Notion employment records for Claudio, Semen, and Viktor.
 - Notion filing-registration, contract, correspondence, and task records for high-signal CBMAX context.
-- Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` and selected top-level contents.
+- Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` and selected top-level contents; user later confirmed this is the relevant CBMAX Drive folder.
 - Gmail search results for CBMAX invoice correction, May 2026 letter, WeBuild invoice, and Lexware messages.
 - User clarification that Simon is Semen and Semen is an employee through the Employment relation.
 
@@ -39,12 +39,18 @@ Actions:
 
 - Created `clients/Companies/CBMAX/` and routed company facts into domain files.
 - Recorded the old `clients/cbmax/` Notion import note as superseded by the reference-based folder.
-- Recorded open questions for tax-house status, Hamburg/Berlin VAT number mismatch, canonical Drive folder, invoice correction backfill, and individual-folder routing.
+- Recorded open questions for tax-house status, Hamburg/Berlin VAT number mismatch, invoice correction backfill, and private individual-folder routing.
 
 Unresolved:
 
 - Notion SQL/data-source query errored, so full relation-filtered invoice/expense/task backfill remains pending.
 - No Notion update page or Slack closeout was sent; any outbound closeout needs review/approval first.
+
+Review update on 2026-05-13:
+
+- User clarified the EUR 950 monthly RB fee is after discount because CBMAX pays six-month H1/H2 periods in bulk; H1 has already been paid and is recorded in Richmond Blackwood invoices.
+- User confirmed Claudio's individual folder question is resolved because Claudio's personal-tax context was imported separately; avoid duplicate personal-tax detail in the company folder.
+- User confirmed Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` as the CBMAX folder.
 
 ## 2026-05-08 - Company Client File Routing Cleanup
 

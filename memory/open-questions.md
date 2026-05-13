@@ -71,7 +71,6 @@ Updated: 2026-05-12.
 
 ## CBMAX Client Questions
 
-- Confirm whether the Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` is the canonical CBMAX folder for future source pointers and uploads.
 - Sync the Notion company record/tax-history callout with the corrected pending status: Irish VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so 2025 VAT/tax-residence treatment remains in limbo.
 - Confirm ROS's final response to the Irish VAT backdate request and the filing/payment status of the seven pending VAT filings referenced in WhatsApp on 2026-03-09.
 - Confirm whether German VAT number `DE451021099` or USt-IdNr. `DE455085802` should be retained as historical German VAT identifiers, written back to the company record's blank German VAT field, or left out of the active company field.

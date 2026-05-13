@@ -341,3 +341,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat the existing 2024 evidence package as present but not filing-ready; keep Notion/Drive/task sync questions open rather than creating new tasks or changing live filing fields during a context-only load.
 - Verification: Notion comments for the individual and filing records returned no comment threads; Drive folder listings and file fetches succeeded; Gmail search found no dedicated personal-tax email thread.
 - Limitations or gaps: No Notion fields, Drive files, or outbound communications were changed. The 2024 filing still needs payroll, health-insurance, Section 138 AO, Joblift travel, and workbook-template review.
+
+## 2026-05-13 - CBMAX PR Review Corrections
+
+- User request: Apply review clarifications for CBMAX fee billing, Claudio individual-folder routing, and the canonical Drive folder.
+- Context read: CBMAX company README, accounting/payroll, history, Drive locations, open questions, memory, source logs, and Claudio individual routing files.
+- Actions taken: Clarified that EUR 950 is the discounted monthly RB fee because CBMAX pays in six-month H1/H2 bulk periods, with H1 already paid and recorded in Richmond Blackwood invoices; marked the CBMAX Drive folder as canonical; removed resolved Claudio individual-folder questions from company open questions; preserved only company-side pointers to Claudio's individual folder.
+- Decisions made: Keep Claudio personal-tax/private detail only under `clients/Individuals/Claudio Brivio/` and avoid duplicating it in CBMAX company files.
+- Verification: `git diff --check` passed after review corrections.
+- Limitations or gaps: Exact Richmond Blackwood invoice IDs for H1/H2 billing still need invoice-record backfill.
