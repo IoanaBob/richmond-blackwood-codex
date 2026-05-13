@@ -2,6 +2,70 @@
 
 Status: active.
 
+## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
+
+Imported:
+
+- WhatsApp chat `Brivio, Claudio | Richmond Blackwood` / `120363203209263793@g.us`.
+- Contact search for `Claudio`, followed by targeted WhatsApp message searches for CBMAX tax/VAT terms and recent messages after 2026-03-01.
+- User correction that the 2026-03-30 Irish-VAT/no-German-VAT guidance was not yet accepted retroactively and should stay in limbo until ROS accepts the backdate.
+
+Actions:
+
+- Updated CBMAX `tax-vat-filings.md` to keep 2025 VAT/tax-residence treatment in limbo pending ROS retroactive Irish VAT acceptance.
+- Recorded WhatsApp support for Irish VAT number `4388950KH`, intended retroactive VAT handling from January 2025, ROS backdate follow-up after the board meeting, and user correction that the 2026-03-30 Irish-VAT/no-German-VAT guidance is pending rather than settled.
+- Updated CBMAX communications, source register, open questions, memory current state, and handoff.
+
+Unresolved:
+
+- Confirm ROS's final response to the Irish VAT backdate request and the status/payment outcome of the seven pending VAT filings.
+- Sync the older Notion tax-history callout so it reflects the pending/limbo position.
+- Confirm whether German VAT identifiers should remain historical-only, be written back to Notion, or remain outside the active company field.
+
+## 2026-05-13 - CBMAX Client Context Load
+
+Imported:
+
+- Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`, confirming exact company `Reference` value `CBMAX`.
+- Notion client project `https://www.notion.so/32fe413013148034830cf9a1281b2f10`.
+- Notion individual records for Claudio Brivio and Eran Peer, used only for company-side relationship mapping.
+- Notion employment records for Claudio, Semen, and Viktor.
+- Notion filing-registration, contract, correspondence, and task records for high-signal CBMAX context.
+- Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` and selected top-level contents; user later confirmed this is the relevant CBMAX Drive folder.
+- Gmail search results for CBMAX invoice correction, May 2026 letter, WeBuild invoice, and Lexware messages.
+- User clarification that Simon is Semen and Semen is an employee through the Employment relation.
+
+Actions:
+
+- Created `clients/Companies/CBMAX/` and routed company facts into domain files.
+- Recorded the old `clients/cbmax/` Notion import note as superseded by the reference-based folder.
+- Recorded open questions for tax-house status, Hamburg/Berlin VAT number mismatch, invoice correction backfill, and private individual-folder routing.
+
+Unresolved:
+
+- Notion SQL/data-source query errored, so full relation-filtered invoice/expense/task backfill remains pending.
+- No Notion update page or Slack closeout was sent; any outbound closeout needs review/approval first.
+
+Review update on 2026-05-13:
+
+- User clarified the EUR 950 monthly RB fee is after discount because CBMAX pays six-month H1/H2 periods in bulk; H1 has already been paid and is recorded in Richmond Blackwood invoices.
+- User confirmed Claudio's individual folder question is resolved because Claudio's personal-tax context was imported separately; avoid duplicate personal-tax detail in the company folder.
+- User confirmed Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` as the CBMAX folder.
+
+Follow-up confirmation on 2026-05-13:
+
+- User confirmed `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older pending Drive-folder question from the 2026-05-04 provisional import.
+- User confirmed `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` are valid CBMAX-related sibling folders to link from the client folder and organize under the canonical folder when Drive cleanup is in scope.
+- Repo pointers were updated; no live Drive move/organization was performed during this update.
+
+Client Notes & Updates review on 2026-05-13:
+
+- User confirmed the 2026-05-13 CBMAX repo summary does not need to be backed up as a new Client Notes & Updates page or used to update the existing `Codex provisional import - CBMAX` page.
+- User clarified that Client Notes & Updates is used for important client-facing information and can be read as context during future client work.
+- User noted that the Slack closeout rule about listing only Notion records actually added or modified is a general process rule, not CBMAX-specific.
+- Read the existing `Codex provisional import - CBMAX` Client Notes & Updates page; it is an internal record with the old `clients/cbmax/` path and fragments for invoice correction, `CBMAX Financial Analysis`, and possible employment/accounting context.
+- Updated CBMAX backup/open-question files and the general client backup process/skill; no live Notion Client Notes & Updates page was changed.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:
@@ -1007,3 +1071,30 @@ Actions:
 Unresolved:
 
 - No live filing tasks were created by this process update; each filing still needs its task/project relations checked before task creation.
+
+## 2026-05-13 - Claudio Brivio Individual Context Load
+
+Imported:
+
+- Notion individual record `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`.
+- Notion 2025 personal tax filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`.
+- Notion employment record `https://www.notion.so/7d77ff003f1a4f1c8799bdd2e477025b`.
+- Notion tasks `https://www.notion.so/352e4130131480e0b6f4deb6917c972b` and `https://www.notion.so/358e413013148053bb73e0bc8e7247b3`.
+- Drive 2024 personal-tax folder `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`, client documents folder `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`, and uploaded `_2024-tax-filings` package `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`.
+- WhatsApp chat `Brivio, Claudio | Richmond Blackwood`.
+- Gmail searches for Claudio personal-tax terms.
+
+Actions:
+
+- Created `clients/Individuals/Claudio Brivio/` using the legal name from Notion.
+- Routed personal-tax/private evidence pointers into individual domain files.
+- Updated `clients/Companies/CBMAX/linked-individuals.md` to point to the new individual folder.
+- Added durable memory, source-register, skill-run, and open-question entries.
+
+Unresolved:
+
+- Reconcile the Notion 2024 filing Drive folder with the active Drive folder.
+- Confirm whether Claudio's existing `.xlsx` workbook should be migrated to the maintained native machine-readable template.
+- Confirm whether existing Notion tasks are linked to the filing before creating any new task pair.
+- Resolve 2024 filing questions for February CBMAX payroll, CBMAX wage-tax certificate, TK/Hallesche reconciliation, Section 138 AO, Joblift travel classification, and the N26 investment-folder file.

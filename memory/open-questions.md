@@ -69,6 +69,28 @@ Updated: 2026-05-12.
 - Review deductible and tax-credit applicability for Selin 2025 before marking any optional rows as claimed, including the days-based home-office allowance, commuting, equipment/training, health/care insurance, pension/retirement, donations, childcare, household services, and foreign/investment withholding credits.
 - Tie the 2025 opening balance sheet to the 2024 workbook closing balances or add an explicit provisional opening baseline note.
 
+## CBMAX Client Questions
+
+- Sync the Notion company record/tax-history callout with the corrected pending status: Irish VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so 2025 VAT/tax-residence treatment remains in limbo.
+- Confirm ROS's final response to the Irish VAT backdate request and the filing/payment status of the seven pending VAT filings referenced in WhatsApp on 2026-03-09.
+- Confirm whether German VAT number `DE451021099` or USt-IdNr. `DE455085802` should be retained as historical German VAT identifiers, written back to the company record's blank German VAT field, or left out of the active company field.
+- Confirm whether Hamburg tax number `17/070/40128` belongs to CBMAX and how it relates to Berlin tax number `29/648/60019`.
+- Confirm Semen's full legal name before creating an individual folder or importing personal payroll/bank identifiers.
+- Decide whether Eran Peer, Semen, and Viktor need individual folders now, or only when personal-tax/KYC/private individual details are imported. Claudio Brivio now has `clients/Individuals/Claudio Brivio/`.
+
+## Claudio Brivio Personal Tax Questions
+
+- Reconcile Claudio's Notion 2024 filing `GDrive Docs` folder `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`, which listed empty through the connector, with the active Drive folder `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`.
+- Confirm whether `Claudio - Personal Tax Analysis Template.xlsx` should be migrated/copied from the maintained native machine-readable German personal-tax template before continuing analysis.
+- Confirm whether existing Notion tasks `https://www.notion.so/352e4130131480e0b6f4deb6917c972b` and `https://www.notion.so/358e413013148053bb73e0bc8e7247b3` are correctly linked to the 2024 filing's `Preparation Task` / `Filing Task` fields before creating any new task pair.
+- Confirm how CBMAX February 2024 payroll was handled: missing February payslip, March back-pay, or no payment.
+- Obtain or verify the CBMAX 2024 Lohnsteuerbescheinigung.
+- Reconcile TK contribution/end-date evidence after Claudio's 2026-05-07 WhatsApp update that TK cannot provide a standalone tax certificate.
+- Extract and review Hallesche Section 10 certificate figures for 2024-02-01 to 2024-12-31.
+- Confirm the Joblift Feb-Sep 2024 travel treatment as Reisekosten vs Pendlerpauschale.
+- Confirm CBMAX and Job Guardian Section 138 AO notifications are included in the 2024 filing package and how late/proactive filing should be framed.
+- Verify the N26 file in the investment folder is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.
