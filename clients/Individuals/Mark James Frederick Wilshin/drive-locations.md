@@ -3,7 +3,7 @@
 Status: provisional.
 Source: user-provided Drive folder `https://drive.google.com/drive/folders/1muPUJMt8AT3pIf2dGesb6yTfrOBSL83l`; Google Drive connector folder listing and uploaded file metadata on 2026-05-13.
 Imported: 2026-05-13.
-Review: Final filing review still needs evidence/business-use decisions; the fresh workbook is already in the supplied Mark folder.
+Review: The fresh workbook is in the supplied Mark folder. The 2026-05-13 operator decisions resolved the listed evidence/business-use analysis questions; final filing still needs normal professional review before submission.
 
 2024 personal tax filing folder: `https://drive.google.com/drive/folders/1muPUJMt8AT3pIf2dGesb6yTfrOBSL83l`.
 

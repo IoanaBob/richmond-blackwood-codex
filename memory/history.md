@@ -348,7 +348,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Context read: Supplied Mark Drive folder, actual receipt PDFs where OCR was available, maintained native German personal-tax template, previous corrected workbook, and Drive helper auth state.
 - Actions taken: Reauthenticated the Drive helper with Drive scope, created a true Drive-native copy of the maintained template in Mark's supplied folder, populated only `Setup`, `Revenue`, `Expenses`, and `Deductibles`, and rebuilt the inputs from actual invoice/receipt PDFs plus the explicit EUR 15,000 GbR-profit instruction.
 - Decisions made: Supersede the intermediate corrected workbook `https://docs.google.com/spreadsheets/d/1vg2gcux923SDZi1RDKlowSf-dguLrSqMVv7HTCCScYk/edit`; the current workbook is `https://docs.google.com/spreadsheets/d/1JtxaRuqQZv_2JhvPBND6R6uQkWN2xahokg0q24Rt5iw/edit`. Exclude home costs/non-mobile Telekom, naturalization/non-business invoices, the second Catalanglish ticket, the missing M1-3 iCloud invoice, and unclaimed receipt rows.
-- Verification: Sheets read-back confirmed formula-driven summary outputs: revenue EUR 22,000, business expenses incl. home-office EUR 4,466.18, net business PNL EUR 17,533.82, health/care EUR 6,232.81, other personal deductions EUR 6,268.81, and income after deductions EUR 11,265.01. Remaining review checks are GbR profit support, MacBook treatment, mobile-phone business-use percentages, missing M1-3 support, and business-meal receipt/formality review.
+- Verification: Sheets read-back confirmed formula-driven summary outputs: revenue EUR 22,000, business expenses incl. home-office EUR 4,466.18, net business PNL EUR 17,533.82, health/care EUR 6,232.81, other personal deductions EUR 6,268.81, and income after deductions EUR 11,265.01. The Mark-specific review checks noted at that point were later resolved on 2026-05-13.
 
 ## 2026-05-13 - Mark Expense Receipt Evidence Correction
 
@@ -357,6 +357,14 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Rewrote only non-formula `Expenses` input cells into receipt-level rows with exact receipt-file URLs, split iCloud, Telekom mobile, EE mobile, and business meals into individual invoice/receipt rows, rendered scanned meal receipts where Drive OCR was empty, and added Notion correction comments to the filing record and linked task.
 - Decisions made: Keep formulas untouched in `Expenses` and calculation tabs. Correct the business-meal claim from the prior aggregate to EUR 506.59, representing 70 percent of EUR 723.70 receipt-backed gross/tip-supported meal amounts.
 - Verification: Sheets read-back found no receipts-folder URL remaining in `Expenses!A1:Q80`, confirmed formula cells remain present in key `Expenses` formula columns and `Tax Analysis!B3:B14`, and confirmed current formula-driven values: revenue EUR 22,000, business expenses incl. home-office EUR 4,479.95, net business PNL EUR 17,520.05, other personal deductions EUR 6,268.81, and income after deductions EUR 11,251.24.
+
+## 2026-05-13 - Mark Final Open Questions Resolved
+
+- User request: Resolved the Mark/WEW open questions: confirmed the EUR 15,000 GbR profit support, approved Telekom/EE mobile business-use treatment, instructed trust in the client for missing M1-3 iCloud and business-meal support, and asked whether the MacBook can legally be fully deducted.
+- Context read: Mark individual open questions and tax-return notes, global memory questions/tasks, and BMF EStH 2024 computer-hardware/software useful-life guidance.
+- Actions taken: Recorded the resolved decisions in Mark's individual files, global memory, source registers, and import log; moved the Mark finalisation task to done; added Notion comments to the filing record and filing task for filer visibility.
+- Decisions made: Retain the full 2024 MacBook deduction route as a provisional tax-law analysis point because BMF guidance supports one-year useful-life treatment for notebook/computer hardware and does not require monthly acquisition-year pro-rating.
+- Verification: Notion comments were created on the filing record and filing task. Repo records now show no active Mark/WEW personal-tax open questions from the 2026-05-13 list.
 
 ## 2026-05-11 - Communications-First Inbound Triage Review
 

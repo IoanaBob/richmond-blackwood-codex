@@ -71,11 +71,7 @@ Updated: 2026-05-13.
 
 ## Mark / WEW Personal Tax Questions
 
-- Confirm source support for the EUR 15,000 GbR profit included per operator instruction.
-- Confirm whether the MacBook Pro should be fully deducted in 2024 or depreciated for final filing.
-- Confirm whether the 80 percent Telekom mobile business-use apportionment and full EE mobile business-use treatment are acceptable for final filing.
-- Confirm whether Mark has an M1-3 iCloud invoice elsewhere; it was not found in the supplied receipts folder and was not claimed.
-- Review business-meal receipt/formality requirements before final filing.
+No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator decisions. Detailed resolved decisions are recorded in `clients/Individuals/Mark James Frederick Wilshin/open-questions.md`.
 
 ## CBMAX Client Questions
 

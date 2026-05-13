@@ -35,6 +35,7 @@ Applied:
 - Added fresh Notion comments to the filing record and linked task with the new workbook URL, formula-driven read-back values, supersession note, and remaining review points.
 - Added correction comments to the Notion filing record and linked task after the receipt-level `Expenses` repair.
 - Created Mark's individual client routing folder and a minimal WEW linked-individuals pointer.
+- After operator review of the final open questions, recorded confirmed EUR 15,000 GbR support, approved mobile business-use percentages, client-trusted missing M1-3 iCloud and business-meal support, and full 2024 MacBook treatment under BMF one-year computer-hardware useful-life guidance. Added matching Notion comments to the filing record and filing task.
 
 Verification:
 
@@ -43,10 +44,11 @@ Verification:
 - Google Drive metadata confirmed the corrected artifact exists as a native Google Sheet with 28 tabs. A later Sheets range read-back confirmed formula-driven `Tax Analysis` values for revenue EUR 22,000, business expenses EUR 4,479.24, net PNL EUR 17,520.76, other personal deductions EUR 6,268.81, and income after deductions EUR 11,251.95. Maintained-template read-back confirmed `Tax Analysis!B12` now excludes both `employment-werbungskosten` and `business-betriebsausgaben`.
 - Fresh template-copy read-back confirmed formula-driven summary values: revenue EUR 22,000, business expenses before home-office EUR 3,206.18, business home-office allowance EUR 1,260, business expenses including home-office EUR 4,466.18, business/freelance net PNL EUR 17,533.82, health/care insurance EUR 6,232.81, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,265.01.
 - Receipt-level expense correction read-back confirmed no receipts-folder URL remains in `Expenses!A1:Q80`, formula cells remain present in key `Expenses` formula columns and `Tax Analysis!B3:B14`, and current formula-driven values are business expenses before home-office EUR 3,219.95, business expenses including home-office EUR 4,479.95, net business PNL EUR 17,520.05, and income after deductions EUR 11,251.24.
+- BMF EStH 2024 source review supports the provisional analysis route for full 2024 MacBook treatment through one-year computer-hardware useful-life guidance.
 
 Follow-up:
 
-- The fresh template-copy workbook is in the supplied Mark folder. Final filing review should confirm the EUR 15,000 GbR profit support, MacBook deduction/depreciation treatment, mobile-phone business-use percentages, missing M1-3 iCloud support if any, and business-meal receipt/formality requirements.
+- The fresh template-copy workbook is in the supplied Mark folder. The prior Mark open questions were resolved by operator review on 2026-05-13; final filing still needs normal professional/operator review before submission.
 
 ## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
 

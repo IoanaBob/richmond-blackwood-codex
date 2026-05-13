@@ -25,7 +25,6 @@ Imported: 2026-05-04.
 | Confirm whether RB should enable optional WhatsApp MCP for all operators or only this local Codex setup. | 2026-05-05 |
 | Confirm which WhatsApp account/number should be linked for RB work. | 2026-05-05 |
 | Finalise Nathan 2025 personal tax audit after the missing N26 October 2025 statement, invoice/receipt evidence, Revolut GBP FX review, prepayment amounts, and non-USDC investment cost-basis lots are supplied or confirmed in Drive. | 2026-05-06 |
-| Finalise Mark's 2024 personal-tax analysis after GbR profit support, MacBook depreciation/immediate deduction treatment, mobile-phone business-use treatment, possible missing March iCloud invoice support, and business-meal receipt/formality requirements are confirmed. | 2026-05-13 |
 
 ## Done
 
@@ -55,3 +54,4 @@ Imported: 2026-05-04.
 | Resolved access to Nathan's Office-mode 2023/2024 VAT missing-invoices workbook and 2025 personal-tax analysis workbook, then added formula-backed Codex categorisation/audit tabs. | 2026-05-06 | 2026-05-06 |
 | Created the machine-readable native Google Sheets personal-tax template and superseded the separated-Codex-tab workflow for future personal-tax work. | 2026-05-06 | 2026-05-06 |
 | Created Mark's fresh 2024 machine-readable personal-tax workbook as a true Drive-native copy of the maintained template in the supplied Mark Drive folder. | 2026-05-13 | 2026-05-13 |
+| Finalised Mark's 2024 personal-tax analysis open questions after operator confirmation of GbR profit support, MacBook treatment, mobile business-use percentages, missing M1-3 iCloud treatment, and business-meal formality support. | 2026-05-13 | 2026-05-13 |
