@@ -1,13 +1,13 @@
 # Contracts And Authority
 
 Status: provisional.
-Source: Notion contracts, company record, and user instruction on 2026-05-13.
+Source: Notion contracts, company record, user instruction and review correction on 2026-05-13, and WhatsApp chat `120363222065866778@g.us`.
 Imported: 2026-05-13.
-Review: Reconcile company director field in Notion with the user instruction that Byron is the director.
+Review: Confirm whether board-observer attendance/minutes need a separate evidence checklist beyond the quarterly Dublin board meeting folder.
 
 ## Authority And Governance
 
-AGL is to be treated as Irish tax resident with an Irish director from inception per user instruction on 2026-05-13. Because of the Irish tax-residence position, Byron needs to attend quarterly board meetings in Dublin, following the same pattern as Claudio/CBMAX.
+AGL is to be treated as Irish tax resident with Ioana as the Irish director from inception. Byron is the UBO and board observer. Because of the Irish tax-residence position, Byron needs to attend quarterly board meetings in Dublin, following the same pattern as Claudio/CBMAX.
 
 Drive board-meeting folder: `https://drive.google.com/drive/folders/1GLt4JUlpFHXwi5LBCNPzGE94ZaBRDmEV`.
 Listed board meeting subfolders: 2025-08-05, 2025-11-03, 2026-02-24.
@@ -28,5 +28,8 @@ Listed board meeting subfolders: 2025-08-05, 2025-11-03, 2026-02-24.
 
 ## Review Notes
 
-- Notion company record currently has the company `Director(s)` relation pointing to Ioana, while the user instructed that Byron is the director. Keep this as an open reconciliation item.
+- The company `Director(s)` relation pointing to Ioana is correct. Byron is the UBO and board observer, not the director.
 - The active Syntentia contract has comments that the Syntentia entry in the "Invoices to Send" column was broken and was being handled manually; future workflow should rely on the general weekly invoice process and contract-linked invoicing records rather than a bespoke AGL task.
+- Because services are billed by days worked, the general recurring finance process should ask Byron once a month whether he plans vacation/off days in the next month so weekly service invoices do not overbill planned non-working days.
+- WhatsApp context on 2026-02-24 shows RB asked Byron what time he was arriving in Dublin, and Byron replied that he needed to be remote that week because he needed to be at his client. Cross-check the 2026-02-24 board-meeting folder/minutes before treating that date as in-person attendance evidence.
+- WhatsApp context on 2026-05-06 to 2026-05-08 shows an AGL bond document was circulated for Byron review and Byron later confirmed the bond looked good and RB could proceed.

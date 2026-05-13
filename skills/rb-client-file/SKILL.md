@@ -21,7 +21,7 @@ Use the pattern in `clients/Companies/_template/`.
 - Accounting, bookkeeping, payroll: `accounting-bookkeeping-payroll.md`.
 - Tax, VAT, filings: `tax-vat-filings.md`.
 - Invoices, payments, expenses: `invoices-payments-expenses.md`.
-- Emails, Slack, calls: `communications.md`.
+- Emails, Slack, WhatsApp chat IDs, calls: `communications.md`.
 - Client project context: `client-project.md`.
 - Personal tax returns linked to the company client: `personal-tax-returns.md`.
 - Sources: `source-register.md`.
@@ -45,6 +45,17 @@ Communications, bank accounts, assets, and expenses should belong to either a co
 - Use the company relation for company-owned or company-operational records.
 - Use the individual relation for personal or individual-owned records.
 - If a record is discovered through one entity but belongs to the other, attach it to the owning entity and keep only a pointer in the other entity's repo file when useful.
+
+## WhatsApp Source Pointers
+
+When a client context export/backfill uses WhatsApp, file the resolved client contact or group JID as a pointer in the owning entity's `communications.md` and `source-register.md`.
+
+- Use the company folder for company/client-operational chats.
+- Use the individual folder for personal-tax, personal KYC, personal bank, asset, or expense chats.
+- Ask the user to choose before filing if multiple plausible WhatsApp contacts or groups are returned.
+- Keep the pointer provisional unless the user approves the contact relationship and preferred-contact status.
+- Do not store raw transcripts, media, credentials, or WhatsApp session data in git.
+- A saved WhatsApp ID is only a route/source pointer; it is not approval to monitor, backfill history, download media, or send messages.
 
 ## Closeout
 

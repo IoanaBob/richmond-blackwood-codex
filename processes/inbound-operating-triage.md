@@ -97,6 +97,7 @@ Some client billing cases are regular operating cadence, not one-off tasks. When
 - Route the item through the general recurring invoice process and the contract-linked Invoicing records.
 - When the contract/source requires both services and expenses for the same period, create or update separate service and expense invoice records instead of combining them.
 - If time/services evidence is available but expense evidence is delayed, process the service invoice and leave the expense invoice/report pending until reviewed evidence arrives.
+- For day-based recurring invoices, the general process may include a monthly planned-absence check with the billing contact so future service invoices use the right day count.
 - If a client or director repeatedly delays expense evidence, raise reminders through the general finance evidence-aging/reminder routine, not a client-only standing task.
 - Outbound invoice emails remain approval-required unless the current workflow explicitly pre-authorizes sending. Use the client domain file for the exact recipient/body format and source evidence.
 

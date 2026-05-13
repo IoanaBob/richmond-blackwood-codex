@@ -1,7 +1,7 @@
 # Tax Filings
 
 Status: provisional.
-Source: Notion individual and personal-tax filing records fetched 2026-05-13.
+Source: Notion individual and personal-tax filing records fetched 2026-05-13; WhatsApp chat `120363222065866778@g.us`.
 Imported: 2026-05-13.
 Review: Confirm whether US filing obligations or US information reporting need to be tracked separately from the German returns.
 
@@ -31,3 +31,14 @@ Imported: 2026-05-13.
 Review: Determine exact filing treatment and evidence needed.
 
 Byron was a US resident, owns an apartment in the US, and has US investment accounts including Roth and IRA accounts. The German return should review worldwide income and whether US retirement-account activity is taxable/reportable in Germany.
+
+## WhatsApp Tax Context
+
+Status: provisional.
+Source: WhatsApp chat `Frasier, Byron | Richmond Blackwood` / `120363222065866778@g.us`, searched on 2026-05-13.
+Imported: 2026-05-13.
+Review: Use source documents and official notices before filing; WhatsApp is support context only.
+
+- WhatsApp confirms RB asked for Byron's German Steuernummer in February/April 2026 and Byron supplied the tax number now also recorded in Notion.
+- WhatsApp confirms personal-tax document gathering was started on 2026-04-15 and that RB requested 2024 payslips and expense evidence later in April.
+- WhatsApp contains a password for protected payroll evidence; do not store that password in git.

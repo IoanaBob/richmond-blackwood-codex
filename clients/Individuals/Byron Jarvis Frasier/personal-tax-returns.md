@@ -1,7 +1,7 @@
 # Personal Tax Returns
 
 Status: provisional.
-Source: User instruction on 2026-05-13; Notion personal-tax filings; Gmail SteuerGo message; Client Notes & Updates brokerage analysis.
+Source: User instruction on 2026-05-13; Notion personal-tax filings; Gmail SteuerGo message; Client Notes & Updates brokerage analysis; WhatsApp chat `120363222065866778@g.us`.
 Imported: 2026-05-13.
 Review: Byron personal tax needs its own workflow and workbook setup; this import only records context and pointers.
 
@@ -27,6 +27,8 @@ Notion filing pages:
 | 2024 filing folder | `https://drive.google.com/drive/folders/1fgG_DTQ7uy2akUekM6aV2cmkGp7iWEXJ` | Contains payroll subfolder. |
 | 2024 payroll evidence | `https://drive.google.com/drive/folders/1htafA6oTpZe3EhP2_6CsLHYOiM5NCyLl` | Contains 2024 payroll PDFs and a `Document Password` file. Do not copy passwords into git. |
 | SteuerGo data retrieval request | Gmail message `19e20f06924b8d7b` | SteuerGo requested data retrieval for Byron Jarvis Frasier on 2026-05-13; activation/data-retrieval completion may need follow-up. |
+| WhatsApp document-gathering request | WhatsApp chat `Frasier, Byron \| Richmond Blackwood`, 2026-04-15 | RB asked Byron to upload personal-tax documents, invoices, expense receipts, and relevant records to the shared Drive folder. |
+| 2024 payroll/expense follow-up | WhatsApp chat `Frasier, Byron \| Richmond Blackwood`, 2026-04-23 to 2026-05-03 | RB asked for Jan-May 2024 contractor payslips and 2024 expenses. Byron indicated files/folders would be added. A password was shared in WhatsApp for protected payroll evidence; do not copy that password into git. |
 
 ## Personal Tax Edge Cases
 

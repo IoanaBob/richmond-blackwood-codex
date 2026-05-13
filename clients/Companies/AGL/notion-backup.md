@@ -3,13 +3,13 @@
 Status: provisional.
 Source: Notion fetches on 2026-05-13.
 Imported: 2026-05-13.
-Review: No Notion records were modified during this repo import.
+Review: Notion company `Tax Residence` and two task records were updated on 2026-05-13 from user review; remaining Notion status sync should wait for Finanzamt feedback and filing timing.
 
 ## Core Records
 
 | Record | URL | Notes |
 | --- | --- | --- |
-| Company | `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e` | Reference `AGL`; company record currently says Tax Residence `Germany`, which is stale against user instruction that AGL is Irish tax resident with a German PE. |
+| Company | `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e` | Reference `AGL`; live `Tax Residence` updated to `Ireland` on 2026-05-13 after user confirmed AGL is mainly Ireland with a German PE. |
 | Client project | `https://www.notion.so/32fe41301314809fa77bf2f0d497de5b` | `AGL - Agile Lincs Ltd - Client Project`, project ID `PROJ-184`, status In Progress. |
 | Dashboard | `https://www.notion.so/Dashboard-AGILE-LINCS-LIMITED-f57b3a4d2de34d57bac0e33023b52fc9?pvs=4` | Client dashboard. |
 | Prior client notes | `https://www.notion.so/356e413013148130b78ec75395dbb232` | `Codex provisional import - Agile Lincs`, imported on 2026-05-04. |
@@ -27,4 +27,6 @@ Review: No Notion records were modified during this repo import.
 | German PE task | Respond to the Finanzamt on the PE | `https://www.notion.so/337e413013148037bf1bfe76ccf6f3c5` | Done; page comment says submitted to Finanzamt and awaiting response. |
 | Payroll-tax query task | AGL: Resolve Finanzamt payroll tax query for May 2024-April 2025 | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | In Review as of fetch; linked to incoming letter record. |
 | Incoming letter | AGL - Letter received - Apr 2026 | `https://www.notion.so/35ce41301314811c81a0eeeb67d4d32b` | Berlin Finanzamt payroll-tax query dated 2026-04-17, filed to Drive. |
-| Tax decision task | Decide if AGL should be tax resident in IE or DE | `https://www.notion.so/332e413013148134b27bc69bb9771bc1` | Done on 2026-04-13; superseded by user instruction on 2026-05-13: IE tax resident with German PE, 80/20 profit attribution. |
+| Tax decision task | Decide if AGL should be tax resident in IE or DE | `https://www.notion.so/332e413013148134b27bc69bb9771bc1` | Done on 2026-04-13; superseded by user instruction on 2026-05-13: mainly IE tax resident with German PE, 80/20 profit attribution. |
+| Superseded payroll-only tax task | AGL tax registration issues + setup | `https://www.notion.so/332e41301314818d8e09ea455a3d61b2` | Archived on 2026-05-13 because user confirmed AGL should file in both IE and DE; comment `35fe4130-1314-81d5-aec0-001d104bfd2c`. |
+| Monthly planned absence task | [Monthly] AGL - Ask Byron planned vacation/off days | `https://www.notion.so/35fe41301314814096b2cdc5beb780fa` | Created on 2026-05-13; assigned to Simoneta, cadence Monthly, first due/start date 2026-05-25. |
