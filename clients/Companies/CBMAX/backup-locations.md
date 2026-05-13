@@ -24,6 +24,11 @@ Notion has a previous Client Notes & Updates page:
 
 That page referenced old repo path `clients/cbmax/` and requested review of invoice correction details, Drive folder, and employment/accounting context. This 2026-05-13 pass supersedes the old flat-path reference by using `clients/Companies/CBMAX/` from the Notion `Reference` value.
 
+Status: approved for the Drive-folder question.
+Source: user follow-up confirmation on 2026-05-13.
+Imported: 2026-05-13.
+Review: The canonical Drive folder `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older pending Drive-folder question from the 2026-05-04 provisional import. Remaining review is only whether to create or update a Notion Client Notes & Updates backup page.
+
 ## Review Needed
 
 - Confirm whether to create a new Client Notes & Updates page for this 2026-05-13 reference-based load, or update the prior provisional page after user review.

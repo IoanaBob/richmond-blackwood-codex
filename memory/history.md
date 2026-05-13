@@ -321,7 +321,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Context read: `AGENTS.md`, storage/current-state/handoff memory, skill index, `rb-source-research`, `rb-client-file`, `rb-memory-capture`, Notion research skill, Gmail skill, existing VUN/CLV/RBL client folders, Notion Companies schema, CBMAX company/project/filing/contract/employment/correspondence/task records, Drive folder/search results, and Gmail CBMAX search results.
 - Actions taken: Created `clients/Companies/CBMAX/` using the exact Notion `Reference`, added company history, linked individuals, tax/VAT, contracts, payroll/accounting, communications, invoices/payments, project, Drive, Notion backup, source register, backup locations, open questions, and no-op client process/skill placeholder files.
 - Decisions made: Treat Simon as Semen based on the user's clarification; keep personal identifiers out of the company folder until individual folders are created; treat old `clients/cbmax/` Notion backup wording as superseded by the reference-based folder.
-- Verification: Notion, Drive, and Gmail reads succeeded; Notion SQL query tool was unavailable, so relation-filtered exports remain pending; `git diff --check` still needs to be run after final ledger edits.
+- Verification: Notion, Drive, and Gmail reads succeeded; Notion SQL query tool was unavailable, so relation-filtered exports remain pending; `git diff --check` passed before the CBMAX context commit.
 - Limitations or gaps: No Notion writes or Slack closeout were sent; outbound Slack closeout would need user approval. Full invoice/expense/task backfill still needs direct relation-filtered export or targeted fetches.
 
 ## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
@@ -350,3 +350,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep Claudio personal-tax/private detail only under `clients/Individuals/Claudio Brivio/` and avoid duplicating it in CBMAX company files.
 - Verification: `git diff --check` passed after review corrections.
 - Limitations or gaps: Exact Richmond Blackwood invoice IDs for H1/H2 billing still need invoice-record backfill.
+
+## 2026-05-13 - CBMAX Drive Folder Review Follow-up
+
+- User request: Confirm two remaining CBMAX Drive review points: whether `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older 2026-05-04 pending question, and whether sibling folders should be linked or organized under the canonical folder.
+- Context read: CBMAX Drive locations, open questions, backup locations, source registers, and durable memory.
+- Actions taken: Marked the canonical Drive folder as superseding the older pending Drive-folder question, kept sibling folders linked from the CBMAX client file, and recorded that they should be organized under the canonical folder when Drive cleanup is in scope.
+- Decisions made: Do not treat `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, or `CBMAX-payslips` as competing roots; treat them as CBMAX-related folders attached to the canonical folder decision.
+- Verification: Repo-only edit; `git diff --check` passed.
+- Limitations or gaps: No live Drive move/organization was performed during this repo update.

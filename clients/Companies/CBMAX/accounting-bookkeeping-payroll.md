@@ -53,7 +53,7 @@ User clarification on 2026-05-13: "Simon" is an employee; the relation is employ
 - The Claudio employment record links 27 payroll-run records.
 - The Semen employment record links 22 payroll-run records.
 - The Viktor employment record links 6 payroll-run records.
-- Drive search found folder `CBMAX-payslips` at `https://drive.google.com/drive/folders/1sV3OXjguY9N-5LQ7fKjPWOZ3JwblzscT`; it has not been listed during this pass.
+- Drive search found folder `CBMAX-payslips` at `https://drive.google.com/drive/folders/1sV3OXjguY9N-5LQ7fKjPWOZ3JwblzscT`. User confirmed on 2026-05-13 that this is a CBMAX-related sibling folder to link from the client file and organize under the canonical folder when Drive cleanup is in scope; contents have not been listed during this pass.
 
 ## Review Needed
 

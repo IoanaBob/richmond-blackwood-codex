@@ -20,7 +20,6 @@ Review: Resolve before treating CBMAX context as complete.
 
 ## Drive And Evidence
 
-- Confirm whether sibling folders `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` belong under the CBMAX client folder or should only be linked as source folders.
 - Confirm whether to create/update a Notion Client Notes & Updates backup page after user review.
 
 ## Invoice Backfill

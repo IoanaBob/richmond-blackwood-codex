@@ -52,6 +52,12 @@ Review update on 2026-05-13:
 - User confirmed Claudio's individual folder question is resolved because Claudio's personal-tax context was imported separately; avoid duplicate personal-tax detail in the company folder.
 - User confirmed Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` as the CBMAX folder.
 
+Follow-up confirmation on 2026-05-13:
+
+- User confirmed `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older pending Drive-folder question from the 2026-05-04 provisional import.
+- User confirmed `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` are valid CBMAX-related sibling folders to link from the client folder and organize under the canonical folder when Drive cleanup is in scope.
+- Repo pointers were updated; no live Drive move/organization was performed during this update.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:
