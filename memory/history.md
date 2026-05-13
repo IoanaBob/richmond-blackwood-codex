@@ -314,3 +314,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `git diff --check` passed.
 - Limitations or gaps: User review still needed before running the senior-review/commit/push sequence.
 - Next step: Ask the user to review.
+
+## 2026-05-13 - CBMAX Client Context Load
+
+- User request: Load CBMAX client context the same way other clients were loaded.
+- Context read: `AGENTS.md`, storage/current-state/handoff memory, skill index, `rb-source-research`, `rb-client-file`, `rb-memory-capture`, Notion research skill, Gmail skill, existing VUN/CLV/RBL client folders, Notion Companies schema, CBMAX company/project/filing/contract/employment/correspondence/task records, Drive folder/search results, and Gmail CBMAX search results.
+- Actions taken: Created `clients/Companies/CBMAX/` using the exact Notion `Reference`, added company history, linked individuals, tax/VAT, contracts, payroll/accounting, communications, invoices/payments, project, Drive, Notion backup, source register, backup locations, open questions, and no-op client process/skill placeholder files.
+- Decisions made: Treat Simon as Semen based on the user's clarification; keep personal identifiers out of the company folder until individual folders are created; treat old `clients/cbmax/` Notion backup wording as superseded by the reference-based folder.
+- Verification: Notion, Drive, and Gmail reads succeeded; Notion SQL query tool was unavailable, so relation-filtered exports remain pending; `git diff --check` still needs to be run after final ledger edits.
+- Limitations or gaps: No Notion writes or Slack closeout were sent; outbound Slack closeout would need user approval. Full invoice/expense/task backfill still needs direct relation-filtered export or targeted fetches.
+
+## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
+
+- User request: Load the CBMAX WhatsApp chat and read the latest decisions, specifically keeping tax residence up to date; then corrected that the 2026-03-30 Irish-VAT/no-German-VAT guidance was not yet accepted retroactively.
+- Context read: `rb-whatsapp-comms`, `rb-client-file`, `rb-memory-capture`, CBMAX client files, WhatsApp contact search for Claudio, and targeted WhatsApp message searches in `Brivio, Claudio | Richmond Blackwood`.
+- Actions taken: Recorded the reviewed WhatsApp chat pointer, updated CBMAX tax/VAT files so the 2025 treatment stays in limbo pending ROS retroactive acceptance, and moved the older Germany/Ireland wording into Notion cleanup/review rather than the live answer.
+- Decisions made: Keep CBMAX 2025 tax/VAT in limbo until ROS confirms the Irish VAT backdate from January 2025; Irish VAT `4388950KH` is issued, but the 2026-03-30 Irish-VAT/no-German-VAT guidance is pending, not settled.
+- Verification: WhatsApp bridge was listening on `127.0.0.1:8080`; WhatsApp contact/message MCP reads succeeded after using targeted searches. `list_chats` still returned the known MCP response-type error, so direct chat search was avoided.
+- Limitations or gaps: ROS final backdate/filing status is still unverified; older Notion tax-history wording still needs cleanup; no WhatsApp messages were sent.

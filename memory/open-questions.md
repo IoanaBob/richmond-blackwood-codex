@@ -69,6 +69,16 @@ Updated: 2026-05-12.
 - Review deductible and tax-credit applicability for Selin 2025 before marking any optional rows as claimed, including the days-based home-office allowance, commuting, equipment/training, health/care insurance, pension/retirement, donations, childcare, household services, and foreign/investment withholding credits.
 - Tie the 2025 opening balance sheet to the 2024 workbook closing balances or add an explicit provisional opening baseline note.
 
+## CBMAX Client Questions
+
+- Confirm whether the Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` is the canonical CBMAX folder for future source pointers and uploads.
+- Sync the Notion company record/tax-history callout with the corrected pending status: Irish VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so 2025 VAT/tax-residence treatment remains in limbo.
+- Confirm ROS's final response to the Irish VAT backdate request and the filing/payment status of the seven pending VAT filings referenced in WhatsApp on 2026-03-09.
+- Confirm whether German VAT number `DE451021099` or USt-IdNr. `DE455085802` should be retained as historical German VAT identifiers, written back to the company record's blank German VAT field, or left out of the active company field.
+- Confirm whether Hamburg tax number `17/070/40128` belongs to CBMAX and how it relates to Berlin tax number `29/648/60019`.
+- Confirm Semen's full legal name before creating an individual folder or importing personal payroll/bank identifiers.
+- Decide whether Claudio Brivio and Eran Peer need individual folders now, or only when personal-tax/KYC/private individual details are imported.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.

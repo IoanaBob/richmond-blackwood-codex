@@ -2,6 +2,50 @@
 
 Status: active.
 
+## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
+
+Imported:
+
+- WhatsApp chat `Brivio, Claudio | Richmond Blackwood` / `120363203209263793@g.us`.
+- Contact search for `Claudio`, followed by targeted WhatsApp message searches for CBMAX tax/VAT terms and recent messages after 2026-03-01.
+- User correction that the 2026-03-30 Irish-VAT/no-German-VAT guidance was not yet accepted retroactively and should stay in limbo until ROS accepts the backdate.
+
+Actions:
+
+- Updated CBMAX `tax-vat-filings.md` to keep 2025 VAT/tax-residence treatment in limbo pending ROS retroactive Irish VAT acceptance.
+- Recorded WhatsApp support for Irish VAT number `4388950KH`, intended retroactive VAT handling from January 2025, ROS backdate follow-up after the board meeting, and user correction that the 2026-03-30 Irish-VAT/no-German-VAT guidance is pending rather than settled.
+- Updated CBMAX communications, source register, open questions, memory current state, and handoff.
+
+Unresolved:
+
+- Confirm ROS's final response to the Irish VAT backdate request and the status/payment outcome of the seven pending VAT filings.
+- Sync the older Notion tax-history callout so it reflects the pending/limbo position.
+- Confirm whether German VAT identifiers should remain historical-only, be written back to Notion, or remain outside the active company field.
+
+## 2026-05-13 - CBMAX Client Context Load
+
+Imported:
+
+- Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`, confirming exact company `Reference` value `CBMAX`.
+- Notion client project `https://www.notion.so/32fe413013148034830cf9a1281b2f10`.
+- Notion individual records for Claudio Brivio and Eran Peer, used only for company-side relationship mapping.
+- Notion employment records for Claudio, Semen, and Viktor.
+- Notion filing-registration, contract, correspondence, and task records for high-signal CBMAX context.
+- Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` and selected top-level contents.
+- Gmail search results for CBMAX invoice correction, May 2026 letter, WeBuild invoice, and Lexware messages.
+- User clarification that Simon is Semen and Semen is an employee through the Employment relation.
+
+Actions:
+
+- Created `clients/Companies/CBMAX/` and routed company facts into domain files.
+- Recorded the old `clients/cbmax/` Notion import note as superseded by the reference-based folder.
+- Recorded open questions for tax-house status, Hamburg/Berlin VAT number mismatch, canonical Drive folder, invoice correction backfill, and individual-folder routing.
+
+Unresolved:
+
+- Notion SQL/data-source query errored, so full relation-filtered invoice/expense/task backfill remains pending.
+- No Notion update page or Slack closeout was sent; any outbound closeout needs review/approval first.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:

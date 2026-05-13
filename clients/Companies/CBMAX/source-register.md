@@ -1,0 +1,20 @@
+# Source Register
+
+Status: provisional.
+Notion backup: `notion-backup.md`.
+
+| Source | Date imported | Detail |
+| --- | --- | --- |
+| Notion Companies record | 2026-05-13 | CBMAX FORGEMATE VENTURES LIMITED company data, reference `CBMAX`, dashboard, project, filings, invoices, expenses, contracts, bank accounts, employment, and tax-history callout. |
+| Notion Individuals records | 2026-05-13 | Claudio Brivio and Eran Peer relationship context; personal details not copied into the company folder. |
+| User clarification | 2026-05-13 | User confirmed that Simon is Semen, that Semen is an employee, and that the relationship is simply Employment. |
+| Notion Employment records | 2026-05-13 | Claudio, Semen, and Viktor employment status, DE employment context, start/first payroll dates, gross monthly salaries, and payroll-run relation counts. |
+| Notion Filing Registrations | 2026-05-13 | RBO, annual returns, IE CT/VAT/VIES, DE corporation tax, trade tax, solidarity surcharge, DE VAT/USt-IdNr., and payroll registration context. |
+| Notion Client Project | 2026-05-13 | Project `PROJ-200`, status, owner mention, and high-signal tasks. |
+| Notion Contracts | 2026-05-13 | Job Guardian, Joblift, WeBuild, and Learn4Good contract summaries and statuses. |
+| Notion Correspondence and Tasks | 2026-05-13 | May 2026 letter, letter-review task, invoice correction correspondence/task, VAT/backdate tasks, and Hamburg tax-office task. |
+| Google Drive search and folder listing | 2026-05-13 | Found likely canonical folder `05. CBMAX Forgemate Ventures Limited (CBMAX)`, correspondence subfolders, May 2026 PDF, financial analysis, pending invoices, board/CO-SEC/bank-statement folders, and related folders. |
+| Gmail search | 2026-05-13 | Narrow CBMAX search found invoice correction/revised invoice thread, Johnpaul's May 2026 forwarded letter, WeBuild invoice thread, and low-signal Lexware messages. |
+| WhatsApp chat `Brivio, Claudio | Richmond Blackwood` / `120363203209263793@g.us` | 2026-05-13 | CBMAX WhatsApp context: Irish VAT `4388950KH` issued, VAT/backdate intended from January 2025, ROS backdate request/evidence follow-up after the board meeting, and 2026-03-30 Irish-VAT/no-German-VAT guidance later corrected as pending retroactive acceptance. |
+| User correction | 2026-05-13 | User clarified that the 2026-03-30 Irish-VAT/no-German-VAT position was not yet accepted retroactively, so until ROS accepts the backdate the 2025 VAT/tax-residence treatment must stay in limbo. |
+| Prior Notion Client Notes & Updates import | 2026-05-13 | `Codex provisional import - CBMAX` from 2026-05-04 references old flat repo path `clients/cbmax/`; this pass supersedes it with reference-based folder `clients/Companies/CBMAX/`. |
