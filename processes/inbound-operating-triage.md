@@ -32,14 +32,24 @@ Do not build a global active index before reading communications. First capture 
 
 Before writing anything, create a run change ledger from the captured communication batch. Append every verified change as it happens: source channel/link/message ID, classification, created/updated Notion/Drive/source records, associated task links, assignees, verification performed, report section, and approval-packet item ID when relevant. Build the final Slack closeout or approval-ready report from this verified ledger, not from memory.
 
+## Default Daily Window
+
+For the scheduled daily inbound triage automation, the default capture window starts at `08:00 Europe/Dublin` on the previous working day and ends at `08:00 Europe/Dublin` on the run day.
+
+- Do not shorten the window to "since the previous successful run" for the daily automation.
+- If the previous day is Saturday or Sunday, use `08:00 Europe/Dublin` on the most recent Friday.
+- If the scheduled run is re-run manually later on the same day, keep the original scheduled end time (`08:00 Europe/Dublin` on the run day) unless the operator explicitly asks for a same-day catch-up pass.
+- Use saved Gmail completion markers (`Triaged`) and WhatsApp checkpoints inside that window to avoid duplicate handling.
+- For ad hoc/manual triage runs outside the scheduled daily automation, the operator may supply a narrower or different window.
+
 ## Channel Registry
 
 Use these default read windows. If a connector is unavailable, mark that source `Skipped - connector unavailable` in the run ledger/final report, use only user-provided or already-verified context, and do not infer what might have happened there.
 
 | Channel | Read window / checkpoint | Completion marker |
 | --- | --- | --- |
-| Gmail | Inbox only. Read inbound messages in the current triage window that are not labelled `Triaged`; start with metadata, snippets, recipients, subjects, message IDs, labels, and attachment filenames before fetching full bodies/files. | Apply Gmail `Triaged` only after the item is fully saved/updated or a verified no-op classification succeeds. Do not archive by default. |
-| WhatsApp | Query saved or explicitly identified client chats by topic and time window. If `Last read message ID` exists, read after that ID; otherwise read after `Last read through`; if neither exists, use only the user-approved query/window and record the checkpoint blocker. | Advance the client checkpoint only after required handling for inspected topic chunks succeeds. |
+| Gmail | Inbox only. For the scheduled daily automation, read inbound messages received from `08:00 Europe/Dublin` on the previous working day through `08:00 Europe/Dublin` on the run day that are not labelled `Triaged`; start with metadata, snippets, recipients, subjects, message IDs, labels, and attachment filenames before fetching full bodies/files. For ad hoc/manual runs, use the operator-approved run window. | Apply Gmail `Triaged` only after the item is fully saved/updated or a verified no-op classification succeeds. Do not archive by default. |
+| WhatsApp | Query saved or explicitly identified client chats by topic and time window. For the scheduled daily automation, inspect new messages/topic chunks that fall within the default daily window while still respecting saved checkpoints. If the scheduled run is re-run manually later the same day, keep the original `08:00 Europe/Dublin` end time unless the operator explicitly asks for same-day catch-up. If `Last read message ID` exists, read after that ID; otherwise read after `Last read through`; if neither exists, use only the user-approved query/window and record the checkpoint blocker. | Advance the client checkpoint only after required handling for inspected topic chunks succeeds. |
 | Supporting systems | Not inbound channels for this workflow. Query Notion, Business Partners, Drive/files, client folders, Tasks, Invoicing, Expenses, and Communications only when a captured Gmail/WhatsApp item needs saving, matching, verification, or final notification. | Record verified writes/readbacks in the run ledger. |
 
 ## Classification And Safe Direct Writes
@@ -64,6 +74,7 @@ After the communication capture pass, split all expense and invoice items out of
 - Routine invoices, receipts, payment reminders, upcoming direct-debit notices, and payment receipts are not Correspondence unless they include a separate non-invoice operational request.
 - Do not create per-invoice or per-expense payment tasks; recurring finance processing covers those.
 - Expense records must have verified `Receipt / Invoice` evidence or an explicit blocker/human-uploaded-file note before the source item is complete.
+- SteuerGo charges are always paid by Richmond Blackwood: record SteuerGo expenses under `RICHMOND BLACKWOOD LIMITED` (RBL) even when the source email references a client mailbox or client tax-return context. Do not create tasks for automated SteuerGo registration/login confirmation emails; treat them as verified `no-op` source items and archive only when explicitly requested.
 
 For contractor or business-partner invoices:
 
@@ -112,15 +123,18 @@ Slack is not an inbound channel for this workflow. Use Slack only for the final 
 - Send one Slack message per triage run, not one per channel or per item.
 - Send the closeout to `#rb-client-updates` unless the user explicitly specifies another destination.
 - Build the message from the verified run ledger.
-- Tag the assignee on each task row when a Slack user mapping is available; if the Slack user mapping is unavailable, include the assignee name and record the missing tag as a blocker or verification gap.
+- Include the current Notion task status in every task row (`Status: To Do`, `Status: In Progress`, `Status: Done`, `Status: Archived`, etc.).
+- Tag the assignee on each task row when a Slack user mapping is available and the task is still active. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed; include the assignee only as historical ownership when useful.
+- If the closeout is not explicitly pre-authorized by the run prompt, include it as an approval packet item and explicitly ask the operator to approve sending it immediately after the rendered preview.
+- If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then verify the Slack message link and log it in RB Communications.
 - Write the Slack closeout as if it came from the user, in a concise first-person operating style. Do not use generic assistant-report headings such as `main things done`.
-- Use this section order when a section has entries:
+- Use this section order for the triage closeout. When a section has no rows, keep the heading and write `- None`.
   - Opening sentence: `I've finished the corrected <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.`
   - `New Correspondence`: one row per correspondence item as `<name>: <Correspondence link> / <Task link> - assigned to <@owner>`. Include the task link because the task must contain the actionable translated/read information.
-  - `New expenses (tag Simoneta)`: tag Simoneta and list each new expense as a linked expense name, with blockers inline only when they affect completion.
-  - `Received invoices (tag Simoneta)`: tag Simoneta and list each received/matched invoice as a linked invoice or finance blocker. Use this for incoming invoices, payment notices, receipts, and blocked finance matching that needs bookkeeping follow-up.
-  - `New tasks`: list standalone tasks created from communications that are not already covered by a Correspondence row, as `<task link> - assigned to <@owner>`.
-  - `Updated tasks`: list updated existing tasks as linked task names with the assignee tag and the short update made.
+  - `New expenses <@U0ALBF770E8>`: list each new/updated expense as a linked expense name, with blockers inline only when they affect completion. If there are no expense rows, use the heading `New expenses` without the owner tag and write `- None`.
+  - `Received invoices <@U0ALBF770E8>`: list each received/matched invoice as a linked invoice or finance blocker. Use this for incoming invoices, payment notices, receipts, and blocked finance matching that needs bookkeeping follow-up. If there are no invoice rows, use the heading `Received invoices` without the owner tag and write `- None`.
+  - `New tasks`: list standalone tasks created from communications that are not already covered by a Correspondence row, as `<task link> - Status: <status> - assigned to <@owner>`.
+  - `Updated tasks`: list updated existing tasks as linked task names with the current task status, assignee tag when the task is active, and the short update made. For a matched `Done` or `Archived` task, write `Status: Done` or `Status: Archived` and phrase the row as a verified match/no-op or audit note, not as a new action.
   - `Blocked / left open`: list only source items that intentionally remain incomplete, such as Workhub correction-required items or missing attachment/upload blockers.
 - Include created/updated Correspondence, Expenses, Invoicing records, tasks, Gmail `Triaged` counts, WhatsApp checkpoint changes, and blockers in the relevant sections instead of as a generic run log.
 - Do not include substantive client advice, promises, or sensitive context in Slack unless explicitly approved.

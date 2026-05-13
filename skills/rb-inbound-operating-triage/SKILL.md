@@ -21,6 +21,7 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 ## Run Workflow
 
 1. **Capture communications first**:
+   - Default daily automation window: `08:00 Europe/Dublin` on the previous working day through `08:00 Europe/Dublin` on the run day. Do not shorten the daily automation to "since the previous successful run". If today is Monday, use the previous Friday at `08:00 Europe/Dublin`. If the scheduled run is re-run manually later the same day, keep the original `08:00 Europe/Dublin` end time unless the operator explicitly asks for a same-day catch-up pass.
    - Gmail: read inbox-only inbound messages in the run window that are not labelled `Triaged`; start from metadata/snippets/attachments and fetch full bodies/files only when needed.
    - WhatsApp: query saved or explicitly identified client chats by topic and time window; extract topic chunks rather than message-by-message rows when several messages belong to the same discussion.
    - Do not read Slack, signatures, files, Drive folders, Notion, Calendar, HubSpot, or status systems as inbound channels in this workflow. Query supporting systems only after a Gmail/WhatsApp item needs saving, matching, verification, or final notification.
@@ -66,6 +67,8 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 - Do not create per-invoice or per-expense payment tasks.
 - De-duplicate finance records by source message ID, invoice/receipt number, supplier + amount + date, and unique reference.
 - Expense records need verified `Receipt / Invoice` evidence or a clear blocker/human-uploaded-file note before completion.
+- SteuerGo charges are always paid by Richmond Blackwood: categorise SteuerGo expenses under `RICHMOND BLACKWOOD LIMITED` (RBL) even when the source email references a client mailbox or client tax-return context.
+- Do not create tasks for automated SteuerGo registration/login confirmation emails (e.g. “Confirm your registration now”); mark as `no-op` after verification, label Gmail `Triaged`, and archive only when the operator explicitly requests archiving.
 - Query the Business Partners database for the billed party before routing contractor/business-partner invoices: `https://www.notion.so/Business-Partners-834796d901db48adb6273fb7db89eaf7?source=copy_link`.
 - If no Business Partner is found, save the item in Expenses and associate it with the relevant company/client.
 - If a Business Partner is found, Expense creation is blocked until all associated contract links are fetched and ruled out for the billed company/counterparty context. Supplier-to-RB wording, a negative contract amount, or an invoice addressed to Richmond Blackwood does not by itself make the item an Expense.
@@ -81,9 +84,12 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 - Send one Slack message per triage run when requested/pre-authorized or approved in the batch packet.
 - Send the closeout to `#rb-client-updates` unless the user explicitly specifies another destination.
 - Build the message from the verified run ledger.
-- Tag each task assignee when a Slack user mapping is available; otherwise include the assignee name and note the missing mapping as a verification gap.
+- Include the current Notion task status in every task row.
+- Tag each task assignee when a Slack user mapping is available and the task is still active; otherwise include the assignee name and note the missing mapping as a verification gap. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed.
+- If the closeout is not explicitly pre-authorized, include it as a batch approval packet item and **explicitly ask** the operator to approve sending it right after the rendered preview.
+- If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then log the sent Slack message link in RB Communications.
 - Write the closeout as if it came from the user, in concise first-person operating language. Do not use generic assistant-report headings like `main things done`.
-- Use the closeout shape below, omitting empty sections:
+- Use the closeout shape below. When a section has no rows, keep the heading and write `- None`. For empty finance sections, omit the finance owner tag from the heading so the empty section does not ping anyone.
 
 ```text
 I've finished the corrected <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.
@@ -91,21 +97,23 @@ I've finished the corrected <date/window> inbound triage pass. I read the corres
 New Correspondence
 - <name>: <Correspondence link> / <Task link> - assigned to <@owner>
 
-New expenses (tag Simoneta)
+New expenses <@U0ALBF770E8>
 - <expense name link>
 
-Received invoices (tag Simoneta)
+Received invoices <@U0ALBF770E8>
 - <invoice or finance blocker link>
 
 New tasks
-- <task link> - assigned to <@owner>
+- <task link> - Status: <status> - assigned to <@owner>
 
 Updated tasks
-- <task link> - <short update> - assigned to <@owner>
+- <task link> - Status: <status> - <short update> - assigned to <@owner when active>
 
 Blocked / left open
 - <source/record> - <reason>
 ```
+- If `New expenses` or `Received invoices` is empty, write the heading without `<@U0ALBF770E8>` and add `- None`.
+- If an inbound item matches a task whose status is `Done` or `Archived`, list it only when the match is material to the run, include the status in the row, and describe it as a verified existing/no-op or audit note rather than an active update.
 - Keep row links and owner tags from the verified ledger. If a Slack user mapping is missing, use the assignee name and report the missing mapping.
 
 ## Client Validation Rules
