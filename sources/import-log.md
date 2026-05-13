@@ -114,6 +114,28 @@ Client Notes & Updates review on 2026-05-13:
 - Read the existing `Codex provisional import - CBMAX` Client Notes & Updates page; it is an internal record with the old `clients/cbmax/` path and fragments for invoice correction, `CBMAX Financial Analysis`, and possible employment/accounting context.
 - Updated CBMAX backup/open-question files and the general client backup process/skill; no live Notion Client Notes & Updates page was changed.
 
+## 2026-05-13 - AGL And Byron Context Import
+
+Applied:
+
+- Created `clients/Companies/AGL/` from the Notion company `Reference` and populated company-side context from Notion, Drive, Gmail, and user instruction.
+- Created `clients/Individuals/Byron Jarvis Frasier/` for Byron-specific personal-tax, US asset/investment, bank-account, and filing context.
+- Recorded AGL's current tax position: Irish tax resident, Ioana as sole director, German PE for Byron/staff, filings in IE and DE, 80%/20% IE/DE profit attribution, 2024 German filings submitted and awaiting Finanzamt feedback, and 2024 IE corporation tax still pending.
+- Captured the weekly Syntentia billing rule, monthly planned vacation/off-days check, and exact future email format in `clients/Companies/AGL/invoices-payments-expenses.md`.
+- Added the general recurring outbound invoicing rule and AGL Syntentia hook to inbound operating triage process/skill so this does not become a bespoke AGL task.
+
+Verification:
+
+- Notion, Drive, and Gmail sources were read directly through connectors; no Notion, Drive, Gmail, Slack, or WhatsApp records were modified.
+- Canonical Drive folder `04. Agile Lincs Limited (AGL)` was found under the external client root.
+
+Follow-up:
+
+- Reconcile stale Notion field for AGL tax residence.
+- Wait for Finanzamt feedback before treating the 2024 German PE allocation as accepted.
+- Confirm next Dublin quarterly board meeting and complete the 2024 IE corporation tax filing once the use-case handling is settled.
+- Set up Byron personal-tax analysis from the maintained native German personal-tax template when active work begins.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:

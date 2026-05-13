@@ -143,6 +143,19 @@ Claudio Brivio individual context:
 - Analysis spreadsheet file: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`
 - Status: personal-tax/private context loaded on 2026-05-13. The former company-side question about whether Claudio needs an individual folder is resolved; avoid duplicating Claudio personal-tax detail in CBMAX company files. 2024 is in progress in Notion and evidence exists in Drive, but review remains open for February 2024 CBMAX payroll, CBMAX 2024 Lohnsteuerbescheinigung, TK/Hallesche reconciliation, Section 138 AO filing approach for CBMAX and Job Guardian, Joblift Reisekosten vs Pendlerpauschale, and whether the existing `.xlsx` analysis should be migrated to the maintained native machine-readable template. 2025 filing is pending with no Drive docs recorded in Notion.
 
+AGL / Byron Jarvis Frasier context import:
+
+- Company folder: `clients/Companies/AGL/`.
+- Individual folder: `clients/Individuals/Byron Jarvis Frasier/`.
+- Notion company: `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`; `Reference` is `AGL`.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1QnVBrQ0lgDe8UVqZyW9B7zdBMCC_LgAE`, under the external client root.
+- Current user-instructed tax position: AGL is Irish tax resident with an Irish tax number and Ioana as Irish director from inception, has a German permanent establishment for Byron/staff, files in IE and DE, attributes 80% of profits to IE and 20% to the German PE, and has filed 2024 in Germany while awaiting Finanzamt feedback. 2024 IE corporation tax remains to be filed after the treatment is settled.
+- Current roles: Ioana is the only director; Byron is UBO and board observer.
+- Notion conflict to reconcile: company `Tax Residence` currently says Germany.
+- Weekly Syntentia invoicing: AGL uses a recurring weekly process with separate service and expense invoices for the same week. Byron may provide expenses late; handle reminders through the general recurring finance evidence-aging/reminder process, not a special AGL task. Ask Byron monthly about planned vacation/off days for the next month so day-based weekly service invoices use the right day count. Email format and recipients are captured in `clients/Companies/AGL/invoices-payments-expenses.md`.
+- Governance: Byron needs quarterly Dublin board meetings as UBO and board observer for the Irish tax-residence position. Drive board-meeting folders currently listed: 2025-08-05, 2025-11-03, 2026-02-24.
+- Byron personal-tax context is routed to the individual folder: Germany personal tax filings for 2024 and 2025, US apartment, US Roth/IRA/brokerage context, personal Wise account, and SteuerGo data retrieval request from Gmail message `19e20f06924b8d7b`.
+
 Communication workflow update:
 
 - For Slack messages requiring review, put the proposed text in Codex chat first as a rendered, readable preview with clickable named links, not as a fenced raw Markdown/code block. When the runtime exposes a working Codex approval prompt/notification, use it for Slack send approval instead of typed chat approval, especially when the operator requests notification-based approval. Do not claim a notification was sent unless the prompt tool succeeds. If the native prompt is unavailable and the operator approves a popup fallback, use a local macOS approval dialog: the sandbox prompt only authorizes showing the dialog, and Slack may be sent only after the dialog returns the explicit Send choice. After approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.

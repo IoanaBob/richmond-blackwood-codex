@@ -441,3 +441,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat Client Notes & Updates as a client-facing context/update table, not a generic Codex repo-summary backup; keep the Slack closeout limitation as a general client-backfill rule rather than CBMAX-specific context.
 - Verification: Notion fetch read the existing internal Client Notes page; `git diff --check` passed.
 - Limitations or gaps: No live Notion Client Notes & Updates page was changed during this cleanup.
+
+## 2026-05-13 - AGL And Byron Context Import
+
+- User request: Load AGL context the same way as the other clients, route Byron's personal tax, record weekly Syntentia invoicing, and start from fresh `origin/main` after the Claudio branch merge.
+- Context read: Notion company/project/employment/contracts/tax filings/personal-tax records, Google Drive AGL folders, Gmail Syntentia/ELSTER/SteuerGo threads, repo client templates, inbound triage process/skill, and memory/source logs.
+- Actions taken: Created `clients/Companies/AGL/` and `clients/Individuals/Byron Jarvis Frasier/`, routed company facts and Byron personal-tax facts separately, captured the active Syntentia weekly service/expense invoicing format, and added a general recurring outbound invoicing rule plus AGL client hook to inbound triage.
+- Decisions made: Treat AGL's Irish tax-residence/German PE/80-20 profit attribution as the current user-instructed operating position while marking Notion tax residence for review; record Ioana as the only director and Byron as UBO/board observer; keep Byron's US apartment, Roth/IRA, and brokerage context in the individual folder.
+- Verification: Connector reads completed for Notion, Drive, and Gmail; no live Notion/Drive/Gmail records were modified during the import.
+- Limitations or gaps: Needs user review, Notion reconciliation for stale company fields, Finanzamt feedback, next Dublin board meeting confirmation, and active Byron personal-tax workbook setup.

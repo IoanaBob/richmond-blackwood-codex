@@ -25,6 +25,9 @@ Imported: 2026-05-04.
 | Confirm whether RB should enable optional WhatsApp MCP for all operators or only this local Codex setup. | 2026-05-05 |
 | Confirm which WhatsApp account/number should be linked for RB work. | 2026-05-05 |
 | Finalise Nathan 2025 personal tax audit after the missing N26 October 2025 statement, invoice/receipt evidence, Revolut GBP FX review, prepayment amounts, and non-USDC investment cost-basis lots are supplied or confirmed in Drive. | 2026-05-06 |
+| Ask user to review the AGL and Byron context import before commit/Notion reconciliation. | 2026-05-13 |
+| After review, reconcile AGL Notion tax-residence and director conflicts if the user confirms live Notion should be updated. | 2026-05-13 |
+| Set up Byron personal-tax analysis from the maintained native German personal-tax template when active work begins. | 2026-05-13 |
 
 ## Done
 
