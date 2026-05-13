@@ -323,3 +323,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Live readbacks are configuration evidence only; do not store API keys, MCP tokens, phone numbers, recordings, transcripts, or client call payloads in git.
 - Verification: `npm run calls:sync-live-state`, `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed before commit. A targeted readback scan found only policy text, header/variable names, and `shareable_token: null`.
 - Limitations or gaps: `RB Calls ElevenLabs Events` has active version `29dc070e-2951-4f7f-931b-6b24ea793fc5` and draft version `48d12009-db89-4c75-8df1-6e48564f12ed`; review before publishing or deploying over it.
+
+## 2026-05-13 - RB Calling Bot API Language Override
+
+- User request: Fix German calls starting in English, specifically by changing the ElevenLabs outbound API call to use the right language.
+- Context read: Live n8n/ElevenLabs readbacks, ElevenLabs override settings, official ElevenLabs override documentation, and the current n8n voice payload source.
+- Actions taken: Updated `RB Calls Voice Execution` so the outbound call payload sends `conversation_initiation_client_data.conversation_config_override.agent.language` as `de` for German contacts and `en` otherwise, while retaining prompt variables `language` and `language_code`. Updated the ElevenLabs agent to keep the user's default English opener and to set the German language-preset opener to a German equivalent.
+- Decisions made: Prompt-only `{{language}}` is insufficient for call language selection; the n8n outbound API payload must set the ElevenLabs language override.
+- Verification: n8n workflow `3xJh7hNK0Zl9T4zS` was validated, updated, and published at active version `360489d3-02da-4a84-bfbd-0a0d168054e9`; ElevenLabs `RB Call Bot` verified at version `agtvrsn_2001krh88kp2f49sq04f81qemvb3`; live readbacks confirm the API override payload and German preset first message.
+- Limitations or gaps: A real German test call is still needed to verify ElevenLabs selects the `de` preset and speaks German from the opening.

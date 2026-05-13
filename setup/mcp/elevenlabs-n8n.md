@@ -249,11 +249,13 @@ Current RB live-help patch target as of 2026-05-13:
 - ElevenLabs global background music is currently disabled because the `elevator2` startup setting correlated with one-second/two-second technical-failure calls and played immediately on opening. Reintroduce hold audio only after a stable startup retry, and preferably through a hold-only mechanism rather than global call music.
 - The live-help tools should have `response_timeout_secs` of at least 60 seconds so a 30-second n8n Wait has margin.
 
-Current RB call-opening patch target as of 2026-05-13:
+Current RB call-opening and language patch target as of 2026-05-13:
 
-- First audible message: `Hello, my name is Alexander Gulin. I am calling about an administrative matter for a client, and I would like to make sure I am speaking with the right department.`
+- Default English first audible message: `Hello, my name is Alexander Gulin. I am calling regarding an administrative matter for a client and would like to make sure I am speaking with the right department.`
+- German first audible message lives in the ElevenLabs `de` language preset and is the German equivalent of the default opener.
 - The first message is intentionally static and contains no `{{...}}` placeholders because direct/manual ElevenLabs tests may start without n8n client data.
-- Immediately after the authority/contact answers, identify the represented subject if available: `I am calling on behalf of {{represented_subject}}.`
+- n8n must set `conversation_initiation_client_data.conversation_config_override.agent.language` on the outbound-call API payload: `de` for German contacts and `en` otherwise. The prompt variables `language` and `language_code` are only support context; the API override is what selects the actual call language.
+- Immediately after the authority/contact answers, identify Alexander Gulin and the represented subject in the call language if available.
 - n8n `RB Calls Voice Execution` must send `caller_name`, `represented_subject`, `representative_entity`, `representative_role`, `representation_authority`, and `poa_speech_rule`.
 - The ElevenLabs agent-level placeholder registry must include safe defaults for every n8n dynamic variable used by the agent/tools, including live-help IDs and full context JSON variables, so missing direct-test client data degrades into fallback wording rather than a technical failure.
 - Richmond Blackwood Limited is not mentioned in the first substantive sentence.

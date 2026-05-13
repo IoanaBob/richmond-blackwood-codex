@@ -1040,3 +1040,37 @@ Verification:
 Open questions:
 
 - Review why `RB Calls ElevenLabs Events` has a current draft version different from the active version before publishing or deploying over it.
+
+## 2026-05-13 - RB Calls API Language Override
+
+Imported:
+
+- User instruction that German calls were still starting in English and the outbound API call should set the right language.
+- n8n `RB Calls Voice Execution` workflow `3xJh7hNK0Zl9T4zS`, published active version `360489d3-02da-4a84-bfbd-0a0d168054e9`.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_2001krh88kp2f49sq04f81qemvb3`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- Official ElevenLabs override documentation checked on 2026-05-13.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- The n8n outbound payload now includes `conversation_initiation_client_data.conversation_config_override.agent.language`.
+- German contacts map to API language code `de`; non-German contacts map to `en`.
+- The default ElevenLabs first message remains the user-provided English opener, and the German language preset contains the German opener.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, or client call payloads.
+
+Verification:
+
+- n8n validation/update/publish succeeded.
+- ElevenLabs patch read-back verified the default and German-preset first messages.
+- Live readback snapshots were refreshed.
+
+Open questions:
+
+- Run a German test call and confirm the first message uses the German preset.
