@@ -34,6 +34,8 @@ Do not create Notion or Drive client entries when the company relation, target d
 
 Use Notion first for long-lived operational records that need frequent access and fit an existing table: company information, individual information, contracts, employment, payslips, invoices, expenses, correspondence, tasks, and filings.
 
+Use Client Notes & Updates for important client-facing information or updates that should be communicated or visible to the client. Do not use it as a generic Codex repo-summary backup when the content is only internal routing or working memory.
+
 Use Drive for source documents and evidence that do not fit cleanly in Notion or do not need frequent operational access. In git, record only pointers, routing notes, and blockers.
 
 ## Entity Ownership

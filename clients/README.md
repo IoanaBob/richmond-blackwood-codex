@@ -18,10 +18,13 @@ Do not invent slugs from company names. The reference is also used in Drive file
 Active company pilot:
 
 - `clients/Companies/VUN/` for VANDY UN LIMITED.
+- `clients/Companies/CBMAX/` for CBMAX FORGEMATE VENTURES LIMITED.
 
 Active individual pilot:
 
 - `clients/Individuals/Nathan Mawali A Vandy/` for Nathan Mawali A Vandy.
+- `clients/Individuals/Selin Ozkohen/` for Selin Ozkohen.
+- `clients/Individuals/Claudio Brivio/` for Claudio Brivio.
 
 Templates:
 

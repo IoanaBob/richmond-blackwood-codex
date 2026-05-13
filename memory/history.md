@@ -357,3 +357,79 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Rewrote only non-formula `Expenses` input cells into receipt-level rows with exact receipt-file URLs, split iCloud, Telekom mobile, EE mobile, and business meals into individual invoice/receipt rows, rendered scanned meal receipts where Drive OCR was empty, and added Notion correction comments to the filing record and linked task.
 - Decisions made: Keep formulas untouched in `Expenses` and calculation tabs. Correct the business-meal claim from the prior aggregate to EUR 506.59, representing 70 percent of EUR 723.70 receipt-backed gross/tip-supported meal amounts.
 - Verification: Sheets read-back found no receipts-folder URL remaining in `Expenses!A1:Q80`, confirmed formula cells remain present in key `Expenses` formula columns and `Tax Analysis!B3:B14`, and confirmed current formula-driven values: revenue EUR 22,000, business expenses incl. home-office EUR 4,479.95, net business PNL EUR 17,520.05, other personal deductions EUR 6,268.81, and income after deductions EUR 11,251.24.
+
+## 2026-05-11 - Communications-First Inbound Triage Review
+
+- User request: Adjust the inbound triage workflow to remove slow global indexing and broad channel reads, prioritizing Gmail inbox and WhatsApp topic extraction instead.
+- Context read: `AGENTS.md`, `skills/index.md`, inbound triage process/skill, process maintenance skill, memory capture skill, memory ledgers, handoff, source logs, and people-role defaults.
+- Actions taken: Reworked inbound triage to capture communications first, split invoices/expenses before other work, query Business Partners/contracts/contract-linked Invoicing for contractor/business-partner invoices, check existing paid/completed records before creating Expenses, group remaining items by company/topic, require correspondence translations to feed task content, and use one assignee-tagged Slack closeout per triage when requested.
+- Files changed: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, process/skill indexes, source logs, and memory files.
+- Decisions made: Slack, signatures, files, Drive, Notion, and status systems are supporting systems for this workflow, not inbound channels to be queried just because access exists.
+- Verification: `git diff --check` passed.
+- Limitations or gaps: Next live run must verify Business Partners, Contract, and Invoicing field names plus Slack user mappings for assignee tags.
+- Next step: Validate the workflow on the next supervised live triage.
+
+## 2026-05-11 - RBL Invoice Validation And RB Commitment Task Rule
+
+- User request: Address diff comments that Workhub validation is not an edge case, and add a rule that actionable RB-team statements should create tasks.
+- Context read: RBL invoice files, inbound triage process/skill, communications process, source registers, import log, and existing memory ledgers.
+- Actions taken: Moved Workhub invoice validation into `clients/Companies/RBL/invoices-payments-expenses.md`, deleted `clients/Companies/RBL/edge-cases.md`, renamed the general triage hook to client validation rules, and added task triggers for RB-side commitments such as “we will do/look/check/tell/update/send” or “I will”.
+- Files changed: RBL client files, inbound triage process/skill, communications process, source logs, and memory files.
+- Decisions made: Workhub validation is normal invoice validation inside the RBL finance domain, not a separate edge-case file.
+- Verification: `git diff --check` passed.
+- Limitations or gaps: User review still needed before running the senior-review/commit/push sequence.
+- Next step: Ask the user to review.
+
+## 2026-05-13 - CBMAX Client Context Load
+
+- User request: Load CBMAX client context the same way other clients were loaded.
+- Context read: `AGENTS.md`, storage/current-state/handoff memory, skill index, `rb-source-research`, `rb-client-file`, `rb-memory-capture`, Notion research skill, Gmail skill, existing VUN/CLV/RBL client folders, Notion Companies schema, CBMAX company/project/filing/contract/employment/correspondence/task records, Drive folder/search results, and Gmail CBMAX search results.
+- Actions taken: Created `clients/Companies/CBMAX/` using the exact Notion `Reference`, added company history, linked individuals, tax/VAT, contracts, payroll/accounting, communications, invoices/payments, project, Drive, Notion backup, source register, backup locations, open questions, and no-op client process/skill placeholder files.
+- Decisions made: Treat Simon as Semen based on the user's clarification; keep personal identifiers out of the company folder until individual folders are created; treat old `clients/cbmax/` Notion backup wording as superseded by the reference-based folder.
+- Verification: Notion, Drive, and Gmail reads succeeded; Notion SQL query tool was unavailable, so relation-filtered exports remain pending; `git diff --check` passed before the CBMAX context commit.
+- Limitations or gaps: No Notion writes or Slack closeout were sent; outbound Slack closeout would need user approval. Full invoice/expense/task backfill still needs direct relation-filtered export or targeted fetches.
+
+## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
+
+- User request: Load the CBMAX WhatsApp chat and read the latest decisions, specifically keeping tax residence up to date; then corrected that the 2026-03-30 Irish-VAT/no-German-VAT guidance was not yet accepted retroactively.
+- Context read: `rb-whatsapp-comms`, `rb-client-file`, `rb-memory-capture`, CBMAX client files, WhatsApp contact search for Claudio, and targeted WhatsApp message searches in `Brivio, Claudio | Richmond Blackwood`.
+- Actions taken: Recorded the reviewed WhatsApp chat pointer, updated CBMAX tax/VAT files so the 2025 treatment stays in limbo pending ROS retroactive acceptance, and moved the older Germany/Ireland wording into Notion cleanup/review rather than the live answer.
+- Decisions made: Keep CBMAX 2025 tax/VAT in limbo until ROS confirms the Irish VAT backdate from January 2025; Irish VAT `4388950KH` is issued, but the 2026-03-30 Irish-VAT/no-German-VAT guidance is pending, not settled.
+- Verification: WhatsApp bridge was listening on `127.0.0.1:8080`; WhatsApp contact/message MCP reads succeeded after using targeted searches. `list_chats` still returned the known MCP response-type error, so direct chat search was avoided.
+- Limitations or gaps: ROS final backdate/filing status is still unverified; older Notion tax-history wording still needs cleanup; no WhatsApp messages were sent.
+
+## 2026-05-13 - Claudio Brivio Individual Context Load
+
+- User request: After committing CBMAX context, create a separate commit for Claudio's personal-tax individual context, same as the other individual clients.
+- Context read: `AGENTS.md`, `skills/index.md`, `rb-personal-tax-analysis-de`, Notion individual/employment/filing/task records, Drive 2024 personal-tax folder and tracker/notes, WhatsApp personal-tax decisions in `Brivio, Claudio | Richmond Blackwood`, Gmail searches, CBMAX linked-individuals, client folder standards, and durable memory ledgers.
+- Actions taken: Created `clients/Individuals/Claudio Brivio/` using the legal name from Notion, routed personal-tax/private facts into individual files, wired CBMAX `linked-individuals.md` back to the new folder, and recorded source/open-question/memory pointers.
+- Decisions made: Treat the existing 2024 evidence package as present but not filing-ready; keep Notion/Drive/task sync questions open rather than creating new tasks or changing live filing fields during a context-only load.
+- Verification: Notion comments for the individual and filing records returned no comment threads; Drive folder listings and file fetches succeeded; Gmail search found no dedicated personal-tax email thread.
+- Limitations or gaps: No Notion fields, Drive files, or outbound communications were changed. The 2024 filing still needs payroll, health-insurance, Section 138 AO, Joblift travel, and workbook-template review.
+
+## 2026-05-13 - CBMAX PR Review Corrections
+
+- User request: Apply review clarifications for CBMAX fee billing, Claudio individual-folder routing, and the canonical Drive folder.
+- Context read: CBMAX company README, accounting/payroll, history, Drive locations, open questions, memory, source logs, and Claudio individual routing files.
+- Actions taken: Clarified that EUR 950 is the discounted monthly RB fee because CBMAX pays in six-month H1/H2 bulk periods, with H1 already paid and recorded in Richmond Blackwood invoices; marked the CBMAX Drive folder as canonical; removed resolved Claudio individual-folder questions from company open questions; preserved only company-side pointers to Claudio's individual folder.
+- Decisions made: Keep Claudio personal-tax/private detail only under `clients/Individuals/Claudio Brivio/` and avoid duplicating it in CBMAX company files.
+- Verification: `git diff --check` passed after review corrections.
+- Limitations or gaps: Exact Richmond Blackwood invoice IDs for H1/H2 billing still need invoice-record backfill.
+
+## 2026-05-13 - CBMAX Drive Folder Review Follow-up
+
+- User request: Confirm two remaining CBMAX Drive review points: whether `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older 2026-05-04 pending question, and whether sibling folders should be linked or organized under the canonical folder.
+- Context read: CBMAX Drive locations, open questions, backup locations, source registers, and durable memory.
+- Actions taken: Marked the canonical Drive folder as superseding the older pending Drive-folder question, kept sibling folders linked from the CBMAX client file, and recorded that they should be organized under the canonical folder when Drive cleanup is in scope.
+- Decisions made: Do not treat `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, or `CBMAX-payslips` as competing roots; treat them as CBMAX-related folders attached to the canonical folder decision.
+- Verification: Repo-only edit; `git diff --check` passed.
+- Limitations or gaps: No live Drive move/organization was performed during this repo update.
+
+## 2026-05-13 - CBMAX Client Notes Review Cleanup
+
+- User request: Resolve the CBMAX Client Notes & Updates backup question and clarify why the Slack closeout rule appeared in CBMAX-specific notes.
+- Context read: CBMAX Notion backup files, backup locations, open questions, source logs, general client backup process, `rb-client-file`, and the existing `Codex provisional import - CBMAX` Client Notes & Updates page.
+- Actions taken: Removed the CBMAX-specific open question about backing up the repo summary to Client Notes & Updates, recorded that no new/update page is needed for the 2026-05-13 repo summary, read back the existing internal Client Notes entry, and moved the Client Notes & Updates usage guidance into the general backup process/skill.
+- Decisions made: Treat Client Notes & Updates as a client-facing context/update table, not a generic Codex repo-summary backup; keep the Slack closeout limitation as a general client-backfill rule rather than CBMAX-specific context.
+- Verification: Notion fetch read the existing internal Client Notes page; `git diff --check` passed.
+- Limitations or gaps: No live Notion Client Notes & Updates page was changed during this cleanup.

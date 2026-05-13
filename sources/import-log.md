@@ -48,6 +48,70 @@ Follow-up:
 
 - The fresh template-copy workbook is in the supplied Mark folder. Final filing review should confirm the EUR 15,000 GbR profit support, MacBook deduction/depreciation treatment, mobile-phone business-use percentages, missing M1-3 iCloud support if any, and business-meal receipt/formality requirements.
 
+## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
+
+Imported:
+
+- WhatsApp chat `Brivio, Claudio | Richmond Blackwood` / `120363203209263793@g.us`.
+- Contact search for `Claudio`, followed by targeted WhatsApp message searches for CBMAX tax/VAT terms and recent messages after 2026-03-01.
+- User correction that the 2026-03-30 Irish-VAT/no-German-VAT guidance was not yet accepted retroactively and should stay in limbo until ROS accepts the backdate.
+
+Actions:
+
+- Updated CBMAX `tax-vat-filings.md` to keep 2025 VAT/tax-residence treatment in limbo pending ROS retroactive Irish VAT acceptance.
+- Recorded WhatsApp support for Irish VAT number `4388950KH`, intended retroactive VAT handling from January 2025, ROS backdate follow-up after the board meeting, and user correction that the 2026-03-30 Irish-VAT/no-German-VAT guidance is pending rather than settled.
+- Updated CBMAX communications, source register, open questions, memory current state, and handoff.
+
+Unresolved:
+
+- Confirm ROS's final response to the Irish VAT backdate request and the status/payment outcome of the seven pending VAT filings.
+- Sync the older Notion tax-history callout so it reflects the pending/limbo position.
+- Confirm whether German VAT identifiers should remain historical-only, be written back to Notion, or remain outside the active company field.
+
+## 2026-05-13 - CBMAX Client Context Load
+
+Imported:
+
+- Notion company record `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`, confirming exact company `Reference` value `CBMAX`.
+- Notion client project `https://www.notion.so/32fe413013148034830cf9a1281b2f10`.
+- Notion individual records for Claudio Brivio and Eran Peer, used only for company-side relationship mapping.
+- Notion employment records for Claudio, Semen, and Viktor.
+- Notion filing-registration, contract, correspondence, and task records for high-signal CBMAX context.
+- Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` and selected top-level contents; user later confirmed this is the relevant CBMAX Drive folder.
+- Gmail search results for CBMAX invoice correction, May 2026 letter, WeBuild invoice, and Lexware messages.
+- User clarification that Simon is Semen and Semen is an employee through the Employment relation.
+
+Actions:
+
+- Created `clients/Companies/CBMAX/` and routed company facts into domain files.
+- Recorded the old `clients/cbmax/` Notion import note as superseded by the reference-based folder.
+- Recorded open questions for tax-house status, Hamburg/Berlin VAT number mismatch, invoice correction backfill, and private individual-folder routing.
+
+Unresolved:
+
+- Notion SQL/data-source query errored, so full relation-filtered invoice/expense/task backfill remains pending.
+- No Notion update page or Slack closeout was sent; any outbound closeout needs review/approval first.
+
+Review update on 2026-05-13:
+
+- User clarified the EUR 950 monthly RB fee is after discount because CBMAX pays six-month H1/H2 periods in bulk; H1 has already been paid and is recorded in Richmond Blackwood invoices.
+- User confirmed Claudio's individual folder question is resolved because Claudio's personal-tax context was imported separately; avoid duplicate personal-tax detail in the company folder.
+- User confirmed Drive folder `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn` as the CBMAX folder.
+
+Follow-up confirmation on 2026-05-13:
+
+- User confirmed `05. CBMAX Forgemate Ventures Limited (CBMAX)` supersedes the older pending Drive-folder question from the 2026-05-04 provisional import.
+- User confirmed `02.2_CBMAX_Feb-Dec`, `03.1_CBMAX_Ireland`, and `CBMAX-payslips` are valid CBMAX-related sibling folders to link from the client folder and organize under the canonical folder when Drive cleanup is in scope.
+- Repo pointers were updated; no live Drive move/organization was performed during this update.
+
+Client Notes & Updates review on 2026-05-13:
+
+- User confirmed the 2026-05-13 CBMAX repo summary does not need to be backed up as a new Client Notes & Updates page or used to update the existing `Codex provisional import - CBMAX` page.
+- User clarified that Client Notes & Updates is used for important client-facing information and can be read as context during future client work.
+- User noted that the Slack closeout rule about listing only Notion records actually added or modified is a general process rule, not CBMAX-specific.
+- Read the existing `Codex provisional import - CBMAX` Client Notes & Updates page; it is an internal record with the old `clients/cbmax/` path and fragments for invoice correction, `CBMAX Financial Analysis`, and possible employment/accounting context.
+- Updated CBMAX backup/open-question files and the general client backup process/skill; no live Notion Client Notes & Updates page was changed.
+
 ## 2026-05-08 - Company Client File Routing Cleanup
 
 Applied:
@@ -883,6 +947,111 @@ Open routing blockers:
 
 All RB-specific imported facts remain provisional.
 
+## 2026-05-11 Diff Review: RBL Invoice Validation And RB Commitments
+
+- Source: user diff review in Codex thread.
+- Scope: move Workhub invoice validation out of `clients/Companies/RBL/edge-cases.md` because it is normal RBL invoice validation, not an edge case; add a rule that actionable Richmond Blackwood team commitments such as “we will do/look/check/tell/update/send” or “I will” should create or update tasks.
+- Imported to: `clients/Companies/RBL/invoices-payments-expenses.md`, `clients/Companies/RBL/source-register.md`, `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/communications.md`, `sources/source-register.md`, `memory/history.md`, and `memory/skill-runs.md`.
+- Removed: `clients/Companies/RBL/edge-cases.md`.
+- Status: provisional pending user review.
+- Unresolved questions: none.
+
+## 2026-05-11 Communications-First Triage Review
+
+- Source: user workflow review in Codex thread.
+- Scope: make inbound operating triage communication-first instead of active-index-first; prioritize Gmail inbox and WhatsApp topic extraction; exclude Slack, signatures, files, and status systems as inbound channels; split expenses/invoices before other work; route contractor/business-partner invoices through Business Partners, associated contracts, and contract-linked Invoicing records, including existing paid/completed records before Expenses; group remaining work by company/topic; require correspondence translations to be usable in tasks; require one assignee-tagged Slack closeout per triage when requested.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, `sources/source-register.md`, `memory/handoff.md`, `memory/open-questions.md`, and `memory/skill-runs.md`.
+- Status: provisional pending next live run validation.
+- Unresolved questions: confirm live Business Partners/Contract/Invoicing field names during the next run and confirm Slack user mappings for assignee tags.
+
+## 2026-05-11 Generalized Inbound Operating Triage
+
+- Source: user-approved implementation plan in Codex thread.
+- Scope: replace Gmail-specific triage with generalized inbound operating triage across configured channels.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: provisional; later narrowed by communication-first review and RBL invoice validation routing review.
+- Unresolved questions: validate channel windows, active-index matching, safe direct writes, and batched approval packets on the next live multi-channel run.
+
+## 2026-05-11 Generalized Triage Review Comments
+
+- Source: PR review comment and user instruction in Codex thread.
+- Scope: keep Gmail completion handling as a general accounting/client inbox rule and add Slack source-thread acknowledgement when a task is created from a Slack message.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: Gmail completion handling remains approved; Slack-source acknowledgement is superseded for the Gmail/WhatsApp communication-first workflow by the 2026-05-11 Communications-First Triage Review.
+- Unresolved questions: none for Gmail completion handling.
+
+## 2026-05-11 Concrete Channel Windows Review
+
+- Source: user instruction in Codex thread.
+- Scope: replace abstract channel-window wording with explicit default read windows and unavailable-connector handling.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved.
+- Unresolved questions: none.
+
+## 2026-05-11 Task Splitting And Run Ledger Review
+
+- Source: PR review comments and user instruction in Codex thread.
+- Scope: support multiple tasks per inbound item when workstreams differ, handle internal-team-originated client tasks, link related created records from tasks, build reports from a run change ledger, and define WhatsApp checkpoint ordering.
+- Imported to: `processes/inbound-operating-triage.md`, `skills/rb-inbound-operating-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved.
+- Unresolved questions: none.
+
+## 2026-05-08 Gmail Triage Slack Overview Rule Import
+
+- Source: user instruction in Codex thread.
+- Scope: required final Slack overview structure for Gmail inbound triage.
+- Imported to: `processes/gmail-inbound-triage.md` and `skills/rb-gmail-inbound-triage/SKILL.md`.
+- Status: provisional.
+- Unresolved questions: none; continue validating against the next daily run.
+
+## 2026-05-08 Gmail Triage Ambiguity Cleanup
+
+- Source: user instruction in Codex thread.
+- Scope: remove old incorrect process/memory paths after the final Slack message was accepted as correct.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, automation memory, and RBL company memory.
+- Status: approved for current Slack canonical message and Workhub CC-INV-19364 approval; provisional for future Workhub invoice checks.
+- Unresolved questions: confirm VAT treatment for future Workhub plan checks.
+
+## 2026-05-08 Company-Specific Exception Routing Refactor
+
+- Source: user instruction in Codex thread.
+- Scope: avoid duplicating company-specific exceptions in the general Gmail triage process.
+- Imported to: `processes/gmail-inbound-triage.md` and `skills/rb-gmail-inbound-triage/SKILL.md`.
+- Status: approved.
+- Unresolved questions: none.
+
+## 2026-05-08 Gmail Triage Performance Review
+
+- Source: user instruction in Codex thread.
+- Scope: whole-branch review for future-run performance without changing triage functionality.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `processes/index.md`, `skills/index.md`, and automation memory.
+- Status: provisional.
+- Unresolved questions: none; validate performance behavior on the next live run.
+
+## 2026-05-08 RBL Workhub Rule Import
+
+- Source: user instruction in Codex thread.
+- Scope: RBL-specific Workhub invoice addressee and plan schedule rule.
+- Imported to: `clients/Companies/RBL/invoices-payments-expenses.md` and `clients/Companies/RBL/source-register.md`.
+- Status: provisional.
+- Unresolved questions: confirm whether Workhub plan amounts are VAT-exclusive and whether any additional companies have upgraded plans.
+
+## 2026-05-08 Targeted Exception And No-Op Triage Review
+
+- Source: user instruction and review in Codex thread.
+- Scope: targeted Workhub exception lookup and recurring-run no-op handling.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: approved for targeted Workhub lookup; provisional for verified no-op Gmail labelling pending next live run validation.
+- Unresolved questions: none.
+
+## 2026-05-10 Gmail Triage Edge-Case File Structure
+
+- Source: user instruction in Codex thread.
+- Scope: make edge cases live in per-client files and make the skill point to the exact entry to load.
+- Imported to: `processes/gmail-inbound-triage.md`, `skills/rb-gmail-inbound-triage/SKILL.md`, `clients/Companies/RBL/invoices-payments-expenses.md`, `clients/Companies/RBL/source-register.md`, `sources/source-register.md`, and `memory/skill-runs.md`.
+- Status: superseded by 2026-05-11 review that Workhub is normal RBL invoice validation rather than an edge case.
+- Unresolved questions: none.
+
 Checks run 2026-05-04:
 
 - `git diff --check`: clean.
@@ -948,3 +1117,30 @@ Actions:
 Unresolved:
 
 - No live filing tasks were created by this process update; each filing still needs its task/project relations checked before task creation.
+
+## 2026-05-13 - Claudio Brivio Individual Context Load
+
+Imported:
+
+- Notion individual record `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`.
+- Notion 2025 personal tax filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`.
+- Notion employment record `https://www.notion.so/7d77ff003f1a4f1c8799bdd2e477025b`.
+- Notion tasks `https://www.notion.so/352e4130131480e0b6f4deb6917c972b` and `https://www.notion.so/358e413013148053bb73e0bc8e7247b3`.
+- Drive 2024 personal-tax folder `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`, client documents folder `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`, and uploaded `_2024-tax-filings` package `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`.
+- WhatsApp chat `Brivio, Claudio | Richmond Blackwood`.
+- Gmail searches for Claudio personal-tax terms.
+
+Actions:
+
+- Created `clients/Individuals/Claudio Brivio/` using the legal name from Notion.
+- Routed personal-tax/private evidence pointers into individual domain files.
+- Updated `clients/Companies/CBMAX/linked-individuals.md` to point to the new individual folder.
+- Added durable memory, source-register, skill-run, and open-question entries.
+
+Unresolved:
+
+- Reconcile the Notion 2024 filing Drive folder with the active Drive folder.
+- Confirm whether Claudio's existing `.xlsx` workbook should be migrated to the maintained native machine-readable template.
+- Confirm whether existing Notion tasks are linked to the filing before creating any new task pair.
+- Resolve 2024 filing questions for February CBMAX payroll, CBMAX wage-tax certificate, TK/Hallesche reconciliation, Section 138 AO, Joblift travel classification, and the N26 investment-folder file.

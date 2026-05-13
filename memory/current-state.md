@@ -17,11 +17,14 @@ Current implementation includes:
 - Company profile, service positioning, systems context, and internal history.
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.
 - Reference-based client folder pilot under `clients/Companies/VUN/`.
+- Reference-based CBMAX company client folder under `clients/Companies/CBMAX/`, loaded on 2026-05-13 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
+- Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
+- Inbound operating triage rule: process client-speaking communications first, prioritizing Gmail inbox and WhatsApp topic extraction; split finance items before other work; create tasks for actionable RB-side commitments; use supporting systems only when needed to save, verify, route, or notify.
 
 ## Helper State
 
@@ -115,9 +118,35 @@ Mark James Frederick Wilshin / WEW German personal-tax update:
 - Status: earlier Office-mode V3 workbooks and the intermediate corrected machine-readable workbook are superseded. The current workbook is a true Drive-native copy of the maintained template in Mark's supplied folder. Only `Setup`, `Revenue`, `Expenses`, and `Deductibles` were populated from invoice/receipt evidence and operator instruction; calculation tabs and formula cells were left template-driven. After operator review, `Expenses` was corrected to receipt-level rows with exact receipt-file URLs rather than folder-level evidence links. Key read-back values are revenue EUR 22,000, business expenses including business home-office allowance EUR 4,479.95, business/freelance net PNL EUR 17,520.05, TK health/care EUR 6,232.81, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,251.24.
 - Remaining checks: confirm support for EUR 15,000 GbR profit, MacBook immediate deduction vs depreciation, mobile-phone business-use percentages, missing March iCloud invoice if it exists elsewhere, and business-meal receipt/formality support.
 
+CBMAX client folder:
+
+- Company folder: `clients/Companies/CBMAX/`
+- Company Notion record: `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`
+- Client project: `https://www.notion.so/32fe413013148034830cf9a1281b2f10`
+- Client dashboard: `https://www.notion.so/67a175a2d9f44c55853a64f106b44752?v=f446b59bf86e4c469e5eae001bd9222c`
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`
+- Related Drive folders: `02.2_CBMAX_Feb-Dec` (`https://drive.google.com/drive/folders/1VVBKPe3ay_imAejRvxXBhtd9OYMNtxfi`), `03.1_CBMAX_Ireland` (`https://drive.google.com/drive/folders/1qQazvNAgFWuno38GOLAh4lhpzX1_3dCE`), and `CBMAX-payslips` (`https://drive.google.com/drive/folders/1sV3OXjguY9N-5LQ7fKjPWOZ3JwblzscT`) should stay linked from the client folder and be organized under the canonical folder when Drive cleanup is in scope. User confirmed on 2026-05-13 that the canonical folder supersedes the older 2026-05-04 Drive-folder question.
+- Client Notes & Updates: no new or updated page is needed just to back up the 2026-05-13 repo summary. Read Client Notes & Updates as context during future CBMAX work, and use it for important client-facing information rather than generic Codex repo-summary backup.
+- Fee note: EUR 950 is the discounted monthly rate after six-month bulk payment discount; the client pays H1/H2 in bulk, and H1 has already been paid according to user review, with evidence in Richmond Blackwood invoices.
+- Status: first reference-based company context loaded on 2026-05-13. Latest WhatsApp plus user-correction context keeps the 2025 tax/VAT position in limbo: IE VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so the 2026-03-30 Irish-VAT/no-German-VAT guidance must not be treated as settled. High-signal open items are Notion tax-history cleanup, ROS final backdate/filing status, Hamburg/Berlin VAT tax-number mismatch, May 2026 letter review, invoice 28 correction trail, and whether to split Eran/Semen/Viktor individual folders before importing private individual detail.
+- User clarification: Simon is the employee Semen, and the CBMAX relationship is Employment.
+
+Claudio Brivio individual context:
+
+- Individual folder: `clients/Individuals/Claudio Brivio/`
+- Notion individual record: `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`
+- 2024 personal tax filing: `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`
+- 2025 personal tax filing: `https://www.notion.so/342e41301314803eb579c68638fb3fb0`
+- 2024 Drive folder: `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`
+- Client documents folder: `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`
+- Uploaded `_2024-tax-filings` package: `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`
+- Analysis spreadsheet file: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`
+- Status: personal-tax/private context loaded on 2026-05-13. The former company-side question about whether Claudio needs an individual folder is resolved; avoid duplicating Claudio personal-tax detail in CBMAX company files. 2024 is in progress in Notion and evidence exists in Drive, but review remains open for February 2024 CBMAX payroll, CBMAX 2024 Lohnsteuerbescheinigung, TK/Hallesche reconciliation, Section 138 AO filing approach for CBMAX and Job Guardian, Joblift Reisekosten vs Pendlerpauschale, and whether the existing `.xlsx` analysis should be migrated to the maintained native machine-readable template. 2025 filing is pending with no Drive docs recorded in Notion.
+
 Communication workflow update:
 
-- For Slack messages requiring review, put the proposed text in Codex chat first. After user approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
+- For Slack messages requiring review, put the proposed text in Codex chat first as a rendered, readable preview with clickable named links, not as a fenced raw Markdown/code block. When the runtime exposes a working Codex approval prompt/notification, use it for Slack send approval instead of typed chat approval, especially when the operator requests notification-based approval. Do not claim a notification was sent unless the prompt tool succeeds. If the native prompt is unavailable and the operator approves a popup fallback, use a local macOS approval dialog: the sandbox prompt only authorizes showing the dialog, and Slack may be sent only after the dialog returns the explicit Send choice. After approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
+- 2026-05-12 inbound-triage closeout correction: Slack closeouts for `#rb-client-updates` must follow the repo/task-oriented template and include the full actual work completed, including any corrective work after a rejected draft. For the May 8-12 triage, the approval packet must include the created/updated task sections, assignees, one-by-one finance invoice records, Gmail `Triaged` labels applied, remaining blockers, and any rejected/corrected Slack draft context. Do not send without explicit approval of the exact corrected text.
 - For workflow completion notifications, capture the triggering Slack user/channel/thread at intake when available. If a task is triggered outside Slack and no Slack identity is available, ask the operator for the Slack recipient before sending the ready-for-review message.
 - For personal-tax filings, the live Notion Personal Tax Filings entry is a required sync point: update `Status` whenever analysis status changes, update `Document gathering status` as evidence moves from `In progress` to `Attached in Drive`, and attach any newly created/discovered Drive filing folder in `GDrive Docs`.
 - For personal-tax filings with no task relation, create a preparation/analysis task assigned to Ioana Surdu-Bob and a separate filing task assigned to Johnpaul Okolie. Link both to the correct client project, set filing `Dependent on` to the analysis task, link them back through `Preparation Task` and `Filing Task`, and comment on the filing task with the spreadsheet URL once the analysis is ready.

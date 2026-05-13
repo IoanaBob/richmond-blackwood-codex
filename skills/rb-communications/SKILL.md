@@ -16,6 +16,12 @@ Use this skill for any Richmond Blackwood outbound communication.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
 - After sending, store the sent communication in the RB Communications database.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
+- For Slack closeouts or other Slack messages that need user review, use the Codex approval prompt/notification when the runtime exposes it. The prompt must identify the exact destination and exact message already shown in chat, and must offer a clear approve/send choice and a do-not-send choice.
+- The Slack message shown in chat for approval must be a rendered, readable Codex preview, not a fenced raw Markdown/code block. Use normal text, headings or labels where useful, Slack mention syntax, and named Markdown links so the operator can click each link in Codex before approving. Keep the raw Slack payload internal unless the operator explicitly asks to inspect it.
+- Do not claim that a Codex approval notification was sent unless the prompt tool call succeeds and returns a prompt for the user.
+- If the native Codex approval prompt is unavailable and the operator has approved a popup fallback, use a local macOS approval dialog as the fallback. First show the exact Slack message as a rendered, clickable Codex preview. Then request sandbox permission only to run the local dialog command. The dialog itself must ask whether to send the exact Slack message shown in chat to the named Slack destination and must include Send and Do Not Send choices.
+- Treat the sandbox command-permission prompt only as permission to show the local dialog, never as approval to send Slack. Send Slack only if the local dialog command returns the explicit Send choice.
+- If neither a native Codex approval prompt nor an approved local approval-dialog fallback is available, stop and report that blocker instead of asking the user to type approval.
 
 ## Required Preview
 
@@ -30,6 +36,8 @@ Before sending, show:
 - Attachments/files: if any.
 - Message body.
 
+For Slack messages, the message body preview should be readable directly in Codex, with clickable named links. Do not put the approval preview inside a code block unless the operator specifically asks for raw Slack text.
+
 For email, the default sender is:
 
 ```text
@@ -42,7 +50,7 @@ If a different email sender is needed, stop and confirm it before drafting.
 
 1. Gather source context from the relevant connector or user-provided notes.
 2. Prepare the message in chat and show the required preview.
-3. Ask for approval unless the user already supplied exact final text and explicitly asked to send it.
+3. Ask for approval unless the user already supplied exact final text and explicitly asked to send it. For Slack closeouts that require review, prefer the native Codex approval prompt over typed chat approval; when that prompt is unavailable and the operator wants a popup, use the local approval-dialog fallback described above.
 4. Send directly through the supported connector or MCP tool.
 5. Verify the send result when the connector returns a message link, ID, timestamp, or status.
 6. Store the communication in the RB Communications database.
