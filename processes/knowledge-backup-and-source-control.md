@@ -23,6 +23,7 @@ Keep Codex repo memory, Notion, and Drive aligned without spreading private clie
 3. Write unsanitised detail under `clients/Companies/<client-reference>/`, using the exact `Reference` value.
 4. Link source evidence in the client source register.
 5. Choose the most specific client database: Client Notes & Updates, Correspondence, Companies, Invoicing, Filings, Payroll, Employment, Tax Payments, Bank Accounts, Personal Tax Filings, or another relevant database.
+   Use Client Notes & Updates for important client-facing information or updates that should be communicated or visible to the client. Do not use it as a generic Codex repo-summary backup when the content is only internal routing or working memory.
 6. Create or update the backup.
 7. Add the Notion URL to `clients/Companies/<client-reference>/notion-backup.md`.
 8. For communications, bank accounts, assets, and expenses, link the Notion record to either the company or the individual, not both. Use the company relation for company-owned or company-operational records and the individual relation for personal or individual-owned records. If both entities are useful context, keep the record attached to the owning entity and add a pointer from the other entity's repo file.

@@ -18,8 +18,10 @@ Current implementation includes:
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.
 - Provisional RB calling bot implementation map at `internal/calling-bot-implementation-map.md`.
 - Reference-based client folder pilot under `clients/Companies/VUN/`.
+- Reference-based CBMAX company client folder under `clients/Companies/CBMAX/`, loaded on 2026-05-13 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
+- Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
@@ -109,6 +111,31 @@ Selin Ozkohen / CLV German personal-tax pilot:
 - 2026-05-07 approval: user approved the current template/process and Selin pilot state for commit. Payroll revenue now reflects payslip wage-tax withholding/net pay, January/February zero withholding is flagged for explanation, the EUR 9,785.30 healthcare deduction is included pending evidence URL, the Section 10c/Sonderausgaben-Pauschbetrag baseline is included as `Baseline only`, and false-positive tax-payment review counts were repaired. Filing remains incomplete until open questions are resolved.
 - 2026-05-07 2025 setup: Notion 2025 filing `https://www.notion.so/342e4130131480eab03dd8498d24d23e` was set to in progress and linked to Drive folder `https://drive.google.com/drive/folders/127-k82-g8Ix3eUGEjLVhbA_1OAglGI7Z`. The copied 2025 workbook is `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`; the payslip folder is `https://drive.google.com/drive/folders/1ustYGqTraDcaqv0LwQSqa1lk6M-vYIMq`. January-June 2025 payroll run `Payslip` fields were linked to Drive PDFs; July-December already had payslips. Revenue read-back is EUR 28,800 gross employment income and EUR 3,096.96 wage tax withheld. The special expense lump-sum baseline read-back is EUR 36, and the home-office daily allowance is EUR 1,260, making 2025 income after deductions EUR 27,504.00. Remaining checks are prior-year opening balance, expense document review, investment/no-investment confirmation, direct tax payment/prepayment confirmation, deductible review, and tax-credit review.
 - 2026-05-07 2025 task links: the filing record now links an analysis task assigned to Ioana Surdu-Bob (`https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f`) through `Preparation Task` and a filing task assigned to Johnpaul Okolie (`https://www.notion.so/359e4130131481d88a99df5939bbe6ed`) through `Filing Task`. The filing task is dependent on the analysis task and has an actual Notion comment with the workbook and filing context.
+
+CBMAX client folder:
+
+- Company folder: `clients/Companies/CBMAX/`
+- Company Notion record: `https://www.notion.so/c71b32a86f424e63b63945fe63d7b45b`
+- Client project: `https://www.notion.so/32fe413013148034830cf9a1281b2f10`
+- Client dashboard: `https://www.notion.so/67a175a2d9f44c55853a64f106b44752?v=f446b59bf86e4c469e5eae001bd9222c`
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1QhfuwpdncQdGx6bymJv29rD3K_3yyqjn`
+- Related Drive folders: `02.2_CBMAX_Feb-Dec` (`https://drive.google.com/drive/folders/1VVBKPe3ay_imAejRvxXBhtd9OYMNtxfi`), `03.1_CBMAX_Ireland` (`https://drive.google.com/drive/folders/1qQazvNAgFWuno38GOLAh4lhpzX1_3dCE`), and `CBMAX-payslips` (`https://drive.google.com/drive/folders/1sV3OXjguY9N-5LQ7fKjPWOZ3JwblzscT`) should stay linked from the client folder and be organized under the canonical folder when Drive cleanup is in scope. User confirmed on 2026-05-13 that the canonical folder supersedes the older 2026-05-04 Drive-folder question.
+- Client Notes & Updates: no new or updated page is needed just to back up the 2026-05-13 repo summary. Read Client Notes & Updates as context during future CBMAX work, and use it for important client-facing information rather than generic Codex repo-summary backup.
+- Fee note: EUR 950 is the discounted monthly rate after six-month bulk payment discount; the client pays H1/H2 in bulk, and H1 has already been paid according to user review, with evidence in Richmond Blackwood invoices.
+- Status: first reference-based company context loaded on 2026-05-13. Latest WhatsApp plus user-correction context keeps the 2025 tax/VAT position in limbo: IE VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so the 2026-03-30 Irish-VAT/no-German-VAT guidance must not be treated as settled. High-signal open items are Notion tax-history cleanup, ROS final backdate/filing status, Hamburg/Berlin VAT tax-number mismatch, May 2026 letter review, invoice 28 correction trail, and whether to split Eran/Semen/Viktor individual folders before importing private individual detail.
+- User clarification: Simon is the employee Semen, and the CBMAX relationship is Employment.
+
+Claudio Brivio individual context:
+
+- Individual folder: `clients/Individuals/Claudio Brivio/`
+- Notion individual record: `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`
+- 2024 personal tax filing: `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`
+- 2025 personal tax filing: `https://www.notion.so/342e41301314803eb579c68638fb3fb0`
+- 2024 Drive folder: `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`
+- Client documents folder: `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`
+- Uploaded `_2024-tax-filings` package: `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`
+- Analysis spreadsheet file: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`
+- Status: personal-tax/private context loaded on 2026-05-13. The former company-side question about whether Claudio needs an individual folder is resolved; avoid duplicating Claudio personal-tax detail in CBMAX company files. 2024 is in progress in Notion and evidence exists in Drive, but review remains open for February 2024 CBMAX payroll, CBMAX 2024 Lohnsteuerbescheinigung, TK/Hallesche reconciliation, Section 138 AO filing approach for CBMAX and Job Guardian, Joblift Reisekosten vs Pendlerpauschale, and whether the existing `.xlsx` analysis should be migrated to the maintained native machine-readable template. 2025 filing is pending with no Drive docs recorded in Notion.
 
 Communication workflow update:
 
