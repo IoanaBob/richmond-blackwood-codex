@@ -10,12 +10,12 @@ Review: This records tax-filing evidence pointers only. Confirm legal ownership 
 Status: provisional.
 Source: Drive Section 138 AO folder and notes.
 Imported: 2026-05-13.
-Review: Confirm Section 138 AO notifications, cost basis, and AStG/CFC implications before filing.
+Review: Operator confirmed on 2026-05-14 that Section 138 AO notifications should be included for CBMAX and Job Guardian. Review late/proactive wording, cost basis, and AStG/CFC implications before filing.
 
 | Asset / interest | Evidence | Reported 2024 position | Review |
 | --- | --- | --- | --- |
-| CBMAX FORGEMATE VENTURES LIMITED | Certificate of incorporation `https://drive.google.com/file/d/16N4LseDaLGP8N9erju_bJPGcA1E2m71f/view`; share transfer evidence `https://drive.google.com/file/d/1O46J6AGiQkgbdh6KTet5qyww4gklrTVZ/view` and `https://drive.google.com/file/d/1kHH5HkUPSkcAOADBxb_tsqkeJBbyfAI-/view` | 100% holding; incorporated 2024-01-04; EUR 8,000 equity contribution; no dividends reported for 2024 | Confirm Section 138 AO filing and future cost-basis tracking. |
-| Job Guardian OUe | Registry confirmation `https://drive.google.com/file/d/1Uf_Yg5V23_gfXvBM3NUZ-9DYsaOSdXCc/view`; transfer evidence `https://drive.google.com/file/d/1O9AxDgczTlIUMScaRfo11Zzw8VnRtTrC/view` and `https://drive.google.com/file/d/1oAiM69EY_z-jLV5xQj9ngrZdzpq222ar/view` | 50% holding; acquired May 2024; EUR 5,000 equity transfer; EUR 7,000 interest-free shareholder loan; no remuneration or dividends reported for 2024 | Confirm written loan agreement status and AStG/CFC treatment. |
+| CBMAX FORGEMATE VENTURES LIMITED | Certificate of incorporation `https://drive.google.com/file/d/16N4LseDaLGP8N9erju_bJPGcA1E2m71f/view`; share transfer evidence `https://drive.google.com/file/d/1O46J6AGiQkgbdh6KTet5qyww4gklrTVZ/view` and `https://drive.google.com/file/d/1kHH5HkUPSkcAOADBxb_tsqkeJBbyfAI-/view` | 100% holding; incorporated 2024-01-04; EUR 8,000 equity contribution; no dividends reported for 2024 | Include Section 138 AO notification; review late/proactive wording, German PE/place-of-management risk, and future cost-basis tracking. |
+| Job Guardian OUe | Registry confirmation `https://drive.google.com/file/d/1Uf_Yg5V23_gfXvBM3NUZ-9DYsaOSdXCc/view`; transfer evidence `https://drive.google.com/file/d/1O9AxDgczTlIUMScaRfo11Zzw8VnRtTrC/view` and `https://drive.google.com/file/d/1oAiM69EY_z-jLV5xQj9ngrZdzpq222ar/view` | 50% holding; acquired May 2024; EUR 5,000 equity transfer; EUR 7,000 interest-free shareholder loan; no remuneration or dividends reported for 2024 | Include Section 138 AO notification; confirm written loan agreement status and AStG/CFC treatment. |
 
 ## Capital Income / Investments
 

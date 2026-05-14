@@ -49,6 +49,73 @@ Verification:
 Follow-up:
 
 - The fresh template-copy workbook is in the supplied Mark folder. The prior Mark open questions were resolved by operator review on 2026-05-13; final filing still needs normal professional/operator review before submission.
+## 2026-05-14 - Personal Tax Filing Task Unblock Slack Rule
+
+Imported:
+
+- User instruction in Codex conversation to add a process step for sharing a `#rb-client-updates` Slack update when Claudio's filing task is unblocked, tagging/linking the filing task.
+
+Actions:
+
+- Updated `skills/rb-personal-tax-analysis-de/SKILL.md` so an unblocked personal-tax `Filing Task` requires an approved `#rb-client-updates` update with the Notion filing task link as the primary task reference.
+- Updated `processes/communications.md` and durable memory with the same rule.
+- Prepared a Slack-ready Claudio unblock message for approval.
+
+Unresolved:
+
+- Send/log the Slack message only after the exact message is approved.
+
+## 2026-05-14 - Claudio Brivio 2024 Operator Review Applied
+
+Imported:
+
+- User review instruction in Codex conversation approving the healthcare treatment and selecting which deductions/exclusions to apply.
+- Hallesche folder `https://drive.google.com/drive/folders/15eI6Owgh5SXh8Z_6_728EWFYCeocxPNr`, including exact tax certificate `https://drive.google.com/file/d/1armzvPsmWw21VkH0q3TYJEG-78Wa3Aw9/view` and policy/employer certificate `https://drive.google.com/file/d/1Z7pLPaQ23p2xANC_6MsjpcEflN38j0d3/view`.
+- Live workbook read-back from `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`.
+
+Actions:
+
+- Updated workbook source/input tabs only: claimed health/care, 206 home-office days, Pixel Buds, and mobile-phone professional share; excluded CBMAX February payroll, commute, Telekom internet, and Hallesche non-basic/supplemental amount.
+- Corrected the Hallesche workbook evidence URL from an inaccessible file ID to the exact valid certificate URL.
+- Added workbook source notes that N26 sits in `Sources`, not `Investment Lots`, until Anlage KAP/KAP-AUS classification is completed.
+- Added actual Notion comments to the 2024 filing record, preparation task, and filing task with the operator decisions and remaining flags.
+- Updated Claudio individual repo files and durable memory.
+
+Unresolved:
+
+- N26 investment statement classification before clearing Anlage KAP/KAP-AUS.
+- CBMAX 2024 annual Lohnsteuerbescheinigung verification or documented unavailability.
+- Section 138 AO late/proactive wording and foreign-company risk review for CBMAX and Job Guardian.
+- Optional extraction of Freenet individual invoice PDFs from the Drive ZIP if the filer wants invoice-level evidence separated.
+
+## 2026-05-13 - Claudio Brivio 2024 German Personal Tax Analysis
+
+Imported:
+
+- Repo-local workflow `skills/rb-personal-tax-analysis-de/SKILL.md`; requested process prompt path `processes/personal-tax-return-prompt.md` was not present in this worktree.
+- Notion filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c` and individual `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`.
+- User-provided canonical Drive filing folder `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`.
+- Maintained German personal-tax template `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`.
+- Key evidence rows from the 2024 Drive package: Joblift payroll/tax certificate, CBMAX March-December payslips and employment contract, Hallesche section 10 certificate, Pixel Buds receipt, home-office/commute tracker, phone/internet ZIP pointers, foreign-company evidence, and N26 tax-statement pointer.
+
+Actions:
+
+- Created fresh native workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit` in the canonical filing folder.
+- Populated source/input tabs only and preserved formula/calculation tabs.
+- Created Notion preparation task `https://www.notion.so/35fe41301314813ea514ed9b61092962` and dependent filing task `https://www.notion.so/35fe41301314817b879cc3ab8c4160dc`.
+- Updated the 2024 filing record with `Preparation Task`, `Filing Task`, canonical `GDrive Docs`, `Status = In progress`, and `Document gathering status = In progress`.
+- Added actual Notion comments to the filing and task pages with workbook link, summary figures, and filing blockers.
+- Updated Claudio individual repo files and durable memory with the workbook/task pointers and remaining review flags.
+
+Unresolved:
+
+- CBMAX February payroll and 2024 annual Lohnsteuerbescheinigung.
+- TK annual/termination evidence and Hallesche overlap reconciliation.
+- Home-office/commute day and first-workplace review.
+- Telekom/Freenet invoice ZIP review and individual invoice extraction if claimed.
+- N26 investment statement content review/reclassification.
+- Section 138 AO notification handling and foreign-company risk review.
+- Workbook read-back shows 9 failed checks and 34 open missing-info items before filing.
 
 ## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
 

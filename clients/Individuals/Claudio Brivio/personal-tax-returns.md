@@ -3,14 +3,14 @@
 Status: provisional.
 Source: Notion filing records, Notion tasks, Drive 2024 evidence package, WhatsApp chat `Brivio, Claudio | Richmond Blackwood`.
 Imported: 2026-05-13.
-Review: This is a context load, not a completed tax analysis. All filing positions, deductible claims, and risk notes need operator/professional review before filing.
+Review: The 2024 preparation workbook has been created and populated, but filing positions, deductible claims, and risk notes still need operator/professional review before filing.
 
 ## 2024 German Personal Tax Filing
 
 Status: provisional.
-Source: Notion filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`; Drive 2024 folder `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`; Drive tracker `https://drive.google.com/file/d/1tvQTKX4SJyHHYzS17tA8yuRj8CKZfqqH/view`; Notion task `https://www.notion.so/352e4130131480e0b6f4deb6917c972b`; WhatsApp updates through 2026-05-07.
+Source: Notion filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`; canonical Drive filing folder `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`; Drive tracker `https://drive.google.com/file/d/1tvQTKX4SJyHHYzS17tA8yuRj8CKZfqqH/view`; fresh workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`; Notion tasks `https://www.notion.so/35fe41301314813ea514ed9b61092962` and `https://www.notion.so/35fe41301314817b879cc3ab8c4160dc`; WhatsApp updates through 2026-05-07.
 Imported: 2026-05-13.
-Review: Reconcile Notion `GDrive Docs` with the actual Drive folder and verify whether the analysis workbook should be migrated/copied from the current maintained machine-readable template.
+Review: Preparation workbook is source-backed but not filing-ready. Operator decisions on 2026-05-14 resolved the main deductible/exclusion choices; N26 classification, CBMAX annual certificate evidence, and Section 138 filing framing still need filer review before filing.
 
 Filing page: `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`.
 Filing period: 2024-01-01 to 2024-12-31.
@@ -20,10 +20,31 @@ Due date in Notion: 2026-04-30.
 
 Drive evidence:
 
-- 2024 folder: `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`.
+- Canonical 2024 filing folder: `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`.
+- Prior/history 2024 folder: `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`.
 - Client documents folder: `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`.
 - Uploaded package: `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`.
-- Analysis spreadsheet file: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`.
+- Fresh native analysis spreadsheet: `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`.
+- Superseded Office workbook source pointer: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`.
+
+Updated analysis snapshot, 2026-05-14:
+
+Status: provisional.
+Source: Fresh native workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`, populated from Drive/Notion sources on 2026-05-13 and updated from user review on 2026-05-14.
+Imported: 2026-05-14.
+Review: Workbook formula/calculation tabs were preserved and only source/input tabs were populated. Workbook checks still show filing blockers.
+
+| Figure | Amount / status | Review |
+| --- | --- | --- |
+| Gross employment income | EUR 31,666.66 | Includes Joblift January and CBMAX March-December only; CBMAX February is explicitly excluded per operator review because the payslip cannot be retroactively changed. |
+| Wage tax withheld | EUR 4,326.21 | Joblift January EUR 1,396.91 plus CBMAX March-November EUR 296.33/month and December EUR 262.33. |
+| Employment work expenses used | EUR 1,456.86 | Actual approved deductions exceed the EUR 1,230 employee lump sum: home office EUR 1,236.00, Pixel Buds EUR 136.97, and mobile-phone professional share EUR 83.89. Commute and Telekom internet are excluded. |
+| Health/care included | EUR 5,470.32 | Approved. Derived from Hallesche net basic/care EUR 4,942.46 plus Joblift January TK health/care EUR 527.86. Hallesche non-basic/supplemental EUR 1,050.69 is excluded. |
+| Other personal deductions included | EUR 5,506.32 | Health/care EUR 5,470.32 plus automatic special-expense baseline EUR 36.00. |
+| Known payments/withholding | EUR 4,326.21 | No direct income-tax prepayment evidence found in provided package. |
+| Investment income | EUR 0.00 | Client package reports no brokerage/crypto; N26 tax statement still needs content review/reclassification. |
+| Income after deductions before tax-rate calculation | EUR 24,703.48 | Workbook support figure only; not a final German tax-liability calculation. |
+| Workbook checks | 8 failed checks; 27 open missing-info items | Not filing-ready. |
 
 Current evidence shape:
 
@@ -31,22 +52,19 @@ Current evidence shape:
 | --- | --- | --- | --- |
 | Personal info | Evidence present | Personal cover sheet, Meldebestaetigung, N26 IBAN confirmation in Drive | Confirm no address change in 2024 and confirm refund IBAN active in 2024. |
 | Joblift employment | Evidence present | January payslip, Lohnsteuerbescheinigung, SV-Nachweis in Drive | Decide which duplicate January payslip to retain. |
-| CBMAX employment | Partial | Employment contract, CBMAX/Joblift consulting agreement, March-December payslips in Drive | Clarify February 2024 payroll and obtain/verify CBMAX 2024 Lohnsteuerbescheinigung. |
-| Foreign companies / Section 138 AO | Evidence present, filing approach unconfirmed | CBMAX incorporation, share transfers, Job Guardian registry, transfer evidence, Drive notes | Confirm notifications for CBMAX and Job Guardian are part of the 2024 filing package and how to frame late/proactive filing. |
-| Health insurance | Partial | TK card, N26 health-insurance transactions, Hallesche policy and Section 10 certificate in Drive | Reconcile TK contribution/end-date evidence and Hallesche deductible/basic contribution amount. |
-| Investments | Reported not applicable, file classification open | Drive note says no brokerage/crypto; N26 file sits in investments folder | Verify the N26 file is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS. |
-| Work expenses | Evidence present, classification open | Home-office/commute tracker, phone/internet ZIPs, Pixel Buds PDF | Review Joblift visits Feb-Sep as Reisekosten vs Pendlerpauschale and verify invoice ZIP contents. |
+| CBMAX employment | Partial | Employment contract, CBMAX/Joblift consulting agreement, March-December payslips in Drive | February 2024 payroll is excluded per operator review. Obtain/verify CBMAX 2024 Lohnsteuerbescheinigung if available. |
+| Foreign companies / Section 138 AO | Evidence present, filing direction confirmed | CBMAX incorporation, share transfers, Job Guardian registry, transfer evidence, Drive notes | Include Section 138 AO notifications for CBMAX and Job Guardian; filer still needs to frame late/proactive filing and related risk notes. |
+| Health insurance | Approved for workbook claim | TK/Joblift January payroll evidence, Hallesche policy, and Hallesche Section 10 certificate in Drive | Hallesche starts 2024-02-01. Claim basic health/care only; do not claim Hallesche non-basic/supplemental amount. |
+| Investments | Reported not applicable, file classification open | Drive note says no brokerage/crypto; N26 file sits in Sources and Drive investments folder | Verify the N26 file is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS. |
+| Work expenses | Partly approved | Home-office/commute tracker, Freenet ZIP, Telekom ZIP, Pixel Buds PDF | Claim home-office daily, mobile-phone professional share, and Pixel Buds. Exclude commute and Telekom internet. |
 
 Open review themes:
 
-- February 2024 CBMAX payroll treatment.
 - CBMAX 2024 annual wage-tax certificate.
-- TK contribution/end-date evidence after Claudio's 2026-05-07 update that TK cannot provide a standalone tax certificate.
-- Hallesche Section 10 certificate figures and private monthly contribution/refund treatment.
-- Section 138 AO notifications for CBMAX and Job Guardian.
+- Section 138 AO notifications for CBMAX and Job Guardian, including late/proactive filing wording.
 - German PE/director-risk note for CBMAX due to Berlin-based management.
-- Joblift Feb-Sep travel classification.
 - N26 investment-folder file classification.
+- Freenet mobile-phone archive supports the phone claim at archive level; individual invoice extraction remains a final-review point if the filer wants invoice-level PDFs separated.
 
 ## 2025 German Personal Tax Filing
 

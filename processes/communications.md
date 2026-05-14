@@ -157,3 +157,11 @@ For workflow-triggered analysis tasks, such as German personal tax analysis setu
 - Draft the Slack text in Codex chat first, including the workbook/source URL, completed scope, and remaining review flags.
 - After the user approves the exact text, send it directly through Slack and log the sent notification in the relevant Notion task/comment or client source register. Use the Codex approval prompt/notification for Slack send approval when available and especially when the operator asks for notification-based approval; in Default mode, use the approved local approval-dialog fallback when the operator wants a popup.
 - Do not create a Slack draft by default. Use a draft only when the user explicitly asks for one.
+
+When a personal-tax analysis or operator-review pass unblocks a `Filing Task`, post the unblock update to `#rb-client-updates` after approval:
+
+- Make the Notion filing task link the primary task reference in the message.
+- Include the filing record and workbook links.
+- State what changed that makes the filing task actionable.
+- List remaining flags plainly; if filer judgment is still required, describe the task as unblocked for filing review rather than fully filing-ready.
+- Do not use broad mentions such as `@here` or `@channel` unless the operator explicitly asks for them.
