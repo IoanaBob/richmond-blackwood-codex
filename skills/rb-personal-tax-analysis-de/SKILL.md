@@ -87,6 +87,7 @@ Note: the fuller process document is pending review and should not be treated as
    - If the trigger came from Codex, Notion, Drive, or another source without a Slack identity, ask the operator for the Slack recipient before sending.
    - Put the exact Slack message text in the Codex chat first and wait for approval. After approval, send the approved text directly through Slack and log the notification in the relevant Notion task/comment or source register.
    - The notification should include the workbook URL, the filing year, the review scope completed, and the remaining review flags.
+   - When operator review or evidence reconciliation unblocks a `Filing Task`, also post an `#rb-client-updates` update after approval. Make the Notion `Filing Task` link the primary tagged task reference, include the workbook and filing record links, say exactly what is now unblocked, and list any remaining flags. If remaining flags still require filer judgment, say the task is unblocked for filing review rather than fully filing-ready.
 
 ## Output
 
@@ -101,6 +102,7 @@ After setup, leave:
 - Separate Notion filing follow-up task(s), assigned to Johnpaul Okolie unless another owner is specified, linked in `Filing Task`.
 - Task dependency links using `Dependent on` from the filing task to the analysis task.
 - Filing-task comments containing the analysis spreadsheet URL once the analysis is ready for the filer.
+- `#rb-client-updates` Slack notification text and sent-status when a filing task becomes unblocked after analysis/operator review, with the Notion filing task link included as the primary task reference.
 - List of missing data/documents.
 - Links to payroll/payslip evidence when applicable.
 - Linked-entity records routed to the correct files.

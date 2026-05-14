@@ -477,3 +477,29 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep Finanzamt feedback and IE 2024 corporation-tax timing open because user confirmed there is no feedback yet. Future Syntentia sends should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
 - Verification: Notion read-back confirmed `Tax Residence` = Ireland, old task `Status` = Archived, and the new monthly task fields.
 - Limitations or gaps: Board-meeting minutes/attendance evidence still needs review, and Finanzamt feedback is still pending.
+## 2026-05-13 - Claudio 2024 German Personal Tax Analysis
+
+- User request: Prepare Claudio Brivio's 2024 German personal-tax analysis using the repo-local German personal-tax workflow, the user-provided filing folder, and a fresh native copy of the maintained template.
+- Context read: `rb-personal-tax-analysis-de`, Claudio individual files, Notion individual/filing/employment/task records, Drive filing folder/package/tracker/evidence files, maintained template metadata, and old workbook pointer.
+- Actions taken: Copied the maintained native template into `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`, populated only source/input tabs in workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`, created linked Notion preparation and filing tasks, updated the filing row, added Notion comments, and refreshed Claudio repo/memory pointers.
+- Decisions made: Treat `1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe` as the canonical current filing folder and the old `.xlsx` workbook as superseded source/history. Keep the filing in progress because evidence and operator-review flags remain.
+- Verification: Drive copy returned a native Google Sheets file in the target folder; workbook read-back confirmed summary figures and exact evidence URLs; Notion read-back confirmed task links/dependency/comments and filing `Document gathering status = In progress`.
+- Limitations or gaps: Requested `processes/personal-tax-return-prompt.md` was not present in this worktree. Workbook checks still show 9 failed checks and 34 open missing-info items before filing.
+
+## 2026-05-14 - Claudio 2024 Operator Review Applied
+
+- User request: Apply approved healthcare and deduction/exclusion decisions, explain N26 location, and include Section 138 AO handling for CBMAX and Job Guardian.
+- Context read: Claudio individual repo files, live workbook revenue/deductibles/sources tabs, Hallesche Drive folder, home-office/phone evidence pointers, and Notion filing/preparation/filing tasks.
+- Actions taken: Updated the live workbook source/input tabs only, claimed approved health/care, home-office, Pixel Buds, and mobile-phone rows, excluded CBMAX February payroll, commute, Telekom internet, and Hallesche non-basic rows, corrected the Hallesche certificate URL, added Notion comments, and refreshed Claudio repo/memory/source pointers.
+- Decisions made: CBMAX February is excluded rather than changed retroactively; N26 remains in workbook `Sources`, not `Investment Lots`, until Anlage KAP/KAP-AUS classification is complete; Section 138 AO notifications should be included for CBMAX and Job Guardian.
+- Verification: Workbook read-back confirmed gross employment income EUR 31,666.66, employment work expenses EUR 1,456.86, health/care EUR 5,470.32, other personal deductions EUR 5,506.32, known withholding EUR 4,326.21, income after deductions before tax-rate calculation EUR 24,703.48, 8 failed checks, and 27 open missing-info items. Notion comments succeeded on the filing, preparation task, and filing task.
+- Limitations or gaps: N26 classification, CBMAX 2024 Lohnsteuerbescheinigung, Section 138 AO late/proactive wording and foreign-company risk review, and optional Freenet invoice extraction remain before filing.
+
+## 2026-05-14 - Personal Tax Filing Task Unblock Slack Rule
+
+- User request: Add the process step to share in `#rb-client-updates` that Claudio's filing task is unblocked, tagging/linking the filing task.
+- Context read: Personal-tax workflow skill, communications process, Slack outgoing-message skill, durable handoff/current-state memory, and Claudio filing task/workbook links.
+- Actions taken: Added a rule that when analysis or operator review unblocks a personal-tax `Filing Task`, the workflow posts an approved `#rb-client-updates` update with the Notion filing task link as the primary task reference. Prepared the Claudio-specific Slack text for approval.
+- Decisions made: Unblock notifications should distinguish "unblocked for filing review" from "fully filing-ready" when remaining filer judgment flags still exist.
+- Verification: `git diff --check` passed.
+- Limitations or gaps: Slack message not sent yet because outbound Slack requires exact-message approval.

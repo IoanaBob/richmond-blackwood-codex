@@ -94,6 +94,10 @@ User review on 2026-05-13 confirmed the CBMAX 2026-05-13 repo summary does not n
 
 Claudio Brivio personal-tax/private individual sources are routed to `clients/Individuals/Claudio Brivio/source-register.md`. The 2026-05-13 load used Claudio's Notion individual/employment/personal-tax filing/task records, the Drive 2024 personal-tax folder and `_2024-tax-filings` package, the Drive tracker and notes for Steuerberater, WhatsApp personal-tax updates, and Gmail searches that found no dedicated personal-tax email thread.
 
+Claudio Brivio 2024 operator review on 2026-05-14 is routed to `clients/Individuals/Claudio Brivio/source-register.md`. It approved the workbook health/care and deduction decisions, excluded CBMAX February payroll/commute/internet/Hallesche non-basic amounts, and instructed Section 138 AO notifications for CBMAX and Job Guardian.
+
+Personal-tax filing-task unblock Slack rule added on 2026-05-14 from user instruction: when analysis/operator review unblocks a `Filing Task`, post an approved `#rb-client-updates` update with the Notion filing task link as the primary task reference, plus workbook, filing record, changed blockers, and remaining flags.
+
 ## WhatsApp Sources
 
 Client WhatsApp evidence should be routed into the relevant company or individual client folder as pointers only. Nathan/VUN WhatsApp evidence imported on 2026-05-06 is registered in `clients/Individuals/Nathan Mawali A Vandy/source-register.md`.
