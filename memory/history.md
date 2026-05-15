@@ -1,6 +1,16 @@
 # History
 
 Status: active.
+
+## 2026-05-15 - MHL And Gabriel Context Import
+
+- User request: Return to main after the NACV branch was merged, then load Mindharbour/MHL and Gabriel context, including Grey Desk, Gabriel personal taxes, premium/private-channel context, car purchase/registration, and the Ltd & Co KG / Berlin apartment tax-residence plan.
+- Context read: Notion company/project/individual/asset/contract/filing/task records, Google Drive MHL folder and Gabriel personal-tax subfolder, Gmail notary/Zoll/SteuerGo/payment threads, WhatsApp `Grey Desk Restructuring`, private Slack `#rb-structuring` and `#rb-operations`, and repo RB client/source skills.
+- Actions taken: Stashed unrelated NACV/Andrei local work, switched to updated `main`, created branch `codex/mhl-gabriel-context`, moved the work to `codex/mhl-context` after user branch correction, created `clients/Companies/MHL/` and `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/`, and routed company vs personal facts into separate files.
+- Decisions made: Use `MHL` as the company folder from Notion `Reference`; use Gabriel's full first/last-name fields for the individual folder; store WhatsApp/Slack/Gmail source pointers and summaries only; keep raw documents, Notion attachments, audio/media, and credential/certificate bundles out of git.
+- User follow-up on 2026-05-15 resolved: MHL pays EUR 1k/month by Stripe for the European entity; Grey Desk pays approximately USD 10.5k/month for international support; Co-KG service was requested but no notary appointment was booked and blockers are Byron signing availability plus Gabriel's signature route; the Kastanienallee apartment is intended to move under MHL/Co-KG on a flexible timeline; MMG is 100% personal and untouched since Gabriel moved to Germany; preferred WhatsApp communication is the `Grey Desk Restructuring` group.
+- Verification: Connector reads completed for Notion, Drive, Gmail, WhatsApp, and Slack. No live Notion/Drive/Gmail/Slack/WhatsApp records were modified during the import.
+- Limitations or gaps: Zoll rejection response, VAT registration response/tax number, future-dated filing status cleanup, and the 2025 Gabriel personal-tax filing reconciliation remain open.
 Source: local repo.
 Imported: 2026-05-05.
 Review: operational ledger structure ported from neutral repo infrastructure; entries remain provisional until reviewed.

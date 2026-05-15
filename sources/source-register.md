@@ -106,6 +106,18 @@ CBMAX WhatsApp evidence reviewed on 2026-05-13 is registered in `clients/Compani
 
 Claudio Brivio personal-tax WhatsApp evidence reviewed on 2026-05-13 is registered in `clients/Individuals/Claudio Brivio/source-register.md`; the repo stores only source pointers and summarized decisions, not WhatsApp transcripts or media.
 
+MHL/Gabriel WhatsApp evidence reviewed on 2026-05-15 is registered in `clients/Companies/MHL/source-register.md` and `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/source-register.md`. Main route: `Grey Desk Restructuring` / `120363419842553151@g.us`; Gabriel contact search returned `Gabriel Muller` / `33626223154@s.whatsapp.net`, but direct chat lookup errored and user later confirmed the group chat should be preferred. The repo stores only source pointers and summaries, not raw transcripts, audio, or media.
+
+User follow-up on 2026-05-15 confirmed MHL/Gabriel communications should aim to stay in the `Grey Desk Restructuring` group chat. The direct Gabriel WhatsApp contact remains a route pointer only.
+
+## MHL / Gabriel Sources
+
+MHL company sources are routed to `clients/Companies/MHL/source-register.md`. The 2026-05-15 load used the Notion company record `https://www.notion.so/216e413013148051990ae627cf935879`, project `https://www.notion.so/32fe41301314803fa22efa50a08756f3`, director/UBO/shareholder records, filing registrations, contracts, asset records, Google Drive folder `https://drive.google.com/drive/folders/17gpcVLGtX3dhwSaLYelvw6m-dSVCHiQs`, Gmail notary/Zoll/SteuerGo/payment threads, WhatsApp `Grey Desk Restructuring`, and private Slack channels `#rb-structuring` and `#rb-operations`.
+
+Gabriel personal sources are routed to `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/source-register.md`. The import uses Gabriel's Notion individual record, 2024 and 2025 personal-tax filing records, Notion residency/document review, the Notion assets relation, and the MHL/Grey Desk private-channel context needed for personal tax-residence and asset planning.
+
+User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pays EUR 1k/month by Stripe for the European entity; Grey Desk pays approximately USD 10.5k/month for international support; the Co-KG service is requested but no notary appointment was booked and the current blockers are Byron signing availability plus Gabriel's signature route; the Kastanienallee apartment is intended to move under MHL/Co-KG on a flexible timeline; Zoll remains an open task; future-dated `Overdue` filing statuses are errors; and the MMG investment account is 100% personal and untouched since Gabriel moved to Germany.
+
 ## Public Sources
 
 | Source | Status |

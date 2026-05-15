@@ -1,0 +1,23 @@
+# Source Register
+
+Status: provisional.
+Source: MHL import on 2026-05-15.
+Imported: 2026-05-15.
+
+| Source | Date imported | Detail |
+| --- | --- | --- |
+| User instruction in Codex thread | 2026-05-15 | Load Mindharbour/MHL context; MHL is owned by Gabriel; Gabriel also owns Grey Desk; RB does Gabriel personal taxes; premium-client context may be in private channels; personal taxes done up to 2024; car purchased/registered through company; Co-KG being explored to move Berlin apartment under MHL and support German tax-residence deregistration; appointment booking has been difficult. |
+| User follow-up answers in Codex thread | 2026-05-15 | Confirmed live billing split: MHL pays EUR 1k/month by Stripe for the European entity, Grey Desk pays approximately USD 10.5k/month for international support; Co-KG notary was never booked and current blockers are Byron signing availability and Gabriel signature route; Kastanienallee apartment is intended to move under MHL/Co-KG on a flexible timeline; Zoll remains an open task; future-dated `Overdue` filing statuses are errors; MMG investment account is 100% personal and untouched since German move; preferred WhatsApp route is the `Grey Desk Restructuring` group. |
+| Notion company `MINDHARBOUR LIMITED` | 2026-05-15 | `https://www.notion.so/216e413013148051990ae627cf935879`; source for `Reference` MHL, legal/company details, registered office, tax residence, service, fee, director/shareholder/UBO relations, company email, filings, registrations, assets, and contracts. |
+| Notion project `MHL - Mindharbour - Client Project` | 2026-05-15 | `https://www.notion.so/32fe41301314803fa22efa50a08756f3`; task-tracking project for MHL. |
+| Notion individual `GABRIEL LOUIS MANUEL` | 2026-05-15 | `https://www.notion.so/216e413013148097af04cb41d04ceeec`; source for Gabriel legal-name fields, MHL ownership, personal-tax filings, assets, residency docs, and communication data. |
+| Notion director `Byron Jarvis` | 2026-05-15 | `https://www.notion.so/203647f1b74743a09fc8a408a3318b30`; source for MHL director relation and authority context. |
+| Notion Grey Desk business partner and contracts | 2026-05-15 | Grey Desk `https://www.notion.so/25be413013148056a546c087dc7b1a1e`; active Grey Desk contract `https://www.notion.so/2b9e413013148069a79bc561b7c60ad8`; inactive Mindharbour contract `https://www.notion.so/2b9e413013148015a6c2cb866349f4bd`; contract task `https://www.notion.so/332e413013148141971acd357ca964ed`. |
+| Notion assets and structuring tasks | 2026-05-15 | Ferrari asset `https://www.notion.so/29ce41301314804882d3e97e134cb17d`; Kastanienallee apartment `https://www.notion.so/21ee4130131480acb17ae1fb76bebfaf`; Reuterstrasse Grey Desk apartment `https://www.notion.so/21ee4130131480ea903edc0d2296621b`; Co-KG task `https://www.notion.so/352e4130131480989a93ec16b9ba6469`. |
+| Notion filing and registration records | 2026-05-15 | RBO, annual returns, DE corporation/trade tax, VAT submitted/pending number, local business registration, vehicle tax, Zoll rejection, and listed filings recorded in `tax-vat-filings.md`. |
+| Google Drive canonical folder | 2026-05-15 | `https://drive.google.com/drive/folders/17gpcVLGtX3dhwSaLYelvw6m-dSVCHiQs`; listed MHL Drive folder, personal-tax subfolder, outstanding-payments workbook, and liquidity sheet. |
+| Gmail Co-KG notary thread | 2026-05-15 | Message/thread IDs `19c993807434b3f3`, `19c9e97946f5f7cf`, `19c9f80bd2c2e8fb`; source for Byron signing, MHL existence/representation certificate, apostille, Gabriel consulate signature route, costs, and timing. |
+| Gmail MHL authority/payment threads | 2026-05-15 | Zoll sequence `19e26140335f64c4`, `19e2625c2308e87e`, `19e26285dc7ce21a`, `19e2628c1f91cc6f`, `19e29d505df5351c`; SteuerGo messages `19e1b78058618c01`, `19e20b7e267e4bc0`, `19e20b9af2a1fec5`; Herzenssache payment `19e220457959b6ec`. |
+| WhatsApp group `Grey Desk Restructuring` | 2026-05-15 | Chat JID `120363419842553151@g.us`; reviewed 2026-04-02 to 2026-05-14 window for Co-KG/tax-residence/car/funding decisions. Raw transcripts, audio, and media were not copied into git. |
+| WhatsApp Gabriel contact search | 2026-05-15 | Contact `Gabriel Muller` / `33626223154@s.whatsapp.net`; direct chat lookup had MCP response-type errors. User confirmed future communication should aim to stay in the `Grey Desk Restructuring` group. |
+| Private Slack search/read | 2026-05-15 | `#rb-structuring` (`C0AMDDTNSFL`) and `#rb-operations` (`C0AMJHHHAKY`) reviewed for MHL/Gabriel funding and car-insurance context. |
