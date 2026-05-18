@@ -2,6 +2,32 @@
 
 Status: active.
 
+## 2026-05-18 - AMC And Aaron Context Import
+
+Applied:
+
+- Created `clients/Companies/AMC/` from the Notion Companies `Reference` value and populated company-side context for AARON MEDIC CHAMBERLAIN LIMITED.
+- Created `clients/Individuals/Aaron Richard Chamberlain/` from Aaron's Notion first-name and last-name fields and routed personal-tax, garnishment, P-Konto/payment-plan, prior Gewerbe, and joint-filing context there.
+- Captured user instruction that RB does Aaron's personal returns, that the prior accountant did not file 2023/2024, that RB filed those years, and that prior Gewerbe registration created trade-tax/VAT catch-up exposure for 2023, 2024, and Q1 2025 before deregistration.
+- Stored the resolved WhatsApp route `Chamberlain, Aaron | Richmond Blackwood` / `120363378578862576@g.us` in the company and individual communication/source files.
+- Captured the initial company filing status, then updated it after user clarification: VAT Q1 2026 and Slack's Q4 2025 VAT concern both need a separate VAT review, with Q1 bookkeeping still tied to missing invoice support.
+- Captured AMC variable invoice rules: ask Aaron for exact billable work and travel/expense details, prepare invoice/expense support, get Aaron approval, then send from the accounting email using the historical counterparty template.
+- Added live Notion comments to the Riot, Echo Sports LLC, and UVS contract pages with the captured invoice workflow/message-template rules.
+- Updated and read back Riot and Echo Business Partner `Invoicing Email`, `Invoicing Email Cc`, and `Notes` fields.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- Live Notion comments were added to three AMC contract pages, and Riot/Echo Business Partner routing fields were updated and read back. No live Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+- Repo verification: `git diff --check` passed; trailing-whitespace scan was clean; AMC/Aaron client-file raw identifier scan found no IBAN/tax-number pattern matches.
+
+Follow-up:
+
+- Confirm VAT Q1 2026 and Slack Q4 2025 VAT through the separate VAT review, plus missing Q1 invoice list/evidence.
+- Confirm whether the 2023/2024 P&L and balance-sheet package was submitted by the source deadlines: WhatsApp 2026-05-19 at latest and Notion before 2026-05-22.
+- Confirm remaining balance after the garnishment transfer, monitor for future Finanzamt payment-plan response, and confirm whether P-Konto later becomes active.
+- Before future Riot/Echo sends, use the updated Business Partner invoice-to/CC fields plus Business Partner notes; decide whether Notion should add multi-recipient invoice-routing fields.
+
 ## 2026-05-18 - SVL And Kristjan Context Import
 
 Applied:

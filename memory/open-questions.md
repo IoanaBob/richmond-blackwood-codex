@@ -108,6 +108,19 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - AI GreenBytes update is completed, but JP needs to upload evidence.
 - Apartment amount is about EUR 750k; final ownership/loan/security route remains open because there was a hurdle with the partner selling his company.
 
+## AMC / Aaron Questions
+
+- Confirm whether VAT Q1 2026 was filed after the current missing-invoice review; user clarified this belongs in a separate VAT skill/review.
+- Confirm whether the missing Q1 invoice list was shared with Aaron and whether Aaron supplied the missing expense invoices.
+- Confirm whether the 2023/2024 P&L and balance-sheet package was submitted by the actual Finanzamt deadline; follow source dates of WhatsApp 2026-05-19 at latest and Notion before 2026-05-22.
+- Confirm remaining balance after the garnished account transfer; user says Finanzamt has not yet responded to the payment-plan proposal.
+- Confirm later whether Aaron's P-Konto becomes active; user says it is not confirmed now.
+- Confirm submission evidence and exposure for the prior Gewerbe trade-tax/VAT catch-up periods 2023, 2024, and Q1 2025; user says Aaron was deregistered after Q1 2025.
+- For future Riot/Echo sends, use the updated Business Partner invoice-to/CC fields plus Business Partner notes; Riot's Nicole recipient remains in notes because the current schema is single-email.
+- Decide whether Notion should get multi-recipient invoice-routing fields so Riot-style routes do not need to keep secondary To recipients in notes.
+- Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.
+- Confirm whether the Notion accounting-software email alias should be `accounts+amc` or `account+amc`.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.
