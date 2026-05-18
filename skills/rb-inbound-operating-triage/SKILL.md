@@ -88,14 +88,14 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 - Build the message from the verified run ledger.
 - Include the current Notion task status in every task row.
 - Tag each task assignee when a Slack user mapping is available and the task is still active; otherwise include the assignee name and note the missing mapping as a verification gap. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed.
-- If the closeout is not explicitly pre-authorized, include it as a batch approval packet item and **explicitly ask** the operator to approve sending it right after the rendered preview.
+- If the closeout is not explicitly pre-authorized, include it as a batch approval packet item and **explicitly ask** the operator to approve sending it right after the rendered preview. The approval ask is part of the preview handoff; do not provide a Slack-ready draft and stop without asking whether to send it.
 - If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then log the sent Slack message link in RB Communications.
 - Write the closeout as if it came from the user, in concise first-person operating language. Do not use generic assistant-report headings like `main things done`.
 - Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use the closeout shape below. When a section has no rows, keep the heading and write `- None`. For empty finance sections, omit the finance owner tag from the heading so the empty section does not ping anyone.
 
 ```text
-I've finished the <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.
+I've finished the <human window label> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.
 
 New Correspondence
 - <name>: <Correspondence link> / <Task link> - assigned to <@owner>
@@ -116,6 +116,7 @@ Blocked / left open
 - <source/record> - <reason>
 ```
 - If `New expenses` or `Received invoices` is empty, write the heading without `<@U0ALBF770E8>` and add `- None`.
+- The `<human window label>` must sound like a person wrote it, such as `Friday-to-Monday`, `Friday 15 May to Monday 18 May`, or `today's`. Do not use raw timestamp ranges such as `2026-05-15 08:00 to 2026-05-18 08:00` in the Slack opener; keep exact capture windows for the operator-facing final report when needed.
 - If an inbound item matches a task whose status is `Done` or `Archived`, list it only when the match is material to the run, include the status in the row, and describe it as a verified existing/no-op or audit note rather than an active update.
 - Keep row links and owner tags from the verified ledger. If a Slack user mapping is missing, use the assignee name and report the missing mapping.
 
