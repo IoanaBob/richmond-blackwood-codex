@@ -20,11 +20,13 @@ Current implementation includes:
 - Reference-based CBMAX company client folder under `clients/Companies/CBMAX/`, loaded on 2026-05-13 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - Reference-based MHL company client folder under `clients/Companies/MHL/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
 - Reference-based SVL company client folder under `clients/Companies/SVL/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
+- Reference-based AMC company client folder under `clients/Companies/AMC/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
 - Individual client root for Gabriel Louis Manuel Muller under `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
 - Individual client root for Kristjan Mar Olafsson under `clients/Individuals/KRISTJAN MAR OLAFSSON/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
+- Individual client root for Aaron Richard Chamberlain under `clients/Individuals/Aaron Richard Chamberlain/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
@@ -177,6 +179,19 @@ SVL / Kristjan Mar Olafsson context import:
 - Current user-instructed position: SVL is the newest client, Kristjan was previously a freelancer, German tax registration is still pending, and RB will do Kristjan's personal tax returns from 2026 onward.
 - Current company state: Irish company number 806985, tax residence in Notion Germany, Kristjan is director/UBO/shareholder/employee, active monthly Mediainvesting contract at EUR 93/hour, and company German corporation/trade/VAT/payroll registrations are overdue with Finanzamt/tax registration as blocker.
 - High-signal blockers and decisions from user answers on 2026-05-18: no SVL VAT number confirmed and still waiting for Finanzamt; no separate tax-registration chase task should be created in this context because the user will handle it through a separate skill; registrations are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll-tax filings/payments once registration clears; Kristjan was probably already set up in Lexware because RB needs it for invoices; Lexware and WAMO costs are RB-side; Mediainvesting hours/bonus sheet is the canonical monthly source; freelancer deregistration is pending through an open task; RB should set up Kristjan's individual/freelancer ELSTER; the personal-tax Drive year folder was renamed from `2025` to `2026` and verified; AI GreenBytes update is completed but JP needs to upload evidence; apartment amount is about EUR 750k and there was a hurdle with the partner selling his company.
+
+AMC / Aaron Richard Chamberlain context import:
+
+- Company folder: `clients/Companies/AMC/`.
+- Individual folder: `clients/Individuals/Aaron Richard Chamberlain/`.
+- Notion company: `https://www.notion.so/165e41301314804baeead148b54263de`; `Reference` is `AMC`.
+- Notion individual: `https://www.notion.so/165e4130131480c98ea9d9ae497ab5ca`; folder uses Notion first-name and last-name fields.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1a_m5ASzsGDnaViTjeSvawroRVr6cQ-oG`.
+- WhatsApp route: `Chamberlain, Aaron | Richmond Blackwood` / `120363378578862576@g.us`; saved as source/route pointer only.
+- Current user-instructed position: RB does Aaron's personal returns; previous accountant did not file 2023/2024; RB filed both years and found prior Gewerbe registration created trade-tax/VAT catch-up exposure. Open catch-up periods are 2023, 2024, and Q1 2025; Aaron was deregistered after Q1 2025. Finanzamt requested P&L/balance-sheet support; follow source dates of WhatsApp 2026-05-19 at latest and Notion before 2026-05-22.
+- Current company state: Irish company number 781302, tax residence in Notion Germany, Aaron is director/UBO/shareholder/employee, active variable Riot and Echo revenue invoicing, and UVS one-off invoice context. VAT Q1 2026 and the Slack Q4 2025 VAT concern need a separate VAT review rather than being treated as settled in this import.
+- High-signal workflow: invoices are not fixed equal-month invoices. Ask Aaron through WhatsApp what to bill and which travel/expense items to include, prepare invoice/expense support, get Aaron approval, then send through accounting email using the historical Riot/Echo formats. Riot and Echo Business Partner invoice-to/CC fields were updated on 2026-05-18 and read back; Riot's Nicole recipient remains in Business Partner notes because the schema has only one invoice email and one CC email. Future previews should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`. Live Notion comments with these invoice/template rules were added to the Riot, Echo Sports, and UVS contract pages on 2026-05-18.
+- High-signal open items: confirm Q1 2026 VAT filing and Slack Q4 2025 VAT through the separate VAT review, confirm missing invoice support, confirm actual P&L/balance-sheet submission date, confirm remaining balance after garnishment transfer, monitor for Finanzamt payment-plan response, confirm whether P-Konto later becomes active, and decide whether Notion should get multi-recipient invoice routing fields.
 
 Communication workflow update:
 
