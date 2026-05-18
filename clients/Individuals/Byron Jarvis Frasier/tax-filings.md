@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion individual and personal-tax filing records fetched 2026-05-13; WhatsApp chat `120363222065866778@g.us`.
 Imported: 2026-05-13.
-Review: Confirm whether US filing obligations or US information reporting need to be tracked separately from the German returns.
+Review: The 2024 German filing is in preparation and not filing-ready; confirm whether US filing obligations or US information reporting need to be tracked separately from the German returns.
 
 ## Identity And German Tax Details
 
@@ -20,8 +20,32 @@ Review: Confirm whether US filing obligations or US information reporting need t
 
 | Filing | Jurisdiction | Period | Due date | Status | Source |
 | --- | --- | --- | --- | --- | --- |
-| 2024 - Personal Tax - Byron | Germany | 2024-01-01 to 2024-12-31 | 2026-04-30 | Pending; document gathering Not provided | `https://www.notion.so/2cae41301314808bb952d50c6934b092` |
+| 2024 - Personal Tax - Byron | Germany | 2024-01-01 to 2024-12-31 | 2026-04-30 | In progress; document gathering In progress | `https://www.notion.so/2cae41301314808bb952d50c6934b092` |
 | 2025 - Personal Tax - Byron Germany | Germany | 2025-01-01 to 2025-12-31 | 2026-07-31 | Pending; document gathering Not provided | `https://www.notion.so/342e41301314800197bad5f6b9c7330e` |
+
+## 2024 Task Routing
+
+Status: provisional.
+Source: Filing schema and task routing rule in `skills/rb-personal-tax-analysis-de/SKILL.md`; Notion connector writes on 2026-05-18.
+Imported: 2026-05-18.
+Review: Tasks are linked to the AGL project and filing record; filing task should wait on the preparation dependency.
+
+Workbook: `https://docs.google.com/spreadsheets/d/1_V8CzcZiQfxrIi4zTwVBsvwhvKAxxAaN901bxRm0JHk/edit`.
+
+Created task pair:
+
+| Task | Assignee | Project | Status | Review |
+| --- | --- | --- | --- | --- |
+| `https://www.notion.so/364e4130131481bc9b91c60b0ab7c03e` | Ioana Surdu-Bob | AGL client project `https://www.notion.so/32fe41301314809fa77bf2f0d497de5b` | In Review | Linked in filing `Preparation Task`; filing task has dependency relation |
+| `https://www.notion.so/364e4130131481d8985cc8d2d8bf5b4a` | Johnpaul Okolie | AGL client project `https://www.notion.so/32fe41301314809fa77bf2f0d497de5b` | To Do | Linked in filing `Filing Task`; comment added with workbook URL, filing row, Drive folder, summary figures, and remaining flags |
+
+Filing record fields updated on 2026-05-18:
+
+- `Status`: `In progress`.
+- `Document gathering status`: `In progress`.
+- `GDrive Docs`: `https://drive.google.com/drive/folders/1ajVVFLGIGfTjNLrjH8ELj1sW0YdPuHlj`.
+- `Preparation Task`: `https://www.notion.so/364e4130131481bc9b91c60b0ab7c03e`.
+- `Filing Task`: `https://www.notion.so/364e4130131481d8985cc8d2d8bf5b4a`.
 
 ## US Context To Review
 

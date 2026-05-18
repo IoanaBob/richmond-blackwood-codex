@@ -94,6 +94,18 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Review how Section 138 AO late/proactive filing should be framed for CBMAX and Job Guardian.
 - Verify the N26 file in the investment folder is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS.
 
+## Byron Jarvis Frasier Personal Tax Questions
+
+- Obtain/extract AGL May-Dec 2024 wage-tax, social, health, solidarity, and net-pay details from AGL payslips or the 2024 Lohnsteuerbescheinigung.
+- Confirm May 2024 AGL payroll treatment, because the employment start is 2024-05-01 and first payroll date found was 2024-06-27.
+- Review the November/December 2024 payroll relation mismatch on payroll page `https://www.notion.so/131e4130131481f68790cfb5fe5e8c42`.
+- Obtain the previous-employer 2024 annual wage-tax certificate; Jan-Apr payroll journals are source-backed but should be reconciled to the annual certificate before filing.
+- Confirm Byron's 2024 residence address periods, because Notion current address and Jan-Apr payroll address differ.
+- Confirm no additional 2024 expenses or provide receipt/invoice evidence with exact URLs before claiming expenses.
+- Confirm no 2024 investments or provide investment evidence before clearing the investment checks.
+- Confirm whether older workbook business/freelance revenue belongs in the 2024 personal return; do not add it without invoices/bank evidence and scope confirmation.
+- Filer should review final ELSTER data-entry treatment for the ottonova line 28 EUR 1,331.64 amount. It is recorded with evidence but excluded from included deduction because basic health/care already exceeds the Sec. 10(4) ceiling.
+
 ## SVL / Kristjan Questions
 
 - Monitor for Finanzamt response issuing SVL German tax/VAT numbers; user confirmed on 2026-05-18 that tax registration is still pending.

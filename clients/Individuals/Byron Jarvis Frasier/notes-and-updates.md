@@ -15,3 +15,12 @@ Open questions from the note:
 - If the USD 60k was a retirement-account distribution while German tax resident, review German taxation and US consequences.
 - If the USD 60k came from taxable brokerage, tax is driven by gains/income rather than the withdrawal itself.
 - USD 40k in only helps US taxes if it was a permitted IRA contribution/rollover; Germany does not deduct US IRA contributions.
+
+## 2026-05-15 Analysis Update
+
+Status: provisional.
+Source: Workbook `https://docs.google.com/spreadsheets/d/1_V8CzcZiQfxrIi4zTwVBsvwhvKAxxAaN901bxRm0JHk/edit`; Drive and Notion source review.
+Imported: 2026-05-15.
+Review: See `personal-tax-returns.md` and `open-questions.md` before filing.
+
+A fresh Drive-native workbook was created from the maintained German personal-tax template and populated with source-backed Jan-Apr previous-employer payroll rows plus provisional May-Dec AGL gross salary rows. Unsupported older workbook revenue, expense, and tax-payment candidates were excluded pending evidence and scope confirmation. The older workbook healthcare candidate was superseded on 2026-05-18 by the ottonova 2024 certificate; the workbook now includes EUR 3,145.80 basic health/care insurance. The EUR 1,331.64 non-basic/private health insurance line is recorded with evidence but excluded from included deductions after Sec. 10(4) cap review.
