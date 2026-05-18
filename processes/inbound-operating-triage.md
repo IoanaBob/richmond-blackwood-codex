@@ -75,6 +75,7 @@ After the communication capture pass, split all expense and invoice items out of
 - Do not create per-invoice or per-expense payment tasks; recurring finance processing covers those.
 - Expense records must have verified `Receipt / Invoice` evidence or an explicit blocker/human-uploaded-file note before the source item is complete.
 - SteuerGo charges are always paid by Richmond Blackwood: record SteuerGo expenses under `RICHMOND BLACKWOOD LIMITED` (RBL) even when the source email references a client mailbox or client tax-return context. Do not create tasks for automated SteuerGo registration/login confirmation emails; treat them as verified `no-op` source items and archive only when explicitly requested.
+- ELSTER/BZSt W-IdNr availability notices (`Mitteilung der Wirtschafts-Identifikationsnummer`, `W-IdNr.`) are user-approved verified no-ops as of 2026-05-18. Richmond Blackwood does not save W-IdNr values: do not create tasks, Correspondence, Drive evidence, or client records for the notice itself, and do not retrieve/download the notice merely to save the identifier. After confirming the source is only a W-IdNr availability notice, apply Gmail `Triaged`. If the same source contains a separate explicit RB action, blocker, client request, or deadline unrelated to saving the W-IdNr, handle only that separate item.
 
 For contractor or business-partner invoices:
 
@@ -139,8 +140,9 @@ Slack is not an inbound channel for this workflow. Use Slack only for the final 
 - If the closeout is not explicitly pre-authorized by the run prompt, include it as an approval packet item and explicitly ask the operator to approve sending it immediately after the rendered preview.
 - If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then verify the Slack message link and log it in RB Communications.
 - Write the Slack closeout as if it came from the user, in a concise first-person operating style. Do not use generic assistant-report headings such as `main things done`.
+- Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use this section order for the triage closeout. When a section has no rows, keep the heading and write `- None`.
-  - Opening sentence: `I've finished the corrected <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.`
+  - Opening sentence: `I've finished the <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.`
   - `New Correspondence`: one row per correspondence item as `<name>: <Correspondence link> / <Task link> - assigned to <@owner>`. Include the task link because the task must contain the actionable translated/read information.
   - `New expenses <@U0ALBF770E8>`: list each new/updated expense as a linked expense name, with blockers inline only when they affect completion. If there are no expense rows, use the heading `New expenses` without the owner tag and write `- None`.
   - `Received invoices <@U0ALBF770E8>`: list each received/matched invoice as a linked invoice or finance blocker. Use this for incoming invoices, payment notices, receipts, and blocked finance matching that needs bookkeeping follow-up. If there are no invoice rows, use the heading `Received invoices` without the owner tag and write `- None`.

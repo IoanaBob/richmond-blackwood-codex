@@ -69,6 +69,7 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 - Expense records need verified `Receipt / Invoice` evidence or a clear blocker/human-uploaded-file note before completion.
 - SteuerGo charges are always paid by Richmond Blackwood: categorise SteuerGo expenses under `RICHMOND BLACKWOOD LIMITED` (RBL) even when the source email references a client mailbox or client tax-return context.
 - Do not create tasks for automated SteuerGo registration/login confirmation emails (e.g. “Confirm your registration now”); mark as `no-op` after verification, label Gmail `Triaged`, and archive only when the operator explicitly requests archiving.
+- Treat ELSTER/BZSt W-IdNr availability notices (`Mitteilung der Wirtschafts-Identifikationsnummer`, `W-IdNr.`) as user-approved verified no-ops as of 2026-05-18. Richmond Blackwood does not save W-IdNr values: do not create tasks, Correspondence, Drive evidence, or client records for the notice itself, and do not retrieve/download the notice merely to save the identifier. After confirming the source is only a W-IdNr availability notice, label Gmail `Triaged`. If the same source contains a separate explicit RB action, blocker, client request, or deadline unrelated to saving the W-IdNr, handle only that separate item.
 - Query the Business Partners database for the billed party before routing contractor/business-partner invoices: `https://www.notion.so/Business-Partners-834796d901db48adb6273fb7db89eaf7?source=copy_link`.
 - If no Business Partner is found, save the item in Expenses and associate it with the relevant company/client.
 - If a Business Partner is found, Expense creation is blocked until all associated contract links are fetched and ruled out for the billed company/counterparty context. Supplier-to-RB wording, a negative contract amount, or an invoice addressed to Richmond Blackwood does not by itself make the item an Expense.
@@ -90,10 +91,11 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 - If the closeout is not explicitly pre-authorized, include it as a batch approval packet item and **explicitly ask** the operator to approve sending it right after the rendered preview.
 - If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then log the sent Slack message link in RB Communications.
 - Write the closeout as if it came from the user, in concise first-person operating language. Do not use generic assistant-report headings like `main things done`.
+- Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use the closeout shape below. When a section has no rows, keep the heading and write `- None`. For empty finance sections, omit the finance owner tag from the heading so the empty section does not ping anyone.
 
 ```text
-I've finished the corrected <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.
+I've finished the <date/window> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.
 
 New Correspondence
 - <name>: <Correspondence link> / <Task link> - assigned to <@owner>
