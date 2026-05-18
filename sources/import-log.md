@@ -2,6 +2,28 @@
 
 Status: active.
 
+## 2026-05-18 - SVL And Kristjan Context Import
+
+Applied:
+
+- Created `clients/Companies/SVL/` from the Notion Companies `Reference` value and populated company-side context for SOLINOVA LIMITED.
+- Created `clients/Individuals/KRISTJAN MAR OLAFSSON/` from Kristjan's Notion first-name and last-name fields and routed personal-tax, prior freelancer, individual ELSTER, insurance, and personal Drive context there.
+- Captured user instruction that SVL is the newest client, tax registration is still pending, Kristjan was previously a freelancer, and RB will do Kristjan's personal tax returns from 2026 onward.
+- Stored the resolved WhatsApp route `Olafsson, Kristjan | Richmond Blackwood` / `120363409060100858@g.us` in the company and individual communication/source files.
+- Captured SVL registration blockers, payroll-tax retroactivity, Lexware setup context, Mediainvesting monthly invoicing inputs, AI GreenBytes shareholder-register follow-up, and apartment-purchase structuring notes.
+- Applied user answers from 2026-05-18: still waiting for tax registration; no registration-chase task here; filings are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll tax; hours/bonus sheet is canonical; Lexware and WAMO costs are RB-side; personal-tax Drive year should be 2026; freelancer deregistration is pending via an open task; RB should set up Kristjan's individual/freelancer ELSTER; AI GreenBytes update is completed but JP needs to upload; apartment amount is about EUR 750k with a partner-company-sale hurdle.
+- Renamed the mistaken Drive year folder from `2025` to `2026` and verified the Drive metadata title after update.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- No live Notion, Gmail, Slack, or WhatsApp records were modified during this import.
+- Live Drive change after user answer: renamed Kristjan's mistaken personal-tax year folder from `2025` to `2026` and verified metadata.
+
+Follow-up:
+
+- Still open: Finanzamt/tax-number and VAT-number response, retroactive payroll-tax filings once registered, Kristjan freelancer deregistration task completion, individual/freelancer ELSTER setup, TK insurance response, linking the 2026 Drive folder to the Notion filing when personal-tax work starts, JP evidence upload for AI GreenBytes, and final real-estate loan/ownership/security structure.
+
 ## 2026-05-15 - MHL And Gabriel Context Import
 
 Applied:

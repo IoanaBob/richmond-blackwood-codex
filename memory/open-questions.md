@@ -94,6 +94,20 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Review how Section 138 AO late/proactive filing should be framed for CBMAX and Job Guardian.
 - Verify the N26 file in the investment folder is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS.
 
+## SVL / Kristjan Questions
+
+- Monitor for Finanzamt response issuing SVL German tax/VAT numbers; user confirmed on 2026-05-18 that tax registration is still pending.
+- Do not create a tax-registration chase task in this context; user will handle the registration chase in a separate skill.
+- Treat SVL filing-registration records as overdue with Finanzamt/tax registration as the blocker.
+- After tax/Betriebsnummer registration arrives, Simoneta owns retroactive payroll-tax filings and payments for Kristjan's 2026 payroll.
+- Confirm only if operationally needed whether Kristjan is fully created in Lexware; user says probably yes because RB needs it to create invoices.
+- Use the Individuals table as source of truth for Kristjan tax identifiers; do not ask the operator to classify WhatsApp-provided values unless the table is missing or contradictory.
+- Freelancer deregistration is pending through an open task; RB should set up individual/freelancer ELSTER access.
+- The Drive personal-tax year folder was renamed from `2025` to `2026` and verified; Notion 2026 filing still needs the Drive folder linked when personal-tax work starts.
+- Track TK final response for insurance/retroactive contribution treatment.
+- AI GreenBytes update is completed, but JP needs to upload evidence.
+- Apartment amount is about EUR 750k; final ownership/loan/security route remains open because there was a hurdle with the partner selling his company.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.

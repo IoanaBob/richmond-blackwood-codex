@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-15.
+Updated: 2026-05-18.
 
 ## Repo State
 
@@ -19,10 +19,12 @@ Current implementation includes:
 - Reference-based client folder pilot under `clients/Companies/VUN/`.
 - Reference-based CBMAX company client folder under `clients/Companies/CBMAX/`, loaded on 2026-05-13 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - Reference-based MHL company client folder under `clients/Companies/MHL/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
+- Reference-based SVL company client folder under `clients/Companies/SVL/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
 - Individual client root for Gabriel Louis Manuel Muller under `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
+- Individual client root for Kristjan Mar Olafsson under `clients/Individuals/KRISTJAN MAR OLAFSSON/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
@@ -163,6 +165,18 @@ AGL / Byron Jarvis Frasier context import:
 - Weekly Syntentia invoicing: AGL uses a recurring weekly process with separate service and expense invoices for the same week. Byron may provide expenses late; handle reminders through the general recurring finance evidence-aging/reminder process, not a special AGL task. Because services are day-based, ask Byron monthly whether he plans vacation/off days for the next month so weekly service invoices use the correct day count. Live monthly Notion task: `https://www.notion.so/35fe41301314814096b2cdc5beb780fa`. WhatsApp confirms this pattern across Weeks 7, 12-16, 18, and 19. Email format, recipients, and confirmed sender `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` are captured in `clients/Companies/AGL/invoices-payments-expenses.md`.
 - Governance: Byron needs quarterly Dublin board meetings as UBO and board observer for the Irish tax-residence position. Drive board-meeting folders currently listed: 2025-08-05, 2025-11-03, 2026-02-24. WhatsApp on 2026-02-24 suggests Byron needed to be remote that week, so check minutes/attendance evidence before treating that folder as in-person attendance proof.
 - Byron personal-tax context is routed to the individual folder: Germany personal tax filings for 2024 and 2025, US apartment, US Roth/IRA/brokerage context, personal Wise account, WhatsApp personal-tax/payroll evidence pointers, and SteuerGo data retrieval request from Gmail message `19e20f06924b8d7b`.
+
+SVL / Kristjan Mar Olafsson context import:
+
+- Company folder: `clients/Companies/SVL/`.
+- Individual folder: `clients/Individuals/KRISTJAN MAR OLAFSSON/`.
+- Notion company: `https://www.notion.so/2cde4130131480b89185d9ba4487a3b3`; `Reference` is `SVL`.
+- Notion individual: `https://www.notion.so/2d1e41301314810ca6bbf526246222e5`; folder uses Notion first-name and last-name fields.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/19IHrClZjr58Bt15cx9h0KV9RiVzzAC1G`.
+- WhatsApp route: `Olafsson, Kristjan | Richmond Blackwood` / `120363409060100858@g.us`; saved as source/route pointer only.
+- Current user-instructed position: SVL is the newest client, Kristjan was previously a freelancer, German tax registration is still pending, and RB will do Kristjan's personal tax returns from 2026 onward.
+- Current company state: Irish company number 806985, tax residence in Notion Germany, Kristjan is director/UBO/shareholder/employee, active monthly Mediainvesting contract at EUR 93/hour, and company German corporation/trade/VAT/payroll registrations are overdue with Finanzamt/tax registration as blocker.
+- High-signal blockers and decisions from user answers on 2026-05-18: no SVL VAT number confirmed and still waiting for Finanzamt; no separate tax-registration chase task should be created in this context because the user will handle it through a separate skill; registrations are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll-tax filings/payments once registration clears; Kristjan was probably already set up in Lexware because RB needs it for invoices; Lexware and WAMO costs are RB-side; Mediainvesting hours/bonus sheet is the canonical monthly source; freelancer deregistration is pending through an open task; RB should set up Kristjan's individual/freelancer ELSTER; the personal-tax Drive year folder was renamed from `2025` to `2026` and verified; AI GreenBytes update is completed but JP needs to upload evidence; apartment amount is about EUR 750k and there was a hurdle with the partner selling his company.
 
 Communication workflow update:
 
