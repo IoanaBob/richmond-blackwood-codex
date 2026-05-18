@@ -35,7 +35,6 @@ When Codex starts or monitors the WhatsApp bridge and a QR code is printed in te
 - WhatsApp reads and media downloads are private-data operations. Keep queries narrow: contact, chat, date range, search term, and small limits.
 - Do not send messages or files automatically unless the user explicitly asks to send and the tool approval confirms recipient and content.
 - For suggested WhatsApp responses, draft in chat and show the sending WhatsApp account/number or resolved sender context before approval.
-- The current WhatsApp MCP send action sends a plain message and cannot create a native quoted reply to an earlier WhatsApp message. When replying to a specific earlier item, write the message so the reference is explicit, for example `Regarding your message about X...`, `Thanks for the healthcare certificates...`, or `On the documents you sent this morning...`.
 - Do not store QR state, SQLite databases, downloaded media, voice-note files, transcripts, or private WhatsApp exports in git.
 - Do not copy full private chat history into memory or Notion. Summarize only the business-relevant facts.
 - Store sent WhatsApp communications in RB Communications after sending. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
@@ -62,9 +61,8 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 4. Draft the message in chat unless the user already supplied exact text and asked to send.
 5. Show the sending WhatsApp account/number or resolved sender context before approval.
 6. Confirm files are the intended files and contain no wrong-side or confidential disclosure.
-7. If the send is meant to answer a specific prior WhatsApp message, make the first sentence identify that prior message/topic because the MCP cannot attach a native quoted reply.
-8. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
-9. Store the sent communication in RB Communications.
+7. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
+8. Store the sent communication in RB Communications.
 
 ## Chat ID Filing Workflow
 
