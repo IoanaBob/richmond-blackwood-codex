@@ -32,6 +32,18 @@ Do not build a global active index before reading communications. First capture 
 
 Before writing anything, create a run change ledger from the captured communication batch. Append every verified change as it happens: source channel/link/message ID, classification, created/updated Notion/Drive/source records, associated task links, assignees, verification performed, report section, and approval-packet item ID when relevant. Build the final Slack closeout or approval-ready report from this verified ledger, not from memory.
 
+## Skill Flow
+
+The repo-local `rb-inbound-operating-triage` skill is the master/orchestrator. It should route work through narrower phase skills rather than carrying out every step itself:
+
+1. Capture Gmail/WhatsApp sources with `rb-inbound-capture`.
+2. Classify each captured item with `rb-inbound-classify`.
+3. For each classified item, route finance-like items to `rb-inbound-finance-routing`, route correspondence/task items to `rb-inbound-task-correspondence`, record verified no-ops without business writes, and return blockers or approval-required items to the master ledger.
+4. Generate the Slack preview with `rb-inbound-closeout`.
+5. Request approval, send only after explicit per-message approval, and log the sent communication with `rb-communications`.
+
+Do not skip the classification gate. `ignore` means verified no-op; uncertain items are blockers.
+
 ## Default Daily Window
 
 For the scheduled daily inbound triage automation, the default capture window starts at `08:00 Europe/Dublin` on the previous working day and ends at `08:00 Europe/Dublin` on the run day.
@@ -54,15 +66,16 @@ Use these default read windows. If a connector is unavailable, mark that source 
 
 ## Classification And Safe Direct Writes
 
-Classify each captured communication chunk after the source capture pass:
+Classify each captured communication chunk after the source capture pass. Every item must have exactly one primary class before routing:
 
-- `no-op`: no Notion, Drive, Slack, supplier/client, or source action required; mark the channel completion marker after verification.
-- `task update`: comment/update the matched active task with new context, source link, and next step.
-- `new task`: create task(s) in the relevant client project when no matching task exists and RB action is required; create multiple tasks only when the inbound item contains distinct actionable workstreams.
-- `Correspondence`: create/update only for real non-invoice correspondence or source documents/messages that should be filed.
-- `Expense/Invoicing`: create/update expenses, receipts, contractor invoices, or invoicing records under the finance split below.
-- `blocker`: create/update a blocked task when entity, supplier, contract, evidence, or destination is ambiguous.
-- `approval-required`: add the exact proposed action to the batch execution packet.
+- `verified-no-op`: no Notion, Drive, Slack, supplier/client, or source action is required after verification; mark the channel completion marker only after the explicit no-op reason is recorded.
+- `finance`: invoice, receipt, expense, payment notice, payment failure, supplier invoice, contractor invoice, recurring client invoicing, finance evidence upload, or finance matching work; route through `rb-inbound-finance-routing`.
+- `task-correspondence`: correspondence/document filing, client or counterparty request, RB-owned commitment, task update, new task, translated/read note, or non-finance blocker; route through `rb-inbound-task-correspondence`.
+- `blocker`: destination, owner, entity, supplier, contract, evidence, source content, or connector state is unclear; create/update a blocker only when destination and owner are clear, otherwise stop and ask.
+- `approval-required`: outbound communication, Slack closeout, app/software draft, signature action, irreversible/sensitive move, or other operator-gated action; add the exact proposed action to the batch execution packet.
+- `out-of-scope`: outside the approved capture window or outside client-speaking inbound scope.
+
+`ignore` is not a fuzzy bucket. It means `verified-no-op` with a recorded reason. If the item is unclear, classify it as `blocker`.
 
 Safe direct writes are allowed after verification: Notion task comments/creation, Correspondence, Expense/Invoicing updates, Communications logs, labels, and checkpoints. Do not make irreversible or sensitive changes as a safe write.
 
@@ -100,7 +113,7 @@ Some client billing cases are regular operating cadence, not one-off tasks. When
 - If time/services evidence is available but expense evidence is delayed, process the service invoice and leave the expense invoice/report pending until reviewed evidence arrives.
 - For day-based recurring invoices, the general process may include a monthly planned-absence check with the billing contact so future service invoices use the right day count.
 - If a client or director repeatedly delays expense evidence, raise reminders through the general finance evidence-aging/reminder routine, not a client-only standing task.
-- Outbound invoice emails remain approval-required unless the current workflow explicitly pre-authorizes sending. Use the client domain file for the exact recipient/body format and source evidence.
+- Outbound invoice emails remain approval-required unless the operator explicitly approves that exact send. Use the client domain file for the exact recipient/body format and source evidence.
 
 ## Action Requests Without Correspondence
 

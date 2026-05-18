@@ -1,4 +1,4 @@
 interface:
   display_name: "Inbound Operating Triage"
-  short_description: "Process inbound signals and move active RB work forward."
-  default_prompt: "Use $rb-inbound-operating-triage to process configured inbound channels, match signals to active work, apply safe updates, and batch approval-required actions."
+  short_description: "Run RB inbound triage as a gated flow of capture, classification, routing, closeout, and approval."
+  default_prompt: "Use $rb-inbound-operating-triage to run the inbound triage flow: capture Gmail/WhatsApp sources, classify each item, route finance and task/correspondence work to the right subskills, prepare the Slack closeout preview, and request approval before any send."
