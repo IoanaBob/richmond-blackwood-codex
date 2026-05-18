@@ -28,16 +28,18 @@ Use this phase to generate the Slack closeout preview only. Sending, approval, a
 
 ## Required Shape
 
+Use these headings exactly. For `New expenses` and `Received invoices`, append `<@U0ALBF770E8>` to the heading only when that section has real rows. Do not leave placeholder text in the final Slack preview.
+
 ```text
 I've finished the <human window label> inbound triage pass. I read the correspondence contents, added translated/read notes, added tasks, and routed the tasks to the right owners.
 
 New Correspondence
 - <name>: <Correspondence link> / <Task link> - assigned to <@owner>
 
-New expenses <@U0ALBF770E8>
+New expenses
 - <expense name link>
 
-Received invoices <@U0ALBF770E8>
+Received invoices
 - <invoice or finance blocker link>
 
 New tasks
@@ -50,13 +52,15 @@ Blocked / left open
 - <source/record> - <reason>
 ```
 
+For each section, include either the real rows or exactly `- None`, not both. The finance owner tag appears only when the matching finance section has real rows.
+
 ## Approval Handoff
 
 After rendering the preview, hand off to `rb-communications`:
 
 - Destination.
 - Sending identity.
-- Exact rendered message.
+- Exact rendered message as readable Codex preview text with clickable named links, not a fenced raw Markdown/code block.
 - Approval status: pending.
 
 Do not ask for approval from this skill unless `rb-communications` is unavailable; the communications skill owns the permission/send/log sequence.

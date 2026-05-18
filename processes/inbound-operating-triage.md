@@ -38,7 +38,7 @@ The repo-local `rb-inbound-operating-triage` skill is the master/orchestrator. I
 
 1. Capture Gmail/WhatsApp sources with `rb-inbound-capture`.
 2. Classify each captured item with `rb-inbound-classify`.
-3. For each classified item, route finance-like items to `rb-inbound-finance-routing`, route correspondence/task items to `rb-inbound-task-correspondence`, record verified no-ops without business writes, and return blockers or approval-required items to the master ledger.
+3. For each classified item, route finance-like items to `rb-inbound-finance-routing`, route correspondence/task items to `rb-inbound-task-correspondence`, record verified no-ops without business writes, and return blockers or approval-required actions to the master ledger.
 4. Generate the Slack preview with `rb-inbound-closeout`.
 5. Request approval, send only after explicit per-message approval, and log the sent communication with `rb-communications`.
 
@@ -66,14 +66,15 @@ Use these default read windows. If a connector is unavailable, mark that source 
 
 ## Classification And Safe Direct Writes
 
-Classify each captured communication chunk after the source capture pass. Every item must have exactly one primary class before routing:
+Classify each captured communication chunk after the source capture pass. Every item must have exactly one primary route class before routing:
 
 - `verified-no-op`: no Notion, Drive, Slack, supplier/client, or source action is required after verification; mark the channel completion marker only after the explicit no-op reason is recorded.
 - `finance`: invoice, receipt, expense, payment notice, payment failure, supplier invoice, contractor invoice, recurring client invoicing, finance evidence upload, or finance matching work; route through `rb-inbound-finance-routing`.
 - `task-correspondence`: correspondence/document filing, client or counterparty request, RB-owned commitment, task update, new task, translated/read note, or non-finance blocker; route through `rb-inbound-task-correspondence`.
 - `blocker`: destination, owner, entity, supplier, contract, evidence, source content, or connector state is unclear; create/update a blocker only when destination and owner are clear, otherwise stop and ask.
-- `approval-required`: outbound communication, Slack closeout, app/software draft, signature action, irreversible/sensitive move, or other operator-gated action; add the exact proposed action to the batch execution packet.
 - `out-of-scope`: outside the approved capture window or outside client-speaking inbound scope.
+
+Approval is a separate flag, not a primary route class. Mark `approval_required` for outbound communication, Slack closeout, app/software drafts, signature actions, irreversible/sensitive moves, or other operator-gated actions. Do the safe finance or task/correspondence handling first, then add the exact proposed approval action to the batch execution packet.
 
 `ignore` is not a fuzzy bucket. It means `verified-no-op` with a recorded reason. If the item is unclear, classify it as `blocker`.
 
@@ -150,7 +151,7 @@ Slack is not an inbound channel for this workflow. Use Slack only for the final 
 - Build the message from the verified run ledger.
 - Include the current Notion task status in every task row (`Status: To Do`, `Status: In Progress`, `Status: Done`, `Status: Archived`, etc.).
 - Tag the assignee on each task row when a Slack user mapping is available and the task is still active. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed; include the assignee only as historical ownership when useful.
-- Every Slack closeout is approval-required. Include it as an approval packet item, show the exact rendered preview with destination and sending identity, then send an actual Codex approval request to the operator asking whether to send that exact message. If a native approval prompt is unavailable, ask in chat and wait for an explicit reply. Do not send a Slack closeout from either manual runs or automations until that per-message approval is received.
+- Every Slack closeout is approval-required. Include it as an approval packet item, show the exact rendered preview with destination and sending identity, then send an actual Codex approval request to the operator asking whether to send that exact message. If a native approval prompt is unavailable, use the approved local approval-dialog fallback; if neither is available, stop and report Slack as unsent/approval-blocked. Do not send a Slack closeout from either manual runs or automations until that per-message approval is received.
 - Write the Slack closeout as if it came from the user, in a concise first-person operating style. Do not use generic assistant-report headings such as `main things done`.
 - Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use this section order for the triage closeout. When a section has no rows, keep the heading and write `- None`.

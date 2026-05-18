@@ -31,7 +31,8 @@ Use this as the master skill for client-speaking inbound triage. It owns the flo
    - Produce a source ledger only. Do not write Notion, Drive, Gmail labels, WhatsApp checkpoints, or Slack from the capture phase.
 
 2. **Classify** with `rb-inbound-classify`.
-   - Every captured item must become exactly one primary class: `verified-no-op`, `finance`, `task-correspondence`, `blocker`, `approval-required`, or `out-of-scope`.
+   - Every captured item must become exactly one primary route class: `verified-no-op`, `finance`, `task-correspondence`, `blocker`, or `out-of-scope`.
+   - Mark `approval_required` separately for outbound communication, Slack closeout, app/software drafts, signature actions, irreversible/sensitive moves, or other operator-gated actions.
    - `ignore` means verified no-op, not uncertainty. Unclear items are blockers.
 
 3. **Route each item from the classified ledger**.
@@ -39,7 +40,7 @@ Use this as the master skill for client-speaking inbound triage. It owns the flo
    - If it is correspondence, a document to file, a client/counterparty request, or an RB-owned commitment, route it to `rb-inbound-task-correspondence`.
    - If it is `verified-no-op`, record the reason in the run ledger and apply the channel completion marker only after verification.
    - If it is a `blocker`, create/update the correct blocker only when the destination and owner are clear; otherwise stop and ask.
-   - If it requires outbound communication, Slack closeout, signature sends/cancellations, app drafts, irreversible changes, or sensitive status moves, add it to the batch approval packet.
+   - If the routed item also has `approval_required`, add the exact proposed action to the batch approval packet after safe verified writes. Do not let approval-required status replace the item's finance or task/correspondence route.
 
 4. **Verify before completion markers**.
    - Apply Gmail `Triaged` only after the item is saved/updated, blocked with clear owner/action, or verified no-op.
@@ -52,7 +53,7 @@ Use this as the master skill for client-speaking inbound triage. It owns the flo
 
 6. **Approval, send, and log** with `rb-communications`.
    - Show destination, sending identity, and exact rendered message.
-   - Send an actual Codex approval request. If unavailable, ask in chat or use the approved local dialog fallback.
+   - Send an actual Codex approval request. If unavailable, use the approved local dialog fallback; if neither is available, stop and report Slack as unsent/approval-blocked.
    - Send Slack only after explicit per-message approval, then verify the message link and log in RB Communications.
 
 ## Hard Gates

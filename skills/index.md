@@ -15,7 +15,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and gcloud-managed verified Gmail draft fallback rules for `accounting@richmondblackwood.com`.
 - `rb-inbound-operating-triage`: master/orchestrator for Gmail-inbox-first and WhatsApp-topic client communication triage, routing each item through focused phase skills and approval gates.
 - `rb-inbound-capture`: capture Gmail inbox and WhatsApp topic/checkpoint source items into a no-write source ledger.
-- `rb-inbound-classify`: classify captured inbound items into verified no-op, finance, task/correspondence, blocker, approval-required, or out-of-scope.
+- `rb-inbound-classify`: classify captured inbound items into verified no-op, finance, task/correspondence, blocker, or out-of-scope, with approval-required actions flagged separately.
 - `rb-inbound-finance-routing`: handle finance-classified inbound items, including invoices, receipts, expenses, contractor invoices, evidence, and finance blockers.
 - `rb-inbound-task-correspondence`: handle non-finance task updates, new tasks, correspondence filing, translations/read notes, and blockers.
 - `rb-inbound-closeout`: generate the Slack-ready inbound triage closeout preview from the verified ledger without sending.
