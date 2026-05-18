@@ -15,7 +15,7 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
    - Gmail/email: `skills/rb-gmail-drafts/SKILL.md` for sender/thread rules when replies or email actions are needed.
    - WhatsApp: `skills/rb-whatsapp-comms/SKILL.md` for WhatsApp reads, topic queries, media, and checkpoint safety.
    - Files: `skills/rb-file-uploads/SKILL.md` when uploading, exporting, attaching, or verifying documents.
-   - Slack guidance only for an approved or pre-authorized final triage closeout, not as an inbound channel for this workflow.
+   - Slack guidance only for an approved final triage closeout, not as an inbound channel for this workflow.
 4. Read `internal/people-roles.md` when assigning newly created client-inbound tasks.
 
 ## Run Workflow
@@ -47,7 +47,7 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
    - Correspondence, Expense/Invoicing, Communications, and source-record updates;
    - file links/attachments and translations where destination is verified;
    - Gmail `Triaged` labels and WhatsApp checkpoints only after required handling succeeds.
-6. **Prepare one batch approval packet** for outbound messages, Slack closeout posts that are not explicitly pre-authorized, app drafts, signature sends/cancellations, final signed-package distribution, irreversible changes, and sensitive/high-impact status moves.
+6. **Prepare one batch approval packet** for outbound messages, Slack closeout posts, app drafts, signature sends/cancellations, final signed-package distribution, irreversible changes, and sensitive/high-impact status moves.
 7. **Execute only approved packet items**, verify results, then produce the final report.
 
 ## Task Handling
@@ -83,13 +83,12 @@ Use this skill for client-speaking inbound triage. The goal is to move work forw
 ## Slack Closeout
 
 - Slack is output only for this workflow, not an inbound source.
-- Send one Slack message per triage run when requested/pre-authorized or approved in the batch packet.
+- Send one Slack message per triage run only after the operator approves the exact rendered message in the batch packet.
 - Send the closeout to `#rb-client-updates` unless the user explicitly specifies another destination.
 - Build the message from the verified run ledger.
 - Include the current Notion task status in every task row.
 - Tag each task assignee when a Slack user mapping is available and the task is still active; otherwise include the assignee name and note the missing mapping as a verification gap. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed.
-- If the closeout is not explicitly pre-authorized, include it as a batch approval packet item and **explicitly ask** the operator to approve sending it right after the rendered preview. The approval ask is part of the preview handoff; do not provide a Slack-ready draft and stop without asking whether to send it.
-- If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then log the sent Slack message link in RB Communications.
+- Every Slack closeout is approval-required. Include it as a batch approval packet item, show the exact rendered preview with destination and sending identity, then send an actual Codex approval request to the operator asking whether to send that exact message. If a native approval prompt is unavailable, ask in chat and wait for an explicit reply. Do not send a Slack closeout from either manual runs or automations until that per-message approval is received.
 - Write the closeout as if it came from the user, in concise first-person operating language. Do not use generic assistant-report headings like `main things done`.
 - Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use the closeout shape below. When a section has no rows, keep the heading and write `- None`. For empty finance sections, omit the finance owner tag from the heading so the empty section does not ping anyone.

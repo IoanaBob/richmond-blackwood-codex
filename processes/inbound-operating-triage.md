@@ -130,15 +130,14 @@ If an inbound request or instruction has no document or correspondence artifact 
 
 ## Slack Closeout
 
-Slack is not an inbound channel for this workflow. Use Slack only for the final triage closeout when the run prompt requests or pre-authorizes it, or when the user approves it in the batch approval packet.
+Slack is not an inbound channel for this workflow. Use Slack only for the final triage closeout after the operator approves the exact rendered message in the batch approval packet. A run prompt may request a Slack preview and approval request, but it must not pre-authorize sending.
 
 - Send one Slack message per triage run, not one per channel or per item.
 - Send the closeout to `#rb-client-updates` unless the user explicitly specifies another destination.
 - Build the message from the verified run ledger.
 - Include the current Notion task status in every task row (`Status: To Do`, `Status: In Progress`, `Status: Done`, `Status: Archived`, etc.).
 - Tag the assignee on each task row when a Slack user mapping is available and the task is still active. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed; include the assignee only as historical ownership when useful.
-- If the closeout is not explicitly pre-authorized by the run prompt, include it as an approval packet item and explicitly ask the operator to approve sending it immediately after the rendered preview. The approval ask is part of the preview handoff; do not provide a Slack-ready draft and stop without asking whether to send it.
-- If the operator has explicitly pre-authorized Slack closeouts for the current automation/run, show the rendered preview and then send it immediately (do not wait for a reply), then verify the Slack message link and log it in RB Communications.
+- Every Slack closeout is approval-required. Include it as an approval packet item, show the exact rendered preview with destination and sending identity, then send an actual Codex approval request to the operator asking whether to send that exact message. If a native approval prompt is unavailable, ask in chat and wait for an explicit reply. Do not send a Slack closeout from either manual runs or automations until that per-message approval is received.
 - Write the Slack closeout as if it came from the user, in a concise first-person operating style. Do not use generic assistant-report headings such as `main things done`.
 - Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use this section order for the triage closeout. When a section has no rows, keep the heading and write `- None`.
@@ -175,7 +174,7 @@ Collect approval-required actions into one packet at the end of investigation an
 Approval-required actions include:
 
 - outbound emails, Slack/WhatsApp messages, or other external replies;
-- final Slack closeout posts unless the current run prompt explicitly pre-authorizes direct posting;
+- final Slack closeout posts;
 - app/software draft creation;
 - signature request cancellation, sending, or signer redirection;
 - final signed-package distribution;
@@ -205,4 +204,4 @@ Finish with:
 - skipped same-day nudges;
 - remaining blockers with next owner/action/date.
 
-If no actionable items and no Notion/Drive/source records changed, do not post Slack; return a concise no-op summary only. If a Slack closeout is needed and not explicitly pre-authorized by the run prompt, include it in the batch approval packet.
+If no actionable items and no Notion/Drive/source records changed, do not post Slack; return a concise no-op summary only. If a Slack closeout is needed, include it in the batch approval packet and wait for explicit approval before sending.
