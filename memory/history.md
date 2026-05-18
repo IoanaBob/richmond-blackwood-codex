@@ -524,6 +524,32 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `git diff --check` passed.
 - Limitations or gaps: Slack message not sent yet because outbound Slack requires exact-message approval.
 
+## 2026-05-15 - Byron Jarvis Frasier 2024 German Personal Tax Analysis
+
+- User request: Prepare Byron's 2024 German personal-tax analysis using the repo-local German personal-tax workflow, the supplied Drive filing folder, and the AGL/RB payslip location.
+- Context read: `rb-personal-tax-analysis-de`, `processes/personal-tax-return-prompt.md`, Notion individual/filing/employment/company/project/task context, Drive filing and payroll folders, existing workbooks, Jan-Apr payroll PDFs, and the maintained native German personal-tax template.
+- Actions taken: Created a fresh Drive-native workbook copy in the supplied 2024 folder, populated only source/input tabs and input columns, recorded exact Jan-Apr payroll PDF URLs, excluded unsupported older workbook revenue/expense/payment candidates, and updated Byron individual repo notes with source, filing, Drive, personal-tax, linked-entity, expense, and open-question context.
+- Decisions made: Treat Jan-Apr previous-employer payroll journals as source-backed but still needing annual certificate review; treat May-Dec AGL gross salary as provisional pending payroll extraction; do not claim expenses, home-office, business/freelance revenue, or tax prepayments without exact evidence and scope confirmation.
+- Verification: Drive API read-back confirmed Summary, Tax Analysis, Revenue, Tax Payments, and Missing Info values after workbook update.
+- Limitations or gaps: AGL/previous-employer annual payroll evidence, address period, expense/investment confirmations, older workbook scope, and workbook review checks remain open.
+
+## 2026-05-18 - Byron Jarvis Frasier Healthcare Evidence Update
+
+- User request: Use Byron's newly supplied healthcare records to adapt the 2024 German personal-tax analysis; user confirmed the PDFs were already added to Drive.
+- Context read: Local ottonova 2024/2025 certificates, the Drive 2024 filing subfolder, the 2025 documents folder, Byron's existing 2024 workbook, and Notion preparation/filing task state.
+- Actions taken: Linked the existing Drive evidence, updated only `Deductibles`, `Sources`, and `Missing Info` input/source areas in the workbook, claimed EUR 3,145.80 basic health/care insurance, recorded EUR 1,331.64 non-basic health insurance after operator instruction, cleared the old missing-healthcare manual flag, created and linked the Notion preparation/filing task pair, updated filing row status fields, sent the approved WhatsApp acknowledgement to Byron, and logged it in RB Communications.
+- Decisions made: Treat the 2024 transfer-value certificate as reference only, not a contribution/payment claim; keep the 2025 certificates out of the 2024 analysis.
+- Verification: Google Drive/Sheets connector read-back confirmed the health/care row and non-basic/private health-insurance row evidence, Notion read-back confirmed filing status/task links/dependency/comments, WhatsApp MCP returned success, and RB Communications read-back confirmed the outbound record.
+- Limitations or gaps: Remaining Byron blockers are unchanged except healthcare evidence and Notion task sync: payroll certificates, address period, expense/investment confirmations, old workbook scope, and workbook check review.
+
+## 2026-05-18 - Byron Healthcare Cap Correction And WhatsApp Reply Rule
+
+- User request: Explain whether Byron's 2024 health insurance amount included ottonova plus previous-employment health insurance, update the spreadsheet if wrong, and add a WhatsApp process rule for explicit message references when native quoted replies are unavailable.
+- Context read: Jan-Apr previous-employer payroll journal images, Byron's workbook `Revenue`, `Deductibles`, `Summary`, and `Tax Analysis` tabs, the AGL Notion employment/payroll relation, official LStH 2024 Sec. 10 cap wording, and `skills/rb-whatsapp-comms/SKILL.md`.
+- Actions taken: Rechecked the Jan-Apr payroll journal images and confirmed HI/PI/UI/CI employee and employer contribution columns are EUR 0.00; updated workbook input notes in `Revenue` and `Deductibles`; corrected `ded-other-insurance` so the EUR 1,331.64 line 28 amount remains recorded with evidence but has included deduction EUR 0.00; added Notion comments to the preparation and filing tasks; documented that future specific WhatsApp replies should name the topic in the message body.
+- Decisions made: Current health/care deduction is only the ottonova basic/care certificate amount, EUR 2,286.60 + EUR 859.20 = EUR 3,145.80. The non-basic/private health amount should not be added as a further tax-effect deduction because basic health/care already exceeds the Sec. 10(4) ceiling; final ELSTER data-entry treatment remains for filer review.
+- Verification: Google Sheets read-back confirmed `ded-health-insurance-basic` included deduction EUR 3,145.80; `ded-other-insurance` amount EUR 1,331.64, claim decision `No`, included deduction EUR 0.00, review status `Not claimed`; Summary other personal deductions EUR 3,181.80; Tax Analysis total deductions EUR 4,411.80; income after deductions EUR 76,555.36; Revenue Jan-Apr health/social columns remain EUR 0.00.
+
 ## 2026-05-18 - AMC And Aaron Context Import
 
 - User request: Return to main, pull, and export context for AMC, including Aaron personal-tax routing, current garnishment/payment-plan context, company VAT Q1 2026 status, and variable invoice rules.

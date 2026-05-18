@@ -1328,3 +1328,61 @@ Unresolved:
 - Confirm whether Claudio's existing `.xlsx` workbook should be migrated to the maintained native machine-readable template.
 - Confirm whether existing Notion tasks are linked to the filing before creating any new task pair.
 - Resolve 2024 filing questions for February CBMAX payroll, CBMAX wage-tax certificate, TK/Hallesche reconciliation, Section 138 AO, Joblift travel classification, and the N26 investment-folder file.
+
+## 2026-05-15 - Byron Jarvis Frasier 2024 Personal Tax Analysis
+
+Imported:
+
+- Notion individual record `https://www.notion.so/203647f1b74743a09fc8a408a3318b30`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae41301314808bb952d50c6934b092`.
+- AGL employment record `https://www.notion.so/aabd97548dab4747b3369cb0a9da0389`.
+- AGL company record `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`.
+- AGL client project `https://www.notion.so/32fe41301314809fa77bf2f0d497de5b`.
+- User-provided 2024 Drive filing folder `https://drive.google.com/drive/folders/1ajVVFLGIGfTjNLrjH8ELj1sW0YdPuHlj`.
+- Client-provided Jan-Apr previous-employer payroll PDFs in `https://drive.google.com/drive/folders/1htafA6oTpZe3EhP2_6CsLHYOiM5NCyLl`.
+- Existing V2 workbook `https://drive.google.com/file/d/1cPFvCjo1yOuRTJFAYM2NLSAtkgFMm6_F/view?usp=drivesdk` and older workbook `https://drive.google.com/file/d/1KIJlt_HX8hVHppXRpicUF30TD6GHL2-Q/view?usp=drivesdk`.
+- Fresh Drive-native German personal-tax workbook `https://docs.google.com/spreadsheets/d/1_V8CzcZiQfxrIi4zTwVBsvwhvKAxxAaN901bxRm0JHk/edit`.
+
+Actions:
+
+- Copied the maintained German personal-tax template into the 2024 filing folder and populated input/source tabs only.
+- Entered Jan-Apr previous-employer payroll journal figures and provisional May-Dec AGL gross salary rows.
+- Recorded exact Drive PDF URLs for Jan-Apr payroll-derived rows and excluded old workbook expense/revenue/payment candidates without exact evidence URLs.
+- Recorded Drive locations, source register, filing notes, personal-tax summary, linked-company pointers, open questions, and memory entries.
+
+Unresolved:
+
+- Obtain or extract AGL 2024 payslips/annual wage-tax certificate.
+- Obtain previous-employer annual wage-tax certificate.
+- Confirm address periods, expenses/no-expenses, investments/no-investments, and whether older workbook business activity belongs in scope.
+
+## 2026-05-18 - Byron Jarvis Frasier Healthcare Evidence Update
+
+Imported:
+
+- 2024 ottonova Jahresvorsorgeaufwandsbescheinigung `https://drive.google.com/file/d/1FtUYBdq2qwL6v7AKWCP-_ra94HaGQT0w/view?usp=drivesdk`.
+- 2024 ottonova Übertragungswertbescheinigung `https://drive.google.com/file/d/1UCHGupqpNW10N5y1gMYV_691-xZ-LUGd/view?usp=drivesdk`.
+- 2025 ottonova Jahresvorsorgeaufwandsbescheinigung `https://drive.google.com/file/d/1koIJbBIdcmapEKBMR04XtN3ipFInC4Xb/view?usp=drivesdk`.
+- 2025 ottonova Übertragungswertbescheinigung `https://drive.google.com/file/d/1IJWUkdpzx9qbESKAXGT2EvR-wUVW6UPs/view?usp=drivesdk`.
+- BMF LStH 2024 Sec. 10 cap wording `https://esth.bundesfinanzministerium.de/lsth/2024/A-Einkommensteuergesetz/II-Einkommen/5-Sonderausgaben/Paragraf-10-Druck/inhalt.html`.
+- RB Communications record `https://www.notion.so/364e413013148126afb0d72472a45ce2` for the outbound WhatsApp acknowledgement.
+
+Actions:
+
+- Updated Byron's 2024 workbook `Deductibles` input rows only.
+- Claimed EUR 3,145.80 basic health/care insurance from the 2024 certificate.
+- Recorded EUR 1,331.64 non-basic health insurance as provided but excluded from included deductions after Sec. 10(4) cap review.
+- Rechecked Jan-Apr previous-employer payroll journal images and confirmed HI/PI/UI/CI employee/employer contribution columns show EUR 0.00, so no separate payroll health/care amount was added from those journals.
+- Recorded the 2024 transfer-value certificate as reference only and cleared the old missing-healthcare manual flag from `Missing Info`.
+- Updated Byron individual Drive/source/open-question notes and durable source memory.
+- Created and linked the Notion preparation task `https://www.notion.so/364e4130131481bc9b91c60b0ab7c03e` and filing task `https://www.notion.so/364e4130131481d8985cc8d2d8bf5b4a`.
+- Updated the filing row `Status`, `Document gathering status`, `GDrive Docs`, `Preparation Task`, and `Filing Task` fields, then verified by read-back.
+- Added Notion task comments with the healthcare cap correction and revised workbook figures.
+- Sent the approved WhatsApp acknowledgement to Byron's RB group and logged it in RB Communications.
+- Read-back confirmed health/care insurance EUR 3,145.80, `ded-other-insurance` amount EUR 1,331.64 with included deduction EUR 0.00, other personal deductions EUR 3,181.80, total deductions EUR 4,411.80, and income after deductions EUR 76,555.36.
+
+Unresolved:
+
+- 2025 healthcare files are logged as future-year evidence only.
+- Remaining Byron blockers are AGL/previous-employer annual payroll evidence, address-period confirmation, expense/investment confirmations, old workbook scope confirmation, and workbook check review.
+- Filer should review final ELSTER data-entry treatment for the non-basic/private health insurance line 28 amount.
