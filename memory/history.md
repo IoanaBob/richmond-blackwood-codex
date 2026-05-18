@@ -2,6 +2,16 @@
 
 Status: active.
 
+## 2026-05-18 - SVL And Kristjan Context Import
+
+- User request: Return to main after the MHL branch was closed, pull, and load context for SVL and Andrei-like individual routing for Kristjan, with tax registration pending and personal-tax work from 2026 onward.
+- Context read: Notion company/project/individual/employment/contract/filing/task records, Google Drive SVL folder and personal-tax subfolder, Gmail ELSTER/Stripe/Lexware/TK context, WhatsApp `Olafsson, Kristjan | Richmond Blackwood`, Slack internal context, and repo RB client/source skills.
+- Actions taken: Switched from the closed MHL branch to updated `main`, created branch `codex/svl-context`, created `clients/Companies/SVL/` and `clients/Individuals/KRISTJAN MAR OLAFSSON/`, and routed company vs individual facts into separate files.
+- Decisions made: Use `SVL` as the company folder from Notion `Reference`; use Kristjan's Notion first-name and last-name fields for the individual folder; store WhatsApp/Gmail/Slack/Drive/Notion source pointers and summaries only; keep raw documents, identity files, certificates, credentials, transcripts, media, and attachment identifiers out of git.
+- User follow-up on 2026-05-18 resolved: still waiting for tax registration; no chase task should be created here because the user will handle it through a separate skill; filings are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll tax; Kristjan was probably already set up in Lexware; Lexware and WAMO costs are RB-side; Mediainvesting hours/bonus sheet is canonical; personal-tax folder year should be 2026; freelancer deregistration is pending through an open task; RB should set up individual/freelancer ELSTER; AI GreenBytes update is completed but JP needs to upload; apartment amount is about EUR 750k with a hurdle around the partner selling his company. The mistaken Drive year folder was renamed from `2025` to `2026` and verified.
+- Verification: Connector reads completed for Notion, Drive, Gmail, WhatsApp, and Slack. No live Notion/Drive/Gmail/Slack/WhatsApp records were modified during the import.
+- Limitations or gaps: German tax/VAT registration response, retroactive payroll-tax execution, freelancer deregistration task completion, individual ELSTER setup, TK response, linking the 2026 Drive folder to the Notion filing when personal-tax work starts, JP evidence upload for AI GreenBytes, and final apartment ownership/loan/security structure remain open.
+
 ## 2026-05-15 - MHL And Gabriel Context Import
 
 - User request: Return to main after the NACV branch was merged, then load Mindharbour/MHL and Gabriel context, including Grey Desk, Gabriel personal taxes, premium/private-channel context, car purchase/registration, and the Ltd & Co KG / Berlin apartment tax-residence plan.
