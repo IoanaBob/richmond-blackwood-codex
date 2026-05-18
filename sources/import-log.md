@@ -2,6 +2,28 @@
 
 Status: active.
 
+## 2026-05-15 - MHL And Gabriel Context Import
+
+Applied:
+
+- Created `clients/Companies/MHL/` from the Notion Companies `Reference` value and populated company-side context for MINDHARBOUR LIMITED.
+- Created `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/` from Gabriel's Notion first/last-name fields and routed personal-tax, residency, and asset context there.
+- Added Grey Desk Inc. context into the MHL/Gabriel files because Gabriel owns both and current funding/structuring decisions depend on separating or deliberately linking Grey Desk and MHL.
+- Captured the Ferrari/company-car purchase, vehicle tax, Herzenssache insurance payment, MHL liquidity/funding route, and the Ltd & Co KG / Berlin apartment restructuring plan.
+- Stored WhatsApp route pointers for `Grey Desk Restructuring` and Gabriel's contact search result. Raw transcripts, audio, media, credential files, ELSTER certificates, and Notion attachments were not copied into git.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- User follow-up on 2026-05-15 resolved the billing route: MHL pays EUR 1k/month by Stripe for the European entity, and Grey Desk pays approximately USD 10.5k/month for international support.
+- User follow-up resolved Co-KG status: the notary appointment was never booked; the service has been requested and is waiting on Byron signing availability and Gabriel's signature route.
+- User confirmed the Kastanienallee apartment is intended to move under MHL/Co-KG on a flexible timeline, MMG is 100% personal and untouched since Gabriel moved to Germany, and future communication should aim to stay in the `Grey Desk Restructuring` WhatsApp group.
+- Still open: Zoll-Portal rejection response, VAT registration response/tax number, future-dated filing status cleanup, and the Notion 2025 Gabriel personal-tax filing marked filed against the user instruction that personal taxes are done up to 2024.
+
 ## 2026-05-13 - Future Personal Tax Prompt
 
 Applied:
