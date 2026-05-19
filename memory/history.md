@@ -413,3 +413,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat Client Notes & Updates as a client-facing context/update table, not a generic Codex repo-summary backup; keep the Slack closeout limitation as a general client-backfill rule rather than CBMAX-specific context.
 - Verification: Notion fetch read the existing internal Client Notes page; `git diff --check` passed.
 - Limitations or gaps: No live Notion Client Notes & Updates page was changed during this cleanup.
+
+## 2026-05-19 - RB Calls Review PoA Node Fix
+
+- User request: Fix n8n error `Problem in node 'If (PoA Required AND Missing) OR (PoA not required)': Referenced node doesn't exist`.
+- Context read: Live n8n `RB Calls Review`, `RB Calls Slack Replies`, source-controlled RB calls workflows, implementation map, and calling-bot open questions.
+- Actions taken: Patched and published the live n8n `RB Calls Review` workflow through n8n MCP. The two PoA gate expressions now reference `Loop Over Calls`, choose `Company PoA` for company-subject calls and `Individual PoA` for individual-subject calls, and treat one relevant file as sufficient. The related PoA Slack messages were updated to avoid the stale node reference and describe the subject-specific PoA field.
+- Decisions made: Keep this as a live-workflow patch helper under ignored `.codex-local/automation/n8n/` because this older review workflow is not one of the source-controlled reusable n8n workflows.
+- Verification: n8n MCP validation passed; the patched workflow was published; live readback confirmed no `Loop Over Not Started Calls` reference remains in draft or active version.
+- Limitations or gaps: The active `RB Calls Slack Replies` PoA file-upload branch still needs a synthetic file-upload test before production reliance.

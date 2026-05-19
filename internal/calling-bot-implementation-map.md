@@ -133,12 +133,12 @@ Observed gaps and likely defects:
 - There is no ElevenLabs node or HTTP Request to trigger an outbound call.
 - There is no post-call webhook, transcript capture, or Call Notes creation.
 - The `Reviewed` switch branch has no outgoing connection, so approved calls stop there.
-- The node `If (PoA Required AND Missing) OR (PoA not required)` still references `Loop Over Not Started Calls`, which does not exist; this is the source of the earlier n8n runtime error and should be corrected to the current loop node before production reliance.
+- The 2026-05-19 n8n MCP patch corrected the two PoA gate nodes so they reference `Loop Over Calls` and use the call `Subject` to choose `Company PoA` or `Individual PoA`.
 - The workflow does not currently filter by `First call date`, contact availability windows, business hours, retry timing, or "picked up not more than once per day" rules.
 - The workflow assumes `Company`, `Individual`, `Contact`, `Submitter`, and `Reviewer` are present and uses relation/person array index `0`; missing data will likely throw instead of producing a controlled blocker message.
 - The project spec says Company is optional, but this workflow treats Company as required.
 - The Individual/Company relation check uses `JSON.stringify(company.properties).includes(individualId)`, which is brittle.
-- The PoA check uses `Individual PoA.files.length > 1`; that likely requires two files, not one. If a single valid PoA is enough, this should be `> 0`.
+- The PoA check now treats one relevant PoA file as sufficient. Company-subject calls check `Company PoA`; individual-subject calls check `Individual PoA`.
 - The workflow marks PoA as validated when the presence check passes, but there is no separate human/legal validation step.
 - Some expressions/action IDs fetched from n8n include invisible Unicode formatting characters before `{{ ... }}` or action values. These should be removed because they can make comparisons fail.
 

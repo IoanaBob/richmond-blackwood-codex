@@ -104,9 +104,7 @@ Updated: 2026-05-12.
 - Confirm ElevenLabs privacy/retention settings before live calls; the inspected agent currently records voice, retains indefinitely, and does not delete transcript/PII or audio.
 - Confirm the updated ElevenLabs live-help behavior in a synthetic call: agent-level dynamic-variable placeholders and the n8n outbound payload must include every required tool variable, `request_creator_help` should run once per issue, and `check_creator_help` should poll without duplicate Slack posts for up to five minutes.
 - Test the active n8n `RB Calls Slack Replies` PoA file-upload branch with a synthetic file before production reliance.
-- Fix the legacy `RB Calls` validation workflow node `If (PoA Required AND Missing) OR (PoA not required)`, which still references missing node `Loop Over Not Started Calls`.
 - Confirm whether `Company` should remain optional for call requests; the new voice workflow still assumes Company, Individual, and Contact relations are present before it fetches related pages.
-- Align the original `RB Calls` validation workflow with the new voice workflow PoA rule: company calls use `Company PoA`, individual calls use `Individual PoA`, and one file is sufficient.
 - Confirm Slack app interactivity URL/scopes for the RB calls workflow.
 - Confirm whether n8n can validate ElevenLabs webhook HMAC signatures with raw request body support, or whether IP allowlisting plus a secondary header secret is the approved protection.
 - Confirm detailed contact-availability timezone interpretation, retry windows, business-hour rules, and maximum pickup/contact-attempt limits before production activation. Availability presence itself is required for call-eligible Front Office Contacts.

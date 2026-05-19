@@ -58,6 +58,7 @@ Do not set `Call Status` to `Reviewed` or `Approved` to `__YES__` unless the use
    - Search Individuals by first name, last name, email, phone, and company relations.
    - Search Front Office Contacts by authority name, phone, website, location, language, `Purposes`, and linked `Availabilities`.
    - Search Contact Availabilities when a contact is missing windows or when the requested call date needs a compatible day/time.
+   - Treat contact availability times as being in the contact's local authority timezone unless the source explicitly says otherwise. Record both the source timezone and the Codex/user timezone conversion in the review packet and supporting availability record. For example, German authority hours are Europe/Berlin time, so convert them to Europe/Dublin when the user is operating from Ireland.
    - Prefer exact relation evidence over fuzzy name matches.
 3. Reconcile user corrections and supporting entity changes.
    - The user may correct a matched Company, Individual, Contact, reviewer, PoA assumption, call date, subject, phone number, authority office, or other detail in the original prompt or follow-up prompts. Apply those corrections before preparing the final review packet.
@@ -70,6 +71,7 @@ Do not set `Call Status` to `Reviewed` or `Approved` to `__YES__` unless the use
    - Fetch resolved Company, Individual, Contact, and linked Contact Availability pages.
    - Check that the Individual is linked to the Company through at least one relevant relation, such as UBO, director, employee, shareholder, customer company, or related company role.
    - Confirm the Contact has at least one linked `Availabilities` page. If the call is meant to happen on a specific day, prefer an availability window for that day.
+   - Verify the selected availability window against the contact's local timezone, not only the user's local timezone. If a source says `Mon-Fri 08:00-18:00 CET/CEST`, show the Ireland/Dublin equivalent and avoid creating a record that silently shifts the call outside the authority's actual opening hours.
    - Dereference linked records before relying on them. A relation ID alone is not usable call context. Fetch the linked page, extract the relevant fields, and cite the source in the review packet.
    - For `Subject = Company`, always dereference Company relations that can carry call-critical authority context: `Filing Registrations`, tax payments, tax prepayments, bank accounts, contracts, correspondence, client/project records, directors, UBOs, shareholders, and any linked individual records relevant to representation. High-volume relations such as expenses, invoices, filings, and correspondence may be summarized by count plus the latest/relevant records, but tax/registration relations must not be skipped.
    - For `Subject = Individual`, always dereference Individual relations that can carry call-critical authority context: tax filings, bank accounts, assets, customer/linked companies, director/UBO/employment relationships, and individual-specific authority references.
@@ -114,6 +116,7 @@ Do not set `Call Status` to `Reviewed` or `Approved` to `__YES__` unless the use
    - Check the public-safe `Context Pack` for forbidden internal terms before submission: `Notion`, `Slack`, `n8n`, `ElevenLabs`, `workflow`, `tool`, `database`, `relation map`, `linked record`, `linked filing registration`, `direct field`, `our records`, and internal status/source labels.
    - Include any supporting Notion creates/updates already made or still proposed, with old value, new value, and source.
    - Show the selected Contact availability windows.
+   - Show the selected availability source timezone and converted user/Codex timezone.
    - Highlight warnings: missing PoA, missing/incompatible contact availability, uncertain relation match, low-confidence contact, duplicate open calls, date in past, or anything that may cause n8n to reject/block the call.
    - Ask for explicit approval to submit the Notion call record.
 9. Submit only after approval.
