@@ -1,0 +1,85 @@
+# Personal Tax Returns
+
+Status: provisional.
+Source: Notion individual and Personal Tax Filings records, Notion tasks, Drive folder listing, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
+Imported: 2026-05-19.
+Review: Confirm 2024+2025 joint filing plan in the live filing records and complete evidence/document split before filing.
+
+## Linked Person
+
+Andrei Nasonov:
+
+- Individual record: `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`
+- Tax residence: Germany.
+- Married: yes.
+- Linked company: `../../Companies/NACV/`.
+
+## Service / Fee Position
+
+Status: provisional.
+Source: User instruction on 2026-05-19 and Notion filing records.
+Imported: 2026-05-19.
+Review: Confirm billing setup for 2025 onward before invoicing.
+
+RB provides Andrei's 2024 German personal tax return for free. From 2025 onward, RB should charge the normal fee.
+
+Andrei is married, so the personal-tax filing should be prepared as a joint return. User wants 2024 and 2025 filed in one go.
+
+## Filing Records
+
+| Period | Record | Jurisdiction | Status | Document gathering | Due date | Drive docs |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | In progress | 2026-04-30 | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` |
+| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Not provided | 2026-07-31 | blank in Notion |
+
+## 2024 Analysis
+
+Status: provisional.
+Source: Notion task `https://www.notion.so/352e41301314804a9895db42f9cf07af`, Drive folder listing, and WhatsApp 2026-05-19 summary.
+Imported: 2026-05-19.
+Review: Complete workbook review, missing evidence, and filing-task handoff before submission.
+
+Current analysis task:
+
+- `Andrei personal tax analysis`: `https://www.notion.so/352e41301314804a9895db42f9cf07af`
+- Status at read: In Review.
+- Review workbook: `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0`
+- Linked filing task: `https://www.notion.so/364e413013148174b03aefbc624e1e38`
+
+Open analysis notes from Notion:
+
+- Income info Andrei sent initially covered June-December 2024, while NACV paid the rest of the year.
+- User comment says NACV payslips are in the company's Lexoffice.
+- The workbook/task needs relevant links in the task description, and comments were left on the spreadsheet.
+
+## Evidence Split
+
+Status: provisional.
+Source: Notion task `https://www.notion.so/35fe413013148199954ed6471f95767a` and Drive folder listing.
+Imported: 2026-05-19.
+Review: Close after 2024 documents are split into the correct 2024 filing/evidence location and the filing/evidence records reflect the correct folder.
+
+Open task:
+
+- `Andrei - Split 2024 personal-tax documents from mistaken 2025 folder`: `https://www.notion.so/35fe413013148199954ed6471f95767a`
+
+User/task context says Simoneta made a folder/evidence routing mistake and Andrei also put 2024 documents in the 2025 folder by mistake. Drive currently shows both a 2024 filing folder and a 2025 filing folder under Andrei's personal-tax folder.
+
+## Evidence / Workbook Pointers
+
+| Evidence | URL | Notes |
+| --- | --- | --- |
+| Andrei personal-tax parent folder | `https://drive.google.com/drive/folders/1wAXb-4HYg8QjOXUWTAGHN6pYu-lcc3Ir` | Parent folder under NACV personal-tax filings. |
+| 2024 personal-tax folder | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` | Notion filing folder; contains current workbook and evidence. |
+| 2025 personal-tax folder | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents, including items to review/split for 2024. |
+| 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current Google Sheets workbook. |
+| NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
+
+## Current Missing / Open Items
+
+- Confirm all 2024 NACV payslips and wage-tax evidence are present or retrieve/upload from Lexoffice.
+- Complete the split of misrouted 2024 evidence from the 2025 folder.
+- Confirm spouse-related evidence needed for the 2024 joint return.
+- Confirm phone/Vodafone recurring cost support for 2024 and 2025 after the WhatsApp request for filtered extracts.
+- Confirm TK/private-health-insurance outcome before final insurance/social-insurance treatment.
+- Link 2025 Drive docs into the 2025 Notion filing when 2025 work starts, if the current 2025 folder is confirmed as canonical.

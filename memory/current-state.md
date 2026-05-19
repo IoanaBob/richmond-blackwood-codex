@@ -196,6 +196,18 @@ AMC / Aaron Richard Chamberlain context import:
 - High-signal workflow: invoices are not fixed equal-month invoices. Ask Aaron through WhatsApp what to bill and which travel/expense items to include, prepare invoice/expense support, get Aaron approval, then send through accounting email using the historical Riot/Echo formats. Riot and Echo Business Partner invoice-to/CC fields were updated on 2026-05-18 and read back; Riot's Nicole recipient remains in Business Partner notes because the schema has only one invoice email and one CC email. Future previews should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`. Live Notion comments with these invoice/template rules were added to the Riot, Echo Sports, and UVS contract pages on 2026-05-18.
 - High-signal open items: confirm Q1 2026 VAT filing and Slack Q4 2025 VAT through the separate VAT review, confirm missing invoice support, confirm actual P&L/balance-sheet submission date, confirm remaining balance after garnishment transfer, monitor for Finanzamt payment-plan response, confirm whether P-Konto later becomes active, and decide whether Notion should get multi-recipient invoice routing fields.
 
+NACV / Andrei Nasonov context import:
+
+- Company folder: `clients/Companies/NACV/`.
+- Individual folder: `clients/Individuals/Andrei Nasonov/`.
+- Notion company: `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8`; `Reference` is `NACV`.
+- Notion individual: `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1z36VoEjY6jkbqAjxGyRBZD7b323rMd_c`.
+- WhatsApp route: `NA Capital Ventures | RB` / `120363399321589278@g.us`; saved as source/route pointer only after user confirmation.
+- Current user-instructed position: Andrei was/is RB's first client. RB does his 2024 German personal-tax return for free; from 2025 onward charge the normal fee. He is married, so filings should be joint. 2024 personal tax is pending, and RB wants to file 2024 and 2025 in one go.
+- Current company state: NACV had registration/prepayment problems and never received clear German prepayment amounts. RB needs Finanzamt notices for 2024/2025 taxes and prepayment amounts, then populate the Tax Prepayments database. VAT was deregistered in October, RB submitted the fix/appeal, and there is no response yet. User says 2024/2025 company taxes were filed; Notion confirms filing/upload work but still leaves electronic balance-sheet/final amount follow-up open.
+- High-signal open items: Finanzamt prepayment notices/amounts, VAT reinstatement response, lower VAT cadence, electronic balance-sheet/final company-tax closeout evidence, Andrei 2024/2025 evidence split, spouse/joint filing evidence, TK/private-insurance treatment, and NACV payslip/wage-tax extraction from Notion/Drive/Lexoffice.
+
 Communication workflow update:
 
 - For Slack messages requiring review, put the proposed text in Codex chat first as a rendered, readable preview with clickable named links, not as a fenced raw Markdown/code block. When the runtime exposes a working Codex approval prompt/notification, use it for Slack send approval instead of typed chat approval, especially when the operator requests notification-based approval. Do not claim a notification was sent unless the prompt tool succeeds. If the native prompt is unavailable and the operator approves a popup fallback, use a local macOS approval dialog: the sandbox prompt only authorizes showing the dialog, and Slack may be sent only after the dialog returns the explicit Send choice. After approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
