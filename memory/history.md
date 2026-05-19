@@ -431,3 +431,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Preserve the full startup context for ElevenLabs; only cap the Notion blocked-call audit field to stay inside Notion rich-text limits.
 - Verification: `npm run calls:check-automation` passed; n8n MCP validation passed; live workflow active version is `ad82d55c-9f6e-4127-97d2-2162d079af93`; readback shows `String($json.context_pack_text || "").slice(0, 1900)` in `Mark Blocked`.
 - Limitations or gaps: Old failed n8n execution views still show the earlier Notion validation error.
+
+## 2026-05-19 - RB Calls Review Approval Gate Fix
+
+- User request: Correct that PoA validation should happen before a call is approved for review, not later in voice execution.
+- Context read: Live n8n `RB Calls Review` and `RB Calls Slack Replies` workflows, existing PoA gate patch, and implementation map.
+- Actions taken: Patched and published `RB Calls Review` so the `Reviewing` + `Approved` path re-fetches Individual, Company, and Contact, then validates Individual/Company relation and subject-specific PoA before setting `Reviewed`. If validation fails, it resets `Approved` to false, sets `Rejected`, and leaves owner notification to the existing rejected-call branch. Patched and published `RB Calls Slack Replies` so the Slack approve button sets `Approved` true but keeps `Call Status` as `Reviewing`.
+- Decisions made: Keep voice workflow PoA checks as a final safety net, but make review approval the primary gate.
+- Verification: Private n8n MCP patch helper passed `node --check`; n8n MCP validation and publish succeeded for both workflows; live readback confirmed `RB Calls Review` approval now routes to `[Reviewing Approved] Get Individual` and Slack approve status is `Reviewing`.
+- Limitations or gaps: The Slack PoA file-upload branch still needs a synthetic upload test.

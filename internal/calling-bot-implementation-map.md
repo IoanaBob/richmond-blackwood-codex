@@ -117,7 +117,7 @@ What it currently does:
 5. For `Not started`, sets the call to `Reviewing`, fetches Individual, Company, Contact, and Submitter, validates that the Individual appears to belong to the Company, checks PoA, and requests Slack review where appropriate.
 6. For invalid Individual/Company relation, sets call status to `Rejected` and sends a Slack message asking the submitter to fix the Company/Individual relation.
 7. For missing PoA, sets call status to `Rejected` and sends a Slack message asking for PoA or removal of the PoA requirement.
-8. For `Reviewing`, checks whether the `Approved` checkbox is true. If approved, sets `Call Status` to `Reviewed`; otherwise sends or reminds Slack review request.
+8. For `Reviewing`, checks whether the `Approved` checkbox is true. If approved, re-fetches Individual, Company, and Contact, re-validates Individual/Company relation and subject-specific PoA, then sets `Call Status` to `Reviewed` only if both gates pass. If the gate fails, it resets `Approved` to false, sets `Call Status` to `Rejected`, and lets the rejected-call branch notify the owner.
 9. For `Rejected`, re-runs validation and either asks/reminds for fixes or moves the call back into review.
 
 Important implementation details:
@@ -133,7 +133,7 @@ Observed gaps and likely defects:
 - There is no ElevenLabs node or HTTP Request to trigger an outbound call.
 - There is no post-call webhook, transcript capture, or Call Notes creation.
 - The `Reviewed` switch branch has no outgoing connection, so approved calls stop there.
-- The 2026-05-19 n8n MCP patch corrected the two PoA gate nodes so they reference `Loop Over Calls` and use the call `Subject` to choose `Company PoA` or `Individual PoA`.
+- The 2026-05-19 n8n MCP patches corrected the two PoA gate nodes so they reference `Loop Over Calls` and use the call `Subject` to choose `Company PoA` or `Individual PoA`; the `Reviewing` approved path now also re-runs this gate before setting `Reviewed`.
 - The workflow does not currently filter by `First call date`, contact availability windows, business hours, retry timing, or "picked up not more than once per day" rules.
 - The workflow assumes `Company`, `Individual`, `Contact`, `Submitter`, and `Reviewer` are present and uses relation/person array index `0`; missing data will likely throw instead of producing a controlled blocker message.
 - The project spec says Company is optional, but this workflow treats Company as required.
@@ -168,7 +168,7 @@ What it currently does:
 2. Also listens to Slack events in the calls channel.
 3. Switches on Slack action/file inputs: `remove-poa`, `approve-call`, and file upload in a thread.
 4. `remove-poa` updates the Notion call page: `Call Status` -> `Not started`, `Requires PoA?` -> unchecked, then adds a white-check Slack reaction.
-5. `approve-call` updates the Notion call page: `Approved` -> checked, `Call Status` -> `Reviewed`, then adds a white-check Slack reaction.
+5. `approve-call` updates the Notion call page: `Approved` -> checked, `Call Status` -> `Reviewing`, then adds a white-check Slack reaction. `RB Calls Review` must then pass the subject-specific PoA and Individual/Company relation gates before moving the call to `Reviewed`.
 6. File uploads are handled when the parent thread contains `[poa-invalid]`: extract call ID, fetch call by unique ID, create Notion file upload URL, download Slack file, upload it to Notion, patch the linked Individual page's `Individual PoA` file property, and mark Slack handled.
 
 Observed gaps and likely defects:
