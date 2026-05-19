@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-13T18:36:30.721Z",
+  "synced_at": "2026-05-19T13:37:39.525Z",
   "status": "provisional",
   "source": "n8n MCP get_workflow_details",
   "review": "Compare with source-controlled workflow and publish intentionally after review.",
@@ -9,11 +9,11 @@
       "name": "RB Calls Voice Execution",
       "active": true,
       "isArchived": false,
-      "versionId": "360489d3-02da-4a84-bfbd-0a0d168054e9",
-      "activeVersionId": "360489d3-02da-4a84-bfbd-0a0d168054e9",
+      "versionId": "ad82d55c-9f6e-4127-97d2-2162d079af93",
+      "activeVersionId": "ad82d55c-9f6e-4127-97d2-2162d079af93",
       "triggerCount": 1,
       "createdAt": "2026-05-08T19:14:16.851Z",
-      "updatedAt": "2026-05-13T17:55:05.334Z",
+      "updatedAt": "2026-05-19T13:37:09.673Z",
       "settings": {
         "executionOrder": "v1",
         "availableInMCP": true,
@@ -344,13 +344,13 @@
       },
       "nodes": [
         {
-          "id": "3783ea12-dc41-4a4b-9db3-cdbefcfbdb9c",
-          "name": "Sticky Note 0094abdf",
+          "id": "b1886d75-caa8-433c-946f-e47bf162ee56",
+          "name": "Sticky Note cf8410de",
           "type": "n8n-nodes-base.stickyNote",
           "typeVersion": 1,
           "position": [
-            -1170,
-            -450
+            2240,
+            880
           ],
           "parameters": {
             "content": "Runs reviewed and approved Notion Calls through ElevenLabs. Startup context is rebuilt as a plain-text brief with direct Company/Individual/Contact summaries and tax registration/reference context; raw JSON blobs are stripped before the outbound call. Other approved context categories must be fetched on demand through the separate RB Calls Context Lookup webhook tool. Routine call starts, blockers, and state changes are recorded in Notion only; Slack is reserved for live human-help requests.",
@@ -365,8 +365,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.3,
           "position": [
-            -1120,
-            0
+            0,
+            816
           ],
           "parameters": {
             "rule": {
@@ -385,8 +385,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            -880,
-            0
+            224,
+            816
           ],
           "parameters": {
             "resource": "databasePage",
@@ -425,8 +425,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            -368,
-            -256
+            672,
+            192
           ],
           "parameters": {}
         },
@@ -436,8 +436,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -368,
-            0
+            672,
+            384
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -451,8 +451,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            -112,
-            0
+            896,
+            384
           ],
           "parameters": {
             "resource": "databasePage",
@@ -487,8 +487,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            144,
-            0
+            1120,
+            384
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -502,8 +502,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            400,
-            0
+            1344,
+            384
           ],
           "parameters": {
             "conditions": {
@@ -536,8 +536,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            672,
-            -128
+            1568,
+            192
           ],
           "parameters": {
             "resource": "databasePage",
@@ -589,8 +589,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            960,
-            -128
+            1792,
+            192
           ],
           "parameters": {
             "resource": "databasePage",
@@ -610,8 +610,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            1232,
-            -128
+            2016,
+            192
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -625,8 +625,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            1488,
-            -128
+            2240,
+            192
           ],
           "parameters": {
             "conditions": {
@@ -659,8 +659,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            1776,
-            -416
+            2464,
+            96
           ],
           "parameters": {
             "resource": "databasePage",
@@ -680,8 +680,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            2032,
-            -416
+            2688,
+            96
           ],
           "parameters": {
             "resource": "databasePage",
@@ -701,8 +701,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            2288,
-            -416
+            2912,
+            96
           ],
           "parameters": {
             "resource": "databasePage",
@@ -722,8 +722,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            2544,
-            -416
+            3136,
+            96
           ],
           "parameters": {
             "resource": "databasePage",
@@ -758,8 +758,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            4592,
-            -256
+            3360,
+            96
           ],
           "parameters": {
             "mode": "runOnceForAllItems",
@@ -773,8 +773,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            4848,
-            -256
+            3584,
+            96
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -788,8 +788,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            5104,
-            -256
+            3808,
+            96
           ],
           "parameters": {
             "conditions": {
@@ -822,8 +822,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            5376,
-            -400
+            4032,
+            0
           ],
           "parameters": {
             "method": "POST",
@@ -860,8 +860,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            5664,
-            -400
+            4256,
+            0
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -875,8 +875,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            5936,
-            -400
+            4480,
+            464
           ],
           "parameters": {
             "resource": "databasePage",
@@ -916,8 +916,8 @@
           "type": "n8n-nodes-base.splitInBatches",
           "typeVersion": 3,
           "position": [
-            -624,
-            0
+            448,
+            816
           ],
           "parameters": {
             "options": {}
@@ -929,8 +929,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            5376,
-            -80
+            4032,
+            288
           ],
           "parameters": {
             "resource": "databasePage",
@@ -953,7 +953,7 @@
                 },
                 {
                   "key": "Context Pack|rich_text",
-                  "textContent": "={{ $json.context_pack_text }}"
+                  "textContent": "={{ String($json.context_pack_text || \"\").slice(0, 1900) }}"
                 }
               ]
             },
@@ -966,8 +966,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            1776,
-            80
+            2464,
+            384
           ],
           "parameters": {}
         },
@@ -977,8 +977,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            672,
-            272
+            1568,
+            480
           ],
           "parameters": {
             "conditions": {
@@ -1011,8 +1011,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            960,
-            160
+            1792,
+            384
           ],
           "parameters": {}
         },
@@ -1022,8 +1022,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            960,
-            368
+            1792,
+            576
           ],
           "parameters": {
             "resource": "databasePage",
@@ -1053,13 +1053,13 @@
       "activeVersion": {
         "nodes": [
           {
-            "id": "3783ea12-dc41-4a4b-9db3-cdbefcfbdb9c",
-            "name": "Sticky Note 0094abdf",
+            "id": "b1886d75-caa8-433c-946f-e47bf162ee56",
+            "name": "Sticky Note cf8410de",
             "type": "n8n-nodes-base.stickyNote",
             "typeVersion": 1,
             "position": [
-              -1170,
-              -450
+              2240,
+              880
             ],
             "parameters": {
               "content": "Runs reviewed and approved Notion Calls through ElevenLabs. Startup context is rebuilt as a plain-text brief with direct Company/Individual/Contact summaries and tax registration/reference context; raw JSON blobs are stripped before the outbound call. Other approved context categories must be fetched on demand through the separate RB Calls Context Lookup webhook tool. Routine call starts, blockers, and state changes are recorded in Notion only; Slack is reserved for live human-help requests.",
@@ -1074,8 +1074,8 @@
             "type": "n8n-nodes-base.scheduleTrigger",
             "typeVersion": 1.3,
             "position": [
-              -1120,
-              0
+              0,
+              816
             ],
             "parameters": {
               "rule": {
@@ -1094,8 +1094,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              -880,
-              0
+              224,
+              816
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1134,8 +1134,8 @@
             "type": "n8n-nodes-base.noOp",
             "typeVersion": 1,
             "position": [
-              -368,
-              -256
+              672,
+              192
             ],
             "parameters": {}
           },
@@ -1145,8 +1145,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -368,
-              0
+              672,
+              384
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1160,8 +1160,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              -112,
-              0
+              896,
+              384
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1196,8 +1196,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              144,
-              0
+              1120,
+              384
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1211,8 +1211,8 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.3,
             "position": [
-              400,
-              0
+              1344,
+              384
             ],
             "parameters": {
               "conditions": {
@@ -1245,8 +1245,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              672,
-              -128
+              1568,
+              192
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1298,8 +1298,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              960,
-              -128
+              1792,
+              192
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1319,8 +1319,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              1232,
-              -128
+              2016,
+              192
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1334,8 +1334,8 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.3,
             "position": [
-              1488,
-              -128
+              2240,
+              192
             ],
             "parameters": {
               "conditions": {
@@ -1368,8 +1368,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              1776,
-              -416
+              2464,
+              96
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1389,8 +1389,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              2032,
-              -416
+              2688,
+              96
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1410,8 +1410,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              2288,
-              -416
+              2912,
+              96
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1431,8 +1431,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              2544,
-              -416
+              3136,
+              96
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1467,8 +1467,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              4592,
-              -256
+              3360,
+              96
             ],
             "parameters": {
               "mode": "runOnceForAllItems",
@@ -1482,8 +1482,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              4848,
-              -256
+              3584,
+              96
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1497,8 +1497,8 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.3,
             "position": [
-              5104,
-              -256
+              3808,
+              96
             ],
             "parameters": {
               "conditions": {
@@ -1531,8 +1531,8 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.4,
             "position": [
-              5376,
-              -400
+              4032,
+              0
             ],
             "parameters": {
               "method": "POST",
@@ -1569,8 +1569,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              5664,
-              -400
+              4256,
+              0
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1584,8 +1584,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              5936,
-              -400
+              4480,
+              464
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1625,8 +1625,8 @@
             "type": "n8n-nodes-base.splitInBatches",
             "typeVersion": 3,
             "position": [
-              -624,
-              0
+              448,
+              816
             ],
             "parameters": {
               "options": {}
@@ -1638,8 +1638,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              5376,
-              -80
+              4032,
+              288
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1662,7 +1662,7 @@
                   },
                   {
                     "key": "Context Pack|rich_text",
-                    "textContent": "={{ $json.context_pack_text }}"
+                    "textContent": "={{ String($json.context_pack_text || \"\").slice(0, 1900) }}"
                   }
                 ]
               },
@@ -1675,8 +1675,8 @@
             "type": "n8n-nodes-base.noOp",
             "typeVersion": 1,
             "position": [
-              1776,
-              80
+              2464,
+              384
             ],
             "parameters": {}
           },
@@ -1686,8 +1686,8 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.3,
             "position": [
-              672,
-              272
+              1568,
+              480
             ],
             "parameters": {
               "conditions": {
@@ -1720,8 +1720,8 @@
             "type": "n8n-nodes-base.noOp",
             "typeVersion": 1,
             "position": [
-              960,
-              160
+              1792,
+              384
             ],
             "parameters": {}
           },
@@ -1731,8 +1731,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              960,
-              368
+              1792,
+              576
             ],
             "parameters": {
               "resource": "databasePage",
@@ -2085,10 +2085,11 @@
       },
       "tags": [],
       "meta": {
-        "aiBuilderAssisted": true
+        "aiBuilderAssisted": true,
+        "builderVariant": "mcp"
       },
       "parentFolderId": null,
-      "description": "Set ElevenLabs outbound call language override from contact language.",
+      "description": "Cap blocked-call Context Pack updates to Notion rich-text limits.",
       "scopes": [
         "workflow:create",
         "workflow:delete",

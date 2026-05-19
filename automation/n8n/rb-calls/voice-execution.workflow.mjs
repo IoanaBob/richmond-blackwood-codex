@@ -1187,7 +1187,7 @@ const markBlocked = node({
         propertyValues: [
           { key: 'Call Status|status', statusValue: '={{ $json.blocked_status }}' },
           { key: 'Voice Error|rich_text', textContent: '={{ $json.blocked_reason }}' },
-          { key: 'Context Pack|rich_text', textContent: '={{ $json.context_pack_text }}' },
+          { key: 'Context Pack|rich_text', textContent: '={{ String($json.context_pack_text || "").slice(0, 1900) }}' },
         ],
       },
       options: {},

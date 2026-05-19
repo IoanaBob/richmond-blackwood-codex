@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-13T18:36:30.721Z",
+  "synced_at": "2026-05-19T13:37:39.525Z",
   "status": "provisional",
   "source": "ElevenLabs API readback",
   "review": "Compare with source-controlled patch helpers and apply future edits intentionally after review.",
@@ -90,6 +90,7 @@
       "language_presets": {
         "de": {
           "overrides": {
+            "asr": null,
             "turn": null,
             "tts": {
               "voice_id": "K5ZVtkkBnuPY6YqXs70E",
@@ -472,6 +473,9 @@
       "data_collection_scopes": {},
       "overrides": {
         "conversation_config_override": {
+          "asr": {
+            "keywords": false
+          },
           "turn": {
             "soft_timeout_config": {
               "message": false

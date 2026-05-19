@@ -422,3 +422,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep this as a live-workflow patch helper under ignored `.codex-local/automation/n8n/` because this older review workflow is not one of the source-controlled reusable n8n workflows.
 - Verification: n8n MCP validation passed; the patched workflow was published; live readback confirmed no `Loop Over Not Started Calls` reference remains in draft or active version.
 - Limitations or gaps: The active `RB Calls Slack Replies` PoA file-upload branch still needs a synthetic file-upload test before production reliance.
+
+## 2026-05-19 - RB Calls Voice Blocked Context Limit Fix
+
+- User request: Fix n8n `RB Calls Voice Execution` error in `Mark Blocked`: Notion rejected `Context Pack` because one rich-text item exceeded 2000 characters.
+- Context read: Source and live n8n `RB Calls Voice Execution` workflow, including `Mark Blocked`, `Limit Startup Context`, and Notion update payloads.
+- Actions taken: Updated `Mark Blocked` so `Context Pack` is written with a 1900-character cap, deployed and published the workflow through n8n MCP, and refreshed live readback snapshots.
+- Decisions made: Preserve the full startup context for ElevenLabs; only cap the Notion blocked-call audit field to stay inside Notion rich-text limits.
+- Verification: `npm run calls:check-automation` passed; n8n MCP validation passed; live workflow active version is `ad82d55c-9f6e-4127-97d2-2162d079af93`; readback shows `String($json.context_pack_text || "").slice(0, 1900)` in `Mark Blocked`.
+- Limitations or gaps: Old failed n8n execution views still show the earlier Notion validation error.
