@@ -2,7 +2,7 @@
   "status": "provisional",
   "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
   "imported": "2026-05-19",
-  "synced_at": "2026-05-19T13:37:39.525Z",
+  "synced_at": "2026-05-19T14:30:14.447Z",
   "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
   "n8n": [
     {
@@ -12,12 +12,11 @@
       "name": "RB Calls Voice Execution",
       "active": true,
       "active_version_id": "ad82d55c-9f6e-4127-97d2-2162d079af93",
-      "version_id": "ad82d55c-9f6e-4127-97d2-2162d079af93",
-      "updated_at": "2026-05-19T13:37:09.673Z",
-      "node_count": 28,
+      "version_id": "2e7a74fd-60b4-4a39-8bcd-0553a4648807",
+      "updated_at": "2026-05-19T13:50:50.619Z",
+      "node_count": 27,
       "connection_count": 31,
       "node_names": [
-        "Sticky Note cf8410de",
         "Every 15 minutes",
         "Get Reviewed Calls",
         "Done",
@@ -101,13 +100,13 @@
       "id": "uBEMuAtKiJQzJAWw",
       "name": "RB Calls ElevenLabs Events",
       "active": true,
-      "active_version_id": "9f6b9410-617b-41a2-b035-94f44c1b305e",
-      "version_id": "9f6b9410-617b-41a2-b035-94f44c1b305e",
-      "updated_at": "2026-05-13T17:33:19.302Z",
+      "active_version_id": "6f0c5d6c-439d-4e7e-a73f-6f95cf17c79a",
+      "version_id": "6f0c5d6c-439d-4e7e-a73f-6f95cf17c79a",
+      "updated_at": "2026-05-19T14:25:55.729Z",
       "node_count": 21,
       "connection_count": 21,
       "node_names": [
-        "Sticky Note cd66aced",
+        "Sticky Note 55c567ef",
         "ElevenLabs Events Webhook",
         "Normalize ElevenLabs Event",
         "Has Call Page?",
@@ -115,6 +114,7 @@
         "Update Call Outcome",
         "Respond Success",
         "Respond Missing Call ID",
+        "Every minute - no-answer watchdog",
         "Get Started Calls",
         "Prepare Status Sweep",
         "Sweep Done",
@@ -126,8 +126,7 @@
         "Update Swept Call Outcome",
         "Loop Started Calls",
         "Skip Swept Call",
-        "Normalize Missing Conversation",
-        "Every 30 mins"
+        "Normalize Missing Conversation"
       ]
     },
     {
