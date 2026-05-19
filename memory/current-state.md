@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-13.
+Updated: 2026-05-18.
 
 ## Repo State
 
@@ -19,9 +19,15 @@ Current implementation includes:
 - Provisional RB calling bot implementation map at `internal/calling-bot-implementation-map.md`.
 - Reference-based client folder pilot under `clients/Companies/VUN/`.
 - Reference-based CBMAX company client folder under `clients/Companies/CBMAX/`, loaded on 2026-05-13 from Notion, Drive, Gmail, WhatsApp, and user clarification.
+- Reference-based MHL company client folder under `clients/Companies/MHL/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
+- Reference-based SVL company client folder under `clients/Companies/SVL/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
+- Reference-based AMC company client folder under `clients/Companies/AMC/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
+- Individual client root for Gabriel Louis Manuel Muller under `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
+- Individual client root for Kristjan Mar Olafsson under `clients/Individuals/KRISTJAN MAR OLAFSSON/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
+- Individual client root for Aaron Richard Chamberlain under `clients/Individuals/Aaron Richard Chamberlain/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
@@ -46,6 +52,8 @@ Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmond
 SignNow helpers are generic mechanics only. RB signer identity, routing order, template catalog, and signing policy are not approved by this port.
 
 WhatsApp MCP is optional and local-only. QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed. Normal WhatsApp reads/sends should use the `whatsapp` MCP tools, not direct REST or SQLite access.
+
+When a client export/backfill uses WhatsApp, resolve and store the selected client contact/group JID in the owning company or individual `communications.md` plus `source-register.md`. The saved JID is a route/source pointer for future approved communication; it does not authorize monitoring, history backfill, media downloads, or outbound messages.
 
 Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in RB Communications (`https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`, data source `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`). Do not use the Everguard/research Communications table for RB records.
 
@@ -112,6 +120,15 @@ Selin Ozkohen / CLV German personal-tax pilot:
 - 2026-05-07 2025 setup: Notion 2025 filing `https://www.notion.so/342e4130131480eab03dd8498d24d23e` was set to in progress and linked to Drive folder `https://drive.google.com/drive/folders/127-k82-g8Ix3eUGEjLVhbA_1OAglGI7Z`. The copied 2025 workbook is `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`; the payslip folder is `https://drive.google.com/drive/folders/1ustYGqTraDcaqv0LwQSqa1lk6M-vYIMq`. January-June 2025 payroll run `Payslip` fields were linked to Drive PDFs; July-December already had payslips. Revenue read-back is EUR 28,800 gross employment income and EUR 3,096.96 wage tax withheld. The special expense lump-sum baseline read-back is EUR 36, and the home-office daily allowance is EUR 1,260, making 2025 income after deductions EUR 27,504.00. Remaining checks are prior-year opening balance, expense document review, investment/no-investment confirmation, direct tax payment/prepayment confirmation, deductible review, and tax-credit review.
 - 2026-05-07 2025 task links: the filing record now links an analysis task assigned to Ioana Surdu-Bob (`https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f`) through `Preparation Task` and a filing task assigned to Johnpaul Okolie (`https://www.notion.so/359e4130131481d88a99df5939bbe6ed`) through `Filing Task`. The filing task is dependent on the analysis task and has an actual Notion comment with the workbook and filing context.
 
+Mark James Frederick Wilshin / WEW German personal-tax update:
+
+- Individual folder: `clients/Individuals/Mark James Frederick Wilshin/`
+- Company pointer folder: `clients/Companies/WEW/`
+- 2024 source folder: `https://drive.google.com/drive/folders/1muPUJMt8AT3pIf2dGesb6yTfrOBSL83l`
+- Current fresh template-copy workbook: `https://docs.google.com/spreadsheets/d/1JtxaRuqQZv_2JhvPBND6R6uQkWN2xahokg0q24Rt5iw/edit`
+- Status: earlier Office-mode V3 workbooks and the intermediate corrected machine-readable workbook are superseded. The current workbook is a true Drive-native copy of the maintained template in Mark's supplied folder. Only `Setup`, `Revenue`, `Expenses`, and `Deductibles` were populated from invoice/receipt evidence and operator instruction; calculation tabs and formula cells were left template-driven. After operator review, `Expenses` was corrected to receipt-level rows with exact receipt-file URLs rather than folder-level evidence links. Key read-back values are revenue EUR 22,000, business expenses including business home-office allowance EUR 4,479.95, business/freelance net PNL EUR 17,520.05, TK health/care EUR 6,232.81, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,251.24.
+- Resolved 2026-05-13 operator decisions: EUR 15,000 GbR profit support confirmed; full 2024 MacBook treatment retained under BMF one-year computer-hardware useful-life guidance; 80 percent Telekom mobile and full EE mobile business-use treatments approved; missing M1-3 iCloud support trusted to the client and remains unclaimed; business-meal formality support trusted to the client with the 70 percent limitation already applied. Analysis still needs normal final filing/professional review before submission.
+
 CBMAX client folder:
 
 - Company folder: `clients/Companies/CBMAX/`
@@ -131,17 +148,59 @@ Claudio Brivio individual context:
 - Notion individual record: `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`
 - 2024 personal tax filing: `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`
 - 2025 personal tax filing: `https://www.notion.so/342e41301314803eb579c68638fb3fb0`
-- 2024 Drive folder: `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`
+- 2024 canonical filing folder: `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`
+- 2024 prior/history folder: `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`
 - Client documents folder: `https://drive.google.com/drive/folders/1GpjMwLVHPKyJ1XR8t2YIrchl23auowv3`
 - Uploaded `_2024-tax-filings` package: `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`
-- Analysis spreadsheet file: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`
-- Status: personal-tax/private context loaded on 2026-05-13. The former company-side question about whether Claudio needs an individual folder is resolved; avoid duplicating Claudio personal-tax detail in CBMAX company files. 2024 is in progress in Notion and evidence exists in Drive, but review remains open for February 2024 CBMAX payroll, CBMAX 2024 Lohnsteuerbescheinigung, TK/Hallesche reconciliation, Section 138 AO filing approach for CBMAX and Job Guardian, Joblift Reisekosten vs Pendlerpauschale, and whether the existing `.xlsx` analysis should be migrated to the maintained native machine-readable template. 2025 filing is pending with no Drive docs recorded in Notion.
+- Fresh 2024 analysis workbook: `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`
+- Preparation task: `https://www.notion.so/35fe41301314813ea514ed9b61092962`
+- Filing task: `https://www.notion.so/35fe41301314817b879cc3ab8c4160dc`
+- Superseded Office workbook: `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit`
+- Status: personal-tax/private context loaded on 2026-05-13; fresh 2024 workbook prepared later the same day from the maintained native template and linked to the live filing via preparation/filing tasks. Operator review on 2026-05-14 approved health/care, home-office, Pixel Buds, and phone; excluded CBMAX February payroll, commute, Telekom internet, and Hallesche non-basic; and instructed that Section 138 AO notifications should be filed for CBMAX and Job Guardian. Current workbook read-back shows 8 failed checks and 27 open missing-info items, mainly CBMAX 2024 Lohnsteuerbescheinigung, N26 investment statement classification, Section 138 late/proactive wording and foreign-company risk review, and optional Freenet invoice extraction. The former company-side question about whether Claudio needs an individual folder is resolved; avoid duplicating Claudio personal-tax detail in CBMAX company files. 2025 filing is pending with no Drive docs recorded in Notion.
+
+AGL / Byron Jarvis Frasier context import:
+
+- Company folder: `clients/Companies/AGL/`.
+- Individual folder: `clients/Individuals/Byron Jarvis Frasier/`.
+- Notion company: `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`; `Reference` is `AGL`.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1QnVBrQ0lgDe8UVqZyW9B7zdBMCC_LgAE`, under the external client root.
+- Current user-instructed tax position: AGL is mainly Irish tax resident for the company tax-residence field, with an Irish tax number and Ioana as Irish director from inception. It also has a German permanent establishment for Byron/staff, files in IE and DE, attributes 80% of profits to IE and 20% to the German PE, and has filed 2024 in Germany while awaiting Finanzamt feedback. 2024 IE corporation tax remains to be filed after the treatment is settled.
+- Current roles: Ioana is the only director; Byron is UBO and board observer.
+- Notion update on 2026-05-13: company `Tax Residence` changed from Germany to Ireland after user review; German PE/filings remain tracked through registrations and filing records. The stale payroll-only tax registration task was archived as superseded.
+- Weekly Syntentia invoicing: AGL uses a recurring weekly process with separate service and expense invoices for the same week. Byron may provide expenses late; handle reminders through the general recurring finance evidence-aging/reminder process, not a special AGL task. Because services are day-based, ask Byron monthly whether he plans vacation/off days for the next month so weekly service invoices use the correct day count. Live monthly Notion task: `https://www.notion.so/35fe41301314814096b2cdc5beb780fa`. WhatsApp confirms this pattern across Weeks 7, 12-16, 18, and 19. Email format, recipients, and confirmed sender `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` are captured in `clients/Companies/AGL/invoices-payments-expenses.md`.
+- Governance: Byron needs quarterly Dublin board meetings as UBO and board observer for the Irish tax-residence position. Drive board-meeting folders currently listed: 2025-08-05, 2025-11-03, 2026-02-24. WhatsApp on 2026-02-24 suggests Byron needed to be remote that week, so check minutes/attendance evidence before treating that folder as in-person attendance proof.
+- Byron personal-tax context is routed to the individual folder: Germany personal tax filings for 2024 and 2025, US apartment, US Roth/IRA/brokerage context, personal Wise account, WhatsApp personal-tax/payroll evidence pointers, and SteuerGo data retrieval request from Gmail message `19e20f06924b8d7b`.
+
+SVL / Kristjan Mar Olafsson context import:
+
+- Company folder: `clients/Companies/SVL/`.
+- Individual folder: `clients/Individuals/KRISTJAN MAR OLAFSSON/`.
+- Notion company: `https://www.notion.so/2cde4130131480b89185d9ba4487a3b3`; `Reference` is `SVL`.
+- Notion individual: `https://www.notion.so/2d1e41301314810ca6bbf526246222e5`; folder uses Notion first-name and last-name fields.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/19IHrClZjr58Bt15cx9h0KV9RiVzzAC1G`.
+- WhatsApp route: `Olafsson, Kristjan | Richmond Blackwood` / `120363409060100858@g.us`; saved as source/route pointer only.
+- Current user-instructed position: SVL is the newest client, Kristjan was previously a freelancer, German tax registration is still pending, and RB will do Kristjan's personal tax returns from 2026 onward.
+- Current company state: Irish company number 806985, tax residence in Notion Germany, Kristjan is director/UBO/shareholder/employee, active monthly Mediainvesting contract at EUR 93/hour, and company German corporation/trade/VAT/payroll registrations are overdue with Finanzamt/tax registration as blocker.
+- High-signal blockers and decisions from user answers on 2026-05-18: no SVL VAT number confirmed and still waiting for Finanzamt; no separate tax-registration chase task should be created in this context because the user will handle it through a separate skill; registrations are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll-tax filings/payments once registration clears; Kristjan was probably already set up in Lexware because RB needs it for invoices; Lexware and WAMO costs are RB-side; Mediainvesting hours/bonus sheet is the canonical monthly source; freelancer deregistration is pending through an open task; RB should set up Kristjan's individual/freelancer ELSTER; the personal-tax Drive year folder was renamed from `2025` to `2026` and verified; AI GreenBytes update is completed but JP needs to upload evidence; apartment amount is about EUR 750k and there was a hurdle with the partner selling his company.
+
+AMC / Aaron Richard Chamberlain context import:
+
+- Company folder: `clients/Companies/AMC/`.
+- Individual folder: `clients/Individuals/Aaron Richard Chamberlain/`.
+- Notion company: `https://www.notion.so/165e41301314804baeead148b54263de`; `Reference` is `AMC`.
+- Notion individual: `https://www.notion.so/165e4130131480c98ea9d9ae497ab5ca`; folder uses Notion first-name and last-name fields.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1a_m5ASzsGDnaViTjeSvawroRVr6cQ-oG`.
+- WhatsApp route: `Chamberlain, Aaron | Richmond Blackwood` / `120363378578862576@g.us`; saved as source/route pointer only.
+- Current user-instructed position: RB does Aaron's personal returns; previous accountant did not file 2023/2024; RB filed both years and found prior Gewerbe registration created trade-tax/VAT catch-up exposure. Open catch-up periods are 2023, 2024, and Q1 2025; Aaron was deregistered after Q1 2025. Finanzamt requested P&L/balance-sheet support; follow source dates of WhatsApp 2026-05-19 at latest and Notion before 2026-05-22.
+- Current company state: Irish company number 781302, tax residence in Notion Germany, Aaron is director/UBO/shareholder/employee, active variable Riot and Echo revenue invoicing, and UVS one-off invoice context. VAT Q1 2026 and the Slack Q4 2025 VAT concern need a separate VAT review rather than being treated as settled in this import.
+- High-signal workflow: invoices are not fixed equal-month invoices. Ask Aaron through WhatsApp what to bill and which travel/expense items to include, prepare invoice/expense support, get Aaron approval, then send through accounting email using the historical Riot/Echo formats. Riot and Echo Business Partner invoice-to/CC fields were updated on 2026-05-18 and read back; Riot's Nicole recipient remains in Business Partner notes because the schema has only one invoice email and one CC email. Future previews should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`. Live Notion comments with these invoice/template rules were added to the Riot, Echo Sports, and UVS contract pages on 2026-05-18.
+- High-signal open items: confirm Q1 2026 VAT filing and Slack Q4 2025 VAT through the separate VAT review, confirm missing invoice support, confirm actual P&L/balance-sheet submission date, confirm remaining balance after garnishment transfer, monitor for Finanzamt payment-plan response, confirm whether P-Konto later becomes active, and decide whether Notion should get multi-recipient invoice routing fields.
 
 Communication workflow update:
 
 - For Slack messages requiring review, put the proposed text in Codex chat first as a rendered, readable preview with clickable named links, not as a fenced raw Markdown/code block. When the runtime exposes a working Codex approval prompt/notification, use it for Slack send approval instead of typed chat approval, especially when the operator requests notification-based approval. Do not claim a notification was sent unless the prompt tool succeeds. If the native prompt is unavailable and the operator approves a popup fallback, use a local macOS approval dialog: the sandbox prompt only authorizes showing the dialog, and Slack may be sent only after the dialog returns the explicit Send choice. After approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
 - 2026-05-12 inbound-triage closeout correction: Slack closeouts for `#rb-client-updates` must follow the repo/task-oriented template and include the full actual work completed, including any corrective work after a rejected draft. For the May 8-12 triage, the approval packet must include the created/updated task sections, assignees, one-by-one finance invoice records, Gmail `Triaged` labels applied, remaining blockers, and any rejected/corrected Slack draft context. Do not send without explicit approval of the exact corrected text.
-- For workflow completion notifications, capture the triggering Slack user/channel/thread at intake when available. If a task is triggered outside Slack and no Slack identity is available, ask the operator for the Slack recipient before sending the ready-for-review message.
+- For workflow completion notifications, capture the triggering Slack user/channel/thread at intake when available. If a task is triggered outside Slack and no Slack identity is available, ask the operator for the Slack recipient before sending the ready-for-review message. When personal-tax analysis/operator review unblocks a `Filing Task`, post an approved `#rb-client-updates` update with the filing task as the primary Notion task link, plus workbook, filing record, what changed, and remaining flags.
 - For personal-tax filings, the live Notion Personal Tax Filings entry is a required sync point: update `Status` whenever analysis status changes, update `Document gathering status` as evidence moves from `In progress` to `Attached in Drive`, and attach any newly created/discovered Drive filing folder in `GDrive Docs`.
 - For personal-tax filings with no task relation, create a preparation/analysis task assigned to Ioana Surdu-Bob and a separate filing task assigned to Johnpaul Okolie. Link both to the correct client project, set filing `Dependent on` to the analysis task, link them back through `Preparation Task` and `Filing Task`, and comment on the filing task with the spreadsheet URL once the analysis is ready.
 

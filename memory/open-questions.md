@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-12.
+Updated: 2026-05-13.
 
 ## Notion Backup Questions
 
@@ -69,6 +69,10 @@ Updated: 2026-05-12.
 - Review deductible and tax-credit applicability for Selin 2025 before marking any optional rows as claimed, including the days-based home-office allowance, commuting, equipment/training, health/care insurance, pension/retirement, donations, childcare, household services, and foreign/investment withholding credits.
 - Tie the 2025 opening balance sheet to the 2024 workbook closing balances or add an explicit provisional opening baseline note.
 
+## Mark / WEW Personal Tax Questions
+
+No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator decisions. Detailed resolved decisions are recorded in `clients/Individuals/Mark James Frederick Wilshin/open-questions.md`.
+
 ## CBMAX Client Questions
 
 - Sync the Notion company record/tax-history callout with the corrected pending status: Irish VAT `4388950KH` issued and ROS backdate requested from January 2025, but retroactive acceptance is not confirmed, so 2025 VAT/tax-residence treatment remains in limbo.
@@ -80,16 +84,54 @@ Updated: 2026-05-12.
 
 ## Claudio Brivio Personal Tax Questions
 
-- Reconcile Claudio's Notion 2024 filing `GDrive Docs` folder `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`, which listed empty through the connector, with the active Drive folder `https://drive.google.com/drive/folders/1Yp65vQdd3rKJrSj1gV24b1hTrovihJHv`.
-- Confirm whether `Claudio - Personal Tax Analysis Template.xlsx` should be migrated/copied from the maintained native machine-readable German personal-tax template before continuing analysis.
-- Confirm whether existing Notion tasks `https://www.notion.so/352e4130131480e0b6f4deb6917c972b` and `https://www.notion.so/358e413013148053bb73e0bc8e7247b3` are correctly linked to the 2024 filing's `Preparation Task` / `Filing Task` fields before creating any new task pair.
-- Confirm how CBMAX February 2024 payroll was handled: missing February payslip, March back-pay, or no payment.
+- Review fresh 2024 workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`; it was copied from the maintained native template and populated on 2026-05-13, then updated from operator review on 2026-05-14. Current read-back shows 8 failed checks and 27 open missing-info items.
+- Resolved 2026-05-14: CBMAX February 2024 payroll is excluded from the workbook and should not be retroactively changed.
 - Obtain or verify the CBMAX 2024 Lohnsteuerbescheinigung.
-- Reconcile TK contribution/end-date evidence after Claudio's 2026-05-07 WhatsApp update that TK cannot provide a standalone tax certificate.
-- Extract and review Hallesche Section 10 certificate figures for 2024-02-01 to 2024-12-31.
-- Confirm the Joblift Feb-Sep 2024 travel treatment as Reisekosten vs Pendlerpauschale.
-- Confirm CBMAX and Job Guardian Section 138 AO notifications are included in the 2024 filing package and how late/proactive filing should be framed.
+- Resolved 2026-05-14: Health/care EUR 5,470.32 is claimed; Hallesche non-basic/supplemental EUR 1,050.69 is excluded.
+- Resolved 2026-05-14: Home-office daily allowance, Pixel Buds, and mobile-phone professional share are claimed; commute and Telekom internet are excluded.
+- Final-review point: Freenet mobile-phone support is the exact Drive ZIP plus tracker summary; extract individual invoice PDFs only if the filer wants invoice-level files separated.
+- Resolved 2026-05-14: CBMAX and Job Guardian Section 138 AO notifications should be included in the 2024 filing package.
+- Review how Section 138 AO late/proactive filing should be framed for CBMAX and Job Guardian.
 - Verify the N26 file in the investment folder is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS.
+
+## Byron Jarvis Frasier Personal Tax Questions
+
+- Obtain/extract AGL May-Dec 2024 wage-tax, social, health, solidarity, and net-pay details from AGL payslips or the 2024 Lohnsteuerbescheinigung.
+- Confirm May 2024 AGL payroll treatment, because the employment start is 2024-05-01 and first payroll date found was 2024-06-27.
+- Review the November/December 2024 payroll relation mismatch on payroll page `https://www.notion.so/131e4130131481f68790cfb5fe5e8c42`.
+- Obtain the previous-employer 2024 annual wage-tax certificate; Jan-Apr payroll journals are source-backed but should be reconciled to the annual certificate before filing.
+- Confirm Byron's 2024 residence address periods, because Notion current address and Jan-Apr payroll address differ.
+- Confirm no additional 2024 expenses or provide receipt/invoice evidence with exact URLs before claiming expenses.
+- Confirm no 2024 investments or provide investment evidence before clearing the investment checks.
+- Confirm whether older workbook business/freelance revenue belongs in the 2024 personal return; do not add it without invoices/bank evidence and scope confirmation.
+- Filer should review final ELSTER data-entry treatment for the ottonova line 28 EUR 1,331.64 amount. It is recorded with evidence but excluded from included deduction because basic health/care already exceeds the Sec. 10(4) ceiling.
+
+## SVL / Kristjan Questions
+
+- Monitor for Finanzamt response issuing SVL German tax/VAT numbers; user confirmed on 2026-05-18 that tax registration is still pending.
+- Do not create a tax-registration chase task in this context; user will handle the registration chase in a separate skill.
+- Treat SVL filing-registration records as overdue with Finanzamt/tax registration as the blocker.
+- After tax/Betriebsnummer registration arrives, Simoneta owns retroactive payroll-tax filings and payments for Kristjan's 2026 payroll.
+- Confirm only if operationally needed whether Kristjan is fully created in Lexware; user says probably yes because RB needs it to create invoices.
+- Use the Individuals table as source of truth for Kristjan tax identifiers; do not ask the operator to classify WhatsApp-provided values unless the table is missing or contradictory.
+- Freelancer deregistration is pending through an open task; RB should set up individual/freelancer ELSTER access.
+- The Drive personal-tax year folder was renamed from `2025` to `2026` and verified; Notion 2026 filing still needs the Drive folder linked when personal-tax work starts.
+- Track TK final response for insurance/retroactive contribution treatment.
+- AI GreenBytes update is completed, but JP needs to upload evidence.
+- Apartment amount is about EUR 750k; final ownership/loan/security route remains open because there was a hurdle with the partner selling his company.
+
+## AMC / Aaron Questions
+
+- Confirm whether VAT Q1 2026 was filed after the current missing-invoice review; user clarified this belongs in a separate VAT skill/review.
+- Confirm whether the missing Q1 invoice list was shared with Aaron and whether Aaron supplied the missing expense invoices.
+- Confirm whether the 2023/2024 P&L and balance-sheet package was submitted by the actual Finanzamt deadline; follow source dates of WhatsApp 2026-05-19 at latest and Notion before 2026-05-22.
+- Confirm remaining balance after the garnished account transfer; user says Finanzamt has not yet responded to the payment-plan proposal.
+- Confirm later whether Aaron's P-Konto becomes active; user says it is not confirmed now.
+- Confirm submission evidence and exposure for the prior Gewerbe trade-tax/VAT catch-up periods 2023, 2024, and Q1 2025; user says Aaron was deregistered after Q1 2025.
+- For future Riot/Echo sends, use the updated Business Partner invoice-to/CC fields plus Business Partner notes; Riot's Nicole recipient remains in notes because the current schema is single-email.
+- Decide whether Notion should get multi-recipient invoice-routing fields so Riot-style routes do not need to keep secondary To recipients in notes.
+- Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.
+- Confirm whether the Notion accounting-software email alias should be `accounts+amc` or `account+amc`.
 
 ## Nathan VAT And Personal Tax Questions
 

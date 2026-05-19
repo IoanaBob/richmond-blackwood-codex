@@ -107,16 +107,18 @@ If the logging destination is unclear, record the blocker in `memory/open-questi
 
 ## WhatsApp Chat ID Pointers
 
-Use WhatsApp chat IDs as pointers only. Do not treat a saved chat ID as approval to import chat history, download media, or send future messages without explicit user instruction.
+Use WhatsApp chat IDs as route/source pointers only. A saved JID helps future approved reads or sends resolve the right client route quickly, but it is not approval to import chat history, monitor the chat, download media, or send future messages without explicit user instruction.
 
-When a user asks to save a WhatsApp chat ID for a known company client:
+When a user asks to save a WhatsApp chat ID, or when a client export/backfill uses WhatsApp context:
 
 1. Resolve the contact or chat through the `whatsapp` MCP tools.
-2. If search returns multiple plausible contacts, ask the user to choose the intended contact before filing.
-3. Store the selected JID in `clients/Companies/<client-reference>/communications.md` under a WhatsApp chat ID table.
-4. Include `Status`, `Source`, `Imported`, and `Review` fields for the pointer.
-5. Mark the pointer `provisional` unless the user explicitly approves the contact relationship and preferred-contact status.
-6. Add a matching source row in `clients/Companies/<client-reference>/source-register.md`.
+2. If search returns multiple plausible contacts or groups, ask the user to choose the intended route before filing.
+3. Store the selected JID in the owning entity's `communications.md` under a WhatsApp chat ID table.
+4. Use `clients/Companies/<client-reference>/communications.md` for company/client-operational routes.
+5. Use `clients/Individuals/<legal-name>/communications.md` for personal-tax, personal KYC, personal bank, personal asset, or other individual-owned routes.
+6. Include `Status`, `Source`, `Imported`, and `Review` fields for the pointer.
+7. Mark the pointer `provisional` unless the user explicitly approves the contact relationship and preferred-contact status.
+8. Add a matching source row in the same entity's `source-register.md`.
 
 The general process document should describe the filing pattern only. Keep client names, phone numbers, JIDs, and role assumptions inside the relevant client folder.
 
@@ -155,3 +157,11 @@ For workflow-triggered analysis tasks, such as German personal tax analysis setu
 - Draft the Slack text in Codex chat first, including the workbook/source URL, completed scope, and remaining review flags.
 - After the user approves the exact text, send it directly through Slack and log the sent notification in the relevant Notion task/comment or client source register. Use the Codex approval prompt/notification for Slack send approval when available and especially when the operator asks for notification-based approval; in Default mode, use the approved local approval-dialog fallback when the operator wants a popup.
 - Do not create a Slack draft by default. Use a draft only when the user explicitly asks for one.
+
+When a personal-tax analysis or operator-review pass unblocks a `Filing Task`, post the unblock update to `#rb-client-updates` after approval:
+
+- Make the Notion filing task link the primary task reference in the message.
+- Include the filing record and workbook links.
+- State what changed that makes the filing task actionable.
+- List remaining flags plainly; if filer judgment is still required, describe the task as unblocked for filing review rather than fully filing-ready.
+- Do not use broad mentions such as `@here` or `@channel` unless the operator explicitly asks for them.

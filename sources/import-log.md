@@ -2,6 +2,191 @@
 
 Status: active.
 
+## 2026-05-18 - AMC And Aaron Context Import
+
+Applied:
+
+- Created `clients/Companies/AMC/` from the Notion Companies `Reference` value and populated company-side context for AARON MEDIC CHAMBERLAIN LIMITED.
+- Created `clients/Individuals/Aaron Richard Chamberlain/` from Aaron's Notion first-name and last-name fields and routed personal-tax, garnishment, P-Konto/payment-plan, prior Gewerbe, and joint-filing context there.
+- Captured user instruction that RB does Aaron's personal returns, that the prior accountant did not file 2023/2024, that RB filed those years, and that prior Gewerbe registration created trade-tax/VAT catch-up exposure for 2023, 2024, and Q1 2025 before deregistration.
+- Stored the resolved WhatsApp route `Chamberlain, Aaron | Richmond Blackwood` / `120363378578862576@g.us` in the company and individual communication/source files.
+- Captured the initial company filing status, then updated it after user clarification: VAT Q1 2026 and Slack's Q4 2025 VAT concern both need a separate VAT review, with Q1 bookkeeping still tied to missing invoice support.
+- Captured AMC variable invoice rules: ask Aaron for exact billable work and travel/expense details, prepare invoice/expense support, get Aaron approval, then send from the accounting email using the historical counterparty template.
+- Added live Notion comments to the Riot, Echo Sports LLC, and UVS contract pages with the captured invoice workflow/message-template rules.
+- Updated and read back Riot and Echo Business Partner `Invoicing Email`, `Invoicing Email Cc`, and `Notes` fields.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- Live Notion comments were added to three AMC contract pages, and Riot/Echo Business Partner routing fields were updated and read back. No live Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+- Repo verification: `git diff --check` passed; trailing-whitespace scan was clean; AMC/Aaron client-file raw identifier scan found no IBAN/tax-number pattern matches.
+
+Follow-up:
+
+- Confirm VAT Q1 2026 and Slack Q4 2025 VAT through the separate VAT review, plus missing Q1 invoice list/evidence.
+- Confirm whether the 2023/2024 P&L and balance-sheet package was submitted by the source deadlines: WhatsApp 2026-05-19 at latest and Notion before 2026-05-22.
+- Confirm remaining balance after the garnishment transfer, monitor for future Finanzamt payment-plan response, and confirm whether P-Konto later becomes active.
+- Before future Riot/Echo sends, use the updated Business Partner invoice-to/CC fields plus Business Partner notes; decide whether Notion should add multi-recipient invoice-routing fields.
+
+## 2026-05-18 - SVL And Kristjan Context Import
+
+Applied:
+
+- Created `clients/Companies/SVL/` from the Notion Companies `Reference` value and populated company-side context for SOLINOVA LIMITED.
+- Created `clients/Individuals/KRISTJAN MAR OLAFSSON/` from Kristjan's Notion first-name and last-name fields and routed personal-tax, prior freelancer, individual ELSTER, insurance, and personal Drive context there.
+- Captured user instruction that SVL is the newest client, tax registration is still pending, Kristjan was previously a freelancer, and RB will do Kristjan's personal tax returns from 2026 onward.
+- Stored the resolved WhatsApp route `Olafsson, Kristjan | Richmond Blackwood` / `120363409060100858@g.us` in the company and individual communication/source files.
+- Captured SVL registration blockers, payroll-tax retroactivity, Lexware setup context, Mediainvesting monthly invoicing inputs, AI GreenBytes shareholder-register follow-up, and apartment-purchase structuring notes.
+- Applied user answers from 2026-05-18: still waiting for tax registration; no registration-chase task here; filings are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll tax; hours/bonus sheet is canonical; Lexware and WAMO costs are RB-side; personal-tax Drive year should be 2026; freelancer deregistration is pending via an open task; RB should set up Kristjan's individual/freelancer ELSTER; AI GreenBytes update is completed but JP needs to upload; apartment amount is about EUR 750k with a partner-company-sale hurdle.
+- Renamed the mistaken Drive year folder from `2025` to `2026` and verified the Drive metadata title after update.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- No live Notion, Gmail, Slack, or WhatsApp records were modified during this import.
+- Live Drive change after user answer: renamed Kristjan's mistaken personal-tax year folder from `2025` to `2026` and verified metadata.
+
+Follow-up:
+
+- Still open: Finanzamt/tax-number and VAT-number response, retroactive payroll-tax filings once registered, Kristjan freelancer deregistration task completion, individual/freelancer ELSTER setup, TK insurance response, linking the 2026 Drive folder to the Notion filing when personal-tax work starts, JP evidence upload for AI GreenBytes, and final real-estate loan/ownership/security structure.
+
+## 2026-05-15 - MHL And Gabriel Context Import
+
+Applied:
+
+- Created `clients/Companies/MHL/` from the Notion Companies `Reference` value and populated company-side context for MINDHARBOUR LIMITED.
+- Created `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/` from Gabriel's Notion first/last-name fields and routed personal-tax, residency, and asset context there.
+- Added Grey Desk Inc. context into the MHL/Gabriel files because Gabriel owns both and current funding/structuring decisions depend on separating or deliberately linking Grey Desk and MHL.
+- Captured the Ferrari/company-car purchase, vehicle tax, Herzenssache insurance payment, MHL liquidity/funding route, and the Ltd & Co KG / Berlin apartment restructuring plan.
+- Stored WhatsApp route pointers for `Grey Desk Restructuring` and Gabriel's contact search result. Raw transcripts, audio, media, credential files, ELSTER certificates, and Notion attachments were not copied into git.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- User follow-up on 2026-05-15 resolved the billing route: MHL pays EUR 1k/month by Stripe for the European entity, and Grey Desk pays approximately USD 10.5k/month for international support.
+- User follow-up resolved Co-KG status: the notary appointment was never booked; the service has been requested and is waiting on Byron signing availability and Gabriel's signature route.
+- User confirmed the Kastanienallee apartment is intended to move under MHL/Co-KG on a flexible timeline, MMG is 100% personal and untouched since Gabriel moved to Germany, and future communication should aim to stay in the `Grey Desk Restructuring` WhatsApp group.
+- Still open: Zoll-Portal rejection response, VAT registration response/tax number, future-dated filing status cleanup, and the Notion 2025 Gabriel personal-tax filing marked filed against the user instruction that personal taxes are done up to 2024.
+
+## 2026-05-13 - Future Personal Tax Prompt
+
+Applied:
+
+- Added `processes/personal-tax-return-prompt.md` as a reusable operator prompt for future German personal-tax analysis requests.
+- Linked the prompt from `processes/index.md` and `skills/rb-personal-tax-analysis-de/SKILL.md`.
+
+Verification:
+
+- Prompt incorporates the Mark correction lessons: fresh maintained-template copies, formula-tab protection, invoice/receipt-backed rows, exact evidence URLs, Notion preparation/filing task links, and read-back checks.
+
+## 2026-05-13 - Mark 2024 Personal Tax Analysis Update
+
+Applied:
+
+- Reviewed the user-provided Mark Drive folder and V2 Office-mode workbook for the 2024 German personal-tax analysis.
+- Initially prepared `Mark V3 Personal Tax Analysis Template - updated 2026-05-13.xlsx` from the V2 workbook, preserving Office-mode `.xlsx` format. This was later identified as the wrong template basis and is superseded.
+- Updated the analysis to include EUR 22,000 income: EUR 7,000 TorUG revenue plus EUR 15,000 GbR profit per operator instruction.
+- Excluded home costs and non-mobile Telekom/internet items from expenses and claimed the EUR 1,260 home-office daily allowance instead.
+- Excluded naturalization/non-business invoices and the entertainment ticket line; included the narrower EUR 180 Catalanglish language-learning expense, later confirmed by the operator as business language learning for the translation business.
+- Updated included business expenses to EUR 3,219.24 and health/care insurance to EUR 6,232.81.
+- Uploaded the prepared V3 workbook through the Google Drive connector and added Notion page comments on the filing record and linked task. These comments were superseded by later correction comments.
+- After operator clarification, rebuilt and uploaded a corrected V3 workbook marking the EUR 180 Catalanglish language-learning item as a confirmed business expense because Mark's business is translation. This Office-mode workbook is also superseded by the machine-readable correction.
+- After operator review of the template-basis rule, created a corrected native Google Sheets artifact from the maintained RB German Personal Tax Analysis machine-readable template export: `https://docs.google.com/spreadsheets/d/1vg2gcux923SDZi1RDKlowSf-dguLrSqMVv7HTCCScYk/edit`.
+- Added Notion correction comments on the filing record and linked task stating that both Office-mode V3 workbooks are superseded.
+- After operator review of hardcoded calculation-tab values, repaired the current machine-readable workbook so calculation tabs are formula-driven again and Mark-specific data is confined to input/source cells.
+- Applied the same `Tax Analysis` deductible-group formula repair to the maintained machine-readable template so future business-home-office workbooks do not double-count `business-betriebsausgaben` as personal deductions.
+- After the operator instructed a clean rebuild, reauthenticated the Drive helper with Drive scope and created a true Drive-native copy of the maintained template in Mark's supplied folder: `https://docs.google.com/spreadsheets/d/1JtxaRuqQZv_2JhvPBND6R6uQkWN2xahokg0q24Rt5iw/edit`.
+- Refilled only `Setup`, `Revenue`, `Expenses`, and `Deductibles` from actual invoice/receipt evidence where available and the explicit EUR 15,000 GbR-profit instruction. The intermediate corrected machine-readable workbook is superseded.
+- After operator review of folder-level expense evidence links, rewrote `Expenses` receipt-backed rows so claimed expense entries point to exact receipt-file URLs. The business-meal row was split into F100-F107 receipt rows, correcting the claimed 70 percent meal share to EUR 506.59 from receipt-backed gross/tip-supported amounts.
+- Added fresh Notion comments to the filing record and linked task with the new workbook URL, formula-driven read-back values, supersession note, and remaining review points.
+- Added correction comments to the Notion filing record and linked task after the receipt-level `Expenses` repair.
+- Created Mark's individual client routing folder and a minimal WEW linked-individuals pointer.
+- After operator review of the final open questions, recorded confirmed EUR 15,000 GbR support, approved mobile business-use percentages, client-trusted missing M1-3 iCloud and business-meal support, and full 2024 MacBook treatment under BMF one-year computer-hardware useful-life guidance. Added matching Notion comments to the filing record and filing task.
+
+Verification:
+
+- Local XLSX zip validation and spreadsheet-tool import/read-back passed.
+- Read-back confirmed summary values in the corrected machine-readable workbook: revenue EUR 22,000, business expenses before home-office EUR 3,219.24, business home-office allowance EUR 1,260, business expenses including home-office EUR 4,479.24, business/freelance net PNL EUR 17,520.76, health/care insurance EUR 6,232.81, special expense lump-sum baseline EUR 36, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,251.95.
+- Google Drive metadata confirmed the corrected artifact exists as a native Google Sheet with 28 tabs. A later Sheets range read-back confirmed formula-driven `Tax Analysis` values for revenue EUR 22,000, business expenses EUR 4,479.24, net PNL EUR 17,520.76, other personal deductions EUR 6,268.81, and income after deductions EUR 11,251.95. Maintained-template read-back confirmed `Tax Analysis!B12` now excludes both `employment-werbungskosten` and `business-betriebsausgaben`.
+- Fresh template-copy read-back confirmed formula-driven summary values: revenue EUR 22,000, business expenses before home-office EUR 3,206.18, business home-office allowance EUR 1,260, business expenses including home-office EUR 4,466.18, business/freelance net PNL EUR 17,533.82, health/care insurance EUR 6,232.81, other personal deductions EUR 6,268.81, and formula-driven income after deductions before tax-rate calculation EUR 11,265.01.
+- Receipt-level expense correction read-back confirmed no receipts-folder URL remains in `Expenses!A1:Q80`, formula cells remain present in key `Expenses` formula columns and `Tax Analysis!B3:B14`, and current formula-driven values are business expenses before home-office EUR 3,219.95, business expenses including home-office EUR 4,479.95, net business PNL EUR 17,520.05, and income after deductions EUR 11,251.24.
+- BMF EStH 2024 source review supports the provisional analysis route for full 2024 MacBook treatment through one-year computer-hardware useful-life guidance.
+
+Follow-up:
+
+- The fresh template-copy workbook is in the supplied Mark folder. The prior Mark open questions were resolved by operator review on 2026-05-13; final filing still needs normal professional/operator review before submission.
+## 2026-05-14 - Personal Tax Filing Task Unblock Slack Rule
+
+Imported:
+
+- User instruction in Codex conversation to add a process step for sharing a `#rb-client-updates` Slack update when Claudio's filing task is unblocked, tagging/linking the filing task.
+
+Actions:
+
+- Updated `skills/rb-personal-tax-analysis-de/SKILL.md` so an unblocked personal-tax `Filing Task` requires an approved `#rb-client-updates` update with the Notion filing task link as the primary task reference.
+- Updated `processes/communications.md` and durable memory with the same rule.
+- Prepared a Slack-ready Claudio unblock message for approval.
+
+Unresolved:
+
+- Send/log the Slack message only after the exact message is approved.
+
+## 2026-05-14 - Claudio Brivio 2024 Operator Review Applied
+
+Imported:
+
+- User review instruction in Codex conversation approving the healthcare treatment and selecting which deductions/exclusions to apply.
+- Hallesche folder `https://drive.google.com/drive/folders/15eI6Owgh5SXh8Z_6_728EWFYCeocxPNr`, including exact tax certificate `https://drive.google.com/file/d/1armzvPsmWw21VkH0q3TYJEG-78Wa3Aw9/view` and policy/employer certificate `https://drive.google.com/file/d/1Z7pLPaQ23p2xANC_6MsjpcEflN38j0d3/view`.
+- Live workbook read-back from `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`.
+
+Actions:
+
+- Updated workbook source/input tabs only: claimed health/care, 206 home-office days, Pixel Buds, and mobile-phone professional share; excluded CBMAX February payroll, commute, Telekom internet, and Hallesche non-basic/supplemental amount.
+- Corrected the Hallesche workbook evidence URL from an inaccessible file ID to the exact valid certificate URL.
+- Added workbook source notes that N26 sits in `Sources`, not `Investment Lots`, until Anlage KAP/KAP-AUS classification is completed.
+- Added actual Notion comments to the 2024 filing record, preparation task, and filing task with the operator decisions and remaining flags.
+- Updated Claudio individual repo files and durable memory.
+
+Unresolved:
+
+- N26 investment statement classification before clearing Anlage KAP/KAP-AUS.
+- CBMAX 2024 annual Lohnsteuerbescheinigung verification or documented unavailability.
+- Section 138 AO late/proactive wording and foreign-company risk review for CBMAX and Job Guardian.
+- Optional extraction of Freenet individual invoice PDFs from the Drive ZIP if the filer wants invoice-level evidence separated.
+
+## 2026-05-13 - Claudio Brivio 2024 German Personal Tax Analysis
+
+Imported:
+
+- Repo-local workflow `skills/rb-personal-tax-analysis-de/SKILL.md`; requested process prompt path `processes/personal-tax-return-prompt.md` was not present in this worktree.
+- Notion filing `https://www.notion.so/2cae413013148064bf7ae889ec16af5c` and individual `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`.
+- User-provided canonical Drive filing folder `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`.
+- Maintained German personal-tax template `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`.
+- Key evidence rows from the 2024 Drive package: Joblift payroll/tax certificate, CBMAX March-December payslips and employment contract, Hallesche section 10 certificate, Pixel Buds receipt, home-office/commute tracker, phone/internet ZIP pointers, foreign-company evidence, and N26 tax-statement pointer.
+
+Actions:
+
+- Created fresh native workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit` in the canonical filing folder.
+- Populated source/input tabs only and preserved formula/calculation tabs.
+- Created Notion preparation task `https://www.notion.so/35fe41301314813ea514ed9b61092962` and dependent filing task `https://www.notion.so/35fe41301314817b879cc3ab8c4160dc`.
+- Updated the 2024 filing record with `Preparation Task`, `Filing Task`, canonical `GDrive Docs`, `Status = In progress`, and `Document gathering status = In progress`.
+- Added actual Notion comments to the filing and task pages with workbook link, summary figures, and filing blockers.
+- Updated Claudio individual repo files and durable memory with the workbook/task pointers and remaining review flags.
+
+Unresolved:
+
+- CBMAX February payroll and 2024 annual Lohnsteuerbescheinigung.
+- TK annual/termination evidence and Hallesche overlap reconciliation.
+- Home-office/commute day and first-workplace review.
+- Telekom/Freenet invoice ZIP review and individual invoice extraction if claimed.
+- N26 investment statement content review/reclassification.
+- Section 138 AO notification handling and foreign-company risk review.
+- Workbook read-back shows 9 failed checks and 34 open missing-info items before filing.
+
 ## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
 
 Imported:
@@ -65,6 +250,51 @@ Client Notes & Updates review on 2026-05-13:
 - User noted that the Slack closeout rule about listing only Notion records actually added or modified is a general process rule, not CBMAX-specific.
 - Read the existing `Codex provisional import - CBMAX` Client Notes & Updates page; it is an internal record with the old `clients/cbmax/` path and fragments for invoice correction, `CBMAX Financial Analysis`, and possible employment/accounting context.
 - Updated CBMAX backup/open-question files and the general client backup process/skill; no live Notion Client Notes & Updates page was changed.
+
+## 2026-05-13 - AGL And Byron Context Import
+
+Applied:
+
+- Created `clients/Companies/AGL/` from the Notion company `Reference` and populated company-side context from Notion, Drive, Gmail, and user instruction.
+- Created `clients/Individuals/Byron Jarvis Frasier/` for Byron-specific personal-tax, US asset/investment, bank-account, and filing context.
+- Recorded AGL's current tax position: Irish tax resident, Ioana as sole director, German PE for Byron/staff, filings in IE and DE, 80%/20% IE/DE profit attribution, 2024 German filings submitted and awaiting Finanzamt feedback, and 2024 IE corporation tax still pending.
+- Captured the weekly Syntentia billing rule, monthly planned vacation/off-days check, and exact future email format in `clients/Companies/AGL/invoices-payments-expenses.md`.
+- Added the general recurring outbound invoicing rule and AGL Syntentia hook to inbound operating triage process/skill so this does not become a bespoke AGL task.
+
+Verification:
+
+- Notion, Drive, and Gmail sources were read directly through connectors; no Notion, Drive, Gmail, Slack, or WhatsApp records were modified.
+- Canonical Drive folder `04. Agile Lincs Limited (AGL)` was found under the external client root.
+
+Follow-up:
+
+- Wait for Finanzamt feedback before treating the 2024 German PE allocation as accepted; user confirmed no feedback yet on 2026-05-13.
+- Confirm next Dublin quarterly board meeting and complete the 2024 IE corporation tax filing once the use-case handling is settled.
+- Set up Byron personal-tax analysis from the maintained native German personal-tax template when active work begins.
+
+WhatsApp export update on 2026-05-13:
+
+- Resolved WhatsApp chat `Frasier, Byron | Richmond Blackwood` / `120363222065866778@g.us` through Byron contact search and contact-chat lookup.
+- Searched targeted terms for AGL/Syntentia/tax/holiday/expense/Dublin/remote/salary/bond context.
+- Added source pointers and summarized context to AGL communications, source register, contracts/authority, invoicing, open questions, and Byron individual personal-tax, tax-filings, bank-account, expense, and source-register files.
+- Recorded that passwords/raw transcript/media were not copied into git.
+- Open follow-ups: verify 2026-02-24 board-meeting attendance/minutes, confirm payroll/personal-tax evidence against Drive/source files, and keep using source invoices/Gmail/Notion records as evidence of amounts billed.
+
+Review follow-up and Notion writes on 2026-05-13:
+
+- User confirmed AGL is both Ireland/Germany operationally but mainly Ireland for the company `Tax Residence` field.
+- Updated live Notion company `Tax Residence` from Germany to Ireland and added a page comment explaining German PE/filings remain active.
+- User confirmed there is no Finanzamt feedback yet, so German PE allocation acceptance and 2024 IE corporation tax timing remain open.
+- User confirmed future Syntentia sends should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
+- User confirmed the old payroll-only task is superseded by the file-in-both position and live registrations; archived task `https://www.notion.so/332e41301314818d8e09ea455a3d61b2` with a comment.
+- Created monthly task `https://www.notion.so/35fe41301314814096b2cdc5beb780fa` assigned to Simoneta to ask Byron about planned vacation/off days for the next month.
+
+Process update on 2026-05-13:
+
+- Source: user instruction that exports/backfills using WhatsApp must store the client chat ID because future approved sends or communication reads often need that route.
+- Imported to: `AGENTS.md`, `processes/knowledge-backup-and-source-control.md`, `processes/communications.md`, `skills/rb-source-research/SKILL.md`, `skills/rb-client-file/SKILL.md`, `skills/rb-whatsapp-comms/SKILL.md`, company/individual communication templates, `clients/README.md`, `sources/source-register.md`, and durable memory.
+- Status: provisional.
+- Unresolved: future exports must still ask the operator to choose before filing if multiple WhatsApp contacts or groups are plausible.
 
 ## 2026-05-08 - Company Client File Routing Cleanup
 
@@ -1262,3 +1492,61 @@ Unresolved:
 - Confirm whether Claudio's existing `.xlsx` workbook should be migrated to the maintained native machine-readable template.
 - Confirm whether existing Notion tasks are linked to the filing before creating any new task pair.
 - Resolve 2024 filing questions for February CBMAX payroll, CBMAX wage-tax certificate, TK/Hallesche reconciliation, Section 138 AO, Joblift travel classification, and the N26 investment-folder file.
+
+## 2026-05-15 - Byron Jarvis Frasier 2024 Personal Tax Analysis
+
+Imported:
+
+- Notion individual record `https://www.notion.so/203647f1b74743a09fc8a408a3318b30`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae41301314808bb952d50c6934b092`.
+- AGL employment record `https://www.notion.so/aabd97548dab4747b3369cb0a9da0389`.
+- AGL company record `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`.
+- AGL client project `https://www.notion.so/32fe41301314809fa77bf2f0d497de5b`.
+- User-provided 2024 Drive filing folder `https://drive.google.com/drive/folders/1ajVVFLGIGfTjNLrjH8ELj1sW0YdPuHlj`.
+- Client-provided Jan-Apr previous-employer payroll PDFs in `https://drive.google.com/drive/folders/1htafA6oTpZe3EhP2_6CsLHYOiM5NCyLl`.
+- Existing V2 workbook `https://drive.google.com/file/d/1cPFvCjo1yOuRTJFAYM2NLSAtkgFMm6_F/view?usp=drivesdk` and older workbook `https://drive.google.com/file/d/1KIJlt_HX8hVHppXRpicUF30TD6GHL2-Q/view?usp=drivesdk`.
+- Fresh Drive-native German personal-tax workbook `https://docs.google.com/spreadsheets/d/1_V8CzcZiQfxrIi4zTwVBsvwhvKAxxAaN901bxRm0JHk/edit`.
+
+Actions:
+
+- Copied the maintained German personal-tax template into the 2024 filing folder and populated input/source tabs only.
+- Entered Jan-Apr previous-employer payroll journal figures and provisional May-Dec AGL gross salary rows.
+- Recorded exact Drive PDF URLs for Jan-Apr payroll-derived rows and excluded old workbook expense/revenue/payment candidates without exact evidence URLs.
+- Recorded Drive locations, source register, filing notes, personal-tax summary, linked-company pointers, open questions, and memory entries.
+
+Unresolved:
+
+- Obtain or extract AGL 2024 payslips/annual wage-tax certificate.
+- Obtain previous-employer annual wage-tax certificate.
+- Confirm address periods, expenses/no-expenses, investments/no-investments, and whether older workbook business activity belongs in scope.
+
+## 2026-05-18 - Byron Jarvis Frasier Healthcare Evidence Update
+
+Imported:
+
+- 2024 ottonova Jahresvorsorgeaufwandsbescheinigung `https://drive.google.com/file/d/1FtUYBdq2qwL6v7AKWCP-_ra94HaGQT0w/view?usp=drivesdk`.
+- 2024 ottonova Übertragungswertbescheinigung `https://drive.google.com/file/d/1UCHGupqpNW10N5y1gMYV_691-xZ-LUGd/view?usp=drivesdk`.
+- 2025 ottonova Jahresvorsorgeaufwandsbescheinigung `https://drive.google.com/file/d/1koIJbBIdcmapEKBMR04XtN3ipFInC4Xb/view?usp=drivesdk`.
+- 2025 ottonova Übertragungswertbescheinigung `https://drive.google.com/file/d/1IJWUkdpzx9qbESKAXGT2EvR-wUVW6UPs/view?usp=drivesdk`.
+- BMF LStH 2024 Sec. 10 cap wording `https://esth.bundesfinanzministerium.de/lsth/2024/A-Einkommensteuergesetz/II-Einkommen/5-Sonderausgaben/Paragraf-10-Druck/inhalt.html`.
+- RB Communications record `https://www.notion.so/364e413013148126afb0d72472a45ce2` for the outbound WhatsApp acknowledgement.
+
+Actions:
+
+- Updated Byron's 2024 workbook `Deductibles` input rows only.
+- Claimed EUR 3,145.80 basic health/care insurance from the 2024 certificate.
+- Recorded EUR 1,331.64 non-basic health insurance as provided but excluded from included deductions after Sec. 10(4) cap review.
+- Rechecked Jan-Apr previous-employer payroll journal images and confirmed HI/PI/UI/CI employee/employer contribution columns show EUR 0.00, so no separate payroll health/care amount was added from those journals.
+- Recorded the 2024 transfer-value certificate as reference only and cleared the old missing-healthcare manual flag from `Missing Info`.
+- Updated Byron individual Drive/source/open-question notes and durable source memory.
+- Created and linked the Notion preparation task `https://www.notion.so/364e4130131481bc9b91c60b0ab7c03e` and filing task `https://www.notion.so/364e4130131481d8985cc8d2d8bf5b4a`.
+- Updated the filing row `Status`, `Document gathering status`, `GDrive Docs`, `Preparation Task`, and `Filing Task` fields, then verified by read-back.
+- Added Notion task comments with the healthcare cap correction and revised workbook figures.
+- Sent the approved WhatsApp acknowledgement to Byron's RB group and logged it in RB Communications.
+- Read-back confirmed health/care insurance EUR 3,145.80, `ded-other-insurance` amount EUR 1,331.64 with included deduction EUR 0.00, other personal deductions EUR 3,181.80, total deductions EUR 4,411.80, and income after deductions EUR 76,555.36.
+
+Unresolved:
+
+- 2025 healthcare files are logged as future-year evidence only.
+- Remaining Byron blockers are AGL/previous-employer annual payroll evidence, address-period confirmation, expense/investment confirmations, old workbook scope confirmation, and workbook check review.
+- Filer should review final ELSTER data-entry treatment for the non-basic/private health insurance line 28 amount.
