@@ -133,6 +133,20 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.
 - Confirm whether the Notion accounting-software email alias should be `accounts+amc` or `account+amc`.
 
+## NACV / Andrei Questions
+
+- Obtain Finanzamt response/notice for NACV 2024 and 2025 tax amounts and go-forward prepayment amounts.
+- Populate the NACV Tax Prepayments database once the amounts and dates are known.
+- Confirm Finanzamt response to the VAT deregistration appeal/reinstatement request; user says there is no response yet.
+- Request or confirm lower German VAT filing cadence after the VAT/compliance position is clear.
+- Confirm the additional information requested by Finanzamt for the filed NACV 2024/2025 company taxes and whether RB's response has been accepted.
+- Complete the split of misrouted 2024 personal-tax documents from Andrei's 2025 folder.
+- Confirm spouse-related evidence completeness for Andrei's joint returns.
+- Confirm billing mechanics for normal-fee treatment from Andrei's 2025 personal-tax filing onward.
+- Confirm Andrei's official personal/director address with him; user says it is not 100 percent clear.
+- Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
+- Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.

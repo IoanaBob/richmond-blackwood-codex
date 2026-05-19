@@ -1550,3 +1550,37 @@ Unresolved:
 - 2025 healthcare files are logged as future-year evidence only.
 - Remaining Byron blockers are AGL/previous-employer annual payroll evidence, address-period confirmation, expense/investment confirmations, old workbook scope confirmation, and workbook check review.
 - Filer should review final ELSTER data-entry treatment for the non-basic/private health insurance line 28 amount.
+
+## 2026-05-19 - NACV And Andrei Nasonov Context Import
+
+Imported:
+
+- Notion company record `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8`.
+- NACV client project `https://www.notion.so/32fe413013148083a7d0fa4f8d94c3e9`.
+- Andrei individual record `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae4130131480358061f09398a4d71a`.
+- Notion 2025 personal tax filing `https://www.notion.so/342e4130131480139e81d7f94450de8b`.
+- Key NACV tax/VAT/prepayment tasks `https://www.notion.so/35fe413013148110859afa228ae41b6b`, `https://www.notion.so/35fe413013148134a46ae7e1bab9b897`, and `https://www.notion.so/359e4130131480858625d56338c18971`.
+- Canonical NACV Drive folder `https://drive.google.com/drive/folders/1z36VoEjY6jkbqAjxGyRBZD7b323rMd_c`.
+- Andrei personal-tax folders `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` and `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`.
+- WhatsApp route `NA Capital Ventures | RB` / `120363399321589278@g.us`.
+- Gmail searches and selected May 2026 Finanzamt-letter threads.
+
+Actions:
+
+- Created `clients/Companies/NACV/` using the exact Notion `Reference`.
+- Created `clients/Individuals/Andrei Nasonov/` using the Notion legal-name fields.
+- Routed NACV company tax/VAT/prepayment/contract/Drive/communications context into company files.
+- Routed Andrei personal-tax, joint-filing, TK/private-insurance, evidence-split, and Drive/workbook context into individual files.
+- Saved the confirmed WhatsApp group JID as a route/source pointer only.
+- Updated source and durable memory logs.
+
+Unresolved:
+
+- Obtain Finanzamt notices/response for 2024/2025 company tax amounts and prepayment amounts, then populate the Tax Prepayments database.
+- Confirm Finanzamt response to VAT deregistration appeal/reinstatement and request lower VAT filing cadence when possible.
+- Confirm Finanzamt's additional information request for the filed 2024/2025 company taxes and whether RB's response has been accepted.
+- Complete the 2024/2025 personal-tax evidence split and confirm spouse/joint filing evidence; no spouse individual folder is needed because she is not a company shareholder.
+- Confirm billing mechanics from Andrei's 2025 personal-tax filing onward.
+- Confirm Andrei's official personal/director address with him.
+- Confirm TK/private-health-insurance treatment and NACV payslip/wage-tax evidence before filing.
