@@ -1579,6 +1579,8 @@ Unresolved:
 
 - Obtain Finanzamt notices/response for 2024/2025 company tax amounts and prepayment amounts, then populate the Tax Prepayments database.
 - Confirm Finanzamt response to VAT deregistration appeal/reinstatement and request lower VAT filing cadence when possible.
-- Confirm electronic balance-sheet transmission or final company-tax closeout evidence.
-- Complete the 2024/2025 personal-tax evidence split and confirm spouse/joint filing evidence.
+- Confirm Finanzamt's additional information request for the filed 2024/2025 company taxes and whether RB's response has been accepted.
+- Complete the 2024/2025 personal-tax evidence split and confirm spouse/joint filing evidence; no spouse individual folder is needed because she is not a company shareholder.
+- Confirm billing mechanics from Andrei's 2025 personal-tax filing onward.
+- Confirm Andrei's official personal/director address with him.
 - Confirm TK/private-health-insurance treatment and NACV payslip/wage-tax evidence before filing.

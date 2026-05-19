@@ -9,7 +9,7 @@ Review: Close questions only after source evidence is updated in Notion/Drive or
 
 - Confirm Finanzamt response/notice for NACV 2024 and 2025 tax amounts and go-forward prepayment amounts.
 - Populate the linked Tax Prepayments database once the Finanzamt amounts and dates are known.
-- Confirm whether the company-tax filing closeout includes electronic balance-sheet transmission; Notion says corporation/trade filing was uploaded, but the task text still mentions waiting to transmit the electronic balance sheet.
+- Confirm the additional information requested by Finanzamt for the filed 2024/2025 company taxes and whether RB's response has been accepted.
 - Confirm Finanzamt response to the VAT deregistration appeal/reinstatement request; user says no response yet.
 - Confirm whether the monthly German VAT filing cadence can be reduced after reinstatement/compliance is clear.
 

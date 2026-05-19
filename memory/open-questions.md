@@ -139,10 +139,11 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Populate the NACV Tax Prepayments database once the amounts and dates are known.
 - Confirm Finanzamt response to the VAT deregistration appeal/reinstatement request; user says there is no response yet.
 - Request or confirm lower German VAT filing cadence after the VAT/compliance position is clear.
-- Confirm whether the company-tax filing closeout includes electronic balance-sheet transmission; Notion says corporation/trade filing was uploaded, but task text still references e-balance follow-up.
-- Confirm whether Andrei 2024 and 2025 personal-tax filings should be represented as one combined live workflow or separate filings with linked tasks.
+- Confirm the additional information requested by Finanzamt for the filed NACV 2024/2025 company taxes and whether RB's response has been accepted.
 - Complete the split of misrouted 2024 personal-tax documents from Andrei's 2025 folder.
 - Confirm spouse-related evidence completeness for Andrei's joint returns.
+- Confirm billing mechanics for normal-fee treatment from Andrei's 2025 personal-tax filing onward.
+- Confirm Andrei's official personal/director address with him; user says it is not 100 percent clear.
 - Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
 - Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
 

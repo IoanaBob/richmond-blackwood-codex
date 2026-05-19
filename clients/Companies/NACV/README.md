@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion company record `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8`, user instruction on 2026-05-19, and connector reads on 2026-05-19.
 Imported: 2026-05-19.
-Review: Confirm Finanzamt response on VAT reinstatement and prepayment notices; confirm final 2024/2025 company-tax filing evidence and electronic balance-sheet status before treating the company-tax position as complete.
+Review: Confirm Finanzamt response on VAT reinstatement and prepayment notices; confirm the additional information request/response trail for the filed 2024/2025 company taxes before treating the company-tax position as closed.
 
 Company reference for routing: NACV.
 Legal name: NA CAPITAL VENTURES LIMITED.
@@ -27,9 +27,9 @@ NACV is an Irish company treated operationally as German tax resident in the liv
 
 User instruction on 2026-05-19 says NACV had registration problems, never received German prepayment amounts, and therefore did not pay all prepayments. The current operating need is to obtain the Finanzamt notices for 2024 and 2025 tax amounts and prepayment amounts, then populate the Tax Prepayments schedule linked to the company.
 
-User instruction also says NACV was deregistered from VAT in October, RB submitted the fix/appeal, and there has been no response yet. Notion confirms the appeal task was completed on 2026-05-07 and that a separate task remains open to reduce the monthly German VAT filing cadence once the reinstatement/compliance position is clear.
+User instruction also says NACV was deregistered from VAT in October 2025, RB submitted the fix/appeal, and there has been no response yet. Notion confirms the appeal task was completed on 2026-05-07 and that a separate task remains open to reduce the monthly German VAT filing cadence once the reinstatement/compliance position is clear.
 
-User instruction says 2024 and 2025 company taxes have been filed. Notion task context confirms corporation/trade tax filing work was filed/uploaded as of 2026-05-15, while also noting electronic balance-sheet transmission and final Finanzamt amounts still need follow-up.
+User instruction says 2024 and 2025 company taxes have been filed, but Finanzamt asked for more information and RB is handling that follow-up. Notion task context confirms corporation/trade tax filing work was filed/uploaded as of 2026-05-15, while final Finanzamt amounts and the additional information response still need follow-up.
 
 Andrei's personal-tax work is client-critical but should be routed to `../../Individuals/Andrei Nasonov/`, not duplicated in full here.
 

@@ -10,9 +10,9 @@ Review: Add entity-specific sections only when evidence is actively imported or 
 Status: provisional.
 Source: User instruction on 2026-05-19 and Notion `Married = Yes`.
 Imported: 2026-05-19.
-Review: Confirm spouse filing evidence and all spouse-related documents before filing.
+Review: Confirm spouse filing evidence and all spouse-related documents before filing. No spouse individual folder is needed unless future scope changes.
 
-Andrei is married and should file jointly. The 2024 Drive folder includes spouse-related evidence pointers, but this import does not validate completeness or filing treatment.
+Andrei is married and should file jointly. User review on 2026-05-19 says no individual folder is needed for his spouse because she is not a company shareholder. The 2024 Drive folder includes spouse-related evidence pointers, but this import does not validate completeness or filing treatment.
 
 ## Employment / Payroll
 

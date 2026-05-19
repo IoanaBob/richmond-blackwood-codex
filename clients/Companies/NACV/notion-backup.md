@@ -21,7 +21,7 @@ Review: No Notion records were added or modified in this PR. Existing tasks alre
 | NACV - Confirm 2024/2025 German prepayments and VAT filing cadence | `https://www.notion.so/35fe413013148110859afa228ae41b6b` | To Do | Critical. Amounts/notices and cadence review remain open. |
 | NACV - Request lower German VAT filing cadence | `https://www.notion.so/35fe413013148134a46ae7e1bab9b897` | To Do | Reduce monthly VAT cadence after reinstatement/compliance position is clear. |
 | Appeal NA's VAT de-registration | `https://www.notion.so/359e4130131480858625d56338c18971` | Done | Submission done; Finanzamt response still pending per user instruction. |
-| File Trade and corporation Tax | `https://www.notion.so/34fe4130131480d8ba78e43cececfc42` | Done | Notion comment says filed/uploaded; electronic balance-sheet status still needs confirmation. |
+| File Trade and corporation Tax | `https://www.notion.so/34fe4130131480d8ba78e43cececfc42` | Done | Notion comment says filed/uploaded; user clarified Finanzamt asked for more information and RB is handling the follow-up. |
 | NACV: gather personal tax, home-office, payroll and insurance inputs from Apr 30 WhatsApp | `https://www.notion.so/35ee4130131481c699b4f70befe1d234` | To Do | Personal-tax evidence and insurance inputs. |
 | Andrei - Nudge re TK and private health insurance switch | `https://www.notion.so/35fe41301314810a8d28eb74a1d96c21` | To Do | Track TK/private-insurance follow-up. |
 | Andrei - Split 2024 personal-tax documents from mistaken 2025 folder | `https://www.notion.so/35fe413013148199954ed6471f95767a` | To Do | Split misrouted 2024 evidence from the 2025 folder. |

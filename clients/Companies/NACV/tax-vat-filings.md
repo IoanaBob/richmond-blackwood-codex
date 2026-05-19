@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion filing registrations, tax prepayment records, tax/VAT tasks, Gmail Finanzamt-letter threads, Drive correspondence folders, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
 Imported: 2026-05-19.
-Review: Obtain Finanzamt notices/response for 2024/2025 tax amounts, prepayment amounts, VAT reinstatement, and filing cadence reduction before treating these items as settled.
+Review: Obtain Finanzamt notices/response for 2024/2025 tax amounts, prepayment amounts, VAT reinstatement, filing cadence reduction, and the additional company-tax information request before treating these items as settled.
 
 ## Company Tax Position
 
@@ -46,9 +46,9 @@ Task comments as of 2026-05-18 say there is a letter that VAT prepayment is zero
 Status: provisional.
 Source: user instruction on 2026-05-19; Notion task `https://www.notion.so/34fe4130131480d8ba78e43cececfc42`; Notion search/fetch of corporation/trade tax tasks.
 Imported: 2026-05-19.
-Review: Confirm final filing package and electronic balance-sheet transmission status before marking fully complete in repo memory.
+Review: Confirm the additional information requested by Finanzamt has been provided and accepted before marking the filed company-tax work fully closed.
 
-User instruction on 2026-05-19 says 2024 and 2025 company taxes were filed. Notion task `File Trade and corporation Tax` is marked Done and has a 2026-05-15 comment saying the filing was uploaded to the related filing record. The task content still says RB was waiting to transmit the electronic balance sheet, so do not mark the full company-tax closeout complete until that is confirmed.
+User instruction on 2026-05-19 says 2024 and 2025 company taxes were filed. User review on 2026-05-19 clarified that they are filed, but Finanzamt asked for more information and RB is handling that follow-up. Notion task `File Trade and corporation Tax` is marked Done and has a 2026-05-15 comment saying the filing was uploaded to the related filing record. Do not mark the full company-tax closeout complete until the additional information request and final Finanzamt response are resolved.
 
 ## VAT Deregistration / Reinstatement
 
@@ -57,7 +57,7 @@ Source: user instruction on 2026-05-19; Notion VAT appeal task `https://www.noti
 Imported: 2026-05-19.
 Review: Confirm Finanzamt response to the VAT appeal/reinstatement request.
 
-User instruction says NACV was deregistered from VAT in October, RB submitted the fix/appeal, and there has been no response yet.
+User instruction says NACV was deregistered from VAT in October 2025, RB submitted the fix/appeal, and there has been no response yet.
 
 Notion task `Appeal NA's VAT de-registration` is marked Done as of 2026-05-07. Its comment says RB informed Finanzamt that the pending 2025 VATs were filed. Treat the appeal submission as complete, but the Finanzamt response as still pending.
 

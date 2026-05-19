@@ -10,7 +10,7 @@ Review: Keep Andrei personal-tax/private context in the individual folder; creat
 - Individual folder: `../../Individuals/Andrei Nasonov/`
 - Notion individual record: `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`
 - Notion role links: director, UBO, shareholder, employee.
-- User context: Andrei was Richmond Blackwood's first client. RB does his 2024 German personal tax return for free; from 2025 onward, RB should charge the normal fee.
+- User context: Andrei was Richmond Blackwood's first client. RB does his 2024 German personal tax return for free; from 2025 onward, RB expects normal-fee treatment, but billing mechanics are not decided yet.
 - Personal-tax routing: 2024 and 2025 German personal tax returns, spouse/joint filing, private insurance/TK follow-up, and personal evidence belong under the individual folder.
 
 ## Eran Peer

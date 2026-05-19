@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion individual and Personal Tax Filings records, Notion tasks, Drive folder listing, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
 Imported: 2026-05-19.
-Review: Confirm 2024+2025 joint filing plan in the live filing records and complete evidence/document split before filing.
+Review: Complete evidence/document split, spouse evidence, billing mechanics, address confirmation, and TK/private-insurance treatment before filing.
 
 ## Linked Person
 
@@ -19,11 +19,11 @@ Andrei Nasonov:
 Status: provisional.
 Source: User instruction on 2026-05-19 and Notion filing records.
 Imported: 2026-05-19.
-Review: Confirm billing setup for 2025 onward before invoicing.
+Review: Billing mechanics from 2025 onward are not decided yet.
 
-RB provides Andrei's 2024 German personal tax return for free. From 2025 onward, RB should charge the normal fee.
+RB provides Andrei's 2024 German personal tax return for free. From 2025 onward, RB expects normal-fee treatment, but user review on 2026-05-19 says the exact billing mechanics are not clear yet.
 
-Andrei is married, so the personal-tax filing should be prepared as a joint return. User wants 2024 and 2025 filed in one go.
+Andrei is married, so the personal-tax filing should be prepared as a joint return. User wants 2024 and 2025 coordinated in one workstream, while keeping one Notion filing record for each year.
 
 ## Filing Records
 
@@ -31,6 +31,8 @@ Andrei is married, so the personal-tax filing should be prepared as a joint retu
 | --- | --- | --- | --- | --- | --- | --- |
 | 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | In progress | 2026-04-30 | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` |
 | 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Not provided | 2026-07-31 | blank in Notion |
+
+User review on 2026-05-19 confirmed the structure should stay as one filing record for each year.
 
 ## 2024 Analysis
 
@@ -79,7 +81,8 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 
 - Confirm all 2024 NACV payslips and wage-tax evidence are present or retrieve/upload from Lexoffice.
 - Complete the split of misrouted 2024 evidence from the 2025 folder.
-- Confirm spouse-related evidence needed for the 2024 joint return.
+- Confirm spouse-related evidence needed for the joint returns; no spouse individual folder is needed because she is not a company shareholder.
 - Confirm phone/Vodafone recurring cost support for 2024 and 2025 after the WhatsApp request for filtered extracts.
 - Confirm TK/private-health-insurance outcome before final insurance/social-insurance treatment.
 - Link 2025 Drive docs into the 2025 Notion filing when 2025 work starts, if the current 2025 folder is confirmed as canonical.
+- Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.

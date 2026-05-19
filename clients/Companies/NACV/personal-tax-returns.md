@@ -16,8 +16,8 @@ Detailed routing:
 Summary:
 
 - 2024 German personal tax return: in progress; RB provides it for free.
-- 2025 German personal tax return: pending; from 2025 onward RB should charge the normal fee.
+- 2025 German personal tax return: pending; from 2025 onward RB expects normal-fee treatment, but billing mechanics are not decided yet.
 - Andrei is married, so the filings should be joint returns.
-- User wants 2024 and 2025 personal taxes filed together.
+- User wants 2024 and 2025 personal-tax work coordinated together, while keeping one Notion filing record for each year.
 
 Do not duplicate Andrei's private tax identifiers, spouse documents, personal evidence, or insurance details in this company folder.

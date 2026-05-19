@@ -9,10 +9,10 @@ Review: This register stores source pointers and summaries only; raw evidence st
 
 | Date | Source | Scope |
 | --- | --- | --- |
-| 2026-05-19 | Codex thread | Continue NACV in a new PR from main. Andrei was/is the first client. RB does Andrei's 2024 personal tax returns for free; from 2025 onward charge the normal fee. Andrei is married and should file jointly. |
+| 2026-05-19 | Codex thread | Continue NACV in a new PR from main. Andrei was/is the first client. RB does Andrei's 2024 personal tax returns for free; from 2025 onward normal-fee treatment is expected, but billing mechanics are not decided yet. Andrei is married and should file jointly. |
 | 2026-05-19 | Codex thread | NACV had registration problems and never received German prepayments; RB needs Finanzamt notices for 2024/2025 tax amounts and prepayment amounts, then populate the Tax Prepayments database. |
-| 2026-05-19 | Codex thread | NACV was VAT-deregistered in October; RB submitted the fix/appeal but has no response yet. |
-| 2026-05-19 | Codex thread | User says 2024 and 2025 company taxes were filed. Personal taxes are still pending for 2024, but RB wants to file 2024 and 2025 together. |
+| 2026-05-19 | Codex thread | NACV was VAT-deregistered in October 2025; RB submitted the fix/appeal but has no response yet. |
+| 2026-05-19 | Codex thread | User says 2024 and 2025 company taxes were filed, but Finanzamt asked for more information and RB is handling it. Personal taxes are still pending for 2024, but RB wants to coordinate 2024 and 2025 together while keeping one filing record per year. |
 | 2026-05-19 | Codex thread | User confirmed the WhatsApp chat is `NA Capital Ventures`. |
 
 ## Notion

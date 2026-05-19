@@ -23,4 +23,4 @@ Review: Keep company-operational and personal-tax facts separated by owner.
 
 Company filings, NACV contracts, revenue invoices, payroll process, VAT, and prepayment context belong in `../../Companies/NACV/`.
 
-Andrei's joint personal-tax filings, private insurance/TK follow-up, personal evidence, and spouse-related filing facts belong in this individual folder.
+Andrei's joint personal-tax filings, private insurance/TK follow-up, personal evidence, and spouse-related filing facts belong in this individual folder. User review on 2026-05-19 says no spouse individual folder is needed because she is not a company shareholder.

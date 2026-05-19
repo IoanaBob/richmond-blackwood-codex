@@ -10,7 +10,7 @@ Review: Use `personal-tax-returns.md` for detailed filing workflow; this file is
 | Period | Notion record | Jurisdiction | Status | Notes |
 | --- | --- | --- | --- | --- |
 | 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | Free 2024 return per user instruction; joint filing; analysis workbook exists. |
-| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Normal fee from 2025 onward per user instruction; user wants to file with 2024 in one go. |
+| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Normal-fee treatment expected from 2025 onward, but billing mechanics are unclear; coordinate with 2024 while keeping a separate filing record. |
 
 ## Boundary
 

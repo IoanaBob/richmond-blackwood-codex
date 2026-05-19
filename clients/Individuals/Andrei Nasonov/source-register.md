@@ -9,9 +9,10 @@ Review: This register stores source pointers and summaries only; raw evidence st
 
 | Date | Source | Scope |
 | --- | --- | --- |
-| 2026-05-19 | Codex thread | Andrei was/is Richmond Blackwood's first client. RB does his 2024 personal tax return for free; from 2025 onward charge the normal fee. |
+| 2026-05-19 | Codex thread | Andrei was/is Richmond Blackwood's first client. RB does his 2024 personal tax return for free; from 2025 onward normal-fee treatment is expected, but billing mechanics are not decided yet. |
 | 2026-05-19 | Codex thread | Andrei is married, so filings are joint returns. 2024 personal taxes are pending, and RB wants to file 2024 plus 2025 in one go. |
 | 2026-05-19 | Codex thread | User confirmed the WhatsApp chat is `NA Capital Ventures`. |
+| 2026-05-19 | Codex thread review answers | Keep one filing record for each year. Billing mechanics from 2025 onward are unclear. No spouse individual folder is needed because she is not a company shareholder. Andrei's official personal/director address should be confirmed with him. |
 
 ## Notion
 
