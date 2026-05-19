@@ -408,6 +408,51 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Limitations or gaps: User review still needed before running the senior-review/commit/push sequence.
 - Next step: Ask the user to review.
 
+## 2026-05-13 - RB Calling Bot Live Runtime Sync
+
+- User request: Check n8n and ElevenLabs, update the repo with all new manual calling-bot changes, and create a PR for review.
+- Context read: Live n8n workflow readbacks, live ElevenLabs agent/tool readbacks, existing calling-bot automation helpers, setup docs, and RB task PR workflow.
+- Actions taken: Added `automation/sync-rb-calls-live-state.mjs`, `npm run calls:sync-live-state`, source-controlled readbacks under `automation/live-readbacks/`, the RB authority call setup skill, calling-bot setup guide, implementation map, test plan, and memory/source-log updates.
+- Decisions made: Live readbacks are configuration evidence only; do not store API keys, MCP tokens, phone numbers, recordings, transcripts, or client call payloads in git.
+- Verification: `npm run calls:sync-live-state`, `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed before commit. A targeted readback scan found only policy text, header/variable names, and `shareable_token: null`.
+- Limitations or gaps: `RB Calls ElevenLabs Events` has active version `29dc070e-2951-4f7f-931b-6b24ea793fc5` and draft version `48d12009-db89-4c75-8df1-6e48564f12ed`; review before publishing or deploying over it.
+
+## 2026-05-13 - RB Calling Bot API Language Override
+
+- User request: Fix German calls starting in English, specifically by changing the ElevenLabs outbound API call to use the right language.
+- Context read: Live n8n/ElevenLabs readbacks, ElevenLabs override settings, official ElevenLabs override documentation, and the current n8n voice payload source.
+- Actions taken: Updated `RB Calls Voice Execution` so the outbound call payload sends `conversation_initiation_client_data.conversation_config_override.agent.language` as `de` for German contacts and `en` otherwise, while retaining prompt variables `language` and `language_code`. Updated the ElevenLabs agent to keep the user's default English opener and to set the German language-preset opener to a German equivalent.
+- Decisions made: Prompt-only `{{language}}` is insufficient for call language selection; the n8n outbound API payload must set the ElevenLabs language override.
+- Verification: n8n workflow `3xJh7hNK0Zl9T4zS` was validated, updated, and published at active version `360489d3-02da-4a84-bfbd-0a0d168054e9`; ElevenLabs `RB Call Bot` verified at version `agtvrsn_2001krh88kp2f49sq04f81qemvb3`; live readbacks confirm the API override payload and German preset first message.
+- Limitations or gaps: A real German test call is still needed to verify ElevenLabs selects the `de` preset and speaks German from the opening.
+
+## 2026-05-13 - RB Calling Bot Language-Specific Identifier Pronunciation
+
+- User request: Fix German calls saying numbers in English because English prompt examples were leaking into non-English calls, or find a translated system-prompt approach.
+- Context read: Live ElevenLabs prompt readback, slow-identifier patch helper, language-opening patch helpers, calling-bot implementation map, setup guide, and live-state readbacks.
+- Actions taken: Updated the ElevenLabs prompt patch so `Pronunciation And Spelling` and `Identifier Pronunciation - Prompt Controlled` require spoken digits, letters, abbreviations, and identifiers to match the current call language. German calls must use German digit words and German letter names, must not use English digit words or NATO spelling words unless requested, and use `Ich sage das langsam` before important identifiers. Removed the stale public-disclosure example that still used `Delta ... Echo`. Mirrored the German-number guard into language-control patch helpers so future opening/stability patches do not remove it.
+- Decisions made: Keep one canonical prompt with language-specific pronunciation rules rather than separate translated full system prompts, because separate full prompts would be harder to keep aligned across workflow, live-help, lookup, and disclosure-boundary changes.
+- Verification: ElevenLabs `RB Call Bot` was updated and read back at version `agtvrsn_9801krh941ypfwt9me281gafr9ws`; readback verified German digit words, no default NATO spelling instruction, no stale `Delta ... Echo` example, slow identifier rules, and the German language-preset opener.
+- Limitations or gaps: A real German test call is still needed to confirm TTS delivery follows the prompt during an authority-style conversation.
+
+## 2026-05-13 - RB Calling Bot ElevenLabs Automation Boundary
+
+- User request: Keep only actually reusable helpers under `automation/elevenlabs`; move one-off patch scripts into a private folder and remember that boundary.
+- Context read: Current automation source tree, npm helper registry, setup guide, automation README, and calling-bot memory.
+- Actions taken: Copied the existing one-off `patch-agent-*` scripts into ignored `.codex-local/automation/elevenlabs/rb-calls/`, removed those patchers from source-controlled `automation/elevenlabs/rb-calls/`, removed shared npm patch commands, and updated docs/memory to reserve source-controlled ElevenLabs automation for reusable read-only diagnostics/utilities.
+- Decisions made: One-off ElevenLabs live mutators, prompt patchers, and emergency migration scripts are private operational scratch files. Commit only reusable helpers, documentation, and non-secret live readbacks.
+- Verification: `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed after cleanup. `git ls-files .codex-local automation/elevenlabs/rb-calls package.json` confirmed `.codex-local` private patchers are not tracked and source-controlled `automation/elevenlabs/rb-calls/` contains only inspectors.
+- Limitations or gaps: Future reusable ElevenLabs deploy/edit tooling may be added to source control only if it is generic and not a one-off patch for the current live agent state.
+
+## 2026-05-13 - RB Calling Bot Abbreviation And Timing Pronunciation
+
+- User request: Use NATO or the language-equivalent spelling alphabet when the authority is confused by letters; remove literal `pause` wording and ellipses from identifier delivery; use commas and periods for timing; use hyphens, not commas, for abbreviations; make abbreviation handling work in all languages, with English as important as German.
+- Context read: Private ignored ElevenLabs prompt patcher, live ElevenLabs readbacks, setup guide, implementation map, and memory files.
+- Actions taken: Updated the live ElevenLabs prompt so abbreviations are hyphenated letter runs in every language (`V-A-T`, `P-O-A`, `U-B-O`, `R-B-O`, `E-O-R-I`, `P-P-S-N`, `U-T-R`, `T-A-I-N`, `R-O-S`, `H-M-R-C`, `C-R-O`, `I-D`, `R-B`) and never pronounced as words. Added confusion-triggered spelling alphabet fallback: NATO for English, German Buchstabiertafel for German, closest recognized spelling alphabet for other call languages. Replaced identifier examples with comma-separated short numeric groups and periods for longer breaks, removing literal `pause` words and ellipses from the prompt.
+- Decisions made: Keep n8n sending exact raw identifiers; pronunciation and delivery remain prompt-controlled in ElevenLabs. Private prompt patchers remain under ignored `.codex-local/automation/elevenlabs/`.
+- Verification: ElevenLabs `RB Call Bot` was updated and read back at version `agtvrsn_0701krha08p6ewwv0fygbnjv0k6p`; readback showed zero ellipses and zero `pause` words in the prompt, confirmed the all-language abbreviation rule, confirmed hyphenated abbreviation examples, and confirmed NATO/Buchstabiertafel fallback.
+- Limitations or gaps: A real German and English test call is still needed to confirm TTS timing and spelling behavior in actual audio.
+
 ## 2026-05-13 - CBMAX Client Context Load
 
 - User request: Load CBMAX client context the same way other clients were loaded.
@@ -461,6 +506,33 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat Client Notes & Updates as a client-facing context/update table, not a generic Codex repo-summary backup; keep the Slack closeout limitation as a general client-backfill rule rather than CBMAX-specific context.
 - Verification: Notion fetch read the existing internal Client Notes page; `git diff --check` passed.
 - Limitations or gaps: No live Notion Client Notes & Updates page was changed during this cleanup.
+
+## 2026-05-19 - RB Calls Review PoA Node Fix
+
+- User request: Fix n8n error `Problem in node 'If (PoA Required AND Missing) OR (PoA not required)': Referenced node doesn't exist`.
+- Context read: Live n8n `RB Calls Review`, `RB Calls Slack Replies`, source-controlled RB calls workflows, implementation map, and calling-bot open questions.
+- Actions taken: Patched and published the live n8n `RB Calls Review` workflow through n8n MCP. The two PoA gate expressions now reference `Loop Over Calls`, choose `Company PoA` for company-subject calls and `Individual PoA` for individual-subject calls, and treat one relevant file as sufficient. The related PoA Slack messages were updated to avoid the stale node reference and describe the subject-specific PoA field.
+- Decisions made: Keep this as a live-workflow patch helper under ignored `.codex-local/automation/n8n/` because this older review workflow is not one of the source-controlled reusable n8n workflows.
+- Verification: n8n MCP validation passed; the patched workflow was published; live readback confirmed no `Loop Over Not Started Calls` reference remains in draft or active version.
+- Limitations or gaps: The active `RB Calls Slack Replies` PoA file-upload branch still needs a synthetic file-upload test before production reliance.
+
+## 2026-05-19 - RB Calls Voice Blocked Context Limit Fix
+
+- User request: Fix n8n `RB Calls Voice Execution` error in `Mark Blocked`: Notion rejected `Context Pack` because one rich-text item exceeded 2000 characters.
+- Context read: Source and live n8n `RB Calls Voice Execution` workflow, including `Mark Blocked`, `Limit Startup Context`, and Notion update payloads.
+- Actions taken: Updated `Mark Blocked` so `Context Pack` is written with a 1900-character cap, deployed and published the workflow through n8n MCP, and refreshed live readback snapshots.
+- Decisions made: Preserve the full startup context for ElevenLabs; only cap the Notion blocked-call audit field to stay inside Notion rich-text limits.
+- Verification: `npm run calls:check-automation` passed; n8n MCP validation passed; live workflow active version is `ad82d55c-9f6e-4127-97d2-2162d079af93`; readback shows `String($json.context_pack_text || "").slice(0, 1900)` in `Mark Blocked`.
+- Limitations or gaps: Old failed n8n execution views still show the earlier Notion validation error.
+
+## 2026-05-19 - RB Calls Review Approval Gate Fix
+
+- User request: Correct that PoA validation should happen before a call is approved for review, not later in voice execution.
+- Context read: Live n8n `RB Calls Review` and `RB Calls Slack Replies` workflows, existing PoA gate patch, and implementation map.
+- Actions taken: Patched and published `RB Calls Review` so the `Reviewing` + `Approved` path re-fetches Individual, Company, and Contact, then validates Individual/Company relation and subject-specific PoA before setting `Reviewed`. If validation fails, it resets `Approved` to false, sets `Rejected`, and leaves owner notification to the existing rejected-call branch. Patched and published `RB Calls Slack Replies` so the Slack approve button sets `Approved` true but keeps `Call Status` as `Reviewing`.
+- Decisions made: Keep voice workflow PoA checks as a final safety net, but make review approval the primary gate.
+- Verification: Private n8n MCP patch helper passed `node --check`; n8n MCP validation and publish succeeded for both workflows; live readback confirmed `RB Calls Review` approval now routes to `[Reviewing Approved] Get Individual` and Slack approve status is `Reviewing`.
+- Limitations or gaps: The Slack PoA file-upload branch still needs a synthetic upload test.
 
 ## 2026-05-13 - AGL And Byron Context Import
 

@@ -1,0 +1,2360 @@
+{
+  "synced_at": "2026-05-19T14:30:14.447Z",
+  "status": "provisional",
+  "source": "n8n MCP get_workflow_details",
+  "review": "Compare with source-controlled workflow and publish intentionally after review.",
+  "workflow": {
+    "workflow": {
+      "id": "i3rv4G6FmfosQm5j",
+      "name": "RB Calls Context Lookup",
+      "active": true,
+      "isArchived": false,
+      "versionId": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
+      "activeVersionId": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
+      "triggerCount": 1,
+      "createdAt": "2026-05-12T17:39:24.505Z",
+      "updatedAt": "2026-05-12T23:55:09.723Z",
+      "settings": {
+        "executionOrder": "v1",
+        "availableInMCP": true
+      },
+      "connections": {
+        "ElevenLabs Context Lookup Webhook": {
+          "main": [
+            [
+              {
+                "node": "Normalize Lookup Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize Lookup Request": {
+          "main": [
+            [
+              {
+                "node": "Request Is Valid?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Request Is Valid?": {
+          "main": [
+            [
+              {
+                "node": "Get Call",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Respond Invalid Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get Call": {
+          "main": [
+            [
+              {
+                "node": "Normalize Scope",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize Scope": {
+          "main": [
+            [
+              {
+                "node": "Route Lookup Category",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Route Lookup Category": {
+          "main": [
+            [
+              {
+                "node": "Lookup Tax Registrations",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Company Filings",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Contracts",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Correspondence Company",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Bank Accounts Company",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Tax Payments",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Assets Company",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Lookup Call Notes",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Tax Registrations": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Build Lookup Response": {
+          "main": [
+            [
+              {
+                "node": "Respond Lookup",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Company Filings": {
+          "main": [
+            [
+              {
+                "node": "Lookup Personal Tax Filings",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Personal Tax Filings": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Contracts": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Correspondence Company": {
+          "main": [
+            [
+              {
+                "node": "Lookup Correspondence Individual",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Correspondence Individual": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Bank Accounts Company": {
+          "main": [
+            [
+              {
+                "node": "Lookup Bank Accounts Individual",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Bank Accounts Individual": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Tax Payments": {
+          "main": [
+            [
+              {
+                "node": "Lookup Tax Prepayments",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Tax Prepayments": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Assets Company": {
+          "main": [
+            [
+              {
+                "node": "Lookup Assets Individual",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Assets Individual": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Lookup Call Notes": {
+          "main": [
+            [
+              {
+                "node": "Build Lookup Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "nodes": [
+        {
+          "id": "30e28a94-27b2-4a9e-9d0a-ea70446fe6ef",
+          "name": "Sticky Note ec6ccbf8",
+          "type": "n8n-nodes-base.stickyNote",
+          "typeVersion": 1,
+          "position": [
+            -1170,
+            -210
+          ],
+          "parameters": {
+            "content": "ElevenLabs server-tool target for on-demand Notion context. It is scoped from the Call record and only searches pre-approved RB call databases: tax registrations, tax filings, contracts, correspondence, bank accounts, tax payments/prepayments, assets, and call notes. File contents and file URLs are excluded.",
+            "color": 4,
+            "width": 5200,
+            "height": 900
+          }
+        },
+        {
+          "id": "b8b91c77-81f8-4ca1-8b3b-5c787a55aede",
+          "name": "ElevenLabs Context Lookup Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1120,
+            0
+          ],
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "rb-calls-context-lookup",
+            "authentication": "none",
+            "responseMode": "responseNode",
+            "options": {
+              "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
+            }
+          },
+          "webhookId": "bbb97c1f-2aad-4cba-91bf-cd30a6354076"
+        },
+        {
+          "id": "b6803bd1-a202-4c5c-9faf-871c65e68650",
+          "name": "Normalize Lookup Request",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -864,
+            0
+          ],
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "language": "javaScript",
+            "jsCode": "const body = $json.body || {};\nconst dynamic = body.dynamic_variables || body.conversation_initiation_client_data?.dynamic_variables || {};\nconst allowed = ['tax_registrations', 'tax_filings', 'contracts', 'correspondence', 'bank_accounts', 'tax_payments_prepayments', 'assets', 'call_notes'];\nconst aliases = {\n  tax_registration: 'tax_registrations',\n  tax_registrations: 'tax_registrations',\n  taxregistrations: 'tax_registrations',\n  registrations: 'tax_registrations',\n  registration: 'tax_registrations',\n  tax_filing: 'tax_filings',\n  tax_filings: 'tax_filings',\n  filings: 'tax_filings',\n  filing: 'tax_filings',\n  returns: 'tax_filings',\n  return: 'tax_filings',\n  contracts: 'contracts',\n  contract: 'contracts',\n  agreements: 'contracts',\n  agreement: 'contracts',\n  correspondence: 'correspondence',\n  correspondences: 'correspondence',\n  correspondance: 'correspondence',\n  letters: 'correspondence',\n  letter: 'correspondence',\n  mail: 'correspondence',\n  bank_accounts: 'bank_accounts',\n  bank_account: 'bank_accounts',\n  bank: 'bank_accounts',\n  iban: 'bank_accounts',\n  tax_payments: 'tax_payments_prepayments',\n  tax_payment: 'tax_payments_prepayments',\n  prepayments: 'tax_payments_prepayments',\n  prepayment: 'tax_payments_prepayments',\n  payments: 'tax_payments_prepayments',\n  payment: 'tax_payments_prepayments',\n  assets: 'assets',\n  asset: 'assets',\n  call_notes: 'call_notes',\n  call_note: 'call_notes',\n  notes: 'call_notes',\n  note: 'call_notes',\n};\nfunction normalizeCategory(value) {\n  const key = String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');\n  return aliases[key] || '';\n}\nconst category = normalizeCategory(body.category || body.allowed_category || body.kind || body.topic);\nconst callId = String(body.call_id || body.call_page_id || dynamic.call_id || '').trim();\nconst limitRaw = Number(body.limit || body.max_records || 5);\nconst limit = Math.max(1, Math.min(Number.isFinite(limitRaw) ? limitRaw : 5, 12));\nconst validation = [];\nif (!callId) validation.push('Missing call_id.');\nif (!category) validation.push('Category must be one of: ' + allowed.join(', ') + '.');\nreturn {\n  valid: validation.length === 0,\n  validation_error: validation.join(' '),\n  category,\n  query: String(body.query || body.question || body.search || '').trim().slice(0, 500),\n  call_id: callId,\n  call_public_id: String(body.call_public_id || dynamic.call_public_id || '').trim(),\n  call_url: String(body.call_url || dynamic.call_url || '').trim(),\n  conversation_id: String(body.conversation_id || body.system__conversation_id || dynamic.system__conversation_id || '').trim(),\n  limit,\n  allowed_categories: allowed,\n};"
+          }
+        },
+        {
+          "id": "cdc8e8ca-98b4-4183-afe3-1122ec4b3ee0",
+          "name": "Request Is Valid?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -608,
+            0
+          ],
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "valid",
+                  "leftValue": "={{ $json.valid }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          }
+        },
+        {
+          "id": "d39abe64-6461-48a1-9bcf-16d05722d569",
+          "name": "Get Call",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            -352,
+            -160
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "get",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Normalize Lookup Request\").item.json.call_id }}",
+              "mode": "id"
+            },
+            "simple": false
+          },
+          "alwaysOutputData": true
+        },
+        {
+          "id": "a85b550e-aae7-4463-87fa-978c05073e2e",
+          "name": "Normalize Scope",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -96,
+            -160
+          ],
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "language": "javaScript",
+            "jsCode": "const request = $('Normalize Lookup Request').item.json;\nconst call = $json || {};\nconst noPage = '00000000-0000-0000-0000-000000000000';\nfunction prop(page, name) { return page?.properties?.[name] || {}; }\nfunction relationId(page, name) { return (prop(page, name).relation || []).map((rel) => rel.id).filter(Boolean)[0] || ''; }\nfunction richText(value) { return (value.title || value.rich_text || []).map((part) => part.plain_text || part.text?.content || '').join('').trim(); }\nfunction text(page, name) { return richText(prop(page, name)); }\nfunction uniqueId(page) {\n  const value = prop(page, 'ID').unique_id;\n  return value ? [value.prefix, value.number].filter((part) => part !== undefined && part !== null && String(part) !== '').join('-') : page.id;\n}\nconst companyPageId = relationId(call, 'Company');\nconst individualPageId = relationId(call, 'Individual');\nreturn {\n  ...request,\n  call_page_id: call.id || request.call_id,\n  call_url: call.url || request.call_url,\n  call_public_id: request.call_public_id || uniqueId(call),\n  company_page_id: companyPageId,\n  individual_page_id: individualPageId,\n  company_filter_id: companyPageId || noPage,\n  individual_filter_id: individualPageId || noPage,\n  message_topic: text(call, 'Short reason') || text(call, 'Reason for call') || text(call, 'Main question') || 'Call context lookup',\n};"
+          }
+        },
+        {
+          "id": "1a81225b-f9dc-4b6e-a9c2-5b73bb28d1fd",
+          "name": "Route Lookup Category",
+          "type": "n8n-nodes-base.switch",
+          "typeVersion": 3.2,
+          "position": [
+            192,
+            -160
+          ],
+          "parameters": {
+            "rules": {
+              "values": [
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "tax-registrations",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "tax_registrations",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "tax_registrations"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "tax-filings",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "tax_filings",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "tax_filings"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "contracts",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "contracts",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "contracts"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "correspondence",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "correspondence",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "correspondence"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "bank-accounts",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "bank_accounts",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "bank_accounts"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "tax-payments-prepayments",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "tax_payments_prepayments",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "tax_payments_prepayments"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "assets",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "assets",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "assets"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 2
+                    },
+                    "conditions": [
+                      {
+                        "id": "call-notes",
+                        "leftValue": "={{ $json.category }}",
+                        "rightValue": "call_notes",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "call_notes"
+                }
+              ]
+            },
+            "options": {}
+          }
+        },
+        {
+          "id": "fdc1f018-f36d-4d5f-a664-060769c3aac3",
+          "name": "Lookup Tax Registrations",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            -720
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "ecaf96a4-cf77-409a-b481-aaf317442b74",
+              "mode": "id",
+              "cachedResultName": "Filing Registrations"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "💼 Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "57c44870-6af2-483f-a248-bc0de29a5bbd",
+          "name": "Build Lookup Response",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1120,
+            -160
+          ],
+          "parameters": {
+            "mode": "runOnceForAllItems",
+            "language": "javaScript",
+            "jsCode": "function rawNodeItems(nodeName) {\n  const output = [];\n  if (typeof $items !== 'function') return output;\n  for (let runIndex = 0; runIndex < 1000; runIndex += 1) {\n    try {\n      const items = $items(nodeName, 0, runIndex);\n      if (!Array.isArray(items) || items.length === 0) {\n        if (runIndex > 0) break;\n        continue;\n      }\n      output.push(...items.map((item) => item.json).filter(Boolean));\n    } catch (error) {\n      break;\n    }\n  }\n  return output;\n}\nfunction pageItems(nodeName) { return rawNodeItems(nodeName).filter((page) => page && page.id && page.properties); }\nfunction nodeWarnings(nodeName) {\n  return rawNodeItems(nodeName)\n    .filter((item) => item && item.error)\n    .map(() => 'One permitted ' + nodeName.replace(/^Lookup /, '').toLowerCase() + ' source is unavailable to the Notion integration.');\n}\nfunction redactLinks(text) { return String(text || '').replace(/https?:\\/\\/\\S+/gi, '[link omitted]'); }\nfunction richTextValue(value) { return redactLinks((value?.title || value?.rich_text || []).map((part) => part.plain_text || part.text?.content || '').join('').trim()); }\nfunction formulaValue(formula) { if (!formula || typeof formula !== 'object') return ''; if (formula.string !== undefined && formula.string !== null) return String(formula.string); if (formula.number !== undefined && formula.number !== null) return String(formula.number); if (formula.boolean !== undefined && formula.boolean !== null) return String(formula.boolean); if (formula.date?.start) return formula.date.start; return ''; }\nfunction simplifyProperty(value) {\n  if (!value || typeof value !== 'object') return undefined;\n  if (value.title || value.rich_text) return richTextValue(value);\n  if (value.select) return value.select.name;\n  if (value.status) return value.status.name;\n  if (value.multi_select) return value.multi_select.map((item) => item.name);\n  if (typeof value.checkbox === 'boolean') return value.checkbox;\n  if (typeof value.number === 'number') return value.number;\n  if (value.date) return value.date?.start || '';\n  if (value.phone_number) return value.phone_number;\n  if (value.email) return value.email;\n  if (value.url) return '[url omitted]';\n  if (value.files) return undefined;\n  if (value.relation) return value.relation.map((rel) => rel.id);\n  if (value.people) return value.people.map((person) => ({ id: person.id, name: person.name || '', email: person.person?.email || '' }));\n  if (value.unique_id) return value.unique_id;\n  if (value.formula) return formulaValue(value.formula);\n  if (value.rollup) {\n    if (Array.isArray(value.rollup.array)) return value.rollup.array.map((entry) => simplifyProperty(entry)).filter((entry) => entry !== undefined && entry !== '');\n    if (value.rollup.number !== undefined && value.rollup.number !== null) return value.rollup.number;\n    if (value.rollup.date?.start) return value.rollup.date.start;\n  }\n  return undefined;\n}\nfunction compact(input) {\n  const output = {};\n  for (const [key, value] of Object.entries(input)) {\n    if (value === undefined || value === null || value === '') continue;\n    if (Array.isArray(value) && value.length === 0) continue;\n    output[key] = value;\n  }\n  return output;\n}\nfunction pageTitle(page) {\n  for (const value of Object.values(page?.properties || {})) {\n    if (value?.title) {\n      const text = richTextValue(value);\n      if (text) return text;\n    }\n  }\n  return page?.id || '';\n}\nfunction bestDate(properties, page) {\n  const candidates = [];\n  for (const [key, value] of Object.entries(properties || {})) {\n    const keyLower = key.toLowerCase();\n    if (typeof value === 'string' && (keyLower.includes('date') || keyLower.includes('received') || keyLower.includes('sent') || keyLower.includes('due') || keyLower.includes('deadline'))) candidates.push(value);\n  }\n  candidates.push(page?.last_edited_time || '', page?.created_time || '');\n  return candidates.find((value) => Number.isFinite(Date.parse(value))) || '';\n}\nfunction normalizePage(page, sourceDatabase) {\n  const properties = {};\n  let filePropertyCount = 0;\n  let relationPropertyCount = 0;\n  for (const [key, value] of Object.entries(page?.properties || {})) {\n    if (value?.files) filePropertyCount += value.files.length;\n    if (value?.relation) relationPropertyCount += value.relation.length;\n    const simplified = simplifyProperty(value);\n    if (simplified !== undefined && simplified !== '') properties[key] = simplified;\n  }\n  return compact({\n    page_id: page?.id || '',\n    url: page?.url || '',\n    title: pageTitle(page),\n    source_database: sourceDatabase,\n    best_date: bestDate(properties, page),\n    created_time: page?.created_time || '',\n    last_edited_time: page?.last_edited_time || '',\n    file_property_count: filePropertyCount,\n    relation_property_count: relationPropertyCount,\n    properties,\n  });\n}\nfunction dedupe(records) {\n  const seen = new Set();\n  return records.filter((record) => {\n    const key = record.page_id || record.source_database + ':' + record.title;\n    if (seen.has(key)) return false;\n    seen.add(key);\n    return true;\n  });\n}\nfunction searchTerms(query) {\n  const stop = new Set(['latest', 'date', 'record', 'records', 'detail', 'details', 'info', 'information', 'find', 'show', 'please', 'about', 'the', 'and', 'for', 'with', 'from', 'call', 'context', 'correspondence', 'filing', 'filings', 'contract', 'contracts', 'asset', 'assets', 'bank', 'account', 'accounts', 'payment', 'payments', 'prepayment', 'prepayments', 'note', 'notes']);\n  return String(query || '').toLowerCase().split(/[^a-z0-9äöüß]+/i).filter((term) => term.length > 2 && !stop.has(term));\n}\nfunction matchScore(record, terms) {\n  if (!terms.length) return 0;\n  const hay = JSON.stringify(record).toLowerCase();\n  return terms.reduce((score, term) => score + (hay.includes(term) ? 1 : 0), 0);\n}\nconst scope = $('Normalize Scope').item.json;\nconst map = {\n  tax_registrations: [['Lookup Tax Registrations', 'Filing Registrations']],\n  tax_filings: [['Lookup Company Filings', 'Company Tax Filings'], ['Lookup Personal Tax Filings', 'Personal Tax Filings']],\n  contracts: [['Lookup Contracts', 'Contracts']],\n  correspondence: [['Lookup Correspondence Company', 'Company Correspondence'], ['Lookup Correspondence Individual', 'Individual Correspondence']],\n  bank_accounts: [['Lookup Bank Accounts Company', 'Company Bank Accounts'], ['Lookup Bank Accounts Individual', 'Individual Bank Accounts']],\n  tax_payments_prepayments: [['Lookup Tax Payments', 'Tax Payments'], ['Lookup Tax Prepayments', 'Tax Prepayments']],\n  assets: [['Lookup Assets Company', 'Company Assets'], ['Lookup Assets Individual', 'Individual Assets']],\n  call_notes: [['Lookup Call Notes', 'Call Notes']],\n};\nconst requestedNodes = map[scope.category] || [];\nconst lookupWarnings = requestedNodes.flatMap(([nodeName]) => nodeWarnings(nodeName));\nconst records = dedupe(requestedNodes.flatMap(([nodeName, sourceDatabase]) => pageItems(nodeName).map((page) => normalizePage(page, sourceDatabase))));\nconst terms = searchTerms(scope.query);\nconst scored = records.map((record) => ({ ...record, match_score: matchScore(record, terms) }));\nconst filtered = scored\n  .filter((record) => terms.length === 0 || record.match_score > 0)\n  .sort((a, b) => (b.match_score || 0) - (a.match_score || 0) || Date.parse(b.best_date || 0) - Date.parse(a.best_date || 0));\nconst selected = filtered.slice(0, scope.limit);\nreturn [{\n  json: {\n    status: lookupWarnings.length ? 'partial' : 'ok',\n    category: scope.category,\n    query: scope.query,\n    allowed_categories: scope.allowed_categories,\n    count: records.length,\n    matched_count: filtered.length,\n    returned_count: selected.length,\n    lookup_warnings: lookupWarnings,\n    scope: {\n      call_page_id: scope.call_page_id,\n      call_public_id: scope.call_public_id,\n      call_url: scope.call_url,\n      company_page_id: scope.company_page_id,\n      individual_page_id: scope.individual_page_id,\n      message_topic: scope.message_topic,\n    },\n    records: selected,\n    instruction: lookupWarnings.length\n      ? 'Use returned records privately for the call. Some permitted context could not be read; do not assume absence of records in that category. Ask the call creator through live help if this category is important. Do not mention Notion, n8n, tools, JSON, database names, source labels, workflow state, or internal notes to the authority.'\n      : 'Use these records privately for the call. Do not mention Notion, n8n, tools, JSON, database names, source labels, workflow state, or internal notes to the authority.',\n  },\n}];"
+          }
+        },
+        {
+          "id": "3d38a027-109e-4be4-845f-86588d109de3",
+          "name": "Respond Lookup",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            1376,
+            -160
+          ],
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ $json }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "8c9efa3c-5318-4dea-8a49-e9dfaaf4287a",
+          "name": "Lookup Company Filings",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            -560
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "f9af3b86-b2a3-430d-8c48-c8b0567091e7",
+              "mode": "id",
+              "cachedResultName": "Filings"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "49f40ac5-2107-489c-9aae-2389ee2b1f6d",
+          "name": "Lookup Personal Tax Filings",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            768,
+            -560
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "206e4130-1314-8004-93d2-e00f69621528",
+              "mode": "id",
+              "cachedResultName": "Personal Tax Filings"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Person|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "f28710c2-bc6b-4bd6-a9d1-5e9bcc7b4f07",
+          "name": "Lookup Contracts",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            -400
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "bb3139d0-a505-44bd-9ad0-7ed497112be6",
+              "mode": "id",
+              "cachedResultName": "Contracts"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "f9032f3d-907a-4103-b901-214ce0c76325",
+          "name": "Lookup Correspondence Company",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            -240
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "1b5e4130-1314-80ab-84f3-cca356736807",
+              "mode": "id",
+              "cachedResultName": "Correspondence"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "ee384d55-076b-4a12-9e73-480047c80774",
+          "name": "Lookup Correspondence Individual",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            768,
+            -240
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "1b5e4130-1314-80ab-84f3-cca356736807",
+              "mode": "id",
+              "cachedResultName": "Correspondence"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Individual|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "4b6ee2d6-5c6a-4ba0-b602-3ec9958210ce",
+          "name": "Lookup Bank Accounts Company",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            -80
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "73fd1c70-bd2a-41a9-a70f-ee539d4d4add",
+              "mode": "id",
+              "cachedResultName": "Bank Accounts"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Company (if business)|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "18b7e3d8-c4b4-4c8a-b622-a686a895ffb6",
+          "name": "Lookup Bank Accounts Individual",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            768,
+            -80
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "73fd1c70-bd2a-41a9-a70f-ee539d4d4add",
+              "mode": "id",
+              "cachedResultName": "Bank Accounts"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": " Customer (if personal)|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "d7750300-f2d9-4f37-8637-683916dbbe73",
+          "name": "Lookup Tax Payments",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            80
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "1fae4130-1314-8099-907c-f544585f1b5b",
+              "mode": "id",
+              "cachedResultName": "Tax payments"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "0bb08ed1-1288-4f02-a433-1bbc03f80bc0",
+          "name": "Lookup Tax Prepayments",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            768,
+            80
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "162e4130-1314-803d-800a-cef0a0719d01",
+              "mode": "id",
+              "cachedResultName": "Tax prepayments"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "💼 Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "3151574e-76a0-4648-96b7-c438f8a54e92",
+          "name": "Lookup Assets Company",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            240
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "353e4130-1314-80b3-9c78-ff7c8219c247",
+              "mode": "id",
+              "cachedResultName": "Assets"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Company|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "1d8fd49f-56ed-4a57-8a5b-0a9f050694be",
+          "name": "Lookup Assets Individual",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            768,
+            240
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "353e4130-1314-80b3-9c78-ff7c8219c247",
+              "mode": "id",
+              "cachedResultName": "Assets"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "🧑🏻 Individuals|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "82241119-d127-4091-a2f7-d20eef8fa163",
+          "name": "Lookup Call Notes",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            512,
+            400
+          ],
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "getAll",
+            "databaseId": {
+              "__rl": true,
+              "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+              "mode": "id",
+              "cachedResultName": "Call Notes"
+            },
+            "returnAll": true,
+            "simple": false,
+            "filterType": "manual",
+            "matchType": "allFilters",
+            "filters": {
+              "conditions": [
+                {
+                  "key": "Call|relation",
+                  "condition": "={{ \"contains\" }}",
+                  "relationValue": "={{ $(\"Normalize Scope\").item.json.call_page_id }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "executeOnce": true,
+          "alwaysOutputData": true,
+          "onError": "continueRegularOutput"
+        },
+        {
+          "id": "e4a0474c-430d-4ffc-9354-36e6b636d03e",
+          "name": "Respond Invalid Request",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            -352,
+            192
+          ],
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"invalid_request\", error: $(\"Normalize Lookup Request\").item.json.validation_error, allowed_categories: $(\"Normalize Lookup Request\").item.json.allowed_categories, instruction: \"Use only allowed categories and include call_id.\" } }}",
+            "options": {
+              "responseCode": 400,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "activeVersion": {
+        "nodes": [
+          {
+            "id": "30e28a94-27b2-4a9e-9d0a-ea70446fe6ef",
+            "name": "Sticky Note ec6ccbf8",
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              -1170,
+              -210
+            ],
+            "parameters": {
+              "content": "ElevenLabs server-tool target for on-demand Notion context. It is scoped from the Call record and only searches pre-approved RB call databases: tax registrations, tax filings, contracts, correspondence, bank accounts, tax payments/prepayments, assets, and call notes. File contents and file URLs are excluded.",
+              "color": 4,
+              "width": 5200,
+              "height": 900
+            }
+          },
+          {
+            "id": "b8b91c77-81f8-4ca1-8b3b-5c787a55aede",
+            "name": "ElevenLabs Context Lookup Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -1120,
+              0
+            ],
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "rb-calls-context-lookup",
+              "authentication": "none",
+              "responseMode": "responseNode",
+              "options": {
+                "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
+              }
+            },
+            "webhookId": "bbb97c1f-2aad-4cba-91bf-cd30a6354076"
+          },
+          {
+            "id": "b6803bd1-a202-4c5c-9faf-871c65e68650",
+            "name": "Normalize Lookup Request",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -864,
+              0
+            ],
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "language": "javaScript",
+              "jsCode": "const body = $json.body || {};\nconst dynamic = body.dynamic_variables || body.conversation_initiation_client_data?.dynamic_variables || {};\nconst allowed = ['tax_registrations', 'tax_filings', 'contracts', 'correspondence', 'bank_accounts', 'tax_payments_prepayments', 'assets', 'call_notes'];\nconst aliases = {\n  tax_registration: 'tax_registrations',\n  tax_registrations: 'tax_registrations',\n  taxregistrations: 'tax_registrations',\n  registrations: 'tax_registrations',\n  registration: 'tax_registrations',\n  tax_filing: 'tax_filings',\n  tax_filings: 'tax_filings',\n  filings: 'tax_filings',\n  filing: 'tax_filings',\n  returns: 'tax_filings',\n  return: 'tax_filings',\n  contracts: 'contracts',\n  contract: 'contracts',\n  agreements: 'contracts',\n  agreement: 'contracts',\n  correspondence: 'correspondence',\n  correspondences: 'correspondence',\n  correspondance: 'correspondence',\n  letters: 'correspondence',\n  letter: 'correspondence',\n  mail: 'correspondence',\n  bank_accounts: 'bank_accounts',\n  bank_account: 'bank_accounts',\n  bank: 'bank_accounts',\n  iban: 'bank_accounts',\n  tax_payments: 'tax_payments_prepayments',\n  tax_payment: 'tax_payments_prepayments',\n  prepayments: 'tax_payments_prepayments',\n  prepayment: 'tax_payments_prepayments',\n  payments: 'tax_payments_prepayments',\n  payment: 'tax_payments_prepayments',\n  assets: 'assets',\n  asset: 'assets',\n  call_notes: 'call_notes',\n  call_note: 'call_notes',\n  notes: 'call_notes',\n  note: 'call_notes',\n};\nfunction normalizeCategory(value) {\n  const key = String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');\n  return aliases[key] || '';\n}\nconst category = normalizeCategory(body.category || body.allowed_category || body.kind || body.topic);\nconst callId = String(body.call_id || body.call_page_id || dynamic.call_id || '').trim();\nconst limitRaw = Number(body.limit || body.max_records || 5);\nconst limit = Math.max(1, Math.min(Number.isFinite(limitRaw) ? limitRaw : 5, 12));\nconst validation = [];\nif (!callId) validation.push('Missing call_id.');\nif (!category) validation.push('Category must be one of: ' + allowed.join(', ') + '.');\nreturn {\n  valid: validation.length === 0,\n  validation_error: validation.join(' '),\n  category,\n  query: String(body.query || body.question || body.search || '').trim().slice(0, 500),\n  call_id: callId,\n  call_public_id: String(body.call_public_id || dynamic.call_public_id || '').trim(),\n  call_url: String(body.call_url || dynamic.call_url || '').trim(),\n  conversation_id: String(body.conversation_id || body.system__conversation_id || dynamic.system__conversation_id || '').trim(),\n  limit,\n  allowed_categories: allowed,\n};"
+            }
+          },
+          {
+            "id": "cdc8e8ca-98b4-4183-afe3-1122ec4b3ee0",
+            "name": "Request Is Valid?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -608,
+              0
+            ],
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "valid",
+                    "leftValue": "={{ $json.valid }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            }
+          },
+          {
+            "id": "d39abe64-6461-48a1-9bcf-16d05722d569",
+            "name": "Get Call",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              -352,
+              -160
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "get",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Normalize Lookup Request\").item.json.call_id }}",
+                "mode": "id"
+              },
+              "simple": false
+            },
+            "alwaysOutputData": true
+          },
+          {
+            "id": "a85b550e-aae7-4463-87fa-978c05073e2e",
+            "name": "Normalize Scope",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -96,
+              -160
+            ],
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "language": "javaScript",
+              "jsCode": "const request = $('Normalize Lookup Request').item.json;\nconst call = $json || {};\nconst noPage = '00000000-0000-0000-0000-000000000000';\nfunction prop(page, name) { return page?.properties?.[name] || {}; }\nfunction relationId(page, name) { return (prop(page, name).relation || []).map((rel) => rel.id).filter(Boolean)[0] || ''; }\nfunction richText(value) { return (value.title || value.rich_text || []).map((part) => part.plain_text || part.text?.content || '').join('').trim(); }\nfunction text(page, name) { return richText(prop(page, name)); }\nfunction uniqueId(page) {\n  const value = prop(page, 'ID').unique_id;\n  return value ? [value.prefix, value.number].filter((part) => part !== undefined && part !== null && String(part) !== '').join('-') : page.id;\n}\nconst companyPageId = relationId(call, 'Company');\nconst individualPageId = relationId(call, 'Individual');\nreturn {\n  ...request,\n  call_page_id: call.id || request.call_id,\n  call_url: call.url || request.call_url,\n  call_public_id: request.call_public_id || uniqueId(call),\n  company_page_id: companyPageId,\n  individual_page_id: individualPageId,\n  company_filter_id: companyPageId || noPage,\n  individual_filter_id: individualPageId || noPage,\n  message_topic: text(call, 'Short reason') || text(call, 'Reason for call') || text(call, 'Main question') || 'Call context lookup',\n};"
+            }
+          },
+          {
+            "id": "1a81225b-f9dc-4b6e-a9c2-5b73bb28d1fd",
+            "name": "Route Lookup Category",
+            "type": "n8n-nodes-base.switch",
+            "typeVersion": 3.2,
+            "position": [
+              192,
+              -160
+            ],
+            "parameters": {
+              "rules": {
+                "values": [
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "tax-registrations",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "tax_registrations",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "tax_registrations"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "tax-filings",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "tax_filings",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "tax_filings"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "contracts",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "contracts",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "contracts"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "correspondence",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "correspondence",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "correspondence"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "bank-accounts",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "bank_accounts",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "bank_accounts"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "tax-payments-prepayments",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "tax_payments_prepayments",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "tax_payments_prepayments"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "assets",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "assets",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "assets"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "call-notes",
+                          "leftValue": "={{ $json.category }}",
+                          "rightValue": "call_notes",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "call_notes"
+                  }
+                ]
+              },
+              "options": {}
+            }
+          },
+          {
+            "id": "fdc1f018-f36d-4d5f-a664-060769c3aac3",
+            "name": "Lookup Tax Registrations",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              -720
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "ecaf96a4-cf77-409a-b481-aaf317442b74",
+                "mode": "id",
+                "cachedResultName": "Filing Registrations"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "💼 Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "57c44870-6af2-483f-a248-bc0de29a5bbd",
+            "name": "Build Lookup Response",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1120,
+              -160
+            ],
+            "parameters": {
+              "mode": "runOnceForAllItems",
+              "language": "javaScript",
+              "jsCode": "function rawNodeItems(nodeName) {\n  const output = [];\n  if (typeof $items !== 'function') return output;\n  for (let runIndex = 0; runIndex < 1000; runIndex += 1) {\n    try {\n      const items = $items(nodeName, 0, runIndex);\n      if (!Array.isArray(items) || items.length === 0) {\n        if (runIndex > 0) break;\n        continue;\n      }\n      output.push(...items.map((item) => item.json).filter(Boolean));\n    } catch (error) {\n      break;\n    }\n  }\n  return output;\n}\nfunction pageItems(nodeName) { return rawNodeItems(nodeName).filter((page) => page && page.id && page.properties); }\nfunction nodeWarnings(nodeName) {\n  return rawNodeItems(nodeName)\n    .filter((item) => item && item.error)\n    .map(() => 'One permitted ' + nodeName.replace(/^Lookup /, '').toLowerCase() + ' source is unavailable to the Notion integration.');\n}\nfunction redactLinks(text) { return String(text || '').replace(/https?:\\/\\/\\S+/gi, '[link omitted]'); }\nfunction richTextValue(value) { return redactLinks((value?.title || value?.rich_text || []).map((part) => part.plain_text || part.text?.content || '').join('').trim()); }\nfunction formulaValue(formula) { if (!formula || typeof formula !== 'object') return ''; if (formula.string !== undefined && formula.string !== null) return String(formula.string); if (formula.number !== undefined && formula.number !== null) return String(formula.number); if (formula.boolean !== undefined && formula.boolean !== null) return String(formula.boolean); if (formula.date?.start) return formula.date.start; return ''; }\nfunction simplifyProperty(value) {\n  if (!value || typeof value !== 'object') return undefined;\n  if (value.title || value.rich_text) return richTextValue(value);\n  if (value.select) return value.select.name;\n  if (value.status) return value.status.name;\n  if (value.multi_select) return value.multi_select.map((item) => item.name);\n  if (typeof value.checkbox === 'boolean') return value.checkbox;\n  if (typeof value.number === 'number') return value.number;\n  if (value.date) return value.date?.start || '';\n  if (value.phone_number) return value.phone_number;\n  if (value.email) return value.email;\n  if (value.url) return '[url omitted]';\n  if (value.files) return undefined;\n  if (value.relation) return value.relation.map((rel) => rel.id);\n  if (value.people) return value.people.map((person) => ({ id: person.id, name: person.name || '', email: person.person?.email || '' }));\n  if (value.unique_id) return value.unique_id;\n  if (value.formula) return formulaValue(value.formula);\n  if (value.rollup) {\n    if (Array.isArray(value.rollup.array)) return value.rollup.array.map((entry) => simplifyProperty(entry)).filter((entry) => entry !== undefined && entry !== '');\n    if (value.rollup.number !== undefined && value.rollup.number !== null) return value.rollup.number;\n    if (value.rollup.date?.start) return value.rollup.date.start;\n  }\n  return undefined;\n}\nfunction compact(input) {\n  const output = {};\n  for (const [key, value] of Object.entries(input)) {\n    if (value === undefined || value === null || value === '') continue;\n    if (Array.isArray(value) && value.length === 0) continue;\n    output[key] = value;\n  }\n  return output;\n}\nfunction pageTitle(page) {\n  for (const value of Object.values(page?.properties || {})) {\n    if (value?.title) {\n      const text = richTextValue(value);\n      if (text) return text;\n    }\n  }\n  return page?.id || '';\n}\nfunction bestDate(properties, page) {\n  const candidates = [];\n  for (const [key, value] of Object.entries(properties || {})) {\n    const keyLower = key.toLowerCase();\n    if (typeof value === 'string' && (keyLower.includes('date') || keyLower.includes('received') || keyLower.includes('sent') || keyLower.includes('due') || keyLower.includes('deadline'))) candidates.push(value);\n  }\n  candidates.push(page?.last_edited_time || '', page?.created_time || '');\n  return candidates.find((value) => Number.isFinite(Date.parse(value))) || '';\n}\nfunction normalizePage(page, sourceDatabase) {\n  const properties = {};\n  let filePropertyCount = 0;\n  let relationPropertyCount = 0;\n  for (const [key, value] of Object.entries(page?.properties || {})) {\n    if (value?.files) filePropertyCount += value.files.length;\n    if (value?.relation) relationPropertyCount += value.relation.length;\n    const simplified = simplifyProperty(value);\n    if (simplified !== undefined && simplified !== '') properties[key] = simplified;\n  }\n  return compact({\n    page_id: page?.id || '',\n    url: page?.url || '',\n    title: pageTitle(page),\n    source_database: sourceDatabase,\n    best_date: bestDate(properties, page),\n    created_time: page?.created_time || '',\n    last_edited_time: page?.last_edited_time || '',\n    file_property_count: filePropertyCount,\n    relation_property_count: relationPropertyCount,\n    properties,\n  });\n}\nfunction dedupe(records) {\n  const seen = new Set();\n  return records.filter((record) => {\n    const key = record.page_id || record.source_database + ':' + record.title;\n    if (seen.has(key)) return false;\n    seen.add(key);\n    return true;\n  });\n}\nfunction searchTerms(query) {\n  const stop = new Set(['latest', 'date', 'record', 'records', 'detail', 'details', 'info', 'information', 'find', 'show', 'please', 'about', 'the', 'and', 'for', 'with', 'from', 'call', 'context', 'correspondence', 'filing', 'filings', 'contract', 'contracts', 'asset', 'assets', 'bank', 'account', 'accounts', 'payment', 'payments', 'prepayment', 'prepayments', 'note', 'notes']);\n  return String(query || '').toLowerCase().split(/[^a-z0-9äöüß]+/i).filter((term) => term.length > 2 && !stop.has(term));\n}\nfunction matchScore(record, terms) {\n  if (!terms.length) return 0;\n  const hay = JSON.stringify(record).toLowerCase();\n  return terms.reduce((score, term) => score + (hay.includes(term) ? 1 : 0), 0);\n}\nconst scope = $('Normalize Scope').item.json;\nconst map = {\n  tax_registrations: [['Lookup Tax Registrations', 'Filing Registrations']],\n  tax_filings: [['Lookup Company Filings', 'Company Tax Filings'], ['Lookup Personal Tax Filings', 'Personal Tax Filings']],\n  contracts: [['Lookup Contracts', 'Contracts']],\n  correspondence: [['Lookup Correspondence Company', 'Company Correspondence'], ['Lookup Correspondence Individual', 'Individual Correspondence']],\n  bank_accounts: [['Lookup Bank Accounts Company', 'Company Bank Accounts'], ['Lookup Bank Accounts Individual', 'Individual Bank Accounts']],\n  tax_payments_prepayments: [['Lookup Tax Payments', 'Tax Payments'], ['Lookup Tax Prepayments', 'Tax Prepayments']],\n  assets: [['Lookup Assets Company', 'Company Assets'], ['Lookup Assets Individual', 'Individual Assets']],\n  call_notes: [['Lookup Call Notes', 'Call Notes']],\n};\nconst requestedNodes = map[scope.category] || [];\nconst lookupWarnings = requestedNodes.flatMap(([nodeName]) => nodeWarnings(nodeName));\nconst records = dedupe(requestedNodes.flatMap(([nodeName, sourceDatabase]) => pageItems(nodeName).map((page) => normalizePage(page, sourceDatabase))));\nconst terms = searchTerms(scope.query);\nconst scored = records.map((record) => ({ ...record, match_score: matchScore(record, terms) }));\nconst filtered = scored\n  .filter((record) => terms.length === 0 || record.match_score > 0)\n  .sort((a, b) => (b.match_score || 0) - (a.match_score || 0) || Date.parse(b.best_date || 0) - Date.parse(a.best_date || 0));\nconst selected = filtered.slice(0, scope.limit);\nreturn [{\n  json: {\n    status: lookupWarnings.length ? 'partial' : 'ok',\n    category: scope.category,\n    query: scope.query,\n    allowed_categories: scope.allowed_categories,\n    count: records.length,\n    matched_count: filtered.length,\n    returned_count: selected.length,\n    lookup_warnings: lookupWarnings,\n    scope: {\n      call_page_id: scope.call_page_id,\n      call_public_id: scope.call_public_id,\n      call_url: scope.call_url,\n      company_page_id: scope.company_page_id,\n      individual_page_id: scope.individual_page_id,\n      message_topic: scope.message_topic,\n    },\n    records: selected,\n    instruction: lookupWarnings.length\n      ? 'Use returned records privately for the call. Some permitted context could not be read; do not assume absence of records in that category. Ask the call creator through live help if this category is important. Do not mention Notion, n8n, tools, JSON, database names, source labels, workflow state, or internal notes to the authority.'\n      : 'Use these records privately for the call. Do not mention Notion, n8n, tools, JSON, database names, source labels, workflow state, or internal notes to the authority.',\n  },\n}];"
+            }
+          },
+          {
+            "id": "3d38a027-109e-4be4-845f-86588d109de3",
+            "name": "Respond Lookup",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              1376,
+              -160
+            ],
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ $json }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "8c9efa3c-5318-4dea-8a49-e9dfaaf4287a",
+            "name": "Lookup Company Filings",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              -560
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "f9af3b86-b2a3-430d-8c48-c8b0567091e7",
+                "mode": "id",
+                "cachedResultName": "Filings"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "49f40ac5-2107-489c-9aae-2389ee2b1f6d",
+            "name": "Lookup Personal Tax Filings",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              768,
+              -560
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "206e4130-1314-8004-93d2-e00f69621528",
+                "mode": "id",
+                "cachedResultName": "Personal Tax Filings"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Person|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "f28710c2-bc6b-4bd6-a9d1-5e9bcc7b4f07",
+            "name": "Lookup Contracts",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              -400
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "bb3139d0-a505-44bd-9ad0-7ed497112be6",
+                "mode": "id",
+                "cachedResultName": "Contracts"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "f9032f3d-907a-4103-b901-214ce0c76325",
+            "name": "Lookup Correspondence Company",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              -240
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "1b5e4130-1314-80ab-84f3-cca356736807",
+                "mode": "id",
+                "cachedResultName": "Correspondence"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "ee384d55-076b-4a12-9e73-480047c80774",
+            "name": "Lookup Correspondence Individual",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              768,
+              -240
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "1b5e4130-1314-80ab-84f3-cca356736807",
+                "mode": "id",
+                "cachedResultName": "Correspondence"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Individual|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "4b6ee2d6-5c6a-4ba0-b602-3ec9958210ce",
+            "name": "Lookup Bank Accounts Company",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              -80
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "73fd1c70-bd2a-41a9-a70f-ee539d4d4add",
+                "mode": "id",
+                "cachedResultName": "Bank Accounts"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Company (if business)|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "18b7e3d8-c4b4-4c8a-b622-a686a895ffb6",
+            "name": "Lookup Bank Accounts Individual",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              768,
+              -80
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "73fd1c70-bd2a-41a9-a70f-ee539d4d4add",
+                "mode": "id",
+                "cachedResultName": "Bank Accounts"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": " Customer (if personal)|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "d7750300-f2d9-4f37-8637-683916dbbe73",
+            "name": "Lookup Tax Payments",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              80
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "1fae4130-1314-8099-907c-f544585f1b5b",
+                "mode": "id",
+                "cachedResultName": "Tax payments"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "0bb08ed1-1288-4f02-a433-1bbc03f80bc0",
+            "name": "Lookup Tax Prepayments",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              768,
+              80
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "162e4130-1314-803d-800a-cef0a0719d01",
+                "mode": "id",
+                "cachedResultName": "Tax prepayments"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "💼 Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "3151574e-76a0-4648-96b7-c438f8a54e92",
+            "name": "Lookup Assets Company",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              240
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "353e4130-1314-80b3-9c78-ff7c8219c247",
+                "mode": "id",
+                "cachedResultName": "Assets"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Company|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.company_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "1d8fd49f-56ed-4a57-8a5b-0a9f050694be",
+            "name": "Lookup Assets Individual",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              768,
+              240
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "353e4130-1314-80b3-9c78-ff7c8219c247",
+                "mode": "id",
+                "cachedResultName": "Assets"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "🧑🏻 Individuals|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.individual_filter_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "82241119-d127-4091-a2f7-d20eef8fa163",
+            "name": "Lookup Call Notes",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              512,
+              400
+            ],
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "getAll",
+              "databaseId": {
+                "__rl": true,
+                "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+                "mode": "id",
+                "cachedResultName": "Call Notes"
+              },
+              "returnAll": true,
+              "simple": false,
+              "filterType": "manual",
+              "matchType": "allFilters",
+              "filters": {
+                "conditions": [
+                  {
+                    "key": "Call|relation",
+                    "condition": "={{ \"contains\" }}",
+                    "relationValue": "={{ $(\"Normalize Scope\").item.json.call_page_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "executeOnce": true,
+            "alwaysOutputData": true,
+            "onError": "continueRegularOutput"
+          },
+          {
+            "id": "e4a0474c-430d-4ffc-9354-36e6b636d03e",
+            "name": "Respond Invalid Request",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              -352,
+              192
+            ],
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"invalid_request\", error: $(\"Normalize Lookup Request\").item.json.validation_error, allowed_categories: $(\"Normalize Lookup Request\").item.json.allowed_categories, instruction: \"Use only allowed categories and include call_id.\" } }}",
+              "options": {
+                "responseCode": 400,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "connections": {
+          "ElevenLabs Context Lookup Webhook": {
+            "main": [
+              [
+                {
+                  "node": "Normalize Lookup Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Normalize Lookup Request": {
+            "main": [
+              [
+                {
+                  "node": "Request Is Valid?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Request Is Valid?": {
+            "main": [
+              [
+                {
+                  "node": "Get Call",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Respond Invalid Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get Call": {
+            "main": [
+              [
+                {
+                  "node": "Normalize Scope",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Normalize Scope": {
+            "main": [
+              [
+                {
+                  "node": "Route Lookup Category",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Route Lookup Category": {
+            "main": [
+              [
+                {
+                  "node": "Lookup Tax Registrations",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Company Filings",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Contracts",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Correspondence Company",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Bank Accounts Company",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Tax Payments",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Assets Company",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Lookup Call Notes",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Tax Registrations": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Build Lookup Response": {
+            "main": [
+              [
+                {
+                  "node": "Respond Lookup",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Company Filings": {
+            "main": [
+              [
+                {
+                  "node": "Lookup Personal Tax Filings",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Personal Tax Filings": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Contracts": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Correspondence Company": {
+            "main": [
+              [
+                {
+                  "node": "Lookup Correspondence Individual",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Correspondence Individual": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Bank Accounts Company": {
+            "main": [
+              [
+                {
+                  "node": "Lookup Bank Accounts Individual",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Bank Accounts Individual": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Tax Payments": {
+            "main": [
+              [
+                {
+                  "node": "Lookup Tax Prepayments",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Tax Prepayments": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Assets Company": {
+            "main": [
+              [
+                {
+                  "node": "Lookup Assets Individual",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Assets Individual": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lookup Call Notes": {
+            "main": [
+              [
+                {
+                  "node": "Build Lookup Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "meta": {
+        "aiBuilderAssisted": true
+      },
+      "parentFolderId": null,
+      "description": "Routes ElevenLabs on-demand call-context lookups through one Switch node, then queries only the pre-approved Notion categories.",
+      "scopes": [
+        "workflow:create",
+        "workflow:delete",
+        "workflow:execute",
+        "workflow:execute-chat",
+        "workflow:list",
+        "workflow:move",
+        "workflow:publish",
+        "workflow:read",
+        "workflow:share",
+        "workflow:unpublish",
+        "workflow:unshare",
+        "workflow:update",
+        "workflow:updateRedactionSetting"
+      ],
+      "canExecute": true
+    },
+    "triggerInfo": "This workflow has the following trigger(s):\n\n\nWebhook trigger(s):\n\n\n\t\t\t\t<trigger 1>\n\t\t\t\t\t - Node name: ElevenLabs Context Lookup Webhook\n\t\t\t\t\t - Base URL: https://eipventures.app.n8n.cloud/\n\t\t\t\t\t - Production path: /webhook/rb-calls-context-lookup\n\t\t\t\t\t - Test path: /webhook-test/rb-calls-context-lookup\n\t\t\t\t\t - HTTP Method: POST\n\t\t\t\t\t - Response Mode: Webhook is configured to respond using \"Respond to Webhook\" node.\n\t\t\t\t\t - No credentials required for this webhook.\n\t\t\t\t</trigger 1>"
+  }
+}

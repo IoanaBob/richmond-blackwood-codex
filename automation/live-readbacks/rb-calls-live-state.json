@@ -1,0 +1,322 @@
+{
+  "status": "provisional",
+  "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
+  "imported": "2026-05-19",
+  "synced_at": "2026-05-19T14:30:14.447Z",
+  "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
+  "n8n": [
+    {
+      "slug": "rb-calls-voice-execution",
+      "source": "automation/n8n/rb-calls/voice-execution.workflow.mjs",
+      "id": "3xJh7hNK0Zl9T4zS",
+      "name": "RB Calls Voice Execution",
+      "active": true,
+      "active_version_id": "ad82d55c-9f6e-4127-97d2-2162d079af93",
+      "version_id": "2e7a74fd-60b4-4a39-8bcd-0553a4648807",
+      "updated_at": "2026-05-19T13:50:50.619Z",
+      "node_count": 27,
+      "connection_count": 31,
+      "node_names": [
+        "Every 15 minutes",
+        "Get Reviewed Calls",
+        "Done",
+        "Preflight Call Lock",
+        "Get Call Owner",
+        "Attach Owner Routing",
+        "Preflight Ready To Claim?",
+        "Claim Call Attempt Lock",
+        "Re-read Call Lock",
+        "Verify Claimed Lock",
+        "Lock Still Ours?",
+        "Get Company",
+        "Get Individual",
+        "Get Contact",
+        "Get Filing Registrations",
+        "Build Voice Payload",
+        "Limit Startup Context",
+        "Ready To Call?",
+        "Make ElevenLabs Outbound Call",
+        "Normalize ElevenLabs Response",
+        "Store Voice IDs",
+        "Loop Reviewed Calls",
+        "Mark Blocked",
+        "Skip Lost Lock",
+        "Skip Existing Lock Or Ineligible?",
+        "Skip Locked Or Ineligible Call",
+        "Mark Preflight Blocked"
+      ]
+    },
+    {
+      "slug": "rb-calls-live-help",
+      "source": "automation/n8n/rb-calls/live-help.workflow.mjs",
+      "id": "qtwbaCjt8lqqjS6o",
+      "name": "RB Calls Live Help",
+      "active": true,
+      "active_version_id": "9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1",
+      "version_id": "9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1",
+      "updated_at": "2026-05-13T13:46:06.689Z",
+      "node_count": 34,
+      "connection_count": 34,
+      "node_names": [
+        "ElevenLabs Live Help Webhook",
+        "Normalize Help Request",
+        "Is Valid Request?",
+        "Is Check Request?",
+        "Has Supplied Thread TS?",
+        "Resolve Help Thread",
+        "Has Help Thread?",
+        "Get Help Thread Replies",
+        "Extract Check Status",
+        "Is Terminal Status?",
+        "Update Help Note Terminal",
+        "Update Call Help Terminal",
+        "Respond Check Final",
+        "Wait Before Re-reading Help Thread",
+        "Get Help Thread Replies After Wait",
+        "Extract Check Status After Wait",
+        "Is Terminal Status After Wait?",
+        "Update Help Note Terminal After Wait",
+        "Update Call Help Terminal After Wait",
+        "Respond Check Final After Wait",
+        "Respond Check Pending After Wait",
+        "Extract Missing Thread Status",
+        "Is Missing Thread Terminal Status?",
+        "Update Missing Thread Help Note Terminal",
+        "Update Missing Thread Call Help Terminal",
+        "Respond Missing Thread Final",
+        "Wait Before Pending Response",
+        "Respond Missing Thread Pending",
+        "Get Recent Help Threads",
+        "Post Help Request",
+        "Create Pending Help Note",
+        "Update Call Help Requested",
+        "Respond Start Pending",
+        "Respond Invalid Request"
+      ]
+    },
+    {
+      "slug": "rb-calls-elevenlabs-events",
+      "source": "automation/n8n/rb-calls/elevenlabs-events.workflow.mjs",
+      "id": "uBEMuAtKiJQzJAWw",
+      "name": "RB Calls ElevenLabs Events",
+      "active": true,
+      "active_version_id": "6f0c5d6c-439d-4e7e-a73f-6f95cf17c79a",
+      "version_id": "6f0c5d6c-439d-4e7e-a73f-6f95cf17c79a",
+      "updated_at": "2026-05-19T14:25:55.729Z",
+      "node_count": 21,
+      "connection_count": 21,
+      "node_names": [
+        "Sticky Note 55c567ef",
+        "ElevenLabs Events Webhook",
+        "Normalize ElevenLabs Event",
+        "Has Call Page?",
+        "Create Post-Call Note",
+        "Update Call Outcome",
+        "Respond Success",
+        "Respond Missing Call ID",
+        "Every minute - no-answer watchdog",
+        "Get Started Calls",
+        "Prepare Status Sweep",
+        "Sweep Done",
+        "Has Conversation ID?",
+        "Get ElevenLabs Conversation",
+        "Normalize Swept Conversation",
+        "Should Update Swept Call?",
+        "Create Swept Status Note",
+        "Update Swept Call Outcome",
+        "Loop Started Calls",
+        "Skip Swept Call",
+        "Normalize Missing Conversation"
+      ]
+    },
+    {
+      "slug": "rb-calls-context-lookup",
+      "source": "automation/n8n/rb-calls/context-lookup.workflow.mjs",
+      "id": "i3rv4G6FmfosQm5j",
+      "name": "RB Calls Context Lookup",
+      "active": true,
+      "active_version_id": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
+      "version_id": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
+      "updated_at": "2026-05-12T23:55:09.723Z",
+      "node_count": 23,
+      "connection_count": 28,
+      "node_names": [
+        "Sticky Note ec6ccbf8",
+        "ElevenLabs Context Lookup Webhook",
+        "Normalize Lookup Request",
+        "Request Is Valid?",
+        "Get Call",
+        "Normalize Scope",
+        "Route Lookup Category",
+        "Lookup Tax Registrations",
+        "Build Lookup Response",
+        "Respond Lookup",
+        "Lookup Company Filings",
+        "Lookup Personal Tax Filings",
+        "Lookup Contracts",
+        "Lookup Correspondence Company",
+        "Lookup Correspondence Individual",
+        "Lookup Bank Accounts Company",
+        "Lookup Bank Accounts Individual",
+        "Lookup Tax Payments",
+        "Lookup Tax Prepayments",
+        "Lookup Assets Company",
+        "Lookup Assets Individual",
+        "Lookup Call Notes",
+        "Respond Invalid Request"
+      ]
+    }
+  ],
+  "elevenlabs": {
+    "agent_id": "agent_2001kq39ea0hf5yb86c4a7hj9gp1",
+    "name": "RB Call Bot",
+    "version_id": "agtvrsn_0701krha08p6ewwv0fygbnjv0k6p",
+    "first_message": "Hello, my name is Alexander Gulin. I am calling regarding an administrative matter for a client and would like to make sure I am speaking with the right department.",
+    "prompt_chars": 19759,
+    "root_tool_ids": [],
+    "workflow_node_count": 17,
+    "workflow_edge_count": 41,
+    "workflow_nodes": [
+      {
+        "node_id": "start_node",
+        "label": "",
+        "type": "start",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_opening_v2",
+        "label": "1. Call Opening & Scope",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_authority_v2",
+        "label": "2. Authority / PoA Handling",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_main_v2",
+        "label": "3. Main Authority Conversation",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_routing_v2",
+        "label": "4. Routing / Callback Details",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_live_start_v2",
+        "label": "",
+        "type": "tool",
+        "tool_ids": [
+          "tool_0701krd392jge1z9q058dvh25kn7"
+        ]
+      },
+      {
+        "node_id": "node_rb_live_check_v2",
+        "label": "",
+        "type": "tool",
+        "tool_ids": [
+          "tool_7901krd392jhefv9x4btx1jmxfdb"
+        ]
+      },
+      {
+        "node_id": "node_rb_live_result_v2",
+        "label": "6. Live Help Result Handling",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_fallback_v2",
+        "label": "7. Conservative Manual Follow-up",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_voicemail_v2",
+        "label": "Voicemail / No Human",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_outcome_v2",
+        "label": "8. Outcome Capture & Confirmation",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_end_v2",
+        "label": "9. End Call",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_route_return_v3",
+        "label": "4b. Continue via Correct Route",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_ivr_v1",
+        "label": "2b. IVR / Menu Navigation",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_rb_lookup_tool_v1",
+        "label": "",
+        "type": "tool",
+        "tool_ids": [
+          "tool_4501kremgshnej7rtqftyxxgd3jb"
+        ]
+      },
+      {
+        "node_id": "node_rb_lookup_result_v1",
+        "label": "3b. Context Lookup Result",
+        "type": "override_agent",
+        "tool_ids": []
+      },
+      {
+        "node_id": "node_01krgzj38qe8ns7wr3wwgyswtm",
+        "label": "",
+        "type": "end",
+        "tool_ids": []
+      }
+    ],
+    "tools": [
+      {
+        "id": "tool_0701krd392jge1z9q058dvh25kn7",
+        "name": "request_creator_help",
+        "type": "webhook",
+        "execution_mode": "immediate",
+        "response_timeout_secs": 60,
+        "force_pre_tool_speech": null,
+        "tool_call_sound": null,
+        "tool_call_sound_behavior": "auto"
+      },
+      {
+        "id": "tool_4501kremgshnej7rtqftyxxgd3jb",
+        "name": "lookup_call_context",
+        "type": "webhook",
+        "execution_mode": "post_tool_speech",
+        "response_timeout_secs": 60,
+        "force_pre_tool_speech": null,
+        "tool_call_sound": "elevator1",
+        "tool_call_sound_behavior": "auto"
+      },
+      {
+        "id": "tool_7901krd392jhefv9x4btx1jmxfdb",
+        "name": "check_creator_help",
+        "type": "webhook",
+        "execution_mode": "immediate",
+        "response_timeout_secs": 60,
+        "force_pre_tool_speech": null,
+        "tool_call_sound": "elevator2",
+        "tool_call_sound_behavior": "always"
+      }
+    ]
+  }
+}

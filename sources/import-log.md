@@ -1302,6 +1302,170 @@ Unresolved:
 
 - No live filing tasks were created by this process update; each filing still needs its task/project relations checked before task creation.
 
+## 2026-05-13 - RB Calls Live Runtime Readback Sync
+
+Imported:
+
+- n8n `RB Calls Voice Execution` workflow `3xJh7hNK0Zl9T4zS`, active version `c7d84f52-ae58-4073-889f-89eb2000a937`.
+- n8n `RB Calls Live Help` workflow `qtwbaCjt8lqqjS6o`, active version `9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1`.
+- n8n `RB Calls ElevenLabs Events` workflow `uBEMuAtKiJQzJAWw`, active version `29dc070e-2951-4f7f-931b-6b24ea793fc5`, draft version `48d12009-db89-4c75-8df1-6e48564f12ed`.
+- n8n `RB Calls Context Lookup` workflow `i3rv4G6FmfosQm5j`, active version `b8b439eb-0587-4600-a93a-89a27ca2e8fc`.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_9501krh4qjm7e6n9jy079k5tgea5`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- Added repeatable live readback helper `automation/sync-rb-calls-live-state.mjs`.
+- Added compact registry and per-runtime snapshots under `automation/live-readbacks/`.
+- Documented the readback workflow in `automation/README.md` and `setup/mcp/elevenlabs-n8n.md`.
+
+Not imported:
+
+- No API keys, MCP tokens, webhook secrets, call recordings, call transcripts, phone numbers, or client document files.
+
+Verification:
+
+- `npm run calls:sync-live-state` completed successfully and wrote all readback files.
+
+Open questions:
+
+- Review why `RB Calls ElevenLabs Events` has a current draft version different from the active version before publishing or deploying over it.
+
+## 2026-05-13 - RB Calls API Language Override
+
+Imported:
+
+- User instruction that German calls were still starting in English and the outbound API call should set the right language.
+- n8n `RB Calls Voice Execution` workflow `3xJh7hNK0Zl9T4zS`, published active version `360489d3-02da-4a84-bfbd-0a0d168054e9`.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_2001krh88kp2f49sq04f81qemvb3`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- Official ElevenLabs override documentation checked on 2026-05-13.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- The n8n outbound payload now includes `conversation_initiation_client_data.conversation_config_override.agent.language`.
+- German contacts map to API language code `de`; non-German contacts map to `en`.
+- The default ElevenLabs first message remains the user-provided English opener, and the German language preset contains the German opener.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, or client call payloads.
+
+Verification:
+
+- n8n validation/update/publish succeeded.
+- ElevenLabs patch read-back verified the default and German-preset first messages.
+- Live readback snapshots were refreshed.
+
+Open questions:
+
+- Run a German test call and confirm the first message uses the German preset.
+
+## 2026-05-13 - RB Calls Language-Specific Identifier Pronunciation
+
+Imported:
+
+- User instruction that German calls were still saying numbers in English because of the system prompt, and that the prompt should be fixed or translated.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_9801krh941ypfwt9me281gafr9ws`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- `npm run calls:patch-elevenlabs-slow-identifiers` using the local ElevenLabs API configuration.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- The ElevenLabs prompt now has language-specific identifier pronunciation rules.
+- German calls must use German digit words and German letter names for tax numbers, registration numbers, abbreviations, and alphanumeric identifiers.
+- English digit words and NATO spelling words are disallowed in German calls unless the authority explicitly asks for them.
+- The stale public-disclosure example that used `Delta ... Echo` was removed from the live prompt.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, or client call payloads.
+
+Verification:
+
+- ElevenLabs patch read-back verified the language-specific pronunciation section, German digit words, slow identifier rules, no default NATO spelling instruction, and no stale `Delta ... Echo` example.
+- Live readback snapshots were refreshed.
+
+Open questions:
+
+- Run a German test call and confirm the agent says identifiers with German number words under real call conditions.
+
+## 2026-05-13 - RB Calls ElevenLabs Automation Boundary
+
+Imported:
+
+- User instruction that `automation/elevenlabs` should keep only actually reusable files and that one-off patch scripts should remain in a private folder.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- Local repository cleanup of `automation/elevenlabs/rb-calls/` and private ignored copy under `.codex-local/automation/elevenlabs/rb-calls/`.
+
+Imported details:
+
+- Source-controlled `automation/elevenlabs/` is now for reusable read-only diagnostics/utilities.
+- One-off ElevenLabs prompt patchers, live mutators, and migration scripts belong under ignored `.codex-local/automation/elevenlabs/`.
+- Shared npm scripts should not expose one-off ElevenLabs patchers.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, client call payloads, or private patch-script contents.
+
+Verification:
+
+- `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed after cleanup.
+- `git ls-files .codex-local automation/elevenlabs/rb-calls package.json` confirmed `.codex-local` private patchers are not tracked and source-controlled `automation/elevenlabs/rb-calls/` contains only inspectors.
+
+Open questions:
+
+- None.
+
+## 2026-05-13 - RB Calls Abbreviation And Timing Pronunciation
+
+Imported:
+
+- User instruction that spelling alphabets should be used when the authority is confused, that literal `pause` and ellipses should not be used for spoken timing, that commas and periods should be used for timing, that abbreviations should use hyphens rather than commas, and that abbreviation handling must work in all languages with English treated as important.
+- ElevenLabs `RB Call Bot` agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1`, version `agtvrsn_0701krha08p6ewwv0fygbnjv0k6p`.
+
+Source:
+
+- User instruction in the current Codex thread on 2026-05-13.
+- Private ignored ElevenLabs patchers under `.codex-local/automation/elevenlabs/rb-calls/`.
+- `npm run calls:sync-live-state` using local n8n MCP and ElevenLabs API readbacks.
+
+Imported details:
+
+- Abbreviations are now explicitly handled in all call languages, including English, as hyphenated letter runs.
+- Confusion-triggered fallback uses NATO for English, German Buchstabiertafel for German, and the closest recognized spelling alphabet for other call languages.
+- Identifier examples now use commas for short numeric grouping and periods for longer breaks.
+- The live prompt no longer uses literal `pause` words or ellipses for spoken identifier timing.
+
+Not imported:
+
+- No API keys, MCP tokens, phone numbers, call recordings, transcripts, client call payloads, or private patch-script contents.
+
+Verification:
+
+- Live readback verified `agtvrsn_0701krha08p6ewwv0fygbnjv0k6p`.
+- Prompt scan confirmed zero ellipses and zero `pause` words in the live prompt.
+- Prompt scan confirmed the all-language abbreviation rule, hyphenated abbreviation examples, NATO fallback, and German Buchstabiertafel fallback.
+
+Open questions:
+
+- Run English and German test calls to verify real TTS timing and spelling behavior.
+
 ## 2026-05-13 - Claudio Brivio Individual Context Load
 
 Imported:

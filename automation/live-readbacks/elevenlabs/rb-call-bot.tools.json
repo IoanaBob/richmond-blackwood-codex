@@ -1,0 +1,514 @@
+{
+  "synced_at": "2026-05-19T14:30:14.447Z",
+  "status": "provisional",
+  "source": "ElevenLabs API readback",
+  "review": "Tool documents only; no API keys are stored.",
+  "tools": [
+    {
+      "id": "tool_0701krd392jge1z9q058dvh25kn7",
+      "tool_config": {
+        "type": "webhook",
+        "name": "request_creator_help",
+        "description": "Start exactly one Richmond Blackwood live-help request during an authority call. n8n posts one structured Slack thread and returns IDs for check_creator_help. Do not repeat this tool for the same issue. After this starts, route into check_creator_help with the same IDs; n8n performs each 30-second wait before returning pending.",
+        "response_timeout_secs": 60,
+        "disable_interruptions": false,
+        "force_pre_tool_speech": false,
+        "pre_tool_speech": "auto",
+        "assignments": [
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_request_id",
+            "value_path": "help_request_id",
+            "sanitize": false,
+            "preserve_native_type": false
+          },
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_slack_thread_ts",
+            "value_path": "slack_thread_ts",
+            "sanitize": false,
+            "preserve_native_type": false
+          },
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_note_page_id",
+            "value_path": "note_page_id",
+            "sanitize": false,
+            "preserve_native_type": false
+          },
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_expires_at",
+            "value_path": "expires_at",
+            "sanitize": false,
+            "preserve_native_type": false
+          },
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_status",
+            "value_path": "status",
+            "sanitize": false,
+            "preserve_native_type": false
+          }
+        ],
+        "tool_call_sound": null,
+        "tool_call_sound_behavior": "auto",
+        "tool_error_handling_mode": "auto",
+        "dynamic_variables": {
+          "dynamic_variable_placeholders": {
+            "call_id": "",
+            "call_public_id": "",
+            "call_url": "",
+            "context_pack": "",
+            "owner_slack_member_id": "",
+            "owner_mention": "",
+            "owner_name": "",
+            "message_topic": "",
+            "system__conversation_id": "",
+            "system__conversation_history": ""
+          }
+        },
+        "execution_mode": "immediate",
+        "api_schema": {
+          "request_headers": {},
+          "url": "https://eipventures.app.n8n.cloud/webhook/rb-calls-live-help",
+          "method": "POST",
+          "path_params_schema": {},
+          "query_params_schema": null,
+          "request_body_schema": {
+            "type": "object",
+            "required": [
+              "action",
+              "question",
+              "call_id"
+            ],
+            "description": "Start one RB live-help request. Include owner/topic context so Slack messages follow RB standards. Do not use this for polling.",
+            "properties": {
+              "action": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": "start"
+              },
+              "question": {
+                "type": "string",
+                "description": "A concise, specific question for the RB team, including exactly what the authority asked and what answer is needed.",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+              },
+              "call_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_id",
+                "constant_value": ""
+              },
+              "call_public_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_public_id",
+                "constant_value": ""
+              },
+              "call_url": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_url",
+                "constant_value": ""
+              },
+              "conversation_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "system__conversation_id",
+                "constant_value": ""
+              },
+              "transcript_excerpt": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "system__conversation_history",
+                "constant_value": ""
+              },
+              "context_pack": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "context_pack",
+                "constant_value": ""
+              },
+              "owner_slack_member_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "owner_slack_member_id",
+                "constant_value": ""
+              },
+              "owner_mention": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "owner_mention",
+                "constant_value": ""
+              },
+              "owner_name": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "owner_name",
+                "constant_value": ""
+              },
+              "message_topic": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "message_topic",
+                "constant_value": ""
+              }
+            }
+          },
+          "response_body_schema": null,
+          "content_type": "application/json",
+          "auth_connection": null
+        }
+      },
+      "access_info": {
+        "is_creator": true,
+        "creator_name": "Eran Peer",
+        "creator_email": "eran@eip.ventures",
+        "role": "admin",
+        "anonymous_access_level_override": null
+      },
+      "usage_stats": {
+        "total_calls": 0,
+        "avg_latency_secs": 0
+      },
+      "response_mocks": null
+    },
+    {
+      "id": "tool_4501kremgshnej7rtqftyxxgd3jb",
+      "tool_config": {
+        "type": "webhook",
+        "name": "lookup_call_context",
+        "description": "Fetch approved Richmond Blackwood call context from Notion through n8n on demand. Use this only for the allowed categories and only with the current call_id. If one caller turn asks multiple factual questions, make focused lookup calls for the allowed-category facts before live help. Do not use it as a general search tool.",
+        "response_timeout_secs": 60,
+        "disable_interruptions": true,
+        "force_pre_tool_speech": false,
+        "pre_tool_speech": "auto",
+        "assignments": [],
+        "tool_call_sound": "elevator1",
+        "tool_call_sound_behavior": "auto",
+        "tool_error_handling_mode": "auto",
+        "dynamic_variables": {
+          "dynamic_variable_placeholders": {
+            "call_id": "",
+            "call_public_id": "",
+            "call_url": "",
+            "system__conversation_id": "",
+            "system__conversation_history": ""
+          }
+        },
+        "execution_mode": "post_tool_speech",
+        "api_schema": {
+          "request_headers": {},
+          "url": "https://eipventures.app.n8n.cloud/webhook/rb-calls-context-lookup",
+          "method": "POST",
+          "path_params_schema": {},
+          "query_params_schema": null,
+          "request_body_schema": {
+            "type": "object",
+            "required": [
+              "category",
+              "call_id"
+            ],
+            "description": "Look up one approved context category for the current RB call. Keep query focused. For multi-part caller questions, use one focused lookup per allowed-category fact before escalating. Do not request categories outside the allowed list.",
+            "properties": {
+              "category": {
+                "type": "string",
+                "description": "One exact category only: tax_registrations, tax_filings, contracts, correspondence, bank_accounts, tax_payments_prepayments, assets, call_notes.",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+              },
+              "query": {
+                "type": "string",
+                "description": "Focused natural-language search text for the missing fact, for example latest Finanzamt correspondence date or Irish corporation tax number. If the caller asked multiple questions, query only one missing fact at a time.",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+              },
+              "limit": {
+                "type": "string",
+                "description": "Optional number of records to return, between 1 and 12. Prefer 3 to 5.",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": ""
+              },
+              "call_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_id",
+                "constant_value": ""
+              },
+              "call_public_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_public_id",
+                "constant_value": ""
+              },
+              "call_url": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_url",
+                "constant_value": ""
+              },
+              "conversation_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "system__conversation_id",
+                "constant_value": ""
+              },
+              "transcript_excerpt": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "system__conversation_history",
+                "constant_value": ""
+              }
+            }
+          },
+          "response_body_schema": null,
+          "content_type": "application/json",
+          "auth_connection": null
+        }
+      },
+      "access_info": {
+        "is_creator": true,
+        "creator_name": "Eran Peer",
+        "creator_email": "eran@eip.ventures",
+        "role": "admin",
+        "anonymous_access_level_override": null
+      },
+      "usage_stats": {
+        "total_calls": 0,
+        "avg_latency_secs": 0
+      },
+      "response_mocks": null
+    },
+    {
+      "id": "tool_7901krd392jhefv9x4btx1jmxfdb",
+      "tool_config": {
+        "type": "webhook",
+        "name": "check_creator_help",
+        "description": "Check the existing Richmond Blackwood live-help Slack thread through n8n. n8n waits 30 seconds before returning pending, can recover the thread from recent channel history if the thread timestamp is missing or invalid, ignores placeholder expiry values, and enforces the five-minute timeout. Pending is not final. Do not post a new help request.",
+        "response_timeout_secs": 60,
+        "disable_interruptions": false,
+        "force_pre_tool_speech": false,
+        "pre_tool_speech": "auto",
+        "assignments": [
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_status",
+            "value_path": "status",
+            "sanitize": false,
+            "preserve_native_type": false
+          },
+          {
+            "source": "response",
+            "dynamic_variable": "live_help_answer",
+            "value_path": "answer",
+            "sanitize": false,
+            "preserve_native_type": false
+          }
+        ],
+        "tool_call_sound": "elevator2",
+        "tool_call_sound_behavior": "always",
+        "tool_error_handling_mode": "auto",
+        "dynamic_variables": {
+          "dynamic_variable_placeholders": {
+            "call_id": "",
+            "call_public_id": "",
+            "live_help_request_id": "",
+            "live_help_slack_thread_ts": "",
+            "live_help_note_page_id": "",
+            "live_help_expires_at": "",
+            "owner_slack_member_id": "",
+            "owner_mention": "",
+            "owner_name": "",
+            "message_topic": "",
+            "system__conversation_id": "",
+            "system__conversation_history": ""
+          }
+        },
+        "execution_mode": "immediate",
+        "api_schema": {
+          "request_headers": {},
+          "url": "https://eipventures.app.n8n.cloud/webhook/rb-calls-live-help",
+          "method": "POST",
+          "path_params_schema": {},
+          "query_params_schema": null,
+          "request_body_schema": {
+            "type": "object",
+            "required": [
+              "action",
+              "call_id",
+              "help_request_id",
+              "slack_thread_ts",
+              "note_page_id",
+              "expires_at"
+            ],
+            "description": "Check the existing RB live-help request. Reuse IDs returned by request_creator_help or populated dynamic variables. n8n can recover the Slack thread if slack_thread_ts is missing or invalid.",
+            "properties": {
+              "action": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "",
+                "constant_value": "check"
+              },
+              "call_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_id",
+                "constant_value": ""
+              },
+              "call_public_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "call_public_id",
+                "constant_value": ""
+              },
+              "help_request_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "live_help_request_id",
+                "constant_value": ""
+              },
+              "slack_thread_ts": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "live_help_slack_thread_ts",
+                "constant_value": ""
+              },
+              "note_page_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "live_help_note_page_id",
+                "constant_value": ""
+              },
+              "expires_at": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "live_help_expires_at",
+                "constant_value": ""
+              },
+              "conversation_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "system__conversation_id",
+                "constant_value": ""
+              },
+              "transcript_excerpt": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "system__conversation_history",
+                "constant_value": ""
+              },
+              "owner_slack_member_id": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "owner_slack_member_id",
+                "constant_value": ""
+              },
+              "owner_mention": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "owner_mention",
+                "constant_value": ""
+              },
+              "owner_name": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "owner_name",
+                "constant_value": ""
+              },
+              "message_topic": {
+                "type": "string",
+                "description": "",
+                "enum": null,
+                "is_system_provided": false,
+                "dynamic_variable": "message_topic",
+                "constant_value": ""
+              }
+            }
+          },
+          "response_body_schema": null,
+          "content_type": "application/json",
+          "auth_connection": null
+        }
+      },
+      "access_info": {
+        "is_creator": true,
+        "creator_name": "Eran Peer",
+        "creator_email": "eran@eip.ventures",
+        "role": "admin",
+        "anonymous_access_level_override": null
+      },
+      "usage_stats": {
+        "total_calls": 0,
+        "avg_latency_secs": 0
+      },
+      "response_mocks": null
+    }
+  ]
+}

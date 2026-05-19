@@ -147,3 +147,11 @@ User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pay
 | --- | --- |
 | `https://www.richmondblackwood.com/en` | Public website identified; direct extraction limited by JS rendering |
 | Public company/web references | Not yet imported as truth |
+
+## Automation Platform Sources
+
+| Source | Scope | Import status |
+| --- | --- | --- |
+| n8n cloud workspace `eipventures.app.n8n.cloud` | RB calling bot validation/review, voice execution, live help, and ElevenLabs event workflows | Provisional map, live workflow updates, and pinned synthetic execution results recorded; credentials and live execution logs excluded |
+| ElevenLabs workspace agent `agent_2001kq39ea0hf5yb86c4a7hj9gp1` | RB Call Bot prompt, workflow, tools, phone numbers, and conversations | Provisional map, live-help/IVR workflow updates, and readback results recorded; API keys, call recordings, transcripts, and private phone details excluded |
+| Notion Calls database `342e413013148012964ad969a860dd93` | RB authority call request form and linked Company, Individual, Contact schemas | Used as provisional source context for `rb-authority-call-setup`; no client call payloads imported |

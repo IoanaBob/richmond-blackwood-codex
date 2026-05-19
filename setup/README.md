@@ -10,6 +10,8 @@ Status: provisional.
 - Gmail: required for accounting, invoice, and client communication context.
 - SignNow: optional/generic helper support for document upload, review links, and status checks where RB uses SignNow.
 - WhatsApp MCP: optional local MCP support for user-controlled WhatsApp access.
+- ElevenLabs MCP: optional local MCP support for voice/audio/agent work.
+- n8n MCP: optional remote MCP support for inspecting, testing, and building exposed n8n workflows.
 - GitHub or local git: required for repo sync if publishing changes.
 
 ## Confirmed On 2026-05-04
@@ -60,6 +62,8 @@ Local-only files belong under `.codex-local/` or `.env`; both are ignored by git
 Optional repo-pinned MCP setup guides live under `setup/mcp/`.
 
 - WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
+- ElevenLabs and n8n MCP: [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md). This enables local Codex access to the official ElevenLabs MCP server and remote n8n instance-level MCP. API keys, MCP tokens, webhook secrets, live instance URLs if private, client call transcripts, and personal Codex config stay local and ignored.
+- ElevenLabs API fallback: use only when the current MCP tools cannot perform a required live edit, and only after explicit user approval for the exact production change.
 
 Quick WhatsApp MCP install path:
 
@@ -71,6 +75,22 @@ setup/mcp/start-whatsapp-bridge.sh start
 ```
 
 Scan the QR code from WhatsApp Linked Devices if prompted, add the MCP server snippet from [setup/mcp/whatsapp.md](mcp/whatsapp.md) to `~/.codex/config.toml`, then restart or reload Codex. The background bridge log and PID are stored under `.codex-local/`.
+
+Quick ElevenLabs and n8n MCP setup path:
+
+```sh
+which uvx
+```
+
+Add the placeholder snippets from [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md) to `~/.codex/config.toml`, replace the placeholders locally with the ElevenLabs API key and n8n MCP URL/token, enable MCP on the relevant n8n workflows, then restart or reload Codex.
+
+For the RB calling bot runtime, select an ElevenLabs credential on n8n node `Make ElevenLabs Outbound Call`, then set n8n variables `ELEVENLABS_AGENT_PHONE_NUMBER_ID` and `ELEVENLABS_API_KEY`. `RB Calls ElevenLabs Events` uses `ELEVENLABS_API_KEY` directly for the no-answer watchdog conversation lookup because n8n MCP workflow updates can drop HTTP Request credentials. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
+
+`RB Calls Live Help` also needs the n8n Slack credential to read the RB calls Slack thread. For private Slack channels, add `groups:history` to the Slack app used by the n8n credential, reinstall the app, and reconnect or refresh the credential. Without that scope, Slack replies can be visible in Slack/Codex but unreadable to n8n.
+
+Current calling-bot startup shape: `RB Calls Voice Execution` strips raw JSON blobs before calling ElevenLabs and sends a plain-text startup brief with direct Company/Individual/Contact summaries plus tax registration/reference context. Other approved records are fetched during the call through n8n workflow `RB Calls Context Lookup`; the ElevenLabs `lookup_call_context` tool runs through the dedicated `Context Lookup Tool` workflow node (`node_rb_lookup_tool_v1`) and `Context Lookup Result` handler (`node_rb_lookup_result_v1`), so the agent should complete Notion lookup before Slack live-help escalation.
+
+If ElevenLabs tool schema or agent workflow edits are not exposed through MCP, follow the API fallback rules in [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md): read first, patch narrowly, never print/store the API key, and verify by re-reading the live agent/tool state.
 
 ## Connector Safety
 

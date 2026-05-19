@@ -1,0 +1,2581 @@
+{
+  "synced_at": "2026-05-19T14:30:14.447Z",
+  "status": "provisional",
+  "source": "n8n MCP get_workflow_details",
+  "review": "Compare with source-controlled workflow and publish intentionally after review.",
+  "workflow": {
+    "workflow": {
+      "id": "qtwbaCjt8lqqjS6o",
+      "name": "RB Calls Live Help",
+      "active": true,
+      "isArchived": false,
+      "versionId": "9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1",
+      "activeVersionId": "9d2ea23e-ffaa-451e-b98a-8628fa9a9ac1",
+      "triggerCount": 1,
+      "createdAt": "2026-05-08T19:11:04.174Z",
+      "updatedAt": "2026-05-13T13:46:06.689Z",
+      "settings": {
+        "executionOrder": "v1",
+        "availableInMCP": true,
+        "binaryMode": "separate"
+      },
+      "connections": {
+        "ElevenLabs Live Help Webhook": {
+          "main": [
+            [
+              {
+                "node": "Normalize Help Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize Help Request": {
+          "main": [
+            [
+              {
+                "node": "Is Valid Request?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Is Valid Request?": {
+          "main": [
+            [
+              {
+                "node": "Is Check Request?",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Respond Invalid Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Is Check Request?": {
+          "main": [
+            [
+              {
+                "node": "Has Supplied Thread TS?",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Post Help Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Has Supplied Thread TS?": {
+          "main": [
+            [
+              {
+                "node": "Resolve Help Thread",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Get Recent Help Threads",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Resolve Help Thread": {
+          "main": [
+            [
+              {
+                "node": "Has Help Thread?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Has Help Thread?": {
+          "main": [
+            [
+              {
+                "node": "Get Help Thread Replies",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Extract Missing Thread Status",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get Help Thread Replies": {
+          "main": [
+            [
+              {
+                "node": "Extract Check Status",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Extract Check Status": {
+          "main": [
+            [
+              {
+                "node": "Is Terminal Status?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Is Terminal Status?": {
+          "main": [
+            [
+              {
+                "node": "Update Help Note Terminal",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Wait Before Re-reading Help Thread",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Help Note Terminal": {
+          "main": [
+            [
+              {
+                "node": "Update Call Help Terminal",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Call Help Terminal": {
+          "main": [
+            [
+              {
+                "node": "Respond Check Final",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait Before Re-reading Help Thread": {
+          "main": [
+            [
+              {
+                "node": "Get Help Thread Replies After Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get Help Thread Replies After Wait": {
+          "main": [
+            [
+              {
+                "node": "Extract Check Status After Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Extract Check Status After Wait": {
+          "main": [
+            [
+              {
+                "node": "Is Terminal Status After Wait?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Is Terminal Status After Wait?": {
+          "main": [
+            [
+              {
+                "node": "Update Help Note Terminal After Wait",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Respond Check Pending After Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Help Note Terminal After Wait": {
+          "main": [
+            [
+              {
+                "node": "Update Call Help Terminal After Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Call Help Terminal After Wait": {
+          "main": [
+            [
+              {
+                "node": "Respond Check Final After Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Extract Missing Thread Status": {
+          "main": [
+            [
+              {
+                "node": "Is Missing Thread Terminal Status?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Is Missing Thread Terminal Status?": {
+          "main": [
+            [
+              {
+                "node": "Update Missing Thread Help Note Terminal",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Wait Before Pending Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Missing Thread Help Note Terminal": {
+          "main": [
+            [
+              {
+                "node": "Update Missing Thread Call Help Terminal",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Missing Thread Call Help Terminal": {
+          "main": [
+            [
+              {
+                "node": "Respond Missing Thread Final",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait Before Pending Response": {
+          "main": [
+            [
+              {
+                "node": "Respond Missing Thread Pending",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get Recent Help Threads": {
+          "main": [
+            [
+              {
+                "node": "Resolve Help Thread",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Post Help Request": {
+          "main": [
+            [
+              {
+                "node": "Create Pending Help Note",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Create Pending Help Note": {
+          "main": [
+            [
+              {
+                "node": "Update Call Help Requested",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update Call Help Requested": {
+          "main": [
+            [
+              {
+                "node": "Respond Start Pending",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "rb-calls-live-help",
+            "responseMode": "responseNode",
+            "options": {
+              "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
+            }
+          },
+          "id": "a54ecdf5-e857-46f2-922e-d51b54d7860f",
+          "name": "ElevenLabs Live Help Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1408,
+            0
+          ],
+          "webhookId": "4cd4ba3f-66ed-4f5d-8a25-85312a7806e5"
+        },
+        {
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "jsCode": "const body = $json.body || {};\nconst now = new Date();\nconst nowIso = now.toISOString();\nconst LF = String.fromCharCode(10);\nconst CR = String.fromCharCode(13);\nconst TAB = String.fromCharCode(9);\nfunction parse(value) {\n  if (!value) return {};\n  if (typeof value === 'object') return value;\n  try { return JSON.parse(String(value)); } catch (error) { return {}; }\n}\nfunction clean(value) {\n  return String(value || '').replaceAll(CR, ' ').replaceAll(LF, ' ').replaceAll(TAB, ' ').split(' ').filter(Boolean).join(' ').trim();\n}\nfunction normalizeSlackUserId(value) {\n  let text = String(value || '').trim();\n  if (text.startsWith('<@')) text = text.slice(2);\n  if (text.endsWith('>')) text = text.slice(0, -1);\n  const pipeAt = text.indexOf('|');\n  if (pipeAt >= 0) text = text.slice(0, pipeAt);\n  return text.replaceAll('<', '').replaceAll('@', '').replaceAll('>', '').trim();\n}\nfunction isUsableThreadTs(value) {\n  const text = String(value || '').trim();\n  return /^[0-9]{10}[.][0-9]{6}$/.test(text);\n}\nfunction transcript(value) {\n  if (!value) return '';\n  const parsed = parse(value);\n  const entries = Array.isArray(parsed.entries) ? parsed.entries : [];\n  if (entries.length) {\n    return entries.slice(-12).map((entry) => {\n      const role = String(entry.role || '').toLowerCase() === 'agent' ? 'Agent' : 'Authority/contact';\n      return '- ' + role + ': ' + (clean(entry.message || entry.text).slice(0, 520) || '(no transcript text)');\n    }).join(LF).slice(0, 1900);\n  }\n  return String(value).replaceAll(CR, '').split(LF).map(clean).filter(Boolean).slice(-18).join(LF).slice(0, 1900);\n}\nconst dynamic = body.dynamic_variables || body.conversation_initiation_client_data?.dynamic_variables || {};\nconst rawContextPack = body.context_pack ?? body.context ?? body.context_pack_json ?? dynamic.context_pack ?? {};\nconst parsedContextPack = parse(rawContextPack);\nconst contextPackText = typeof rawContextPack === 'string' ? rawContextPack : JSON.stringify(rawContextPack || {});\nconst actionRaw = String(body.action || body.mode || '').trim().toLowerCase();\nconst isCheck = actionRaw === 'check' || Boolean(body.help_request_id && !body.question);\nconst startedAt = String(body.started_at || nowIso).trim();\nconst startedAtMs = Date.parse(startedAt);\nconst safeStartedAtMs = Number.isFinite(startedAtMs) ? startedAtMs : now.getTime();\nconst expiresDefault = new Date(safeStartedAtMs + 300000).toISOString();\nconst expiresRawInput = String(body.expires_at || '').trim();\nconst expiresRawMs = Date.parse(expiresRawInput);\nconst isPlaceholderExpiresAt = !Number.isFinite(expiresRawMs) || expiresRawMs < Date.parse('2021-01-01T00:00:00.000Z');\nconst expiresAt = isPlaceholderExpiresAt ? expiresDefault : expiresRawInput;\nconst helpRequestId = String(body.help_request_id || ['help', body.call_public_id || body.call_id || 'call', Date.now()].join('-')).trim();\nconst question = String(body.question || body.help_question || '').trim();\nconst rawTranscript = String(body.transcript_excerpt || body.transcript || '').trim();\nconst formattedTranscript = transcript(rawTranscript);\nconst callId = String(body.call_id || body.call_page_id || dynamic.call_id || '').trim();\nconst callUrl = String(body.call_url || dynamic.call_url || parsedContextPack.call?.url || '').trim();\nconst callPublicId = String(body.call_public_id || dynamic.call_public_id || callId || 'unknown-call').trim();\nconst conversationId = String(body.conversation_id || body.system__conversation_id || dynamic.system__conversation_id || '').trim();\nconst slackThreadTs = String(body.slack_thread_ts || '').trim();\nconst notePageId = String(body.note_page_id || '').trim();\nconst ownerSlackId = normalizeSlackUserId(body.owner_slack_member_id || dynamic.owner_slack_member_id || parsedContextPack.owner?.slack_member_id || '');\nconst ownerName = String(body.owner_name || dynamic.owner_name || parsedContextPack.owner?.name || '').trim();\nconst ownerMentionRaw = String(body.owner_mention || dynamic.owner_mention || parsedContextPack.owner?.mention || '').trim();\nconst ownerMention = ownerSlackId ? '<@' + ownerSlackId + '>' : (ownerMentionRaw || ownerName || 'owner not resolved');\nconst messageTopic = String(body.message_topic || dynamic.message_topic || parsedContextPack.message_topic || parsedContextPack.call?.properties?.['Short reason'] || parsedContextPack.call?.properties?.['Reason for call'] || parsedContextPack.call?.properties?.['Main question'] || question || 'Live help request').trim().slice(0, 240);\nconst errors = [];\nif (isCheck) {\n  if (!helpRequestId) errors.push('help_request_id is required for check requests.');\n  if (!notePageId) errors.push('note_page_id is required for check requests.');\n  if (!callId) errors.push('call_id is required for check requests.');\n} else {\n  if (!callId) errors.push('call_id is required for start requests.');\n  if (!question) errors.push('question is required for start requests.');\n}\nconst slackText = [\n  '[' + callPublicId + '] [live-help] Owner: ' + ownerMention,\n  'Topic: ' + messageTopic,\n  'Call: ' + (callUrl || callPublicId),\n  conversationId ? 'ElevenLabs conversation: ' + conversationId : '',\n  'Help request ID: ' + helpRequestId,\n  '',\n  '*Question from the agent*',\n  question || '(No question provided)',\n  formattedTranscript ? ['', '*Current transcript excerpt (latest turns)*', formattedTranscript].join(LF) : '',\n  '',\n  '*How to answer*',\n  '- Preferred: reply in this thread with answer: <what the agent should say>.',\n  '- Plain replies are accepted from the owner, approved helpers, or any human if the owner could not be resolved.',\n  '- Keep discussion out of the answer text; the bot may pass it directly to the caller.',\n  '',\n  'The caller can be held for up to 5 minutes. Bot checks reuse this same thread every 30 seconds and will not post duplicate Slack messages.',\n].filter(Boolean).join(LF);\nreturn {\n  action: isCheck ? 'check' : 'start',\n  is_check: isCheck,\n  valid_request: errors.length === 0,\n  validation_error: errors.join(' '),\n  received_at: nowIso,\n  started_at: startedAt,\n  expires_at: expiresAt,\n  ignored_placeholder_expires_at: isPlaceholderExpiresAt && Boolean(expiresRawInput),\n  help_request_id: helpRequestId,\n  call_page_id: callId,\n  call_url: callUrl,\n  call_public_id: callPublicId,\n  conversation_id: conversationId,\n  owner_mention: ownerMention,\n  owner_name: ownerName,\n  owner_slack_member_id: ownerSlackId,\n  message_topic: messageTopic,\n  question,\n  transcript_excerpt: formattedTranscript || rawTranscript.slice(0, 1800),\n  transcript_raw: rawTranscript.slice(0, 2500),\n  context_pack: contextPackText.slice(0, 3500),\n  slack_thread_ts: slackThreadTs,\n  has_valid_slack_thread_ts: isUsableThreadTs(slackThreadTs),\n  note_page_id: notePageId,\n  max_wait_seconds: 300,\n  check_after_seconds: 30,\n  slack_text: slackText,\n};"
+          },
+          "id": "b4c3c58c-e2ff-4475-b174-f146a2d49449",
+          "name": "Normalize Help Request",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1120,
+            0
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "valid-request",
+                  "leftValue": "={{ $json.valid_request }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "6c2f578f-ee8a-49e0-93c2-8dde736b616c",
+          "name": "Is Valid Request?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -848,
+            0
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "is-check",
+                  "leftValue": "={{ $json.is_check }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "c568b9d6-f333-4aeb-87b4-26a05292c9ff",
+          "name": "Is Check Request?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -560,
+            0
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "has-supplied-thread-ts",
+                  "leftValue": "={{ $json.has_valid_slack_thread_ts }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "cf41aca3-8f97-432b-8828-8758f92d5a0b",
+          "name": "Has Supplied Thread TS?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -384,
+            -384
+          ]
+        },
+        {
+          "parameters": {
+            "jsCode": "const request = $('Normalize Help Request').item.json;\nfunction isUsableThreadTs(value) { return /^[0-9]{10}[.][0-9]{6}$/.test(String(value || '').trim()); }\nfunction score(message) {\n  const text = String(message.text || '');\n  if (!text.includes('[live-help]')) return 0;\n  let value = 1;\n  if (request.help_request_id && text.includes(request.help_request_id)) value += 100;\n  if (request.conversation_id && text.includes(request.conversation_id)) value += 50;\n  if (request.call_public_id && text.includes(request.call_public_id)) value += 25;\n  if (request.call_page_id && text.includes(request.call_page_id)) value += 10;\n  return value;\n}\nconst supplied = isUsableThreadTs(request.slack_thread_ts) ? request.slack_thread_ts : '';\nconst messages = $input.all().map((item) => item.json || {});\nconst ranked = messages\n  .map((message) => ({ message, score: score(message) }))\n  .filter((entry) => entry.score > 1 && isUsableThreadTs(entry.message.ts))\n  .sort((a, b) => b.score - a.score || String(b.message.ts).localeCompare(String(a.message.ts)));\nconst recovered = ranked[0]?.message?.ts || '';\nconst slackThreadTs = supplied || recovered;\nreturn [{\n  json: {\n    ...request,\n    slack_thread_ts: slackThreadTs,\n    has_help_thread: Boolean(slackThreadTs),\n    recovered_thread_ts: Boolean(!supplied && recovered),\n    thread_recovery_source: supplied ? 'supplied' : (recovered ? 'channel_history' : 'not_found'),\n  },\n}];"
+          },
+          "id": "cd634ff2-48da-4ee9-b68f-e88a4cca7fb6",
+          "name": "Resolve Help Thread",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            80,
+            -496
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "has-help-thread",
+                  "leftValue": "={{ $json.has_help_thread }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "38bc0080-144c-4104-a0c4-35c558fef23e",
+          "name": "Has Help Thread?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            320,
+            -496
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "channel",
+            "operation": "replies",
+            "channelId": {
+              "__rl": true,
+              "value": "C0ASXSTFSVA",
+              "mode": "id",
+              "cachedResultName": "rb-calls"
+            },
+            "ts": "={{ $(\"Resolve Help Thread\").item.json.slack_thread_ts }}",
+            "returnAll": true,
+            "filters": {}
+          },
+          "id": "07e57f83-7149-4f75-8b78-9c692acc3fac",
+          "name": "Get Help Thread Replies",
+          "type": "n8n-nodes-base.slack",
+          "typeVersion": 2.4,
+          "position": [
+            592,
+            -512
+          ],
+          "alwaysOutputData": true,
+          "webhookId": "bf6b925e-15fb-4bc5-bb1b-e65351b4db1f",
+          "onError": "continueRegularOutput"
+        },
+        {
+          "parameters": {
+            "jsCode": "const request = $('Resolve Help Thread').item.json;\nconst parentTs = String(request.slack_thread_ts || '');\nconst replies = $input.all().map((item) => item.json || {});\nconst readErrors = replies.map((reply) => String(reply.error || reply.message || '')).filter((message) => message.includes('Slack credential') || message.includes('Oauth Scopes') || message.includes('missing required'));\nconst LF = String.fromCharCode(10);\nconst CR = String.fromCharCode(13);\nconst TAB = String.fromCharCode(9);\nfunction normalizeSlackUserId(value) {\n  let text = String(value || '').trim();\n  if (text.startsWith('<@')) text = text.slice(2);\n  if (text.endsWith('>')) text = text.slice(0, -1);\n  const pipeAt = text.indexOf('|');\n  if (pipeAt >= 0) text = text.slice(0, pipeAt);\n  return text.replaceAll('<', '').replaceAll('@', '').replaceAll('>', '').trim();\n}\nfunction ownerIdFromText(text) {\n  const source = String(text || '');\n  const labelAt = source.indexOf('Owner:');\n  if (labelAt < 0) return '';\n  const mentionAt = source.indexOf('<@', labelAt);\n  if (mentionAt < 0) return '';\n  const end = source.indexOf('>', mentionAt);\n  if (end < 0) return '';\n  return normalizeSlackUserId(source.slice(mentionAt, end + 1));\n}\nfunction stripMentions(text) {\n  let out = String(text || '');\n  while (out.includes('<@')) {\n    const start = out.indexOf('<@');\n    const end = out.indexOf('>', start);\n    if (end < 0) break;\n    out = out.slice(0, start) + out.slice(end + 1);\n  }\n  return out.replaceAll(CR, ' ').replaceAll(LF, ' ').replaceAll(TAB, ' ').split(' ').filter(Boolean).join(' ').trim();\n}\nfunction tsToMs(ts) {\n  const parts = String(ts || '0').split('.');\n  const seconds = Number(parts[0]);\n  const millis = Number((parts[1] || '0').slice(0, 3).padEnd(3, '0'));\n  return Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 + (Number.isFinite(millis) ? millis : 0) : 0;\n}\nconst parent = replies.find((reply) => String(reply.ts || '') === parentTs) || {};\nconst ownerFromParent = ownerIdFromText(parent.text || '');\nconst ownerSlackId = normalizeSlackUserId(request.owner_slack_member_id || ownerFromParent || '');\nconst approvedRaw = typeof $vars !== 'undefined' && $vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS ? String($vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS) : '';\nconst approved = new Set(approvedRaw.split(',').map(normalizeSlackUserId).filter(Boolean));\nfunction isHuman(reply) {\n  const user = normalizeSlackUserId(reply.user || '');\n  if (!user || reply.bot_id || String(reply.ts || '') === parentTs) return false;\n  if (reply.subtype && reply.subtype !== 'thread_broadcast') return false;\n  return true;\n}\nfunction isPlainAllowed(reply) {\n  if (!ownerSlackId) return true;\n  if (reply.user === ownerSlackId) return true;\n  if (approved.size === 0) return true;\n  return approved.has(reply.user);\n}\nconst human = replies\n  .map((reply) => ({ ...reply, user: normalizeSlackUserId(reply.user || ''), text: stripMentions(reply.text || ''), ts: String(reply.ts || '') }))\n  .filter(isHuman)\n  .filter((reply) => reply.text)\n  .sort((a, b) => tsToMs(b.ts) - tsToMs(a.ts));\nconst explicit = human.find((reply) => reply.text.toLowerCase().startsWith('answer:'));\nconst plain = human.find((reply) => !reply.text.toLowerCase().startsWith('answer:') && isPlainAllowed(reply));\nconst selected = explicit || plain || null;\nconst usedPlainReply = Boolean(selected && !selected.text.toLowerCase().startsWith('answer:'));\nconst answerText = selected ? (usedPlainReply ? selected.text.trim() : selected.text.replace(/^answer:/i, '').trim()) : '';\nconst nowMs = Date.now();\nconst expiresAtMs = Date.parse(request.expires_at);\nconst safeExpiresAtMs = Number.isFinite(expiresAtMs) ? expiresAtMs : nowMs;\nconst secondsRemaining = Math.max(0, Math.ceil((safeExpiresAtMs - nowMs) / 1000));\nconst answerWasLate = Boolean(selected && tsToMs(selected.ts) > safeExpiresAtMs + 30000);\nconst hasUsableAnswer = Boolean(answerText && !answerWasLate);\nconst hasReadError = readErrors.length > 0;\nconst status = hasUsableAnswer ? 'answered' : (secondsRemaining <= 0 ? (hasReadError ? 'read_error' : 'timed_out') : 'pending');\nconst fallback = 'I am not able to confirm that reference right now. Please tell me what exact reference, document, or submission route you need, and our team will follow up if needed.';\nreturn [{\n  json: {\n    ...request,\n    owner_slack_member_id: ownerSlackId,\n    answer: hasUsableAnswer ? answerText : (status === 'timed_out' || status === 'read_error' ? fallback : ''),\n    answer_user: hasUsableAnswer ? selected.user : '',\n    answer_ts: hasUsableAnswer ? selected.ts : '',\n    answer_source: hasUsableAnswer ? (usedPlainReply ? 'plain_human_reply' : 'answer_prefix_reply') : '',\n    accepted_without_answer_prefix: Boolean(hasUsableAnswer && usedPlainReply),\n    status,\n    done: status !== 'pending',\n    should_record_terminal_status: status !== 'pending',\n    live_help_status: status === 'answered' ? 'Answered' : (status === 'timed_out' || status === 'read_error' ? 'Timed out' : 'Requested'),\n    outcome_status: status === 'answered' ? 'Resolved' : 'Unanswered',\n    note_title: 'Live help - ' + request.call_public_id,\n    summary: status === 'answered' ? 'Live help answer returned to the agent.' : (status === 'read_error' ? 'Live help could not read Slack thread replies before the five-minute timeout: ' + readErrors.join('; ') : (status === 'timed_out' ? 'Live help timed out after five minutes before a team answer was posted.' : (hasReadError ? 'Live help still waiting for a team answer; the latest Slack read attempt had an error and will be retried.' : 'Live help still waiting for a team answer.'))),\n    seconds_remaining: secondsRemaining,\n    check_again_in_seconds: status === 'pending' ? 30 : 0,\n    late_answer_ignored: answerWasLate,\n    replies_seen: human.length,\n    newest_reply_ts_seen: human[0]?.ts || '',\n    thread_recovery_source: request.thread_recovery_source,\n    slack_read_error: readErrors.join('; '),\n  },\n}];"
+          },
+          "id": "9426b06d-8533-482c-a90f-e0271e2782d4",
+          "name": "Extract Check Status",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            880,
+            -512
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "terminal",
+                  "leftValue": "={{ $json.should_record_terminal_status }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "675b214e-d333-40b0-ac20-c518443ab009",
+          "name": "Is Terminal Status?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            1120,
+            -416
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $json.note_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Summary|rich_text",
+                  "textContent": "={{ $json.summary }}"
+                },
+                {
+                  "key": "Help Answer|rich_text",
+                  "textContent": "={{ $json.answer }}"
+                },
+                {
+                  "key": "Outcome Status|select",
+                  "selectValue": "={{ $json.outcome_status }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "c94973ad-90fe-4f9d-a7da-62c4b8a115b7",
+          "name": "Update Help Note Terminal",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            1408,
+            -768
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Is Terminal Status?\").item.json.call_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Live Help Status|select",
+                  "selectValue": "={{ $(\"Is Terminal Status?\").item.json.live_help_status }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "9f8f171c-8913-4d56-9b99-0d38abf2aced",
+          "name": "Update Call Help Terminal",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            1680,
+            -768
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: $(\"Is Terminal Status?\").item.json.status, done: true, answer: $(\"Is Terminal Status?\").item.json.answer, help_request_id: $(\"Is Terminal Status?\").item.json.help_request_id, seconds_remaining: $(\"Is Terminal Status?\").item.json.seconds_remaining, check_again_in_seconds: 0, late_answer_ignored: $(\"Is Terminal Status?\").item.json.late_answer_ignored, accepted_without_answer_prefix: $(\"Is Terminal Status?\").item.json.accepted_without_answer_prefix, answer_source: $(\"Is Terminal Status?\").item.json.answer_source, thread_recovery_source: $(\"Is Terminal Status?\").item.json.thread_recovery_source, speech_instruction: \"Use this answer now. Do not say the word None. Do not mention Slack, tools, workflow state, or internal notes. Do not keep the caller on hold after an answer is available.\" } }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "0fdee799-20d3-4f59-8f9b-9f119e82a964",
+          "name": "Respond Check Final",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            1968,
+            -768
+          ]
+        },
+        {
+          "parameters": {
+            "amount": 30
+          },
+          "id": "4d9874d5-4d85-4c4c-9541-bc3f873fbaa8",
+          "name": "Wait Before Re-reading Help Thread",
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1424,
+            -400
+          ],
+          "webhookId": "fbf55db0-34a2-499f-9392-a2d285dc66ca"
+        },
+        {
+          "parameters": {
+            "resource": "channel",
+            "operation": "replies",
+            "channelId": {
+              "__rl": true,
+              "value": "C0ASXSTFSVA",
+              "mode": "id",
+              "cachedResultName": "rb-calls"
+            },
+            "ts": "={{ $(\"Resolve Help Thread\").item.json.slack_thread_ts }}",
+            "returnAll": true,
+            "filters": {}
+          },
+          "id": "14c25b60-4b90-4ca8-a4c9-e0de050b2839",
+          "name": "Get Help Thread Replies After Wait",
+          "type": "n8n-nodes-base.slack",
+          "typeVersion": 2.4,
+          "position": [
+            2224,
+            -400
+          ],
+          "alwaysOutputData": true,
+          "webhookId": "9c36de35-e53c-484a-a325-70452055f592",
+          "onError": "continueRegularOutput"
+        },
+        {
+          "parameters": {
+            "jsCode": "const request = $('Resolve Help Thread').item.json;\nconst parentTs = String(request.slack_thread_ts || '');\nconst replies = $input.all().map((item) => item.json || {});\nconst readErrors = replies.map((reply) => String(reply.error || reply.message || '')).filter((message) => message.includes('Slack credential') || message.includes('Oauth Scopes') || message.includes('missing required'));\nconst LF = String.fromCharCode(10);\nconst CR = String.fromCharCode(13);\nconst TAB = String.fromCharCode(9);\nfunction normalizeSlackUserId(value) {\n  let text = String(value || '').trim();\n  if (text.startsWith('<@')) text = text.slice(2);\n  if (text.endsWith('>')) text = text.slice(0, -1);\n  const pipeAt = text.indexOf('|');\n  if (pipeAt >= 0) text = text.slice(0, pipeAt);\n  return text.replaceAll('<', '').replaceAll('@', '').replaceAll('>', '').trim();\n}\nfunction ownerIdFromText(text) {\n  const source = String(text || '');\n  const labelAt = source.indexOf('Owner:');\n  if (labelAt < 0) return '';\n  const mentionAt = source.indexOf('<@', labelAt);\n  if (mentionAt < 0) return '';\n  const end = source.indexOf('>', mentionAt);\n  if (end < 0) return '';\n  return normalizeSlackUserId(source.slice(mentionAt, end + 1));\n}\nfunction stripMentions(text) {\n  let out = String(text || '');\n  while (out.includes('<@')) {\n    const start = out.indexOf('<@');\n    const end = out.indexOf('>', start);\n    if (end < 0) break;\n    out = out.slice(0, start) + out.slice(end + 1);\n  }\n  return out.replaceAll(CR, ' ').replaceAll(LF, ' ').replaceAll(TAB, ' ').split(' ').filter(Boolean).join(' ').trim();\n}\nfunction tsToMs(ts) {\n  const parts = String(ts || '0').split('.');\n  const seconds = Number(parts[0]);\n  const millis = Number((parts[1] || '0').slice(0, 3).padEnd(3, '0'));\n  return Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 + (Number.isFinite(millis) ? millis : 0) : 0;\n}\nconst parent = replies.find((reply) => String(reply.ts || '') === parentTs) || {};\nconst ownerFromParent = ownerIdFromText(parent.text || '');\nconst ownerSlackId = normalizeSlackUserId(request.owner_slack_member_id || ownerFromParent || '');\nconst approvedRaw = typeof $vars !== 'undefined' && $vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS ? String($vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS) : '';\nconst approved = new Set(approvedRaw.split(',').map(normalizeSlackUserId).filter(Boolean));\nfunction isHuman(reply) {\n  const user = normalizeSlackUserId(reply.user || '');\n  if (!user || reply.bot_id || String(reply.ts || '') === parentTs) return false;\n  if (reply.subtype && reply.subtype !== 'thread_broadcast') return false;\n  return true;\n}\nfunction isPlainAllowed(reply) {\n  if (!ownerSlackId) return true;\n  if (reply.user === ownerSlackId) return true;\n  if (approved.size === 0) return true;\n  return approved.has(reply.user);\n}\nconst human = replies\n  .map((reply) => ({ ...reply, user: normalizeSlackUserId(reply.user || ''), text: stripMentions(reply.text || ''), ts: String(reply.ts || '') }))\n  .filter(isHuman)\n  .filter((reply) => reply.text)\n  .sort((a, b) => tsToMs(b.ts) - tsToMs(a.ts));\nconst explicit = human.find((reply) => reply.text.toLowerCase().startsWith('answer:'));\nconst plain = human.find((reply) => !reply.text.toLowerCase().startsWith('answer:') && isPlainAllowed(reply));\nconst selected = explicit || plain || null;\nconst usedPlainReply = Boolean(selected && !selected.text.toLowerCase().startsWith('answer:'));\nconst answerText = selected ? (usedPlainReply ? selected.text.trim() : selected.text.replace(/^answer:/i, '').trim()) : '';\nconst nowMs = Date.now();\nconst expiresAtMs = Date.parse(request.expires_at);\nconst safeExpiresAtMs = Number.isFinite(expiresAtMs) ? expiresAtMs : nowMs;\nconst secondsRemaining = Math.max(0, Math.ceil((safeExpiresAtMs - nowMs) / 1000));\nconst answerWasLate = Boolean(selected && tsToMs(selected.ts) > safeExpiresAtMs + 30000);\nconst hasUsableAnswer = Boolean(answerText && !answerWasLate);\nconst hasReadError = readErrors.length > 0;\nconst status = hasUsableAnswer ? 'answered' : (secondsRemaining <= 0 ? (hasReadError ? 'read_error' : 'timed_out') : 'pending');\nconst fallback = 'I am not able to confirm that reference right now. Please tell me what exact reference, document, or submission route you need, and our team will follow up if needed.';\nreturn [{\n  json: {\n    ...request,\n    owner_slack_member_id: ownerSlackId,\n    answer: hasUsableAnswer ? answerText : (status === 'timed_out' || status === 'read_error' ? fallback : ''),\n    answer_user: hasUsableAnswer ? selected.user : '',\n    answer_ts: hasUsableAnswer ? selected.ts : '',\n    answer_source: hasUsableAnswer ? (usedPlainReply ? 'plain_human_reply' : 'answer_prefix_reply') : '',\n    accepted_without_answer_prefix: Boolean(hasUsableAnswer && usedPlainReply),\n    status,\n    done: status !== 'pending',\n    should_record_terminal_status: status !== 'pending',\n    live_help_status: status === 'answered' ? 'Answered' : (status === 'timed_out' || status === 'read_error' ? 'Timed out' : 'Requested'),\n    outcome_status: status === 'answered' ? 'Resolved' : 'Unanswered',\n    note_title: 'Live help - ' + request.call_public_id,\n    summary: status === 'answered' ? 'Live help answer returned to the agent.' : (status === 'read_error' ? 'Live help could not read Slack thread replies before the five-minute timeout: ' + readErrors.join('; ') : (status === 'timed_out' ? 'Live help timed out after five minutes before a team answer was posted.' : (hasReadError ? 'Live help still waiting for a team answer; the latest Slack read attempt had an error and will be retried.' : 'Live help still waiting for a team answer.'))),\n    seconds_remaining: secondsRemaining,\n    check_again_in_seconds: status === 'pending' ? 30 : 0,\n    late_answer_ignored: answerWasLate,\n    replies_seen: human.length,\n    newest_reply_ts_seen: human[0]?.ts || '',\n    thread_recovery_source: request.thread_recovery_source,\n    slack_read_error: readErrors.join('; '),\n  },\n}];"
+          },
+          "id": "c568d704-4f0d-4671-9367-7960a1c9d990",
+          "name": "Extract Check Status After Wait",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            2512,
+            -400
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "terminal-after-wait",
+                  "leftValue": "={{ $json.should_record_terminal_status }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "3a986356-4742-476e-95b3-9b64e25896b2",
+          "name": "Is Terminal Status After Wait?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            2784,
+            -400
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $json.note_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Summary|rich_text",
+                  "textContent": "={{ $json.summary }}"
+                },
+                {
+                  "key": "Help Answer|rich_text",
+                  "textContent": "={{ $json.answer }}"
+                },
+                {
+                  "key": "Outcome Status|select",
+                  "selectValue": "={{ $json.outcome_status }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "df99cac5-89e7-4191-81ac-0c963a072551",
+          "name": "Update Help Note Terminal After Wait",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            3072,
+            -512
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Is Terminal Status After Wait?\").item.json.call_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Live Help Status|select",
+                  "selectValue": "={{ $(\"Is Terminal Status After Wait?\").item.json.live_help_status }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "5ebacfcd-8e51-49d1-b279-af8ae9823516",
+          "name": "Update Call Help Terminal After Wait",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            3344,
+            -512
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: $(\"Is Terminal Status After Wait?\").item.json.status, done: true, answer: $(\"Is Terminal Status After Wait?\").item.json.answer, help_request_id: $(\"Is Terminal Status After Wait?\").item.json.help_request_id, seconds_remaining: $(\"Is Terminal Status After Wait?\").item.json.seconds_remaining, check_again_in_seconds: 0, late_answer_ignored: $(\"Is Terminal Status After Wait?\").item.json.late_answer_ignored, accepted_without_answer_prefix: $(\"Is Terminal Status After Wait?\").item.json.accepted_without_answer_prefix, answer_source: $(\"Is Terminal Status After Wait?\").item.json.answer_source, thread_recovery_source: $(\"Is Terminal Status After Wait?\").item.json.thread_recovery_source, speech_instruction: \"Use this answer now. Do not say the word None. Do not mention Slack, tools, workflow state, or internal notes. Do not keep the caller on hold after an answer is available.\" } }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "d02b0628-0ec4-4257-af97-1363b3e4b5ae",
+          "name": "Respond Check Final After Wait",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            3632,
+            -512
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"pending\", done: false, answer: \"\", help_request_id: $(\"Is Terminal Status After Wait?\").item.json.help_request_id, seconds_remaining: $(\"Is Terminal Status After Wait?\").item.json.seconds_remaining, check_again_in_seconds: $(\"Is Terminal Status After Wait?\").item.json.check_again_in_seconds, max_wait_seconds: 300, thread_recovery_source: $(\"Is Terminal Status After Wait?\").item.json.thread_recovery_source, replies_seen: $(\"Is Terminal Status After Wait?\").item.json.replies_seen, newest_reply_ts_seen: $(\"Is Terminal Status After Wait?\").item.json.newest_reply_ts_seen, instruction: \"n8n waited 30 seconds and re-read the same Slack thread before returning pending. Do not say None. Do not announce every poll. Keep the caller on the line unless they speak or ask for status. Call check_creator_help again with the same IDs after the returned delay. Do not post a new Slack request.\", speech_instruction: \"Keep the caller on the line. Do not speak unless the caller asks. Do not say still checking, still here, I am checking, or None. Do not narrate this check.\" } }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "1a29b31c-a78c-46f3-9679-76bf857348b2",
+          "name": "Respond Check Pending After Wait",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            3072,
+            -272
+          ]
+        },
+        {
+          "parameters": {
+            "mode": "runOnceForEachItem",
+            "jsCode": "const request = $json;\nconst nowMs = Date.now();\nconst expiresAtMs = Date.parse(request.expires_at);\nconst safeExpiresAtMs = Number.isFinite(expiresAtMs) ? expiresAtMs : nowMs;\nconst secondsRemaining = Math.max(0, Math.ceil((safeExpiresAtMs - nowMs) / 1000));\nconst status = secondsRemaining <= 0 ? 'timed_out' : 'pending';\nconst fallback = 'No live team answer could be read because the Slack help thread was not resolved. Continue conservatively and collect the authority request for manual follow-up.';\nreturn {\n  ...request,\n  answer: status === 'timed_out' ? fallback : '',\n  status,\n  done: status !== 'pending',\n  should_record_terminal_status: status !== 'pending',\n  live_help_status: status === 'timed_out' ? 'Timed out' : 'Requested',\n  outcome_status: 'Unanswered',\n  note_title: 'Live help - ' + request.call_public_id,\n  summary: status === 'timed_out' ? 'Live help timed out because the Slack thread could not be resolved.' : 'Live help Slack thread not resolved yet.',\n  seconds_remaining: secondsRemaining,\n  check_again_in_seconds: status === 'pending' ? 30 : 0,\n  thread_recovery_source: 'not_found',\n};"
+          },
+          "id": "65f2125e-cc25-4128-83d9-a9c95f747f96",
+          "name": "Extract Missing Thread Status",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            576,
+            -192
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "missing-thread-terminal",
+                  "leftValue": "={{ $json.should_record_terminal_status }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "b4a9a4cf-e935-4de7-b8da-14a3f10b3afa",
+          "name": "Is Missing Thread Terminal Status?",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            864,
+            -192
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $json.note_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Summary|rich_text",
+                  "textContent": "={{ $json.summary }}"
+                },
+                {
+                  "key": "Help Answer|rich_text",
+                  "textContent": "={{ $json.answer }}"
+                },
+                {
+                  "key": "Outcome Status|select",
+                  "selectValue": "={{ $json.outcome_status }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "cb8aad07-181f-47d3-b20b-d829c448cd5e",
+          "name": "Update Missing Thread Help Note Terminal",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            1424,
+            176
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Is Missing Thread Terminal Status?\").item.json.call_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Live Help Status|select",
+                  "selectValue": "={{ $(\"Is Missing Thread Terminal Status?\").item.json.live_help_status }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "779479e3-33e0-41fa-9c2f-cea563d1dc03",
+          "name": "Update Missing Thread Call Help Terminal",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            1712,
+            176
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: $(\"Is Missing Thread Terminal Status?\").item.json.status, done: true, answer: $(\"Is Missing Thread Terminal Status?\").item.json.answer, help_request_id: $(\"Is Missing Thread Terminal Status?\").item.json.help_request_id, seconds_remaining: $(\"Is Missing Thread Terminal Status?\").item.json.seconds_remaining, check_again_in_seconds: 0, late_answer_ignored: $(\"Is Missing Thread Terminal Status?\").item.json.late_answer_ignored, accepted_without_answer_prefix: $(\"Is Missing Thread Terminal Status?\").item.json.accepted_without_answer_prefix, answer_source: $(\"Is Missing Thread Terminal Status?\").item.json.answer_source, thread_recovery_source: $(\"Is Missing Thread Terminal Status?\").item.json.thread_recovery_source, speech_instruction: \"Use this answer now if one exists. Do not say the word None. Do not mention Slack, tools, workflow state, or internal notes. If no answer was recoverable, collect the exact follow-up requirement and close conservatively.\" } }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "14a1fa20-d744-425f-9340-65d0e3450cb0",
+          "name": "Respond Missing Thread Final",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            2016,
+            176
+          ]
+        },
+        {
+          "parameters": {
+            "amount": 30
+          },
+          "id": "e4e890f3-d1e2-437e-a42e-e5819dc00695",
+          "name": "Wait Before Pending Response",
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1424,
+            -176
+          ],
+          "webhookId": "0c850c2b-041d-4cd5-ac02-2d6b41e5d2d9"
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"pending\", done: false, answer: \"\", help_request_id: $(\"Is Missing Thread Terminal Status?\").item.json.help_request_id, seconds_remaining: $(\"Is Missing Thread Terminal Status?\").item.json.seconds_remaining, check_again_in_seconds: $(\"Is Missing Thread Terminal Status?\").item.json.check_again_in_seconds, max_wait_seconds: 300, thread_recovery_source: $(\"Is Missing Thread Terminal Status?\").item.json.thread_recovery_source, instruction: \"This response was deliberately delayed by n8n for 30 seconds before being returned because the Slack thread could not be resolved. Do not say None. Do not announce every poll. Keep the caller on the line unless they speak or ask for status. Call check_creator_help again with the same IDs after the returned delay. Do not post a new Slack request.\", speech_instruction: \"Keep the caller on the line. Do not speak unless the caller asks. Do not say still checking, still here, I am checking, or None. Do not narrate this check.\" } }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "64bc5986-319e-43ae-8df5-88ba69ede3ca",
+          "name": "Respond Missing Thread Pending",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            1680,
+            -176
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "channel",
+            "operation": "history",
+            "channelId": {
+              "__rl": true,
+              "value": "C0ASXSTFSVA",
+              "mode": "id",
+              "cachedResultName": "rb-calls"
+            },
+            "limit": 100,
+            "filters": {}
+          },
+          "id": "52c14971-0f1e-4025-aeb4-1ec35bf8dc7b",
+          "name": "Get Recent Help Threads",
+          "type": "n8n-nodes-base.slack",
+          "typeVersion": 2.4,
+          "position": [
+            -112,
+            -368
+          ],
+          "alwaysOutputData": true,
+          "webhookId": "dd15ab18-53eb-4fc7-b310-583526bdd5f5",
+          "onError": "continueRegularOutput"
+        },
+        {
+          "parameters": {
+            "select": "channel",
+            "channelId": {
+              "__rl": true,
+              "value": "C0ASXSTFSVA",
+              "mode": "id",
+              "cachedResultName": "rb-calls"
+            },
+            "text": "={{ $json.slack_text }}",
+            "otherOptions": {
+              "includeLinkToWorkflow": false
+            }
+          },
+          "id": "1ae7e87f-fd41-4aa0-8142-c005c32e2db6",
+          "name": "Post Help Request",
+          "type": "n8n-nodes-base.slack",
+          "typeVersion": 2.4,
+          "position": [
+            -288,
+            352
+          ],
+          "webhookId": "917879f3-0f36-4a2c-ad2e-56b8edc49df8"
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "databaseId": {
+              "__rl": true,
+              "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+              "mode": "id",
+              "cachedResultName": "Call Notes"
+            },
+            "title": "={{ \"Live help - \" + $(\"Normalize Help Request\").item.json.call_public_id }}",
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Summary|rich_text",
+                  "textContent": "Live help request sent to Slack. Waiting for team answer."
+                },
+                {
+                  "key": "Transcript|rich_text",
+                  "textContent": "={{ $(\"Normalize Help Request\").item.json.transcript_excerpt || \"\" }}"
+                },
+                {
+                  "key": "Event Type|select",
+                  "selectValue": "Live help"
+                },
+                {
+                  "key": "Help Request ID|rich_text",
+                  "textContent": "={{ $(\"Normalize Help Request\").item.json.help_request_id }}"
+                },
+                {
+                  "key": "Help Question|rich_text",
+                  "textContent": "={{ $(\"Normalize Help Request\").item.json.question }}"
+                },
+                {
+                  "key": "Help Answer|rich_text"
+                },
+                {
+                  "key": "ElevenLabs Conversation ID|rich_text",
+                  "textContent": "={{ $(\"Normalize Help Request\").item.json.conversation_id }}"
+                },
+                {
+                  "key": "Outcome Status|select",
+                  "selectValue": "Unanswered"
+                },
+                {
+                  "key": "Call|relation",
+                  "relationValue": "={{ [$(\"Normalize Help Request\").item.json.call_page_id] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "7ddf0f33-73a9-42a4-ba9b-1e3c7dc2cb8d",
+          "name": "Create Pending Help Note",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            0,
+            352
+          ]
+        },
+        {
+          "parameters": {
+            "resource": "databasePage",
+            "operation": "update",
+            "pageId": {
+              "__rl": true,
+              "value": "={{ $(\"Normalize Help Request\").item.json.call_page_id }}",
+              "mode": "id"
+            },
+            "simple": false,
+            "propertiesUi": {
+              "propertyValues": [
+                {
+                  "key": "Live Help Status|select",
+                  "selectValue": "Requested"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "0d076850-862d-4779-b553-464ed12524c8",
+          "name": "Update Call Help Requested",
+          "type": "n8n-nodes-base.notion",
+          "typeVersion": 2.2,
+          "position": [
+            288,
+            352
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"pending\", answer: \"\", help_request_id: $(\"Normalize Help Request\").item.json.help_request_id, slack_channel: \"C0ASXSTFSVA\", slack_thread_ts: $(\"Post Help Request\").item.json.message?.ts || $(\"Post Help Request\").item.json.message_timestamp, note_page_id: $(\"Create Pending Help Note\").item.json.id, call_id: $(\"Normalize Help Request\").item.json.call_page_id, call_public_id: $(\"Normalize Help Request\").item.json.call_public_id, started_at: $(\"Normalize Help Request\").item.json.started_at, expires_at: $(\"Normalize Help Request\").item.json.expires_at, check_after_seconds: 30, max_wait_seconds: 300, instruction: \"Do not call request_creator_help again for this question. If speaking is needed, say one short hold phrase once. Then call check_creator_help with these returned IDs; n8n performs the 30-second wait before returning pending. n8n can recover the Slack thread if ElevenLabs sends placeholder IDs. Do not say None. Do not narrate checks unless the caller speaks.\", speech_instruction: \"If needed, say one short hold phrase once. Then use check_creator_help with the same IDs. Do not say still checking, still here, I am checking, or None.\" } }}",
+            "options": {
+              "responseCode": 200,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "d38d5d00-9bd4-4960-8853-a4941a31da32",
+          "name": "Respond Start Pending",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            560,
+            352
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ { status: \"invalid_request\", done: true, answer: \"\", error: $json.validation_error || \"Invalid live-help request.\", check_again_in_seconds: 0, speech_instruction: \"Do not continue polling. Explain internally that the live-help request was invalid.\" } }}",
+            "options": {
+              "responseCode": 400,
+              "responseHeaders": {
+                "entries": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          },
+          "id": "87712057-fad2-450a-9d13-63bfc6ec5543",
+          "name": "Respond Invalid Request",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            -560,
+            624
+          ]
+        }
+      ],
+      "activeVersion": {
+        "nodes": [
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "rb-calls-live-help",
+              "responseMode": "responseNode",
+              "options": {
+                "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
+              }
+            },
+            "id": "a54ecdf5-e857-46f2-922e-d51b54d7860f",
+            "name": "ElevenLabs Live Help Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -1408,
+              0
+            ],
+            "webhookId": "4cd4ba3f-66ed-4f5d-8a25-85312a7806e5"
+          },
+          {
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "jsCode": "const body = $json.body || {};\nconst now = new Date();\nconst nowIso = now.toISOString();\nconst LF = String.fromCharCode(10);\nconst CR = String.fromCharCode(13);\nconst TAB = String.fromCharCode(9);\nfunction parse(value) {\n  if (!value) return {};\n  if (typeof value === 'object') return value;\n  try { return JSON.parse(String(value)); } catch (error) { return {}; }\n}\nfunction clean(value) {\n  return String(value || '').replaceAll(CR, ' ').replaceAll(LF, ' ').replaceAll(TAB, ' ').split(' ').filter(Boolean).join(' ').trim();\n}\nfunction normalizeSlackUserId(value) {\n  let text = String(value || '').trim();\n  if (text.startsWith('<@')) text = text.slice(2);\n  if (text.endsWith('>')) text = text.slice(0, -1);\n  const pipeAt = text.indexOf('|');\n  if (pipeAt >= 0) text = text.slice(0, pipeAt);\n  return text.replaceAll('<', '').replaceAll('@', '').replaceAll('>', '').trim();\n}\nfunction isUsableThreadTs(value) {\n  const text = String(value || '').trim();\n  return /^[0-9]{10}[.][0-9]{6}$/.test(text);\n}\nfunction transcript(value) {\n  if (!value) return '';\n  const parsed = parse(value);\n  const entries = Array.isArray(parsed.entries) ? parsed.entries : [];\n  if (entries.length) {\n    return entries.slice(-12).map((entry) => {\n      const role = String(entry.role || '').toLowerCase() === 'agent' ? 'Agent' : 'Authority/contact';\n      return '- ' + role + ': ' + (clean(entry.message || entry.text).slice(0, 520) || '(no transcript text)');\n    }).join(LF).slice(0, 1900);\n  }\n  return String(value).replaceAll(CR, '').split(LF).map(clean).filter(Boolean).slice(-18).join(LF).slice(0, 1900);\n}\nconst dynamic = body.dynamic_variables || body.conversation_initiation_client_data?.dynamic_variables || {};\nconst rawContextPack = body.context_pack ?? body.context ?? body.context_pack_json ?? dynamic.context_pack ?? {};\nconst parsedContextPack = parse(rawContextPack);\nconst contextPackText = typeof rawContextPack === 'string' ? rawContextPack : JSON.stringify(rawContextPack || {});\nconst actionRaw = String(body.action || body.mode || '').trim().toLowerCase();\nconst isCheck = actionRaw === 'check' || Boolean(body.help_request_id && !body.question);\nconst startedAt = String(body.started_at || nowIso).trim();\nconst startedAtMs = Date.parse(startedAt);\nconst safeStartedAtMs = Number.isFinite(startedAtMs) ? startedAtMs : now.getTime();\nconst expiresDefault = new Date(safeStartedAtMs + 300000).toISOString();\nconst expiresRawInput = String(body.expires_at || '').trim();\nconst expiresRawMs = Date.parse(expiresRawInput);\nconst isPlaceholderExpiresAt = !Number.isFinite(expiresRawMs) || expiresRawMs < Date.parse('2021-01-01T00:00:00.000Z');\nconst expiresAt = isPlaceholderExpiresAt ? expiresDefault : expiresRawInput;\nconst helpRequestId = String(body.help_request_id || ['help', body.call_public_id || body.call_id || 'call', Date.now()].join('-')).trim();\nconst question = String(body.question || body.help_question || '').trim();\nconst rawTranscript = String(body.transcript_excerpt || body.transcript || '').trim();\nconst formattedTranscript = transcript(rawTranscript);\nconst callId = String(body.call_id || body.call_page_id || dynamic.call_id || '').trim();\nconst callUrl = String(body.call_url || dynamic.call_url || parsedContextPack.call?.url || '').trim();\nconst callPublicId = String(body.call_public_id || dynamic.call_public_id || callId || 'unknown-call').trim();\nconst conversationId = String(body.conversation_id || body.system__conversation_id || dynamic.system__conversation_id || '').trim();\nconst slackThreadTs = String(body.slack_thread_ts || '').trim();\nconst notePageId = String(body.note_page_id || '').trim();\nconst ownerSlackId = normalizeSlackUserId(body.owner_slack_member_id || dynamic.owner_slack_member_id || parsedContextPack.owner?.slack_member_id || '');\nconst ownerName = String(body.owner_name || dynamic.owner_name || parsedContextPack.owner?.name || '').trim();\nconst ownerMentionRaw = String(body.owner_mention || dynamic.owner_mention || parsedContextPack.owner?.mention || '').trim();\nconst ownerMention = ownerSlackId ? '<@' + ownerSlackId + '>' : (ownerMentionRaw || ownerName || 'owner not resolved');\nconst messageTopic = String(body.message_topic || dynamic.message_topic || parsedContextPack.message_topic || parsedContextPack.call?.properties?.['Short reason'] || parsedContextPack.call?.properties?.['Reason for call'] || parsedContextPack.call?.properties?.['Main question'] || question || 'Live help request').trim().slice(0, 240);\nconst errors = [];\nif (isCheck) {\n  if (!helpRequestId) errors.push('help_request_id is required for check requests.');\n  if (!notePageId) errors.push('note_page_id is required for check requests.');\n  if (!callId) errors.push('call_id is required for check requests.');\n} else {\n  if (!callId) errors.push('call_id is required for start requests.');\n  if (!question) errors.push('question is required for start requests.');\n}\nconst slackText = [\n  '[' + callPublicId + '] [live-help] Owner: ' + ownerMention,\n  'Topic: ' + messageTopic,\n  'Call: ' + (callUrl || callPublicId),\n  conversationId ? 'ElevenLabs conversation: ' + conversationId : '',\n  'Help request ID: ' + helpRequestId,\n  '',\n  '*Question from the agent*',\n  question || '(No question provided)',\n  formattedTranscript ? ['', '*Current transcript excerpt (latest turns)*', formattedTranscript].join(LF) : '',\n  '',\n  '*How to answer*',\n  '- Preferred: reply in this thread with answer: <what the agent should say>.',\n  '- Plain replies are accepted from the owner, approved helpers, or any human if the owner could not be resolved.',\n  '- Keep discussion out of the answer text; the bot may pass it directly to the caller.',\n  '',\n  'The caller can be held for up to 5 minutes. Bot checks reuse this same thread every 30 seconds and will not post duplicate Slack messages.',\n].filter(Boolean).join(LF);\nreturn {\n  action: isCheck ? 'check' : 'start',\n  is_check: isCheck,\n  valid_request: errors.length === 0,\n  validation_error: errors.join(' '),\n  received_at: nowIso,\n  started_at: startedAt,\n  expires_at: expiresAt,\n  ignored_placeholder_expires_at: isPlaceholderExpiresAt && Boolean(expiresRawInput),\n  help_request_id: helpRequestId,\n  call_page_id: callId,\n  call_url: callUrl,\n  call_public_id: callPublicId,\n  conversation_id: conversationId,\n  owner_mention: ownerMention,\n  owner_name: ownerName,\n  owner_slack_member_id: ownerSlackId,\n  message_topic: messageTopic,\n  question,\n  transcript_excerpt: formattedTranscript || rawTranscript.slice(0, 1800),\n  transcript_raw: rawTranscript.slice(0, 2500),\n  context_pack: contextPackText.slice(0, 3500),\n  slack_thread_ts: slackThreadTs,\n  has_valid_slack_thread_ts: isUsableThreadTs(slackThreadTs),\n  note_page_id: notePageId,\n  max_wait_seconds: 300,\n  check_after_seconds: 30,\n  slack_text: slackText,\n};"
+            },
+            "id": "b4c3c58c-e2ff-4475-b174-f146a2d49449",
+            "name": "Normalize Help Request",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -1120,
+              0
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "valid-request",
+                    "leftValue": "={{ $json.valid_request }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "6c2f578f-ee8a-49e0-93c2-8dde736b616c",
+            "name": "Is Valid Request?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -848,
+              0
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "is-check",
+                    "leftValue": "={{ $json.is_check }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "c568b9d6-f333-4aeb-87b4-26a05292c9ff",
+            "name": "Is Check Request?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -560,
+              0
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "has-supplied-thread-ts",
+                    "leftValue": "={{ $json.has_valid_slack_thread_ts }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "cf41aca3-8f97-432b-8828-8758f92d5a0b",
+            "name": "Has Supplied Thread TS?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -384,
+              -384
+            ]
+          },
+          {
+            "parameters": {
+              "jsCode": "const request = $('Normalize Help Request').item.json;\nfunction isUsableThreadTs(value) { return /^[0-9]{10}[.][0-9]{6}$/.test(String(value || '').trim()); }\nfunction score(message) {\n  const text = String(message.text || '');\n  if (!text.includes('[live-help]')) return 0;\n  let value = 1;\n  if (request.help_request_id && text.includes(request.help_request_id)) value += 100;\n  if (request.conversation_id && text.includes(request.conversation_id)) value += 50;\n  if (request.call_public_id && text.includes(request.call_public_id)) value += 25;\n  if (request.call_page_id && text.includes(request.call_page_id)) value += 10;\n  return value;\n}\nconst supplied = isUsableThreadTs(request.slack_thread_ts) ? request.slack_thread_ts : '';\nconst messages = $input.all().map((item) => item.json || {});\nconst ranked = messages\n  .map((message) => ({ message, score: score(message) }))\n  .filter((entry) => entry.score > 1 && isUsableThreadTs(entry.message.ts))\n  .sort((a, b) => b.score - a.score || String(b.message.ts).localeCompare(String(a.message.ts)));\nconst recovered = ranked[0]?.message?.ts || '';\nconst slackThreadTs = supplied || recovered;\nreturn [{\n  json: {\n    ...request,\n    slack_thread_ts: slackThreadTs,\n    has_help_thread: Boolean(slackThreadTs),\n    recovered_thread_ts: Boolean(!supplied && recovered),\n    thread_recovery_source: supplied ? 'supplied' : (recovered ? 'channel_history' : 'not_found'),\n  },\n}];"
+            },
+            "id": "cd634ff2-48da-4ee9-b68f-e88a4cca7fb6",
+            "name": "Resolve Help Thread",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              80,
+              -496
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "has-help-thread",
+                    "leftValue": "={{ $json.has_help_thread }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "38bc0080-144c-4104-a0c4-35c558fef23e",
+            "name": "Has Help Thread?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              320,
+              -496
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "channel",
+              "operation": "replies",
+              "channelId": {
+                "__rl": true,
+                "value": "C0ASXSTFSVA",
+                "mode": "id",
+                "cachedResultName": "rb-calls"
+              },
+              "ts": "={{ $(\"Resolve Help Thread\").item.json.slack_thread_ts }}",
+              "returnAll": true,
+              "filters": {}
+            },
+            "id": "07e57f83-7149-4f75-8b78-9c692acc3fac",
+            "name": "Get Help Thread Replies",
+            "type": "n8n-nodes-base.slack",
+            "typeVersion": 2.4,
+            "position": [
+              592,
+              -512
+            ],
+            "alwaysOutputData": true,
+            "webhookId": "bf6b925e-15fb-4bc5-bb1b-e65351b4db1f",
+            "onError": "continueRegularOutput"
+          },
+          {
+            "parameters": {
+              "jsCode": "const request = $('Resolve Help Thread').item.json;\nconst parentTs = String(request.slack_thread_ts || '');\nconst replies = $input.all().map((item) => item.json || {});\nconst readErrors = replies.map((reply) => String(reply.error || reply.message || '')).filter((message) => message.includes('Slack credential') || message.includes('Oauth Scopes') || message.includes('missing required'));\nconst LF = String.fromCharCode(10);\nconst CR = String.fromCharCode(13);\nconst TAB = String.fromCharCode(9);\nfunction normalizeSlackUserId(value) {\n  let text = String(value || '').trim();\n  if (text.startsWith('<@')) text = text.slice(2);\n  if (text.endsWith('>')) text = text.slice(0, -1);\n  const pipeAt = text.indexOf('|');\n  if (pipeAt >= 0) text = text.slice(0, pipeAt);\n  return text.replaceAll('<', '').replaceAll('@', '').replaceAll('>', '').trim();\n}\nfunction ownerIdFromText(text) {\n  const source = String(text || '');\n  const labelAt = source.indexOf('Owner:');\n  if (labelAt < 0) return '';\n  const mentionAt = source.indexOf('<@', labelAt);\n  if (mentionAt < 0) return '';\n  const end = source.indexOf('>', mentionAt);\n  if (end < 0) return '';\n  return normalizeSlackUserId(source.slice(mentionAt, end + 1));\n}\nfunction stripMentions(text) {\n  let out = String(text || '');\n  while (out.includes('<@')) {\n    const start = out.indexOf('<@');\n    const end = out.indexOf('>', start);\n    if (end < 0) break;\n    out = out.slice(0, start) + out.slice(end + 1);\n  }\n  return out.replaceAll(CR, ' ').replaceAll(LF, ' ').replaceAll(TAB, ' ').split(' ').filter(Boolean).join(' ').trim();\n}\nfunction tsToMs(ts) {\n  const parts = String(ts || '0').split('.');\n  const seconds = Number(parts[0]);\n  const millis = Number((parts[1] || '0').slice(0, 3).padEnd(3, '0'));\n  return Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 + (Number.isFinite(millis) ? millis : 0) : 0;\n}\nconst parent = replies.find((reply) => String(reply.ts || '') === parentTs) || {};\nconst ownerFromParent = ownerIdFromText(parent.text || '');\nconst ownerSlackId = normalizeSlackUserId(request.owner_slack_member_id || ownerFromParent || '');\nconst approvedRaw = typeof $vars !== 'undefined' && $vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS ? String($vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS) : '';\nconst approved = new Set(approvedRaw.split(',').map(normalizeSlackUserId).filter(Boolean));\nfunction isHuman(reply) {\n  const user = normalizeSlackUserId(reply.user || '');\n  if (!user || reply.bot_id || String(reply.ts || '') === parentTs) return false;\n  if (reply.subtype && reply.subtype !== 'thread_broadcast') return false;\n  return true;\n}\nfunction isPlainAllowed(reply) {\n  if (!ownerSlackId) return true;\n  if (reply.user === ownerSlackId) return true;\n  if (approved.size === 0) return true;\n  return approved.has(reply.user);\n}\nconst human = replies\n  .map((reply) => ({ ...reply, user: normalizeSlackUserId(reply.user || ''), text: stripMentions(reply.text || ''), ts: String(reply.ts || '') }))\n  .filter(isHuman)\n  .filter((reply) => reply.text)\n  .sort((a, b) => tsToMs(b.ts) - tsToMs(a.ts));\nconst explicit = human.find((reply) => reply.text.toLowerCase().startsWith('answer:'));\nconst plain = human.find((reply) => !reply.text.toLowerCase().startsWith('answer:') && isPlainAllowed(reply));\nconst selected = explicit || plain || null;\nconst usedPlainReply = Boolean(selected && !selected.text.toLowerCase().startsWith('answer:'));\nconst answerText = selected ? (usedPlainReply ? selected.text.trim() : selected.text.replace(/^answer:/i, '').trim()) : '';\nconst nowMs = Date.now();\nconst expiresAtMs = Date.parse(request.expires_at);\nconst safeExpiresAtMs = Number.isFinite(expiresAtMs) ? expiresAtMs : nowMs;\nconst secondsRemaining = Math.max(0, Math.ceil((safeExpiresAtMs - nowMs) / 1000));\nconst answerWasLate = Boolean(selected && tsToMs(selected.ts) > safeExpiresAtMs + 30000);\nconst hasUsableAnswer = Boolean(answerText && !answerWasLate);\nconst hasReadError = readErrors.length > 0;\nconst status = hasUsableAnswer ? 'answered' : (secondsRemaining <= 0 ? (hasReadError ? 'read_error' : 'timed_out') : 'pending');\nconst fallback = 'I am not able to confirm that reference right now. Please tell me what exact reference, document, or submission route you need, and our team will follow up if needed.';\nreturn [{\n  json: {\n    ...request,\n    owner_slack_member_id: ownerSlackId,\n    answer: hasUsableAnswer ? answerText : (status === 'timed_out' || status === 'read_error' ? fallback : ''),\n    answer_user: hasUsableAnswer ? selected.user : '',\n    answer_ts: hasUsableAnswer ? selected.ts : '',\n    answer_source: hasUsableAnswer ? (usedPlainReply ? 'plain_human_reply' : 'answer_prefix_reply') : '',\n    accepted_without_answer_prefix: Boolean(hasUsableAnswer && usedPlainReply),\n    status,\n    done: status !== 'pending',\n    should_record_terminal_status: status !== 'pending',\n    live_help_status: status === 'answered' ? 'Answered' : (status === 'timed_out' || status === 'read_error' ? 'Timed out' : 'Requested'),\n    outcome_status: status === 'answered' ? 'Resolved' : 'Unanswered',\n    note_title: 'Live help - ' + request.call_public_id,\n    summary: status === 'answered' ? 'Live help answer returned to the agent.' : (status === 'read_error' ? 'Live help could not read Slack thread replies before the five-minute timeout: ' + readErrors.join('; ') : (status === 'timed_out' ? 'Live help timed out after five minutes before a team answer was posted.' : (hasReadError ? 'Live help still waiting for a team answer; the latest Slack read attempt had an error and will be retried.' : 'Live help still waiting for a team answer.'))),\n    seconds_remaining: secondsRemaining,\n    check_again_in_seconds: status === 'pending' ? 30 : 0,\n    late_answer_ignored: answerWasLate,\n    replies_seen: human.length,\n    newest_reply_ts_seen: human[0]?.ts || '',\n    thread_recovery_source: request.thread_recovery_source,\n    slack_read_error: readErrors.join('; '),\n  },\n}];"
+            },
+            "id": "9426b06d-8533-482c-a90f-e0271e2782d4",
+            "name": "Extract Check Status",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              880,
+              -512
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "terminal",
+                    "leftValue": "={{ $json.should_record_terminal_status }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "675b214e-d333-40b0-ac20-c518443ab009",
+            "name": "Is Terminal Status?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              1120,
+              -416
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $json.note_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Summary|rich_text",
+                    "textContent": "={{ $json.summary }}"
+                  },
+                  {
+                    "key": "Help Answer|rich_text",
+                    "textContent": "={{ $json.answer }}"
+                  },
+                  {
+                    "key": "Outcome Status|select",
+                    "selectValue": "={{ $json.outcome_status }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "c94973ad-90fe-4f9d-a7da-62c4b8a115b7",
+            "name": "Update Help Note Terminal",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              1408,
+              -768
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Is Terminal Status?\").item.json.call_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Live Help Status|select",
+                    "selectValue": "={{ $(\"Is Terminal Status?\").item.json.live_help_status }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "9f8f171c-8913-4d56-9b99-0d38abf2aced",
+            "name": "Update Call Help Terminal",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              1680,
+              -768
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: $(\"Is Terminal Status?\").item.json.status, done: true, answer: $(\"Is Terminal Status?\").item.json.answer, help_request_id: $(\"Is Terminal Status?\").item.json.help_request_id, seconds_remaining: $(\"Is Terminal Status?\").item.json.seconds_remaining, check_again_in_seconds: 0, late_answer_ignored: $(\"Is Terminal Status?\").item.json.late_answer_ignored, accepted_without_answer_prefix: $(\"Is Terminal Status?\").item.json.accepted_without_answer_prefix, answer_source: $(\"Is Terminal Status?\").item.json.answer_source, thread_recovery_source: $(\"Is Terminal Status?\").item.json.thread_recovery_source, speech_instruction: \"Use this answer now. Do not say the word None. Do not mention Slack, tools, workflow state, or internal notes. Do not keep the caller on hold after an answer is available.\" } }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "0fdee799-20d3-4f59-8f9b-9f119e82a964",
+            "name": "Respond Check Final",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              1968,
+              -768
+            ]
+          },
+          {
+            "parameters": {
+              "amount": 30
+            },
+            "id": "4d9874d5-4d85-4c4c-9541-bc3f873fbaa8",
+            "name": "Wait Before Re-reading Help Thread",
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1424,
+              -400
+            ],
+            "webhookId": "fbf55db0-34a2-499f-9392-a2d285dc66ca"
+          },
+          {
+            "parameters": {
+              "resource": "channel",
+              "operation": "replies",
+              "channelId": {
+                "__rl": true,
+                "value": "C0ASXSTFSVA",
+                "mode": "id",
+                "cachedResultName": "rb-calls"
+              },
+              "ts": "={{ $(\"Resolve Help Thread\").item.json.slack_thread_ts }}",
+              "returnAll": true,
+              "filters": {}
+            },
+            "id": "14c25b60-4b90-4ca8-a4c9-e0de050b2839",
+            "name": "Get Help Thread Replies After Wait",
+            "type": "n8n-nodes-base.slack",
+            "typeVersion": 2.4,
+            "position": [
+              2224,
+              -400
+            ],
+            "alwaysOutputData": true,
+            "webhookId": "9c36de35-e53c-484a-a325-70452055f592",
+            "onError": "continueRegularOutput"
+          },
+          {
+            "parameters": {
+              "jsCode": "const request = $('Resolve Help Thread').item.json;\nconst parentTs = String(request.slack_thread_ts || '');\nconst replies = $input.all().map((item) => item.json || {});\nconst readErrors = replies.map((reply) => String(reply.error || reply.message || '')).filter((message) => message.includes('Slack credential') || message.includes('Oauth Scopes') || message.includes('missing required'));\nconst LF = String.fromCharCode(10);\nconst CR = String.fromCharCode(13);\nconst TAB = String.fromCharCode(9);\nfunction normalizeSlackUserId(value) {\n  let text = String(value || '').trim();\n  if (text.startsWith('<@')) text = text.slice(2);\n  if (text.endsWith('>')) text = text.slice(0, -1);\n  const pipeAt = text.indexOf('|');\n  if (pipeAt >= 0) text = text.slice(0, pipeAt);\n  return text.replaceAll('<', '').replaceAll('@', '').replaceAll('>', '').trim();\n}\nfunction ownerIdFromText(text) {\n  const source = String(text || '');\n  const labelAt = source.indexOf('Owner:');\n  if (labelAt < 0) return '';\n  const mentionAt = source.indexOf('<@', labelAt);\n  if (mentionAt < 0) return '';\n  const end = source.indexOf('>', mentionAt);\n  if (end < 0) return '';\n  return normalizeSlackUserId(source.slice(mentionAt, end + 1));\n}\nfunction stripMentions(text) {\n  let out = String(text || '');\n  while (out.includes('<@')) {\n    const start = out.indexOf('<@');\n    const end = out.indexOf('>', start);\n    if (end < 0) break;\n    out = out.slice(0, start) + out.slice(end + 1);\n  }\n  return out.replaceAll(CR, ' ').replaceAll(LF, ' ').replaceAll(TAB, ' ').split(' ').filter(Boolean).join(' ').trim();\n}\nfunction tsToMs(ts) {\n  const parts = String(ts || '0').split('.');\n  const seconds = Number(parts[0]);\n  const millis = Number((parts[1] || '0').slice(0, 3).padEnd(3, '0'));\n  return Number.isFinite(seconds) && seconds > 0 ? seconds * 1000 + (Number.isFinite(millis) ? millis : 0) : 0;\n}\nconst parent = replies.find((reply) => String(reply.ts || '') === parentTs) || {};\nconst ownerFromParent = ownerIdFromText(parent.text || '');\nconst ownerSlackId = normalizeSlackUserId(request.owner_slack_member_id || ownerFromParent || '');\nconst approvedRaw = typeof $vars !== 'undefined' && $vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS ? String($vars.RB_CALLS_LIVE_HELP_APPROVED_SLACK_USERS) : '';\nconst approved = new Set(approvedRaw.split(',').map(normalizeSlackUserId).filter(Boolean));\nfunction isHuman(reply) {\n  const user = normalizeSlackUserId(reply.user || '');\n  if (!user || reply.bot_id || String(reply.ts || '') === parentTs) return false;\n  if (reply.subtype && reply.subtype !== 'thread_broadcast') return false;\n  return true;\n}\nfunction isPlainAllowed(reply) {\n  if (!ownerSlackId) return true;\n  if (reply.user === ownerSlackId) return true;\n  if (approved.size === 0) return true;\n  return approved.has(reply.user);\n}\nconst human = replies\n  .map((reply) => ({ ...reply, user: normalizeSlackUserId(reply.user || ''), text: stripMentions(reply.text || ''), ts: String(reply.ts || '') }))\n  .filter(isHuman)\n  .filter((reply) => reply.text)\n  .sort((a, b) => tsToMs(b.ts) - tsToMs(a.ts));\nconst explicit = human.find((reply) => reply.text.toLowerCase().startsWith('answer:'));\nconst plain = human.find((reply) => !reply.text.toLowerCase().startsWith('answer:') && isPlainAllowed(reply));\nconst selected = explicit || plain || null;\nconst usedPlainReply = Boolean(selected && !selected.text.toLowerCase().startsWith('answer:'));\nconst answerText = selected ? (usedPlainReply ? selected.text.trim() : selected.text.replace(/^answer:/i, '').trim()) : '';\nconst nowMs = Date.now();\nconst expiresAtMs = Date.parse(request.expires_at);\nconst safeExpiresAtMs = Number.isFinite(expiresAtMs) ? expiresAtMs : nowMs;\nconst secondsRemaining = Math.max(0, Math.ceil((safeExpiresAtMs - nowMs) / 1000));\nconst answerWasLate = Boolean(selected && tsToMs(selected.ts) > safeExpiresAtMs + 30000);\nconst hasUsableAnswer = Boolean(answerText && !answerWasLate);\nconst hasReadError = readErrors.length > 0;\nconst status = hasUsableAnswer ? 'answered' : (secondsRemaining <= 0 ? (hasReadError ? 'read_error' : 'timed_out') : 'pending');\nconst fallback = 'I am not able to confirm that reference right now. Please tell me what exact reference, document, or submission route you need, and our team will follow up if needed.';\nreturn [{\n  json: {\n    ...request,\n    owner_slack_member_id: ownerSlackId,\n    answer: hasUsableAnswer ? answerText : (status === 'timed_out' || status === 'read_error' ? fallback : ''),\n    answer_user: hasUsableAnswer ? selected.user : '',\n    answer_ts: hasUsableAnswer ? selected.ts : '',\n    answer_source: hasUsableAnswer ? (usedPlainReply ? 'plain_human_reply' : 'answer_prefix_reply') : '',\n    accepted_without_answer_prefix: Boolean(hasUsableAnswer && usedPlainReply),\n    status,\n    done: status !== 'pending',\n    should_record_terminal_status: status !== 'pending',\n    live_help_status: status === 'answered' ? 'Answered' : (status === 'timed_out' || status === 'read_error' ? 'Timed out' : 'Requested'),\n    outcome_status: status === 'answered' ? 'Resolved' : 'Unanswered',\n    note_title: 'Live help - ' + request.call_public_id,\n    summary: status === 'answered' ? 'Live help answer returned to the agent.' : (status === 'read_error' ? 'Live help could not read Slack thread replies before the five-minute timeout: ' + readErrors.join('; ') : (status === 'timed_out' ? 'Live help timed out after five minutes before a team answer was posted.' : (hasReadError ? 'Live help still waiting for a team answer; the latest Slack read attempt had an error and will be retried.' : 'Live help still waiting for a team answer.'))),\n    seconds_remaining: secondsRemaining,\n    check_again_in_seconds: status === 'pending' ? 30 : 0,\n    late_answer_ignored: answerWasLate,\n    replies_seen: human.length,\n    newest_reply_ts_seen: human[0]?.ts || '',\n    thread_recovery_source: request.thread_recovery_source,\n    slack_read_error: readErrors.join('; '),\n  },\n}];"
+            },
+            "id": "c568d704-4f0d-4671-9367-7960a1c9d990",
+            "name": "Extract Check Status After Wait",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              2512,
+              -400
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "terminal-after-wait",
+                    "leftValue": "={{ $json.should_record_terminal_status }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "3a986356-4742-476e-95b3-9b64e25896b2",
+            "name": "Is Terminal Status After Wait?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              2784,
+              -400
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $json.note_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Summary|rich_text",
+                    "textContent": "={{ $json.summary }}"
+                  },
+                  {
+                    "key": "Help Answer|rich_text",
+                    "textContent": "={{ $json.answer }}"
+                  },
+                  {
+                    "key": "Outcome Status|select",
+                    "selectValue": "={{ $json.outcome_status }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "df99cac5-89e7-4191-81ac-0c963a072551",
+            "name": "Update Help Note Terminal After Wait",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              3072,
+              -512
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Is Terminal Status After Wait?\").item.json.call_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Live Help Status|select",
+                    "selectValue": "={{ $(\"Is Terminal Status After Wait?\").item.json.live_help_status }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "5ebacfcd-8e51-49d1-b279-af8ae9823516",
+            "name": "Update Call Help Terminal After Wait",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              3344,
+              -512
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: $(\"Is Terminal Status After Wait?\").item.json.status, done: true, answer: $(\"Is Terminal Status After Wait?\").item.json.answer, help_request_id: $(\"Is Terminal Status After Wait?\").item.json.help_request_id, seconds_remaining: $(\"Is Terminal Status After Wait?\").item.json.seconds_remaining, check_again_in_seconds: 0, late_answer_ignored: $(\"Is Terminal Status After Wait?\").item.json.late_answer_ignored, accepted_without_answer_prefix: $(\"Is Terminal Status After Wait?\").item.json.accepted_without_answer_prefix, answer_source: $(\"Is Terminal Status After Wait?\").item.json.answer_source, thread_recovery_source: $(\"Is Terminal Status After Wait?\").item.json.thread_recovery_source, speech_instruction: \"Use this answer now. Do not say the word None. Do not mention Slack, tools, workflow state, or internal notes. Do not keep the caller on hold after an answer is available.\" } }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "d02b0628-0ec4-4257-af97-1363b3e4b5ae",
+            "name": "Respond Check Final After Wait",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              3632,
+              -512
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"pending\", done: false, answer: \"\", help_request_id: $(\"Is Terminal Status After Wait?\").item.json.help_request_id, seconds_remaining: $(\"Is Terminal Status After Wait?\").item.json.seconds_remaining, check_again_in_seconds: $(\"Is Terminal Status After Wait?\").item.json.check_again_in_seconds, max_wait_seconds: 300, thread_recovery_source: $(\"Is Terminal Status After Wait?\").item.json.thread_recovery_source, replies_seen: $(\"Is Terminal Status After Wait?\").item.json.replies_seen, newest_reply_ts_seen: $(\"Is Terminal Status After Wait?\").item.json.newest_reply_ts_seen, instruction: \"n8n waited 30 seconds and re-read the same Slack thread before returning pending. Do not say None. Do not announce every poll. Keep the caller on the line unless they speak or ask for status. Call check_creator_help again with the same IDs after the returned delay. Do not post a new Slack request.\", speech_instruction: \"Keep the caller on the line. Do not speak unless the caller asks. Do not say still checking, still here, I am checking, or None. Do not narrate this check.\" } }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "1a29b31c-a78c-46f3-9679-76bf857348b2",
+            "name": "Respond Check Pending After Wait",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              3072,
+              -272
+            ]
+          },
+          {
+            "parameters": {
+              "mode": "runOnceForEachItem",
+              "jsCode": "const request = $json;\nconst nowMs = Date.now();\nconst expiresAtMs = Date.parse(request.expires_at);\nconst safeExpiresAtMs = Number.isFinite(expiresAtMs) ? expiresAtMs : nowMs;\nconst secondsRemaining = Math.max(0, Math.ceil((safeExpiresAtMs - nowMs) / 1000));\nconst status = secondsRemaining <= 0 ? 'timed_out' : 'pending';\nconst fallback = 'No live team answer could be read because the Slack help thread was not resolved. Continue conservatively and collect the authority request for manual follow-up.';\nreturn {\n  ...request,\n  answer: status === 'timed_out' ? fallback : '',\n  status,\n  done: status !== 'pending',\n  should_record_terminal_status: status !== 'pending',\n  live_help_status: status === 'timed_out' ? 'Timed out' : 'Requested',\n  outcome_status: 'Unanswered',\n  note_title: 'Live help - ' + request.call_public_id,\n  summary: status === 'timed_out' ? 'Live help timed out because the Slack thread could not be resolved.' : 'Live help Slack thread not resolved yet.',\n  seconds_remaining: secondsRemaining,\n  check_again_in_seconds: status === 'pending' ? 30 : 0,\n  thread_recovery_source: 'not_found',\n};"
+            },
+            "id": "65f2125e-cc25-4128-83d9-a9c95f747f96",
+            "name": "Extract Missing Thread Status",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              576,
+              -192
+            ]
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "missing-thread-terminal",
+                    "leftValue": "={{ $json.should_record_terminal_status }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "id": "b4a9a4cf-e935-4de7-b8da-14a3f10b3afa",
+            "name": "Is Missing Thread Terminal Status?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              864,
+              -192
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $json.note_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Summary|rich_text",
+                    "textContent": "={{ $json.summary }}"
+                  },
+                  {
+                    "key": "Help Answer|rich_text",
+                    "textContent": "={{ $json.answer }}"
+                  },
+                  {
+                    "key": "Outcome Status|select",
+                    "selectValue": "={{ $json.outcome_status }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "cb8aad07-181f-47d3-b20b-d829c448cd5e",
+            "name": "Update Missing Thread Help Note Terminal",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              1424,
+              176
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Is Missing Thread Terminal Status?\").item.json.call_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Live Help Status|select",
+                    "selectValue": "={{ $(\"Is Missing Thread Terminal Status?\").item.json.live_help_status }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "779479e3-33e0-41fa-9c2f-cea563d1dc03",
+            "name": "Update Missing Thread Call Help Terminal",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              1712,
+              176
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: $(\"Is Missing Thread Terminal Status?\").item.json.status, done: true, answer: $(\"Is Missing Thread Terminal Status?\").item.json.answer, help_request_id: $(\"Is Missing Thread Terminal Status?\").item.json.help_request_id, seconds_remaining: $(\"Is Missing Thread Terminal Status?\").item.json.seconds_remaining, check_again_in_seconds: 0, late_answer_ignored: $(\"Is Missing Thread Terminal Status?\").item.json.late_answer_ignored, accepted_without_answer_prefix: $(\"Is Missing Thread Terminal Status?\").item.json.accepted_without_answer_prefix, answer_source: $(\"Is Missing Thread Terminal Status?\").item.json.answer_source, thread_recovery_source: $(\"Is Missing Thread Terminal Status?\").item.json.thread_recovery_source, speech_instruction: \"Use this answer now if one exists. Do not say the word None. Do not mention Slack, tools, workflow state, or internal notes. If no answer was recoverable, collect the exact follow-up requirement and close conservatively.\" } }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "14a1fa20-d744-425f-9340-65d0e3450cb0",
+            "name": "Respond Missing Thread Final",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              2016,
+              176
+            ]
+          },
+          {
+            "parameters": {
+              "amount": 30
+            },
+            "id": "e4e890f3-d1e2-437e-a42e-e5819dc00695",
+            "name": "Wait Before Pending Response",
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1424,
+              -176
+            ],
+            "webhookId": "0c850c2b-041d-4cd5-ac02-2d6b41e5d2d9"
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"pending\", done: false, answer: \"\", help_request_id: $(\"Is Missing Thread Terminal Status?\").item.json.help_request_id, seconds_remaining: $(\"Is Missing Thread Terminal Status?\").item.json.seconds_remaining, check_again_in_seconds: $(\"Is Missing Thread Terminal Status?\").item.json.check_again_in_seconds, max_wait_seconds: 300, thread_recovery_source: $(\"Is Missing Thread Terminal Status?\").item.json.thread_recovery_source, instruction: \"This response was deliberately delayed by n8n for 30 seconds before being returned because the Slack thread could not be resolved. Do not say None. Do not announce every poll. Keep the caller on the line unless they speak or ask for status. Call check_creator_help again with the same IDs after the returned delay. Do not post a new Slack request.\", speech_instruction: \"Keep the caller on the line. Do not speak unless the caller asks. Do not say still checking, still here, I am checking, or None. Do not narrate this check.\" } }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "64bc5986-319e-43ae-8df5-88ba69ede3ca",
+            "name": "Respond Missing Thread Pending",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              1680,
+              -176
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "channel",
+              "operation": "history",
+              "channelId": {
+                "__rl": true,
+                "value": "C0ASXSTFSVA",
+                "mode": "id",
+                "cachedResultName": "rb-calls"
+              },
+              "limit": 100,
+              "filters": {}
+            },
+            "id": "52c14971-0f1e-4025-aeb4-1ec35bf8dc7b",
+            "name": "Get Recent Help Threads",
+            "type": "n8n-nodes-base.slack",
+            "typeVersion": 2.4,
+            "position": [
+              -112,
+              -368
+            ],
+            "alwaysOutputData": true,
+            "webhookId": "dd15ab18-53eb-4fc7-b310-583526bdd5f5",
+            "onError": "continueRegularOutput"
+          },
+          {
+            "parameters": {
+              "select": "channel",
+              "channelId": {
+                "__rl": true,
+                "value": "C0ASXSTFSVA",
+                "mode": "id",
+                "cachedResultName": "rb-calls"
+              },
+              "text": "={{ $json.slack_text }}",
+              "otherOptions": {
+                "includeLinkToWorkflow": false
+              }
+            },
+            "id": "1ae7e87f-fd41-4aa0-8142-c005c32e2db6",
+            "name": "Post Help Request",
+            "type": "n8n-nodes-base.slack",
+            "typeVersion": 2.4,
+            "position": [
+              -288,
+              352
+            ],
+            "webhookId": "917879f3-0f36-4a2c-ad2e-56b8edc49df8"
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "databaseId": {
+                "__rl": true,
+                "value": "342e4130-1314-8016-8ced-d60cbf9fe9bf",
+                "mode": "id",
+                "cachedResultName": "Call Notes"
+              },
+              "title": "={{ \"Live help - \" + $(\"Normalize Help Request\").item.json.call_public_id }}",
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Summary|rich_text",
+                    "textContent": "Live help request sent to Slack. Waiting for team answer."
+                  },
+                  {
+                    "key": "Transcript|rich_text",
+                    "textContent": "={{ $(\"Normalize Help Request\").item.json.transcript_excerpt || \"\" }}"
+                  },
+                  {
+                    "key": "Event Type|select",
+                    "selectValue": "Live help"
+                  },
+                  {
+                    "key": "Help Request ID|rich_text",
+                    "textContent": "={{ $(\"Normalize Help Request\").item.json.help_request_id }}"
+                  },
+                  {
+                    "key": "Help Question|rich_text",
+                    "textContent": "={{ $(\"Normalize Help Request\").item.json.question }}"
+                  },
+                  {
+                    "key": "Help Answer|rich_text"
+                  },
+                  {
+                    "key": "ElevenLabs Conversation ID|rich_text",
+                    "textContent": "={{ $(\"Normalize Help Request\").item.json.conversation_id }}"
+                  },
+                  {
+                    "key": "Outcome Status|select",
+                    "selectValue": "Unanswered"
+                  },
+                  {
+                    "key": "Call|relation",
+                    "relationValue": "={{ [$(\"Normalize Help Request\").item.json.call_page_id] }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "7ddf0f33-73a9-42a4-ba9b-1e3c7dc2cb8d",
+            "name": "Create Pending Help Note",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              0,
+              352
+            ]
+          },
+          {
+            "parameters": {
+              "resource": "databasePage",
+              "operation": "update",
+              "pageId": {
+                "__rl": true,
+                "value": "={{ $(\"Normalize Help Request\").item.json.call_page_id }}",
+                "mode": "id"
+              },
+              "simple": false,
+              "propertiesUi": {
+                "propertyValues": [
+                  {
+                    "key": "Live Help Status|select",
+                    "selectValue": "Requested"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "0d076850-862d-4779-b553-464ed12524c8",
+            "name": "Update Call Help Requested",
+            "type": "n8n-nodes-base.notion",
+            "typeVersion": 2.2,
+            "position": [
+              288,
+              352
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"pending\", answer: \"\", help_request_id: $(\"Normalize Help Request\").item.json.help_request_id, slack_channel: \"C0ASXSTFSVA\", slack_thread_ts: $(\"Post Help Request\").item.json.message?.ts || $(\"Post Help Request\").item.json.message_timestamp, note_page_id: $(\"Create Pending Help Note\").item.json.id, call_id: $(\"Normalize Help Request\").item.json.call_page_id, call_public_id: $(\"Normalize Help Request\").item.json.call_public_id, started_at: $(\"Normalize Help Request\").item.json.started_at, expires_at: $(\"Normalize Help Request\").item.json.expires_at, check_after_seconds: 30, max_wait_seconds: 300, instruction: \"Do not call request_creator_help again for this question. If speaking is needed, say one short hold phrase once. Then call check_creator_help with these returned IDs; n8n performs the 30-second wait before returning pending. n8n can recover the Slack thread if ElevenLabs sends placeholder IDs. Do not say None. Do not narrate checks unless the caller speaks.\", speech_instruction: \"If needed, say one short hold phrase once. Then use check_creator_help with the same IDs. Do not say still checking, still here, I am checking, or None.\" } }}",
+              "options": {
+                "responseCode": 200,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "d38d5d00-9bd4-4960-8853-a4941a31da32",
+            "name": "Respond Start Pending",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              560,
+              352
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "json",
+              "responseBody": "={{ { status: \"invalid_request\", done: true, answer: \"\", error: $json.validation_error || \"Invalid live-help request.\", check_again_in_seconds: 0, speech_instruction: \"Do not continue polling. Explain internally that the live-help request was invalid.\" } }}",
+              "options": {
+                "responseCode": 400,
+                "responseHeaders": {
+                  "entries": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ]
+                }
+              }
+            },
+            "id": "87712057-fad2-450a-9d13-63bfc6ec5543",
+            "name": "Respond Invalid Request",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              -560,
+              624
+            ]
+          }
+        ],
+        "connections": {
+          "ElevenLabs Live Help Webhook": {
+            "main": [
+              [
+                {
+                  "node": "Normalize Help Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Normalize Help Request": {
+            "main": [
+              [
+                {
+                  "node": "Is Valid Request?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Is Valid Request?": {
+            "main": [
+              [
+                {
+                  "node": "Is Check Request?",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Respond Invalid Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Is Check Request?": {
+            "main": [
+              [
+                {
+                  "node": "Has Supplied Thread TS?",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Post Help Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Has Supplied Thread TS?": {
+            "main": [
+              [
+                {
+                  "node": "Resolve Help Thread",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Get Recent Help Threads",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Resolve Help Thread": {
+            "main": [
+              [
+                {
+                  "node": "Has Help Thread?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Has Help Thread?": {
+            "main": [
+              [
+                {
+                  "node": "Get Help Thread Replies",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Extract Missing Thread Status",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get Help Thread Replies": {
+            "main": [
+              [
+                {
+                  "node": "Extract Check Status",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Extract Check Status": {
+            "main": [
+              [
+                {
+                  "node": "Is Terminal Status?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Is Terminal Status?": {
+            "main": [
+              [
+                {
+                  "node": "Update Help Note Terminal",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Wait Before Re-reading Help Thread",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Help Note Terminal": {
+            "main": [
+              [
+                {
+                  "node": "Update Call Help Terminal",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Call Help Terminal": {
+            "main": [
+              [
+                {
+                  "node": "Respond Check Final",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait Before Re-reading Help Thread": {
+            "main": [
+              [
+                {
+                  "node": "Get Help Thread Replies After Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get Help Thread Replies After Wait": {
+            "main": [
+              [
+                {
+                  "node": "Extract Check Status After Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Extract Check Status After Wait": {
+            "main": [
+              [
+                {
+                  "node": "Is Terminal Status After Wait?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Is Terminal Status After Wait?": {
+            "main": [
+              [
+                {
+                  "node": "Update Help Note Terminal After Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Respond Check Pending After Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Help Note Terminal After Wait": {
+            "main": [
+              [
+                {
+                  "node": "Update Call Help Terminal After Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Call Help Terminal After Wait": {
+            "main": [
+              [
+                {
+                  "node": "Respond Check Final After Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Extract Missing Thread Status": {
+            "main": [
+              [
+                {
+                  "node": "Is Missing Thread Terminal Status?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Is Missing Thread Terminal Status?": {
+            "main": [
+              [
+                {
+                  "node": "Update Missing Thread Help Note Terminal",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Wait Before Pending Response",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Missing Thread Help Note Terminal": {
+            "main": [
+              [
+                {
+                  "node": "Update Missing Thread Call Help Terminal",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Missing Thread Call Help Terminal": {
+            "main": [
+              [
+                {
+                  "node": "Respond Missing Thread Final",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait Before Pending Response": {
+            "main": [
+              [
+                {
+                  "node": "Respond Missing Thread Pending",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get Recent Help Threads": {
+            "main": [
+              [
+                {
+                  "node": "Resolve Help Thread",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Post Help Request": {
+            "main": [
+              [
+                {
+                  "node": "Create Pending Help Note",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Create Pending Help Note": {
+            "main": [
+              [
+                {
+                  "node": "Update Call Help Requested",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update Call Help Requested": {
+            "main": [
+              [
+                {
+                  "node": "Respond Start Pending",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "meta": {
+        "aiBuilderAssisted": true
+      },
+      "parentFolderId": null,
+      "description": "Handles one structured Slack live-help request per call, waits 30 seconds, re-reads the same thread before returning pending, and avoids duplicate pending-response races.",
+      "scopes": [
+        "workflow:create",
+        "workflow:delete",
+        "workflow:execute",
+        "workflow:execute-chat",
+        "workflow:list",
+        "workflow:move",
+        "workflow:publish",
+        "workflow:read",
+        "workflow:share",
+        "workflow:unpublish",
+        "workflow:unshare",
+        "workflow:update",
+        "workflow:updateRedactionSetting"
+      ],
+      "canExecute": true
+    },
+    "triggerInfo": "This workflow has the following trigger(s):\n\n\nWebhook trigger(s):\n\n\n\t\t\t\t<trigger 1>\n\t\t\t\t\t - Node name: ElevenLabs Live Help Webhook\n\t\t\t\t\t - Base URL: https://eipventures.app.n8n.cloud/\n\t\t\t\t\t - Production path: /webhook/rb-calls-live-help\n\t\t\t\t\t - Test path: /webhook-test/rb-calls-live-help\n\t\t\t\t\t - HTTP Method: POST\n\t\t\t\t\t - Response Mode: Webhook is configured to respond using \"Respond to Webhook\" node.\n\t\t\t\t\t - No credentials required for this webhook.\n\t\t\t\t</trigger 1>"
+  }
+}
