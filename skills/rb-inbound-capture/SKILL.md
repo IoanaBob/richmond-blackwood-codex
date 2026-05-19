@@ -16,6 +16,7 @@ Use this phase to gather source items only. It produces the run source ledger co
 
 ## Capture Rules
 
+- For scheduled daily automation, use the master skill default window: `08:00 Europe/Dublin` on the previous working day through `08:00 Europe/Dublin` on the run day; Monday starts at the previous Friday `08:00`.
 - Gmail is first: inbox only, RB/accounting/client-facing addresses, in-window, not labelled `Triaged`.
 - Start with metadata/snippets/attachment filenames. Fetch full bodies and attachments only when a source plausibly contains finance, correspondence, or actionable client work.
 - WhatsApp is second: use saved or explicitly identified client chats by date window and topic terms. Extract coherent topic chunks instead of one row per message when messages belong together.

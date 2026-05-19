@@ -9,20 +9,29 @@ Use this as the master skill for client-speaking inbound triage. It owns the flo
 
 ## Required Context
 
-1. Read `processes/inbound-operating-triage.md`.
-2. Read automation memory for last-run checkpoints, canonical reports, blockers, and human-reviewed exceptions.
-3. Load phase skills in this order:
+1. Read automation memory for last-run checkpoints, canonical reports, blockers, and human-reviewed exceptions.
+2. Load phase skills in this order:
    - `skills/rb-inbound-capture/SKILL.md`
    - `skills/rb-inbound-classify/SKILL.md`
    - `skills/rb-inbound-finance-routing/SKILL.md` when an item is finance-like.
    - `skills/rb-inbound-task-correspondence/SKILL.md` when an item is task/correspondence-like.
    - `skills/rb-inbound-closeout/SKILL.md` when a Slack closeout preview is needed.
-4. Load supporting skills only when a phase requires them:
+3. Load supporting skills only when a phase requires them:
    - Gmail/email replies: `skills/rb-gmail-drafts/SKILL.md`.
    - WhatsApp reads/sends: `skills/rb-whatsapp-comms/SKILL.md`.
    - File upload/export/attachment: `skills/rb-file-uploads/SKILL.md`.
    - Approval, send, and RB Communications logging: `skills/rb-communications/SKILL.md`.
    - Owner routing: `internal/people-roles.md`.
+4. Use `processes/inbound-operating-triage.md` as reference only when a phase needs detailed rules such as finance matching, recurring invoicing, correspondence filing, or Slack closeout formatting. Do not copy the whole process into the run plan.
+
+## Daily Automation Contract
+
+- Default window: `08:00 Europe/Dublin` on the previous working day through `08:00 Europe/Dublin` on the run day. If the run day is Monday, start from the previous Friday at `08:00 Europe/Dublin`.
+- Inbound sources are Gmail inbox first, then saved or explicitly configured WhatsApp client checkpoints/topic queries. Slack, Notion, Drive, SignNow, status systems, and files are supporting systems, not inbound channels.
+- Every source item must pass through capture, classification, routed handling, verification, and only then source completion markers.
+- `approval_required` is a separate gate, not a route class. Safe writes happen first; outbound sends and sensitive actions wait for explicit approval.
+- Slack closeouts are never pre-authorized. Render the exact message in Codex, request approval through the Codex approval flow, send only after approval, verify the Slack link, and log the sent message in RB Communications.
+- If no actionable items, no records changed, and no verified existing match is worth reporting, do not post Slack; return a concise no-op report.
 
 ## Orchestrator Flow
 
@@ -53,11 +62,12 @@ Use this as the master skill for client-speaking inbound triage. It owns the flo
 
 6. **Approval, send, and log** with `rb-communications`.
    - Show destination, sending identity, and exact rendered message.
-   - Send an actual Codex approval request. If unavailable, use the approved local dialog fallback; if neither is available, stop and report Slack as unsent/approval-blocked.
+   - Send an actual Codex approval request. If unavailable, stop and report Slack as unsent/approval-blocked.
    - Send Slack only after explicit per-message approval, then verify the message link and log in RB Communications.
 
 ## Hard Gates
 
+- If a required phase skill is missing, stop and report the missing skill instead of falling back to a long prompt or inventing a replacement workflow.
 - Do not treat Slack, signatures, Drive folders, Notion, SignNow, status systems, or other tools as inbound channels.
 - Do not create a task or Correspondence record just because a source exists.
 - Do not create per-invoice or per-expense payment tasks.

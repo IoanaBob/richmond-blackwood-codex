@@ -44,6 +44,8 @@ The repo-local `rb-inbound-operating-triage` skill is the master/orchestrator. I
 
 Do not skip the classification gate. `ignore` means verified no-op; uncertain items are blockers.
 
+For automations, keep the cron prompt short. It should name `rb-inbound-operating-triage`, the run window, and the approval expectation. It should not duplicate the detailed process below; if the prompt needs to restate a long rule, move that rule into the correct phase skill or this process instead.
+
 ## Default Daily Window
 
 For the scheduled daily inbound triage automation, the default capture window starts at `08:00 Europe/Dublin` on the previous working day and ends at `08:00 Europe/Dublin` on the run day.
@@ -151,7 +153,7 @@ Slack is not an inbound channel for this workflow. Use Slack only for the final 
 - Build the message from the verified run ledger.
 - Include the current Notion task status in every task row (`Status: To Do`, `Status: In Progress`, `Status: Done`, `Status: Archived`, etc.).
 - Tag the assignee on each task row when a Slack user mapping is available and the task is still active. If a matched task is `Done` or `Archived`, say that status explicitly and do not imply a new owner action is needed; include the assignee only as historical ownership when useful.
-- Every Slack closeout is approval-required. Include it as an approval packet item, show the exact rendered preview with destination and sending identity, then send an actual Codex approval request to the operator asking whether to send that exact message. If a native approval prompt is unavailable, use the approved local approval-dialog fallback; if neither is available, stop and report Slack as unsent/approval-blocked. Do not send a Slack closeout from either manual runs or automations until that per-message approval is received.
+- Every Slack closeout is approval-required. Include it as an approval packet item, show the exact rendered preview with destination and sending identity, then send an actual Codex approval request to the operator asking whether to send that exact message. If a native Codex approval prompt is unavailable, stop and report Slack as unsent/approval-blocked. Do not send a Slack closeout from either manual runs or automations until that per-message approval is received.
 - Write the Slack closeout as if it came from the user, in a concise first-person operating style. Do not use generic assistant-report headings such as `main things done`.
 - Do not call a closeout `corrected` merely because an earlier Codex preview was rejected, edited, or not sent. Use `corrected` only when a previously sent Slack closeout is being replaced or superseded.
 - Use this section order for the triage closeout. When a section has no rows, keep the heading and write `- None`.
