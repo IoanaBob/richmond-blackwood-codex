@@ -147,6 +147,17 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
 - Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
 
+## AKS / Anastasia Questions
+
+- Resolve the exact WhatsApp JID for `Kova, Ana | Richmond Blackwood`; message search worked but `list_chats` failed with `Unexpected response type`.
+- File or confirm AKS Q4 2025 VAT; user says to assume VAT is not filed unless they say otherwise.
+- File or confirm AKS Q1 2026 VAT after the Q1 bookkeeping review; user says to assume VAT is not filed unless they say otherwise.
+- Confirm which Notion filing/task should represent 2025 company tax beyond the pending annual return.
+- Negotiate with Finanzamt ahead of the AKS payment-plan stop-date review, then confirm latest balance, 2025/future liabilities, and penalty status before telling Ana to stop paying.
+- Confirm whether Finanzamt accepts any penalty reduction or waiver after RB negotiates.
+- Confirm whether the ELSTER activation expiring 2026-05-28 was completed.
+- Confirm whether April 2025 payslip evidence is missing or stored outside the listed Drive payslip folder. January 2025 may not be expected because Ana may not have been employed then.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.
