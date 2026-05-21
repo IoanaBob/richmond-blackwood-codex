@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-05-21 - Accounting Team Updates Slack Closeout Process
+
+Imported:
+
+- User instruction in Codex conversation to add a process step that sends a Slack message when Accounting Team Updates follow-up tasks have been created and links the Team Updates page.
+- Sibling-worktree Accounting Team Updates triage process and skill structure, with the 2026-05-21 Slack closeout rule added in this worktree.
+
+Actions:
+
+- Added `processes/accounting-team-updates-triage.md` and `skills/rb-accounting-team-updates-triage/SKILL.md` to the active worktree.
+- Registered the process and skill in their indexes.
+- Standardized the `#rb-client-updates` completion notice to run only after Notion task writes and Team Updates write-back are read back successfully.
+- Mirrored the SOP into the RB Internal Knowledge Base at `https://www.notion.so/367e413013148175b709e35f31d37821` and read it back.
+
+Unresolved:
+
+- Validate the Slack closeout wording and message link capture on the next weekday automation run.
+
 ## 2026-05-19 - AKS And Anastasia Evgenyevna Kozhevnikova Context Import
 
 Applied:
