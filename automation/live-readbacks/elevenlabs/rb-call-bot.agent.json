@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-21T16:05:43.845Z",
+  "synced_at": "2026-05-21T19:49:40.866Z",
   "status": "provisional",
   "source": "ElevenLabs API readback",
   "review": "Compare with source-controlled patch helpers and apply future edits intentionally after review.",
@@ -59,7 +59,7 @@
       },
       "conversation": {
         "text_only": false,
-        "max_duration_seconds": 1200,
+        "max_duration_seconds": 7200,
         "client_events": [
           "audio",
           "interruption",
@@ -142,41 +142,7 @@
             "tax_registration_context_json": "{}",
             "caller_name": "Alexander Gulin",
             "represented_subject": "the represented client",
-            "language_code": "en",
-            "representative_entity": "Richmond Blackwood Limited",
-            "representative_role": "representative caller",
-            "representation_authority": "Use the available call context. For company calls, introduce Richmond Blackwood Limited as company secretary after the represented company is clear.",
-            "poa_speech_rule": "Do not lead with Power of Attorney or Vollmacht unless the call is marked as requiring it or the authority specifically requires it.",
-            "message_topic": "Authority call",
-            "owner_name": "",
-            "owner_role": "",
-            "owner_mention": "",
-            "owner_slack_member_id": "",
-            "call_id": "",
-            "call_public_id": "",
-            "live_help_request_id": "not_started",
-            "live_help_slack_thread_ts": "not_started",
-            "live_help_note_page_id": "not_started",
-            "live_help_expires_at": "1970-01-01T00:00:00.000Z",
-            "live_help_status": "not_requested",
-            "live_help_answer": "not_answered",
-            "tax_reference_summary": "",
-            "latest_correspondence_summary": "",
-            "lookup_allowed_categories": "tax_registrations, tax_filings, contracts, correspondence, bank_accounts, tax_payments_prepayments, assets, call_notes",
-            "correspondence_context_json": "{}",
-            "latest_correspondence_json": "{}",
-            "call_notes_summary": "",
-            "call_notes_context_json": "[]",
-            "allowed_linked_record_categories": "",
-            "relation_coverage_json": "{}",
-            "company_summary_json": "{}",
-            "individual_summary_json": "{}",
-            "contact_summary_json": "{}",
-            "structured_context_json": "{}",
-            "linked_context_json": "{}",
-            "all_linked_records_json": "[]",
-            "system__conversation_id": "",
-            "system__conversation_history": ""
+            "language_code": "en"
           }
         },
         "disable_first_message_interruptions": false,
@@ -335,7 +301,7 @@
     },
     "metadata": {
       "created_at_unix_secs": 1777153288,
-      "updated_at_unix_secs": 1779379438
+      "updated_at_unix_secs": 1779390939
     },
     "platform_settings": {
       "evaluation": {
@@ -1624,7 +1590,7 @@
     "tags": [
       "example"
     ],
-    "version_id": "agtvrsn_9201ks5mf0ngfryt1ae3vw1h94gp",
+    "version_id": "agtvrsn_8001ks5ze0xne8c9zrce83db89yr",
     "branch_id": "agtbrch_9101kr4kshgwekf9dmq99cbd9r7h",
     "main_branch_id": "agtbrch_9101kr4kshgwekf9dmq99cbd9r7h",
     "coaching_settings": null,
