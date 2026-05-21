@@ -632,6 +632,24 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: Notion, Drive, Gmail, WhatsApp, and Slack reads completed; live Notion comment writes succeeded on three contract pages; Riot and Echo Business Partner field updates were read back. `git diff --check` passed, no trailing whitespace was found, and the AMC/Aaron client files contained no raw IBAN/tax-number pattern matches.
 - Limitations or gaps: Q1 VAT filing, Slack Q4 2025 VAT status, missing invoice support, P&L/balance-sheet submission evidence, remaining balance, future Finanzamt payment-plan response, future P-Konto confirmation, and whether Notion should get multi-recipient invoice routing fields remain open.
 
+## 2026-05-19 - NACV And Andrei Nasonov Context Import
+
+- User request: Return to main, pull, and continue NACV context in a new PR, including Andrei personal-tax routing.
+- Context read: Notion company/project/individual/contracts/filings/tasks, Google Drive NACV and Andrei folders, Gmail Finanzamt/Workhub threads, WhatsApp `NA Capital Ventures | RB`, repo client-file/source/WhatsApp skills, and memory/source logs.
+- Actions taken: Created `clients/Companies/NACV/` and `clients/Individuals/Andrei Nasonov/`, saved the confirmed WhatsApp group JID, routed NACV registration/prepayment/VAT/company-tax context separately from Andrei joint personal-tax/TK/evidence-split context, and updated source/memory logs.
+- Decisions made: Treat 2024/2025 company taxes as filed but still under active Finanzamt information-request follow-up. Treat VAT appeal submission as complete but Finanzamt response pending, with deregistration in October 2025. Treat Andrei's 2024 personal tax as free, 2025 onward billing mechanics as open, and personal-tax workflow as one filing record per year. Do not create a spouse individual folder because she is not a company shareholder.
+- Verification: Source connector reads completed; no live Notion/Drive/Gmail/WhatsApp records were modified.
+- Limitations or gaps: Finanzamt prepayment notices/amounts, VAT reinstatement response, lower VAT cadence, additional company-tax information request/response, Andrei evidence split, spouse/joint filing evidence, billing mechanics, official personal/director address confirmation, TK/private-insurance final treatment, and NACV payslip/wage-tax extraction remain open.
+
+## 2026-05-19 - AKS And Anastasia Evgenyevna Kozhevnikova Context Import
+
+- User request: Return to main, pull, and load AKS context, including Anastasia personal-tax routing, Finanzamt debt/payment-plan monitoring, penalty negotiation, and 2025 personal/company/VAT priorities.
+- Context read: Notion AKS company/project/individual/employment/client-note/filing/task/prepayment records, Google Drive AKS and personal-tax folders, the Ana Finanzamt payment-plan Google Sheet, Gmail ELSTER/Wamo/Stripe/bank-statement threads, WhatsApp messages under `Kova, Ana | Richmond Blackwood`, Slack VAT-status context, repo client-file/source/WhatsApp skills, and memory/source logs.
+- Actions taken: Created `clients/Companies/AKS/` and `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/`, routed company VAT/bookkeeping/payroll/contracts separately from Anastasia personal-tax/debt/payment-plan/private context, created live Notion tasks for payment-plan monitoring, penalty negotiation, and early 2025 information request, and updated source/memory logs.
+- Decisions made: Treat personal-tax services as included in the AKS subscription. Treat 2023/2024 personal tax as filed, 2025 personal/company tax as next work, and VAT as not filed unless the user confirms otherwise. Use the maintained Codex template for new tax returns. Do not tell Ana to stop paying until latest Finanzamt balance, 2025/future liabilities, and penalty status are confirmed; negotiate with Finanzamt ahead of that stop-date review.
+- Verification: Notion task creation was read back; Google Sheet, Drive, Gmail, Slack, and WhatsApp source reads completed. No live Drive, Gmail, Slack, or WhatsApp records were modified.
+- Limitations or gaps: Exact WhatsApp JID is unresolved because `list_chats` failed with `Unexpected response type`; Q4 2025 VAT, Q1 2026 VAT, 2025 company-tax filing ownership, ELSTER activation, penalty-waiver response, final stop-payment date, and missing April 2025 payslip remain open. January 2025 payslip may not be expected because Ana may not have been employed then.
+
 ## 2026-05-21 - RB Calls Brussels Airlines IVR Failure
 
 - User request: Check ElevenLabs and n8n to explain why the latest Brussels Airlines call did not happen.

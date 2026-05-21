@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-18.
+Updated: 2026-05-19.
 
 ## Repo State
 
@@ -22,12 +22,14 @@ Current implementation includes:
 - Reference-based MHL company client folder under `clients/Companies/MHL/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
 - Reference-based SVL company client folder under `clients/Companies/SVL/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Reference-based AMC company client folder under `clients/Companies/AMC/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
+- Reference-based AKS company client folder under `clients/Companies/AKS/`, loaded on 2026-05-19 from Notion, Drive, Gmail, WhatsApp, Slack, Google Sheets, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
 - Individual client root for Gabriel Louis Manuel Muller under `clients/Individuals/GABRIEL LOUIS MANUEL MULLER/`, loaded on 2026-05-15 from Notion, Drive, Gmail, WhatsApp, private Slack, and user clarification.
 - Individual client root for Kristjan Mar Olafsson under `clients/Individuals/KRISTJAN MAR OLAFSSON/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Individual client root for Aaron Richard Chamberlain under `clients/Individuals/Aaron Richard Chamberlain/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
+- Individual client root for Anastasia Evgenyevna Kozhevnikova under `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/`, loaded on 2026-05-19 from Notion, Drive, Gmail, WhatsApp, Google Sheets, and user clarification.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
@@ -195,6 +197,31 @@ AMC / Aaron Richard Chamberlain context import:
 - Current company state: Irish company number 781302, tax residence in Notion Germany, Aaron is director/UBO/shareholder/employee, active variable Riot and Echo revenue invoicing, and UVS one-off invoice context. VAT Q1 2026 and the Slack Q4 2025 VAT concern need a separate VAT review rather than being treated as settled in this import.
 - High-signal workflow: invoices are not fixed equal-month invoices. Ask Aaron through WhatsApp what to bill and which travel/expense items to include, prepare invoice/expense support, get Aaron approval, then send through accounting email using the historical Riot/Echo formats. Riot and Echo Business Partner invoice-to/CC fields were updated on 2026-05-18 and read back; Riot's Nicole recipient remains in Business Partner notes because the schema has only one invoice email and one CC email. Future previews should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`. Live Notion comments with these invoice/template rules were added to the Riot, Echo Sports, and UVS contract pages on 2026-05-18.
 - High-signal open items: confirm Q1 2026 VAT filing and Slack Q4 2025 VAT through the separate VAT review, confirm missing invoice support, confirm actual P&L/balance-sheet submission date, confirm remaining balance after garnishment transfer, monitor for Finanzamt payment-plan response, confirm whether P-Konto later becomes active, and decide whether Notion should get multi-recipient invoice routing fields.
+
+NACV / Andrei Nasonov context import:
+
+- Company folder: `clients/Companies/NACV/`.
+- Individual folder: `clients/Individuals/Andrei Nasonov/`.
+- Notion company: `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8`; `Reference` is `NACV`.
+- Notion individual: `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`.
+- Canonical Drive folder: `https://drive.google.com/drive/folders/1z36VoEjY6jkbqAjxGyRBZD7b323rMd_c`.
+- WhatsApp route: `NA Capital Ventures | RB` / `120363399321589278@g.us`; saved as source/route pointer only after user confirmation.
+- Current user-instructed position: Andrei was/is RB's first client. RB does his 2024 German personal-tax return for free; from 2025 onward normal-fee treatment is expected but billing mechanics are not decided. He is married, so filings should be joint. 2024 personal tax is pending, and RB wants to coordinate 2024 and 2025 in one workstream while keeping one Notion filing record for each year. No spouse individual folder is needed because she is not a company shareholder.
+- Current company state: NACV had registration/prepayment problems and never received clear German prepayment amounts. RB needs Finanzamt notices for 2024/2025 taxes and prepayment amounts, then populate the Tax Prepayments database. VAT was deregistered in October 2025, RB submitted the fix/appeal, and there is no response yet. User says 2024/2025 company taxes were filed, but Finanzamt asked for more information and RB is handling that follow-up.
+- High-signal open items: Finanzamt prepayment notices/amounts, VAT reinstatement response, lower VAT cadence, additional company-tax information request/response, Andrei 2024/2025 evidence split, spouse/joint filing evidence, billing mechanics, official personal/director address confirmation, TK/private-insurance treatment, and NACV payslip/wage-tax extraction from Notion/Drive/Lexoffice.
+
+AKS / Anastasia Evgenyevna Kozhevnikova context import:
+
+- Company folder: `clients/Companies/AKS/`.
+- Individual folder: `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/`.
+- Notion company: `https://www.notion.so/e2fc16cc8be141fdb495231ebdaaddb4`; `Reference` is `AKS`.
+- Notion individual: `https://www.notion.so/14de4130131480abb06cdce8ae2e9680`; user confirmed full legal-name folder routing on 2026-05-19, so the individual folder includes `Evgenyevna`.
+- Canonical Drive folder candidate: `https://drive.google.com/drive/folders/1h39LjFSNSqlX2INkVJmTfay163L42U4W`.
+- WhatsApp route is unresolved: messages were found under `Kova, Ana | Richmond Blackwood`, but `list_chats` failed with `Unexpected response type`, so no JID was saved.
+- Current user-instructed position: the AKS subscription includes all Anastasia personal-tax matters; missed 2023 and 2024 personal taxes were filed; 2025 personal and company filings are next; AKS is not overdue except VAT; assume AKS VAT is not filed unless the user says otherwise; Ana replies slowly, so information requests should go out early; any new tax return should use the maintained Codex template.
+- Payment-plan and penalties: Ana had Finanzamt debt, RB negotiated a payment plan, and RB must negotiate with Finanzamt ahead of the stop-date review before telling her when to stop paying. The payment-plan sheet is `https://docs.google.com/spreadsheets/d/1igtrASzoRrV7Oc1E8tpeczK0PEX1PDP-NmkUYBqEkJU/edit`. The sheet shows different payoff markers depending on whether 2025/future liabilities and penalties are included, so no stop instruction should be sent without a fresh balance and penalty-status check.
+- Live Notion tasks created on 2026-05-19: monitor payment plan and confirm stop date `https://www.notion.so/365e4130131481eb8580f224d0be5adf`; negotiate penalty reduction `https://www.notion.so/365e413013148157b952c94c04d72d90`; request 2025 tax and VAT information early `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`.
+- High-signal open items: exact WhatsApp JID, Q4 2025 and Q1 2026 VAT filing completion, 2025 company-tax filing record/owner, ELSTER activation before 2026-05-28, penalty-waiver response, final payment-plan stop date, and April 2025 payslip location. January 2025 payslip may not be expected because Ana may not have been employed then.
 
 Communication workflow update:
 

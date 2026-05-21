@@ -2,6 +2,33 @@
 
 Status: active.
 
+## 2026-05-19 - AKS And Anastasia Evgenyevna Kozhevnikova Context Import
+
+Applied:
+
+- Created `clients/Companies/AKS/` from the Notion Companies `Reference` value and populated company-side context for ANA KOVA STUDIO LIMITED.
+- Created `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/` after user confirmed full legal-name folder routing and routed personal-tax, payment-plan, penalty, ELSTER, and private correspondence context there.
+- Captured user instruction that the AKS subscription includes all Anastasia personal-tax matters, that missed 2023 and 2024 personal taxes were filed, that 2025 personal and company filings are next, that AKS is not overdue except VAT, that VAT should be assumed not filed unless the user says otherwise, and that Ana replies slowly so information should be requested early.
+- Captured the Finanzamt payment-plan sheet as the monitoring source and recorded that the stop-payment instruction depends on a fresh balance, 2025/future liabilities, and penalty status.
+- Created live Notion tasks for payment-plan monitoring, penalty negotiation, and early 2025 information request, linked to the AKS project and assigned to the relevant owner. User clarified that negotiation with Finanzamt must happen ahead of the payment-plan stop-date review.
+- Recorded WhatsApp chat name `Kova, Ana | Richmond Blackwood` as unresolved because messages were readable but chat-list/JID resolution failed.
+
+Verification:
+
+- Notion, Drive, Google Sheets, Gmail, WhatsApp, and Slack sources were read directly through connectors/MCP.
+- Live Notion task creation was read back for `https://www.notion.so/365e4130131481eb8580f224d0be5adf`, `https://www.notion.so/365e413013148157b952c94c04d72d90`, and `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`.
+- No live Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- Resolve the exact WhatsApp JID before future approved sends or monitoring.
+- File or confirm AKS Q4 2025 VAT and Q1 2026 VAT; assume not filed unless the user confirms otherwise.
+- Confirm the 2025 company-tax filing record and owner.
+- Confirm ELSTER activation before 2026-05-28.
+- Confirm penalty-waiver response and final payment-plan stop date before advising Ana to stop paying.
+- Use the maintained Codex template for new tax returns.
+- Confirm whether April 2025 payslip evidence is stored elsewhere. January may not be expected because Ana may not have been employed then.
+
 ## 2026-05-18 - AMC And Aaron Context Import
 
 Applied:
@@ -1550,3 +1577,37 @@ Unresolved:
 - 2025 healthcare files are logged as future-year evidence only.
 - Remaining Byron blockers are AGL/previous-employer annual payroll evidence, address-period confirmation, expense/investment confirmations, old workbook scope confirmation, and workbook check review.
 - Filer should review final ELSTER data-entry treatment for the non-basic/private health insurance line 28 amount.
+
+## 2026-05-19 - NACV And Andrei Nasonov Context Import
+
+Imported:
+
+- Notion company record `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8`.
+- NACV client project `https://www.notion.so/32fe413013148083a7d0fa4f8d94c3e9`.
+- Andrei individual record `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`.
+- Notion 2024 personal tax filing `https://www.notion.so/2cae4130131480358061f09398a4d71a`.
+- Notion 2025 personal tax filing `https://www.notion.so/342e4130131480139e81d7f94450de8b`.
+- Key NACV tax/VAT/prepayment tasks `https://www.notion.so/35fe413013148110859afa228ae41b6b`, `https://www.notion.so/35fe413013148134a46ae7e1bab9b897`, and `https://www.notion.so/359e4130131480858625d56338c18971`.
+- Canonical NACV Drive folder `https://drive.google.com/drive/folders/1z36VoEjY6jkbqAjxGyRBZD7b323rMd_c`.
+- Andrei personal-tax folders `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` and `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`.
+- WhatsApp route `NA Capital Ventures | RB` / `120363399321589278@g.us`.
+- Gmail searches and selected May 2026 Finanzamt-letter threads.
+
+Actions:
+
+- Created `clients/Companies/NACV/` using the exact Notion `Reference`.
+- Created `clients/Individuals/Andrei Nasonov/` using the Notion legal-name fields.
+- Routed NACV company tax/VAT/prepayment/contract/Drive/communications context into company files.
+- Routed Andrei personal-tax, joint-filing, TK/private-insurance, evidence-split, and Drive/workbook context into individual files.
+- Saved the confirmed WhatsApp group JID as a route/source pointer only.
+- Updated source and durable memory logs.
+
+Unresolved:
+
+- Obtain Finanzamt notices/response for 2024/2025 company tax amounts and prepayment amounts, then populate the Tax Prepayments database.
+- Confirm Finanzamt response to VAT deregistration appeal/reinstatement and request lower VAT filing cadence when possible.
+- Confirm Finanzamt's additional information request for the filed 2024/2025 company taxes and whether RB's response has been accepted.
+- Complete the 2024/2025 personal-tax evidence split and confirm spouse/joint filing evidence; no spouse individual folder is needed because she is not a company shareholder.
+- Confirm billing mechanics from Andrei's 2025 personal-tax filing onward.
+- Confirm Andrei's official personal/director address with him.
+- Confirm TK/private-health-insurance treatment and NACV payslip/wage-tax evidence before filing.
