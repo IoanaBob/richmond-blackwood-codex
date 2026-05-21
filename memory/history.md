@@ -758,3 +758,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not store the actual loyalty numbers in git. Use the live Notion directory values when building the public-safe call brief.
 - Verification: Notion read-back confirmed the Board Members data source exposes relevant loyalty fields, including `Miles & More Frequent Flyer Aer LingusNo` and `AerClub`.
 - Limitations or gaps: Eran's search result resolves under the Board Members area, but exact private loyalty values remain live-Notion-only and are not repeated in repo memory.
+
+## 2026-05-21 - RBCALL-21 Loyalty Context Update
+
+- User request: Add the Board Members Miles & More information to the active call context.
+- Context read: Notion `RBCALL-21`, Notion `Board Members & Stakeholders`, Ioana Surdu-Bob's Board Members page, Eran Peer Board Members search result, and existing booking-email evidence.
+- Actions taken: Updated the live Notion `Reason for call` and public-safe `Context Pack` for `RBCALL-21` with the available passenger loyalty context and a fallback to ask Eran if a full Eran loyalty number is required.
+- Decisions made: Keep the actual loyalty identifiers in live Notion only, not git.
+- Verification: Notion read-back confirmed the updated `RBCALL-21` call context.
+- Limitations or gaps: The Notion connector returned Eran's Board Members result as a nested database rather than a normal page with readable properties, so the live call context keeps the existing Eran booking-ending evidence and explicit live-help fallback rather than guessing.
