@@ -139,19 +139,25 @@ const messageCount = transcript.length;
 const summaryFromEvent = String(analysis.transcript_summary || body.summary || '').trim();
 const transcriptLower = transcriptText.toLowerCase();
 const summaryLower = summaryFromEvent.toLowerCase();
+const conversationLower = [summaryLower, transcriptLower].filter(Boolean).join('\\n');
+const callSuccessful = String(analysis.call_successful || data.call_successful || body.call_successful || '').toLowerCase().trim();
+const humanConversationEvidence =
+  callSuccessful === 'success' ||
+  /\\b(human agent|live agent|customer service|representative|speaking with|speaking to|booking open|reservation|passenger|email address|phone number|miles & more|fare difference|change fee|rebook|provided .*contact number)\\b/i.test(conversationLower);
 const noAnswerReason = [failureReason, status, disconnectionReason].join(' ').toLowerCase();
 const noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;
 const ivrDeadEnd =
+  !humanConversationEvidence &&
   (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
   (/goodbye|ended by remote party/.test(summaryLower) || disconnectionReason.includes('remote party') || transcriptLower.includes('goodbye'));
-const isExplicitFailure = eventType === 'call_initiation_failure' || Boolean(failureReason);
+const isExplicitFailure = !humanConversationEvidence && (eventType === 'call_initiation_failure' || Boolean(failureReason));
 const postCallNoPickup = /post[-_ ]?call|transcription|ended|completed|done/i.test(eventType) && messageCount === 0 && duration === 0 && ['initiated', 'queued', 'ringing', ''].includes(status);
-const isNoAnswer = isExplicitFailure ||
+const isNoAnswer = !humanConversationEvidence && (isExplicitFailure ||
   ivrDeadEnd ||
   postCallNoPickup ||
   (messageCount === 0 && noAnswerPattern.test(noAnswerReason)) ||
-  (messageCount === 0 && analysis.call_successful && analysis.call_successful !== 'success') ||
-  (messageCount === 0 && ['failed', 'done', 'ended', 'completed'].includes(status) && analysis.call_successful !== 'success');
+  (messageCount === 0 && callSuccessful && callSuccessful !== 'success') ||
+  (messageCount === 0 && ['failed', 'done', 'ended', 'completed'].includes(status) && callSuccessful !== 'success'));
 const summary = String(
   (ivrDeadEnd ? 'Outbound call reached an IVR, but did not reach a live agent. The remote party ended the call before the booking change could be discussed.' : '') ||
   summaryFromEvent ||
@@ -170,8 +176,8 @@ const twilioSid = String(
   ''
 ).trim();
 const callStatus = isNoAnswer ? 'Call Unanswered' : 'Call Completed';
-const outcomeStatus = isNoAnswer ? 'No answer' : (analysis.call_successful === 'success' ? 'Resolved' : 'Follow-up needed');
-const requiresFollowUp = isNoAnswer || (analysis.call_successful && analysis.call_successful !== 'success');
+const outcomeStatus = isNoAnswer ? 'No answer' : (callSuccessful === 'success' ? 'Resolved' : 'Follow-up needed');
+const requiresFollowUp = isNoAnswer || (callSuccessful && callSuccessful !== 'success');
 const noteEventType = isNoAnswer ? 'Error' : 'Post-call';
 const noteTitle = (isNoAnswer ? 'No answer - ' : 'Post-call - ') + callPublicId;
 function truncate(value, maxLength) {
@@ -720,18 +726,24 @@ const httpFailed = Number(response.statusCode || response.status || 0) >= 400;
 const reasonText = [status, callSuccessful, reason].filter(Boolean).join(' ');
 const noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;
 const authFailed = [401, 403].includes(Number(response.statusCode || response.status || 0));
-const staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 10;
-const noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 10 && ['initiated', 'queued', 'ringing', ''].includes(status);
+const staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 2;
+const noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2 && ['initiated', 'queued', 'ringing', ''].includes(status);
+const ringingInProgressNoAudio = status === 'in-progress' && messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2;
 const stuckInProgressNoMessages = status === 'in-progress' && messageCount === 0 && candidate.attempt_age_minutes >= 25;
 const terminalNoMessages = ['failed', 'done', 'ended', 'completed'].includes(status) && messageCount === 0 && callSuccessful !== 'success';
 const explicitNoAnswer = messageCount === 0 && noAnswerPattern.test(reasonText);
 const summaryFromElevenLabs = String(analysis.transcript_summary || data.summary || '').trim();
 const transcriptLower = transcriptText.toLowerCase();
 const summaryLower = summaryFromElevenLabs.toLowerCase();
+const conversationLower = [summaryLower, transcriptLower].filter(Boolean).join('\\n');
+const humanConversationEvidence =
+  callSuccessful === 'success' ||
+  /\\b(human agent|live agent|customer service|representative|speaking with|speaking to|booking open|reservation|passenger|email address|phone number|miles & more|fare difference|change fee|rebook|provided .*contact number)\\b/i.test(conversationLower);
 const ivrDeadEnd =
+  !humanConversationEvidence &&
   (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
   (/goodbye|ended by remote party/.test(summaryLower) || reason.includes('remote party') || transcriptLower.includes('goodbye'));
-const isUnanswered = !authFailed && (ivrDeadEnd || httpFailed || staleInitiatedNoMessages || noPickupNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
+const isUnanswered = !authFailed && !humanConversationEvidence && (ivrDeadEnd || httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
 const isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);
 const shouldUpdate = !authFailed && (isUnanswered || isCompleted);
 const statusSummary = authFailed
