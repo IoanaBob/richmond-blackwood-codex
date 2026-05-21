@@ -1,0 +1,4 @@
+interface:
+  display_name: "Log IE ROS Filing"
+  short_description: "Log one completed Irish ROS filing into RB Notion."
+  default_prompt: "Use $log-ie-ros-filing to log one completed IE ROS filing into RB Notion with proof, filing status, and any related tax payment."

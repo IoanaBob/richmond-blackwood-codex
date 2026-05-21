@@ -1,0 +1,4 @@
+interface:
+  display_name: "Log IE CORE Annual Return"
+  short_description: "Log one completed Irish CORE annual return into RB Notion."
+  default_prompt: "Use $log-ie-core-annual-return to log one completed IE CORE annual return into RB Notion with public proof, filing status, and next annual-return cross-check."
