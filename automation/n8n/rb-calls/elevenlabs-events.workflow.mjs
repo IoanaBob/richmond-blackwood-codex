@@ -720,9 +720,8 @@ const httpFailed = Number(response.statusCode || response.status || 0) >= 400;
 const reasonText = [status, callSuccessful, reason].filter(Boolean).join(' ');
 const noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;
 const authFailed = [401, 403].includes(Number(response.statusCode || response.status || 0));
-const staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 2;
-const noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2 && ['initiated', 'queued', 'ringing', ''].includes(status);
-const ringingInProgressNoAudio = status === 'in-progress' && messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2;
+const staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 10;
+const noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 10 && ['initiated', 'queued', 'ringing', ''].includes(status);
 const stuckInProgressNoMessages = status === 'in-progress' && messageCount === 0 && candidate.attempt_age_minutes >= 25;
 const terminalNoMessages = ['failed', 'done', 'ended', 'completed'].includes(status) && messageCount === 0 && callSuccessful !== 'success';
 const explicitNoAnswer = messageCount === 0 && noAnswerPattern.test(reasonText);
@@ -732,7 +731,7 @@ const summaryLower = summaryFromElevenLabs.toLowerCase();
 const ivrDeadEnd =
   (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
   (/goodbye|ended by remote party/.test(summaryLower) || reason.includes('remote party') || transcriptLower.includes('goodbye'));
-const isUnanswered = !authFailed && (ivrDeadEnd || httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
+const isUnanswered = !authFailed && (ivrDeadEnd || httpFailed || staleInitiatedNoMessages || noPickupNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
 const isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);
 const shouldUpdate = !authFailed && (isUnanswered || isCompleted);
 const statusSummary = authFailed
@@ -938,7 +937,7 @@ const skipSweptCall = node({
 });
 
 export default workflow('rb-calls-elevenlabs-events', 'RB Calls ElevenLabs Events')
-  .add(sticky('Receives ElevenLabs post-call and failure webhooks, plus runs a one-minute no-answer watchdog so accepted outbound calls that never start a human conversation do not remain locked. Routine post-call and sweep state changes update Notion only; Slack is reserved for live human-help requests. Uses ElevenLabs static egress IP allowlist; add HMAC validation before production if n8n raw-body support is available.', [eventsWebhook, respondSuccess, sweepSchedule, updateSweptCallOutcome], { color: 6, width: 2920, height: 980 }))
+  .add(sticky('Receives ElevenLabs post-call and failure webhooks, plus runs a one-minute no-answer watchdog so accepted outbound calls that never start a human conversation do not remain locked. Active SIP/in-progress calls are not marked unanswered just because ElevenLabs has no transcript yet; the sweep waits for terminal/no-answer evidence or a long stuck timeout. Routine post-call and sweep state changes update Notion only; Slack is reserved for live human-help requests. Uses ElevenLabs static egress IP allowlist; add HMAC validation before production if n8n raw-body support is available.', [eventsWebhook, respondSuccess, sweepSchedule, updateSweptCallOutcome], { color: 6, width: 2920, height: 980 }))
   .add(eventsWebhook)
   .to(normalizeEvent)
   .to(

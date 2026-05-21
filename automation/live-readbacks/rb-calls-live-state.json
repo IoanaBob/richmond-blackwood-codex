@@ -2,7 +2,7 @@
   "status": "provisional",
   "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
   "imported": "2026-05-21",
-  "synced_at": "2026-05-21T08:04:00.595Z",
+  "synced_at": "2026-05-21T16:05:43.845Z",
   "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
   "n8n": [
     {
@@ -11,12 +11,13 @@
       "id": "3xJh7hNK0Zl9T4zS",
       "name": "RB Calls Voice Execution",
       "active": true,
-      "active_version_id": "ad82d55c-9f6e-4127-97d2-2162d079af93",
-      "version_id": "2e7a74fd-60b4-4a39-8bcd-0553a4648807",
-      "updated_at": "2026-05-19T13:50:50.619Z",
-      "node_count": 27,
+      "active_version_id": "4db1b274-d26f-40bb-9519-b0699a324ae7",
+      "version_id": "4db1b274-d26f-40bb-9519-b0699a324ae7",
+      "updated_at": "2026-05-21T16:05:26.653Z",
+      "node_count": 28,
       "connection_count": 31,
       "node_names": [
+        "Sticky Note 777eaf54",
         "Every 15 minutes",
         "Get Reviewed Calls",
         "Done",
@@ -170,9 +171,9 @@
   "elevenlabs": {
     "agent_id": "agent_2001kq39ea0hf5yb86c4a7hj9gp1",
     "name": "RB Call Bot",
-    "version_id": "agtvrsn_0701krha08p6ewwv0fygbnjv0k6p",
+    "version_id": "agtvrsn_9201ks5mf0ngfryt1ae3vw1h94gp",
     "first_message": "Hello, my name is Alexander Gulin. I am calling regarding an administrative matter for a client and would like to make sure I am speaking with the right department.",
-    "prompt_chars": 19759,
+    "prompt_chars": 22411,
     "root_tool_ids": [],
     "workflow_node_count": 17,
     "workflow_edge_count": 41,

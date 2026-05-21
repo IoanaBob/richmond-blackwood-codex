@@ -42,6 +42,8 @@ Current source-controlled calling-bot workflow files:
 - `automation/n8n/rb-calls/elevenlabs-events.workflow.mjs`: `RB Calls ElevenLabs Events`; handles post-call events and no-answer sweeps.
 - `automation/n8n/rb-calls/context-lookup.workflow.mjs`: `RB Calls Context Lookup`; serves the ElevenLabs `lookup_call_context` webhook and queries only the pre-approved Notion context categories on demand.
 - `automation/elevenlabs/rb-calls/inspect-agent.mjs`, `automation/elevenlabs/rb-calls/inspect-agent-text.mjs`, `automation/elevenlabs/rb-calls/inspect-conversation.mjs`, and `automation/elevenlabs/rb-calls/inspect-conversation-detail.mjs`: read-only diagnostics for live agent config, prompt/tool text, conversation dynamic variables, and conversation failures without printing API keys.
+- `automation/elevenlabs/rb-calls/configure-sip-trunk-phone.mjs`: reusable setup helper for importing/updating an ElevenLabs SIP-trunk phone number backed by Twilio Elastic SIP Trunking.
+- `automation/elevenlabs/rb-calls/enable-sip-out-of-band-dtmf.mjs`: reusable setup helper for enabling RFC 4733 out-of-band D-T-M-F on the RB Call Bot keypad tools for SIP trunk calls.
 - `automation/live-readbacks/`: latest non-secret readbacks from live n8n workflows and the ElevenLabs agent/tool configuration.
 
 One-off ElevenLabs mutators, prompt patchers, and migration scripts are private operational scratch files. Store them under `.codex-local/automation/elevenlabs/`, keep them out of npm scripts, and commit only the resulting non-secret live readback plus reusable process documentation.

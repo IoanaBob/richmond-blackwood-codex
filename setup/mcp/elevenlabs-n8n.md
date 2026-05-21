@@ -249,7 +249,7 @@ For all other approved categories, ElevenLabs uses shared webhook tool `lookup_c
 - The prompt tells the agent to preserve exact raw values and say numbers, registration numbers, tax references, phone numbers, and alphanumeric strings much, much slower than normal speech.
 - The prompt requires tiny chunks, commas for short numeric grouping, periods for longer breaks, hyphenated abbreviation/letter runs, letter-by-letter spelling, and slower repeat delivery when the contact asks.
 - Agent-level dynamic-variable placeholders must keep defaults for `call_id`, `call_public_id`, `call_url`, the `live_help_*` sentinels, `system__conversation_id`, `system__conversation_history`, `lookup_allowed_categories`, and `tax_registration_context_json`. ElevenLabs may fail conversation startup before any webhook runs if workflow tools reference variables that are missing from this registry.
-- Current n8n `RB Calls Voice Execution` active version `239b8ddf-4528-44dc-945d-2646ad49fa85` sends plain-text startup context and strips raw JSON blobs before the ElevenLabs outbound call. Detailed non-startup records are fetched through `lookup_call_context` during the call. `Build Voice Payload` reads upstream nodes through raw n8n `$items(...)` access rather than `$()` helpers, so it does not depend on paired-item ancestry from `Build Linked Record Queue`.
+- Current n8n `RB Calls Voice Execution` active version `4db1b274-d26f-40bb-9519-b0699a324ae7` sends plain-text startup context and strips raw JSON blobs before the ElevenLabs outbound call. Detailed non-startup records are fetched through `lookup_call_context` during the call. `Build Voice Payload` reads upstream nodes through raw n8n `$items(...)` access rather than `$()` helpers, so it does not depend on paired-item ancestry from `Build Linked Record Queue`. The outbound-call endpoint defaults to the ElevenLabs SIP-trunk endpoint now that the Twilio Elastic SIP Trunking number is outbound-capable; set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to Twilio Native.
 - Full normalized JSON is not sent at call startup because that correlated with ElevenLabs technical-failure calls. Detailed Company/Individual/Contact/tax/correspondence/filing/payment/asset/call-note facts should be returned through the on-demand lookup workflow as focused plain-text/tool results. Notion file objects, file URLs, file names, and file bodies remain excluded; only file-property counts may be retained for coverage.
 
 ## Calling Bot Runtime Secrets And Variables
@@ -269,6 +269,93 @@ The MCP tokens above let Codex inspect and build. They do not automatically give
 6. After any Codex/n8n MCP workflow update, visually recheck both ElevenLabs credential assignments in n8n. The n8n MCP SDK update path may not auto-assign HTTP Request credentials.
 
 Do not put either value in this repo, workflow descriptions, sticky notes, chat messages, or screenshots committed to git.
+
+## ElevenLabs SIP Trunking Through Twilio
+
+Status: provisional.
+Source: user instruction on 2026-05-21, official ElevenLabs SIP trunking docs, official ElevenLabs phone-number API docs, and official Twilio Elastic SIP Trunking docs.
+Imported: 2026-05-21.
+Review: confirm the Twilio account, caller ID number, and Elastic SIP Trunk credentials before enabling `sip_trunk` as the live outbound provider.
+
+Use this path when the RB calling bot needs more reliable IVR D-T-M-F than ElevenLabs Twilio Native can provide. ElevenLabs only supports out-of-band D-T-M-F / RFC 4733 for SIP trunking calls; the setting is ignored for Twilio Native calls.
+
+Target runtime shape:
+
+```text
+n8n RB Calls Voice Execution
+-> ElevenLabs SIP trunk outbound-call endpoint
+-> ElevenLabs RB Call Bot with out-of-band D-T-M-F enabled
+-> Twilio Elastic SIP Trunk termination
+-> PSTN contact
+```
+
+### Twilio Setup
+
+In Twilio Console:
+
+1. Open `Elastic SIP Trunking`.
+2. Create a trunk for RB calls, for example `RB Calls ElevenLabs SIP`.
+3. Under `Termination`, create or copy the Termination SIP URI. It usually looks like `<name>.pstn.twilio.com`; use only the hostname in ElevenLabs, not `sip:`.
+4. Add a Credential List for termination authentication. Store the username and password only in local `.env`, a password manager, or the ElevenLabs dashboard/API request. Do not commit them.
+5. Confirm the caller ID number is owned/verified in Twilio and allowed for outbound calls.
+6. Confirm Twilio Voice Geographic Permissions allow the countries RB will call.
+7. For first connectivity testing, use TCP transport and disabled media encryption unless TLS/SRTP has already been verified for the trunk. After a successful test, move to TLS/SRTP if supported.
+
+### ElevenLabs Setup
+
+Create or update an ElevenLabs SIP-trunk phone number with the Twilio Termination SIP URI and credentials.
+
+Local ignored `.env` values:
+
+```bash
+ELEVENLABS_API_KEY=...
+RB_ELEVENLABS_AGENT_ID=agent_2001kq39ea0hf5yb86c4a7hj9gp1
+RB_ELEVENLABS_SIP_PHONE_NUMBER=+...
+RB_ELEVENLABS_SIP_PHONE_LABEL="RB Calls Twilio SIP"
+RB_TWILIO_SIP_TERMINATION_DOMAIN=<name>.pstn.twilio.com
+RB_TWILIO_SIP_USERNAME=...
+RB_TWILIO_SIP_PASSWORD=...
+RB_ELEVENLABS_SIP_TRANSPORT=tcp
+RB_ELEVENLABS_SIP_MEDIA_ENCRYPTION=disabled
+RB_ELEVENLABS_STORE_SIP_MESSAGES=true
+```
+
+Dry run:
+
+```bash
+npm run calls:configure-elevenlabs-sip-phone
+```
+
+Apply:
+
+```bash
+npm run calls:configure-elevenlabs-sip-phone -- --apply
+```
+
+The helper prints the resulting ElevenLabs `phone_number_id`. Do not commit that value if the user treats it as private; put it in n8n instead.
+
+Enable SIP out-of-band D-T-M-F on the RB Call Bot:
+
+```bash
+npm run calls:enable-elevenlabs-sip-dtmf -- --apply
+```
+
+This sets every `play_keypad_touch_tone` tool configuration on the live agent/workflow to `use_out_of_band_dtmf: true`, keeps turn suppression enabled after tones, and verifies the non-secret readback. For Twilio Native calls, ElevenLabs ignores this flag; for SIP trunk calls, it is the desired RFC 4733 behavior.
+
+### n8n Runtime Switch
+
+`RB Calls Voice Execution` now supports both ElevenLabs outbound endpoints.
+
+Set these n8n variables after the SIP number is imported:
+
+```text
+ELEVENLABS_AGENT_PHONE_NUMBER_ID=<ElevenLabs SIP phone_number_id>
+ELEVENLABS_OUTBOUND_CALL_PROVIDER=sip_trunk
+```
+
+If `ELEVENLABS_OUTBOUND_CALL_PROVIDER` is missing, the workflow now uses the SIP-trunk endpoint. Set it to `twilio` only when deliberately rolling back to the older Twilio Native endpoint.
+
+After changing n8n variables, run one controlled synthetic call before approving real calls. If it fails before conversation start, check ElevenLabs SIP messages for the phone number and Twilio Elastic SIP Trunk call logs.
 
 Current RB calling bot workflows:
 

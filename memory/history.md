@@ -677,6 +677,42 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: n8n validation/deploy/publish succeeded; the no-answer sweep reached ElevenLabs and updated Notion; Notion read-back confirmed `RBCALL-14` status, follow-up flag, conversation ID, Twilio SID, and linked Call Note. `npm run calls:check-automation` passed.
 - Limitations or gaps: Retry strategy for Brussels Airlines still needs an alternate contact route or better IVR timing; the booking change was not discussed with a live agent.
 
+## 2026-05-21 - RB Calls Brussels Airlines IVR Hardening
+
+- User request: The latest Brussels Airlines retry failed again; find solutions.
+- Context read: ElevenLabs conversation `conv_7701ks5336qdfkhancgc6cpvn2wv`, live ElevenLabs `RB Call Bot`, n8n `RB Calls Voice Execution`, and RB calling-bot implementation/memory docs.
+- Actions taken: Confirmed in-band D-T-M-F reached the Brussels Airlines privacy/live-agent prompt, but agent speech was still colliding with IVR turns. Patched ElevenLabs to keep in-band D-T-M-F, suppress the next speech turn after keypad tones, and restore the full live-help/context-lookup dynamic-variable placeholder registry. Patched and published `RB Calls Voice Execution` so known Brussels Airlines / Miles & More IVR calls override `conversation_config_override.agent.first_message` to blank at outbound-call time.
+- Decisions made: Use one more controlled direct ElevenLabs retry after this hardening. If it still fails, stop re-approving the same direct outbound path and move Brussels Airlines to a Twilio-native IVR pre-navigation/bridge or an alternate official contact route.
+- Verification: `npm run calls:check-automation` passed; n8n `RB Calls Voice Execution` published as active version `78da5ec9-414a-4cbe-88e0-de16c4c60cea`; live readback verifies ElevenLabs `RB Call Bot` version `agtvrsn_0901ks547b0rfvfsrhxx09qbn8sx`, in-band D-T-M-F with `suppress_turn_after_dtmf=true`, and 55 dynamic-variable placeholders.
+- Limitations or gaps: Needs one controlled retry to prove the direct ElevenLabs path can survive this IVR. No booking change has reached a live Brussels Airlines agent yet.
+
+## 2026-05-21 - RB Calls Brussels Airlines No-Audio Retry
+
+- User request: Retry the Brussels Airlines / Miles & More reservation-change call after the IVR hardening.
+- Context read: Notion Call `RBCALL-18`, n8n `RB Calls Voice Execution` execution `9599`, n8n `RB Calls ElevenLabs Events` executions around `9600`-`9602`, and ElevenLabs conversation `conv_5801ks54jgtxfypsw4rgg5gnavkv`.
+- Actions taken: Requeued `RBCALL-18` by setting it back to `Reviewed`, keeping approval, clearing stale call IDs/errors, and removing internal patch language from the public call reason/context. Ran `RB Calls Voice Execution` directly in production; it started ElevenLabs conversation `conv_5801ks54jgtxfypsw4rgg5gnavkv` and Twilio call SID `CA40390f109bb0173aa26939c681b7ee72`.
+- Decisions made: Treat this retry as a no-audio/no-answer failure, not as another IVR-navigation failure, because ElevenLabs showed duration `0s`, zero transcript messages, and no tool calls after the outbound call was created.
+- Verification: n8n execution `9599` completed successfully and Notion read-back showed `RBCALL-18` moved to `Call Started` with retry count `2`; the events workflow then marked it `Call Unanswered` with follow-up required. Status: provisional. Source: Notion `RBCALL-18`, n8n execution `9599`, ElevenLabs conversation read-back. Imported: 2026-05-21.
+- Limitations or gaps: Do not keep reapproving this exact direct ElevenLabs outbound path for Brussels Airlines. Next implementation should use Twilio-native call status/pre-navigation/bridging or an alternate official contact route before another retry.
+
+## 2026-05-21 - RB Calls Blank First Message Reverted
+
+- User request: User reported the retry seemed to have failed again.
+- Context read: Notion Call `RBCALL-18`, ElevenLabs latest conversation list and `conv_5801ks54jgtxfypsw4rgg5gnavkv`, n8n `RB Calls Voice Execution` execution `9599`, n8n watchdog executions through `9617`, live readbacks, and `automation/n8n/rb-calls/voice-execution.workflow.mjs`.
+- Actions taken: Confirmed there was no newer ElevenLabs call after `conv_5801ks54jgtxfypsw4rgg5gnavkv`; the conversation stayed `in-progress` with duration `0s`, zero transcript messages, no tool calls, and no dynamic variables exposed. Reverted the Brussels Airlines blank `conversation_config_override.agent.first_message` override in source and published `RB Calls Voice Execution` active version `0df06bd1-5aa7-49ed-9065-d6e048adbbbf`. Synced live n8n/ElevenLabs readbacks.
+- Decisions made: Empty first-message override is not a safe IVR mitigation. It can create a stuck zero-audio outbound call. IVR mitigation should use a normal startup message plus in-band D-T-M-F/post-tone speech suppression, or move Brussels Airlines to Twilio-native IVR pre-navigation/bridging.
+- Verification: `npm run calls:check-automation` passed before deploy; n8n validate/update/publish succeeded; live state sync read back `RB Calls Voice Execution` active version `0df06bd1-5aa7-49ed-9065-d6e048adbbbf`. Status: provisional. Source: Notion `RBCALL-18`, n8n execution `9599`, ElevenLabs conversation read-back, live n8n readback. Imported: 2026-05-21.
+- Limitations or gaps: Booking change still has not reached a live Brussels Airlines agent. Another direct retry may still fail on IVR behavior; the stronger fix is Twilio-native pre-navigation/bridge or an alternate official route.
+
+## 2026-05-21 - RB Calls Twilio SIP Trunk Preparation
+
+- User request: Set up ElevenLabs SIP trunking with Twilio for the RB calling bot.
+- Context read: Official ElevenLabs SIP trunking and phone-number API docs, official Twilio Elastic SIP Trunking docs, live ElevenLabs phone-number list, live RB Call Bot summary, `RB Calls Voice Execution` source, setup guide, and automation helper registry.
+- Actions taken: Added reusable ElevenLabs helpers to import/update a SIP-trunk phone number and enable SIP out-of-band D-T-M-F on all RB Call Bot keypad tools. Patched the live `RB Call Bot` to set all `play_keypad_touch_tone` tool configs to `use_out_of_band_dtmf=true` while preserving post-tone speech suppression. Updated `RB Calls Voice Execution` source so the outbound endpoint is provider-selectable by n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER`, defaulting to existing Twilio Native unless explicitly set to `sip_trunk`, and published active version `4db1b274-d26f-40bb-9519-b0699a324ae7`. Updated setup docs, `.env.example`, automation README, implementation map, and memory.
+- Decisions made: Do not force the live workflow to SIP until the Twilio Elastic SIP Trunk, caller ID number, and ElevenLabs SIP phone number exist. The live ElevenLabs account currently shows only one Twilio Native phone number for RB/Konvi, not a SIP-trunk phone number.
+- Verification: `npm run calls:check-automation` passed. ElevenLabs readback verified `RB Call Bot` version `agtvrsn_9201ks5mf0ngfryt1ae3vw1h94gp` with root and IVR keypad tools set to out-of-band D-T-M-F. n8n validation/update/publish succeeded with active version `4db1b274-d26f-40bb-9519-b0699a324ae7`, and live readbacks were synced. Controlled SIP test remains pending after Twilio credentials/config are available.
+- Limitations or gaps: Twilio trunk creation cannot be completed from the current repo state because Twilio account/trunk credentials are not available locally and no Twilio MCP/tool is installed.
+
 ## 2026-05-21 14:03 IST - Master Chat And Skill Run Git Rule
 
 - User request: Add a master rule for every chat/skill run to pull `origin/main`, create a new branch, push at closeout, check conflicts with main, fix conflicts, and create a PR.
