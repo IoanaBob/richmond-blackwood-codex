@@ -12,6 +12,17 @@ These instructions apply to every Codex session in this repository.
 - Use existing RB Notion and Drive structures. Do not create replacement structures unless the user approves.
 - When the destination is unclear, stop, record the uncertainty, and ask for review.
 
+## Master Chat And Skill Run Git Rule
+
+For every Richmond Blackwood Codex chat or skill run that can change repository files, helper behavior, or live workspace state:
+
+1. Inspect `git status --short --branch`.
+2. Run `git pull origin main` before starting substantive work.
+3. If the worktree is clean, create or switch to a new `codex/<task-slug>` branch before editing files or changing live state.
+4. If the worktree is dirty, the pull cannot apply cleanly, or conflicts appear, classify changes by task ownership. Do not discard user work. Split task-owned changes into relevant commits, push scoped branch(es), open PRs when GitHub tooling is available, and communicate PR URLs or blockers before continuing from a clean updated base.
+5. At closeout, run the required verification, commit task-owned changes, push the branch, check the branch against `origin/main`, fix any conflicts on the task branch, rerun verification, and create or update the PR.
+6. Final responses for repository-changing runs must include the branch, PR URL when available, conflict status, verification run, and any unavailable tooling.
+
 ## Fact Standard
 
 Every meaningful factual claim should include:
@@ -70,10 +81,10 @@ Individual-specific facts:
 
 Richmond Blackwood follow-up tasks:
 
-- Follow-ups that require Richmond Blackwood action must be created in the Notion Tasks database, not left only as free-text follow-up fields on communication records.
-- Tasks must be linked to the relevant Notion project for the responsible company. In this repository, use the Richmond Blackwood company project unless a more specific RB project is clearly required.
-- Current RB project: `Richmond Blackwood Backlog` at `https://www.notion.so/25de4130131481769758f5f2d465a141`.
-- Assign the task to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If the assignee is unclear, stop and ask rather than creating an unowned task.
+- Every live data source under RB Client Databases is task-capable. Follow-through should update or create the owning operational row first when the work belongs in Communications, Invoicing, Expenses, Contracts, Filings, Employment, Payroll, Assets, Bank Accounts, Filing Registrations, Personal Tax Filings, or another client data source.
+- Central Notion Tasks are for extra action work or cases where the owning operational row cannot represent the action. Do not use central Tasks as a substitute for keeping the owning client data source current.
+- Client action rows/tasks must be linked to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work. If the responsible company has no readable linked client project, record a blocker instead of choosing an arbitrary project.
+- Assign the owner from explicit instruction, existing row owner, owner of the project linked on the responsible Company record, established process rule, or `internal/people-roles.md`. If the assignee is unclear, stop and ask rather than creating unowned actionable work.
 
 ## Drive Routing
 
@@ -120,7 +131,7 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 - Every communication preview must show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - Prefer replying in the existing email thread whenever email context exists. Start a new email only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly asks to send, send directly through the supported connector or MCP tool.
-- After sending, store the communication in the Communications database. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
+- After sending, store the communication in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`). The old RB Communications database is migration source only. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
 - Do not create Gmail, Slack, WhatsApp, Notion, or other app drafts unless the user explicitly asks for that exception.
 
 ## Memory And Skills

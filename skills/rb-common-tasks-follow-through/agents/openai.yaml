@@ -1,0 +1,7 @@
+interface:
+  display_name: "RB Common Tasks Follow-Through"
+  short_description: "Packet-reviewed RB task follow-through"
+  default_prompt: "Use $rb-common-tasks-follow-through to run the packet-reviewed RB common tasks follow-through flow."
+
+policy:
+  allow_implicit_invocation: true

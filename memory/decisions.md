@@ -94,11 +94,28 @@ Consequence:
 - Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
 - Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
 - After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
-- After sending, Codex should store the sent communication in RB Communications.
+- After sending, Codex should store the sent communication in canonical Communications.
 - Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
 
 Source: user instruction on 2026-05-06.
 Review: approved as an operating rule by user instruction.
+
+## 2026-05-19 - Common Tasks Follow-Through Replaces Inbound Triage
+
+Decision: Replace the old `rb-inbound-*` phase-skill flow with `rb-common-tasks-follow-through`.
+
+Consequence:
+
+- Canonical Communications is `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
+- Old `RB Communications` at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c` is migration source only; no new RB records should be written there.
+- Every live data source under RB Client Databases is treated as task-capable.
+- Runs must pull latest `main` in Stage 1, inventory open task-capable rows first, then discover/read Gmail and WhatsApp communications, and write/print one Markdown packet per stage. Stages 1, 2, 10, and 11 are standing auto-approved within the normal common-tasks scope; after the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved. Other live writes, sends, file uploads, replies, and non-standard source mutations still require approval of the exact packet.
+- Slack closeout is built after task closeout analysis and approved updates, not immediately after communication logging.
+- Stage 3 WhatsApp discovery must use the common-tasks WhatsApp source roster. Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana were missed in the 2026-05-19 corrective run and must be resolved/read next time before any checkpoint is advanced for those routes.
+- Slack closeouts should sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming items, pending replies, and blockers, and tag actual people with resolved Slack user IDs.
+
+Source: user instruction and approved redesign on 2026-05-19.
+Review: validate on the next common-tasks run after the 2026-05-20 process corrections.
 
 ## 2026-05-12 - Calling Bot Minimal Startup Context
 

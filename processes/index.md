@@ -13,12 +13,16 @@ This directory is the source-controlled process and SOP mirror for Richmond Blac
 - `repo-operation.md` - repository memory, branch/PR, connector/helper boundary, and closeout.
 - `file-uploads.md` - Drive and Notion file attachment rules.
 - `personal-tax-return-prompt.md` - reusable prompt for future German personal-tax analysis requests.
+- `ie-ros-filing-logging.md` - one-filing Irish ROS proof, filing status, payment/refund, and Tax payments logging workflow.
+- `ie-core-annual-return-logging.md` - one-filing Irish CRO/CORE annual-return proof, filing status, payment handling, and next annual-return cross-check workflow.
 - `notion-operations.md` - Notion database, view, relation, file-property, and task-ready standards.
 - `setup-and-access.md` - human setup and health checks.
 - `signature-and-gmail.md` - generic approvals, signing, Gmail draft, and communication rules.
 - `communications.md` - communication connector/MCP rules, WhatsApp routing, private-data handling, and follow-up capture.
-- `inbound-operating-triage.md` - Gmail-inbox-first and WhatsApp-topic client communication triage, finance split-out, correspondence/task handling, and batched approval packets.
-- `whatsapp-inbound-monitoring.md` - manual WhatsApp client-chat monitoring, correspondence handling, task creation, Slack notifications, and checkpoint updates.
+- `common-tasks-follow-through.md` - task-first Gmail/WhatsApp-triggered follow-through across every RB Client Databases data source, with approval packets at every stage.
+- `accounting-team-updates-triage.md` - weekday Accounting Team Updates blocker/action routing into Notion Tasks, source-page write-back, and standard Slack completion notice.
+- `inbound-operating-triage.md` - superseded pointer retained for history; use `common-tasks-follow-through.md`.
+- `whatsapp-inbound-monitoring.md` - manual WhatsApp client-chat monitoring, Communications handling, task-capable record updates, Slack notifications, and checkpoint updates.
 
 ## Maintenance
 

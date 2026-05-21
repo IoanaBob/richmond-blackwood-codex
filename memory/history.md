@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-05-20 - Common Tasks Follow-Through Process Corrections
+
+- User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, require Stage 1 to pull latest `main`, and prepare a new PR.
+- Context read: Common tasks skill, stage packet protocol, common tasks process, communications process, handoff/current-state/decisions memory, WhatsApp route pointers in client files, and the completed Friday-to-Tuesday run packets.
+- Actions taken: Added a WhatsApp source roster reference for mandatory Stage 3 coverage, including unresolved Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana routes; documented that unresolved/missed routes must not have checkpoints advanced until discovered, read, and backed by approved checkpoint storage; added standing auto-approval rules for Stages 1, 2, 10, 11, and for Stages 13/14 after Stage 12 Slack send approval; tightened Slack closeout requirements so messages sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming/replies/blockers, and tag actual people with Slack IDs; added Stage 1 `git pull origin main`.
+- Decisions made: Preserve packets/scratch files by default at closeout; typed approval of exact rendered Stage 12 Slack text is allowed for this specific workflow when the native approval prompt is unavailable; general communication rules keep stricter approval behavior unless a specific workflow overrides them.
+- Verification: `rg` review checked for the new pull, auto-approval, roster, and Slack quality rules across skill/process/memory; `git diff --check` passed.
+- Limitations or gaps: The newly added missed WhatsApp routes still need live WhatsApp search and checkpoint storage resolution during the next run; their checkpoints were intentionally not advanced in the completed run.
+
+## 2026-05-19 - Common Tasks Follow-Through Redesign
+
+- User request: Replace the failing inbound triage flow with a task-first common tasks follow-through workflow based on the approved redesign.
+- Context read: Existing inbound triage skills/processes, communications/Gmail/WhatsApp rules, active memory, automation prompt, and the Konvi packet-review example supplied by the user.
+- Actions taken: Added `skills/rb-common-tasks-follow-through/`, stage packet protocol, RB Client Databases task registry, and `processes/common-tasks-follow-through.md`; removed the old `rb-inbound-*` phase skill files from the active flow; updated communications, Gmail, WhatsApp, process, memory, and root agent instructions to use canonical Communications and task-capable client data sources.
+- Decisions made: Canonical Communications is `https://www.notion.so/1b5e4130131480ab84f3cca356736807`; old RB Communications is migration source only; every live RB Client Databases data source is task-capable; Slack closeout happens after task closeout and requires approval of the exact rendered message; `W-IdNr` values are not saved.
+- Verification: Static scans found no active old `rb-inbound-*` workflow references in skills/processes/current memory, and `git diff --check` passed during the implementation pass.
+- Limitations or gaps: Live Notion schema changes and historical Communications migration were not performed in this repo-only update; the new skill requires those as packet-approved live run actions.
+
 ## 2026-05-18 - SVL And Kristjan Context Import
 
 - User request: Return to main after the MHL branch was closed, pull, and load context for SVL and Andrei-like individual routing for Kristjan, with tax registration pending and personal-tax work from 2026 onward.
@@ -694,3 +712,13 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not force the live workflow to SIP until the Twilio Elastic SIP Trunk, caller ID number, and ElevenLabs SIP phone number exist. The live ElevenLabs account currently shows only one Twilio Native phone number for RB/Konvi, not a SIP-trunk phone number.
 - Verification: `npm run calls:check-automation` passed. ElevenLabs readback verified `RB Call Bot` version `agtvrsn_9201ks5mf0ngfryt1ae3vw1h94gp` with root and IVR keypad tools set to out-of-band D-T-M-F. n8n validation/update/publish succeeded with active version `4db1b274-d26f-40bb-9519-b0699a324ae7`, and live readbacks were synced. Controlled SIP test remains pending after Twilio credentials/config are available.
 - Limitations or gaps: Twilio trunk creation cannot be completed from the current repo state because Twilio account/trunk credentials are not available locally and no Twilio MCP/tool is installed.
+
+## 2026-05-21 14:03 IST - Master Chat And Skill Run Git Rule
+
+- User request: Add a master rule for every chat/skill run to pull `origin/main`, create a new branch, push at closeout, check conflicts with main, fix conflicts, and create a PR.
+- Context read: `AGENTS.md`, `README.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, recent skill-run/history/handoff memory, and source/import logs.
+- Actions taken: Ran `git pull origin main`, created branch `codex/chat-skill-run-git-rule`, added the rule across the master instructions, repo-operation process, task PR skill, README startup protocol, current-state memory, handoff, skill-run ledger, and this history entry, then backed up the rule to the RB Internal Knowledge Base repository operating rules and review/PR workflow pages.
+- Files changed: `AGENTS.md`, `README.md`, `processes/repo-operation.md`, `skills/rb-task-pr/SKILL.md`, `memory/current-state.md`, `memory/handoff.md`, `memory/skill-runs.md`, `memory/history.md`, and `sources/import-log.md`.
+- Decisions made: The rule applies to repository-changing or live-state-changing RB Codex runs; pure read-only chats are left as a review question in the process doc.
+- Verification: Notion read-back verified both updated Internal Knowledge Base pages; `git diff --check` passed; branch `codex/chat-skill-run-git-rule` pushed; merge-tree conflict check against `origin/main` was clean; PR #28 opened with GitHub merge state `CLEAN`.
+- Limitations or gaps: Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.

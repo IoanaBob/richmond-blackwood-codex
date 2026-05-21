@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-05-21 - Accounting Team Updates Slack Closeout Process
+
+Imported:
+
+- User instruction in Codex conversation to add a process step that sends a Slack message when Accounting Team Updates follow-up tasks have been created and links the Team Updates page.
+- Sibling-worktree Accounting Team Updates triage process and skill structure, with the 2026-05-21 Slack closeout rule added in this worktree.
+
+Actions:
+
+- Added `processes/accounting-team-updates-triage.md` and `skills/rb-accounting-team-updates-triage/SKILL.md` to the active worktree.
+- Registered the process and skill in their indexes.
+- Standardized the `#rb-client-updates` completion notice to run only after Notion task writes and Team Updates write-back are read back successfully.
+- Mirrored the SOP into the RB Internal Knowledge Base at `https://www.notion.so/367e413013148175b709e35f31d37821` and read it back.
+
+Unresolved:
+
+- Validate the Slack closeout wording and message link capture on the next weekday automation run.
+
 ## 2026-05-19 - AKS And Anastasia Evgenyevna Kozhevnikova Context Import
 
 Applied:
@@ -1611,3 +1629,20 @@ Unresolved:
 - Confirm billing mechanics from Andrei's 2025 personal-tax filing onward.
 - Confirm Andrei's official personal/director address with him.
 - Confirm TK/private-health-insurance treatment and NACV payslip/wage-tax evidence before filing.
+
+## 2026-05-21 - Master Chat And Skill Run Git Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-21 to make `git pull origin main`, new branch creation, branch push, conflict checking against main, and PR creation the default for every chat/skill run.
+- Local process files `AGENTS.md`, `README.md`, `processes/repo-operation.md`, and `skills/rb-task-pr/SKILL.md`.
+
+Actions:
+
+- Added the new master git workflow to repo instructions, the repository operation process, the task PR skill, startup protocol, and durable memory.
+- Recorded the rule as applying to repository-changing or live-state-changing RB Codex runs.
+- Backed up the rule to the RB Internal Knowledge Base pages `RB Codex Repository Operating Rules` and `RB Review And PR Workflow`, then verified both pages by read-back.
+
+Unresolved:
+
+- Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.

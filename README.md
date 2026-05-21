@@ -8,13 +8,15 @@ This repo intentionally keeps unsanitised operational context. Live secrets, cre
 
 ## Startup Protocol
 
-1. Read [AGENTS.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/AGENTS.md).
-2. Read [memory/storage-rules.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/storage-rules.md).
-3. Read [memory/current-state.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/current-state.md).
-4. Skim [memory/history.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/history.md) and [memory/skill-runs.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/skill-runs.md).
-5. Check [memory/open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md) before filing client or Drive evidence.
-6. Check [sources/import-log.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/sources/import-log.md) before importing a source twice.
-7. For company client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/Companies/<client-reference>/`. For individual work, use the Notion legal name and `clients/Individuals/<legal-name>/`.
+1. Inspect `git status --short --branch`, run `git pull origin main`, and create or switch to a new `codex/<task-slug>` branch before repository-changing or live-state-changing work.
+2. If the tree is dirty or the pull creates conflicts, classify changes by task ownership, split task-owned changes into relevant commits and PRs, and report PR URLs or blockers before continuing from a clean updated base.
+3. Read [AGENTS.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/AGENTS.md).
+4. Read [memory/storage-rules.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/storage-rules.md).
+5. Read [memory/current-state.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/current-state.md).
+6. Skim [memory/history.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/history.md) and [memory/skill-runs.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/skill-runs.md).
+7. Check [memory/open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md) before filing client or Drive evidence.
+8. Check [sources/import-log.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/sources/import-log.md) before importing a source twice.
+9. For company client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/Companies/<client-reference>/`. For individual work, use the Notion legal name and `clients/Individuals/<legal-name>/`.
 
 ## Storage Rules
 

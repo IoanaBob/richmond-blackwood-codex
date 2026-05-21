@@ -12,12 +12,15 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-handoff`: prepare next-session handoff.
 - `rb-google-auth`: authenticate Drive/Gmail helper access through gcloud without committing credentials.
 - `rb-file-uploads`: upload, export, attach, and catalog Drive/Notion-backed files.
+- `rb-form-fill-assist`: read inbound forms/questionnaires, draft field-level answers from RB context, and route only unresolved questions to a human owner.
 - `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and gcloud-managed verified Gmail draft fallback rules for `accounting@richmondblackwood.com`.
-- `rb-inbound-operating-triage`: Gmail-inbox-first and WhatsApp-topic client communication triage with finance split-out, correspondence/task handling, and batched approval packets.
+- `rb-common-tasks-follow-through`: packet-reviewed, task-first Gmail/WhatsApp communication follow-through across every task-capable RB Client Databases data source.
+- `rb-accounting-team-updates-triage`: weekday Accounting Team Updates task routing from blockers/action points, with verified Notion write-back and the standard `#rb-client-updates` completion notice.
 - `rb-signature-workflow`: run generic SignNow, Google Doc transform, and PDF signing-plan helper workflows.
 - `rb-signature-status-sync`: check SignNow signature status and require signed-file evidence before completion.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
-- `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process correspondence attachments, create Notion tasks, notify Slack, and update checkpoints.
-- `rb-authority-call-setup`: set up RB authority/outbound call requests in Notion from minimal user input, resolving Company, Individual, Contact, PoA, and call-objective details before review and submission.
+- `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process Communications attachments, create or update task-capable Notion rows, notify Slack after approval, and update checkpoints.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
+- `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
+- `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.

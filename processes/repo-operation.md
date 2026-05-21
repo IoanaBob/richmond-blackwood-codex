@@ -1,34 +1,55 @@
 # Repository Operation And Memory
 
 Status: provisional.
-Source: neutral operating decisions ported from local `everguard-research-codex`, adapted to RB rules.
+Source: neutral operating decisions ported from local `everguard-research-codex`, adapted to RB rules; user instruction on 2026-05-21.
 Imported: 2026-05-05.
-Review: confirm whether every meaningful RB repo task should be published as a PR or only tasks that the user explicitly asks to publish.
+Review: confirm whether pure read-only chats should use the branch/PR closeout rule or only report that no branch was needed.
 
 ## Purpose
 
 Keep this repository as Richmond Blackwood's durable operating memory, local skill library, source register, and branch workspace.
 
+## Master Chat And Skill Run Rule
+
+Every RB Codex chat or skill run that can change repository files, helper behavior, or live workspace state starts and ends with the git workflow below.
+
+Start of run:
+
+1. Inspect `git status --short --branch`.
+2. Run `git pull origin main`.
+3. If the tree is clean, create or switch to a new `codex/<task-slug>` branch before editing files or changing live state.
+4. If the tree is dirty, the pull cannot apply cleanly, or conflicts appear, classify changes by task ownership before continuing. Split task-owned changes into relevant commits, push scoped branch(es), open PRs when GitHub tooling is available, and report PR URLs or blockers.
+
+End of run:
+
+1. Run verification appropriate to the change.
+2. Commit only task-owned changes.
+3. Push the branch.
+4. Fetch or otherwise check the branch against `origin/main`.
+5. Fix conflicts on the task branch, rerun verification, and push the corrected branch.
+6. Create or update the PR, then communicate the branch, PR URL when available, conflict status, verification, and blockers.
+
 ## Start A Task
 
-1. Read `AGENTS.md`.
-2. Read `README.md`.
-3. Read `memory/index.md`.
-4. Read `memory/storage-rules.md`.
-5. Read `memory/current-state.md`.
-6. Skim recent `memory/history.md`.
-7. Skim recent `memory/skill-runs.md`.
-8. Read `memory/handoff.md`.
-9. Read `skills/index.md`.
-10. Open the matching process file and repo-local skill.
+1. Apply the Master Chat And Skill Run Rule.
+2. Read `AGENTS.md`.
+3. Read `README.md`.
+4. Read `memory/index.md`.
+5. Read `memory/storage-rules.md`.
+6. Read `memory/current-state.md`.
+7. Skim recent `memory/history.md`.
+8. Skim recent `memory/skill-runs.md`.
+9. Read `memory/handoff.md`.
+10. Read `skills/index.md`.
+11. Open the matching process file and repo-local skill.
 
 ## Branch And PR
 
 - Prefer one branch per meaningful repository task.
 - Never include unrelated user changes in a task branch or commit.
-- If the worktree is dirty, identify whether changes belong to the current task before branching or committing.
+- If the worktree is dirty, identify whether changes belong to the current task before branching or committing, then split task-owned changes into relevant commits and PRs when needed.
 - Do not use destructive git commands to make the tree clean.
-- Ask the user to review the diff before every commit, even when local or tool-level approval is set to auto-review.
+- Ask the user to review the diff before every commit unless the user has explicitly instructed this run to push and open a PR as part of closeout.
 - Run focused validation before finalizing.
 
 ## Skill Run Register
