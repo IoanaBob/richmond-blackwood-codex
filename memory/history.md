@@ -749,3 +749,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep exact private card-ending details in the live call record only; this repo entry records the operational change without repeating the private values in git.
 - Verification: Notion read-back confirmed the updated call brief fields on `RBCALL-21`.
 - Limitations or gaps: The available booking emails expose only masked card endings, not full Miles & More numbers. If Miles & More requires full loyalty numbers, the call agent should ask Eran rather than inventing them.
+
+## 2026-05-21 - Board Member Travel Identifier Source
+
+- User request: Remember that Eran and Ioana's Miles & More information was added to Notion in the board members directory.
+- Context read: Notion `Board Members & Stakeholders` data source, Notion search results for Eran Peer and Ioana Surdu-Bob, and Ioana's Board Members record.
+- Actions taken: Added the future-call rule to `rb-authority-call-setup`, current state, and handoff: airline/travel/loyalty calls involving RB/EIP board members or stakeholders should check `Board Members & Stakeholders` for passenger loyalty identifiers before relying on booking-email evidence.
+- Decisions made: Do not store the actual loyalty numbers in git. Use the live Notion directory values when building the public-safe call brief.
+- Verification: Notion read-back confirmed the Board Members data source exposes relevant loyalty fields, including `Miles & More Frequent Flyer Aer LingusNo` and `AerClub`.
+- Limitations or gaps: Eran's search result resolves under the Board Members area, but exact private loyalty values remain live-Notion-only and are not repeated in repo memory.
