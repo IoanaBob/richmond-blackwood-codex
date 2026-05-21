@@ -731,3 +731,48 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: IVR language can only produce an IVR dead-end/no-answer classification when there is no later human-agent or successful-call evidence. The Miles & More contact hours are provisional and use weekday Germany support windows converted to Europe/Dublin until exact public hours are confirmed.
 - Verification: `npm run calls:check-automation` passed; n8n read-back confirmed `RB Calls ElevenLabs Events` active version `05526aa3-8584-47c4-b332-902f6aff8731` and `RB Calls Voice Execution` active version `317ff027-2288-48dd-8fe6-18255a317174`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-20` and `RBCALL-21`.
 - Limitations or gaps: `RBCALL-21` is created as `Not started` and `Approved = __NO__`; the normal review/approval workflow must approve it before n8n places the call.
+
+## 2026-05-21 - RB Calls Next Call Gate And Miles & More Reset
+
+- User request: Reset the failed Miles & More follow-up so it can run tomorrow morning.
+- Context read: Notion `RBCALL-21`, n8n `RB Calls Voice Execution` execution `10210`, n8n `RB Calls ElevenLabs Events` sweep execution `10213`, and the live `RB Calls Voice Execution` workflow.
+- Actions taken: Reset `RBCALL-21` to `Reviewed` with `Approved = __YES__`, cleared the misleading no-answer outcome/error/voice IDs, set retry count back to `0`, and set `Next Call At` to `2026-05-22T07:05:00+01:00`. Patched and published `RB Calls Voice Execution` so preflight skips reviewed calls whose `Next Call At` is still in the future.
+- Decisions made: `Next Call At` should be enforced in n8n preflight rather than only stored as a Notion hint, because reviewed/approved calls are otherwise picked up by the fifteen-minute scheduler immediately.
+- Verification: `npm run calls:check-automation` passed; `git diff --check` passed; n8n publish succeeded with `RB Calls Voice Execution` active version `45bdf0b8-021d-45b2-86ec-ff91332828c9`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-21` is reviewed/approved with the tomorrow-morning next-call timestamp.
+- Limitations or gaps: n8n deploy reported that the HTTP Request node `Make ElevenLabs Outbound Call` still needs its ElevenLabs API credential configured manually in n8n. If that credential is not reselected before the next eligible run, the call will fail again before dialing.
+
+## 2026-05-21 - RB Calls Miles And More Loyalty References
+
+- User request: Add Eran and Ioana's Miles & More numbers to the active Miles & More call description.
+- Context read: Notion `RBCALL-21` and previously fetched booking-email evidence for reservation `75I5WJ`.
+- Actions taken: Updated the live Notion `Reason for call` and public-safe `Context Pack` for `RBCALL-21` with the available masked Miles & More / Frequent Traveller card references and an instruction not to guess full loyalty numbers.
+- Decisions made: Keep exact private card-ending details in the live call record only; this repo entry records the operational change without repeating the private values in git.
+- Verification: Notion read-back confirmed the updated call brief fields on `RBCALL-21`.
+- Limitations or gaps: The available booking emails expose only masked card endings, not full Miles & More numbers. If Miles & More requires full loyalty numbers, the call agent should ask Eran rather than inventing them.
+
+## 2026-05-21 - Board Member Travel Identifier Source
+
+- User request: Remember that Eran and Ioana's Miles & More information was added to Notion in the board members directory.
+- Context read: Notion `Board Members & Stakeholders` data source, Notion search results for Eran Peer and Ioana Surdu-Bob, and Ioana's Board Members record.
+- Actions taken: Added the future-call rule to `rb-authority-call-setup`, current state, and handoff: airline/travel/loyalty calls involving RB/EIP board members or stakeholders should check `Board Members & Stakeholders` for passenger loyalty identifiers before relying on booking-email evidence.
+- Decisions made: Do not store the actual loyalty numbers in git. Use the live Notion directory values when building the public-safe call brief.
+- Verification: Notion read-back confirmed the Board Members data source exposes relevant loyalty fields, including `Miles & More Frequent Flyer Aer LingusNo` and `AerClub`.
+- Limitations or gaps: Eran's search result resolves under the Board Members area, but exact private loyalty values remain live-Notion-only and are not repeated in repo memory.
+
+## 2026-05-21 - RBCALL-21 Loyalty Context Update
+
+- User request: Add the Board Members Miles & More information to the active call context.
+- Context read: Notion `RBCALL-21`, Notion `Board Members & Stakeholders`, Ioana Surdu-Bob's Board Members page, Eran Peer Board Members search result, and existing booking-email evidence.
+- Actions taken: Updated the live Notion `Reason for call` and public-safe `Context Pack` for `RBCALL-21` with the available passenger loyalty context and a fallback to ask Eran if a full Eran loyalty number is required.
+- Decisions made: Keep the actual loyalty identifiers in live Notion only, not git.
+- Verification: Notion read-back confirmed the updated `RBCALL-21` call context.
+- Limitations or gaps: The Notion connector returned Eran's Board Members result as a nested database rather than a normal page with readable properties, so the live call context keeps the existing Eran booking-ending evidence and explicit live-help fallback rather than guessing.
+
+## 2026-05-21 - RBCALL-21 Full Board Members Loyalty Context
+
+- User request: Find Eran's full Board Members travel identifier and add it to the active Miles & More call context.
+- Context read: Notion `RBCALL-21`, Notion `Board Members & Stakeholders`, Notion AI search over Eran's Board Members row, Gmail booking evidence for reservation `75I5WJ`, and a temporary n8n Notion-reader execution.
+- Actions taken: Confirmed n8n's Notion credential is not shared into the Board Members database and archived the temporary reader workflow. Used Notion AI search to recover the Board Members travel fields, then updated the live `RBCALL-21` `Reason for call` and public-safe `Context Pack` with full passenger loyalty context for both passengers.
+- Decisions made: Keep exact loyalty identifiers in live Notion only, not git. Use Board Members as the preferred source for travel identifiers before relying on masked booking emails.
+- Verification: Notion read-back confirmed the updated `RBCALL-21` call context includes full Board Members loyalty context and remains reviewed/approved for the scheduled next call.
+- Limitations or gaps: Direct Notion SQL querying is still unavailable through the connector, and n8n cannot read Board Members until that Notion database is shared with the n8n integration.
