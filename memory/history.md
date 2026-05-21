@@ -767,3 +767,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep the actual loyalty identifiers in live Notion only, not git.
 - Verification: Notion read-back confirmed the updated `RBCALL-21` call context.
 - Limitations or gaps: The Notion connector returned Eran's Board Members result as a nested database rather than a normal page with readable properties, so the live call context keeps the existing Eran booking-ending evidence and explicit live-help fallback rather than guessing.
+
+## 2026-05-21 - RBCALL-21 Full Board Members Loyalty Context
+
+- User request: Find Eran's full Board Members travel identifier and add it to the active Miles & More call context.
+- Context read: Notion `RBCALL-21`, Notion `Board Members & Stakeholders`, Notion AI search over Eran's Board Members row, Gmail booking evidence for reservation `75I5WJ`, and a temporary n8n Notion-reader execution.
+- Actions taken: Confirmed n8n's Notion credential is not shared into the Board Members database and archived the temporary reader workflow. Used Notion AI search to recover the Board Members travel fields, then updated the live `RBCALL-21` `Reason for call` and public-safe `Context Pack` with full passenger loyalty context for both passengers.
+- Decisions made: Keep exact loyalty identifiers in live Notion only, not git. Use Board Members as the preferred source for travel identifiers before relying on masked booking emails.
+- Verification: Notion read-back confirmed the updated `RBCALL-21` call context includes full Board Members loyalty context and remains reviewed/approved for the scheduled next call.
+- Limitations or gaps: Direct Notion SQL querying is still unavailable through the connector, and n8n cannot read Board Members until that Notion database is shared with the n8n integration.
