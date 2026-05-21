@@ -84,7 +84,7 @@ which uvx
 
 Add the placeholder snippets from [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md) to `~/.codex/config.toml`, replace the placeholders locally with the ElevenLabs API key and n8n MCP URL/token, enable MCP on the relevant n8n workflows, then restart or reload Codex.
 
-For the RB calling bot runtime, select an ElevenLabs credential on n8n node `Make ElevenLabs Outbound Call`, then set n8n variables `ELEVENLABS_AGENT_PHONE_NUMBER_ID` and `ELEVENLABS_API_KEY`. `RB Calls ElevenLabs Events` uses `ELEVENLABS_API_KEY` directly for the no-answer watchdog conversation lookup because n8n MCP workflow updates can drop HTTP Request credentials. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
+For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 
 `RB Calls Live Help` also needs the n8n Slack credential to read the RB calls Slack thread. For private Slack channels, add `groups:history` to the Slack app used by the n8n credential, reinstall the app, and reconnect or refresh the credential. Without that scope, Slack replies can be visible in Slack/Codex but unreadable to n8n.
 

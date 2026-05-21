@@ -1,8 +1,8 @@
 {
   "status": "provisional",
   "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
-  "imported": "2026-05-19",
-  "synced_at": "2026-05-19T14:30:14.447Z",
+  "imported": "2026-05-21",
+  "synced_at": "2026-05-21T08:04:00.595Z",
   "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
   "n8n": [
     {
@@ -100,13 +100,13 @@
       "id": "uBEMuAtKiJQzJAWw",
       "name": "RB Calls ElevenLabs Events",
       "active": true,
-      "active_version_id": "6f0c5d6c-439d-4e7e-a73f-6f95cf17c79a",
-      "version_id": "6f0c5d6c-439d-4e7e-a73f-6f95cf17c79a",
-      "updated_at": "2026-05-19T14:25:55.729Z",
+      "active_version_id": "c209a5fb-905c-4aa9-877e-9cd1f5ea4d37",
+      "version_id": "c209a5fb-905c-4aa9-877e-9cd1f5ea4d37",
+      "updated_at": "2026-05-21T07:56:07.271Z",
       "node_count": 21,
       "connection_count": 21,
       "node_names": [
-        "Sticky Note 55c567ef",
+        "Sticky Note 54fe024f",
         "ElevenLabs Events Webhook",
         "Normalize ElevenLabs Event",
         "Has Call Page?",

@@ -183,8 +183,9 @@ Expected result: IVR navigation gets the call to a human or safe route when poss
 7. Confirm no Slack alert is posted for the missing `call_id`; the webhook should still return a non-error acknowledgement.
 8. Confirm the webhook returns a non-error acknowledgement.
 9. Create or select a synthetic `Call Started` row older than two minutes with an ElevenLabs conversation ID whose conversation is `initiated`, or `in-progress` with zero duration and zero messages. Run the no-answer watchdog and confirm the Call becomes `Call Unanswered`, follow-up is required, a `No answer sweep` Call Note is created, `Voice Error` is written, and no Slack status alert is posted.
-10. Temporarily remove or invalidate n8n variable `ELEVENLABS_API_KEY` in a non-production clone and confirm the watchdog skips outcome mutation instead of falsely marking a call unanswered on a 401/403 response.
-11. Run the no-answer watchdog on a started Call with a still-active conversation newer than the unanswered threshold and confirm it is skipped.
+10. Temporarily remove or invalidate the ElevenLabs credential on `RB Calls ElevenLabs Events` -> `Get ElevenLabs Conversation` in a non-production clone and confirm the watchdog skips outcome mutation instead of falsely marking a call unanswered on a 401/403 response.
+11. Run the watchdog against a completed IVR-only conversation that ends with the remote party saying Goodbye before a live agent is reached, and confirm it becomes `Call Unanswered` with follow-up required.
+12. Run the no-answer watchdog on a started Call with a still-active conversation newer than the unanswered threshold and confirm it is skipped.
 
 Expected result: post-call and failure events update Notion without losing unmatched callbacks.
 

@@ -15,6 +15,25 @@ const CALL_NOTES_DATABASE_ID = '342e4130-1314-8016-8ced-d60cbf9fe9bf';
 const RB_CALLS_CHANNEL_ID = 'C0ASXSTFSVA';
 const ELEVENLABS_WEBHOOK_IPS = '34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69';
 
+const transcriptBlocks = [
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(0, 1800) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(1800, 3600) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(3600, 5400) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(5400, 7200) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(7200, 9000) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(9000, 10800) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(10800, 12600) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(12600, 14400) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(14400, 16200) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(16200, 18000) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(18000, 19800) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(19800, 21600) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(21600, 23400) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(23400, 25200) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(25200, 27000) || " ") }}') },
+  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(27000, 28800) || " ") }}') },
+];
+
 const eventsWebhook = trigger({
   type: 'n8n-nodes-base.webhook',
   version: 2.1,
@@ -111,22 +130,30 @@ const transcript = Array.isArray(data.transcript) ? data.transcript : [];
 function turnToTranscriptLine(turn) {
   const role = String(turn.role || turn.speaker || 'unknown').trim() || 'unknown';
   const rawMessage = turn.message !== undefined && turn.message !== null ? turn.message : turn.text;
-  const message = rawMessage !== undefined && rawMessage !== null && String(rawMessage).trim() ? String(rawMessage).trim() : 'None';
+  if (rawMessage === undefined || rawMessage === null || !String(rawMessage).trim()) return '';
+  const message = String(rawMessage).trim();
   return role + ': ' + message;
 }
 const transcriptText = transcript.map(turnToTranscriptLine).filter(Boolean).join(LF);
 const messageCount = transcript.length;
 const summaryFromEvent = String(analysis.transcript_summary || body.summary || '').trim();
+const transcriptLower = transcriptText.toLowerCase();
+const summaryLower = summaryFromEvent.toLowerCase();
 const noAnswerReason = [failureReason, status, disconnectionReason].join(' ').toLowerCase();
 const noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;
+const ivrDeadEnd =
+  (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
+  (/goodbye|ended by remote party/.test(summaryLower) || disconnectionReason.includes('remote party') || transcriptLower.includes('goodbye'));
 const isExplicitFailure = eventType === 'call_initiation_failure' || Boolean(failureReason);
 const postCallNoPickup = /post[-_ ]?call|transcription|ended|completed|done/i.test(eventType) && messageCount === 0 && duration === 0 && ['initiated', 'queued', 'ringing', ''].includes(status);
 const isNoAnswer = isExplicitFailure ||
+  ivrDeadEnd ||
   postCallNoPickup ||
   (messageCount === 0 && noAnswerPattern.test(noAnswerReason)) ||
   (messageCount === 0 && analysis.call_successful && analysis.call_successful !== 'success') ||
   (messageCount === 0 && ['failed', 'done', 'ended', 'completed'].includes(status) && analysis.call_successful !== 'success');
 const summary = String(
+  (ivrDeadEnd ? 'Outbound call reached an IVR, but did not reach a live agent. The remote party ended the call before the booking change could be discussed.' : '') ||
   summaryFromEvent ||
   (isNoAnswer ? 'Outbound call did not reach a human conversation. ElevenLabs status: ' + (status || eventType) + (failureReason ? '. Reason: ' + failureReason : '') : '') ||
   (failureReason ? 'Call initiation failed: ' + failureReason : '')
@@ -134,8 +161,10 @@ const summary = String(
 const twilioSid = String(
   data.callSid ||
   data.call_sid ||
+  data.phone_call?.call_sid ||
   metadata.callSid ||
   metadata.call_sid ||
+  metadata.phone_call?.call_sid ||
   metadata.body?.CallSid ||
   metadata.body?.call_sid ||
   ''
@@ -269,28 +298,43 @@ const hasCallPage = ifElse({
 });
 
 const createPostCallNote = node({
-  type: 'n8n-nodes-base.httpRequest',
-  version: 4.4,
+  type: 'n8n-nodes-base.notion',
+  version: 2.2,
   config: {
     name: 'Create Post-Call Note',
     position: [80, -300],
     credentials: { notionApi: newCredential('Notion') },
+    onError: 'continueRegularOutput',
     parameters: {
-      method: 'POST',
-      url: 'https://api.notion.com/v1/pages',
-      authentication: 'predefinedCredentialType',
-      nodeCredentialType: 'notionApi',
-      sendHeaders: true,
-      headerParameters: {
-        parameters: [
-          { name: 'Content-Type', value: 'application/json' },
-          { name: 'Notion-Version', value: '2022-06-28' },
+      resource: 'databasePage',
+      operation: 'create',
+      databaseId: { __rl: true, value: CALL_NOTES_DATABASE_ID, mode: 'id', cachedResultName: 'Call Notes' },
+      title: expr('{{ $json.note_title }}'),
+      simple: false,
+      propertiesUi: {
+        propertyValues: [
+          { key: 'Summary|rich_text', textContent: expr('{{ $json.summary || $json.failure_reason || "" }}') },
+          { key: 'Transcript|rich_text', textContent: expr('{{ $json.transcript || "" }}') },
+          { key: 'Event Type|select', selectValue: expr('{{ $json.note_event_type }}') },
+          { key: 'Outcome Status|select', selectValue: expr('{{ $json.outcome_status }}') },
+          { key: 'ElevenLabs Conversation ID|rich_text', textContent: expr('{{ $json.conversation_id }}') },
+          { key: 'Twilio Call SID|rich_text', textContent: expr('{{ $json.twilio_call_sid || "" }}') },
+          { key: 'Call|relation', relationValue: [expr('{{ $json.call_page_id }}')] },
         ],
       },
-      sendBody: true,
-      specifyBody: 'json',
-      jsonBody: expr('{{ $json.notion_page_body }}'),
-      options: { response: { response: { fullResponse: false, neverError: false, responseFormat: 'json' } }, timeout: 30000 },
+      blockUi: {
+        blockValues: [
+          {
+            type: 'paragraph',
+            textContent: expr('{{ ["Status: provisional", "Source: ElevenLabs event " + $json.event_type + ($json.conversation_id ? " for conversation " + $json.conversation_id : ""), "Imported: " + $now.toISO(), "Review: Full transcript is stored in this page body. The Transcript property is only an excerpt because Notion rich-text properties are capped."].join("\\n") }}'),
+          },
+          { type: 'heading_2', textContent: 'Summary' },
+          { type: 'paragraph', textContent: expr('{{ $json.summary || $json.failure_reason || "No summary available." }}') },
+          { type: 'heading_2', textContent: 'Full transcript' },
+          ...transcriptBlocks,
+        ],
+      },
+      options: {},
     },
   },
   output: [{ id: 'note_page_id', name: 'Post-call note' }],
@@ -514,14 +558,16 @@ const getElevenLabsConversation = node({
   config: {
     name: 'Get ElevenLabs Conversation',
     position: [640, 360],
+    credentials: { elevenLabsApi: newCredential('ElevenLabs account 2') },
     parameters: {
       method: 'GET',
       url: expr('https://api.elevenlabs.io/v1/convai/conversations/{{ $json.conversation_id }}'),
+      authentication: 'predefinedCredentialType',
+      nodeCredentialType: 'elevenLabsApi',
       sendHeaders: true,
       headerParameters: {
         parameters: [
           { name: 'Accept', value: 'application/json' },
-          { name: 'xi-api-key', value: expr('{{ $vars.ELEVENLABS_API_KEY || "" }}') },
         ],
       },
       options: { response: { response: { fullResponse: true, neverError: true, responseFormat: 'json' } }, timeout: 30000 },
@@ -651,7 +697,8 @@ const LF = String.fromCharCode(10);
 function turnToTranscriptLine(turn) {
   const role = String(turn.role || turn.speaker || 'unknown').trim() || 'unknown';
   const rawMessage = turn.message !== undefined && turn.message !== null ? turn.message : turn.text;
-  const message = rawMessage !== undefined && rawMessage !== null && String(rawMessage).trim() ? String(rawMessage).trim() : 'None';
+  if (rawMessage === undefined || rawMessage === null || !String(rawMessage).trim()) return '';
+  const message = String(rawMessage).trim();
   return role + ': ' + message;
 }
 const transcriptText = transcript.map(turnToTranscriptLine).filter(Boolean).join(LF);
@@ -679,15 +726,20 @@ const ringingInProgressNoAudio = status === 'in-progress' && messageCount === 0 
 const stuckInProgressNoMessages = status === 'in-progress' && messageCount === 0 && candidate.attempt_age_minutes >= 25;
 const terminalNoMessages = ['failed', 'done', 'ended', 'completed'].includes(status) && messageCount === 0 && callSuccessful !== 'success';
 const explicitNoAnswer = messageCount === 0 && noAnswerPattern.test(reasonText);
-const isUnanswered = !authFailed && (httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
+const summaryFromElevenLabs = String(analysis.transcript_summary || data.summary || '').trim();
+const transcriptLower = transcriptText.toLowerCase();
+const summaryLower = summaryFromElevenLabs.toLowerCase();
+const ivrDeadEnd =
+  (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
+  (/goodbye|ended by remote party/.test(summaryLower) || reason.includes('remote party') || transcriptLower.includes('goodbye'));
+const isUnanswered = !authFailed && (ivrDeadEnd || httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
 const isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);
 const shouldUpdate = !authFailed && (isUnanswered || isCompleted);
-const summaryFromElevenLabs = String(analysis.transcript_summary || data.summary || '').trim();
 const statusSummary = authFailed
-  ? 'ElevenLabs conversation lookup was not authorized. Configure n8n variable ELEVENLABS_API_KEY before relying on the no-answer watchdog.'
+  ? 'ElevenLabs conversation lookup was not authorized. Check the ElevenLabs credential on RB Calls ElevenLabs Events -> Get ElevenLabs Conversation before relying on the no-answer watchdog.'
   : 'ElevenLabs status=' + (status || 'unknown') + ', messages=' + messageCount + ', duration=' + duration + 's, age=' + candidate.attempt_age_minutes + 'm' + (reason ? ', reason=' + reason : '') + '.';
 const summary = isUnanswered
-  ? 'Outbound call did not reach a human conversation. ' + statusSummary
+  ? (ivrDeadEnd ? 'Outbound call reached an IVR, but did not reach a live agent. The remote party ended the call before the booking change could be discussed.' : 'Outbound call did not reach a human conversation. ' + statusSummary)
   : (summaryFromElevenLabs || 'Recovered completed call status from ElevenLabs status sweep. ' + statusSummary);
 const noteEventType = isUnanswered ? 'Error' : 'Post-call';
 const outcomeStatus = isUnanswered ? 'No answer' : (callSuccessful === 'success' ? 'Resolved' : 'Follow-up needed');
@@ -738,7 +790,7 @@ const notionPageBody = {
     'Event Type': { select: { name: noteEventType } },
     'Outcome Status': { select: { name: outcomeStatus } },
     'ElevenLabs Conversation ID': { rich_text: richText(candidate.conversation_id || '') },
-    'Twilio Call SID': { rich_text: richText(String(data.callSid || data.call_sid || metadata.callSid || metadata.call_sid || '').trim()) },
+    'Twilio Call SID': { rich_text: richText(String(data.callSid || data.call_sid || data.phone_call?.call_sid || metadata.callSid || metadata.call_sid || metadata.phone_call?.call_sid || '').trim()) },
     Call: { relation: candidate.call_page_id ? [{ id: candidate.call_page_id }] : [] },
   },
   children,
@@ -758,7 +810,7 @@ return {
   transcript_message_count: messageCount,
   notion_page_body: notionPageBody,
   raw_event_excerpt: rawEventExcerpt,
-  twilio_call_sid: String(data.callSid || data.call_sid || metadata.callSid || metadata.call_sid || '').trim(),
+  twilio_call_sid: String(data.callSid || data.call_sid || data.phone_call?.call_sid || metadata.callSid || metadata.call_sid || metadata.phone_call?.call_sid || '').trim(),
   voice_error: isUnanswered ? summary.slice(0, 1900) : '',
 };`,
     },
@@ -805,28 +857,43 @@ const shouldUpdateSweptCall = ifElse({
 });
 
 const createSweptStatusNote = node({
-  type: 'n8n-nodes-base.httpRequest',
-  version: 4.4,
+  type: 'n8n-nodes-base.notion',
+  version: 2.2,
   config: {
     name: 'Create Swept Status Note',
     position: [1440, 360],
     credentials: { notionApi: newCredential('Notion') },
+    onError: 'continueRegularOutput',
     parameters: {
-      method: 'POST',
-      url: 'https://api.notion.com/v1/pages',
-      authentication: 'predefinedCredentialType',
-      nodeCredentialType: 'notionApi',
-      sendHeaders: true,
-      headerParameters: {
-        parameters: [
-          { name: 'Content-Type', value: 'application/json' },
-          { name: 'Notion-Version', value: '2022-06-28' },
+      resource: 'databasePage',
+      operation: 'create',
+      databaseId: { __rl: true, value: CALL_NOTES_DATABASE_ID, mode: 'id', cachedResultName: 'Call Notes' },
+      title: expr('{{ $json.note_title }}'),
+      simple: false,
+      propertiesUi: {
+        propertyValues: [
+          { key: 'Summary|rich_text', textContent: expr('{{ $json.summary || "" }}') },
+          { key: 'Transcript|rich_text', textContent: expr('{{ $json.transcript || "" }}') },
+          { key: 'Event Type|select', selectValue: expr('{{ $json.note_event_type }}') },
+          { key: 'Outcome Status|select', selectValue: expr('{{ $json.outcome_status }}') },
+          { key: 'ElevenLabs Conversation ID|rich_text', textContent: expr('{{ $json.conversation_id || "" }}') },
+          { key: 'Twilio Call SID|rich_text', textContent: expr('{{ $json.twilio_call_sid || "" }}') },
+          { key: 'Call|relation', relationValue: [expr('{{ $json.call_page_id }}')] },
         ],
       },
-      sendBody: true,
-      specifyBody: 'json',
-      jsonBody: expr('{{ $json.notion_page_body }}'),
-      options: { response: { response: { fullResponse: false, neverError: false, responseFormat: 'json' } }, timeout: 30000 },
+      blockUi: {
+        blockValues: [
+          {
+            type: 'paragraph',
+            textContent: expr('{{ ["Status: provisional", "Source: ElevenLabs conversation status sweep" + ($json.conversation_id ? " for conversation " + $json.conversation_id : ""), "Imported: " + $now.toISO(), "Review: Full transcript is stored in this page body. The Transcript property is only an excerpt because Notion rich-text properties are capped."].join("\\n") }}'),
+          },
+          { type: 'heading_2', textContent: 'Summary' },
+          { type: 'paragraph', textContent: expr('{{ $json.summary || "No summary available." }}') },
+          { type: 'heading_2', textContent: 'Full transcript' },
+          ...transcriptBlocks,
+        ],
+      },
+      options: {},
     },
   },
   output: [{ id: 'note_page_id', name: 'Swept status note' }],
