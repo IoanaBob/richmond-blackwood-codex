@@ -676,3 +676,13 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat an IVR-only conversation ending with remote `Goodbye` as not completed, even when ElevenLabs analysis says `call_successful: success`.
 - Verification: n8n validation/deploy/publish succeeded; the no-answer sweep reached ElevenLabs and updated Notion; Notion read-back confirmed `RBCALL-14` status, follow-up flag, conversation ID, Twilio SID, and linked Call Note. `npm run calls:check-automation` passed.
 - Limitations or gaps: Retry strategy for Brussels Airlines still needs an alternate contact route or better IVR timing; the booking change was not discussed with a live agent.
+
+## 2026-05-21 14:03 IST - Master Chat And Skill Run Git Rule
+
+- User request: Add a master rule for every chat/skill run to pull `origin/main`, create a new branch, push at closeout, check conflicts with main, fix conflicts, and create a PR.
+- Context read: `AGENTS.md`, `README.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, recent skill-run/history/handoff memory, and source/import logs.
+- Actions taken: Ran `git pull origin main`, created branch `codex/chat-skill-run-git-rule`, added the rule across the master instructions, repo-operation process, task PR skill, README startup protocol, current-state memory, handoff, skill-run ledger, and this history entry, then backed up the rule to the RB Internal Knowledge Base repository operating rules and review/PR workflow pages.
+- Files changed: `AGENTS.md`, `README.md`, `processes/repo-operation.md`, `skills/rb-task-pr/SKILL.md`, `memory/current-state.md`, `memory/handoff.md`, `memory/skill-runs.md`, `memory/history.md`, and `sources/import-log.md`.
+- Decisions made: The rule applies to repository-changing or live-state-changing RB Codex runs; pure read-only chats are left as a review question in the process doc.
+- Verification: Notion read-back verified both updated Internal Knowledge Base pages; `git diff --check` passed; branch `codex/chat-skill-run-git-rule` pushed; merge-tree conflict check against `origin/main` was clean; PR #28 opened with GitHub merge state `CLEAN`.
+- Limitations or gaps: Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.

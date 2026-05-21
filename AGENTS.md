@@ -12,6 +12,17 @@ These instructions apply to every Codex session in this repository.
 - Use existing RB Notion and Drive structures. Do not create replacement structures unless the user approves.
 - When the destination is unclear, stop, record the uncertainty, and ask for review.
 
+## Master Chat And Skill Run Git Rule
+
+For every Richmond Blackwood Codex chat or skill run that can change repository files, helper behavior, or live workspace state:
+
+1. Inspect `git status --short --branch`.
+2. Run `git pull origin main` before starting substantive work.
+3. If the worktree is clean, create or switch to a new `codex/<task-slug>` branch before editing files or changing live state.
+4. If the worktree is dirty, the pull cannot apply cleanly, or conflicts appear, classify changes by task ownership. Do not discard user work. Split task-owned changes into relevant commits, push scoped branch(es), open PRs when GitHub tooling is available, and communicate PR URLs or blockers before continuing from a clean updated base.
+5. At closeout, run the required verification, commit task-owned changes, push the branch, check the branch against `origin/main`, fix any conflicts on the task branch, rerun verification, and create or update the PR.
+6. Final responses for repository-changing runs must include the branch, PR URL when available, conflict status, verification run, and any unavailable tooling.
+
 ## Fact Standard
 
 Every meaningful factual claim should include:
