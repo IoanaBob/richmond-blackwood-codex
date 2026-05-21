@@ -261,12 +261,12 @@ Review: confirm final operator ownership before activation.
 
 The MCP tokens above let Codex inspect and build. They do not automatically give n8n permission to call ElevenLabs during a workflow run. For the RB calling bot, configure the runtime credential and variable inside n8n:
 
-1. Preferred current setup: create or select an n8n predefined `ElevenLabs API` credential for the ElevenLabs account.
+1. Create or select an n8n predefined `ElevenLabs API` credential for the ElevenLabs account.
 2. Open `RB Calls Voice Execution` and attach that credential to the `Make ElevenLabs Outbound Call` HTTP Request node.
-3. Add n8n variable `ELEVENLABS_API_KEY`. `RB Calls ElevenLabs Events` reads this variable directly for the `Get ElevenLabs Conversation` status-check request because n8n MCP workflow updates do not reliably preserve HTTP Request credentials.
+3. Open `RB Calls ElevenLabs Events` and attach the same credential to `Get ElevenLabs Conversation`.
 4. Add n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`.
 5. Set that variable to the ElevenLabs phone-number ID after an ElevenLabs phone number is added or connected.
-6. After any Codex/n8n MCP workflow update, visually recheck the `Make ElevenLabs Outbound Call` credential in n8n. The n8n MCP SDK update path may not auto-assign HTTP Request credentials.
+6. After any Codex/n8n MCP workflow update, visually recheck both ElevenLabs credential assignments in n8n. The n8n MCP SDK update path may not auto-assign HTTP Request credentials.
 
 Do not put either value in this repo, workflow descriptions, sticky notes, chat messages, or screenshots committed to git.
 
