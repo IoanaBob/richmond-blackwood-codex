@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF Form Fill"
+  short_description: "Fill official PDFs cleanly from evidence."
+  default_prompt: "Use $rb-pdf-form-fill to complete this official PDF from the supplied source documents and return a visually checked, send-ready PDF."
