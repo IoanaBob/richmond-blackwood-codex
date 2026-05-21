@@ -25,6 +25,11 @@ Use these defaults when creating client-inbound tasks from WhatsApp, Gmail, or s
 | Bookkeeping and general client queries | Simoneta Vicente | `b5e3ee56-b550-4959-8ec2-301d6e69e111` | Use for bookkeeping, routine document requests, general operational follow-up, and unclassified inbound requests. |
 | Sales, software engineering, product, and structuring | Ioana Surdu-Bob | `3a46f87a-9bc2-408f-baff-b4c23326e0f2` | Use for sales, software/product, technical, structuring, and strategic client requests. |
 
+Edge-case owner rules:
+
+- Legal contract/counterparty/VAT-route decisions are Johnpaul-owned unless the operator explicitly assigns another legal owner.
+- TK/private-health-insurance/social-insurance transition tasks are Johnpaul-owned when Simoneta is not onboarded on the task.
+
 ## Review Needed
 
 - Confirm Ioana's official RB role/title for public site, contracts, authority documents, and internal process docs.

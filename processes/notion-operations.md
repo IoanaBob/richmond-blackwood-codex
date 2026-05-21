@@ -42,13 +42,13 @@ The connector does not expose native `Turn into Tasks`. If native task visibilit
 
 ## Tasks Database
 
-Use the existing Notion Tasks database for Richmond Blackwood action items.
+Use the owning task-capable RB Client Databases row first for Richmond Blackwood action items. Use the existing central Notion Tasks database for extra action work or when the owning operational row cannot represent the action.
 
 - Tasks data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
 - Create follow-up tasks with `Name`, `Status`, `Assigned To`, and `Project`.
-- Link each task to the relevant company project. For this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required.
-- Use explicit user instructions, project owner/inherited owner, established process rules, or `internal/people-roles.md` to choose the assignee. If none is clear, ask before creating the task.
-- Communication records, client notes, and repo files can be source context, but they are not substitutes for a Tasks database row when RB action is required.
+- Link client tasks to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work.
+- Use explicit user instructions, existing row owner, owner of the project linked on the responsible Company record, established process rules, or `internal/people-roles.md` to choose the assignee. If none is clear, ask before creating the task.
+- Communication records, client notes, and repo files can be source context, but they are not substitutes for updating the owning task-capable row when RB action is required.
 
 ## Known Connector Limits
 

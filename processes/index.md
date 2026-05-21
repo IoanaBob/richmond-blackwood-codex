@@ -17,8 +17,9 @@ This directory is the source-controlled process and SOP mirror for Richmond Blac
 - `setup-and-access.md` - human setup and health checks.
 - `signature-and-gmail.md` - generic approvals, signing, Gmail draft, and communication rules.
 - `communications.md` - communication connector/MCP rules, WhatsApp routing, private-data handling, and follow-up capture.
-- `inbound-operating-triage.md` - Gmail-inbox-first and WhatsApp-topic client communication triage, finance split-out, correspondence/task handling, and batched approval packets.
-- `whatsapp-inbound-monitoring.md` - manual WhatsApp client-chat monitoring, correspondence handling, task creation, Slack notifications, and checkpoint updates.
+- `common-tasks-follow-through.md` - task-first Gmail/WhatsApp-triggered follow-through across every RB Client Databases data source, with approval packets at every stage.
+- `inbound-operating-triage.md` - superseded pointer retained for history; use `common-tasks-follow-through.md`.
+- `whatsapp-inbound-monitoring.md` - manual WhatsApp client-chat monitoring, Communications handling, task-capable record updates, Slack notifications, and checkpoint updates.
 
 ## Maintenance
 

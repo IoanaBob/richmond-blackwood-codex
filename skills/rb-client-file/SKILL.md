@@ -72,7 +72,7 @@ Do not list Notion source records that were only read as if they were added or m
 
 When reviewing or creating Notion tasks during the backfill, add task comments that explain the review decision, split, blocker, or next action so progress is visible inside Notion.
 
-When a follow-up requires Richmond Blackwood action, create it in the Notion Tasks database and link it to the relevant company project. In this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required. Assign it to the right person from the request, project owner/inherited owner, established process rule, or `internal/people-roles.md`.
+When a follow-up requires Richmond Blackwood action, update or create the owning task-capable client data-source row first. Use central Notion Tasks only for extra action work or when the owning row cannot represent the action. Link client action rows/tasks to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work. Assign it to the right person from the request, existing row owner, owner of the project linked on the responsible Company record, established process rule, or `internal/people-roles.md`.
 
 When creating connected follow-up tasks, set the follow-up task's `Dependent on` relation to the initial task whenever the follow-up cannot start until the initial task is complete. Use the initial task's `Is blocking` relation only when that direction is clearer in the existing workflow.
 
