@@ -2,7 +2,7 @@
   "status": "provisional",
   "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
   "imported": "2026-05-21",
-  "synced_at": "2026-05-21T19:49:40.866Z",
+  "synced_at": "2026-05-21T20:08:26.365Z",
   "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
   "n8n": [
     {
@@ -11,13 +11,13 @@
       "id": "3xJh7hNK0Zl9T4zS",
       "name": "RB Calls Voice Execution",
       "active": true,
-      "active_version_id": "317ff027-2288-48dd-8fe6-18255a317174",
-      "version_id": "317ff027-2288-48dd-8fe6-18255a317174",
-      "updated_at": "2026-05-21T19:42:27.500Z",
+      "active_version_id": "45bdf0b8-021d-45b2-86ec-ff91332828c9",
+      "version_id": "45bdf0b8-021d-45b2-86ec-ff91332828c9",
+      "updated_at": "2026-05-21T20:08:10.313Z",
       "node_count": 28,
       "connection_count": 31,
       "node_names": [
-        "Sticky Note 1de5269a",
+        "Sticky Note 93fa2964",
         "Every 15 minutes",
         "Get Reviewed Calls",
         "Done",

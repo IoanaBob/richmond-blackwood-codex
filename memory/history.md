@@ -731,3 +731,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: IVR language can only produce an IVR dead-end/no-answer classification when there is no later human-agent or successful-call evidence. The Miles & More contact hours are provisional and use weekday Germany support windows converted to Europe/Dublin until exact public hours are confirmed.
 - Verification: `npm run calls:check-automation` passed; n8n read-back confirmed `RB Calls ElevenLabs Events` active version `05526aa3-8584-47c4-b332-902f6aff8731` and `RB Calls Voice Execution` active version `317ff027-2288-48dd-8fe6-18255a317174`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-20` and `RBCALL-21`.
 - Limitations or gaps: `RBCALL-21` is created as `Not started` and `Approved = __NO__`; the normal review/approval workflow must approve it before n8n places the call.
+
+## 2026-05-21 - RB Calls Next Call Gate And Miles & More Reset
+
+- User request: Reset the failed Miles & More follow-up so it can run tomorrow morning.
+- Context read: Notion `RBCALL-21`, n8n `RB Calls Voice Execution` execution `10210`, n8n `RB Calls ElevenLabs Events` sweep execution `10213`, and the live `RB Calls Voice Execution` workflow.
+- Actions taken: Reset `RBCALL-21` to `Reviewed` with `Approved = __YES__`, cleared the misleading no-answer outcome/error/voice IDs, set retry count back to `0`, and set `Next Call At` to `2026-05-22T07:05:00+01:00`. Patched and published `RB Calls Voice Execution` so preflight skips reviewed calls whose `Next Call At` is still in the future.
+- Decisions made: `Next Call At` should be enforced in n8n preflight rather than only stored as a Notion hint, because reviewed/approved calls are otherwise picked up by the fifteen-minute scheduler immediately.
+- Verification: `npm run calls:check-automation` passed; `git diff --check` passed; n8n publish succeeded with `RB Calls Voice Execution` active version `45bdf0b8-021d-45b2-86ec-ff91332828c9`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-21` is reviewed/approved with the tomorrow-morning next-call timestamp.
+- Limitations or gaps: n8n deploy reported that the HTTP Request node `Make ElevenLabs Outbound Call` still needs its ElevenLabs API credential configured manually in n8n. If that credential is not reselected before the next eligible run, the call will fail again before dialing.

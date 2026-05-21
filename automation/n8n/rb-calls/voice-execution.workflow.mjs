@@ -101,6 +101,9 @@ const now = new Date();
 const nowIso = now.toISOString();
 const lastAttemptAt = dateValue(call, 'Last Call Attempt At');
 const lastAttemptMs = Date.parse(lastAttemptAt);
+const nextCallAt = dateValue(call, 'Next Call At');
+const nextCallMs = Date.parse(nextCallAt);
+const nextCallInFuture = Number.isFinite(nextCallMs) && now.getTime() < nextCallMs;
 const freshLock = status === 'Call Started' && Number.isFinite(lastAttemptMs) && now.getTime() - lastAttemptMs < 20 * 60 * 1000;
 const blockedReasons = [];
 if (companyIds.length === 0) blockedReasons.push('Missing Company relation.');
@@ -108,7 +111,8 @@ if (individualIds.length === 0) blockedReasons.push('Missing Individual relation
 if (contactIds.length === 0) blockedReasons.push('Missing Contact relation.');
 let action = 'claim';
 let reason = '';
-if (freshLock) { action = 'skip'; reason = 'Fresh Call Started lock exists from ' + lastAttemptAt + '.'; }
+if (nextCallInFuture) { action = 'skip'; reason = 'Next Call At is in the future: ' + nextCallAt + '.'; }
+else if (freshLock) { action = 'skip'; reason = 'Fresh Call Started lock exists from ' + lastAttemptAt + '.'; }
 else if (status !== 'Reviewed' || !approved) { action = 'skip'; reason = 'Call is no longer eligible. Current status=' + (status || 'unknown') + ', approved=' + approved + '.'; }
 else if (blockedReasons.length > 0) { action = 'blocked'; reason = blockedReasons.join(' '); }
 const retryCount = Number(prop(call, 'Retry Count').number || 0) + 1;
