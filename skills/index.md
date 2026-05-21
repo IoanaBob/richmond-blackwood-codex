@@ -21,3 +21,5 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-authority-call-setup`: set up RB authority/outbound call requests in Notion from minimal user input, resolving Company, Individual, Contact, PoA, and call-objective details before review and submission.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
+- `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
+- `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.
