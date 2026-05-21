@@ -740,3 +740,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: `Next Call At` should be enforced in n8n preflight rather than only stored as a Notion hint, because reviewed/approved calls are otherwise picked up by the fifteen-minute scheduler immediately.
 - Verification: `npm run calls:check-automation` passed; `git diff --check` passed; n8n publish succeeded with `RB Calls Voice Execution` active version `45bdf0b8-021d-45b2-86ec-ff91332828c9`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-21` is reviewed/approved with the tomorrow-morning next-call timestamp.
 - Limitations or gaps: n8n deploy reported that the HTTP Request node `Make ElevenLabs Outbound Call` still needs its ElevenLabs API credential configured manually in n8n. If that credential is not reselected before the next eligible run, the call will fail again before dialing.
+
+## 2026-05-21 - RB Calls Miles And More Loyalty References
+
+- User request: Add Eran and Ioana's Miles & More numbers to the active Miles & More call description.
+- Context read: Notion `RBCALL-21` and previously fetched booking-email evidence for reservation `75I5WJ`.
+- Actions taken: Updated the live Notion `Reason for call` and public-safe `Context Pack` for `RBCALL-21` with the available masked Miles & More / Frequent Traveller card references and an instruction not to guess full loyalty numbers.
+- Decisions made: Keep exact private card-ending details in the live call record only; this repo entry records the operational change without repeating the private values in git.
+- Verification: Notion read-back confirmed the updated call brief fields on `RBCALL-21`.
+- Limitations or gaps: The available booking emails expose only masked card endings, not full Miles & More numbers. If Miles & More requires full loyalty numbers, the call agent should ask Eran rather than inventing them.
