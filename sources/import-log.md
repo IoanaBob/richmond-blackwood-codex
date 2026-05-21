@@ -1611,3 +1611,20 @@ Unresolved:
 - Confirm billing mechanics from Andrei's 2025 personal-tax filing onward.
 - Confirm Andrei's official personal/director address with him.
 - Confirm TK/private-health-insurance treatment and NACV payslip/wage-tax evidence before filing.
+
+## 2026-05-21 - Master Chat And Skill Run Git Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-21 to make `git pull origin main`, new branch creation, branch push, conflict checking against main, and PR creation the default for every chat/skill run.
+- Local process files `AGENTS.md`, `README.md`, `processes/repo-operation.md`, and `skills/rb-task-pr/SKILL.md`.
+
+Actions:
+
+- Added the new master git workflow to repo instructions, the repository operation process, the task PR skill, startup protocol, and durable memory.
+- Recorded the rule as applying to repository-changing or live-state-changing RB Codex runs.
+- Backed up the rule to the RB Internal Knowledge Base pages `RB Codex Repository Operating Rules` and `RB Review And PR Workflow`, then verified both pages by read-back.
+
+Unresolved:
+
+- Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
