@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-05-22 - TPL Finanzamt Call Setup
+
+Imported:
+
+- User instruction in Codex conversation to queue a TechPacito Finanzamt call after the MHL call, ask about VAT-number status, and structure the call as a follow-up to the 2026-05-19 ELSTER message.
+- Notion TPL company record, related ELSTER proof, employer/employee query task, VAT/direct-contract communication, address/tax-number task, filing registrations, PoA communication, and Finanzamt München IV contact.
+
+Actions:
+
+- Created `clients/Companies/TPL/` from the Notion Companies `Reference` value and recorded the source and communication pointers for the queued authority follow-up.
+- Created live Notion call `RBCALL-26` as an inactive TPL follow-up and logged the setup in Communications.
+- Updated the existing MHL/ZENA heartbeat so it checks `RBCALL-24` first and activates TPL only after the MHL call completes.
+
+Unresolved:
+
+- Actual Finanzamt outcome remains pending because `RBCALL-26` is intentionally inactive until MHL/ZENA completes.
+- Current Gmail connector access could not read the referenced ELSTER proof message `19e4147bc3500e2d`; Notion's ELSTER outbound proof was used as the working source.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:
