@@ -120,6 +120,8 @@ The local bridge binds to `127.0.0.1:8080` by default. Override `WHATSAPP_BRIDGE
 
 When Codex needs to send or read WhatsApp and port `8080` is not listening, Codex should start the bridge with this script outside the sandbox and leave it running in the background.
 
+On macOS, the helper first tries to start a LaunchAgent. If the LaunchAgent path is unavailable or does not open the bridge port, the helper falls back to the same background-process mode used on non-macOS systems. The PID and log locations remain under `.codex-local/`.
+
 For direct foreground debugging only:
 
 ```bash
