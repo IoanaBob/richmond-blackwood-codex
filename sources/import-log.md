@@ -7,12 +7,14 @@ Status: active.
 Imported:
 
 - User instruction in Codex conversation to queue a TechPacito Finanzamt call after the MHL call, ask about VAT-number status, and structure the call as a follow-up to the 2026-05-19 ELSTER message.
+- User-provided local Codex session ID `019e400d-033b-7671-851c-f9207a10acb5`, which contained the 2026-05-19 German Finanzamt/ELSTER draft message.
 - Notion TPL company record, related ELSTER proof, employer/employee query task, VAT/direct-contract communication, address/tax-number task, filing registrations, PoA communication, and Finanzamt München IV contact.
 
 Actions:
 
 - Created `clients/Companies/TPL/` from the Notion Companies `Reference` value and recorded the source and communication pointers for the queued authority follow-up.
 - Created live Notion call `RBCALL-26` as an inactive TPL follow-up and logged the setup in Communications.
+- Updated live Notion call `RBCALL-26` and the TPL Communications log after checking the prior session, adding the incorporation date, Irish register number, complete VAT/corporation/trade-tax registration clarification, existing Steuernummer nuance, and missing ELSTER activation/access code.
 - Updated the existing MHL/ZENA heartbeat so it checks `RBCALL-24` first and activates TPL only after the MHL call completes.
 
 Unresolved:
