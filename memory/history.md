@@ -723,6 +723,15 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: Notion read-back verified both updated Internal Knowledge Base pages; `git diff --check` passed; branch `codex/chat-skill-run-git-rule` pushed; merge-tree conflict check against `origin/main` was clean; PR #28 opened with GitHub merge state `CLEAN`.
 - Limitations or gaps: Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
 
+## 2026-05-22 - Locked Mac No-Sleep Guide
+
+- User request: Create an RB knowledge-base guide for the settings needed to keep the computer from sleeping while locked, then apply it to this computer.
+- Context read: `skills/index.md`, Notion knowledge-capture workflow, RB Internal Knowledge Base schema, existing setup/access process docs, local macOS version, and current `pmset` power profile.
+- Actions taken: Created the Internal Knowledge Base page `https://www.notion.so/368e413013148192bdd0ecd41b511bdf`, added `processes/mac-lock-screen-no-sleep.md`, linked it from `processes/index.md` and `processes/setup-and-access.md`, recorded this run in the skill ledger, and attempted to apply the local AC power profile.
+- Decisions made: The RB default is to prevent idle system sleep only while on power adapter, not on battery, because this Mac has an internal battery and battery no-sleep can drain it unexpectedly.
+- Verification: Notion read-back confirmed the new knowledge-base page and properties; `git diff --check` passed. Local `pmset -g custom` still shows `sleep 1` under `AC Power`, so the computer setting was not applied.
+- Limitations or gaps: Local apply is blocked until macOS administrator approval can complete on the Mac. Confirm whether RB wants a separate battery no-sleep mode for any dedicated host MacBook.
+
 ## 2026-05-21 - RB Calls Answered-Call Classifier Fix And Miles & More Follow-Up
 
 - User request: Fix the latest Lufthansa call that reached an agent but was marked as no-answer, correct that call, and set up the follow-up call.

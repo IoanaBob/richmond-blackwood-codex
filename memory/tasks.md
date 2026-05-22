@@ -29,6 +29,12 @@ Imported: 2026-05-04.
 | Negotiate AKS Finanzamt penalty reduction or waiver ahead of the stop-date review: `https://www.notion.so/365e413013148157b952c94c04d72d90`. | 2026-05-19 |
 | Request AKS/Anastasia 2025 tax and VAT information early because Ana replies slowly: `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`. | 2026-05-19 |
 
+## Blocked
+
+| Task | Created | Blocked | Blocker |
+| --- | --- | --- | --- |
+| Apply the locked-Mac no-sleep AC power profile on JP's Mac. | 2026-05-22 | 2026-05-22 | macOS administrator approval did not complete from Codex; `pmset -g custom` still shows `sleep 1` under `AC Power`. |
+
 ## Done
 
 | Task | Created | Completed |
