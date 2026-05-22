@@ -24,7 +24,7 @@ Use this skill when preparing or filing a German personal tax return in ELSTER f
 - Do not store ELSTER certificates, certificate passwords, QR codes, OTPs, recovery codes, or attachment payloads in git, memory files, Notion comments, Slack, or chat.
 - It is acceptable to use an approved live credential source to log in, but never echo the secret value back to the user unless the user typed it in this chat.
 - Do not record local certificate file paths or certificate passwords in durable memory; record only whether certificate login was used, unavailable, or blocked by tooling.
-- Do not submit the final return, transmit attachments, or accept final ELSTER declarations without explicit action-time approval from the operator.
+- Do not submit the final return, transmit attachments, or accept final ELSTER declarations without the operator's proper final review and explicit action-time approval.
 - If the filing year, filing status, or task readiness conflicts across Notion, repo notes, workbook, or user instruction, stop and ask for the intended filing target before entering ELSTER data.
 - Treat workbook figures as analysis inputs, not final law conclusions, whenever open checks or missing-info flags remain.
 
@@ -57,6 +57,15 @@ For the first ELSTER page in a filing run:
 5. Record reusable corrections in this skill as general rules, not client-specific secrets.
 
 For later pages in the same run, keep using the same packet format. Ask for review whenever the page introduces a new source category, judgment call, or data-transmission risk.
+
+## Final Submission Gate
+
+Before clicking `Absenden` or any equivalent final transmission action:
+
+1. Stop on the final ELSTER review/submission page.
+2. Provide a concise final review packet covering validation result, calculated refund/payment, bank details, imported certificate values, operator-approved deviations from the workbook, and known post-filing reconciliation items.
+3. Ask for explicit action-time approval to submit.
+4. Submit only after the operator gives a clear approval for the final submission action. General approval to continue, page-level approval, or prior login approval is not enough.
 
 ## Filing Readiness Checks
 

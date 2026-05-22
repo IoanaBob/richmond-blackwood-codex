@@ -1696,3 +1696,17 @@ Actions:
 Unresolved:
 
 - Reconcile Byron's 2025 ELSTER wage-certificate import against the workbook/LStB extraction after filing review.
+
+## 2026-05-22 - ELSTER Final Submission Gate
+
+Imported:
+
+- User clarification during Byron's 2025 ELSTER run: never submit without proper review and approval.
+
+Actions:
+
+- Updated `skills/rb-personal-tax-filing-de-elster/SKILL.md` to require a final review packet and explicit action-time approval before clicking `Absenden` or any equivalent final ELSTER transmission action.
+
+Unresolved:
+
+- Byron's 2025 ELSTER return remains unsubmitted on the final review/submission page pending explicit approval.
