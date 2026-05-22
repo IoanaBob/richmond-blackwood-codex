@@ -17,6 +17,7 @@ This directory is the source-controlled process and SOP mirror for Richmond Blac
 - `ie-core-annual-return-logging.md` - one-filing Irish CRO/CORE annual-return proof, filing status, payment handling, and next annual-return cross-check workflow.
 - `notion-operations.md` - Notion database, view, relation, file-property, and task-ready standards.
 - `setup-and-access.md` - human setup and health checks.
+- `mac-lock-screen-no-sleep.md` - Mac power settings for keeping long-running RB work awake while the screen is locked.
 - `signature-and-gmail.md` - generic approvals, signing, Gmail draft, and communication rules.
 - `communications.md` - communication connector/MCP rules, WhatsApp routing, private-data handling, and follow-up capture.
 - `common-tasks-follow-through.md` - task-first Gmail/WhatsApp-triggered follow-through across every RB Client Databases data source, with approval packets at every stage.

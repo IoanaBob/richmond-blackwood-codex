@@ -31,6 +31,10 @@ Local-only files belong under `.codex-local/` or `.env`. Both are ignored by git
 Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts.
 Never commit ElevenLabs API keys, n8n MCP tokens, n8n API keys, webhook secrets, call recordings, or full call transcripts.
 
+## Long-Running Local Work
+
+For Mac hosts that need to keep Codex, connector, export, upload, call, or automation work running while the screen is locked, use `processes/mac-lock-screen-no-sleep.md`.
+
 ## Health Checks
 
 ```bash
