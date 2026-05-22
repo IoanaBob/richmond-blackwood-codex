@@ -15,7 +15,8 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 2. Read `references/stage-packet-protocol.md`.
 3. Read `references/rb-client-database-task-registry.md`.
 4. Read `references/whatsapp-source-roster.md` before Stage 3 Gmail/WhatsApp discovery.
-5. Load supporting skills only when needed:
+5. Read `references/whatsapp-checkpoint-registry.md` before Stage 3 Gmail/WhatsApp discovery and Stage 10/11 WhatsApp checkpoint planning.
+6. Load supporting skills only when needed:
    - Gmail/email replies: `skills/rb-gmail-drafts/SKILL.md`.
    - WhatsApp reads/sends: `skills/rb-whatsapp-comms/SKILL.md`.
    - File upload/export/attachment: `skills/rb-file-uploads/SKILL.md`.

@@ -103,7 +103,7 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 
 ## WhatsApp Coverage
 
-Stage 3 must use `skills/rb-common-tasks-follow-through/references/whatsapp-source-roster.md` as the minimum WhatsApp route checklist. The Stage 3 packet must include every route in that roster, including unresolved routes, with discovery/read status and checkpoint eligibility.
+Stage 3 must use `skills/rb-common-tasks-follow-through/references/whatsapp-source-roster.md` as the minimum WhatsApp route checklist and `skills/rb-common-tasks-follow-through/references/whatsapp-checkpoint-registry.md` as the persistent checkpoint table. The Stage 3 packet must include every route in that roster, including unresolved routes, with discovery/read status and checkpoint eligibility.
 
 Routes added after the 2026-05-19 corrective run because they were missed:
 
@@ -113,7 +113,7 @@ Routes added after the 2026-05-19 corrective run because they were missed:
 - `CLV (Celine)`;
 - `AKS (Ana)`.
 
-These missed routes must be resolved and read in the next run before any checkpoint is advanced for them. Do not advance a checkpoint for an unresolved route or for a route that was not included in Stage 3 discovery.
+These routes were resolved during the `2026-05-21-1006-daily-0800-window` corrective run and are now stored in the checkpoint registry. Do not advance a checkpoint for an unresolved route or for a route that was not included in Stage 3 discovery.
 
 ## Finance And Operational Routing
 
