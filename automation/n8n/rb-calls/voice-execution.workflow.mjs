@@ -1164,7 +1164,7 @@ const successFlag = body.success === true || body.status === 'success' || body.o
 const returnedCallReference = Boolean(conversationId || twilioCallSid);
 const callStarted = !httpFailed && (successFlag || returnedCallReference);
 const errorSummary = callStarted ? '' : ('Outbound call API did not start a call. ' + JSON.stringify({ statusCode: statusCode || 'unknown', error: nodeError, body }).slice(0, 1800)).slice(0, 1900);
-const callStatus = callStarted ? 'Call Started' : 'Reviewed';
+const callStatus = callStarted ? 'Call Started' : 'Rejected';
 return { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStatus, elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: responseText.slice(0, 1900) };`,
     },
   },

@@ -463,7 +463,7 @@ function dateValue(page, name) { return prop(page, name).date?.start || ''; }
 function statusValue(page, name) { return prop(page, name).status?.name || prop(page, name).select?.name || ''; }
 const now = Date.now();
 const normalStaleAfterMinutes = 10;
-const claimOnlyStaleAfterMinutes = 60;
+const claimOnlyStaleAfterMinutes = 120;
 return $input.all()
   .map((item) => item.json || {})
   .filter((page) => page.id && statusValue(page, 'Call Status') === 'Call Started')
@@ -604,8 +604,8 @@ const normalizeMissingConversation = node({
       language: 'javaScript',
       jsCode: `const candidate = $json;
 const summary = candidate.claim_only_lock
-  ? 'Outbound call lock was claimed ' + candidate.attempt_age_minutes + ' minutes ago, but the workflow did not store a new ElevenLabs conversation ID. Keeping the call eligible for retry instead of classifying it as no-answer.'
-  : 'Outbound call stayed Call Started for ' + candidate.attempt_age_minutes + ' minutes, but n8n has no ElevenLabs conversation ID to verify. Keeping the call eligible for retry instead of classifying it as no-answer.';
+  ? 'Outbound call lock was claimed ' + candidate.attempt_age_minutes + ' minutes ago, but the workflow did not store a new ElevenLabs conversation ID. Marking as rejected technical startup failure instead of classifying it as no-answer.'
+  : 'Outbound call stayed Call Started for ' + candidate.attempt_age_minutes + ' minutes, but n8n has no ElevenLabs conversation ID to verify. Marking as rejected technical startup failure instead of classifying it as no-answer.';
 const LF = String.fromCharCode(10);
 function truncate(value, maxLength) {
   const text = String(value || '');
@@ -619,7 +619,7 @@ function block(type, value) {
   output[type] = { rich_text: richText(value) };
   return output;
 }
-const noteTitle = 'Startup retry sweep - ' + (candidate.call_public_id || candidate.call_page_id);
+const noteTitle = 'Startup failure sweep - ' + (candidate.call_public_id || candidate.call_page_id);
 const importedAt = new Date().toISOString();
 const transcriptProperty = 'No transcript available.';
 const notionPageBody = {
@@ -649,7 +649,7 @@ return {
   ...candidate,
   source: 'status_sweep_missing_conversation_id',
   should_update: true,
-  call_status: 'Reviewed',
+  call_status: 'Rejected',
   outcome_status: 'Follow-up needed',
   requires_follow_up: false,
   note_event_type: 'Error',
@@ -669,7 +669,7 @@ return {
       call_page_id: 'call_page_id',
       call_public_id: 'RBCALL-1',
       should_update: true,
-      call_status: 'Reviewed',
+      call_status: 'Rejected',
       outcome_status: 'Follow-up needed',
       requires_follow_up: false,
       note_event_type: 'Error',
@@ -736,22 +736,25 @@ const conversationLower = [summaryLower, transcriptLower].filter(Boolean).join('
 const humanConversationEvidence =
   callSuccessful === 'success' ||
   /\\b(human agent|live agent|customer service|representative|speaking with|speaking to|booking open|reservation|passenger|email address|phone number|miles & more|fare difference|change fee|rebook|provided .*contact number)\\b/i.test(conversationLower);
+const technicalLookupFailure = !authFailed && httpFailed;
 const ivrDeadEnd =
   !humanConversationEvidence &&
   (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
   (/goodbye|ended by remote party/.test(summaryLower) || reason.includes('remote party') || transcriptLower.includes('goodbye'));
-const isUnanswered = !authFailed && !humanConversationEvidence && (ivrDeadEnd || httpFailed || longStuckNoMessages || terminalNoMessages || explicitNoAnswer);
+const isUnanswered = !authFailed && !humanConversationEvidence && (ivrDeadEnd || longStuckNoMessages || terminalNoMessages || explicitNoAnswer);
 const isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);
-const shouldUpdate = !authFailed && (isUnanswered || isCompleted);
+const shouldUpdate = !authFailed && (technicalLookupFailure || isUnanswered || isCompleted);
 const statusSummary = authFailed
   ? 'ElevenLabs conversation lookup was not authorized. Check the ElevenLabs credential on RB Calls ElevenLabs Events -> Get ElevenLabs Conversation before relying on the no-answer watchdog.'
   : 'ElevenLabs status=' + (status || 'unknown') + ', messages=' + messageCount + ', duration=' + duration + 's, age=' + candidate.attempt_age_minutes + 'm' + (reason ? ', reason=' + reason : '') + '.';
-const summary = isUnanswered
+const summary = technicalLookupFailure
+  ? 'ElevenLabs conversation lookup failed during the status sweep. Marking as rejected technical failure instead of classifying it as no-answer. ' + statusSummary
+  : isUnanswered
   ? (ivrDeadEnd ? 'Outbound call reached an IVR, but did not reach a live agent. The remote party ended the call before the booking change could be discussed.' : 'Outbound call did not reach a human conversation. ' + statusSummary)
   : (summaryFromElevenLabs || 'Recovered completed call status from ElevenLabs status sweep. ' + statusSummary);
-const noteEventType = isUnanswered ? 'Error' : 'Post-call';
+const noteEventType = (technicalLookupFailure || isUnanswered) ? 'Error' : 'Post-call';
 const outcomeStatus = isUnanswered ? 'No answer' : (callSuccessful === 'success' ? 'Resolved' : 'Follow-up needed');
-const noteTitle = (isUnanswered ? 'No answer sweep - ' : 'Status sweep - ') + (candidate.call_public_id || candidate.call_page_id);
+const noteTitle = (technicalLookupFailure ? 'Technical failure sweep - ' : (isUnanswered ? 'No answer sweep - ' : 'Status sweep - ')) + (candidate.call_public_id || candidate.call_page_id);
 function truncate(value, maxLength) {
   const text = String(value || '');
   return text.length > maxLength ? text.slice(0, maxLength) : text;
@@ -807,9 +810,9 @@ return {
   ...candidate,
   source: 'status_sweep',
   should_update: shouldUpdate,
-  call_status: isUnanswered ? 'Call Unanswered' : (isCompleted ? 'Call Completed' : 'Call Started'),
+  call_status: technicalLookupFailure ? 'Rejected' : (isUnanswered ? 'Call Unanswered' : (isCompleted ? 'Call Completed' : 'Call Started')),
   outcome_status: outcomeStatus,
-  requires_follow_up: isUnanswered || (callSuccessful && callSuccessful !== 'success'),
+  requires_follow_up: !technicalLookupFailure && (isUnanswered || (callSuccessful && callSuccessful !== 'success')),
   note_event_type: noteEventType,
   note_title: noteTitle,
   summary: summary.slice(0, 1900),
@@ -819,7 +822,7 @@ return {
   notion_page_body: notionPageBody,
   raw_event_excerpt: rawEventExcerpt,
   twilio_call_sid: String(data.callSid || data.call_sid || data.phone_call?.call_sid || metadata.callSid || metadata.call_sid || metadata.phone_call?.call_sid || '').trim(),
-  voice_error: isUnanswered ? summary.slice(0, 1900) : '',
+  voice_error: (technicalLookupFailure || isUnanswered) ? summary.slice(0, 1900) : '',
 };`,
     },
   },
