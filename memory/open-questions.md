@@ -167,7 +167,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## Calling Bot Questions
 
-- Verify the user-configured ElevenLabs phone number, n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`, the selected n8n ElevenLabs credential on `Make ElevenLabs Outbound Call`, and the selected n8n ElevenLabs credential on `Get ElevenLabs Conversation` through a controlled post-fix retry; do not record the phone number or phone ID in git.
+- Verify the user-configured ElevenLabs phone number, n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`, and the selected n8n ElevenLabs credential on `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation` through a controlled post-fix retry; do not record the phone number or phone ID in git. The 2026-05-22 n8n MCP deploy path preserved the source-level credential names but skipped HTTP Request credential auto-assignment, so either reselect those credentials in the n8n UI or provide a local n8n REST API key for an explicit credential patch before approving `RBCALL-21` again.
 - Confirm ElevenLabs privacy/retention settings before live calls; the inspected agent currently records voice, retains indefinitely, and does not delete transcript/PII or audio.
 - Confirm the updated ElevenLabs live-help behavior in a synthetic call: agent-level dynamic-variable placeholders and the n8n outbound payload must include every required tool variable, `request_creator_help` should run once per issue, and `check_creator_help` should poll without duplicate Slack posts for up to five minutes.
 - Test the active n8n `RB Calls Slack Replies` PoA file-upload branch with a synthetic file before production reliance.

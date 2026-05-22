@@ -1124,6 +1124,7 @@ const makeOutboundCall = node({
     name: 'Make ElevenLabs Outbound Call',
     position: [5376, -400],
     credentials: { elevenLabsApi: newCredential('ElevenLabs account 2') },
+    onError: 'continueRegularOutput',
     parameters: {
       method: 'POST',
       url: '={{ $("Limit Startup Context").item.json.elevenlabs_outbound_call_url || "https://api.elevenlabs.io/v1/convai/sip-trunk/outbound-call" }}',
@@ -1157,11 +1158,14 @@ const statusCode = Number(response.statusCode || response.status || response.res
 const conversationId = firstString([body.conversation_id, body.conversationId, body.conversation?.id, body.data?.conversation_id, body.data?.conversationId]);
 const twilioCallSid = firstString([body.callSid, body.call_sid, body.twilio_call_sid, body.sip_call_id, body.sipCallId, body.data?.callSid, body.data?.call_sid]);
 const httpFailed = statusCode >= 400;
+const responseText = JSON.stringify(body || response || {});
+const nodeError = String(response.error?.message || response.message || body.message || body.error || '').trim();
 const successFlag = body.success === true || body.status === 'success' || body.ok === true;
 const returnedCallReference = Boolean(conversationId || twilioCallSid);
 const callStarted = !httpFailed && (successFlag || returnedCallReference);
-const errorSummary = callStarted ? '' : JSON.stringify({ statusCode: statusCode || 'unknown', body }).slice(0, 1900);
-return { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStarted ? 'Call Started' : 'Call Unanswered', elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: JSON.stringify(body).slice(0, 1900) };`,
+const errorSummary = callStarted ? '' : ('Outbound call API did not start a call. ' + JSON.stringify({ statusCode: statusCode || 'unknown', error: nodeError, body }).slice(0, 1800)).slice(0, 1900);
+const callStatus = callStarted ? 'Call Started' : 'Reviewed';
+return { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStatus, elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: responseText.slice(0, 1900) };`,
     },
   },
 });

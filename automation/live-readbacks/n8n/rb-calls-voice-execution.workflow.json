@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-21T20:08:26.365Z",
+  "synced_at": "2026-05-22T08:19:47.929Z",
   "status": "provisional",
   "source": "n8n MCP get_workflow_details",
   "review": "Compare with source-controlled workflow and publish intentionally after review.",
@@ -9,11 +9,11 @@
       "name": "RB Calls Voice Execution",
       "active": true,
       "isArchived": false,
-      "versionId": "45bdf0b8-021d-45b2-86ec-ff91332828c9",
-      "activeVersionId": "45bdf0b8-021d-45b2-86ec-ff91332828c9",
+      "versionId": "02e0a9a7-db18-4816-9819-44f56dbdbd31",
+      "activeVersionId": "02e0a9a7-db18-4816-9819-44f56dbdbd31",
       "triggerCount": 1,
       "createdAt": "2026-05-08T19:14:16.851Z",
-      "updatedAt": "2026-05-21T20:08:10.313Z",
+      "updatedAt": "2026-05-22T08:14:35.498Z",
       "settings": {
         "executionOrder": "v1",
         "availableInMCP": true,
@@ -344,8 +344,8 @@
       },
       "nodes": [
         {
-          "id": "62fc3680-5060-4497-b310-ac860768cb2b",
-          "name": "Sticky Note 93fa2964",
+          "id": "9c14ae1b-cc36-40ec-8f24-352490a8347f",
+          "name": "Sticky Note d6e4bc1e",
           "type": "n8n-nodes-base.stickyNote",
           "typeVersion": 1,
           "position": [
@@ -852,7 +852,8 @@
               },
               "timeout": 30000
             }
-          }
+          },
+          "onError": "continueRegularOutput"
         },
         {
           "id": "c6b90317-f489-47e6-b654-f2e66d8accc1",
@@ -866,7 +867,7 @@
           "parameters": {
             "mode": "runOnceForEachItem",
             "language": "javaScript",
-            "jsCode": "const payload = $('Limit Startup Context').item.json;\nconst response = $json || {};\nlet body = response.body !== undefined ? response.body : response;\nif (typeof body === 'string') { try { body = JSON.parse(body); } catch (error) { body = { raw: body }; } }\nfunction firstString(paths) { for (const value of paths) { if (value !== undefined && value !== null && String(value).trim()) return String(value).trim(); } return ''; }\nconst statusCode = Number(response.statusCode || response.status || response.response?.statusCode || 0);\nconst conversationId = firstString([body.conversation_id, body.conversationId, body.conversation?.id, body.data?.conversation_id, body.data?.conversationId]);\nconst twilioCallSid = firstString([body.callSid, body.call_sid, body.twilio_call_sid, body.sip_call_id, body.sipCallId, body.data?.callSid, body.data?.call_sid]);\nconst httpFailed = statusCode >= 400;\nconst successFlag = body.success === true || body.status === 'success' || body.ok === true;\nconst returnedCallReference = Boolean(conversationId || twilioCallSid);\nconst callStarted = !httpFailed && (successFlag || returnedCallReference);\nconst errorSummary = callStarted ? '' : JSON.stringify({ statusCode: statusCode || 'unknown', body }).slice(0, 1900);\nreturn { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStarted ? 'Call Started' : 'Call Unanswered', elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: JSON.stringify(body).slice(0, 1900) };"
+            "jsCode": "const payload = $('Limit Startup Context').item.json;\nconst response = $json || {};\nlet body = response.body !== undefined ? response.body : response;\nif (typeof body === 'string') { try { body = JSON.parse(body); } catch (error) { body = { raw: body }; } }\nfunction firstString(paths) { for (const value of paths) { if (value !== undefined && value !== null && String(value).trim()) return String(value).trim(); } return ''; }\nconst statusCode = Number(response.statusCode || response.status || response.response?.statusCode || 0);\nconst conversationId = firstString([body.conversation_id, body.conversationId, body.conversation?.id, body.data?.conversation_id, body.data?.conversationId]);\nconst twilioCallSid = firstString([body.callSid, body.call_sid, body.twilio_call_sid, body.sip_call_id, body.sipCallId, body.data?.callSid, body.data?.call_sid]);\nconst httpFailed = statusCode >= 400;\nconst responseText = JSON.stringify(body || response || {});\nconst nodeError = String(response.error?.message || response.message || body.message || body.error || '').trim();\nconst successFlag = body.success === true || body.status === 'success' || body.ok === true;\nconst returnedCallReference = Boolean(conversationId || twilioCallSid);\nconst callStarted = !httpFailed && (successFlag || returnedCallReference);\nconst errorSummary = callStarted ? '' : ('Outbound call API did not start a call. ' + JSON.stringify({ statusCode: statusCode || 'unknown', error: nodeError, body }).slice(0, 1800)).slice(0, 1900);\nconst callStatus = callStarted ? 'Call Started' : 'Reviewed';\nreturn { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStatus, elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: responseText.slice(0, 1900) };"
           }
         },
         {
@@ -1053,8 +1054,8 @@
       "activeVersion": {
         "nodes": [
           {
-            "id": "62fc3680-5060-4497-b310-ac860768cb2b",
-            "name": "Sticky Note 93fa2964",
+            "id": "9c14ae1b-cc36-40ec-8f24-352490a8347f",
+            "name": "Sticky Note d6e4bc1e",
             "type": "n8n-nodes-base.stickyNote",
             "typeVersion": 1,
             "position": [
@@ -1561,7 +1562,8 @@
                 },
                 "timeout": 30000
               }
-            }
+            },
+            "onError": "continueRegularOutput"
           },
           {
             "id": "c6b90317-f489-47e6-b654-f2e66d8accc1",
@@ -1575,7 +1577,7 @@
             "parameters": {
               "mode": "runOnceForEachItem",
               "language": "javaScript",
-              "jsCode": "const payload = $('Limit Startup Context').item.json;\nconst response = $json || {};\nlet body = response.body !== undefined ? response.body : response;\nif (typeof body === 'string') { try { body = JSON.parse(body); } catch (error) { body = { raw: body }; } }\nfunction firstString(paths) { for (const value of paths) { if (value !== undefined && value !== null && String(value).trim()) return String(value).trim(); } return ''; }\nconst statusCode = Number(response.statusCode || response.status || response.response?.statusCode || 0);\nconst conversationId = firstString([body.conversation_id, body.conversationId, body.conversation?.id, body.data?.conversation_id, body.data?.conversationId]);\nconst twilioCallSid = firstString([body.callSid, body.call_sid, body.twilio_call_sid, body.sip_call_id, body.sipCallId, body.data?.callSid, body.data?.call_sid]);\nconst httpFailed = statusCode >= 400;\nconst successFlag = body.success === true || body.status === 'success' || body.ok === true;\nconst returnedCallReference = Boolean(conversationId || twilioCallSid);\nconst callStarted = !httpFailed && (successFlag || returnedCallReference);\nconst errorSummary = callStarted ? '' : JSON.stringify({ statusCode: statusCode || 'unknown', body }).slice(0, 1900);\nreturn { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStarted ? 'Call Started' : 'Call Unanswered', elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: JSON.stringify(body).slice(0, 1900) };"
+              "jsCode": "const payload = $('Limit Startup Context').item.json;\nconst response = $json || {};\nlet body = response.body !== undefined ? response.body : response;\nif (typeof body === 'string') { try { body = JSON.parse(body); } catch (error) { body = { raw: body }; } }\nfunction firstString(paths) { for (const value of paths) { if (value !== undefined && value !== null && String(value).trim()) return String(value).trim(); } return ''; }\nconst statusCode = Number(response.statusCode || response.status || response.response?.statusCode || 0);\nconst conversationId = firstString([body.conversation_id, body.conversationId, body.conversation?.id, body.data?.conversation_id, body.data?.conversationId]);\nconst twilioCallSid = firstString([body.callSid, body.call_sid, body.twilio_call_sid, body.sip_call_id, body.sipCallId, body.data?.callSid, body.data?.call_sid]);\nconst httpFailed = statusCode >= 400;\nconst responseText = JSON.stringify(body || response || {});\nconst nodeError = String(response.error?.message || response.message || body.message || body.error || '').trim();\nconst successFlag = body.success === true || body.status === 'success' || body.ok === true;\nconst returnedCallReference = Boolean(conversationId || twilioCallSid);\nconst callStarted = !httpFailed && (successFlag || returnedCallReference);\nconst errorSummary = callStarted ? '' : ('Outbound call API did not start a call. ' + JSON.stringify({ statusCode: statusCode || 'unknown', error: nodeError, body }).slice(0, 1800)).slice(0, 1900);\nconst callStatus = callStarted ? 'Call Started' : 'Reviewed';\nreturn { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStatus, elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: responseText.slice(0, 1900) };"
             }
           },
           {
@@ -2089,7 +2091,7 @@
         "builderVariant": "mcp"
       },
       "parentFolderId": null,
-      "description": "Claims approved call records, builds ElevenLabs outbound payloads through the SIP-trunk endpoint by default, applies IVR-safe startup overrides, and writes call start results back to Notion.",
+      "description": "Starts approved RB calls through ElevenLabs with credential-bound outbound-call startup and non-terminal retry behavior for startup API failures.",
       "scopes": [
         "workflow:create",
         "workflow:delete",

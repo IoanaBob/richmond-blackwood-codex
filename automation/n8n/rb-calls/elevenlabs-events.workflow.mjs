@@ -462,8 +462,8 @@ function uniqueId(page) {
 function dateValue(page, name) { return prop(page, name).date?.start || ''; }
 function statusValue(page, name) { return prop(page, name).status?.name || prop(page, name).select?.name || ''; }
 const now = Date.now();
-const normalStaleAfterMinutes = 2;
-const claimOnlyStaleAfterMinutes = 2;
+const normalStaleAfterMinutes = 10;
+const claimOnlyStaleAfterMinutes = 60;
 return $input.all()
   .map((item) => item.json || {})
   .filter((page) => page.id && statusValue(page, 'Call Status') === 'Call Started')
@@ -604,8 +604,8 @@ const normalizeMissingConversation = node({
       language: 'javaScript',
       jsCode: `const candidate = $json;
 const summary = candidate.claim_only_lock
-  ? 'Outbound call lock was claimed ' + candidate.attempt_age_minutes + ' minutes ago, but the workflow did not store a new ElevenLabs conversation ID. Treating as a canceled/failed start for manual follow-up.'
-  : 'Outbound call stayed Call Started for ' + candidate.attempt_age_minutes + ' minutes, but n8n has no ElevenLabs conversation ID to verify. Treating as unanswered for manual follow-up.';
+  ? 'Outbound call lock was claimed ' + candidate.attempt_age_minutes + ' minutes ago, but the workflow did not store a new ElevenLabs conversation ID. Keeping the call eligible for retry instead of classifying it as no-answer.'
+  : 'Outbound call stayed Call Started for ' + candidate.attempt_age_minutes + ' minutes, but n8n has no ElevenLabs conversation ID to verify. Keeping the call eligible for retry instead of classifying it as no-answer.';
 const LF = String.fromCharCode(10);
 function truncate(value, maxLength) {
   const text = String(value || '');
@@ -619,7 +619,7 @@ function block(type, value) {
   output[type] = { rich_text: richText(value) };
   return output;
 }
-const noteTitle = 'No answer sweep - ' + (candidate.call_public_id || candidate.call_page_id);
+const noteTitle = 'Startup retry sweep - ' + (candidate.call_public_id || candidate.call_page_id);
 const importedAt = new Date().toISOString();
 const transcriptProperty = 'No transcript available.';
 const notionPageBody = {
@@ -629,7 +629,7 @@ const notionPageBody = {
     Summary: { rich_text: richText(summary) },
     Transcript: { rich_text: richText(transcriptProperty) },
     'Event Type': { select: { name: 'Error' } },
-    'Outcome Status': { select: { name: 'No answer' } },
+    'Outcome Status': { select: { name: 'Follow-up needed' } },
     'ElevenLabs Conversation ID': { rich_text: richText(candidate.conversation_id || '') },
     'Twilio Call SID': { rich_text: richText('') },
     Call: { relation: candidate.call_page_id ? [{ id: candidate.call_page_id }] : [] },
@@ -649,9 +649,9 @@ return {
   ...candidate,
   source: 'status_sweep_missing_conversation_id',
   should_update: true,
-  call_status: 'Call Unanswered',
-  outcome_status: 'No answer',
-  requires_follow_up: true,
+  call_status: 'Reviewed',
+  outcome_status: 'Follow-up needed',
+  requires_follow_up: false,
   note_event_type: 'Error',
   note_title: noteTitle,
   summary,
@@ -669,13 +669,13 @@ return {
       call_page_id: 'call_page_id',
       call_public_id: 'RBCALL-1',
       should_update: true,
-      call_status: 'Call Unanswered',
-      outcome_status: 'No answer',
-      requires_follow_up: true,
+      call_status: 'Reviewed',
+      outcome_status: 'Follow-up needed',
+      requires_follow_up: false,
       note_event_type: 'Error',
-      summary: 'Outbound call stayed Call Started with no conversation ID.',
+      summary: 'Outbound call startup did not store a conversation ID.',
       transcript: 'No transcript available.',
-      voice_error: 'Outbound call stayed Call Started with no conversation ID.',
+      voice_error: 'Outbound call startup did not store a conversation ID.',
     },
   ],
 });
@@ -726,10 +726,7 @@ const httpFailed = Number(response.statusCode || response.status || 0) >= 400;
 const reasonText = [status, callSuccessful, reason].filter(Boolean).join(' ');
 const noAnswerPattern = /(no[-_ ]?answer|not[-_ ]?answered|busy|cancel+ed|failed|unreachable|timeout|timed[-_ ]?out|voicemail|machine)/i;
 const authFailed = [401, 403].includes(Number(response.statusCode || response.status || 0));
-const staleInitiatedNoMessages = status === 'initiated' && messageCount === 0 && candidate.attempt_age_minutes >= 2;
-const noPickupNoAudio = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2 && ['initiated', 'queued', 'ringing', ''].includes(status);
-const ringingInProgressNoAudio = status === 'in-progress' && messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 2;
-const stuckInProgressNoMessages = status === 'in-progress' && messageCount === 0 && candidate.attempt_age_minutes >= 25;
+const longStuckNoMessages = messageCount === 0 && duration === 0 && candidate.attempt_age_minutes >= 45 && ['initiated', 'queued', 'ringing', 'in-progress', ''].includes(status);
 const terminalNoMessages = ['failed', 'done', 'ended', 'completed'].includes(status) && messageCount === 0 && callSuccessful !== 'success';
 const explicitNoAnswer = messageCount === 0 && noAnswerPattern.test(reasonText);
 const summaryFromElevenLabs = String(analysis.transcript_summary || data.summary || '').trim();
@@ -743,7 +740,7 @@ const ivrDeadEnd =
   !humanConversationEvidence &&
   (summaryLower.includes('ivr') || summaryLower.includes('language menu') || /for english, press|press one|press 1/.test(transcriptLower)) &&
   (/goodbye|ended by remote party/.test(summaryLower) || reason.includes('remote party') || transcriptLower.includes('goodbye'));
-const isUnanswered = !authFailed && !humanConversationEvidence && (ivrDeadEnd || httpFailed || staleInitiatedNoMessages || noPickupNoAudio || ringingInProgressNoAudio || stuckInProgressNoMessages || terminalNoMessages || explicitNoAnswer);
+const isUnanswered = !authFailed && !humanConversationEvidence && (ivrDeadEnd || httpFailed || longStuckNoMessages || terminalNoMessages || explicitNoAnswer);
 const isCompleted = !isUnanswered && ['done', 'ended', 'completed'].includes(status);
 const shouldUpdate = !authFailed && (isUnanswered || isCompleted);
 const statusSummary = authFailed

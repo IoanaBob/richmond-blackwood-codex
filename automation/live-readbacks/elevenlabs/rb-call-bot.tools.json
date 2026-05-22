@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-21T20:08:26.365Z",
+  "synced_at": "2026-05-22T08:19:47.929Z",
   "status": "provisional",
   "source": "ElevenLabs API readback",
   "review": "Tool documents only; no API keys are stored.",
@@ -184,6 +184,7 @@
           },
           "response_body_schema": null,
           "content_type": "application/json",
+          "auth_resolved_params": [],
           "auth_connection": null
         }
       },
@@ -306,6 +307,7 @@
           },
           "response_body_schema": null,
           "content_type": "application/json",
+          "auth_resolved_params": [],
           "auth_connection": null
         }
       },
@@ -494,6 +496,7 @@
           },
           "response_body_schema": null,
           "content_type": "application/json",
+          "auth_resolved_params": [],
           "auth_connection": null
         }
       },

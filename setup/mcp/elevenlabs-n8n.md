@@ -266,7 +266,8 @@ The MCP tokens above let Codex inspect and build. They do not automatically give
 3. Open `RB Calls ElevenLabs Events` and attach the same credential to `Get ElevenLabs Conversation`.
 4. Add n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`.
 5. Set that variable to the ElevenLabs phone-number ID after an ElevenLabs phone number is added or connected.
-6. After any Codex/n8n MCP workflow update, visually recheck both ElevenLabs credential assignments in n8n. The n8n MCP SDK update path may not auto-assign HTTP Request credentials.
+6. Keep the source-level `newCredential('ElevenLabs account 2')` binding on both ElevenLabs HTTP Request nodes. Do not remove it because n8n workflow read-backs may omit credential details even when the node needs a live credential at runtime.
+7. After any Codex/n8n MCP workflow update, visually recheck both ElevenLabs credential assignments in n8n. The n8n MCP SDK update path may not auto-assign HTTP Request credentials.
 
 Do not put either value in this repo, workflow descriptions, sticky notes, chat messages, or screenshots committed to git.
 
