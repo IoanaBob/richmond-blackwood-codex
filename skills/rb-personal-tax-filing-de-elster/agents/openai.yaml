@@ -1,0 +1,6 @@
+interface:
+  display_name: "DE ELSTER Personal Tax Filing"
+  short_description: "File German tax returns in ELSTER"
+  default_prompt: "Use $rb-personal-tax-filing-de-elster to prepare a German personal tax return in ELSTER from RB analysis work."
+policy:
+  allow_implicit_invocation: true

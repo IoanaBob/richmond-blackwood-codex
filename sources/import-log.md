@@ -1646,3 +1646,21 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-22 - Byron ELSTER Filing Skill And Target Check
+
+Imported:
+
+- User instruction to file Byron Jarvis Frasier's German personal tax through ELSTER only, using certificate login when available and QR/client approval otherwise.
+- Live Notion Byron individual, 2024 Personal Tax Filing, 2025 Personal Tax Filing, 2024 filing task, and 2025 filing task records.
+- 2025 workbook `Setup`, `Summary`, and `Missing Info` read-backs.
+
+Actions:
+
+- Created and registered `skills/rb-personal-tax-filing-de-elster/SKILL.md` for ELSTER filing runs.
+- Added no-credential-storage, certificate/QR login routing, ELSTER Browser Use, filing readiness, first-page review-packet, and closeout rules.
+- Recorded the current Byron filing-target blocker without copying any certificate/password material.
+
+Unresolved:
+
+- Confirm whether the operator wants 2024 reopened/amended despite Notion `Filed` status, 2025 prepared despite readiness blockers, or a different filing target.
