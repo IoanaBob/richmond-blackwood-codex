@@ -89,6 +89,11 @@ PLIST
   launchctl bootout "gui/$user_id" "$plist_file" >/dev/null 2>&1 || true
   launchctl bootstrap "gui/$user_id" "$plist_file"
   launchctl kickstart -k "gui/$user_id/$launch_label" >/dev/null 2>&1 || true
+  sleep 2
+  if ! is_listening; then
+    echo "WhatsApp bridge LaunchAgent $launch_label did not open port $port."
+    return 1
+  fi
   echo "Started WhatsApp bridge LaunchAgent $launch_label."
 }
 
@@ -128,7 +133,10 @@ start_bridge() {
     fi
 
     if [[ "$(uname -s)" == "Darwin" ]]; then
-      start_with_launchd
+      if ! start_with_launchd; then
+        echo "LaunchAgent start failed; falling back to background process."
+        start_with_nohup
+      fi
     else
       start_with_nohup
     fi
