@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-22T11:27:38.585Z",
+  "synced_at": "2026-05-22T12:22:06.293Z",
   "status": "provisional",
   "source": "ElevenLabs API readback",
   "review": "Tool documents only; no API keys are stored.",
@@ -9,7 +9,7 @@
       "tool_config": {
         "type": "webhook",
         "name": "request_creator_help",
-        "description": "Start exactly one Richmond Blackwood live-help request during an authority call. Use this for authentication secrets, P-I-N/security-code requests, payment approvals, changed payment paths, and missing facts that internal records or lookup cannot answer. Do not use for ordinary account identifiers such as service-card, loyalty, frequent-flyer, booking, tax, or public registration numbers until lookup has failed. n8n posts one structured Slack thread and returns IDs for check_creator_help.",
+        "description": "Start exactly one Richmond Blackwood live-help request during an authority call. Use this for authentication secrets, P-I-N/security-code requests, P-I-N reset emails or links, new P-I-N setup, payment approvals, changed payment paths, and missing facts that internal records or lookup cannot answer. Do not use for ordinary account identifiers such as service-card, loyalty, frequent-flyer, booking, tax, or public registration numbers until lookup has failed. n8n posts one structured Slack thread and returns IDs for check_creator_help.",
         "response_timeout_secs": 60,
         "disable_interruptions": false,
         "force_pre_tool_speech": false,
@@ -82,7 +82,7 @@
               "question",
               "call_id"
             ],
-            "description": "Start one RB live-help request. Include owner/topic context, the exact authority request, and whether this is an authentication secret, payment approval, or missing fact after internal lookup. Do not use this for polling.",
+            "description": "Start one RB live-help request. Include owner/topic context, the exact authority request, and whether this is an authentication secret, P-I-N reset/setup request, payment approval, or missing fact after internal lookup. Do not use this for polling.",
             "properties": {
               "action": {
                 "type": "string",

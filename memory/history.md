@@ -803,3 +803,30 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not create new n8n context categories for this issue. The correct fix is prompt/edge routing plus ensuring call setup puts the actual service-card or loyalty identifier into the call context when already known.
 - Verification: Live ElevenLabs readback confirmed `RB Call Bot` version `agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1`; live n8n readback confirmed `RB Calls Context Lookup` remains at 23 nodes; Notion read-back confirmed `RBCALL-25` is reviewed/approved with explicit service-card context and blank conversation/Twilio IDs.
 - Limitations or gaps: The retry depends on the next scheduled `RB Calls Voice Execution` run and contact availability.
+
+## 2026-05-22 - RB Calls PIN Reset Live-Help Retry
+
+- User request: Add only the approved ElevenLabs edge/edge-prompt changes so live help is requested when needed, remove the labelled-digit requirement, and redo the Miles & More call.
+- Context read: Notion `RBCALL-27`, n8n `RB Calls Voice Execution` execution `11321`, live `RB Call Bot` version `agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1`, and the private ElevenLabs patch helper under `.codex-local`.
+- Actions taken: Patched the live `RB Call Bot` so rejected P-I-N answers, changed P-I-N-position requests, P-I-N reset emails/links, account-holder resets, and new P-I-N setup are treated as new secure live-help issues. Updated existing workflow edges and the live-help result prompt only; no new ElevenLabs nodes or tools were added. Removed the labelled-digit requirement and removed a full P-I-N value from live `RBCALL-27`, then reset that call to `Reviewed`, `Approved = __YES__`, retry count `0`, blank runtime IDs, and an eligible `Next Call At`.
+- Decisions made: Live help may answer plain digits; the agent should use them in the order requested for the current challenge. Full P-I-Ns should not be stored in Notion call fields, call notes, or git.
+- Verification: Live ElevenLabs readback confirmed version `agtvrsn_5701ks7ryzaream9690akh60y61e` and the P-I-N reset live-help rule. Notion read-back confirmed `RBCALL-27` is reviewed/approved with no stored full P-I-N and no labelled-digit requirement. `npm run calls:check-automation` passed. A local scan found no full P-I-N or labelled-position wording in source-controlled automation/memory paths after the cleanup.
+- Limitations or gaps: Manual production execution of `RB Calls Voice Execution` through n8n MCP was rejected by tenant policy because it would place a live outbound call. The corrected call remains eligible for the active 15-minute schedule.
+
+## 2026-05-22 - RB Calls Live-Help Timeout Closeout
+
+- User request: If live help cannot get the requested detail, the agent should not just end the call. It should say it could not get the detail, ask whether the contact can wait another five minutes, retry live help if yes, and verbally close out if no.
+- Context read: Notion `RBCALL-27`, ElevenLabs conversation `conv_4001ks7rxn9gfsfamqd82j73z28n`, live `RB Call Bot` version `agtvrsn_5701ks7ryzaream9690akh60y61e`, and the private ElevenLabs patch helper under `.codex-local`.
+- Actions taken: Patched live `RB Call Bot` so `node_rb_live_result_v2` handles the first `timed_out` or `read_error` by asking the contact whether they can wait up to another five minutes. Added edge `edge_rb_live_result_extend_v2` from live-help result back to live-help start for the explicit extra-wait consent path. Tightened `edge_rb_live_result_outcome_v2`, `node_rb_outcome_v2`, and `node_rb_end_v2` so live-help failure requires a spoken closeout before `end_call`.
+- Decisions made: The extension creates a second live-help request only after the first request times out or has a read error and the contact agrees to wait longer. Pending checks still use the same request and must not create duplicates.
+- Verification: ElevenLabs API patch verification passed and live readback confirmed `RB Call Bot` version `agtvrsn_4701ks7t52p4exc9a5s77br92d88`, the extension edge, the timeout prompt, and the outcome closeout prompt. `RBCALL-27` was reset once to reviewed/approved with clean runtime fields before the scheduler picked it up.
+- Limitations or gaps: Direct production execution of `RB Calls Voice Execution` through n8n MCP was rejected by tenant policy because it would place a live outbound call; the active scheduler handled the retry.
+
+## 2026-05-22 - RBCALL-28 Miles And More Trained-Agent Retry
+
+- User request: Set up a new call because the Miles & More agent was not trained for the case and asked RB to call again.
+- Context read: Notion `RBCALL-27`, call note/outcome from conversation `conv_9401ks7tjxctetjsh3tj8ewayyjj`, contact `Miles & More Service Team Germany - Existing booking changes`, EIP Ventures company record, and Eran Peer individual record.
+- Actions taken: Created new clean Calls record `RBCALL-28` titled `Miles & More 75I5WJ trained-agent retry`, preserving the booking, passengers, service-card number, live P-I-N/live-help rules, EUR 100 approval limit, and payment-link preference. Added the prior-agent context as a callback instruction: do not criticize the prior agent, say RB was advised to call back, and if the next representative cannot process the request, ask for a trained team, transfer route, callback window, reference, or exact time to call back.
+- Decisions made: `RBCALL-27` remains completed with its own runtime history; `RBCALL-28` is a fresh retry row, set `Reviewed` and `Approved = __YES__` because this is an approved continuation of the same booking-change task.
+- Verification: Notion read-back confirmed `RBCALL-28` has Company, Individual, Contact, submitter/reviewer, `Subject = Individual`, `Requires PoA? = __NO__`, clean runtime IDs, `Live Help Status = None`, `Retry Count = 0`, and `Next Call At = 2026-05-22T13:00:00Z`.
+- Limitations or gaps: The call will be picked up by the active n8n schedule unless the user explicitly approves a direct production workflow execution.
