@@ -88,3 +88,4 @@ After a completed filing or blocked filing attempt:
 - Update `clients/Individuals/<legal-name>/tax-filings.md`, `personal-tax-returns.md`, `source-register.md`, and `drive-locations.md` as needed.
 - Update `memory/skill-runs.md` and `sources/import-log.md`.
 - Review this skill and add any general correction learned during the run.
+- Back up the finalized skill/process to the RB Internal Knowledge Base at `https://www.notion.so/181e4130131480b6ac6fff8a1379c3fc` and verify by read-back.
