@@ -27,7 +27,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 ## Core Rules
 
 - Every stage writes a Markdown packet, prints the same packet in chat, and stops for approval or modifications.
-- Auto-approval exceptions: Stages 1, 2, 10, and 11 still write and print packets, but continue without waiting for operator approval unless the packet contains an unexpected blocker or proposed action outside this skill. After the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved and should run immediately.
+- Auto-approval exceptions: Stages 1, 2, 10, and 11 still write and print packets, but continue without waiting for operator approval unless the packet contains an unexpected blocker or proposed action outside this skill. After the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved and should run immediately. Stage 15 is also auto-approved only for bounded media/evidence cleanup of blockers already listed in Stage 14, using already-read sources or already-resolved destinations, and must stop if it would introduce a new destination, new task, reply/send, source marker, checkpoint, or unresolved routing decision.
 - For all other stages, do not continue to the next stage until the operator approves the exact printed packet.
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
@@ -266,6 +266,32 @@ Packet summarizes sources checked, all DB rows created/updated, tasks closed/adv
 Release the lock at closeout. Preserve scratch packets by default for audit/recovery; delete them only if the operator explicitly asks for cleanup after final closeout.
 
 Auto-approved after Stage 12 send approval and successful Stage 13: write and print the final closeout packet, release the lock, preserve scratch packets by default for audit/recovery, and do not wait for separate operator approval.
+
+If Stage 14 lists only bounded media/evidence cleanup blockers that can be resolved without new judgment, continue directly to Stage 15.
+
+### 15. Post-Closeout Media Evidence Cleanup
+
+Use this stage only for cleanup of blockers already listed in Stage 14. Stage 15 is for evidence/media work that was too late or technically blocked during the run but no longer needs a new routing decision.
+
+Allowed Stage 15 auto-approved actions:
+
+- start or use approved local helper services needed to recover already-identified source media;
+- download/read already-identified Gmail or WhatsApp attachments/media from sources included in the run;
+- upload recovered files to already-resolved Drive folders;
+- attach uploaded or already-existing Drive files to the owning Communication or operational row;
+- update Communication `Notes`, `Document(s)`, `Translated Doc(s)`, task relations, and `Status` when the route is confirmed by the recovered evidence;
+- write and print the Stage 15 packet and Stage 15 results/readback packet.
+
+Stage 15 must stop for operator approval before:
+
+- sending any Gmail/email, WhatsApp, or Slack message;
+- creating a new task, Expense, Invoicing row, Communication, or other operational record;
+- changing source markers, Gmail labels, WhatsApp checkpoints, or Slack source-message reactions/thread replies;
+- choosing a new Drive destination or client subject that was not resolved in an earlier approved packet;
+- keeping or adding a disputed task relation;
+- interpreting media that requires business judgment beyond summarising/routing the recovered source.
+
+Auto-approved after Stage 14 when within the allowed cleanup scope: write and print the cleanup plan/results packet, execute the listed bounded cleanup, read back every changed row/file, and update automation memory. If any stop condition appears, write and print the packet and wait for approval.
 
 ## Final Report
 

@@ -41,7 +41,7 @@ Print the packet content in chat after writing it. Then stop and ask for approva
 
 ## Auto-Approval Exceptions
 
-The operator approved these standing exceptions on 2026-05-20:
+The operator approved these standing exceptions on 2026-05-20, with bounded Stage 15 cleanup added on 2026-05-22:
 
 - Stage 1 - Run Preflight: run `git pull origin main` from the active repo/worktree before creating the run folder/lock, write and print the packet with the branch and pull result, then continue automatically if the pull succeeded and there are no conflicts.
 - Stage 2 - Open Task Inventory: write and print the packet, then continue automatically. If inventory is degraded, the packet must say so, but the run may proceed with degraded inventory unless the degradation blocks safe routing.
@@ -49,6 +49,7 @@ The operator approved these standing exceptions on 2026-05-20:
 - Stage 11 - Source Marker Results: apply the Stage 10 source markers, write and print the packet, then proceed to Stage 12 automatically unless marking fails or a checkpoint blocker needs operator review.
 - Stage 13 - Slack Send And Log Results: once the operator approves the exact Stage 12 Slack message for sending, Stage 13 is approved. Send the exact message, log it, write and print the packet.
 - Stage 14 - Run Closeout: after successful Stage 13, write and print the closeout packet, release the lock, and preserve scratch packets by default.
+- Stage 15 - Post-Closeout Media Evidence Cleanup: after Stage 14, automatically recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, update owning Communications, write and print the plan/results/readback packet, and update memory, but only for blockers listed in Stage 14 and only when no new business judgment or destination choice is required.
 
 Auto-approval does not waive mutation safety outside the named stage scope. If a packet introduces a new Notion write, source mutation, reply send, file upload, Slack destination, broad mention, or data source not already covered by the stage contract, stop for operator approval.
 
@@ -57,6 +58,8 @@ Auto-approval does not waive mutation safety outside the named stage scope. If a
 No live write, send, label, checkpoint, file upload, status change, or Slack post happens merely because a packet exists.
 
 The operator must approve the exact next action packet unless the stage is covered by the auto-approval exceptions. Approval for Stage 12 Slack send text approves Stage 13 send/log and Stage 14 closeout only for that exact Slack message and normal closeout actions.
+
+Stage 15 does not need separate approval when limited to already-identified Stage 14 evidence/media blockers and already-resolved destinations. Stage 15 must stop for approval before any reply/send, source marker/checkpoint, new task, new Expense/Invoicing/Communication row, new Drive destination, disputed task relation, unresolved client subject mapping, or business-judgment decision.
 
 ## Compaction Recovery
 
@@ -71,7 +74,7 @@ Do not rely on conversational memory to reconstruct already-approved actions.
 
 ## Packet Cleanup
 
-Do not delete scratch packets until Stage 14 is complete. Preserve scratch packets by default for audit/recovery. Delete them only when the operator explicitly asks for cleanup after the final closeout. At run closeout, either:
+Do not delete scratch packets until Stage 14 is complete, or until Stage 15 is complete when post-closeout cleanup runs. Preserve scratch packets by default for audit/recovery. Delete them only when the operator explicitly asks for cleanup after the final closeout. At run closeout, either:
 
 - preserve the scratch folder and record the path in the final packet, or
 - delete it only after explicit cleanup instruction.
