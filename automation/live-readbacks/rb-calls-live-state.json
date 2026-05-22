@@ -2,7 +2,7 @@
   "status": "provisional",
   "source": "local live readback sync helper using n8n MCP and ElevenLabs API",
   "imported": "2026-05-22",
-  "synced_at": "2026-05-22T10:55:07.517Z",
+  "synced_at": "2026-05-22T11:27:38.585Z",
   "review": "Use this registry to review manual live changes before publishing future workflow or agent edits.",
   "n8n": [
     {
@@ -135,13 +135,13 @@
       "id": "i3rv4G6FmfosQm5j",
       "name": "RB Calls Context Lookup",
       "active": true,
-      "active_version_id": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
-      "version_id": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
-      "updated_at": "2026-05-12T23:55:09.723Z",
+      "active_version_id": "c8ffe9d7-6638-4c9b-90a4-05ba2cb1a726",
+      "version_id": "c8ffe9d7-6638-4c9b-90a4-05ba2cb1a726",
+      "updated_at": "2026-05-22T11:18:12.336Z",
       "node_count": 23,
       "connection_count": 28,
       "node_names": [
-        "Sticky Note ec6ccbf8",
+        "Sticky Note 90941fad",
         "ElevenLabs Context Lookup Webhook",
         "Normalize Lookup Request",
         "Request Is Valid?",
@@ -170,9 +170,9 @@
   "elevenlabs": {
     "agent_id": "agent_2001kq39ea0hf5yb86c4a7hj9gp1",
     "name": "RB Call Bot",
-    "version_id": "agtvrsn_6901ks7n558dehjsv56k1q5192mr",
+    "version_id": "agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1",
     "first_message": "Hello, my name is Alexander Gulin. I am calling regarding an administrative matter for a client and would like to make sure I am speaking with the right department.",
-    "prompt_chars": 18330,
+    "prompt_chars": 19867,
     "root_tool_ids": [],
     "workflow_node_count": 17,
     "workflow_edge_count": 41,
