@@ -60,6 +60,7 @@ Standing auto-approval exceptions:
 - Stages 1 and 2 are auto-approved after their packets are written and printed.
 - Stages 10 and 11 are auto-approved for Gmail labels and WhatsApp checkpoints that are within the approved workflow.
 - Once the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved: send/log the exact Slack message, write the results packet, write the final closeout packet, and release the lock.
+- Stage 15 is auto-approved only for bounded post-closeout media/evidence cleanup of blockers already listed in Stage 14. It may recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, and update owning Communications to `Logged` when the recovered source confirms the route. It must stop for approval before any reply/send, source marker/checkpoint, new task, new operational record, new destination, disputed route, or business-judgment decision.
 
 Stop despite auto-approval if a packet introduces an unexpected mutation, a new destination, a broad Slack mention, an unresolved data-source mismatch that makes routing unsafe, or a source/checkpoint action outside this process.
 
@@ -79,6 +80,7 @@ Stop despite auto-approval if a packet introduces an unexpected mutation, a new 
 12. Slack Closeout Plan.
 13. Slack Send And Log Results.
 14. Run Closeout.
+15. Post-Closeout Media Evidence Cleanup.
 
 The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SKILL.md` and `skills/rb-common-tasks-follow-through/references/stage-packet-protocol.md`.
 
