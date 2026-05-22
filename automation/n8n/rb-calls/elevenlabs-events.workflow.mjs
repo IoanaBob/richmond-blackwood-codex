@@ -15,24 +15,19 @@ const CALL_NOTES_DATABASE_ID = '342e4130-1314-8016-8ced-d60cbf9fe9bf';
 const RB_CALLS_CHANNEL_ID = 'C0ASXSTFSVA';
 const ELEVENLABS_WEBHOOK_IPS = '34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69';
 
-const transcriptBlocks = [
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(0, 1800) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(1800, 3600) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(3600, 5400) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(5400, 7200) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(7200, 9000) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(9000, 10800) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(10800, 12600) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(12600, 14400) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(14400, 16200) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(16200, 18000) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(18000, 19800) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(19800, 21600) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(21600, 23400) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(23400, 25200) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(25200, 27000) || " ") }}') },
-  { type: 'paragraph', textContent: expr('{{ (($json.full_transcript || $json.raw_event_excerpt || "No transcript available.").slice(27000, 28800) || " ") }}') },
-];
+function makeTranscriptBlocks(sourceExpression, chunkCount) {
+  return Array.from({ length: chunkCount }, (_, index) => {
+    const start = index * 1800;
+    const end = start + 1800;
+    return {
+      type: 'paragraph',
+      textContent: expr('{{ ((' + sourceExpression + ').slice(' + start + ', ' + end + ') || " ") }}'),
+    };
+  });
+}
+
+const transcriptBlocks = makeTranscriptBlocks('$json.full_transcript || $json.raw_event_excerpt || "No transcript available."', 16);
+const sweepTranscriptBlocks = makeTranscriptBlocks('$json.sweep_transcript_body || $json.full_transcript || $json.raw_event_excerpt || "No transcript available."', 96);
 
 const eventsWebhook = trigger({
   type: 'n8n-nodes-base.webhook',
@@ -246,6 +241,8 @@ return {
   summary: summary.slice(0, 1900),
   transcript: transcriptProperty,
   full_transcript: transcriptText,
+  sweep_transcript_body: transcriptBody,
+  sweep_transcript_body_char_count: transcriptBody.length,
   transcript_message_count: messageCount,
   notion_page_body: notionPageBody,
   raw_event_excerpt: rawEventExcerpt,
@@ -901,7 +898,7 @@ const createSweptStatusNote = node({
           { type: 'heading_2', textContent: 'Summary' },
           { type: 'paragraph', textContent: expr('{{ $json.summary || "No summary available." }}') },
           { type: 'heading_2', textContent: 'Full transcript' },
-          ...transcriptBlocks,
+          ...sweepTranscriptBlocks,
         ],
       },
       options: {},
