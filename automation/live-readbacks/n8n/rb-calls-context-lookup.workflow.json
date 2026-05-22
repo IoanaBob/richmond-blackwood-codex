@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-05-22T09:21:06.486Z",
+  "synced_at": "2026-05-22T11:27:38.585Z",
   "status": "provisional",
   "source": "n8n MCP get_workflow_details",
   "review": "Compare with source-controlled workflow and publish intentionally after review.",
@@ -9,11 +9,11 @@
       "name": "RB Calls Context Lookup",
       "active": true,
       "isArchived": false,
-      "versionId": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
-      "activeVersionId": "b8b439eb-0587-4600-a93a-89a27ca2e8fc",
+      "versionId": "c8ffe9d7-6638-4c9b-90a4-05ba2cb1a726",
+      "activeVersionId": "c8ffe9d7-6638-4c9b-90a4-05ba2cb1a726",
       "triggerCount": 1,
       "createdAt": "2026-05-12T17:39:24.505Z",
-      "updatedAt": "2026-05-12T23:55:09.723Z",
+      "updatedAt": "2026-05-22T11:18:12.336Z",
       "settings": {
         "executionOrder": "v1",
         "availableInMCP": true
@@ -298,13 +298,13 @@
       },
       "nodes": [
         {
-          "id": "30e28a94-27b2-4a9e-9d0a-ea70446fe6ef",
-          "name": "Sticky Note ec6ccbf8",
+          "id": "0e9983b4-04f6-4572-bd75-a5d3ebe41e78",
+          "name": "Sticky Note 90941fad",
           "type": "n8n-nodes-base.stickyNote",
           "typeVersion": 1,
           "position": [
-            -1170,
-            -210
+            1008,
+            1408
           ],
           "parameters": {
             "content": "ElevenLabs server-tool target for on-demand Notion context. It is scoped from the Call record and only searches pre-approved RB call databases: tax registrations, tax filings, contracts, correspondence, bank accounts, tax payments/prepayments, assets, and call notes. File contents and file URLs are excluded.",
@@ -319,8 +319,8 @@
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -1120,
-            0
+            0,
+            768
           ],
           "parameters": {
             "httpMethod": "POST",
@@ -331,7 +331,7 @@
               "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
             }
           },
-          "webhookId": "bbb97c1f-2aad-4cba-91bf-cd30a6354076"
+          "webhookId": "bc0b5a3e-b6ef-4c85-b730-4425633434d2"
         },
         {
           "id": "b6803bd1-a202-4c5c-9faf-871c65e68650",
@@ -339,8 +339,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -864,
-            0
+            224,
+            768
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -354,8 +354,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            -608,
-            0
+            448,
+            768
           ],
           "parameters": {
             "conditions": {
@@ -388,8 +388,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            -352,
-            -160
+            672,
+            672
           ],
           "parameters": {
             "resource": "databasePage",
@@ -409,8 +409,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -96,
-            -160
+            896,
+            672
           ],
           "parameters": {
             "mode": "runOnceForEachItem",
@@ -424,8 +424,8 @@
           "type": "n8n-nodes-base.switch",
           "typeVersion": 3.2,
           "position": [
-            192,
-            -160
+            1120,
+            576
           ],
           "parameters": {
             "rules": {
@@ -633,8 +633,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            -720
+            1568,
+            0
           ],
           "parameters": {
             "resource": "databasePage",
@@ -670,8 +670,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            1120,
-            -160
+            1792,
+            576
           ],
           "parameters": {
             "mode": "runOnceForAllItems",
@@ -685,8 +685,8 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.5,
           "position": [
-            1376,
-            -160
+            2016,
+            576
           ],
           "parameters": {
             "respondWith": "json",
@@ -710,8 +710,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            -560
+            1344,
+            192
           ],
           "parameters": {
             "resource": "databasePage",
@@ -747,8 +747,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            768,
-            -560
+            1568,
+            192
           ],
           "parameters": {
             "resource": "databasePage",
@@ -784,8 +784,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            -400
+            1568,
+            384
           ],
           "parameters": {
             "resource": "databasePage",
@@ -821,8 +821,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            -240
+            1344,
+            576
           ],
           "parameters": {
             "resource": "databasePage",
@@ -858,8 +858,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            768,
-            -240
+            1568,
+            576
           ],
           "parameters": {
             "resource": "databasePage",
@@ -895,8 +895,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            -80
+            1344,
+            768
           ],
           "parameters": {
             "resource": "databasePage",
@@ -932,8 +932,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            768,
-            -80
+            1568,
+            768
           ],
           "parameters": {
             "resource": "databasePage",
@@ -969,8 +969,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            80
+            1344,
+            960
           ],
           "parameters": {
             "resource": "databasePage",
@@ -1006,8 +1006,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            768,
-            80
+            1568,
+            960
           ],
           "parameters": {
             "resource": "databasePage",
@@ -1043,8 +1043,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            240
+            1344,
+            1152
           ],
           "parameters": {
             "resource": "databasePage",
@@ -1080,8 +1080,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            768,
-            240
+            1568,
+            1152
           ],
           "parameters": {
             "resource": "databasePage",
@@ -1117,8 +1117,8 @@
           "type": "n8n-nodes-base.notion",
           "typeVersion": 2.2,
           "position": [
-            512,
-            400
+            1568,
+            1344
           ],
           "parameters": {
             "resource": "databasePage",
@@ -1154,8 +1154,8 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.5,
           "position": [
-            -352,
-            192
+            672,
+            864
           ],
           "parameters": {
             "respondWith": "json",
@@ -1177,13 +1177,13 @@
       "activeVersion": {
         "nodes": [
           {
-            "id": "30e28a94-27b2-4a9e-9d0a-ea70446fe6ef",
-            "name": "Sticky Note ec6ccbf8",
+            "id": "0e9983b4-04f6-4572-bd75-a5d3ebe41e78",
+            "name": "Sticky Note 90941fad",
             "type": "n8n-nodes-base.stickyNote",
             "typeVersion": 1,
             "position": [
-              -1170,
-              -210
+              1008,
+              1408
             ],
             "parameters": {
               "content": "ElevenLabs server-tool target for on-demand Notion context. It is scoped from the Call record and only searches pre-approved RB call databases: tax registrations, tax filings, contracts, correspondence, bank accounts, tax payments/prepayments, assets, and call notes. File contents and file URLs are excluded.",
@@ -1198,8 +1198,8 @@
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
             "position": [
-              -1120,
-              0
+              0,
+              768
             ],
             "parameters": {
               "httpMethod": "POST",
@@ -1210,7 +1210,7 @@
                 "ipWhitelist": "34.67.146.145,34.59.11.47,35.204.38.71,34.147.113.54,35.185.187.110,35.247.157.189,34.77.234.246,34.140.184.144,34.93.26.174,34.93.252.69"
               }
             },
-            "webhookId": "bbb97c1f-2aad-4cba-91bf-cd30a6354076"
+            "webhookId": "bc0b5a3e-b6ef-4c85-b730-4425633434d2"
           },
           {
             "id": "b6803bd1-a202-4c5c-9faf-871c65e68650",
@@ -1218,8 +1218,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -864,
-              0
+              224,
+              768
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1233,8 +1233,8 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.3,
             "position": [
-              -608,
-              0
+              448,
+              768
             ],
             "parameters": {
               "conditions": {
@@ -1267,8 +1267,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              -352,
-              -160
+              672,
+              672
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1288,8 +1288,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -96,
-              -160
+              896,
+              672
             ],
             "parameters": {
               "mode": "runOnceForEachItem",
@@ -1303,8 +1303,8 @@
             "type": "n8n-nodes-base.switch",
             "typeVersion": 3.2,
             "position": [
-              192,
-              -160
+              1120,
+              576
             ],
             "parameters": {
               "rules": {
@@ -1512,8 +1512,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              -720
+              1568,
+              0
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1549,8 +1549,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              1120,
-              -160
+              1792,
+              576
             ],
             "parameters": {
               "mode": "runOnceForAllItems",
@@ -1564,8 +1564,8 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.5,
             "position": [
-              1376,
-              -160
+              2016,
+              576
             ],
             "parameters": {
               "respondWith": "json",
@@ -1589,8 +1589,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              -560
+              1344,
+              192
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1626,8 +1626,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              768,
-              -560
+              1568,
+              192
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1663,8 +1663,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              -400
+              1568,
+              384
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1700,8 +1700,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              -240
+              1344,
+              576
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1737,8 +1737,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              768,
-              -240
+              1568,
+              576
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1774,8 +1774,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              -80
+              1344,
+              768
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1811,8 +1811,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              768,
-              -80
+              1568,
+              768
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1848,8 +1848,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              80
+              1344,
+              960
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1885,8 +1885,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              768,
-              80
+              1568,
+              960
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1922,8 +1922,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              240
+              1344,
+              1152
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1959,8 +1959,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              768,
-              240
+              1568,
+              1152
             ],
             "parameters": {
               "resource": "databasePage",
@@ -1996,8 +1996,8 @@
             "type": "n8n-nodes-base.notion",
             "typeVersion": 2.2,
             "position": [
-              512,
-              400
+              1568,
+              1344
             ],
             "parameters": {
               "resource": "databasePage",
@@ -2033,8 +2033,8 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.5,
             "position": [
-              -352,
-              192
+              672,
+              864
             ],
             "parameters": {
               "respondWith": "json",
@@ -2334,10 +2334,11 @@
       },
       "tags": [],
       "meta": {
-        "aiBuilderAssisted": true
+        "aiBuilderAssisted": true,
+        "builderVariant": "mcp"
       },
       "parentFolderId": null,
-      "description": "Routes ElevenLabs on-demand call-context lookups through one Switch node, then queries only the pre-approved Notion categories.",
+      "description": "Server-tool workflow for RB call context lookup scoped to the approved RB call databases.",
       "scopes": [
         "workflow:create",
         "workflow:delete",

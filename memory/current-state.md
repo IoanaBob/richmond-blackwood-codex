@@ -66,6 +66,8 @@ RB calling bot build state is mapped in `internal/calling-bot-implementation-map
 
 For airline, travel, booking-change, loyalty-program, Miles & More, AerClub, or frequent-flyer calls involving RB/EIP board members or stakeholders, check the Notion `Board Members & Stakeholders` directory before relying on email evidence. The directory can hold passenger-specific loyalty identifiers, including `Miles & More Frequent Flyer Aer LingusNo` and `AerClub`. Do not copy those private identifiers into git; use the live Notion values when building the call brief.
 
+As of the 2026-05-22 readback, the live `RB Call Bot` is version `agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1`. Its live-help edge prompts distinguish ordinary account identifiers from secrets: service-card, loyalty/frequent-flyer, booking-reference, reservation email/phone, tax-reference, and public registration values should be checked from visible call context or existing approved lookups before live help; P-I-Ns, passwords, one-time codes, security answers, C-V-V/card details, payment authorization, and account-holder/reviewer approvals remain live-help-only.
+
 ## Notion State
 
 Notion is connected.
