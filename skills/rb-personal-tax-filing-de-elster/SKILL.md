@@ -78,6 +78,12 @@ Before data entry, compare:
 - Workbook `Summary`, `Missing Info`, and `Checks`.
 - Open questions in `clients/Individuals/<legal-name>/open-questions.md`.
 
+Family and support-payment readiness:
+
+- If the taxpayer is divorced, separated, widowed, has children, or bank/workbook records suggest alimony, child support, maintenance, childcare, or household support, pause before final submission and confirm the intended treatment.
+- Check whether ELSTER needs `Anlage U`, `Anlage Unterhalt`, `Anlage Kind`, the single-parent relief amount, child allowances, or only no claim because evidence/eligibility is missing.
+- Do not infer that support payments are included merely because a generic workbook row exists. They are included only when the workbook/ELSTER draft has an approved amount, recipient details where required, evidence, and operator approval.
+
 If one year is already marked filed and another year is open, ask which year to file before entering ELSTER.
 
 If required evidence is missing but the operator still wants to prepare the form, label each affected ELSTER value `Needs review` and do not final-submit.
