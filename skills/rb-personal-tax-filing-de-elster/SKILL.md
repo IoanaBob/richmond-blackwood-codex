@@ -23,6 +23,7 @@ Use this skill when preparing or filing a German personal tax return in ELSTER f
 
 - Do not store ELSTER certificates, certificate passwords, QR codes, OTPs, recovery codes, or attachment payloads in git, memory files, Notion comments, Slack, or chat.
 - It is acceptable to use an approved live credential source to log in, but never echo the secret value back to the user unless the user typed it in this chat.
+- Do not record local certificate file paths or certificate passwords in durable memory; record only whether certificate login was used, unavailable, or blocked by tooling.
 - Do not submit the final return, transmit attachments, or accept final ELSTER declarations without explicit action-time approval from the operator.
 - If the filing year, filing status, or task readiness conflicts across Notion, repo notes, workbook, or user instruction, stop and ask for the intended filing target before entering ELSTER data.
 - Treat workbook figures as analysis inputs, not final law conclusions, whenever open checks or missing-info flags remain.
@@ -30,9 +31,10 @@ Use this skill when preparing or filing a German personal tax return in ELSTER f
 ## Startup Workflow
 
 1. Confirm the exact person, tax year, jurisdiction, Notion Personal Tax Filing row, filing task, preparation task, workbook, and Drive folder.
-2. Fetch the live Notion individual record and check whether an `Elster File` or equivalent certificate attachment exists.
-   - If a certificate exists, use it only for login and keep the file/password out of repo and chat.
-   - If no certificate exists, open ELSTER through Browser Use and pause for the QR/client-approval login path.
+2. Ask the operator whether the client has an ELSTER certificate for this run, then fetch the live Notion individual record and check whether an `Elster File` or equivalent certificate attachment exists.
+   - If a certificate exists or the operator provides a local certificate path/password for the run, use certificate login and keep the file path/password out of durable memory.
+   - If the active Browser Use backend cannot attach/upload a local certificate file, stop and ask the operator to take over only the ELSTER file-selection/login step or switch to the QR/client-approval path.
+   - If no certificate exists and none is provided, open ELSTER through Browser Use and pause for the QR/client-approval login path.
 3. Fetch the filing task and filing-row comments. If they say filing should wait, list the blockers and ask before proceeding.
 4. Read the workbook summary tabs and relevant input tabs. Prefer connector read-back over stale repo summaries when available.
 5. Prepare a page-by-page filing packet with fields, source, value, confidence, and review question.
@@ -77,6 +79,7 @@ Maintain these as learned during supervised filing runs:
 - Start with the annual income tax return / `Einkommensteuererklärung` for the target tax year unless the task specifies an amendment, supplement, or message to the Finanzamt.
 - Do not assume ELSTER imports all prior-year or certificate data correctly; read visible imported values and compare them to the RB workbook before accepting.
 - Save progress inside ELSTER only when needed for continuity, and note that a saved draft is not a filed return.
+- Treat certificate upload limits as a tooling limitation. They do not change client readiness; they only decide whether login needs an operator handoff or QR fallback.
 
 ## Closeout
 

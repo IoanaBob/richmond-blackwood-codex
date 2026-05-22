@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-21.
+Updated: 2026-05-22.
 
 ## Repo State
 
@@ -235,7 +235,7 @@ Communication workflow update:
 - For workflow completion notifications, capture the triggering Slack user/channel/thread at intake when available. If a task is triggered outside Slack and no Slack identity is available, ask the operator for the Slack recipient before sending the ready-for-review message. When personal-tax analysis/operator review unblocks a `Filing Task`, post an approved `#rb-client-updates` update with the filing task as the primary Notion task link, plus workbook, filing record, what changed, and remaining flags.
 - For personal-tax filings, the live Notion Personal Tax Filings entry is a required sync point: update `Status` whenever analysis status changes, update `Document gathering status` as evidence moves from `In progress` to `Attached in Drive`, and attach any newly created/discovered Drive filing folder in `GDrive Docs`.
 - For personal-tax filings with no task relation, create a preparation/analysis task assigned to Ioana Surdu-Bob and a separate filing task assigned to Johnpaul Okolie. Link both to the correct client project, set filing `Dependent on` to the analysis task, link them back through `Preparation Task` and `Filing Task`, and comment on the filing task with the spreadsheet URL once the analysis is ready.
-- German personal-tax ELSTER filing now has repo-local skill `rb-personal-tax-filing-de-elster`. It requires Browser Use only for ELSTER, live Notion certificate/QR routing, no credential storage, filing-year/readiness conflict checks before data entry, a page-by-page review packet before moving beyond the first ELSTER page, and Internal Knowledge Base backup/read-back once the skill/process is finalized.
+- German personal-tax ELSTER filing now has repo-local skill `rb-personal-tax-filing-de-elster`. It requires Browser Use only for ELSTER, operator/live Notion certificate checks at startup, no certificate path/password storage, QR fallback or operator handoff when the active browser backend cannot upload a local certificate file, filing-year/readiness conflict checks before data entry, a page-by-page review packet before moving beyond the first ELSTER page, and Internal Knowledge Base backup/read-back once the skill/process is finalized.
 
 ## Drive State
 

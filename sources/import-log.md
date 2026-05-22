@@ -1664,3 +1664,20 @@ Actions:
 Unresolved:
 
 - Confirm whether the operator wants 2024 reopened/amended despite Notion `Filed` status, 2025 prepared despite readiness blockers, or a different filing target.
+
+## 2026-05-22 - Byron ELSTER Certificate Login Handoff Rule
+
+Imported:
+
+- User clarification that the intended Byron ELSTER filing target is 2025.
+- Operator-supplied ELSTER certificate availability for the current run, without storing the certificate path/password in repo memory.
+- Browser Use limitation observed in the active in-app backend: local certificate uploads are not supported from Codex automation.
+
+Actions:
+
+- Updated `skills/rb-personal-tax-filing-de-elster/SKILL.md` to ask about certificate availability at startup, prefer certificate login when provided, and route upload limits to operator handoff or QR fallback.
+- Updated durable task/current-state and Byron open-question notes without copying certificate material.
+
+Unresolved:
+
+- Complete ELSTER login through operator-assisted certificate selection or QR fallback before first-page data entry.

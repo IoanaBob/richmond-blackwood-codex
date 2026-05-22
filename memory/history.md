@@ -794,3 +794,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not enter ELSTER data until the operator confirms the intended filing target because live Notion marks 2024 as filed with a submission attachment, while 2025 remains open but the filing task says filing should wait for payroll/SteuerGo-LStB/broker/direct-payment/expense confirmation and workbook checks.
 - Verification: Manual skill frontmatter/TODO checks passed. Google Sheets read-back confirmed 2025 workbook summary figures and open missing-info counts before a Sheets rate limit blocked a deeper `Revenue` read. No ELSTER browser action was taken yet.
 - Limitations or gaps: Need operator confirmation whether to amend/reopen 2024, proceed with 2025 despite readiness blockers, or target another filing/task.
+
+## 2026-05-22 - Byron ELSTER Certificate Login Handoff Rule
+
+- User request: Use the supplied ELSTER certificate for Byron's 2025 personal-tax filing and remember that clients with certificates may be known from Notion or confirmed by the operator at startup.
+- Context read: Active Browser Use backend behavior, certificate file presence on the operator machine, and the newly created ELSTER filing skill.
+- Actions taken: Updated the ELSTER filing skill, current-state memory, task list, and Byron open question so certificate availability is asked up front and certificate login is preferred when available, without storing certificate paths or passwords.
+- Decisions made: If the active Browser Use backend cannot upload a local ELSTER certificate file, treat it as a tooling limitation and ask the operator to perform only the file-selection/login step or use QR fallback.
+- Verification: Certificate file existence was checked locally without copying it into the repo. No ELSTER data was entered.
+- Limitations or gaps: Browser Use login still needs operator-assisted certificate selection or QR approval before the first ELSTER page can be prepared.
