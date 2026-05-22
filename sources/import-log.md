@@ -1681,3 +1681,18 @@ Actions:
 Unresolved:
 
 - Complete ELSTER login through operator-assisted certificate selection or QR fallback before first-page data entry.
+
+## 2026-05-22 - Byron ELSTER Wage Import Rule
+
+Imported:
+
+- Operator instruction during Byron's 2025 ELSTER run to use the ELSTER-imported wage certificate values for now and revisit the workbook mismatch later.
+- ELSTER validation result showing no errors and a preliminary refund before final submission approval.
+
+Actions:
+
+- Updated `skills/rb-personal-tax-filing-de-elster/SKILL.md` so future filing runs keep ELSTER-imported wage certificate values provisionally when workbook LStB/SteuerGo extraction remains pending.
+
+Unresolved:
+
+- Reconcile Byron's 2025 ELSTER wage-certificate import against the workbook/LStB extraction after filing review.

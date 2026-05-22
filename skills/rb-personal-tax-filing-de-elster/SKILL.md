@@ -78,6 +78,7 @@ Maintain these as learned during supervised filing runs:
 
 - Start with the annual income tax return / `Einkommensteuererklärung` for the target tax year unless the task specifies an amendment, supplement, or message to the Finanzamt.
 - Do not assume ELSTER imports all prior-year or certificate data correctly; read visible imported values and compare them to the RB workbook before accepting.
+- If ELSTER-imported wage certificate values differ from the workbook and the workbook explicitly says annual LStB/SteuerGo extraction is still pending, prefer the ELSTER certificate values provisionally, flag the mismatch for later reconciliation, and do not overwrite the import without operator approval.
 - Save progress inside ELSTER only when needed for continuity, and note that a saved draft is not a filed return.
 - Treat certificate upload limits as a tooling limitation. They do not change client readiness; they only decide whether login needs an operator handoff or QR fallback.
 
