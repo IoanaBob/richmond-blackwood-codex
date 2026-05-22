@@ -63,9 +63,10 @@ For later pages in the same run, keep using the same packet format. Ask for revi
 Before clicking `Absenden` or any equivalent final transmission action:
 
 1. Stop on the final ELSTER review/submission page.
-2. Provide a concise final review packet covering validation result, calculated refund/payment, bank details, imported certificate values, operator-approved deviations from the workbook, and known post-filing reconciliation items.
-3. Ask for explicit action-time approval to submit.
-4. Submit only after the operator gives a clear approval for the final submission action. General approval to continue, page-level approval, or prior login approval is not enough.
+2. Generate or download the draft submission PDF from ELSTER for comprehensive operator review. If Browser Use cannot automate the native print/save dialog, stop and ask the operator to complete only that PDF-save step.
+3. Provide a concise final review packet covering validation result, calculated refund/payment, bank details, imported certificate values, operator-approved deviations from the workbook, and known post-filing reconciliation items.
+4. Ask for explicit action-time approval to submit after the operator has reviewed the PDF.
+5. Submit only after the operator gives a clear approval for the final submission action. General approval to continue, page-level approval, prior login approval, or approval to prepare the review PDF is not enough.
 
 ## Filing Readiness Checks
 

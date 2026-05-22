@@ -1710,3 +1710,17 @@ Actions:
 Unresolved:
 
 - Byron's 2025 ELSTER return remains unsubmitted on the final review/submission page pending explicit approval.
+
+## 2026-05-22 - ELSTER Draft PDF Review Requirement
+
+Imported:
+
+- User request during Byron's 2025 ELSTER run to receive the PDF of the draft submission for comprehensive review before deciding whether to submit.
+
+Actions:
+
+- Updated `skills/rb-personal-tax-filing-de-elster/SKILL.md` so the final submission gate requires a draft submission PDF from ELSTER before final approval is requested.
+
+Unresolved:
+
+- Create or save the Byron 2025 ELSTER draft review PDF from the final submission page; the return remains unsubmitted.
