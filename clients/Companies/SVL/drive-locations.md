@@ -23,6 +23,22 @@ Review: Personal-tax year folder was renamed from the mistaken `2025` label to `
 | RB Stripe invoice PDF | `https://drive.google.com/file/d/1XE5PMWf5CVeMnI4p4r08XbQGUaevgYj7/view?usp=drivesdk` | RB-issued invoice; not an inbound payable invoice. |
 | RB Stripe receipt PDF | `https://drive.google.com/file/d/1ErU4zCP-GZLr8v_LlTtJYz_4xjvCqvUW/view?usp=drivesdk` | RB-issued receipt; not an inbound payable invoice. |
 
+## TK Insurance-Duty OCR / Translation Evidence
+
+Status: provisional.
+Source: Gmail `19e466661c8d01c8`, Notion Communication `https://www.notion.so/367e4130131481ec97ddded1fda701a3`, and Drive OCR cleanup on 2026-05-22.
+Imported: 2026-05-22.
+Review: Stores Drive pointers only. Raw OCR text and source PDFs remain in Drive/Notion, not git.
+
+| Item | URL | Notes |
+| --- | --- | --- |
+| SVL/TK English OCR and translation review | `https://drive.google.com/file/d/162gziCIjbGXhWEJWCwZ-YsAvuV4vZMTg/view?usp=drivesdk` | Attached to C5 `Translated Doc(s)`; records full review and English translation of the German TK documents. |
+| SVL/TK raw OCR export | `https://drive.google.com/file/d/1jd41V2Exnio430-WL4ZlP9Qiq8zzZ5Yn/view?usp=drivesdk` | Separate raw OCR audit export. Not used as the translation artifact. |
+| Company letter of status source PDF | `https://drive.google.com/file/d/1Gsp2MweWc6hz8_Ic38F5z8E0yG_DqCZO/view?usp=drivesdk` | Already English; original source attachment. |
+| Signed employment contract source PDF | `https://drive.google.com/file/d/1HbKxhL-BybyrPaJGzLpHjU9rAHcLdtdH/view?usp=drivesdk` | Already English; original source attachment. |
+| TK POA source PDF | `https://drive.google.com/file/d/18y_LEu5CChLnZqo4JH0Fm4yl4tPO5U7Z/view?usp=drivesdk` | German source attachment; translated in the review file. |
+| TK authorization confirmation source PDF | `https://drive.google.com/file/d/1g4UxwS2nXnRT2o7imuJuQK3trU4uBfGy/view?usp=drivesdk` | German source attachment; translated in the review file. |
+
 ## Share-Transfer / Structuring Evidence
 
 | File | URL |
