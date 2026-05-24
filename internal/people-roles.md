@@ -10,6 +10,31 @@ Ioana appears in prior memory as connected to RB as presenter, signatory, or man
 
 The Notion Companies schema includes people fields for operational approval, compliance approval, review of initial KYB and AML, directors, employees, shareholders, UBOs, and related individuals.
 
+## Active Operator Registry
+
+Status: provisional.
+Source: user instruction in Codex chat, existing Notion user IDs in this file, and repo search for approved sender rules.
+Imported: 2026-05-24.
+Review: confirm the valid RB operator list and each person's approved work email addresses.
+
+Use `RB_CODEX_ACTOR` only for the active human operator in a local Codex run. The value must be a human name from this registry, for example `RB_CODEX_ACTOR="Ioana Surdu-Bob"`. Do not use a shared service mailbox such as `accounting@richmondblackwood.com` as an actor.
+
+The active operator is separate from task assignment, source mailbox access, and email sending identity. A Gmail job may read from a shared mailbox or a personal/operator mailbox, and an approved send may use `accounting@richmondblackwood.com`, without changing the human operator.
+
+| Operator name | Notion user ID | Known work email address | Status | Notes |
+| --- | --- | --- | --- | --- |
+| Ioana Surdu-Bob | `3a46f87a-9bc2-408f-baff-b4c23326e0f2` | Needs confirmation | provisional | Valid active operator. Also default owner for sales, software/product, technical, structuring, and strategic client requests. |
+| Johnpaul Okolie | `b85bb822-968a-4f79-809a-5ee2f3e6d828` | `johnpaul.okolie@richmondblackwood.com` | provisional | Valid active operator. Email appears in prior Gmail-search memory and should be confirmed before treating it as an approved sender. |
+| Simoneta Vicente | `b5e3ee56-b550-4959-8ec2-301d6e69e111` | Needs confirmation | provisional | Valid active operator. Default owner for bookkeeping, routine document requests, and general operational follow-up. |
+
+If `RB_CODEX_ACTOR` is missing or invalid, continue generic repo/client work when no human-operator identity is needed. Stop and ask for the active operator before operator-specific approval, authorship, source-access attribution, or per-operator closeout work.
+
+Shared mailboxes:
+
+| Mailbox | Role | Actor? | Notes |
+| --- | --- | --- | --- |
+| `accounting@richmondblackwood.com` | Shared RB accounting/client-facing sender and Gmail source when explicitly in scope. | No | Use as `Source mailbox` or `From`, never as `RB_CODEX_ACTOR`. Default client-facing sender remains `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`. |
+
 ## Inbound Responsibility Defaults
 
 Status: provisional.

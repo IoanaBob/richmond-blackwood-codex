@@ -13,7 +13,7 @@ Start here when a future Codex session needs RB context.
 - [company-profile.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/company-profile.md): provisional RB company profile.
 - [services-and-positioning.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/services-and-positioning.md): provisional service catalogue and market positioning.
 - [product-offerings.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/internal/product-offerings.md): product/service offerings, historical pricing signals, bundles, and emerging offers.
-- [systems-and-data.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/systems-and-data.md): tools, repos, integrations, and data flows.
+- [systems-and-data.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/systems-and-data.md): tools, repos, integrations, data flows, active-operator identity, and mailbox routing rules.
 - [source-register.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/source-register.md): high-level source map.
 - [open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md): filing, source, and truth questions awaiting review.
 - [decisions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/decisions.md): approved or rejected operating decisions.

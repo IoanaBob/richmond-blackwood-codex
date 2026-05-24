@@ -117,6 +117,21 @@ Consequence:
 Source: user instruction and approved redesign on 2026-05-19.
 Review: validate on the next common-tasks run after the 2026-05-20 process corrections.
 
+## 2026-05-24 - Separate Human Operator From Mailbox Identity
+
+Decision: RB Codex uses `RB_CODEX_ACTOR` for the active human operator name, while Gmail source mailbox and Gmail `From` sender remain separate per-job fields.
+
+Consequence:
+
+- Valid actors are human names recorded in `internal/people-roles.md`, not email addresses.
+- Shared mailboxes such as `accounting@richmondblackwood.com` may be source mailboxes or senders, but are not actors.
+- Every Gmail job, packet, or preview must state `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separately.
+- Default client-facing sends remain `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
+- Do not assume all Gmail reads come from accounting; personal/operator mailboxes can be used when explicitly in scope and labelled.
+
+Source: user instruction in Codex chat on 2026-05-24.
+Review: confirm the complete RB operator list and approved work email addresses for each human operator.
+
 ## 2026-05-12 - Calling Bot Minimal Startup Context
 
 Decision: RB authority calls should not preload every linked record into ElevenLabs. Startup context is limited to tax registration/reference context, Contact JSON, Company JSON, Individual JSON, routing/owner metadata, live-help sentinels, and the public-safe call brief. Other approved categories must be fetched on demand through the n8n `RB Calls Context Lookup` workflow and ElevenLabs `lookup_call_context` tool.

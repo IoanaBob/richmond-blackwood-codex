@@ -11,6 +11,8 @@ These instructions apply to every Codex session in this repository.
 - Preserve unsanitised context, but never store live credentials, tokens, private keys, certificate bundles, or credential dumps in git.
 - Use existing RB Notion and Drive structures. Do not create replacement structures unless the user approves.
 - When the destination is unclear, stop, record the uncertainty, and ask for review.
+- Local active human operator identity is read from ignored `.env.local` as `RB_CODEX_ACTOR="<human name>"`, with valid names recorded in `internal/people-roles.md`. Read only that key when operator-specific approval, authorship, source-access attribution, or per-operator closeout matters; never print or dump full env files.
+- `RB_CODEX_ACTOR` is not a mailbox. Shared mailboxes such as `accounting@richmondblackwood.com` may be source mailboxes or sending identities, but must not be used as the active human actor.
 
 ## Master Chat And Skill Run Git Rule
 
@@ -120,7 +122,7 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 - Prefer app connectors for app-native workspace state: Notion records/pages, Drive/Docs reads and edits, Gmail search/read/thread context, Slack reads/drafts/sends, and SignNow supported sends/status/document operations.
 - Use repo-local `npm` helpers only for connector gaps and mechanical actions: Drive local upload/export/organize, Gmail drafts that must save from `accounting@richmondblackwood.com`, generic SignNow local-file upload/field/review/status work, and explicit PDF/Google Doc transforms.
 - Helper output is support material, not final business state. A task is complete only when the relevant live source of truth is updated, verified, and recorded.
-- Email communication rules live in `skills/rb-gmail-drafts/SKILL.md`; email previews must show `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender. Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. If a Gmail draft fallback is used, it must fail closed if Gmail stores another sender.
+- Email communication rules live in `skills/rb-gmail-drafts/SKILL.md`; every Gmail job or packet must state the active `Operator`, exact `Source mailbox(es)` searched/read, exact `From` sender for any draft/send/reply, and source thread/message. Client-facing email previews must show `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender. Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. If a Gmail draft fallback is used, it must fail closed if Gmail stores another sender.
 - SignNow helpers are generic only. Do not invent RB signer identities, routing order, templates, or signing policy.
 - Native Google Docs content edits should use the Google Drive/Docs connector when available. Local helpers may export/upload or apply explicit mechanical transforms only when that is the chosen supported path.
 - Optional WhatsApp work must use the repo-pinned `whatsapp` MCP path for normal reads, contact search, sends, media, and voice notes. Keep WhatsApp QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config out of git. Store resolved WhatsApp chat/contact IDs only as route/source pointers when WhatsApp is used for a client export/backfill. Do not send WhatsApp messages/files unless the user explicitly asks and the tool approval confirms recipient and content.
@@ -129,6 +131,7 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 
 - Draft all outbound communications in chat with the user, not as software drafts for manual send.
 - Every communication preview must show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- Do not infer Gmail source mailbox or sending identity from the active operator. A run may read `accounting@richmondblackwood.com` and one or more personal/operator mailboxes in the same day only when each source mailbox is explicitly scoped and labelled.
 - Prefer replying in the existing email thread whenever email context exists. Start a new email only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly asks to send, send directly through the supported connector or MCP tool.
 - After sending, store the communication in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`). The old RB Communications database is migration source only. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.

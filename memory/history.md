@@ -830,3 +830,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: `RBCALL-27` remains completed with its own runtime history; `RBCALL-28` is a fresh retry row, set `Reviewed` and `Approved = __YES__` because this is an approved continuation of the same booking-change task.
 - Verification: Notion read-back confirmed `RBCALL-28` has Company, Individual, Contact, submitter/reviewer, `Subject = Individual`, `Requires PoA? = __NO__`, clean runtime IDs, `Live Help Status = None`, `Retry Count = 0`, and `Next Call At = 2026-05-22T13:00:00Z`.
 - Limitations or gaps: The call will be picked up by the active n8n schedule unless the user explicitly approves a direct production workflow execution.
+
+## 2026-05-24 - RB Actor And Mailbox Routing
+
+- User request: Implement the approved RB actor and mailbox routing model based on personal-codex actor logic while keeping Gmail source and sender identities separate.
+- Context read: `AGENTS.md`, `README.md`, `internal/people-roles.md`, `memory/systems-and-data.md`, communication and common-tasks process docs, Gmail/communications/common-tasks skills, and personal-codex `origin/main` actor references.
+- Actions taken: Added `RB_CODEX_ACTOR` guidance for human operators, extended `internal/people-roles.md` into an operator registry, documented `accounting@richmondblackwood.com` as a shared service mailbox rather than an actor, and updated Gmail/communication/common-tasks rules to require `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` as separate fields.
+- Decisions made: Valid RB actors are human names, not emails. Gmail source mailbox and sending identity are per-job fields and must not be inferred from the active operator.
+- Verification: `git diff --check` passed. Actor/mailbox contract search found the intended `RB_CODEX_ACTOR`, `Source mailbox(es)`, sender identity, and `accounting@richmondblackwood.com` references. The leakage search found no `PERSONAL_CODEX_ACTOR` or `memory/common`; broad `Eran|Ioana` matches are existing RB client/call/person references plus the new Ioana example.
+- Limitations or gaps: Operator work email addresses remain provisional and need team confirmation before they are treated as approved senders.

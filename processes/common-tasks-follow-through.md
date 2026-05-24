@@ -53,6 +53,15 @@ Every stage must:
 3. stop for approval or modifications unless the stage is explicitly auto-approved;
 4. execute only the approved or standing-auto-approved next action.
 
+Every packet involving Gmail must keep these fields separate:
+
+- `Operator`: human `RB_CODEX_ACTOR` when operator-specific context matters, or `not required`.
+- `Source mailbox(es)`: exact Gmail mailbox(es) searched/read.
+- `From`: exact sender for drafts, sends, or replies.
+- `Thread/source`: Gmail thread/message ID, link, or source summary.
+
+Do not treat shared mailboxes as actors. `accounting@richmondblackwood.com` is the shared accounting/client-facing source or sender identity. Personal/operator mailboxes may be read only when explicitly in scope and must be labelled.
+
 No Notion write, source marker, file upload, reply, Slack send, or checkpoint update may happen without operator approval of the exact packet or a standing auto-approval exception for that stage/action.
 
 Standing auto-approval exceptions:
@@ -101,6 +110,7 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 - `Assigned To` is an internal owner field, not a client subject field. Prefer putting action ownership on the linked task or operational row; set `Assigned To` on the Communication only when the Communication row itself is the active owned work item.
 - If an email contains a letter, mark it as a letter, save/link the document, and record the actual letter source/originator separately from the forwarder.
 - For each communication, decide reply status: reply now, snooze reply, no reply needed, or blocked.
+- For each Gmail communication, retain source mailbox and thread/source in packets and logging context so a read from one mailbox can still lead to an approved reply from another sender, such as `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
 - German `W-IdNr` values are not saved by RB. Treat standalone `W-IdNr` receipt/storage requests as verified no-op unless another operational action is present; do not copy the number into repo memory, Notion, Slack, or packets beyond a redacted note that a `W-IdNr` was received.
 
 ## WhatsApp Coverage

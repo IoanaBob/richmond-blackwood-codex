@@ -11,6 +11,10 @@ This skill carries the email-specific rules. Use it together with `rb-communicat
 
 ## Rules
 
+- Keep the human operator, Gmail source mailbox, and Gmail sender separate. The active operator is `RB_CODEX_ACTOR` from ignored `.env.local` when operator context matters; it must be a human name from `internal/people-roles.md`, never a mailbox.
+- Every Gmail job, packet, or preview must state `Operator`, `Source mailbox(es)`, `From`, and `Thread/source`. If no operator-specific behavior is needed, say `Operator: not required for this Gmail action`.
+- Do not assume all Gmail reads come from `accounting@richmondblackwood.com`. Read personal/operator mailboxes only when the job scope explicitly requires them, and label each source mailbox in the packet.
+- Do not infer the `From` sender from the active operator. Confirm the sender or use the workflow default.
 - Do not create Gmail software drafts as the normal workflow unless the user explicitly asks for that exception or direct send is blocked and the user approves a draft fallback.
 - Always show the exact `From` name, email address, `Subject`, and source/reply thread when presenting an email draft in chat.
 - Prefer replying in the existing Gmail thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
@@ -34,6 +38,8 @@ Richmond Blackwood Accounting Team
 Before sending email, show:
 
 - Channel: Gmail.
+- Operator: active human operator from `RB_CODEX_ACTOR`, or `not required for this Gmail action`.
+- Source mailbox(es): exact mailbox(es) searched/read.
 - From: exact display name and email address.
 - To.
 - Cc/Bcc when applicable.
