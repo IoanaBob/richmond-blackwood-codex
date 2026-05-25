@@ -153,7 +153,7 @@ Review: User asked to proceed with priority action 1 on 2026-05-25 and then aske
 Sending channel: ELSTER under AGL certificate or authorised representative account, not email.
 Operator: not available from `.env.local` in this worktree.
 ELSTER route: `Sonstige Nachricht an das Finanzamt`, used narrowly as a processing/account/enforcement-pause message rather than a formal `Einspruch`.
-Live ELSTER status: entered in Mein ELSTER on 2026-05-25, validated with no errors and one non-blocking Hinweis, and stopped on the final `Formular absenden` / `Absenden` review page for user review. Not submitted.
+Live ELSTER status: entered in Mein ELSTER on 2026-05-25, validated with no errors and one non-blocking Hinweis, and stopped on the final `Formular absenden` / `Absenden` review page for user review. Not submitted. User then approved replacing this with a stronger message that includes a vorsorglicher Einspruch, §164 AO amendment request, AdV, E-Bilanz extension, and payroll transmission references, and approved submission if the wording is good for purpose. Browser automation later saw only an ELSTER timeout page and could not reload it because the browser safety policy blocked navigation from the timeout data page; user must refresh/reopen ELSTER before live submission can continue.
 
 ```text
 Betreff: AGL - USt 2024 / E-Bilanz / Mahnung 19.05.2026
