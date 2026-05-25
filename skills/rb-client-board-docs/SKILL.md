@@ -14,7 +14,7 @@ Use this for client board-document work before and after a board meeting.
 
 ## Core Rule
 
-When the user asks to organise a client BOD meeting, create the dated meeting folder inside the client's existing Google Drive `Board Meetings` folder before drafting documents. If a matching folder already exists, use it rather than creating a duplicate. Keep the agenda, editable minutes, PDF/signing copy, signed copy, attendance evidence, and supporting board-pack files together in that same meeting folder.
+When the user asks to organise a client BOD meeting, create the dated meeting folder inside the client's existing Google Drive `Board Meetings` folder before drafting documents. If a matching folder already exists, use it rather than creating a duplicate. Confirm the scheduled meeting time from Google Calendar first, or from the initial agenda if Calendar is unavailable. Keep the agenda, editable minutes, PDF/signing copy, signed copy, attendance evidence, and supporting board-pack files together in that same meeting folder.
 
 ## Before The Meeting
 
@@ -37,23 +37,33 @@ When the user asks to organise a client BOD meeting, create the dated meeting fo
    - Prior minutes for approval.
    - Filing, VAT, payroll, tax-office, contract, finance, bank, or investment support needed for decisions.
    - Attendance or location evidence when useful for Irish central-management-and-control records.
+5. Set the transcript follow-up.
+   - Confirm the meeting end time from Google Calendar, or from the agenda if Calendar is unavailable.
+   - Create the appropriate Codex follow-up/automation for one hour after the scheduled end time.
+   - The follow-up should check Notion for the meeting transcript and then proceed to minutes drafting if the transcript is available.
+   - If the transcript is still missing one hour after the scheduled end time, message Ioana and the requesting user for the transcript. If the exact recipient/channel is unclear, stop and ask rather than guessing.
 
 ## After The Meeting
 
-1. Draft minutes from meeting extracts.
+1. Locate the transcript.
+   - Check Notion for the meeting transcript at the scheduled follow-up time.
+   - Use the Calendar-confirmed meeting time, or the agenda time if Calendar was unavailable, as the timing source.
+   - If the transcript is present, use it as the main meeting extract source and proceed without waiting for a separate user prompt.
+   - If it is absent one hour after the scheduled end time, message Ioana and the requesting user for the transcript, then wait for the transcript before drafting final minutes.
+2. Draft minutes from meeting extracts.
    - Use actual attendance, decisions, resolutions, and action owners from the meeting.
    - Do not convert proposed agenda resolutions into approved minutes unless the meeting extracts confirm approval.
    - Record remote attendance clearly and flag any Irish tax-residence evidence issue.
-2. Produce the editable minutes document.
+3. Produce the editable minutes document.
    - Prefer the same format used in the client's prior board folders.
    - If a polished local `.docx` is needed, use the Documents skill to create, render, and verify it.
    - If the working copy is Google Docs, keep the native Google Doc in the meeting folder.
-3. Produce the signing copy.
+4. Produce the signing copy.
    - Export the Word/Google Docs minutes to PDF.
    - If LibreOffice is unavailable for DOCX rendering, generate the PDF from the same minutes content, visually inspect the PDF pages, and report the fallback.
    - If using a local helper, use the Drive export/upload path and verify the uploaded PDF by Drive metadata or folder listing.
    - If SignNow or an e-signature flow is requested, use `rb-signature-workflow`; do not send signature requests without explicit user approval.
-4. Store the signed copy.
+5. Store the signed copy.
    - Upload the signed PDF back into the same meeting folder.
    - Keep the editable minutes and unsigned PDF unless the user explicitly asks to remove them.
    - Verify the folder contains the expected agenda, editable minutes, signing PDF or signed PDF, and supporting evidence.
