@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-05-20 - Common Tasks Follow-Through Process Corrections
+
+- User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, and prepare a new PR.
+- Context read: Common tasks skill, stage packet protocol, common tasks process, communications process, handoff/current-state/decisions memory, WhatsApp route pointers in client files, and the completed Friday-to-Tuesday run packets.
+- Actions taken: Added a WhatsApp source roster reference for mandatory Stage 3 coverage, including unresolved Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana routes; documented that unresolved/missed routes must not have checkpoints advanced until discovered, read, and backed by approved checkpoint storage; added standing auto-approval rules for Stages 1, 2, 10, 11, and for Stages 13/14 after Stage 12 Slack send approval; tightened Slack closeout requirements so messages sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming/replies/blockers, and tag actual people with Slack IDs.
+- Decisions made: Preserve packets/scratch files by default at closeout; typed approval of exact rendered Stage 12 Slack text is allowed for this specific workflow when the native approval prompt is unavailable; general communication rules keep stricter approval behavior unless a specific workflow overrides them.
+- Verification: `rg` review checked for the new auto-approval, roster, and Slack quality rules across skill/process/memory; `git diff --check` passed.
+- Limitations or gaps: The newly added missed WhatsApp routes still need live WhatsApp search and checkpoint storage resolution during the next run; their checkpoints were intentionally not advanced in the completed run.
+
 ## 2026-05-18 - SVL And Kristjan Context Import
 
 - User request: Return to main after the MHL branch was closed, pull, and load context for SVL and Andrei-like individual routing for Kristjan, with tax registration pending and personal-tax work from 2026 onward.
@@ -523,3 +532,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Unblock notifications should distinguish "unblocked for filing review" from "fully filing-ready" when remaining filer judgment flags still exist.
 - Verification: `git diff --check` passed.
 - Limitations or gaps: Slack message not sent yet because outbound Slack requires exact-message approval.
+
+## 2026-05-19 - Common Tasks Follow-Through Redesign
+
+- User request: Replace the failing inbound triage flow with a task-first common tasks follow-through workflow based on the approved redesign.
+- Context read: Existing inbound triage skills/processes, communications/Gmail/WhatsApp rules, active memory, automation prompt, and the Konvi packet-review example supplied by the user.
+- Actions taken: Added `skills/rb-common-tasks-follow-through/`, stage packet protocol, RB Client Databases task registry, and `processes/common-tasks-follow-through.md`; removed the old `rb-inbound-*` phase skill files from the active flow; updated communications, Gmail, WhatsApp, process, memory, and root agent instructions to use canonical Communications and task-capable client data sources; renamed the live automation to `Daily RB Common Tasks Follow-Through`.
+- Decisions made: Canonical Communications is `https://www.notion.so/1b5e4130131480ab84f3cca356736807`; old RB Communications is migration source only; every live RB Client Databases data source is task-capable; Slack closeout happens after task closeout and requires approval of the exact rendered message; `W-IdNr` values are not saved.
+- Verification: Static scans found no active old `rb-inbound-*` workflow references in skills/processes/current memory, and `git diff --check` passed during the implementation pass.
+- Limitations or gaps: Live Notion schema changes and historical Communications migration were not performed in this repo-only update; the new skill requires those as packet-approved live run actions.

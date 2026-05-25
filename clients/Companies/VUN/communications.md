@@ -27,7 +27,7 @@ Initial checkpoint starts from monitoring setup time, with no historical backfil
 
 | Chat label | Chat JID | Monitor enabled | Last read through | Last read message ID | Last run | Status | Source | Review |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Eran Peer test contact | `491773931663@s.whatsapp.net` | yes, manual-run only | 2026-05-05 23:41 IST | Not captured at setup | Not run | provisional | User instruction in Codex chat and saved WhatsApp MCP chat ID pointer | Confirm Eran Peer role/relationship to VUN and preferred-contact status; first live run must inspect only messages after this timestamp and store the latest inspected message ID after successful handling. |
+| Eran Peer test contact | `491773931663@s.whatsapp.net` | yes, manual-run only | 2026-05-19 17:00 Europe/Dublin | Not captured - no messages in approved run window | 2026-05-20 | provisional | User instruction in Codex chat and saved WhatsApp MCP chat ID pointer; Stage 11 source-marker run `2026-05-19-1649-fri-to-today` | No messages in the approved 2026-05-15 08:00 to 2026-05-19 17:00 Europe/Dublin window. Confirm Eran Peer role/relationship to VUN and preferred-contact status before treating this as an approved long-term monitoring route. |
 
 ## Linked Correspondence
 

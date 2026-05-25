@@ -94,8 +94,53 @@ Consequence:
 - Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
 - Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
 - After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
-- After sending, Codex should store the sent communication in RB Communications.
+- After sending, Codex should store the sent communication in canonical Communications.
 - Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
 
 Source: user instruction on 2026-05-06.
 Review: approved as an operating rule by user instruction.
+
+## 2026-05-19 - Common Tasks Follow-Through Replaces Inbound Triage
+
+Decision: Replace the old `rb-inbound-*` phase-skill flow with `rb-common-tasks-follow-through`.
+
+Consequence:
+
+- Canonical Communications is `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
+- Old `RB Communications` at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c` is migration source only; no new RB records should be written there.
+- Every live data source under RB Client Databases is treated as task-capable.
+- Runs must inventory open task-capable rows first, then discover/read Gmail and WhatsApp communications, and write/print one Markdown packet per stage. Stages 1, 2, 10, and 11 are standing auto-approved within the normal common-tasks scope; after the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved. Other live writes, sends, file uploads, replies, and non-standard source mutations still require approval of the exact packet.
+- Slack closeout is built after task closeout analysis and approved updates, not immediately after communication logging.
+- Stage 3 WhatsApp discovery must use the common-tasks WhatsApp source roster. Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana were missed in the 2026-05-19 corrective run and must be resolved/read next time before any checkpoint is advanced for those routes.
+- Slack closeouts should sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming items, pending replies, and blockers, and tag actual people with resolved Slack user IDs.
+
+Source: user instruction and approved redesign on 2026-05-19.
+Review: validate on the next common-tasks run after the 2026-05-20 process corrections.
+
+## 2026-05-21 - Slack Source Triage Markers
+
+Decision: Common-tasks source marking should mark handled Slack source messages as triaged, alongside Gmail `Triaged` labels and WhatsApp checkpoints.
+
+Consequence:
+
+- A `📝` reaction on a Slack source message means the message has been logged/triaged into RB records and should not be processed again.
+- Stage 10/11 source markers may add the `📝` reaction and post a source-thread reply linking the task or record the message was triaged into.
+- If no task is needed, the thread reply should link the Communication/Expense/Invoicing or other owning record and state that no task was needed.
+- Slack source markers stay separate from the human-facing `#rb-client-updates` closeout; they must not include broad mentions or unrelated update text.
+
+Source: user instruction on 2026-05-21.
+Review: validate in the next common-tasks run that Slack source marker writes are included only after the related Notion records/tasks are read back.
+
+## 2026-05-21 - Common-Tasks Slack Closeout Grouping
+
+Decision: Common-tasks `#rb-client-updates` closeouts must be grouped by record type and task linkage instead of one long incoming list.
+
+Consequence:
+
+- Use this order in Stage 12 Slack bodies: `Communications without tasks`, `Communications with tasks`, `Expenses`, `Invoices`, `Needs checking`, `Replies coming up`, and `Blocked`.
+- Every `Communications with tasks` bullet must include both the Communication link and the linked task URL(s) by name.
+- `Invoices` is only for new or updated Invoicing rows, not communications that merely mention invoices.
+- Do not include disputed or low-confidence task routing in the human-facing Slack body just to say it was routed; keep it in the packet and correct the underlying record through a separate approved update stage if needed.
+
+Source: user instruction on 2026-05-21 after reviewing the Stage 12 Slack closeout preview.
+Review: validate on the next Stage 12 packet that the closeout is readable and grouped by record destination.

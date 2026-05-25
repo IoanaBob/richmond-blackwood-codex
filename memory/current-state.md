@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-18.
+Updated: 2026-05-19.
 
 ## Repo State
 
@@ -27,8 +27,9 @@ Current implementation includes:
 - Individual client root for Kristjan Mar Olafsson under `clients/Individuals/KRISTJAN MAR OLAFSSON/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
-- Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to RB Communications.
-- Inbound operating triage rule: process client-speaking communications first, prioritizing Gmail inbox and WhatsApp topic extraction; split finance items before other work; create tasks for actionable RB-side commitments; use supporting systems only when needed to save, verify, route, or notify.
+- Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`).
+- Common tasks follow-through rule: use `skills/rb-common-tasks-follow-through/SKILL.md` for Gmail/WhatsApp-triggered task follow-through. Inventory open task-capable rows across RB Client Databases first, then discover/read communications, ledger them in canonical Communications, route finance and operational items to the owning task-capable data source, close or advance open work, handle reply plans, and prepare Slack closeout only after task closeout. Stages 1, 2, 10, and 11 are standing auto-approved within normal scope; after the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved.
+- Common tasks WhatsApp coverage: Stage 3 must use the roster in `skills/rb-common-tasks-follow-through/references/whatsapp-source-roster.md`. The next run must include unresolved/missed Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana routes, and must not advance checkpoints for them until they are discovered, read, and backed by approved persistent checkpoint storage.
 
 ## Helper State
 
@@ -52,7 +53,7 @@ WhatsApp MCP is optional and local-only. QR/session state, SQLite databases, dow
 
 When a client export/backfill uses WhatsApp, resolve and store the selected client contact/group JID in the owning company or individual `communications.md` plus `source-register.md`. The saved JID is a route/source pointer for future approved communication; it does not authorize monitoring, history backfill, media downloads, or outbound messages.
 
-Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in RB Communications (`https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`, data source `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`). Do not use the Everguard/research Communications table for RB records.
+Normal outbound communication should not use software drafts. Compose in chat, show the sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly through the supported connector/MCP tool after approval, and store the sent communication in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`, data source `collection://1b5e4130-1314-8183-afd8-000b6f4da982`). The old RB Communications database (`https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`) is migration source only.
 
 ## Notion State
 

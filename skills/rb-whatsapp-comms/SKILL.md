@@ -37,7 +37,7 @@ When Codex starts or monitors the WhatsApp bridge and a QR code is printed in te
 - For suggested WhatsApp responses, draft in chat and show the sending WhatsApp account/number or resolved sender context before approval.
 - Do not store QR state, SQLite databases, downloaded media, voice-note files, transcripts, or private WhatsApp exports in git.
 - Do not copy full private chat history into memory or Notion. Summarize only the business-relevant facts.
-- Store sent WhatsApp communications in RB Communications after sending. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
+- Store sent WhatsApp communications in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`) after sending. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
 
 ## Read Workflow
 
@@ -62,7 +62,7 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 5. Show the sending WhatsApp account/number or resolved sender context before approval.
 6. Confirm files are the intended files and contain no wrong-side or confidential disclosure.
 7. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
-8. Store the sent communication in RB Communications.
+8. Store the sent communication in canonical Communications.
 
 ## Chat ID Filing Workflow
 
