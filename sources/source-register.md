@@ -25,6 +25,13 @@ Imported: 2026-05-04.
 | `[Annually] Personal Tax Filing` task template | `https://www.notion.so/32ee413013148090a435e5858b918f25` | Template fetched; used for personal-tax analysis task creation when a filing has no preparation task |
 | Claudio Brivio individual and filing records | `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`; `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`; `https://www.notion.so/342e41301314803eb579c68638fb3fb0` | Used for 2026-05-13 individual context routing under `clients/Individuals/Claudio Brivio/` |
 
+## Public Tooling Sources
+
+| Source | URL | Status |
+| --- | --- | --- |
+| Xero MCP server | `https://github.com/XeroAPI/xero-mcp-server` | Used for optional Xero MCP setup guidance with one local active-client wrapper; provisional until RB verifies each client-specific custom connection |
+| Xero AI Toolkit | `https://developer.xero.com/ai`; `https://developer.xero.com/faq/AI-Toolkit` | Used to confirm Xero MCP availability and setup source; provisional until live RB setup is verified |
+
 ## Slack Sources
 
 Provisional channels found during search:
@@ -51,6 +58,7 @@ Searches found accounting and invoice operation threads for RB and client aliase
 
 | Source | Scope | Status |
 | --- | --- | --- |
+| Codex thread instruction, 2026-05-25 | Xero MCP setup for RB; user rejected one Codex config block per client, chose `.env.example` employee setup placeholders, no scope override in v1, and mandatory client reference such as `AGL` before Xero skill use | Routed to `setup/mcp/xero.md`, Xero selector/wrapper scripts, `.env.example`, `skills/rb-xero-mcp/`, setup/process/source-boundary docs, and durable memory; provisional pending live Xero custom-connection verification |
 | Codex thread instruction, 2026-05-19 | AKS/ANA KOVA STUDIO LIMITED context import; Anastasia Evgenyevna Kozhevnikova individual routing; user clarified the subscription includes all personal-tax matters, missed 2023/2024 personal taxes were filed, 2025 personal and company filings are next, AKS is not overdue except VAT, VAT should be assumed not filed unless the user says otherwise, Ana replies slowly, RB must monitor the Finanzamt payment plan before telling Ana when to stop paying, RB needs to negotiate penalty reduction ahead of the stop-date review, and any new tax return should use the maintained Codex template | Routed to `clients/Companies/AKS/`, `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/`, source logs, memory, and live Notion tasks for payment-plan monitoring, penalty negotiation, and early 2025 information request |
 | Codex thread instruction/answers, 2026-05-18 | AMC/AARON MEDIC CHAMBERLAIN LIMITED context import; Aaron Richard Chamberlain individual routing; user clarified RB does Aaron's personal returns, prior accountant did not file 2023/2024, RB filed both, prior Gewerbe registration created trade-tax/VAT catch-up exposure for 2023, 2024, and Q1 2025 followed by deregistration, Finanzamt P&L deadlines should follow WhatsApp 2026-05-19 and Notion before-2026-05-22 source dates, VAT Q1 2026 and Slack Q4 2025 VAT need a separate review, payment-plan response is not yet received, P-Konto is not confirmed, and Aaron's variable invoicing requires WhatsApp approval and accounting-email sends following the updated Business Partner fields plus last-pattern notes | Routed to `clients/Companies/AMC/`, `clients/Individuals/Aaron Richard Chamberlain/`, source logs, memory, live Notion comments on the Riot/Echo Sports/UVS contract pages, and live Riot/Echo Business Partner field updates |
 | Codex thread instruction/answers, 2026-05-19 | NACV/NA CAPITAL VENTURES LIMITED context import; Andrei Nasonov individual routing; user clarified Andrei was/is RB's first client, 2024 personal tax is free, 2025 onward normal-fee billing mechanics are unclear, filings are joint because he is married, 2024 personal tax is pending but RB wants to coordinate 2024 and 2025 together with one filing record per year, NACV had registration/prepayment issues, VAT was deregistered in October 2025 with appeal submitted and no response, and 2024/2025 company taxes were filed but Finanzamt asked for more information | Routed to `clients/Companies/NACV/`, `clients/Individuals/Andrei Nasonov/`, source logs, and memory; no live Notion records were modified |
