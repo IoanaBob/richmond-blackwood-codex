@@ -91,7 +91,7 @@ setup/mcp/start-whatsapp-bridge.sh start
 
 Do not create a new RB Communications database or send WhatsApp messages/files without explicit user approval.
 
-Xero MCP setup is documented in [setup/mcp/xero.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/xero.md). It is optional and local-only: use one MCP server entry per client/Xero organisation, keep Xero credentials in ignored local files, and provide the exact RB client reference such as `AGL` before any Xero MCP work.
+Xero MCP setup is documented in [setup/mcp/xero.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/xero.md). It is optional and local-only: use one Codex MCP server entry named `xero`, switch the active client locally, keep Xero credentials in ignored local files, and provide the exact RB client reference such as `AGL` before any Xero MCP work.
 
 ## Notion Backup Status
 

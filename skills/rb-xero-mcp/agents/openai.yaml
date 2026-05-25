@@ -1,3 +1,3 @@
 display_name: Xero MCP
-short_description: Use client-specific Xero MCP servers for RB Xero reads and approved writes.
-default_prompt: Ask for the exact RB client reference, verify the Xero organisation through the matching MCP server first, and only perform approved Xero reads or writes for that client.
+short_description: Use the local Xero MCP server for explicit-client RB Xero reads and approved writes.
+default_prompt: Ask for the exact RB client reference, ensure the active local Xero client matches it, verify the Xero organisation first, and only perform approved Xero reads or writes for that client.

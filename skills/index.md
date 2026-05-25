@@ -20,7 +20,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-signature-status-sync`: check SignNow signature status and require signed-file evidence before completion.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
 - `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process Communications attachments, create or update task-capable Notion rows, notify Slack after approval, and update checkpoints.
-- `rb-xero-mcp`: use client-specific local Xero MCP servers for Xero reads and approved writes, always requiring the exact RB client reference first.
+- `rb-xero-mcp`: use the local Xero MCP server for Xero reads and approved writes, always requiring the exact RB client reference and active-client match first.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
 - `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.

@@ -64,7 +64,7 @@ Local-only files belong under `.codex-local/` or `.env`; both are ignored by git
 Optional repo-pinned MCP setup guides live under `setup/mcp/`.
 
 - WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
-- Xero MCP: [setup/mcp/xero.md](mcp/xero.md). This enables local Codex access to Xero through one client-specific MCP server entry per Xero organisation. Xero client IDs, client secrets, bearer tokens, OAuth tokens, and personal Codex config stay local and ignored.
+- Xero MCP: [setup/mcp/xero.md](mcp/xero.md). This enables local Codex access to Xero through one static MCP server entry named `xero`, with the active client selected locally before reload. Xero client IDs, client secrets, bearer tokens, OAuth tokens, and personal Codex config stay local and ignored.
 - ElevenLabs and n8n MCP: [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md). This enables local Codex access to the official ElevenLabs MCP server and remote n8n instance-level MCP. API keys, MCP tokens, webhook secrets, live instance URLs if private, client call transcripts, and personal Codex config stay local and ignored.
 - ElevenLabs API fallback: use only when the current MCP tools cannot perform a required live edit, and only after explicit user approval for the exact production change.
 
@@ -94,7 +94,7 @@ cp .env.example .env
 which npx
 ```
 
-Fill one `RB_XERO_<CLIENT_REFERENCE>_...` block per client in `.env`, add one local MCP server entry per client from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`, then restart or reload Codex. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
+Add the single `xero` MCP entry from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`. Fill one `RB_XERO_<CLIENT_REFERENCE>_CLIENT_ID` / `RB_XERO_<CLIENT_REFERENCE>_CLIENT_SECRET` block per client in `.env`, select the active client with `setup/mcp/select-xero-client.sh KONVI`, then restart or reload Codex. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
 
 For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. ElevenLabs SIP trunking through Twilio Elastic SIP Trunking is the default outbound path: import the SIP number in ElevenLabs and set `ELEVENLABS_AGENT_PHONE_NUMBER_ID` to that SIP phone-number ID. Set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to the older Twilio Native endpoint. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 

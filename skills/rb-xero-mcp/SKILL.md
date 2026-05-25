@@ -1,6 +1,6 @@
 ---
 name: rb-xero-mcp
-description: Use when reading, verifying, reconciling, creating, or updating Xero data for Richmond Blackwood through a client-specific local Xero MCP server.
+description: Use when reading, verifying, reconciling, creating, or updating Xero data for Richmond Blackwood through the local Xero MCP server with an explicit client reference.
 ---
 
 # RB Xero MCP
@@ -11,7 +11,8 @@ Use this skill for any Richmond Blackwood work that touches Xero through MCP.
 
 - Setup guide: `setup/mcp/xero.md`
 - Local credentials template: `.env.example`, copied to ignored `.env`
-- Default MCP server naming pattern: `xero_<client-reference>`
+- Single MCP server name: `xero`
+- Active-client selector: `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>`
 
 ## Required Client Reference
 
@@ -21,18 +22,19 @@ If the user gives only a company name, person name, Xero organisation name, invo
 
 Do not infer a client reference from a company name unless the user explicitly provided that reference in the same request.
 
-## Server Resolution
+## Active Client Check
 
 1. Convert the provided client reference to uppercase for `.env` lookup, for example `AGL`.
-2. Resolve the configured server name from `RB_XERO_<CLIENT_REFERENCE>_MCP_SERVER`.
-3. If the server is not configured or the Xero MCP tools are unavailable, ask the user to configure the client-specific MCP server and reload Codex.
-4. Do not use a generic `xero` server, bearer-token server, or another client's server as a fallback.
+2. Check the active local Xero client from `.codex-local/xero-active-client` or `RB_XERO_ACTIVE_CLIENT_REFERENCE` in `.env`.
+3. If the active client is missing or different from the requested client reference, stop before using Xero and ask the user to run `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>` and reload Codex.
+4. Use only the single `xero` MCP server.
+5. Do not use bearer-token mode or another client's credentials as a fallback.
 
 ## First Call Verification
 
 Before any substantive Xero read or write:
 
-1. Use the selected Xero MCP server to run `list-organisation-details` or the closest available read-only organisation check.
+1. Use the `xero` MCP server to run `list-organisation-details` or the closest available read-only organisation check.
 2. Compare the returned Xero organisation against the intended client reference and any approved local route pointer.
 3. If the organisation is missing, unexpected, or not yet approved as that client's Xero organisation, stop and ask for review.
 

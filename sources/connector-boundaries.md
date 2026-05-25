@@ -34,11 +34,12 @@ Use Gmail for accounting, invoice, payment, and client communications. When impo
 
 ## Xero MCP
 
-Use Xero MCP for client-specific accounting reads and approved writes only through the matching client-specific MCP server.
+Use Xero MCP for client-specific accounting reads and approved writes only through the single local `xero` MCP server after selecting the matching active client.
 
 - Require the exact RB client reference before using Xero.
+- Confirm the active local Xero client matches the requested reference.
 - Verify the Xero organisation read-only before any other read or write.
-- Do not use a shared Xero MCP server across all clients.
+- Do not add one Codex MCP config block per client.
 - Keep Xero credentials, tokens, MFA codes, and personal Codex config out of git.
 - Store concise source pointers or summaries in the relevant client folder only when repo storage is appropriate.
 
