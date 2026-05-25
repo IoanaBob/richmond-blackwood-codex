@@ -1713,3 +1713,25 @@ Unresolved:
 - Send or upload monthly payslips/payment proofs through ELSTER Belegnachreichung or a specific Finanzamt evidence route once the PDFs are uploadable.
 - Confirm Finanzamt allocation of existing payroll-tax credits to the submitted periods.
 - Continue annual VAT, E-Bilanz, and Mahnung response workstreams separately.
+
+## 2026-05-25 - AGL E-Bilanz Final Review Pack
+
+Imported:
+
+- User request to locate the E-Bilanz balance-sheet/P&L workpaper, make it final and clean, and save it locally for submission work.
+- Existing local E-Bilanz draft workbook and rendered previews in `/private/tmp/agl_ebilanz_workpaper/outputs/`.
+- AGL final FY24 SFS figures already captured from the financial statements PDF and source workbooks.
+- Official BMF/EStH E-Bilanz guidance confirming that balance sheet and P&L data are transmitted as the prescribed electronic dataset.
+
+Actions:
+
+- Built final clean workbook `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx` with Read Me, Submission Input, Balance Sheet Detail, P&L Detail, Trial Balance, Checks, and Sources tabs.
+- Preserved the draft workbook location `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx` and generated final copy `/private/tmp/agl_ebilanz_workpaper/final/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`.
+- Updated AGL filing, source, Drive-location, open-question, current-state, history, and skill-run records.
+- Added an E-Bilanz workpaper guardrail to `skills/rb-finanzamt-response/SKILL.md`.
+
+Unresolved:
+
+- The final workbook is a support pack for E-Bilanz software, not the official XBRL/datensatz.
+- Generate, validate, transmit, and save the protocol/ticket through E-Bilanz-capable software.
+- Confirm the E-Bilanz tool's sign conventions and whether the Finanzamt expects whole-company statutory accounts or a German PE/tax-balance scope before transmission.

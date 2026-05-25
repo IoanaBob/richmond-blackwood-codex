@@ -902,3 +902,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat the filings as original missing returns because visible Mein ELSTER history did not show processed Lohnsteuer-Anmeldungen and the user gave explicit approval to submit; keep supporting payslips/payment proofs for Belegnachreichung or a specific Finanzamt evidence route rather than forcing them into the return.
 - Verification: ELSTER returned `Ihr Formular wurde erfolgreich uebermittelt` for all 12 periods, with tickets recorded in `clients/Companies/AGL/accounting-bookkeeping-payroll.md` and `clients/Companies/AGL/finanzamt-2026-05-response-plan.md`.
 - Limitations or gaps: Supporting payroll evidence PDFs are still not uploadable in the browser/local session. Annual VAT, E-Bilanz, and Mahnung response actions remain separate open workstreams.
+
+## 2026-05-25 - AGL E-Bilanz Final Review Pack
+
+- User request: Confirm what comes next and make the E-Bilanz balance-sheet/P&L workpaper final, clean, locally saved, and ready for submission work.
+- Context read: Existing AGL E-Bilanz draft workbook, final FY24 SFS figures already captured in repo records, AGL Finanzamt response plan, official BMF/EStH E-Bilanz guidance, and the repo-local `rb-finanzamt-response` skill.
+- Actions taken: Built the final clean local workbook `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx` with a Read Me, Submission Input, Balance Sheet Detail, P&L Detail, Trial Balance, Checks, and Sources tabs. Updated AGL filing, source, Drive-location, open-question, and durable memory records, and added an E-Bilanz workpaper guardrail to `skills/rb-finanzamt-response/SKILL.md`.
+- Decisions made: Treat the final pack as ready for E-Bilanz/XBRL software handoff but not as the transmitted datensatz. Recommend separating positive bank balances as assets and negative bank balances/overdrafts as current bank liabilities for the German mapping. Use whole-company statutory accounts as the source-basis assumption because no German PE-only balance sheet was located.
+- Verification: Workbook error scan found no broken-reference/formula-error text; rendered previews for the key sheets were inspected; local Downloads copy checksum matched the generated workbook.
+- Limitations or gaps: No XBRL/datensatz was generated or transmitted. The filer still needs to use E-Bilanz-capable software, confirm scope/sign conventions in the validation preview, submit, and save the protocol/ticket.

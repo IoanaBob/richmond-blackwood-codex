@@ -84,6 +84,18 @@ Use this pattern when a user explicitly approves filing multiple monthly payroll
 - Record every successful `Versandbestaetigung`: period, ELSTER Auftrag, Transferticket, Ordnungskriterium, and Abgabezeit.
 - Do not try to attach payslips or payment proofs inside a Lohnsteuer-Anmeldung if the final review has no attachment step. Use ELSTER Belegnachreichung or the most specific Finanzamt evidence/message route after the return is transmitted and the exact PDFs are uploadable.
 
+### E-Bilanz Workpaper Guardrail
+
+Use this pattern when a Finanzamt asks for an `E-Bilanz` or `Datensatz` and the available records include statutory accounts or a trial balance.
+
+- Build a clean balance-sheet/P&L workpaper from the signed accounts and the final trial balance, but label it as a support pack only. Do not imply a spreadsheet, PDF, or Google Sheet is the official XBRL/datensatz.
+- Keep the workpaper free of ELSTER certificates, certificate passwords, private keys, and credential material.
+- Include a submission-input sheet with entity details, period, Steuernummer, source-basis assumption, cents-level amounts, statutory rounded cross-checks, and sign-convention notes for the E-Bilanz tool.
+- If statutory accounts net negative bank balances into cash, show the statutory tie-out and a German mapping view. As a default review recommendation, separate positive bank/cash as assets and negative bank balances/overdrafts as current bank liabilities, while preserving the same net assets.
+- If the client has a foreign-company/German-PE position and no separate PE-only balance sheet is located, state the whole-company statutory-account assumption clearly and require the filer to confirm the E-Bilanz software scope before transmission.
+- Validate the workpaper for formula errors, balance-sheet equality, P&L-to-equity tie, and source traceability. Render or preview the key sheets before treating the workbook as final.
+- The next action after a final workpaper is still to generate, validate, transmit, and save the protocol/ticket from E-Bilanz-capable software.
+
 8. Draft communications for review.
    - Prefer the specific ELSTER form or filing route when one exists. Use generic `Sonstige Nachricht` only when no more specific form fits.
    - For each preview, state channel, operator, sender/representative, source records, subject/reference, attachments, and exact body.
