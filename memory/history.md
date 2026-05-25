@@ -893,3 +893,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: The payslip and payment proof are important for the Finanzamt query, but should be sent through ELSTER's supporting-document route or a specific authority-message route rather than forced into the Lohnsteuer-Anmeldung itself. Do not submit the return or supporting evidence without exact reviewed approval.
 - Verification: ELSTER final review now shows period Mai 2024, StNr 29/628/00250, address `Stralauer Platz 35, 10243 Berlin`, Kz42 EUR 1,735.66, Kz49 EUR 26.75, and Kz83 EUR 1,762.41. Drive statement read-back confirmed the 2025-04-10 payment to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524`.
 - Limitations or gaps: The Notion attachments are identified but not yet available to the browser/local file picker as uploadable PDFs: `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`.
+
+## 2026-05-25 - AGL ELSTER Payroll-Tax Submissions
+
+- User request: Submit the prepared May 2024 Lohnsteuer-Anmeldung and, if the reviewed details matched, use the same template to submit the other payroll-tax months without further approval.
+- Context read: Live ELSTER final review/session, AGL payroll schedule in repo, Notion payroll query task, and the repo-local `rb-finanzamt-response` batch-filing guardrail.
+- Actions taken: Submitted monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 in ELSTER. Reused the template for unchanged months, edited December 2024 and January 2025 amounts where the payroll schedule changed, validated each return, recorded all ELSTER transfer tickets, and added Notion task comment `36be4130-1314-81fc-9729-001d50577ebc`.
+- Decisions made: Treat the filings as original missing returns because visible Mein ELSTER history did not show processed Lohnsteuer-Anmeldungen and the user gave explicit approval to submit; keep supporting payslips/payment proofs for Belegnachreichung or a specific Finanzamt evidence route rather than forcing them into the return.
+- Verification: ELSTER returned `Ihr Formular wurde erfolgreich uebermittelt` for all 12 periods, with tickets recorded in `clients/Companies/AGL/accounting-bookkeeping-payroll.md` and `clients/Companies/AGL/finanzamt-2026-05-response-plan.md`.
+- Limitations or gaps: Supporting payroll evidence PDFs are still not uploadable in the browser/local session. Annual VAT, E-Bilanz, and Mahnung response actions remain separate open workstreams.

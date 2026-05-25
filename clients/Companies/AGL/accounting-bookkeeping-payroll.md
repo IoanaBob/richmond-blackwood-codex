@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion company and employment records fetched 2026-05-13; Drive and Gmail context; user ELSTER session and payroll evidence review on 2026-05-25.
 Imported: 2026-05-13.
-Review: Reconcile German payroll-tax query and confirm whether Notion employment/payroll records have all May 2024-April 2025 payroll-tax filings attached.
+Review: Reconcile the post-submission payment allocation and confirm whether Notion employment/payroll records should attach the ELSTER transfer tickets and supporting evidence for May 2024-April 2025.
 
 ## Accounting Setup
 
@@ -43,7 +43,7 @@ The source attachment from Gmail message `19dcef9e06c9b05a` was filed in Drive a
 Status: provisional.
 Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; local scanned May 2026 Finanzamt account statement PDFs; user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Simoneta/payroll owner must confirm whether the May 2024-April 2025 Lohnsteuer-Anmeldungen were missing, filed late, rejected, or only misallocated.
+Review: The monthly Lohnsteuer-Anmeldungen were submitted in ELSTER on 2026-05-25 after operator approval. Simoneta/payroll owner should still confirm whether any external-software filings existed, and the evidence PDFs still need to be sent or made uploadable for Belegnachreichung/supporting-document follow-up.
 
 The Notion payroll query task contains payslip and tax-payment proof attachments for each month from May 2024 through April 2025. Those attachments evidence payroll calculations/payments but do not yet evidence successful electronic Lohnsteuer-Anmeldung submissions. For May 2024, the identified evidence files are the payslip attachment `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and payment-proof attachment `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`; they still need to be available as uploadable local/browser files before an ELSTER evidence message can be sent.
 
@@ -54,9 +54,9 @@ The Drive AGL bank statement confirms the May 2024 payment row: on 2025-04-10 AG
 ### Extracted Payroll-Tax Schedule
 
 Status: provisional.
-Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; attached payslip PDFs extracted through Notion on 2026-05-25; Drive AGL bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls`; live ELSTER review on 2026-05-25.
+Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; attached payslip PDFs extracted through Notion on 2026-05-25; Drive AGL bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls`; live ELSTER review and transmission confirmations on 2026-05-25.
 Imported: 2026-05-25.
-Review: Treat the schedule as the filing basis, but confirm whether any returns were submitted outside Mein ELSTER before deciding that all periods are original missing returns.
+Review: Filed as original monthly returns after user approval, because visible Mein ELSTER history showed no processed Lohnsteuer-Anmeldungen for the queried periods. If Simoneta/payroll later finds external-software submissions, review whether the Finanzamt needs a corrective explanation.
 
 | Periods | Monthly gross | Monthly Lohnsteuer | Monthly SolZ | Monthly Kirchensteuer | Count | Total payroll tax |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -65,7 +65,29 @@ Review: Treat the schedule as the filing basis, but confirm whether any returns 
 | 2025-01 through 2025-04 | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | 4 | EUR 6,861.84 |
 | **Total** | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **12** | **EUR 20,921.95** |
 
-Visible Mein ELSTER transmitted-form history did not show a Lohnsteuer-Anmeldung for the queried periods, subject to the ELSTER caveat that filings from external tax software may not be listed there. The May 2024 Lohnsteuer-Anmeldung is prepared in ELSTER as an original return, uses the company address `Stralauer Platz 35, 10243 Berlin`, and passed ELSTER validation, but it has not been submitted pending explicit approval of the final review figures. The supporting payslip and payment proof should be transmitted separately through ELSTER's supporting-document route once the exact PDFs are uploadable.
+Visible Mein ELSTER transmitted-form history did not show a Lohnsteuer-Anmeldung for the queried periods, subject to the ELSTER caveat that filings from external tax software may not be listed there. After explicit user approval on 2026-05-25, Codex submitted the May 2024 through April 2025 monthly Lohnsteuer-Anmeldungen in ELSTER as original returns using StNr `29/628/00250`, one employee, and company address `Stralauer Platz 35, 10243 Berlin`. The supporting payslips and payment proofs should be transmitted separately through ELSTER's supporting-document route once the exact PDFs are uploadable.
+
+### ELSTER Lohnsteuer-Anmeldung Submissions
+
+Status: provisional.
+Source: Live ELSTER Versandbestaetigung screens on 2026-05-25.
+Imported: 2026-05-25.
+Review: Transfer tickets are recorded for audit trail. Confirm Finanzamt allocation of the existing Lohnsteuer payment credits after processing.
+
+| Period | ELSTER Auftrag | Transferticket | Abgabezeit |
+| --- | --- | --- | --- |
+| 2024-05 | Lohnsteuer-Anmeldung 2024 - Mai | `ep1456q36h6fax22pxruory2bqxg35rf` | Montag, 25. Mai 2026, 21:27:01 |
+| 2024-06 | Lohnsteuer-Anmeldung 2024 - Juni | `ep1454u0us91ak6ytxjoyr151gn0nk56` | Montag, 25. Mai 2026, 21:30:32 |
+| 2024-07 | Lohnsteuer-Anmeldung 2024 - Juli | `ep145389jhqoj850b37uqrxgeyt28o4a` | Montag, 25. Mai 2026, 21:31:59 |
+| 2024-08 | Lohnsteuer-Anmeldung 2024 - August | `ep1452vnk5ghwv23bhwn05y2p221g8h3` | Montag, 25. Mai 2026, 21:33:11 |
+| 2024-09 | Lohnsteuer-Anmeldung 2024 - September | `ep1450tm2w1u7q7g48mkzwc7n57axxyx` | Montag, 25. Mai 2026, 21:33:24 |
+| 2024-10 | Lohnsteuer-Anmeldung 2024 - Oktober | `ep1452qend5kbe0n83t2hcw1jsrzb9h4` | Montag, 25. Mai 2026, 21:33:37 |
+| 2024-11 | Lohnsteuer-Anmeldung 2024 - November | `ep1453j2jqodee32j9c9phabtri3hwmv` | Montag, 25. Mai 2026, 21:33:50 |
+| 2024-12 | Lohnsteuer-Anmeldung 2024 - Dezember | `ep1451zjxx1zon6gf99nh26gs93byiic` | Montag, 25. Mai 2026, 21:35:52 |
+| 2025-01 | Lohnsteuer-Anmeldung 2025 - Januar | `ep1457e90eko0j7fz6byc9eh2rf8w6kf` | Montag, 25. Mai 2026, 21:40:05 |
+| 2025-02 | Lohnsteuer-Anmeldung 2025 - Februar | `ep14550ufjdsj66zapbg7uy7r17sf1we` | Montag, 25. Mai 2026, 21:41:15 |
+| 2025-03 | Lohnsteuer-Anmeldung 2025 - Maerz | `ep1450r65isi100n50ss8zj4x1mdqyyx` | Montag, 25. Mai 2026, 21:41:32 |
+| 2025-04 | Lohnsteuer-Anmeldung 2025 - April | `ep14546morrzf90ms3tri572k4qftjpb` | Montag, 25. Mai 2026, 21:41:48 |
 
 ## Retroactive Payroll Note
 

@@ -17,15 +17,16 @@ Review: Needs operator/accountant review before any ELSTER submission, Einspruch
 | 2024 E-Bilanz workpaper | `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`; local `.xlsx` build at `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx` | Prepared on 2026-05-25 from the abridged financial statements, final FY24 SFS workbook, earlier 2024 accounts workbook, Finanzamt request, and VAT protocols. This is a review workpaper, not an XBRL/E-Bilanz transmission dataset. |
 | Payroll query task | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Task contains payslips and monthly tax-payment proof attachments for May 2024-April 2025. Notion attached-file extraction on 2026-05-25 confirmed the monthly payslip tax figures below. It does not yet prove that Lohnsteuer-Anmeldungen were submitted or processed. |
 | May 2024 payroll evidence | Notion payslip attachment `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf`; Notion payment-proof attachment `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`; Drive bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls` | Payslip supports the May 2024 payroll-tax figures. The bank statement shows payment on 2025-04-10 to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524` for EUR 1,762.41, matching the May 2024 Lohnsteuer-Anmeldung total. Exact Notion attachment PDFs still need an uploadable local/browser path before an ELSTER Belegnachreichung can be sent. |
-| Live ELSTER review | Mein ELSTER session opened by the user on 2026-05-25 | Visible transmitted forms did not show any Lohnsteuer-Anmeldung for the queried periods through Mein ELSTER. Caveat: ELSTER warns that forms submitted through external tax software may not appear in this list. May 2024 was prepared as an original Lohnsteuer-Anmeldung, corrected to the company address `Stralauer Platz 35, 10243 Berlin`, validated successfully, and returned to the final `Absenden` review screen, but not sent. |
+| Live ELSTER payroll submissions | Mein ELSTER session opened by the user on 2026-05-25 | Visible transmitted forms did not show any Lohnsteuer-Anmeldung for the queried periods through Mein ELSTER. Caveat: ELSTER warns that forms submitted through external tax software may not appear in this list. After explicit user approval, May 2024 through April 2025 monthly Lohnsteuer-Anmeldungen were submitted in ELSTER as original returns using StNr `29/628/00250`, one employee, and address `Stralauer Platz 35, 10243 Berlin`. Transfer tickets are recorded below and in `accounting-bookkeeping-payroll.md`. |
 | Notion payroll task comment | Comment `36be4130-1314-8155-a56e-001db0bff9d5` on `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Records address correction, no-error ELSTER validation, May 2024 final review figures, Belegnachreichung/evidence route, and the remaining uploadable-PDF blocker. |
+| Notion payroll submission comment | Comment `36be4130-1314-81fc-9729-001d50577ebc` on `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Records all May 2024-April 2025 ELSTER transfer tickets and the remaining evidence/allocation follow-up. |
 | Unrelated user packet files | `4c55f975-9f13-4df2-ab11-c118db334078.pdf`; `SD79-26002-AARON MEDIC CHAMBERLAIN LIMITED-2026年税单 (1).pdf` | These appear to relate to AARON MEDIC CHAMBERLAIN LIMITED, not AGL. Do not use for the AGL response. |
 
 ## Priority Actions
 
 | Priority | Action | Owner / route | Current status | Review before sending |
 | --- | --- | --- | --- | --- |
-| 1 | Resolve the payroll-tax query for May 2024-April 2025 before the Finanzamt treats the payment credits as unexplained. | ELSTER Lohnsteuer-Anmeldung route plus separate ELSTER Belegnachreichung or authority message for supporting evidence. | AGL had German employment from 2024-05-01. Payslip tax figures are now extracted month by month; payment proof/visible credits exist. May 2024 has been prepared and validated in ELSTER as an original return using `Stralauer Platz 35, 10243 Berlin`, pending explicit approval before transmission. | Confirm whether these are original missing monthly submissions or corrections to previously filed/rejected returns. Attach May 2024 payslip and payment proof separately after the Lohnsteuer-Anmeldung is transmitted or when ELSTER accepts a supporting-message upload. |
+| 1 | Resolve the payroll-tax query for May 2024-April 2025 before the Finanzamt treats the payment credits as unexplained. | ELSTER Lohnsteuer-Anmeldung route plus separate ELSTER Belegnachreichung or authority message for supporting evidence. | AGL had German employment from 2024-05-01. Payslip tax figures were extracted month by month; payment proof/visible credits exist. Monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 were submitted in ELSTER on 2026-05-25 after explicit user approval. | Send the payslip/payment-proof evidence separately once uploadable PDFs are available, ask Finanzamt to allocate the existing credits by period, and confirm whether any duplicate external-software filings need explanation. |
 | 2 | File the 2024 Umsatzsteuererklaerung electronically, likely as zero if the books confirm no German VATable output/input VAT. | ELSTER / AGL certificate or filing software. | Filing basis prepared from the four zero UStVA protocols and 2024 financial statements. Not submitted yet. | Confirm annual VAT figures and submit via ELSTER. |
 | 3 | Generate and submit the 2024 E-Bilanz Datensatz. | Lexoffice, tax software, or an E-Bilanz/XBRL tool; ordinary PDF accounts are not enough. | Balance-sheet/P&L workpaper prepared and read back as Google Sheet `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`. A valid XBRL/datensatz still needs E-Bilanz-capable software. | Confirm the final German mapping, especially negative bank balances and whether the dataset should be whole-company statutory accounts or German PE/tax-balance view. |
 | 4 | Respond to the 2026-05-19 Mahnung before enforcement pressure escalates. | ELSTER form/message, ideally with the annual VAT filing and E-Bilanz timing referenced. | Account statement shows EUR 5,781.25 total, including estimated-looking 2024 USt/KSt/GewSt/soli amounts and surcharges. | Ask for suspension of collection/enforcement while the missing filings are processed; request the underlying Bescheide if not already in records. |
@@ -43,7 +44,7 @@ The Finanzamt issues should be handled as related but separate defects:
 - Annual VAT: quarterly UStVA protocols exist, but the annual 2024 Umsatzsteuererklaerung is still requested. The four quarterly protocols all show EUR 0.00, so the annual return can be prepared as a zero/near-zero annual return if the bookkeeping confirms no German VATable activity.
 - E-Bilanz: the German KSt/GewSt returns were recorded as filed on 2026-04-30, but the separate E-Bilanz/XBRL dataset is still requested. The 2024 accounts show a EUR 14,447 rounded loss, supporting the no-profit/no-tax operating position, but the Finanzamt wants the electronic dataset. A review workpaper has been prepared from the statutory financial statements and final FY24 SFS trial balance. It ties arithmetically, but two professional judgment points remain: negative bank balances and the exact filing scope for a foreign company/German PE position.
 - Mahnung: the EUR 5,781.25 balance appears inconsistent with AGL records and may be based on estimates or unprocessed/missing annual filings. Do not treat the Mahnung alone as proof that the tax is finally due. Get the underlying assessment notices and request suspension/collection pause while missing filings are cured.
-- Payroll tax: do not tell Finanzamt there were no employees. AGL had German employment from 2024-05-01. The payslips support monthly payroll-tax amounts; the open issue is why payments/credits exist without matching processed Lohnsteuer-Anmeldungen. Visible Mein ELSTER transmitted-form history did not show Lohnsteuer-Anmeldungen, but this remains provisional because external-software submissions may not be listed there.
+- Payroll tax: do not tell Finanzamt there were no employees. AGL had German employment from 2024-05-01. The payslips support monthly payroll-tax amounts. Monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 have now been submitted through ELSTER, so the open issue is payment-credit allocation, supporting evidence, and any explanation if prior external-software submissions later surface.
 - Supporting evidence: the Lohnsteuer-Anmeldung final review screen does not expose an attachment step. ELSTER has a separate `Belegnachreichung` route for sending PDF files and e-invoices to the Finanzamt. Use that route, or a more specific Finanzamt message route if ELSTER presents one, for payslips and payment proofs after the return itself is approved for transmission.
 
 ## Payroll-Tax Filing Schedule - May 2024 To April 2025
@@ -51,7 +52,7 @@ The Finanzamt issues should be handled as related but separate defects:
 Status: provisional.
 Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; attached payslip PDFs `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` through `Byron-Jarvis_Frasier_Lohnabrechnung_2025-04.pdf`; Notion payment-proof attachment database; Notion attached-file extraction in live browser on 2026-05-25; Drive bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls`; local Finanzamt account statement scans reviewed on 2026-05-25.
 Imported: 2026-05-25.
-Review: Before filing beyond the prepared May 2024 draft, confirm in ELSTER/accountant records whether no Lohnsteuer-Anmeldungen were filed at all, or whether the original returns were filed but rejected/misallocated. File original monthly returns if no originals exist; file a separate corrected return for each affected month if originals exist but need correction. Do not transmit as a difference-only correction. May 2024 is validated in ELSTER at the final review screen with company address `Stralauer Platz 35, 10243 Berlin` and requires explicit operator approval before pressing `Absenden`.
+Review: Filed in ELSTER on 2026-05-25 after explicit user approval. Confirm payment allocation and whether any older external-software filings exist; if the Finanzamt later reports duplicates or different originals, handle that as a separate corrective/explanatory response.
 
 | Period | Employee | Gesamtbrutto / Steuerbrutto | Lohnsteuer | SolZ | Kirchensteuer | Payroll-tax total |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -68,6 +69,28 @@ Review: Before filing beyond the prepared May 2024 draft, confirm in ELSTER/acco
 | 2025-03 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
 | 2025-04 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
 | **Total** |  | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **EUR 20,921.95** |
+
+## Payroll-Tax ELSTER Transfer Tickets
+
+Status: provisional.
+Source: Live ELSTER Versandbestaetigung screens on 2026-05-25.
+Imported: 2026-05-25.
+Review: Use these as the audit trail for submitted Lohnsteuer-Anmeldungen; still reconcile payment allocation and supporting evidence.
+
+| Period | ELSTER Auftrag | Transferticket | Abgabezeit |
+| --- | --- | --- | --- |
+| 2024-05 | Lohnsteuer-Anmeldung 2024 - Mai | `ep1456q36h6fax22pxruory2bqxg35rf` | Montag, 25. Mai 2026, 21:27:01 |
+| 2024-06 | Lohnsteuer-Anmeldung 2024 - Juni | `ep1454u0us91ak6ytxjoyr151gn0nk56` | Montag, 25. Mai 2026, 21:30:32 |
+| 2024-07 | Lohnsteuer-Anmeldung 2024 - Juli | `ep145389jhqoj850b37uqrxgeyt28o4a` | Montag, 25. Mai 2026, 21:31:59 |
+| 2024-08 | Lohnsteuer-Anmeldung 2024 - August | `ep1452vnk5ghwv23bhwn05y2p221g8h3` | Montag, 25. Mai 2026, 21:33:11 |
+| 2024-09 | Lohnsteuer-Anmeldung 2024 - September | `ep1450tm2w1u7q7g48mkzwc7n57axxyx` | Montag, 25. Mai 2026, 21:33:24 |
+| 2024-10 | Lohnsteuer-Anmeldung 2024 - Oktober | `ep1452qend5kbe0n83t2hcw1jsrzb9h4` | Montag, 25. Mai 2026, 21:33:37 |
+| 2024-11 | Lohnsteuer-Anmeldung 2024 - November | `ep1453j2jqodee32j9c9phabtri3hwmv` | Montag, 25. Mai 2026, 21:33:50 |
+| 2024-12 | Lohnsteuer-Anmeldung 2024 - Dezember | `ep1451zjxx1zon6gf99nh26gs93byiic` | Montag, 25. Mai 2026, 21:35:52 |
+| 2025-01 | Lohnsteuer-Anmeldung 2025 - Januar | `ep1457e90eko0j7fz6byc9eh2rf8w6kf` | Montag, 25. Mai 2026, 21:40:05 |
+| 2025-02 | Lohnsteuer-Anmeldung 2025 - Februar | `ep14550ufjdsj66zapbg7uy7r17sf1we` | Montag, 25. Mai 2026, 21:41:15 |
+| 2025-03 | Lohnsteuer-Anmeldung 2025 - Maerz | `ep1450r65isi100n50ss8zj4x1mdqyyx` | Montag, 25. Mai 2026, 21:41:32 |
+| 2025-04 | Lohnsteuer-Anmeldung 2025 - April | `ep14546morrzf90ms3tri572k4qftjpb` | Montag, 25. Mai 2026, 21:41:48 |
 
 ## E-Bilanz Balance-Sheet Workpaper
 
@@ -129,7 +152,7 @@ Mit freundlichen Gruessen
 Status: draft for review only.
 Source: Notion payroll query task and repo payroll records.
 Imported: 2026-05-25.
-Review: Send only after Simoneta/payroll owner confirms whether returns were never filed, filed late, rejected, or merely misallocated.
+Review: Send only after the supporting PDFs are uploadable and the operator/accountant approves the exact wording. If Finanzamt processing confirms all monthly returns and credits are allocated correctly, a shorter status note may be enough.
 
 Sending channel: ELSTER or Finanzamt-approved response route.
 Operator: not available from `.env.local` in this worktree.
@@ -143,7 +166,7 @@ zu Ihrem Schreiben vom 17.04.2026 teilen wir mit, dass AGILE LINCS LIMITED im an
 
 Nach unserer Pruefung wurden monatliche Zahlungen geleistet. Die monatlichen Lohnabrechnungen weisen fuer Mai bis November 2024 jeweils EUR 1.735,66 Lohnsteuer und EUR 26,75 Solidaritaetszuschlag aus, fuer Dezember 2024 EUR 1.700,66 Lohnsteuer und EUR 22,58 Solidaritaetszuschlag, sowie fuer Januar bis April 2025 jeweils EUR 1.709,83 Lohnsteuer und EUR 5,63 Solidaritaetszuschlag. Kirchensteuer faellt jeweils mit EUR 0,00 an.
 
-Die Anmeldungen bzw. deren Verarbeitung und Zuordnung sind jedoch nicht vollstaendig nachvollziehbar. Wir bereiten deshalb die fehlenden bzw. berichtigten Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 vor und reichen diese elektronisch nach bzw. stellen die korrekte Zuordnung der bereits geleisteten Zahlungen je Zeitraum dar.
+Die Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 wurden am 25.05.2026 elektronisch nachgereicht. Wir bitten um Zuordnung der bereits vorhandenen Zahlungen/Guthaben auf dem Lohnsteuerkonto zu den jeweiligen Anmeldungszeitraeumen.
 
 Bitte beruecksichtigen Sie die bereits vorhandenen Guthaben auf dem Lohnsteuerkonto und teilen Sie uns mit, falls einzelne Zahlungsnachweise oder Anmeldungszeitraeume nicht zugeordnet werden koennen.
 
@@ -152,12 +175,12 @@ Mit freundlichen Gruessen
 [authorised sender / representative]
 ```
 
-## Draft ELSTER Belegnachreichung - May 2024 Payroll Evidence
+## Draft ELSTER Belegnachreichung - Payroll Evidence May 2024 To April 2025
 
 Status: draft for review only.
 Source: ELSTER Belegnachreichung guidance; Notion payroll query task; Drive AGL bank statement.
 Imported: 2026-05-25.
-Review: Send only after the May 2024 Lohnsteuer-Anmeldung is transmitted or the Finanzamt route clearly accepts evidence for the pending payroll-tax query. The exact PDFs must be attached from uploadable local/browser files, not merely cited by Notion URL.
+Review: Send only after the Finanzamt route clearly accepts evidence for the pending payroll-tax query. The exact PDFs must be attached from uploadable local/browser files, not merely cited by Notion URL.
 
 Sending channel: ELSTER `Belegnachreichung` or another specific ELSTER supporting-document route.
 Operator: not available from `.env.local` in this worktree.
@@ -165,22 +188,22 @@ Attachments to include:
 
 | Attachment | Source | Current upload status |
 | --- | --- | --- |
-| `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` | Notion payroll task attachment | Exact attachment identified; uploadable local/browser path not yet available in this session. |
-| `46013371-9232-4713-a50a-d25d46ed7c2c.pdf` | Notion payment-proof attachment on May 2024 row | Exact attachment identified; uploadable local/browser path not yet available in this session. |
+| Monthly payslips May 2024-April 2025 | Notion payroll task attachments | Exact attachment names/rows are visible in the task; uploadable local/browser files still need to be exposed before ELSTER upload. |
+| Monthly payment proofs May 2024-April 2025 | Notion payment-proof attachments on the payroll query task rows | Exact attachment names/rows are visible in the task; uploadable local/browser files still need to be exposed before ELSTER upload. |
 | Bank statement/payment row export, if needed | Drive bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls` | The relevant row was read: 2025-04-10, payee Finanzamt fuer Koerperschaften III, reference `29/628/00250 LSt 0524`, amount EUR 1,762.41. |
 
 ```text
-Betreff: AGILE LINCS LIMITED, StNr. 29/628/00250 - Belege zur Lohnsteuer-Anmeldung Mai 2024
+Betreff: AGILE LINCS LIMITED, StNr. 29/628/00250 - Belege zu den Lohnsteuer-Anmeldungen Mai 2024 bis April 2025
 
 Sehr geehrte Damen und Herren,
 
-zu der Lohnsteuer-Anmeldung fuer Mai 2024 reichen wir vorsorglich die Lohnabrechnung und den Zahlungsnachweis nach.
+zu den am 25.05.2026 elektronisch nachgereichten Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 reichen wir vorsorglich die monatlichen Lohnabrechnungen und Zahlungsnachweise nach.
 
-Die Lohnabrechnung fuer Byron Jarvis Frasier weist fuer Mai 2024 Lohnsteuer von EUR 1.735,66 und Solidaritaetszuschlag von EUR 26,75 aus. Kirchensteuer faellt mit EUR 0,00 an. Der Gesamtbetrag betraegt damit EUR 1.762,41.
+Die Lohnabrechnungen fuer Byron Jarvis Frasier weisen fuer Mai bis November 2024 jeweils EUR 1.735,66 Lohnsteuer und EUR 26,75 Solidaritaetszuschlag aus, fuer Dezember 2024 EUR 1.700,66 Lohnsteuer und EUR 22,58 Solidaritaetszuschlag, sowie fuer Januar bis April 2025 jeweils EUR 1.709,83 Lohnsteuer und EUR 5,63 Solidaritaetszuschlag. Kirchensteuer faellt jeweils mit EUR 0,00 an.
 
-Der Zahlungsnachweis zeigt die Zahlung an das Finanzamt fuer Koerperschaften III am 10.04.2025 mit dem Verwendungszweck `29/628/00250 LSt 0524` ueber EUR 1.762,41. Der Betrag entspricht dem angemeldeten Gesamtbetrag fuer Mai 2024.
+Bitte ordnen Sie die bereits vorhandenen Zahlungen/Guthaben auf dem Lohnsteuerkonto den jeweiligen Anmeldungszeitraeumen zu. Soweit einzelne Zahlungsnachweise oder Anmeldungszeitraeume nicht zugeordnet werden koennen, bitten wir um kurze Rueckmeldung.
 
-Bitte ordnen Sie die Zahlung dem Anmeldungszeitraum Mai 2024 zu und beruecksichtigen Sie die beigefuegten Unterlagen bei der Bearbeitung der Lohnsteuer-Anmeldung bzw. Ihrer Anfrage zu den Lohnsteuer-Anmeldungen Mai 2024 bis April 2025.
+Die ELSTER-Transfertickets der nachgereichten Anmeldungen koennen wir bei Bedarf gesondert mitteilen.
 
 Mit freundlichen Gruessen
 
@@ -191,10 +214,9 @@ Mit freundlichen Gruessen
 
 | Blocker | Why it matters | Next step |
 | --- | --- | --- |
-| ELSTER submission approval pending | The user opened the live ELSTER session. The May 2024 Lohnsteuer-Anmeldung was prepared and ELSTER validation reports no errors, but final transmission would send a tax return to the Finanzamt. | Obtain explicit approval for the exact May 2024 return before pressing `Absenden`: period Mai 2024, Steuernummer 29/628/00250, company address `Stralauer Platz 35, 10243 Berlin`, one employee, Kz42 EUR 1,735.66, Kz49 EUR 26.75, Kz83 EUR 1,762.41, no church tax, no supplemental note. |
-| Uploadable May 2024 evidence PDFs not yet available | The Notion task shows the exact payslip and payment-proof attachments, and the payment row is confirmed in Drive, but ELSTER upload needs actual files available to the browser/local file picker. | Download or otherwise expose `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and `46013371-9232-4713-a50a-d25d46ed7c2c.pdf` as uploadable files before sending Belegnachreichung. |
+| Uploadable payroll evidence PDFs not yet available | The Notion task shows payslip and payment-proof attachments for May 2024-April 2025, and the payment row is confirmed in Drive for May 2024, but ELSTER upload needs actual files available to the browser/local file picker. | Download or otherwise expose the monthly payslip and payment-proof PDFs as uploadable files before sending Belegnachreichung/supporting evidence. |
 | E-Bilanz tooling not identified | The requested artifact is an electronic dataset, not just a PDF financial statement. | Confirm whether Lexoffice, AMD, or another E-Bilanz tool should generate the XBRL/taxonomy dataset. |
 | E-Bilanz mapping decisions open | The workpaper is arithmetically ready, but a professional decision is still needed on negative bank balances and whole-company vs German PE/tax-balance filing scope. | Review the workpaper, choose the final taxonomy mapping, then generate the datensatz through an approved E-Bilanz tool. |
-| Payroll filing status unresolved | Finanzamt's payroll question needs a factual explanation; payment proof alone does not explain missing returns. | Ask Simoneta/payroll owner for submission receipts, or proceed in ELSTER as original missing monthly Lohnsteuer-Anmeldungen if no prior submissions can be found. |
+| Historic payroll filing status caveat | The monthly returns have now been submitted through ELSTER, but external tax-software submissions may not have been visible in Mein ELSTER. | If Simoneta/payroll later finds prior submissions, prepare a short explanation for Finanzamt and reconcile whether any duplicate/corrective handling is needed. |
 | Original Bescheide behind Mahnung missing | The Mahnung lists amounts but not the legal basis/deadline for objections. | Retrieve the 2024 USt/KSt/GewSt/soli assessment notices from ELSTER, mail, AMD, or Drive. |
 | Drive upload helper blocked | The repo helper failed because `ts-node/register` is missing in the worktree. | Re-run after dependencies are available, or use another approved Drive upload route. |

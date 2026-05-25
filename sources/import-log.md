@@ -1691,3 +1691,25 @@ Actions:
 Unresolved:
 
 - Future live runs should validate the skill against the next Finanzamt packet and tighten it if a missing notice type or database routing pattern appears.
+
+## 2026-05-25 - AGL ELSTER Payroll-Tax Submissions
+
+Imported:
+
+- User approval in Codex chat to submit the prepared May 2024 Lohnsteuer-Anmeldung and use the same reviewed pattern for the other matching months.
+- Live ELSTER Versandbestaetigung screens for AGL Lohnsteuer-Anmeldungen May 2024 through April 2025.
+- Existing AGL payroll-tax query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` and repo payroll schedule.
+
+Actions:
+
+- Submitted May 2024 through April 2025 monthly Lohnsteuer-Anmeldungen through ELSTER using StNr `29/628/00250`, one employee, and address `Stralauer Platz 35, 10243 Berlin`.
+- Validated each period before transmission and stopped for review/editing when December 2024 and January 2025 figures changed from the repeated-month template.
+- Recorded ELSTER transfer tickets in the AGL payroll file and Finanzamt response plan.
+- Added Notion payroll task comment `36be4130-1314-81fc-9729-001d50577ebc` with the submitted periods, transfer tickets, and remaining evidence/allocation follow-up.
+- Added the reusable Lohnsteuer batch-filing guardrail to `skills/rb-finanzamt-response/SKILL.md`.
+
+Unresolved:
+
+- Send or upload monthly payslips/payment proofs through ELSTER Belegnachreichung or a specific Finanzamt evidence route once the PDFs are uploadable.
+- Confirm Finanzamt allocation of existing payroll-tax credits to the submitted periods.
+- Continue annual VAT, E-Bilanz, and Mahnung response workstreams separately.

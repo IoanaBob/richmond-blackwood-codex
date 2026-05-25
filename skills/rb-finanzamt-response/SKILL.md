@@ -72,6 +72,18 @@ Use this skill for German tax-authority packets where RB must decide what to fil
    - For E-Bilanz, identify the tool/owner that can generate the dataset. If no tool is available, draft an extension or holding message instead of pretending a PDF satisfies the request.
    - For payroll tax, do not deny employment when employment/payroll records exist. Confirm whether Lohnsteuer-Anmeldungen were missing, filed late, rejected, or misallocated, then prepare corrected submissions or an explanatory response.
 
+### Lohnsteuer-Anmeldung Batch Filing Guardrail
+
+Use this pattern when a user explicitly approves filing multiple monthly payroll-tax returns based on a reviewed schedule.
+
+- Treat the approval as bounded by the exact periods, company, Steuernummer, address, employee count, and monthly Kz42/Kz49/Kz83 figures. Stop if any review screen differs.
+- Keep `Berichtigte Anmeldung` unchecked for original missing returns. Use corrected returns only when source evidence shows an original return exists and needs correction.
+- Validate each period in ELSTER before final review. Submit only after the final review screen shows the expected period, Steuernummer, company name, address, employee count, Lohnsteuer, Solidaritaetszuschlag, Kirchensteuer/Gesamtbetrag, and no blocking errors.
+- For repeated months, a prior submitted month may be used as the data-takeover template only after the final review confirms the newly selected period and unchanged figures.
+- When annual/version behavior differs, for example currency symbols appearing in one year but not another, verify numeric values and labels rather than relying only on display formatting.
+- Record every successful `Versandbestaetigung`: period, ELSTER Auftrag, Transferticket, Ordnungskriterium, and Abgabezeit.
+- Do not try to attach payslips or payment proofs inside a Lohnsteuer-Anmeldung if the final review has no attachment step. Use ELSTER Belegnachreichung or the most specific Finanzamt evidence/message route after the return is transmitted and the exact PDFs are uploadable.
+
 8. Draft communications for review.
    - Prefer the specific ELSTER form or filing route when one exists. Use generic `Sonstige Nachricht` only when no more specific form fits.
    - For each preview, state channel, operator, sender/representative, source records, subject/reference, attachments, and exact body.
