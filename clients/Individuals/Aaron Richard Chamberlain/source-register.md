@@ -15,6 +15,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-18 | Codex thread | Finanzamt has not yet responded to the payment-plan proposal, and P-Konto is not confirmed active. |
 | 2026-05-25 | Codex thread | Prepare Aaron's 2025 German personal-tax analysis jointly with wife, check Aaron payslips, use the client-provided folders, preserve template formulas, claim only exact evidence-backed rows, and keep VAT/trade-tax final-freelancer-year work separate. |
 | 2026-05-25 | Codex thread | Operator clarified that the previous accountant vetted the January/February DATEV bookings; include the booked expense-account rows in the 2025 personal-tax workbook using the exact DATEV CSV URLs as support. |
+| 2026-05-25 | Codex thread | Operator asked about January revenue; January DATEV receipt of EUR 16,464.53 from Riot was reviewed as a debtor-account receipt and left source-only pending final 2024/2025 basis review. |
 
 ## Notion
 
@@ -46,7 +47,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 accounting folder | `https://drive.google.com/drive/folders/1iAsc0GPkwm3vbnvsGZo2s2kkevCTmOkS` | User-supplied accounting folder used for January-February 2025 freelance inputs. |
 | 188650 - 2025.pdf | `https://drive.google.com/file/d/1ek9d8w-TVky8TZ1k5XcA9bGgZULMzYEt/view` | DATEV/SUSA summary source for January-February 2025. |
 | DATEV opening balance CSV | `https://drive.google.com/file/d/1Pn0FuV5_t9oIXJmawCBoehYRPAubgJcE/view` | Opening balance export. |
-| DATEV January 2025 CSV | `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view` | January 2025 export used for bank-fee and Uber/travel expense-account claims. |
+| DATEV January 2025 CSV | `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view` | January 2025 export used for bank-fee and Uber/travel expense-account claims, plus source-only Riot debtor receipt review. |
 | DATEV February 2025 CSV | `https://drive.google.com/file/d/10P0NH6JEUnWFk_QZ890wFAoS27brlRYc/view` | February 2025 export used for revenue, bank-fee, Uber/travel, bookkeeping, and VAT source-only review. |
 | AMC Liquidity 2025 | `https://docs.google.com/spreadsheets/d/1kV0HAwSxEArS0JZ_d0lgJvwmbiZJ22vE_F8zuAUsm-Q/edit` | Payroll model source used for wife/Antje provisional annual figures. |
 | Student Finance statement | `https://drive.google.com/file/d/1UYSoPs_ftPbxxYwqCHJr5Q38qzimuN1q/view` | Student loan/debt source-only evidence; not claimed as German deductible. |

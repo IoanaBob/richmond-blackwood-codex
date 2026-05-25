@@ -26,7 +26,7 @@ Review: Confirm whether the P&L/balance-sheet final outputs are stored in the 20
 | Aaron Chamberlain - 2025 Accounting | `https://drive.google.com/drive/folders/1iAsc0GPkwm3vbnvsGZo2s2kkevCTmOkS` | User-supplied 2025 accounting folder; used for DATEV/SUSA January-February 2025 freelance-business inputs. |
 | 188650 - 2025.pdf | `https://drive.google.com/file/d/1ek9d8w-TVky8TZ1k5XcA9bGgZULMzYEt/view` | DATEV/SUSA source summary for January-February 2025. |
 | DATEV opening balance CSV | `https://drive.google.com/file/d/1Pn0FuV5_t9oIXJmawCBoehYRPAubgJcE/view` | Opening balance export in the 2025 accounting folder. |
-| DATEV January 2025 CSV | `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view` | January 2025 accounting export used for bank-fee and Uber/travel expense-account claims. |
+| DATEV January 2025 CSV | `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view` | January 2025 accounting export used for bank-fee and Uber/travel expense-account claims, plus source-only Riot debtor receipt review. |
 | DATEV February 2025 CSV | `https://drive.google.com/file/d/10P0NH6JEUnWFk_QZ890wFAoS27brlRYc/view` | February 2025 accounting export used for Riot/Twitch revenue, bank fee, Uber/travel, bookkeeping, VAT source-only review, and non-expense account classification. |
 | Aaron 2023 FS workbook | `https://docs.google.com/spreadsheets/d/1OnLp0uM1SN2fVyltPrDOqv2p_Th3YzTA/edit` | Drive search result modified on 2026-05-18. |
 | Aaron 2024 FS workbook | `https://docs.google.com/spreadsheets/d/1KmyvtL-HW4Qc-r6Fi4mxWy1MM0UYAkj1/edit` | Drive search result modified on 2026-05-18. |

@@ -1664,3 +1664,21 @@ Unresolved:
 
 - Final reviewer still needs to review the DATEV-backed expense treatment before submission.
 - Balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance DATEV rows remain source-only.
+
+## 2026-05-25 - Aaron 2025 January Riot Receipt Review
+
+Imported:
+
+- User question in Codex chat asking whether Aaron got paid in January.
+- January 2025 DATEV CSV row for the 30 January 2025 Riot Games Services receipt.
+- 2025 SUSA/PDF and 2024 FS workbook debtor/revenue context.
+
+Actions:
+
+- Confirmed January has a EUR 16,464.53 bank receipt against debtor account 11801, not a January revenue-account posting.
+- Added the receipt as a source-only row in the 2025 workbook `Raw DATEV 2025` tab.
+- Updated Aaron's individual personal-tax notes, source register, Drive pointers, open questions, and skill-run ledger.
+
+Unresolved:
+
+- Final reviewer should confirm the 30 January 2025 Riot receipt was already included in 2024 taxable revenue/debtor treatment before filing 2025.

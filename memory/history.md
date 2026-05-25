@@ -857,3 +857,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance DATEV rows remain source-only because they were not booked to expense accounts.
 - Verification: Workbook read-back confirmed business expenses EUR 825.95, business/freelance net PNL EUR 7,205.15, and income after deductions before final tax-rate calculation EUR 92,915.15.
 - Limitations or gaps: Final filing still needs payroll certificate/deductible review, target-folder workbook move/copy after shared Drive auth recovery, and separate VAT/trade-tax wrap-up.
+
+## 2026-05-25 - Aaron 2025 January Riot Receipt Review
+
+- User request: Check whether Aaron got paid in January and whether January revenue is missing.
+- Context read: January 2025 DATEV CSV, 2025 SUSA/PDF, 2024 FS workbook, Aaron 2025 workbook, and Aaron repo source notes.
+- Actions taken: Added a source-only `Raw DATEV 2025` row for the 30 January 2025 Riot Games Services receipt of EUR 16,464.53 against debtor account 11801, and updated Aaron's repo notes/open questions.
+- Decisions made: The receipt is not included as 2025 revenue for now because 2025 SUSA class 8 revenue for January is EUR 0.00, and the 2024 FS workbook shows the matching Riot debtor movement in December 2024.
+- Verification: Workbook read-back confirmed the source-only row exists and Summary still shows operating revenue EUR 8,031.10, business expenses EUR 825.95, and business net PNL EUR 7,205.15.
+- Limitations or gaps: Final reviewer should confirm the 2024 taxable treatment before filing 2025.
