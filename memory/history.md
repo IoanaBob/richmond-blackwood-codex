@@ -855,5 +855,14 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Context read: Local AGL PDFs and UStVA protocols, AGL repo records, Notion company/task/filing records, Gmail thread `19e2263aa4379938`, Drive AGL folders, and official ELSTER/BMF public references.
 - Actions taken: Added `clients/Companies/AGL/finanzamt-2026-05-response-plan.md`, recorded the annual VAT, E-Bilanz, Mahnung, and payroll-tax workstreams separately, updated AGL tax/payroll/Drive/source/open-question files, and drafted ELSTER/payroll-tax response text for review.
 - Decisions made: Treat the annual VAT request as separate from the quarterly zero UStVA protocols; treat the E-Bilanz request as separate from the KSt/GewSt filings; do not say AGL had no employees; do not store the ELSTER credential in git.
-- Verification: Pending after repo edits.
+- Verification: `git diff --check` passed; ELSTER credential-prefix scan found no repo match.
 - Limitations or gaps: No live ELSTER filing or Finanzamt message was sent. Drive upload helper is blocked by missing `ts-node/register`, so the new letters/protocols are logged for later upload.
+
+## 2026-05-25 - AGL Finanzamt Skill Extraction
+
+- User request: Save any reusable skill that can be picked up from the AGL Finanzamt task into the repository.
+- Context read: `skills/index.md`, `skill-creator`, existing RB local skill patterns, and the AGL Finanzamt response-plan workflow.
+- Actions taken: Added `skills/rb-finanzamt-response/SKILL.md` and registered it in `skills/index.md`.
+- Decisions made: The reusable pattern belongs in a focused Finanzamt/ELSTER response skill, not only in the AGL client file, because the same workflow applies to annual VAT requests, E-Bilanz requests, Mahnungen/account statements, payroll-tax queries, and reviewed authority messages across German company clients.
+- Verification: `git diff --check` passed; ELSTER credential-prefix scan found no repo match.
+- Limitations or gaps: Future Finanzamt packets should validate whether more notice types or schema-specific Notion routing rules need to be added.

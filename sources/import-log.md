@@ -1674,3 +1674,20 @@ Unresolved:
 - Retrieve the underlying 2024 assessment notices behind the Mahnung.
 - Confirm the May 2024-April 2025 payroll-tax return submission status with Simoneta/payroll owner.
 - Upload the new local letters and UStVA protocols into Drive once the upload helper dependency or another approved upload route is available.
+
+## 2026-05-25 - AGL Finanzamt Skill Extraction
+
+Imported:
+
+- User instruction to save any reusable skill from the AGL Finanzamt task into the repository.
+- The AGL response planning workflow created from the May 2026 packet.
+
+Actions:
+
+- Added repo-local skill `skills/rb-finanzamt-response/SKILL.md`.
+- Registered the skill in `skills/index.md`.
+- Captured reusable rules for Finanzamt packet classification, ELSTER credential safety, source-backed response plans, annual VAT vs UStVA separation, E-Bilanz dataset handling, Mahnung/enforcement triage, payroll-tax query handling, reviewed communications, and client-file closeout.
+
+Unresolved:
+
+- Future live runs should validate the skill against the next Finanzamt packet and tighten it if a missing notice type or database routing pattern appears.
