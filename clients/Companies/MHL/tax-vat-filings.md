@@ -11,6 +11,10 @@ MHL is incorporated in Ireland, while the Notion company `Tax Residence` field c
 
 Treat the company tax-residence field as source data, not a final reviewed conclusion.
 
+## Authority Follow-Up
+
+As of 2026-05-25, MHL/ZENA call `RBCALL-24` is held as the third call in the user-requested sequence: TPL first, CB MAX second, MHL third. The call asks ZENA whether the German VAT number is available, whether it can be provided by phone, when and where it will be sent if not, and whether anything is missing from the VAT application. Source: `https://www.notion.so/368e4130131481f6ac7ac89811c928a1`.
+
 ## Registrations
 
 | Registration | Status | Jurisdiction | Number / note | Source |

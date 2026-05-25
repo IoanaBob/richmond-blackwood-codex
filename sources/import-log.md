@@ -2,6 +2,60 @@
 
 Status: active.
 
+## 2026-05-22 - TPL Finanzamt Call Setup
+
+Imported:
+
+- User instruction in Codex conversation to queue a TechPacito Finanzamt call after the MHL call, ask about VAT-number status, and structure the call as a follow-up to the 2026-05-19 ELSTER message.
+- User-provided local Codex session ID `019e400d-033b-7671-851c-f9207a10acb5`, which contained the 2026-05-19 German Finanzamt/ELSTER draft message.
+- Notion TPL company record, related ELSTER proof, employer/employee query task, VAT/direct-contract communication, address/tax-number task, filing registrations, PoA communication, and Finanzamt München IV contact.
+
+Actions:
+
+- Created `clients/Companies/TPL/` from the Notion Companies `Reference` value and recorded the source and communication pointers for the queued authority follow-up.
+- Created live Notion call `RBCALL-26` as an inactive TPL follow-up and logged the setup in Communications.
+- Updated live Notion call `RBCALL-26` and the TPL Communications log after checking the prior session, adding the incorporation date, Irish register number, complete VAT/corporation/trade-tax registration clarification, existing Steuernummer nuance, and missing ELSTER activation/access code.
+- Updated the existing MHL/ZENA heartbeat so it checks `RBCALL-24` first and activates TPL only after the MHL call completes.
+
+Unresolved:
+
+- Actual Finanzamt outcome remains pending because `RBCALL-26` is intentionally inactive until MHL/ZENA completes.
+- Current Gmail connector access could not read the referenced ELSTER proof message `19e4147bc3500e2d`; Notion's ELSTER outbound proof was used as the working source.
+
+## 2026-05-25 - TPL, CB MAX, And MHL Call Sequence Initiation
+
+Imported:
+
+- User instruction in Codex conversation to initiate all calls in the order TPL, then CB MAX, then MHL.
+- User update that Finanzamt called about CB MAX on Friday 2026-05-22 and said a letter had been sent to the Dublin registered address, mentioned Hamburg registration and a nil return before deregistration, and left some details unclear because the colleague who answered was not fluent in German.
+
+Actions:
+
+- Activated TPL `RBCALL-26` as the first Reviewed/Approved call in the requested sequence.
+- Updated CB MAX `RBCALL-13` with the Friday callback context, the Dublin-letter question, Hamburg/Berlin filing mismatch, nil-return/deregistration questions, and ELSTER registration/access-code questions.
+- Temporarily held MHL/ZENA `RBCALL-24` so it cannot run before TPL and CB MAX.
+- Created heartbeat `start-cb-max-after-tpl-call` to activate CB MAX after TPL reaches a terminal state, then activate MHL after CB MAX reaches a terminal state.
+
+Unresolved:
+
+- Direct n8n MCP/REST execution was unavailable in the local Codex session, so live initiation relies on the scheduled voice runner and heartbeat sequencing until the call outcomes are verified.
+
+## 2026-05-25 - Standing Call-Initiation Memory Rule
+
+Imported:
+
+- User instruction in Codex conversation to use saved call skills to initiate calls and update memory to always do that.
+
+Actions:
+
+- Added `rb-authority-call-setup` to the repo-local skill index.
+- Updated `skills/rb-authority-call-setup/SKILL.md` with a live call initiation handoff: verify the Call record, try the saved `RB Calls Voice Execution` n8n/ElevenLabs route when configured and allowed, then read back call status/IDs.
+- Updated `memory/current-state.md` and `memory/handoff.md` with the standing rule and scheduled-runner fallback.
+
+Unresolved:
+
+- Current local Codex config has no n8n MCP URL, so this session cannot directly execute `RB Calls Voice Execution`; the active scheduled runner remains the execution path until n8n MCP/REST access is restored.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:
