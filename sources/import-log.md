@@ -1646,3 +1646,23 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-25 - Xero MCP Setup Guidance
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-25 to set up Xero MCP for Richmond Blackwood with per-client Xero accounts, a shared Xero email login, `.env.example` employee setup placeholders, no initial scope override, and mandatory client references such as `AGL`.
+- Official Xero MCP server README at `https://github.com/XeroAPI/xero-mcp-server`.
+- Xero AI Toolkit pages at `https://developer.xero.com/ai` and `https://developer.xero.com/faq/AI-Toolkit`.
+
+Actions:
+
+- Added optional Xero MCP setup guidance under `setup/mcp/xero.md`.
+- Added local-only Xero placeholders to `.env.example`.
+- Added `skills/rb-xero-mcp/` to require exact client references and read-only organisation verification before Xero work.
+- Updated setup/process/source/connector-boundary/memory docs with local-only credential boundaries and per-client MCP routing.
+
+Unresolved:
+
+- Create and verify actual Xero custom connections per client organisation.
+- Record approved client-to-Xero organisation mappings only after user review.

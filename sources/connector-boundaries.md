@@ -32,6 +32,16 @@ Use Gmail for accounting, invoice, payment, and client communications. When impo
 - Record the thread/source query in `source-register.md`.
 - Back up to Notion once the destination is clear.
 
+## Xero MCP
+
+Use Xero MCP for client-specific accounting reads and approved writes only through the matching client-specific MCP server.
+
+- Require the exact RB client reference before using Xero.
+- Verify the Xero organisation read-only before any other read or write.
+- Do not use a shared Xero MCP server across all clients.
+- Keep Xero credentials, tokens, MFA codes, and personal Codex config out of git.
+- Store concise source pointers or summaries in the relevant client folder only when repo storage is appropriate.
+
 ## Local Repos
 
 Use local repos for current implementation truth. Business facts inferred from code remain provisional until reviewed.

@@ -830,3 +830,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: `RBCALL-27` remains completed with its own runtime history; `RBCALL-28` is a fresh retry row, set `Reviewed` and `Approved = __YES__` because this is an approved continuation of the same booking-change task.
 - Verification: Notion read-back confirmed `RBCALL-28` has Company, Individual, Contact, submitter/reviewer, `Subject = Individual`, `Requires PoA? = __NO__`, clean runtime IDs, `Live Help Status = None`, `Retry Count = 0`, and `Next Call At = 2026-05-22T13:00:00Z`.
 - Limitations or gaps: The call will be picked up by the active n8n schedule unless the user explicitly approves a direct production workflow execution.
+
+## 2026-05-25 - Xero MCP Setup Guidance
+
+- User request: Implement repo setup for Xero MCP in a new branch, with one Xero account per client, the same Xero login email across clients, `.env.example` as the employee setup template, no initial scope override, and mandatory client references such as `AGL` for Xero work.
+- Context read: Existing MCP setup docs, setup/access process, skill index and skill creation guidance, source/register memory conventions, and official Xero MCP server README.
+- Actions taken: Added `setup/mcp/xero.md`, local-only Xero placeholders to `.env.example`, and new `rb-xero-mcp` skill rules. Updated setup, access, connector-boundary, source-register, import-log, current-state, decisions, and handoff docs.
+- Decisions made: RB defaults to one client-specific Xero MCP server entry per Xero organisation/client. Xero requests must name the exact RB client reference and verify the Xero organisation read-only before other reads or writes. Xero client IDs, client secrets, bearer tokens, OAuth tokens, MFA codes, and personal Codex config stay out of git.
+- Verification: `git diff --check` passed; trailing-whitespace scan passed; Xero scope scan found no tracked scope override. Secret-pattern scan showed only placeholders and credential-boundary rule text. Typecheck was skipped because no TypeScript/helper code changed.
+- Limitations or gaps: No live Xero custom connections, local `.env`, or `~/.codex/config.toml` entries were created. Each client-specific Xero organisation mapping still needs live setup and user review.
