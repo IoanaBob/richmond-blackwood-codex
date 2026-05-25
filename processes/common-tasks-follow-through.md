@@ -99,9 +99,10 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 - Spam/no-action communications are still logged and marked complete.
 - Set `Relevance` when the Communication is created or updated:
   - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
-  - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination.
-  - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
-- A receipt confirmation without the underlying durable receipt/evidence file is `Short Living`; the receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
+  - `Short Living`: transport, coordination, approval, status, follow-up, or source context for a durable row in a task-capable or operational data source. Use this for communications whose information is routed to Invoicing, Expenses, Payroll, Filing Registrations, Filings, Personal Tax Filings, Contracts, Employment, Bank Accounts, Assets, Tax Payments, Tax Prepayments, Central Tasks, or another durable owner.
+  - `Long Living`: communications whose durable home is the Communication row itself, such as authority letters, legal correspondence, signed/source documents, or evidence not owned by a more specific operational data source.
+- Keep one durable record per information item. If an invoice, receipt, payroll confirmation, personal-tax fact, approval, access request, or other source item is routed to a durable operational row/task, the Communication is normally `Short Living` and linked to that durable row/task.
+- A receipt confirmation without the underlying durable receipt/evidence file is `Short Living`; when the receipt, invoice, export, or source document belongs in an operational row, that row is the durable record and the Communication remains `Short Living`.
 - ELSTER activation expiry reminders are `Short Living`; the durable work item is the linked activation task, and the reminder loses value once activation is complete.
 - Mark a Communication `Logged` when communication logging is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is in `Document(s)`, any non-English attachment has a Markdown translation in `Translated Doc(s)`, and `Notes` has a useful description/summary. Keep the Communication `In Progress` only while evidence, translation, description, or routing is incomplete.
 - Assign `Company` only for relevant incoming/outgoing client letters or client-operational communications.
@@ -152,6 +153,8 @@ These routes were resolved during the `2026-05-21-1006-daily-0800-window` correc
 Slack closeout is prepared only after task closeout analysis and approved task/reply updates. The closeout should list communications handled, invoices/expenses/contracts updated, tasks closed, tasks advanced, owner action lists, replies sent/snoozed, and blockers.
 
 Slack closeout text must be a rendered, readable preview with named links and `None` for empty human-facing sections. Keep exact timestamps in packets; use human window wording in Slack. Do not call an unsent preview "corrected". Request explicit send approval for the exact Slack text before sending.
+
+For repo/process changes discovered during a common-tasks run, push the branch if useful for visibility, but do not create or update a GitHub PR until all approved run stages are complete, the final closeout packet has been written, and any bounded Stage 15 cleanup has completed or been explicitly deferred.
 
 Slack closeout quality rules:
 

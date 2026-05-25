@@ -41,10 +41,11 @@ Print the packet content in chat after writing it. Then stop and ask for approva
 
 ## Auto-Approval Exceptions
 
-The operator approved these standing exceptions on 2026-05-20, with bounded Stage 15 cleanup added on 2026-05-22:
+The operator approved these standing exceptions on 2026-05-20, with bounded Stage 15 cleanup added on 2026-05-22 and Stage 3 read-only discovery auto-approval added on 2026-05-25:
 
 - Stage 1 - Run Preflight: run `git pull origin main` from the active repo/worktree before creating the run folder/lock, write and print the packet with the branch and pull result, then continue automatically if the pull succeeded and there are no conflicts.
 - Stage 2 - Open Task Inventory: write and print the packet, then continue automatically. If inventory is degraded, the packet must say so, but the run may proceed with degraded inventory unless the degradation blocks safe routing.
+- Stage 3 - Communication Discovery And Read: write and print the packet, then proceed to Stage 4 automatically when actions are limited to read-only Gmail/WhatsApp discovery and bounded source reads. Stage 3 auto-approval does not allow Notion, Drive, Gmail, WhatsApp, Slack, source-label, checkpoint, reply, send, or file-upload mutations.
 - Stage 10 - Source Marker Plan: write and print the packet, then proceed to Stage 11 automatically when proposed markers are limited to Gmail labels and WhatsApp checkpoints covered by the approved workflow.
 - Stage 11 - Source Marker Results: apply the Stage 10 source markers, write and print the packet, then proceed to Stage 12 automatically unless marking fails or a checkpoint blocker needs operator review.
 - Stage 13 - Slack Send And Log Results: once the operator approves the exact Stage 12 Slack message for sending, Stage 13 is approved. Send the exact message, log it, write and print the packet.

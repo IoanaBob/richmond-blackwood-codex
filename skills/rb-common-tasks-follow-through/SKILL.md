@@ -28,7 +28,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 
 - Every stage writes a Markdown packet, prints the same packet in chat, and stops for approval or modifications.
 - Every packet that includes Gmail work must list `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separately. `Operator` is the human `RB_CODEX_ACTOR` when operator-specific context matters; `accounting@richmondblackwood.com` and personal/operator mailboxes are source or sender identities, not actors.
-- Auto-approval exceptions: Stages 1, 2, 10, and 11 still write and print packets, but continue without waiting for operator approval unless the packet contains an unexpected blocker or proposed action outside this skill. After the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved and should run immediately. Stage 15 is also auto-approved only for bounded media/evidence cleanup of blockers already listed in Stage 14, using already-read sources or already-resolved destinations, and must stop if it would introduce a new destination, new task, reply/send, source marker, checkpoint, or unresolved routing decision.
+- Auto-approval exceptions: Stages 1, 2, 3, 10, and 11 still write and print packets, but continue without waiting for operator approval unless the packet contains an unexpected blocker or proposed action outside this skill. Stage 3 auto-approval covers read-only discovery and bounded source reads only; it does not approve any Notion/Drive/Gmail/WhatsApp/Slack write, send, label, checkpoint, or file upload. After the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved and should run immediately. Stage 15 is also auto-approved only for bounded media/evidence cleanup of blockers already listed in Stage 14, using already-read sources or already-resolved destinations, and must stop if it would introduce a new destination, new task, reply/send, source marker, checkpoint, or unresolved routing decision.
 - For all other stages, do not continue to the next stage until the operator approves the exact printed packet.
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
@@ -77,10 +77,12 @@ For Communications, choose the more relevant primary subject relation:
 Set `Relevance` at the same time:
 
 - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
-- `Short Living`: transactional chats, referral/status/follow-up messages, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination that should not become durable company/individual documentation after closeout.
-- `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
+- `Short Living`: the default for communications that are transport, coordination, approval, status, follow-up, or source context for another durable row. Use this when the meaningful information will be recorded on a task-capable or operational data source such as Invoicing, Expenses, Payroll, Filing Registrations, Filings, Personal Tax Filings, Contracts, Employment, Bank Accounts, Assets, Tax Payments, Tax Prepayments, or Central Tasks. This includes invoices, receipts, payroll confirmations, personal-tax questionnaire facts, client approvals, logo/letterhead requests, non-authority chats, ELSTER/access reminders, and similar items once the durable fact or file is routed outside Communications.
+- `Long Living`: use only when the Communication itself is the canonical durable record for the information. Typical cases are authority letters, legal correspondence, signed/source documents, or evidence that must be retrieved from the Communication because no more specific operational data source will own the durable record.
 
-Receipt confirmations without the durable receipt/evidence file are `Short Living`. The receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
+Keep one durable record per information item. Everything routed outside Communications is already long-lived in its owning table, so the Communication should usually be `Short Living` and linked to that durable row/task. Do not mark a Communication `Long Living` merely because an attachment is useful, an invoice/receipt exists, or the source message contains facts later copied into a filing/task.
+
+Receipt confirmations without the durable receipt/evidence file are `Short Living`. When the receipt, invoice, export, or source document belongs in an operational row, that row is the durable record and the Communication remains `Short Living`. If no operational row owns the source document and Communications is the approved destination, the Communication may be `Long Living`.
 
 Set a Communication to `Logged` when its logging work is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is saved in `Document(s)`, any non-English attachment has a Markdown translation uploaded in `Translated Doc(s)`, and `Notes` contains a usable description/summary. Keep the Communication `In Progress` only while one of those logging requirements or the routing decision is incomplete.
 
@@ -125,6 +127,8 @@ For corrective reruns, include items from the operator-approved correction start
 Packet columns: operator, source mailbox or channel, source IDs, timestamp, sender, recipients, subject/title, attachment names, full-read summary, likely company or individual subject, likely project, topic/thread, contains-letter flag, letter source, classification, proposed Communication row, and proposed relevance.
 
 If an email includes a letter, identify the letter source as the actual originator/sender of the letter, not merely the forwarder.
+
+Auto-approved stage: write and print the packet, then continue directly to Stage 4 unless discovery introduces an unexpected blocker or proposed action outside read-only source discovery.
 
 ### 4. Communication Ledger Plan
 
@@ -269,6 +273,8 @@ Auto-approved after Stage 12 send approval: once the operator approves the exact
 Packet summarizes sources checked, all DB rows created/updated, tasks closed/advanced, owner actions, replies, labels/checkpoints, blockers, and next run focus.
 
 Release the lock at closeout. Preserve scratch packets by default for audit/recovery; delete them only if the operator explicitly asks for cleanup after final closeout.
+
+Do not create or update a GitHub PR for common-tasks workflow changes during a live packet run. Create the draft PR only after all approved packet stages for the run are complete, the final closeout packet has been written, and any bounded Stage 15 cleanup has either completed or been explicitly deferred.
 
 Auto-approved after Stage 12 send approval and successful Stage 13: write and print the final closeout packet, release the lock, preserve scratch packets by default for audit/recovery, and do not wait for separate operator approval.
 
