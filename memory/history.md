@@ -848,3 +848,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
+
+## 2026-05-25 - Aaron 2025 DATEV Expense Clarification
+
+- User request: Add everything booked in the January/February DATEV files because the previous accountant vetted those entries.
+- Context read: Aaron's 2025 German personal-tax workbook, `Raw DATEV 2025`, `Expenses`, `Setup`, and repo-local Aaron source records.
+- Actions taken: Added the vetted DATEV expense-account bookings to `Expenses`: January Uber/travel EUR 241.02, February Uber/travel EUR 380.95, and February bookkeeping net EUR 181.30. Updated workbook source notes, Aaron's individual records, source register, Drive pointers, open questions, import log, and skill-run ledger.
+- Decisions made: Balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance DATEV rows remain source-only because they were not booked to expense accounts.
+- Verification: Workbook read-back confirmed business expenses EUR 825.95, business/freelance net PNL EUR 7,205.15, and income after deductions before final tax-rate calculation EUR 92,915.15.
+- Limitations or gaps: Final filing still needs payroll certificate/deductible review, target-folder workbook move/copy after shared Drive auth recovery, and separate VAT/trade-tax wrap-up.

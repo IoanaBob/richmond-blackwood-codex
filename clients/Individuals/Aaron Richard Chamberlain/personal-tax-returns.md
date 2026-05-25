@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, but final filing still needs the annual payroll certificates/payslip extraction, deductible evidence, and receipt-level support for excluded expense candidates.
+Review: Workbook is ready for internal review, but final filing still needs the annual payroll certificates/payslip extraction, deductible evidence, and final review of DATEV-backed expense treatment before submission.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -99,8 +99,8 @@ Workbook creation note:
 Input summary captured:
 
 - Aaron freelance/business revenue from DATEV February 2025 exports: EUR 8,031.10 net.
-- Claimed source-backed business expenses currently loaded: EUR 22.68 bank fees.
-- Provisional freelance/business net before tax-form adjustments: EUR 8,008.42.
+- Claimed source-backed business expenses currently loaded: EUR 825.95, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30.
+- Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
 - Aaron salary rows loaded from AMC payroll records: EUR 72,000 gross for April to December 2025, with EUR 11,010.86 wage tax currently identified or inferred from the reviewed payroll records.
 - Wife/Antje annual payroll model loaded from AMC Liquidity 2025 and wife payslip communication: EUR 14,976 gross, EUR 1,103.94 wage tax, EUR 1,570.86 pension/social contribution model, and EUR 942.96 health contribution model.
 - Combined employment gross loaded: EUR 86,976.
@@ -111,20 +111,20 @@ Workbook formula read-back:
 
 - Employment gross: EUR 86,976.00.
 - Wage tax withheld: EUR 12,114.80.
-- Business/freelance net P&L: EUR 8,008.42.
+- Business/freelance net P&L: EUR 7,205.15.
 - Operating revenue included: EUR 8,031.10.
-- Business expenses included: EUR 22.68.
+- Business expenses included: EUR 825.95.
 - Employment work expenses used: EUR 1,230.00.
 - Other personal deductions included: EUR 36.00.
-- Income after deductions before final tax-rate calculation: EUR 93,718.42.
+- Income after deductions before final tax-rate calculation: EUR 92,915.15.
 - Failed workbook checks: 6.
 - Open missing-info count: 39.
 
 Excluded or source-only items:
 
 - The user-supplied Drive folder `https://drive.google.com/drive/folders/1L79z8YliS-sjzhRTH46RonwM8eimexfK` belongs to Byron Jarvis Frasier, not Aaron, and was excluded.
-- Uber/travel expense candidates totalling EUR 621.97 were excluded from claimed expenses pending exact receipt URLs and business-purpose review.
-- Bookkeeping-cost candidate EUR 181.30 net / EUR 215.75 gross was excluded pending exact invoice URL.
+- User clarified on 2026-05-25 that the previous accountant vetted the DATEV entries, so the January/February expense-account bookings are claimed in the workbook using exact DATEV CSV evidence URLs.
+- Non-expense DATEV balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance rows remain source-only and are not treated as personal-income-tax expenses.
 - Student Finance evidence in the 2025 client-provided folder was recorded as debt/source context, not claimed as a German deductible.
 - Hallescher private health-insurance estimate EUR 8,280 was recorded for review only; it is not claimed until exact annual certificate/covered-month evidence is provided.
 

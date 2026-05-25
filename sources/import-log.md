@@ -1646,3 +1646,21 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-25 - Aaron 2025 DATEV Expense Booking Clarification
+
+Imported:
+
+- User clarification in Codex chat that the previous accountant vetted the January/February DATEV bookings and that the 2025 personal-tax analysis should include the booked expense-account rows.
+- Live Google Sheets read-back from Aaron's 2025 German personal-tax analysis workbook.
+
+Actions:
+
+- Added the DATEV-backed January/February Uber/travel and bookkeeping expense-account bookings to the workbook `Expenses` input tab.
+- Updated the workbook `Raw DATEV 2025` and `Setup` source notes to record the operator clarification.
+- Updated Aaron's individual source register, Drive pointers, personal-tax return notes, open questions, and skill-run ledger.
+
+Unresolved:
+
+- Final reviewer still needs to review the DATEV-backed expense treatment before submission.
+- Balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance DATEV rows remain source-only.
