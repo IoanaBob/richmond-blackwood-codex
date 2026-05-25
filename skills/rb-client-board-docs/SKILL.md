@@ -14,7 +14,7 @@ Use this for client board-document work before and after a board meeting.
 
 ## Core Rule
 
-Create or find the meeting folder inside the client's existing Google Drive `Board Meetings` folder before drafting documents. Keep the agenda, editable minutes, PDF/signing copy, signed copy, attendance evidence, and supporting board-pack files together in that same meeting folder.
+When the user asks to organise a client BOD meeting, create the dated meeting folder inside the client's existing Google Drive `Board Meetings` folder before drafting documents. If a matching folder already exists, use it rather than creating a duplicate. Keep the agenda, editable minutes, PDF/signing copy, signed copy, attendance evidence, and supporting board-pack files together in that same meeting folder.
 
 ## Before The Meeting
 
@@ -22,7 +22,9 @@ Create or find the meeting folder inside the client's existing Google Drive `Boa
    - Use the exact Notion Companies `Reference` and the existing client Drive folder.
    - Prefer the Board Meetings folder already recorded in `clients/Companies/<reference>/drive-locations.md`.
    - If the Board Meetings folder or client Drive destination is unclear, stop and ask; do not create a replacement structure.
-2. Create or find the meeting subfolder.
+2. Create the meeting subfolder.
+   - Create the folder yourself in Drive when it does not already exist; do not wait for the user to create it.
+   - Check for an existing matching folder first to avoid duplicates.
    - Mirror the client's existing naming style.
    - AGL examples use date folders such as `25.05.2026`.
    - CBMAX examples use `BOD Meeting ...` folders such as `BOD Meeting 21/04/2026`.

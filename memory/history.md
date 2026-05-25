@@ -857,3 +857,4 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Signed board minutes should be uploaded to the same dated board folder as the agenda and editable minutes, then verified by a folder listing before closeout.
 - Verification: Drive listing verified the folder contains `25/05/2026 BOD Agenda`, `25/05/2026 BOD Minute final`, and `25/05/2026 BOD Minute - signed.pdf`; signed PDF URL is `https://drive.google.com/file/d/1g5me-4hNR6rgJr3b4LoGc3DjrMXRDpzu/view?usp=drivesdk`.
 - Limitations or gaps: None for the signed PDF upload; future local helper use depends on Google auth being current.
+- Follow-up clarification: User clarified that Codex should create the dated Board Meetings subfolder itself next time when asked to organise a BOD meeting; today's AGL folder was user-created. The `rb-client-board-docs` skill was updated accordingly.
