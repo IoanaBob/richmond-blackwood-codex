@@ -2,9 +2,10 @@ import path from "node:path";
 
 import {
   CliArguments,
+  createDriveAccessTokenProvider,
   DEFAULT_UPLOAD_FIELDS,
   DriveApiClient,
-  GcloudAccessTokenProvider,
+  parseDriveAuthSource,
   printJson,
   runCli,
 } from "./drive_common";
@@ -20,9 +21,17 @@ class UploadToDriveCommand {
       return options.help ? 0 : 2;
     }
 
-    const authLogin = parseGcloudLoginMode(this.cli.stringOption(options, "authLogin", "always"));
-    const tokenProvider = new GcloudAccessTokenProvider(authLogin);
-    const drive = new DriveApiClient(tokenProvider.getAccessToken(), tokenProvider);
+    const authLogin = parseGcloudLoginMode(this.cli.stringOption(options, "authLogin", "never"));
+    const authSource = parseDriveAuthSource(this.cli.stringOption(options, "authSource", "auto"));
+    const tokenProvider = createDriveAccessTokenProvider({
+      authSource,
+      loginMode: authLogin,
+      adcFile: this.cli.stringOption(options, "adcFile"),
+      accountEmail: this.cli.stringOption(options, "accountEmail"),
+      gcloudConfigDir: this.cli.stringOption(options, "gcloudConfigDir"),
+      personaSlug: this.cli.stringOption(options, "personaSlug"),
+    });
+    const drive = new DriveApiClient(await tokenProvider.getAccessToken(), tokenProvider);
     const result = await drive.uploadFile({
       sourceFile: path.resolve(positionals[0]),
       folderId: positionals[1],
@@ -35,9 +44,9 @@ class UploadToDriveCommand {
   }
 
   private usage(): string {
-    return `Usage: upload_to_drive.ts <source-file> <folder-id> [--title NAME] [--mime-type TYPE] [--fields FIELDS] [--auth-login always|auto|never]
+    return `Usage: upload_to_drive.ts <source-file> <folder-id> [--title NAME] [--mime-type TYPE] [--fields FIELDS] [--auth-source auto|vault|adc|account|gcloud|direct-adc] [--auth-login always|auto|never] [--account-email EMAIL] [--gcloud-config-dir PATH] [--persona-slug SLUG] [--adc-file PATH]
 
-Upload a local file to Google Drive. The helper runs gcloud Drive auth itself by default.`;
+Upload a local file to Google Drive. The helper tries the per-persona OAuth vault first, then gcloud-backed saved ADC/account caches, and does not start interactive login unless explicitly requested.`;
   }
 }
 

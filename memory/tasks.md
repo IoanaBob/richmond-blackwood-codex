@@ -34,6 +34,7 @@ Imported: 2026-05-04.
 | Task | Created | Completed |
 | --- | --- | --- |
 | Added RB active human operator and mailbox routing rules separating `RB_CODEX_ACTOR`, Gmail source mailbox, and Gmail sender identity. | 2026-05-24 | 2026-05-24 |
+| Ported shared global Google persona/OAuth helper model from personal-codex into RB helpers and memory. | 2026-05-25 | 2026-05-25 |
 | Synced live n8n and ElevenLabs RB calling-bot configuration into source-controlled readback snapshots and added the repeatable `calls:sync-live-state` helper. | 2026-05-13 | 2026-05-13 |
 | Created RB Codex repository structure. | 2026-05-04 | 2026-05-04 |
 | Added durable storage rules. | 2026-05-04 | 2026-05-04 |

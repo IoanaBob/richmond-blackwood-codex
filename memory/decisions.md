@@ -51,7 +51,7 @@ Consequence:
 
 - The Gmail helper fails closed if any other sender is requested.
 - If Gmail stores a draft with another sender, the draft must be deleted or marked unsafe.
-- Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions.
+- Gmail email drafting actions that touch Gmail must use the repo-local Gmail API helper path. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions. The 2026-05-25 shared global Google persona auth decision supersedes the earlier gcloud-only auth mechanism.
 
 Source: user instruction on 2026-05-05; reinforced by user instruction on 2026-05-06.
 Review: approved as a sender rule by user instruction; confirm whether this applies to every RB communication type or only accounting/client drafts.
@@ -131,6 +131,21 @@ Consequence:
 
 Source: user instruction in Codex chat on 2026-05-24.
 Review: confirm the complete RB operator list and approved work email addresses for each human operator.
+
+## 2026-05-25 - Use Shared Global Google Persona Auth
+
+Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.
+
+Consequence:
+
+- `~/.codex/google-personas/` is shared across this repo, its worktrees, personal-codex, and other local Codex project repositories.
+- Google personas are auth routes only. They do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity.
+- Gmail and Drive helpers default to no-login/no-reauth and try the per-persona OAuth vault before saved ADC/account-token fallback.
+- Interactive Google OAuth reconnect is allowed only after explicit approval for the exact persona/action.
+- Richmond Blackwood sender-context OAuth client files should live under `~/.codex/google-oauth-client.richmondblackwood.json`.
+
+Source: user instruction in Codex chat on 2026-05-25 and personal-codex `origin/main` auth implementation.
+Review: verify which RB-specific persona slugs have approved credentials in the global store.
 
 ## 2026-05-12 - Calling Bot Minimal Startup Context
 

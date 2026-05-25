@@ -28,6 +28,8 @@ RB_CODEX_ACTOR="Ioana Surdu-Bob"
 
 Valid actor names are recorded in [internal/people-roles.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/internal/people-roles.md). The actor is a human name, not an email address. Shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or sending identities, never actors.
 
+Google auth personas are separate again: they are credential routes under the shared global Codex store `~/.codex/google-personas/`, not actors, source mailboxes, or senders by themselves. See [memory/google-auth.md](/Users/ioana/.codex/worktrees/5364/richmond-blackwood-codex/memory/google-auth.md) and [setup/google-persona-auth.md](/Users/ioana/.codex/worktrees/5364/richmond-blackwood-codex/setup/google-persona-auth.md).
+
 For Gmail work, record these separately in packets and previews:
 
 - `Operator`: human actor from `RB_CODEX_ACTOR`.
@@ -88,7 +90,9 @@ npm run gmail:create-alias-draft -- --help
 npm run signnow:upload -- --help
 ```
 
-Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, must always use the repo-local gcloud-managed Gmail API helper path for drafting actions, and must fail closed if Gmail stores another sender. Do not assume Gmail reads come from accounting only; a job may read accounting and personal/operator mailboxes in the same day when each source mailbox is explicit and labelled.
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, must use the repo-local Gmail API helper path with shared global Codex auth storage for drafting actions, and must fail closed if Gmail stores another sender. Do not assume Gmail reads come from accounting only; a job may read accounting and personal/operator mailboxes in the same day when each source mailbox is explicit and labelled.
+
+Google helper auth defaults to no-login/no-reauth and uses shared global Codex storage under `~/.codex`: per-persona OAuth vault first, then saved ADC/account-token fallback. Interactive Google auth must be explicitly approved for the exact persona.
 
 SignNow helpers are generic mechanics only; RB signer identity, routing order, and template policy remain provisional until approved.
 

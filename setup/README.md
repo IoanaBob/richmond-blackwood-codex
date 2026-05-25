@@ -50,9 +50,12 @@ npm run pdf:prepare-signing-plan -- --help
 
 ## Local Configuration
 
-Local-only files belong under `.codex-local/` or `.env`; both are ignored by git.
+Local-only files belong under `.codex-local/`, `.env`, or shared global Codex storage under `~/.codex`; all are outside git.
 
-- Gmail API draft helpers use gcloud application-default OAuth with `.codex-local/google-oauth-client.json` when Google's default gcloud OAuth client is blocked for Gmail scopes.
+- Durable Google persona caches, OAuth client files, and Google Workspace MCP credentials belong under `~/.codex`, not worktree-local `.codex-local`.
+- `~/.codex/google-personas/` is the shared global persona store for this repo, its worktrees, personal-codex, and other local Codex project repositories.
+- Gmail and Drive helpers default to no-login/no-reauth: per-persona OAuth vault first, then saved ADC/account-token fallback. Use `setup/google-persona-auth.md` before changing auth state.
+- Sender-matched Richmond Blackwood OAuth client files should use `~/.codex/google-oauth-client.richmondblackwood.json`.
 - Do not use Gmail IMAP, app passwords, or stored mailbox passwords for repo-local helpers.
 - SignNow helpers use `.env` only for local SignNow API credentials. Never commit or print those values.
 - Gmail client-facing drafts must save from `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`.

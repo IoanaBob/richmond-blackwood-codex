@@ -3,8 +3,9 @@ import path from "node:path";
 
 import {
   CliArguments,
+  createDriveAccessTokenProvider,
   DriveApiClient,
-  GcloudAccessTokenProvider,
+  parseDriveAuthSource,
   printJson,
   runCli,
 } from "./drive_common";
@@ -23,10 +24,18 @@ class ExportGoogleDocToDriveCommand {
     const [documentId, targetFolderId] = positionals;
     const title = this.cli.stringOption(options, "pdfTitle", `${documentId}.pdf`);
     const outputPath = path.resolve(this.cli.stringOption(options, "pdfOutput", `/private/tmp/${title}`));
-    const authLogin = parseGcloudLoginMode(this.cli.stringOption(options, "authLogin", "always"));
+    const authLogin = parseGcloudLoginMode(this.cli.stringOption(options, "authLogin", "never"));
+    const authSource = parseDriveAuthSource(this.cli.stringOption(options, "authSource", "auto"));
 
-    const tokenProvider = new GcloudAccessTokenProvider(authLogin);
-    const drive = new DriveApiClient(tokenProvider.getAccessToken(), tokenProvider);
+    const tokenProvider = createDriveAccessTokenProvider({
+      authSource,
+      loginMode: authLogin,
+      adcFile: this.cli.stringOption(options, "adcFile"),
+      accountEmail: this.cli.stringOption(options, "accountEmail"),
+      gcloudConfigDir: this.cli.stringOption(options, "gcloudConfigDir"),
+      personaSlug: this.cli.stringOption(options, "personaSlug"),
+    });
+    const drive = new DriveApiClient(await tokenProvider.getAccessToken(), tokenProvider);
     const pdfBytes = await drive.exportFile(documentId, "application/pdf");
 
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -48,10 +57,10 @@ class ExportGoogleDocToDriveCommand {
   }
 
   private usage(): string {
-    return `Usage: export_google_doc_to_drive.ts <google-doc-id> <target-folder-id> [--pdf-title TITLE] [--pdf-output PATH] [--auth-login always|auto|never]
+    return `Usage: export_google_doc_to_drive.ts <google-doc-id> <target-folder-id> [--pdf-title TITLE] [--pdf-output PATH] [--auth-source auto|vault|adc|account|gcloud|direct-adc] [--auth-login always|auto|never] [--account-email EMAIL] [--gcloud-config-dir PATH] [--persona-slug SLUG] [--adc-file PATH]
 
 Exports a native Google Doc to PDF and uploads the PDF to Drive.
-This helper performs no Google Docs content edits.`;
+This helper performs no Google Docs content edits and tries the per-persona OAuth vault before saved gcloud/ADC caches.`;
   }
 }
 

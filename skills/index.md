@@ -10,10 +10,10 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-client-file`: route unsanitised client detail to the right client folder.
 - `rb-process-maintenance`: update process maps and SOP mirrors.
 - `rb-handoff`: prepare next-session handoff.
-- `rb-google-auth`: authenticate Drive/Gmail helper access through gcloud without committing credentials.
+- `rb-google-auth`: authenticate Drive/Gmail helper access through the shared global Codex persona/OAuth store without committing credentials.
 - `rb-file-uploads`: upload, export, attach, and catalog Drive/Notion-backed files.
 - `rb-form-fill-assist`: read inbound forms/questionnaires, draft field-level answers from RB context, and route only unresolved questions to a human owner.
-- `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and gcloud-managed verified Gmail draft fallback rules for `accounting@richmondblackwood.com`.
+- `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and verified Gmail draft fallback rules for `accounting@richmondblackwood.com` using shared global Codex auth storage.
 - `rb-common-tasks-follow-through`: packet-reviewed, task-first Gmail/WhatsApp communication follow-through across every task-capable RB Client Databases data source.
 - `rb-accounting-team-updates-triage`: weekday Accounting Team Updates task routing from blockers/action points, with verified Notion write-back and the standard `#rb-client-updates` completion notice.
 - `rb-signature-workflow`: run generic SignNow, Google Doc transform, and PDF signing-plan helper workflows.

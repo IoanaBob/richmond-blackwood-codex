@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-21.
+Updated: 2026-05-25.
 
 ## Repo State
 
@@ -31,7 +31,7 @@ Current implementation includes:
 - Individual client root for Kristjan Mar Olafsson under `clients/Individuals/KRISTJAN MAR OLAFSSON/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Individual client root for Aaron Richard Chamberlain under `clients/Individuals/Aaron Richard Chamberlain/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Individual client root for Anastasia Evgenyevna Kozhevnikova under `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/`, loaded on 2026-05-19 from Notion, Drive, Gmail, WhatsApp, Google Sheets, and user clarification.
-- Repo-local skills for RB source research, memory capture, process maintenance, file uploads, Google auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
+- Repo-local skills for RB source research, memory capture, process maintenance, file uploads, shared global Google persona auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`).
 - Active human operator rule: use ignored `.env.local` key `RB_CODEX_ACTOR="<human name>"` only for operator-specific approval, authorship, source-access attribution, or closeout context. Valid operator names live in `internal/people-roles.md`. A shared mailbox such as `accounting@richmondblackwood.com` is not an actor.
@@ -53,7 +53,9 @@ Available helper areas:
 - Task PR helper: `skills/rb-task-pr/scripts/task_pr.sh`.
 - Optional WhatsApp MCP bridge: `setup/mcp/start-whatsapp-bridge.sh`.
 
-Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, always use the repo-local gcloud-managed Gmail API helper path for Gmail drafting actions, and fail closed if Gmail stores another sender. Gmail jobs must keep `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separate; do not assume all Gmail reads come from accounting or infer the sender from the active operator.
+Google auth now uses the shared global Codex persona model. Durable Google persona caches, OAuth client files, and MCP credentials belong under `~/.codex`, especially `~/.codex/google-personas/`, not worktree-local `.codex-local`. Gmail and Drive helpers default to no-login/no-reauth: per-persona OAuth vault first, then saved ADC/account-token fallback. `memory/google-auth.md`, `memory/google-personas.md`, and `setup/google-persona-auth.md` are the RB auth references.
+
+Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, use the repo-local Gmail API helper path with shared global Codex auth storage, and fail closed if Gmail stores another sender. Gmail jobs must keep `Operator`, `Source mailbox(es)`, `From`, `Thread/source`, and Google auth persona/account separate; do not assume all Gmail reads come from accounting or infer the sender/auth route from the active operator.
 
 SignNow helpers are generic mechanics only. RB signer identity, routing order, template catalog, and signing policy are not approved by this port.
 

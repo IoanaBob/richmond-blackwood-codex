@@ -1,10 +1,18 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 import { gmail_v1, google } from "googleapis";
 import mime from "mime-types";
 
 import { GcloudAuthManager, GcloudLoginMode, parseGcloudLoginMode } from "../../rb-google-auth/scripts/gcloud_auth";
+import {
+  getPersonaOauthAccessToken,
+  hasPersonaOauthCredentials,
+  PERSONA_GMAIL_SCOPES,
+  GOOGLE_IDENTITY_SCOPES,
+  personaSlugForOAuth,
+} from "../../rb-google-auth/scripts/persona_oauth_vault";
 
 export type CliOptions = Record<string, string | boolean | string[]>;
 
@@ -17,16 +25,99 @@ export interface GmailConfig {
   accessToken: string;
 }
 
-export const GMAIL_REPLY_CONTEXT_SCOPE = "https://www.googleapis.com/auth/gmail.metadata";
+export type GmailAuthSource = "auto" | "vault" | "adc" | "gcloud";
+
+export const GMAIL_REPLY_CONTEXT_SCOPE = "https://www.googleapis.com/auth/gmail.modify";
 
 const GMAIL_SCOPES = [
-  "openid",
-  "https://www.googleapis.com/auth/userinfo.email",
-  "https://www.googleapis.com/auth/cloud-platform",
-  "https://www.googleapis.com/auth/gmail.compose",
-  "https://www.googleapis.com/auth/gmail.settings.basic",
-  GMAIL_REPLY_CONTEXT_SCOPE,
+  ...GOOGLE_IDENTITY_SCOPES,
+  ...PERSONA_GMAIL_SCOPES,
 ];
+
+export function requiredGmailOAuthClientFile(explicitFile = "", fromEmail = ""): string {
+  const oauthClientFile = gmailOAuthClientFile(explicitFile, fromEmail);
+  if (oauthClientFile) {
+    return oauthClientFile;
+  }
+
+  const senderSpecificPath = senderSpecificGmailOAuthClientFile(fromEmail);
+  if (senderSpecificPath) {
+    throw new Error(
+      `Missing sender-matched Gmail OAuth client file for ${fromEmail}. Save the matching desktop OAuth client JSON at ` +
+        `${senderSpecificPath}, or pass --oauth-client-file explicitly. Do not reuse another branded OAuth client for this sender.`,
+    );
+  }
+
+  throw new Error(
+    "Missing Gmail OAuth client file. Create a Google OAuth desktop client, trust/allow it in Google Workspace Admin, " +
+      `save it at ${globalCodexPath("google-oauth-client.json")}, then retry. This path is outside worktree-local storage.`,
+  );
+}
+
+export function gmailOAuthClientFile(explicitFile = "", fromEmail = ""): string {
+  if (explicitFile) {
+    return explicitFile;
+  }
+
+  const senderSpecificPath = senderSpecificGmailOAuthClientFile(fromEmail);
+  if (senderSpecificPath) {
+    return fs.existsSync(senderSpecificPath) ? senderSpecificPath : "";
+  }
+
+  if (process.env.CODEX_GOOGLE_OAUTH_CLIENT_FILE) {
+    return process.env.CODEX_GOOGLE_OAUTH_CLIENT_FILE;
+  }
+  if (process.env.GOOGLE_OAUTH_CLIENT_FILE) {
+    return process.env.GOOGLE_OAUTH_CLIENT_FILE;
+  }
+
+  const defaultPath = globalCodexPath("google-oauth-client.json");
+  return fs.existsSync(defaultPath) ? defaultPath : "";
+}
+
+export function senderGcloudConfigDir(fromEmail: string): string {
+  const email = fromEmail.toLowerCase();
+  const slugByEmail: Record<string, string> = {
+    "accounting@richmondblackwood.com": "rb-accounting",
+    "johnpaul.okolie@richmondblackwood.com": "johnpaul-richmond-blackwood",
+    "ioana@eip.ventures": "ioana-eip",
+    "ioana.sbob@gmail.com": "ioana-private",
+    "eran@eip.ventures": "eran-everguard",
+    "eran@konvi.app": "eran-konvi",
+    "eran@richmondblackwood.com": "eran-richmond-blackwood",
+  };
+  const slug = slugByEmail[email];
+  if (!slug) {
+    return "";
+  }
+
+  const configDir = globalCodexPath("google-personas", slug, "gcloud");
+  return fs.existsSync(configDir) ? configDir : "";
+}
+
+function senderSpecificGmailOAuthClientFile(fromEmail: string): string {
+  const domain = fromEmail.toLowerCase().split("@")[1] || "";
+  if (domain === "eip.ventures") {
+    return process.env.CODEX_GOOGLE_OAUTH_CLIENT_EIP_FILE ||
+      process.env.GOOGLE_OAUTH_CLIENT_EIP_FILE ||
+      globalCodexPath("google-oauth-client.eip.json");
+  }
+  if (domain === "konvi.app") {
+    return process.env.CODEX_GOOGLE_OAUTH_CLIENT_KONVI_FILE ||
+      process.env.GOOGLE_OAUTH_CLIENT_KONVI_FILE ||
+      globalCodexPath("google-oauth-client.konvi.json");
+  }
+  if (domain === "richmondblackwood.com") {
+    return process.env.CODEX_GOOGLE_OAUTH_CLIENT_RICHMOND_BLACKWOOD_FILE ||
+      process.env.GOOGLE_OAUTH_CLIENT_RICHMOND_BLACKWOOD_FILE ||
+      globalCodexPath("google-oauth-client.richmondblackwood.json");
+  }
+  return "";
+}
+
+function globalCodexPath(...segments: string[]): string {
+  return path.join(os.homedir(), ".codex", ...segments);
+}
 
 export interface DraftAttachment {
   filePath: string;
@@ -117,27 +208,68 @@ export class CliArguments {
 }
 
 export class GmailEnvironment {
-  public readApiConfig(authLogin = "always", oauthClientFile = "", extraScopes: string[] = []): GmailConfig {
+  public async readApiConfig(
+    authSource = "auto",
+    authLogin = "never",
+    oauthClientFile = "",
+    extraScopes: string[] = [],
+    gcloudConfigDir = "",
+    accountEmail = "",
+    personaSlug = "",
+  ): Promise<GmailConfig> {
+    const source = this.authSource(authSource);
     return {
-      accessToken: new GcloudTokenProvider().getAccessToken(
+      accessToken: await new GcloudTokenProvider().getAccessToken(
+        source,
         parseGcloudLoginMode(authLogin),
         oauthClientFile,
         extraScopes,
+        gcloudConfigDir,
+        accountEmail,
+        personaSlug,
       ),
     };
+  }
+
+  private authSource(value: string): GmailAuthSource {
+    if (value === "auto" || value === "vault" || value === "adc" || value === "gcloud") {
+      return value;
+    }
+    throw new Error("--auth-source must be one of: auto, vault, adc, gcloud.");
   }
 }
 
 export class GcloudTokenProvider {
-  public getAccessToken(
-    loginMode: GcloudLoginMode = "always",
+  public async getAccessToken(
+    authSource: GmailAuthSource = "adc",
+    loginMode: GcloudLoginMode = "never",
     oauthClientFile = "",
     extraScopes: string[] = [],
-  ): string {
-    return this.applicationDefaultAccessToken(loginMode, oauthClientFile, extraScopes);
+    gcloudConfigDir = "",
+    accountEmail = "",
+    personaSlug = "",
+  ): Promise<string> {
+    if (authSource === "vault") {
+      return this.personaVaultAccessToken(personaSlug, accountEmail, gcloudConfigDir);
+    }
+
+    if (authSource === "adc") {
+      return this.applicationDefaultAccessToken(loginMode, oauthClientFile, extraScopes, gcloudConfigDir);
+    }
+
+    if (authSource === "gcloud") {
+      return this.gcloudAccountAccessToken(loginMode, accountEmail, gcloudConfigDir);
+    }
+
+    return this.autoAccessToken(loginMode, oauthClientFile, extraScopes, gcloudConfigDir, accountEmail, personaSlug);
   }
 
-  private applicationDefaultAccessToken(loginMode: GcloudLoginMode, oauthClientFile: string, extraScopes: string[]): string {
+  private applicationDefaultAccessToken(
+    loginMode: GcloudLoginMode,
+    oauthClientFile: string,
+    extraScopes: string[],
+    gcloudConfigDir: string,
+  ): string {
     return new GcloudAuthManager().getAccessToken({
       serviceName: "Gmail",
       tokenCommand: "application-default",
@@ -146,9 +278,74 @@ export class GcloudTokenProvider {
       scopes: Array.from(new Set([...GMAIL_SCOPES, ...extraScopes])),
       disableQuotaProject: true,
       oauthClientFile: oauthClientFile || undefined,
+      gcloudConfigDir: gcloudConfigDir || undefined,
     });
   }
 
+  private async autoAccessToken(
+    loginMode: GcloudLoginMode,
+    oauthClientFile: string,
+    extraScopes: string[],
+    gcloudConfigDir: string,
+    accountEmail: string,
+    personaSlug: string,
+  ): Promise<string> {
+    const failures: string[] = [];
+    const resolvedPersonaSlug = personaSlugForOAuth(accountEmail, gcloudConfigDir, personaSlug);
+
+    if (resolvedPersonaSlug && hasPersonaOauthCredentials(resolvedPersonaSlug)) {
+      try {
+        return await this.personaVaultAccessToken(resolvedPersonaSlug, accountEmail, gcloudConfigDir);
+      } catch (error) {
+        failures.push(`persona OAuth vault ${resolvedPersonaSlug}: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    }
+
+    try {
+      return this.applicationDefaultAccessToken("never", oauthClientFile, extraScopes, gcloudConfigDir);
+    } catch (error) {
+      failures.push(`saved ADC: ${error instanceof Error ? error.message : String(error)}`);
+    }
+
+    if (accountEmail) {
+      try {
+        return this.gcloudAccountAccessToken("never", accountEmail, gcloudConfigDir);
+      } catch (error) {
+        failures.push(`account token for ${accountEmail}: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    }
+
+    if (loginMode !== "never") {
+      const loginOauthClientFile = oauthClientFile || requiredGmailOAuthClientFile("", accountEmail);
+      return this.applicationDefaultAccessToken(loginMode, loginOauthClientFile, extraScopes, gcloudConfigDir);
+    }
+
+    throw new Error(
+      "Failed to get a Gmail access token from the persona OAuth vault, saved ADC, or matching account-token fallback.\n\n" +
+        failures.join("\n\n"),
+    );
+  }
+
+  private async personaVaultAccessToken(personaSlug: string, accountEmail: string, gcloudConfigDir: string): Promise<string> {
+    return getPersonaOauthAccessToken({
+      serviceName: "Gmail",
+      personaSlug,
+      accountEmail,
+      gcloudConfigDir,
+      updateStatus: true,
+    });
+  }
+
+  private gcloudAccountAccessToken(loginMode: GcloudLoginMode, accountEmail: string, gcloudConfigDir: string): string {
+    return new GcloudAuthManager().getAccessToken({
+      serviceName: "Gmail",
+      tokenCommand: "account",
+      loginCommand: "account",
+      loginMode,
+      accountEmail: accountEmail || undefined,
+      gcloudConfigDir: gcloudConfigDir || undefined,
+    });
+  }
 }
 
 export class GmailClient {
@@ -234,7 +431,7 @@ export class GmailClient {
         await this.deleteDraftQuietly(draftId);
         throw new Error(
           `Gmail stored the draft with From "${from || "(missing)"}" instead of ${expectedEmail}. ` +
-            `Deleted draft ${draftId}. Do not create or send this client-facing draft until the desk alias is the actual saved sender.`,
+            `Deleted draft ${draftId}. Do not create or send this draft until the intended Gmail send-as alias is the actual saved sender.`,
         );
       }
     } catch (error) {
@@ -254,7 +451,7 @@ export class GmailClient {
     try {
       await this.gmail.users.drafts.delete({ userId: "me", id: draftId });
     } catch {
-      // The caller will still fail closed; deletion may fail if Gmail already removed the draft.
+      // The caller still fails closed; deletion may fail if Gmail already removed the draft.
     }
   }
 
@@ -292,10 +489,7 @@ export class GmailClient {
     };
   }
 
-  private buildMime(
-    input: DraftInput,
-    replyContext: { messageIdHeader?: string; references?: string },
-  ): string {
+  private buildMime(input: DraftInput, replyContext: { messageIdHeader?: string; references?: string }): string {
     const headers = [
       `From: ${this.mailbox(input.fromName, input.fromEmail)}`,
       `To: ${input.to}`,
@@ -368,15 +562,14 @@ export class GmailClient {
   private withScopeHint(error: unknown, action: string): Error {
     const message = error instanceof Error ? error.message : String(error);
     if (message.includes("insufficient") || message.includes("ACCESS_TOKEN_SCOPE_INSUFFICIENT") || message.includes("403")) {
-      const scopes = GMAIL_SCOPES;
       const replyScopeNote = action.includes("message metadata")
-        ? "\n\n`--reply-message-id` needs Gmail message metadata access. Run the one-time Gmail ADC setup command from `setup/README.md`, then retry before creating a new thread."
+        ? "\n\n`--reply-message-id` needs Gmail message metadata access. Do not start reauth unless that exact auth action is explicitly approved."
         : "";
       return new Error(
-        `Gmail API token does not have enough scope to ${action}. The helper should trigger this gcloud auth flow itself:\n` +
-          `  gcloud auth application-default login --client-id-file=.codex-local/google-oauth-client.json --scopes=${scopes.join(",")} --disable-quota-project${replyScopeNote}\n\n` +
-          "Retry with the default helper auth mode:\n" +
-          "  npm run gmail:create-alias-draft -- --verify-only\n\n" +
+        `Gmail API token does not have enough scope to ${action}. The helper defaults to no-login mode and must not start Google reauth unless explicitly approved.${replyScopeNote}\n\n` +
+          "Retry saved credentials with the default helper auth mode:\n" +
+          "  npm run gmail:create-alias-draft -- --verify-only --from accounting@richmondblackwood.com\n\n" +
+          "If a reauth is explicitly approved, use the sender-matched OAuth client file under ~/.codex and the required scopes.\n\n" +
           "Do not use auth env vars or the wrong Gmail sender as a workaround.\n\n" +
           `Original error:\n${message}`,
       );
