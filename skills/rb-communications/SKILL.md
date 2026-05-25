@@ -10,8 +10,10 @@ Use this skill for any Richmond Blackwood outbound communication.
 ## Direct-Send Rule
 
 - Draft communication text in chat with the user, not as an app/software draft.
+- For Gmail work, keep the active human operator, source mailbox, and sending identity separate. `RB_CODEX_ACTOR` is a human name from `internal/people-roles.md`; shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or senders, not actors.
 - Always show the sender before the user approves the message.
 - For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- For email, also show the exact source mailbox or mailboxes that were searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new email thread only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
 - After sending, store the sent communication in the canonical Communications database.
@@ -28,6 +30,8 @@ Use this skill for any Richmond Blackwood outbound communication.
 Before sending, show:
 
 - Channel: Gmail, Slack, WhatsApp, Notion, or other.
+- Operator: active human operator from `RB_CODEX_ACTOR` when operator-specific context matters, or `not required`.
+- Source mailbox(es): exact mailbox(es) searched/read for email.
 - From: exact sender identity, including email address for email.
 - To: recipients or destination.
 - Cc/Bcc: if email and applicable.

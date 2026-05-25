@@ -114,7 +114,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 
 - User request: Update PR #4 so Gmail email drafting always uses gcloud.
 - Context read: Gmail communication skill, Google auth skill, Gmail helper scripts, AGENTS, README, process docs, and memory.
-- Actions taken: Made Gmail draft/delete helper defaults run `gcloud auth application-default login` by default and documented that Gmail drafting actions touching Gmail must always use the repo-local gcloud-managed Gmail API helper path.
+- Actions taken: Made Gmail draft/delete helper defaults run `gcloud auth application-default login` by default and documented the then-current local gcloud-only Gmail API helper path. Superseded on 2026-05-25 by shared global persona auth.
 - Files changed: `skills/rb-gmail-drafts/`, `skills/rb-google-auth/`, `AGENTS.md`, `README.md`, `processes/signature-and-gmail.md`, and memory files.
 - Decisions made: Gmail draft fallback, sender verification, helper reply-context reads, and unsafe-draft deletion must not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts.
 - Verification: `npm run typecheck`, Gmail draft/delete helper `--help` smoke checks, `git diff --check`, and stale auth-default scan passed.
@@ -830,3 +830,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: `RBCALL-27` remains completed with its own runtime history; `RBCALL-28` is a fresh retry row, set `Reviewed` and `Approved = __YES__` because this is an approved continuation of the same booking-change task.
 - Verification: Notion read-back confirmed `RBCALL-28` has Company, Individual, Contact, submitter/reviewer, `Subject = Individual`, `Requires PoA? = __NO__`, clean runtime IDs, `Live Help Status = None`, `Retry Count = 0`, and `Next Call At = 2026-05-22T13:00:00Z`.
 - Limitations or gaps: The call will be picked up by the active n8n schedule unless the user explicitly approves a direct production workflow execution.
+
+## 2026-05-24 - RB Actor And Mailbox Routing
+
+- User request: Implement the approved RB actor and mailbox routing model based on personal-codex actor logic while keeping Gmail source and sender identities separate.
+- Context read: `AGENTS.md`, `README.md`, `internal/people-roles.md`, `memory/systems-and-data.md`, communication and common-tasks process docs, Gmail/communications/common-tasks skills, and personal-codex `origin/main` actor references.
+- Actions taken: Added `RB_CODEX_ACTOR` guidance for human operators, extended `internal/people-roles.md` into an operator registry, documented `accounting@richmondblackwood.com` as a shared service mailbox rather than an actor, and updated Gmail/communication/common-tasks rules to require `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` as separate fields.
+- Decisions made: Valid RB actors are human names, not emails. Gmail source mailbox and sending identity are per-job fields and must not be inferred from the active operator.
+- Verification: `git diff --check` passed. Actor/mailbox contract search found the intended `RB_CODEX_ACTOR`, `Source mailbox(es)`, sender identity, and `accounting@richmondblackwood.com` references. The old personal actor/common-memory leakage scan was clear; broad human-name matches were existing RB client/call/person references plus the new Ioana example.
+- Limitations or gaps: Operator work email addresses remain provisional and need team confirmation before they are treated as approved senders.
+
+## 2026-05-25 - Shared Google Persona OAuth Port
+
+- User request: Port the personal-codex OAuth/persona model so personas are shared with all local projects.
+- Context read: RB Google/Gmail/Drive helper scripts and docs, `rb-google-auth`, `rb-gmail-drafts`, `rb-file-uploads`, personal-codex `origin/main` Google auth implementation, and the current RB actor/mailbox branch.
+- Actions taken: Added shared global persona OAuth vault scripts, package commands for verify/sync/recover/reconnect, `memory/google-auth.md`, `memory/google-personas.md`, and `setup/google-persona-auth.md`. Updated Gmail, Drive, and Google Doc transform helpers to default to no-login shared `~/.codex` auth and to try per-persona vault credentials before saved ADC/account fallbacks.
+- Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
+- Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
+- Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.

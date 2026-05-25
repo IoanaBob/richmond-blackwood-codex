@@ -21,14 +21,16 @@ Keep setup documentation limited to human setup: local tools, connector authenti
 
 ## Local Files
 
-Local-only files belong under `.codex-local/` or `.env`. Both are ignored by git.
+Local-only files belong under `.codex-local/`, `.env`, or shared global Codex storage under `~/.codex`. These are outside git.
 
-- `.codex-local/google-oauth-client.json` for Gmail API/gcloud OAuth where needed.
+- `~/.codex/google-personas/<persona-slug>/oauth/authorized_user.json` for shared global per-persona OAuth vault credentials.
+- `~/.codex/google-personas/<persona-slug>/gcloud/` for shared global persona gcloud caches.
+- `~/.codex/google-oauth-client.richmondblackwood.json` for Richmond Blackwood sender-context OAuth client recovery/reconnect.
 - `.codex-local/whatsapp-bridge.*` for optional WhatsApp bridge PID, log, compiled binary, and LaunchAgent plist.
 - `.env` for local SignNow helper credentials if SignNow helpers are used.
 - `~/.codex/config.toml` for personal MCP server configuration, including optional ElevenLabs and n8n MCP entries. This file is outside the repo and must not be copied into git.
 
-Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts.
+Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts. Do not print or copy Google OAuth vault files or token responses into repo memory.
 Never commit ElevenLabs API keys, n8n MCP tokens, n8n API keys, webhook secrets, call recordings, or full call transcripts.
 
 ## Health Checks

@@ -37,9 +37,55 @@ Provisional tools and systems observed:
 - Google Drive for source documents and finance/accounting folders.
 - Optional local WhatsApp MCP for user-controlled WhatsApp reads/sends/media once explicitly enabled.
 
+## Active Operator And Mailbox Routing
+
+Status: provisional.
+Source: user instruction in Codex chat and current RB communication-helper rules.
+Imported: 2026-05-24.
+Review: confirm valid RB operator names, approved operator work email addresses, and any non-accounting sender identities.
+
+`RB_CODEX_ACTOR` identifies the active human operator for a Codex run. The value is a human name from `internal/people-roles.md`, for example `Ioana Surdu-Bob`. It is used only when operator-specific approval, authorship, source-access attribution, or closeout context matters.
+
+Shared service mailboxes are not actors. `accounting@richmondblackwood.com` is the shared RB accounting/client-facing service mailbox and default client-facing sender:
+
+```text
+Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>
+```
+
+Gmail source mailbox and Gmail sending identity are per-job fields, not actor fields. Every Gmail job, packet, or preview should record:
+
+- `Operator`: human actor from `RB_CODEX_ACTOR` when operator-specific context is needed.
+- `Source mailbox(es)`: exact mailbox(es) searched/read, such as `accounting@richmondblackwood.com` or a named operator mailbox.
+- `From`: exact sender for drafts, sends, and replies.
+- `Thread/source`: Gmail thread/message ID, Gmail link, or source summary.
+
+Do not assume all Gmail reads come from accounting. A day can include jobs reading `accounting@richmondblackwood.com` and jobs reading personal/operator mailboxes, provided each source is explicitly scoped and labelled. Do not infer the `From` sender from the operator; confirm or use the workflow default.
+
+## Google Auth And Personas
+
+Status: provisional.
+Source: user instruction in Codex chat and personal-codex global persona auth model.
+Imported: 2026-05-25.
+Review: confirm which RB-specific persona slugs are credentialed and approved.
+
+Google personas are credential routes for helper access to Gmail, Drive, and Calendar. They are separate from:
+
+- `RB_CODEX_ACTOR`: active human operator.
+- `Source mailbox(es)`: Gmail mailbox searched/read.
+- `From`: exact Gmail send-as identity.
+
+Durable Google auth state belongs under shared global Codex storage, not this worktree:
+
+```text
+~/.codex/google-personas/<persona-slug>/
+~/.codex/google-oauth-client.richmondblackwood.json
+```
+
+Routine helpers should run in no-login/no-reauth mode and try the per-persona OAuth vault before saved ADC/account-token fallback. Interactive OAuth reconnect requires exact user approval for the persona/action.
+
 ## Data Boundary
 
-Secrets and credentials may be referenced by name but must not be committed. `.env`, `.env.*`, node modules, and `.codex-local/` are ignored. WhatsApp QR/session state, SQLite databases, downloaded media, and transcripts must also stay out of git.
+Secrets and credentials may be referenced by name but must not be committed. `.env`, `.env.*`, node modules, and `.codex-local/` are ignored. Global Google persona vault files under `~/.codex` must not be printed or copied into git. WhatsApp QR/session state, SQLite databases, downloaded media, and transcripts must also stay out of git.
 
 ## Review Needed
 
