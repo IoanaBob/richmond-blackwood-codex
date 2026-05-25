@@ -23,3 +23,10 @@ Review: Keep this as a company-side summary. Byron personal-tax details belong i
 - User confirmed future Syntentia sends should use `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
 - User confirmed the old payroll-only tax registration task is superseded; it was archived in Notion with a comment.
 - Created live monthly Notion task `https://www.notion.so/35fe41301314814096b2cdc5beb780fa` to ask Byron about planned vacation/off days for the next month.
+
+## 2026-05-25 - Payroll-Tax ELSTER Evidence Follow-Up
+
+- User corrected that the May 2024 Lohnsteuer-Anmeldung should use the company address `Stralauer Platz 35, 10243 Berlin`, and asked whether the payslip and payment proof should be attached.
+- Updated the live ELSTER May 2024 Lohnsteuer-Anmeldung company address to `Stralauer Platz 35, 10243 Berlin`, cleared the old Ehrenberg/Scanbox address, reran validation, and returned to the final `Absenden` review screen. No tax return was submitted.
+- Confirmed the May 2024 payment evidence in the AGL Drive bank statement: 2025-04-10 payment to Finanzamt fuer Koerperschaften III, reference `29/628/00250 LSt 0524`, amount EUR 1,762.41, matching the May 2024 return total.
+- Confirmed the Notion payroll task identifies May 2024 evidence attachments `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`. The exact PDFs still need an uploadable local/browser path before ELSTER Belegnachreichung can be sent.

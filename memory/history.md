@@ -884,3 +884,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat the workpaper as the balance-sheet/P&L bridge for E-Bilanz preparation, not as the valid XBRL/datensatz. Preserve two review points instead of guessing: negative bank balance classification and whether the German E-Bilanz should follow whole-company statutory accounts or a German PE/tax-balance view.
 - Verification: Workbook formula-error scan found no matches; summary/trial-balance checks tie; rendered previews were inspected; Drive import and read-back succeeded.
 - Limitations or gaps: The Google Sheet import landed in My Drive because the connector import action did not expose a parent-folder option. No E-Bilanz/XBRL dataset was generated or submitted.
+
+## 2026-05-25 - AGL Payroll-Tax Evidence Correction
+
+- User request: Correct the May 2024 ELSTER Lohnsteuer-Anmeldung address to `Stralauer Platz 35, 10243 Berlin` and account for the missing payslip/payment-proof evidence.
+- Context read: Live ELSTER final-review session, Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`, May 2024 Notion payment-proof row, Drive AGL bank statement, official ELSTER Belegnachreichung guidance, and AGL client records.
+- Actions taken: Corrected the company address in ELSTER from the old Ehrenberg/Scanbox address to `Stralauer Platz 35, 10243 Berlin`, revalidated with no errors, returned to the final `Absenden` review screen, and recorded a separate Belegnachreichung/supporting-message plan for the May 2024 payslip and payment proof.
+- Decisions made: The payslip and payment proof are important for the Finanzamt query, but should be sent through ELSTER's supporting-document route or a specific authority-message route rather than forced into the Lohnsteuer-Anmeldung itself. Do not submit the return or supporting evidence without exact reviewed approval.
+- Verification: ELSTER final review now shows period Mai 2024, StNr 29/628/00250, address `Stralauer Platz 35, 10243 Berlin`, Kz42 EUR 1,735.66, Kz49 EUR 26.75, and Kz83 EUR 1,762.41. Drive statement read-back confirmed the 2025-04-10 payment to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524`.
+- Limitations or gaps: The Notion attachments are identified but not yet available to the browser/local file picker as uploadable PDFs: `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`.

@@ -1,7 +1,7 @@
 # Accounting, Bookkeeping, And Payroll
 
 Status: provisional.
-Source: Notion company and employment records fetched 2026-05-13; Drive and Gmail context.
+Source: Notion company and employment records fetched 2026-05-13; Drive and Gmail context; user ELSTER session and payroll evidence review on 2026-05-25.
 Imported: 2026-05-13.
 Review: Reconcile German payroll-tax query and confirm whether Notion employment/payroll records have all May 2024-April 2025 payroll-tax filings attached.
 
@@ -45,14 +45,16 @@ Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6b
 Imported: 2026-05-25.
 Review: Simoneta/payroll owner must confirm whether the May 2024-April 2025 Lohnsteuer-Anmeldungen were missing, filed late, rejected, or only misallocated.
 
-The Notion payroll query task contains payslip and tax-payment proof attachments for each month from May 2024 through April 2025. Those attachments evidence payroll calculations/payments but do not yet evidence successful electronic Lohnsteuer-Anmeldung submissions.
+The Notion payroll query task contains payslip and tax-payment proof attachments for each month from May 2024 through April 2025. Those attachments evidence payroll calculations/payments but do not yet evidence successful electronic Lohnsteuer-Anmeldung submissions. For May 2024, the identified evidence files are the payslip attachment `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and payment-proof attachment `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`; they still need to be available as uploadable local/browser files before an ELSTER evidence message can be sent.
 
 The 2026-05-19 Finanzamt account statement/Mahnung shows visible Lohnsteuer credits for May 2024 through April 2025 and a handwritten note indicating payroll tax was paid but not registered/submitted. Working conclusion: AGL should acknowledge that it had German employment from 2024-05-01, then reconcile or file/correct the missing monthly Lohnsteuer-Anmeldungen rather than saying there were no employees.
+
+The Drive AGL bank statement confirms the May 2024 payment row: on 2025-04-10 AGL paid EUR 1,762.41 to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524`. This matches the prepared May 2024 Lohnsteuer-Anmeldung total.
 
 ### Extracted Payroll-Tax Schedule
 
 Status: provisional.
-Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; attached payslip PDFs extracted through Notion on 2026-05-25; live ELSTER review on 2026-05-25.
+Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; attached payslip PDFs extracted through Notion on 2026-05-25; Drive AGL bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls`; live ELSTER review on 2026-05-25.
 Imported: 2026-05-25.
 Review: Treat the schedule as the filing basis, but confirm whether any returns were submitted outside Mein ELSTER before deciding that all periods are original missing returns.
 
@@ -63,7 +65,7 @@ Review: Treat the schedule as the filing basis, but confirm whether any returns 
 | 2025-01 through 2025-04 | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | 4 | EUR 6,861.84 |
 | **Total** | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **12** | **EUR 20,921.95** |
 
-Visible Mein ELSTER transmitted-form history did not show a Lohnsteuer-Anmeldung for the queried periods, subject to the ELSTER caveat that filings from external tax software may not be listed there. The May 2024 Lohnsteuer-Anmeldung is prepared in ELSTER as an original return and passed ELSTER validation, but it has not been submitted pending explicit approval of the final review figures.
+Visible Mein ELSTER transmitted-form history did not show a Lohnsteuer-Anmeldung for the queried periods, subject to the ELSTER caveat that filings from external tax software may not be listed there. The May 2024 Lohnsteuer-Anmeldung is prepared in ELSTER as an original return, uses the company address `Stralauer Platz 35, 10243 Berlin`, and passed ELSTER validation, but it has not been submitted pending explicit approval of the final review figures. The supporting payslip and payment proof should be transmitted separately through ELSTER's supporting-document route once the exact PDFs are uploadable.
 
 ## Retroactive Payroll Note
 
