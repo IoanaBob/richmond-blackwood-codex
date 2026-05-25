@@ -58,12 +58,19 @@ When the user asks to organise a client BOD meeting, create the dated meeting fo
    - Prefer the same format used in the client's prior board folders.
    - If a polished local `.docx` is needed, use the Documents skill to create, render, and verify it.
    - If the working copy is Google Docs, keep the native Google Doc in the meeting folder.
-4. Produce the signing copy.
+4. Produce the signing copy for review.
    - Export the Word/Google Docs minutes to PDF.
    - If LibreOffice is unavailable for DOCX rendering, generate the PDF from the same minutes content, visually inspect the PDF pages, and report the fallback.
    - If using a local helper, use the Drive export/upload path and verify the uploaded PDF by Drive metadata or folder listing.
-   - If SignNow or an e-signature flow is requested, use `rb-signature-workflow`; do not send signature requests without explicit user approval.
-5. Store the signed copy.
+5. Ask the user to review.
+   - Share the editable minutes and/or review PDF with the requesting user.
+   - Do not ship the minutes to director(s) for signature until the user explicitly confirms the minutes are okay.
+   - If the user requests changes, apply them, refresh the signing copy, and ask for review again.
+6. Ship the approved final copy for signature.
+   - After user approval, send the final signing copy to the confirmed director(s) for signature.
+   - Confirm signer identities and routing from the company record, meeting agenda, prior board templates, or explicit user instruction before sending.
+   - If SignNow or an e-signature flow is requested, use `rb-signature-workflow`; the user's approval of the reviewed minutes is the approval gate for sending, but unclear signers or routing still require clarification.
+7. Store the signed copy.
    - Upload the signed PDF back into the same meeting folder.
    - Keep the editable minutes and unsigned PDF unless the user explicitly asks to remove them.
    - Verify the folder contains the expected agenda, editable minutes, signing PDF or signed PDF, and supporting evidence.
