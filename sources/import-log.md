@@ -22,6 +22,24 @@ Unresolved:
 - Actual Finanzamt outcome remains pending because `RBCALL-26` is intentionally inactive until MHL/ZENA completes.
 - Current Gmail connector access could not read the referenced ELSTER proof message `19e4147bc3500e2d`; Notion's ELSTER outbound proof was used as the working source.
 
+## 2026-05-25 - TPL, CB MAX, And MHL Call Sequence Initiation
+
+Imported:
+
+- User instruction in Codex conversation to initiate all calls in the order TPL, then CB MAX, then MHL.
+- User update that Finanzamt called about CB MAX on Friday 2026-05-22 and said a letter had been sent to the Dublin registered address, mentioned Hamburg registration and a nil return before deregistration, and left some details unclear because the colleague who answered was not fluent in German.
+
+Actions:
+
+- Activated TPL `RBCALL-26` as the first Reviewed/Approved call in the requested sequence.
+- Updated CB MAX `RBCALL-13` with the Friday callback context, the Dublin-letter question, Hamburg/Berlin filing mismatch, nil-return/deregistration questions, and ELSTER registration/access-code questions.
+- Temporarily held MHL/ZENA `RBCALL-24` so it cannot run before TPL and CB MAX.
+- Created heartbeat `start-cb-max-after-tpl-call` to activate CB MAX after TPL reaches a terminal state, then activate MHL after CB MAX reaches a terminal state.
+
+Unresolved:
+
+- Direct n8n MCP/REST execution was unavailable in the local Codex session, so live initiation relies on the scheduled voice runner and heartbeat sequencing until the call outcomes are verified.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:

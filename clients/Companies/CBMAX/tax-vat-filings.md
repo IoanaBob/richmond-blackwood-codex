@@ -47,6 +47,7 @@ Key points:
 
 | Task | Status | Detail | Source |
 | --- | --- | --- | --- |
+| CB MAX Finanzamt Hamburg follow-up call | Sequenced for second call on 2026-05-25 | `RBCALL-13` was updated with the Friday 2026-05-22 Finanzamt callback details: a letter was reportedly sent to the Dublin registered address but was not received; the office mentioned a Hamburg registration and possible nil return before deregistration; the call asks which return, period, Steuernummer, deadline, and submission route are required, whether Berlin-filed nil VAT returns can be assigned to Hamburg, and what is needed for ELSTER access. | `https://www.notion.so/366e4130131480efa1e5f1bd3524ee1c` |
 | Call Hamburg Tax Office - CBMAX VAT Issue | To Do | Task says Hamburg tax office demanded estimated VAT for 2024 under unrecognized tax number `17/070/40128`; RB believes all 2024 VAT returns were filed at zero under Berlin tax number `29/648/60019`; goal is to confirm whether Hamburg number belongs to CBMAX, whether Hamburg can see the Berlin filings, and what action is required. | `https://www.notion.so/330e4130131481649b3be0908190ad91` |
 | CBMax Backdate VAT registration | To Do | Task points to a related page but has no detailed requirements in the fetched task body. | `https://www.notion.so/350e413013148074848dfdc6af35f331` |
 | CBMax's VAT 500EUR | To Do | Task is assigned to two people and points to a related page, but fetched body has only placeholder requirements. | `https://www.notion.so/358e4130131480a1b390c7c073ddaa7b` |

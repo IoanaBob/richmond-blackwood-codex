@@ -25,6 +25,7 @@ The WhatsApp chat pointer is a reviewed source pointer only, not a monitoring ch
 | 2026-05-07 | Task | CBMAX - Review May 2026 letter | To Do task assigned in Notion; asks to review the May 2026 CBMAX letter and decide whether it creates legal/tax filing, payment, or client follow-up action. | `https://www.notion.so/359e41301314810b8b36f7d9d54952b5` |
 | 2026-05-08 | Incoming | CBMAX - Invoice 28 amount correction - May 2026 | Claudio said invoice 28 should be EUR 15,000 rather than EUR 18,600. No attachment. | `https://www.notion.so/35ae4130131481ecab85fd1cb97000e4` |
 | 2026-05-08 | Task | CBMAX - Correct invoice 28 amount for April 2026 services | Done task linked to the invoice correction correspondence. | `https://www.notion.so/35ae4130131481af9917d59090714e30` |
+| 2026-05-25 | Call | CB MAX Finanzamt Hamburg follow-up | `RBCALL-13` was updated for the second slot in the requested call sequence. The call brief follows up the 2026-05-22 Finanzamt callback, asks what was in the letter sent to the Dublin registered address but not received, asks for Hamburg nil-return/deregistration specifics, and asks about ELSTER registration/access-code status. | `https://www.notion.so/366e4130131480efa1e5f1bd3524ee1c` |
 | 2026-03-27 | Task | Call Hamburg Tax Office - CBMAX VAT Issue | To Do task about Hamburg tax office estimated-VAT demand and tax-number mismatch; details are in `tax-vat-filings.md`. | `https://www.notion.so/330e4130131481649b3be0908190ad91` |
 
 ## Gmail Search - 2026-05-13

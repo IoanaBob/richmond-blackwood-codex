@@ -3,10 +3,11 @@
 Status: provisional.
 Source: TPL Finanzamt call setup on 2026-05-22.
 Imported: 2026-05-22.
-Review: TPL call `RBCALL-26` is queued inactive until MHL/ZENA call `RBCALL-24` completes; verify the final Finanzamt response after the call runs.
+Review: TPL call `RBCALL-26` was activated first in the 2026-05-25 requested sequence; verify the final Finanzamt response after the call runs.
 
 | Source | Date imported | Detail |
 | --- | --- | --- |
+| User instruction in Codex thread | 2026-05-25 | User asked to initiate all calls in the order TPL, then CB MAX, then MHL. `RBCALL-26` was activated first and heartbeat `start-cb-max-after-tpl-call` was created to activate CB MAX and MHL in sequence after the prior call reaches a terminal state. |
 | User instruction in Codex thread | 2026-05-22 | User asked to queue TechPacito after MHL, ask about the VAT number too, and structure the call as a follow-up to the Tuesday ELSTER message. |
 | Local Codex session `019e400d-033b-7671-851c-f9207a10acb5` | 2026-05-22 | 2026-05-19 session source for the drafted German Finanzamt/ELSTER message: TECHPACITO LIMITED was incorporated in Ireland on 16.04.2025, Irish register number 786441; the message asked Finanzamt to clarify complete Umsatzsteuer, Körperschaftsteuer, Gewerbesteuer, and ELSTER access status, and specifically not to frame the issue as no tax number existing because Finanzamt correspondence showed a Steuernummer. |
 | Notion company `TECHPACITO LIMITED` | 2026-05-22 | `https://www.notion.so/1afe41301314801ba185cabd85971769`; source for Reference `TPL`, legal name, Irish company number, German and Irish addresses, directors/UBOs, filing registrations, and blank German VAT field. |
@@ -16,5 +17,5 @@ Review: TPL call `RBCALL-26` is queued inactive until MHL/ZENA call `RBCALL-24` 
 | Notion task `Techpacito - Change of address and no Tax ID [waiting elster]` | 2026-05-22 | `https://www.notion.so/332e41301314819e9cc2deb9f225b2ab`; source for address confirmation and tax-number check context. |
 | Notion filing registrations | 2026-05-22 | Corporation/trade tax registration, pending VAT registration, payroll employer registration, and local business registration were checked through TPL filing records. Credential-like accident-insurance details were not copied. |
 | Notion contact `Finanzamt München IV` and availability | 2026-05-22 | Contact `https://www.notion.so/2efe413013148012b439edde44abecbd`; Monday availability `https://www.notion.so/368e4130131481869926e742dbfa3fcf`; official source `https://www.finanzamt-muenchen.de/kontakt/oeffnungszeiten`. |
-| Notion call `RBCALL-26` | 2026-05-22 | `https://www.notion.so/368e4130131481d48a11e42782fc533e`; queued inactive TPL call to be activated after MHL/ZENA completes. Updated after checking local session `019e400d-033b-7671-851c-f9207a10acb5` to include incorporation date, complete tax-registration scope, existing Steuernummer nuance, and missing ELSTER activation/access code. |
+| Notion call `RBCALL-26` | 2026-05-25 | `https://www.notion.so/368e4130131481d48a11e42782fc533e`; activated as the first call in the requested sequence. It follows up the 2026-05-19 Finanzamt/ELSTER message and includes incorporation date, complete tax-registration scope, existing Steuernummer nuance, VAT-number status, employer/employee queries, and missing ELSTER activation/access code. |
 | Notion communication log | 2026-05-22 | `https://www.notion.so/368e41301314819cbeaedd685cb3029c`; internal long-living log for queued call setup and sequencing, updated after checking the prior Codex session. |

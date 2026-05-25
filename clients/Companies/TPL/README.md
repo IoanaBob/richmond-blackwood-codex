@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion company record `https://www.notion.so/1afe41301314801ba185cabd85971769`; user instruction on 2026-05-22.
 Imported: 2026-05-22.
-Review: TPL Finanzamt follow-up call is queued but inactive until MHL/ZENA call `RBCALL-24` completes; verify final Finanzamt response after `RBCALL-26` runs.
+Review: TPL Finanzamt follow-up call `RBCALL-26` was activated first in the 2026-05-25 requested sequence; verify final Finanzamt response after the call runs.
 
 Company reference: `TPL`.
 Legal name: TECHPACITO LIMITED.
@@ -13,7 +13,7 @@ Irish registered office: Work Hub, 77 Camden Street Lower, Dublin, Dublin 2, D02
 
 ## Current Snapshot
 
-TPL has German corporation/trade-tax registration on record and the German VAT number field is still blank in Notion as of 2026-05-22. The current authority follow-up is structured around the 2026-05-19 ELSTER outbound proof, the employer/employee registration question, VAT status, and the German correspondence-address update.
+TPL has German corporation/trade-tax registration on record and the German VAT number field is still blank in Notion as of 2026-05-22. The current authority follow-up is structured around the 2026-05-19 ELSTER outbound proof, the employer/employee registration question, VAT status, and the German correspondence-address update. On 2026-05-25, `RBCALL-26` was activated as the first call in the requested order: TPL, then CB MAX, then MHL.
 
 ## Record Routing
 
