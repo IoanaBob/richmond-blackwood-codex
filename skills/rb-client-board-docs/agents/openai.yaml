@@ -1,0 +1,4 @@
+interface:
+  display_name: "RB Client Board Docs"
+  short_description: "Prepare client BOD agendas, minutes, PDFs"
+  default_prompt: "Use $rb-client-board-docs to prepare the board meeting folder, agenda, minutes, and signed-document workflow for this client."

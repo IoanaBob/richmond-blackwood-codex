@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-05-25 - Client BOD Document Skill
+
+Imported:
+
+- User instruction to add a reusable client BOD document workflow to repo skills.
+- AGL Board Meetings Drive pattern: dated meeting subfolders, including `25.05.2026`, with agenda/minutes artifacts stored inside the meeting folder.
+- CBMAX Board Meetings Drive pattern: `BOD Meeting ...` subfolders with agenda, editable minutes, signed PDF, and supporting filing documents.
+
+Actions:
+
+- Created `rb-client-board-docs` as a repo-local skill.
+- Added the skill to `skills/index.md`.
+- Recorded that the workflow should create/find the meeting folder first, draft agenda there, draft minutes after the meeting from extracts, create Word/PDF signing copies, upload the signed copy to the same folder, and verify folder contents.
+
+Unresolved:
+
+- First end-to-end live run with this skill is still pending.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:

@@ -8,6 +8,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-communications`: draft communications in chat, show the sending identity, send directly after approval, and log to Communications.
 - `rb-memory-capture`: write durable memory with provisional/approved status.
 - `rb-client-file`: route unsanitised client detail to the right client folder.
+- `rb-client-board-docs`: prepare client BOD folders, agendas, minutes, PDFs, signature copies, and signed-copy Drive storage.
 - `rb-process-maintenance`: update process maps and SOP mirrors.
 - `rb-handoff`: prepare next-session handoff.
 - `rb-google-auth`: authenticate Drive/Gmail helper access through gcloud without committing credentials.
