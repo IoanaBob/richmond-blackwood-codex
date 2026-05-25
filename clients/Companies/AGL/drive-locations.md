@@ -31,20 +31,27 @@ Group/external classification: external client root, because the parent chain en
 | AGILE LINCS LIMITED FS Abridged 10 Jan 24 - 31 Dec 24 Final 03.09.2025.docx | `https://docs.google.com/document/d/1BqfrdbHwyIS0oskMXzuYDqbJ-H2Ed59P/edit?usp=drivesdk&ouid=117807479741277327905&rtpof=true&sd=true` | 2024 abridged financial statements. |
 | AGILE_LINCS_LIMITED FY24 SFS v2 03.09.2025.xlsx | `https://docs.google.com/spreadsheets/d/1OedbM87f75yXgZZvO3SV76tcscK4TFqI/edit?usp=drivesdk&ouid=117807479741277327905&rtpof=true&sd=true` | 2024 financial-statement workbook. |
 | AGL - 2024 Accounts.xlsx | `https://docs.google.com/spreadsheets/d/1tHqrDm1XgUB5NdfVQY76HUqiMySBaIrF/edit?usp=drivesdk&ouid=117807479741277327905&rtpof=true&sd=true` | 2024 accounts. |
+| AGL_2024_Umsatzsteuererklaerung_ELSTER_review_copy_2026-05-25.pdf | `https://drive.google.com/file/d/1aFHjF8spGtE1g_tYavgmG2rO9-jYsTP2/view?usp=drivesdk` | User-saved ELSTER annual VAT return/review copy for the submitted 2024 Umsatzsteuererklaerung. Transferticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`; submitted 2026-05-25 at 23:01:09; final VAT/refund EUR 0.00. |
+| AGL_2024_E-Bilanz_Final_Review_Pack.xlsx | `https://docs.google.com/spreadsheets/d/1vDxZcoAmk0bPaKiGi9F1mqz4rzX1UMeq/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true` | Final clean `.xlsx` handoff pack for E-Bilanz/XBRL software entry. This is a support workbook, not the transmitted datensatz. |
 | Invoices | `https://drive.google.com/drive/folders/1U7Qnu90LV_VHf97YeTYeFJYuYdXl-7Gp` | 2024 invoices. |
 | Client Back-Up | `https://drive.google.com/drive/folders/1R8xHZlflOrYYLg8ITWql6eAEE27VZ6UW` | 2024 backup folder. |
 
-## Pending Uploads From 2026-05-25 Finanzamt Packet
+## 2026-05-25 Finanzamt Packet Uploads
 
 Status: provisional.
-Source: User-provided local PDFs in Codex chat on 2026-05-25; Google Drive folder reads on 2026-05-25.
+Source: User-provided local PDFs in Codex chat on 2026-05-25; Google Drive folder reads and uploads on 2026-05-25.
 Imported: 2026-05-25.
-Review: Upload when the Drive helper dependency issue is resolved or another approved Drive upload route is available. The FS PDF is already in Drive and should not be duplicated.
+Review: Incoming letters, quarterly UStVA protocols, the annual VAT saved return copy, and the final E-Bilanz `.xlsx` pack were uploaded through a temporary folder-aware route that did not print credentials. The FS PDF is already in Drive and should not be duplicated.
 
-| Local file | Target folder | Reason |
-| --- | --- | --- |
-| `SD79-26003 AGILE LINCS LIMITED 信件1.pdf` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Finanzamt request for 2024 E-Bilanz dataset. |
-| `SD79-26003 AGILE LINCS LIMITED 信件2（重复扫描？？）.pdf` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Finanzamt request for 2024 annual VAT return. |
-| `SD79-26003 AGILE LINCS LIMITED 信件3.pdf` and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Mahnung / account statement pages. |
-| `2024-Q1-UStVa-Protokoll.pdf` through `2024-Q4-UStVa-Protokoll.pdf` | 2024 folder or 2024 Client Back-Up | Quarterly VAT pre-return protocols supporting the annual VAT response. Confirm exact filing destination before upload. |
-| `AGL_2024_E-Bilanz_Final_Review_Pack.xlsx` | AGL 2024 folder or Correspondence / Outgoing | Final clean local pack at `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`; generated copy at `/private/tmp/agl_ebilanz_workpaper/final/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`; native Google Sheet draft imported at `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`. Move/organize once a folder-aware Drive route is available. |
+| Local file | Drive file | Target folder | Reason / status |
+| --- | --- | --- | --- |
+| `SD79-26003 AGILE LINCS LIMITED 信件1.pdf` | `https://drive.google.com/file/d/1SOV13brJNpD_JLQwvn72WOS-4ybOOxv0/view?usp=drivesdk` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Finanzamt request for 2024 E-Bilanz dataset. |
+| `SD79-26003 AGILE LINCS LIMITED 信件2（重复扫描？？）.pdf` | `https://drive.google.com/file/d/1gTU43cO8SPySiJiczCXTfjXiJYgSLZVM/view?usp=drivesdk` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Finanzamt request for 2024 annual VAT return. |
+| `SD79-26003 AGILE LINCS LIMITED 信件3.pdf` | `https://drive.google.com/file/d/1JR5c3CF4nqIQ5Sd4nD77lVBTpwgUsOf8/view?usp=drivesdk` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Mahnung / account statement page. |
+| `SD79-26003 AGILE LINCS LIMITED 信件4.pdf` | `https://drive.google.com/file/d/1PzYUaemR-lkMrDm4WhXO-vJ9Mpf5GTN5/view?usp=drivesdk` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Mahnung / account statement page. |
+| `2024-Q1-UStVa-Protokoll.pdf` | `https://drive.google.com/file/d/1ptKDufaDBBhfoyu0sQPQCM9IK06TehZy/view?usp=drivesdk` | AGL 2024 folder `https://drive.google.com/drive/folders/1dCdvRKz-99QVoDCvoBQYR3DG-5i9T3qZ` | Quarterly VAT pre-return protocol supporting the annual VAT response. |
+| `2024-Q2-UStVa-Protokoll.pdf` | `https://drive.google.com/file/d/1nkSEVgN3U4ndqUgvDg-z6X9_tmx6uCCU/view?usp=drivesdk` | AGL 2024 folder `https://drive.google.com/drive/folders/1dCdvRKz-99QVoDCvoBQYR3DG-5i9T3qZ` | Quarterly VAT pre-return protocol supporting the annual VAT response. |
+| `2024-Q3-UStVa-Protokoll.pdf` | `https://drive.google.com/file/d/1VvmLzfAib44KyGwJ3Y1zzegxywyiEJL6/view?usp=drivesdk` | AGL 2024 folder `https://drive.google.com/drive/folders/1dCdvRKz-99QVoDCvoBQYR3DG-5i9T3qZ` | Quarterly VAT pre-return protocol supporting the annual VAT response. |
+| `2024-Q4-UStVa-Protokoll.pdf` | `https://drive.google.com/file/d/1pi3GO-qEzGOQY7vMeNGdDXzpC9-O6HBS/view?usp=drivesdk` | AGL 2024 folder `https://drive.google.com/drive/folders/1dCdvRKz-99QVoDCvoBQYR3DG-5i9T3qZ` | Quarterly VAT pre-return protocol supporting the annual VAT response. |
+| `annual vat return.pdf` | `https://drive.google.com/file/d/1aFHjF8spGtE1g_tYavgmG2rO9-jYsTP2/view?usp=drivesdk` | AGL 2024 folder `https://drive.google.com/drive/folders/1dCdvRKz-99QVoDCvoBQYR3DG-5i9T3qZ` | User-saved ELSTER annual VAT return/review copy; file size 72,091 bytes; SHA-256 `536fa3dc84e79db3a6c955c6e4eb0517ed8e5e986a7113872e0142f4b95719e1`; Drive md5 `edc3d3036b9279fef93facebc1677de9`. |
+| `AGL_2024_E-Bilanz_Final_Review_Pack.xlsx` | `https://docs.google.com/spreadsheets/d/1vDxZcoAmk0bPaKiGi9F1mqz4rzX1UMeq/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true`; native Google Sheet draft `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk` | AGL 2024 folder `https://drive.google.com/drive/folders/1dCdvRKz-99QVoDCvoBQYR3DG-5i9T3qZ` | Final clean local pack at `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`; generated copy at `/private/tmp/agl_ebilanz_workpaper/final/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`; Drive md5 `17d1f6a7dca76821829640866f427756`. This is a support pack, not the official XBRL/datensatz. |

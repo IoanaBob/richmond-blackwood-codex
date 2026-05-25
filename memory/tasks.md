@@ -28,6 +28,9 @@ Imported: 2026-05-04.
 | Monitor AKS Finanzamt payment plan and confirm stop date before telling Ana to stop paying: `https://www.notion.so/365e4130131481eb8580f224d0be5adf`. | 2026-05-19 |
 | Negotiate AKS Finanzamt penalty reduction or waiver ahead of the stop-date review: `https://www.notion.so/365e413013148157b952c94c04d72d90`. | 2026-05-19 |
 | Request AKS/Anastasia 2025 tax and VAT information early because Ana replies slowly: `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`. | 2026-05-19 |
+| Send reviewed AGL Finanzamt message requesting processing/amendment of the 2024 USt assessment and collection/enforcement pause, referencing annual VAT ticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`. | 2026-05-25 |
+| Generate, validate, submit, and save the official AGL 2024 E-Bilanz/XBRL datensatz using the final review pack. | 2026-05-25 |
+| Make AGL May 2024-April 2025 payroll payslips/payment proofs uploadable and send reviewed supporting evidence/allocation request to Finanzamt. | 2026-05-25 |
 
 ## Done
 

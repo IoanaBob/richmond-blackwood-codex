@@ -1757,3 +1757,26 @@ Unresolved:
 - Submit the annual VAT return only after user approval on the final ELSTER page.
 - Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files.
 - Send an ELSTER/Finanzamt message requesting processing/amendment and collection pause after annual VAT submission.
+
+## 2026-05-25 - AGL Annual VAT ELSTER Submission And Notion Filing
+
+Imported:
+
+- User approval in Codex chat to submit the prepared 2024 annual VAT return.
+- Live ELSTER Versandbestaetigung for AGL 2024 Umsatzsteuererklaerung.
+- User-saved local PDF `/Users/jp/Downloads/annual vat return.pdf`.
+
+Actions:
+
+- Submitted AGL 2024 Umsatzsteuererklaerung in ELSTER after user approval; ELSTER returned Transferticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`, Ordnungskriterium `29/628/00250`, Abgabezeit `Montag, 25. Mai 2026, 23:01:09`, and final VAT/refund EUR 0.00.
+- Uploaded the saved ELSTER return/review copy to the AGL 2024 Drive folder as `https://drive.google.com/file/d/1aFHjF8spGtE1g_tYavgmG2rO9-jYsTP2/view?usp=drivesdk`.
+- Uploaded the four May 2026 incoming Finanzamt letters/scans to AGL Correspondence / Incoming, Q1-Q4 2024 UStVA protocols to the AGL 2024 Drive folder, and the final E-Bilanz `.xlsx` workpaper to the AGL 2024 Drive folder; Drive links are indexed in `clients/Companies/AGL/drive-locations.md`.
+- Added Notion comments `36be4130-1314-81ca-9006-001dfcf9a622` on the AGL company page and `36be4130-1314-81d9-b2eb-001d8a850ea2` on the AGL Finanzamt/payroll task.
+- Added Notion company evidence-filing comment `36be4130-1314-8159-b628-001d87a90dd5` with the source-packet/E-Bilanz Drive filing status.
+- Updated AGL filing, source, Drive-location, open-question, current-state, and response-plan records.
+
+Unresolved:
+
+- Send a reviewed ELSTER/Finanzamt message requesting processing/amendment of the 2024 USt assessment and pause of collection/enforcement while E-Bilanz/payroll evidence follow-up is handled.
+- Generate, validate, submit, and save the official E-Bilanz/XBRL datensatz.
+- Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files for payroll evidence submission.
