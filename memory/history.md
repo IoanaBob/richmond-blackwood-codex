@@ -911,3 +911,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Treat the final pack as ready for E-Bilanz/XBRL software handoff but not as the transmitted datensatz. Recommend separating positive bank balances as assets and negative bank balances/overdrafts as current bank liabilities for the German mapping. Use whole-company statutory accounts as the source-basis assumption because no German PE-only balance sheet was located.
 - Verification: Workbook error scan found no broken-reference/formula-error text; rendered previews for the key sheets were inspected; local Downloads copy checksum matched the generated workbook.
 - Limitations or gaps: No XBRL/datensatz was generated or transmitted. The filer still needs to use E-Bilanz-capable software, confirm scope/sign conventions in the validation preview, submit, and save the protocol/ticket.
+
+## 2026-05-25 - AGL Annual VAT Review Prep And Evidence Staging
+
+- User request: While the user reviews the annual VAT final ELSTER screen, leave the ELSTER page alone and check/prepare the other pending work.
+- Context read: Local AGL Finanzamt PDFs and scans, Notion payroll query task and embedded payment-proof rows, Drive source correspondence, AGL response plan, and the repo-local `rb-finanzamt-response` skill.
+- Actions taken: Staged a local working evidence packet under `/private/tmp/agl_finanzamt_ready_packet/`; identified `Agile Lincs 2024.pdf` as the 2026-03-23 2024 USt Bescheid assessing EUR 5,200.00 VAT plus EUR 75.00 Verspaetungszuschlag; flagged `Agile Lincs 2024 Transmission.pdf` because its text describes a 2025 P&L despite the 2024 Belegnachreichung route; inventoried the Notion payment-proof attachment filenames and row URLs for May 2024 through April 2025; updated AGL client records and the Finanzamt response skill.
+- Decisions made: Do not touch the ELSTER browser while the user reviews the final `Absenden` screen. Treat the annual VAT as ready-but-unsubmitted, and treat Notion file metadata as an evidence manifest until actual uploadable PDFs are available.
+- Verification: Local staging folder listing was checked; Notion page/row fetches confirmed the attachment inventory; scanned Mahnung pages were rendered for visual review.
+- Limitations or gaps: The annual VAT return still needs user approval and final submission. Payroll payslips/payment proofs are identified but not yet downloaded to uploadable files. The Mahnung still needs a collection-pause/amendment message after annual VAT submission.

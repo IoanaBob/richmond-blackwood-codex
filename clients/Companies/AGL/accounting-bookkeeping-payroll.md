@@ -45,7 +45,24 @@ Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6b
 Imported: 2026-05-25.
 Review: The monthly Lohnsteuer-Anmeldungen were submitted in ELSTER on 2026-05-25 after operator approval. Simoneta/payroll owner should still confirm whether any external-software filings existed, and the evidence PDFs still need to be sent or made uploadable for Belegnachreichung/supporting-document follow-up.
 
-The Notion payroll query task contains payslip and tax-payment proof attachments for each month from May 2024 through April 2025. Those attachments evidence payroll calculations/payments but do not yet evidence successful electronic Lohnsteuer-Anmeldung submissions. For May 2024, the identified evidence files are the payslip attachment `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and payment-proof attachment `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`; they still need to be available as uploadable local/browser files before an ELSTER evidence message can be sent.
+The Notion payroll query task contains payslip and tax-payment proof attachments for each month from May 2024 through April 2025. Those attachments evidence payroll calculations/payments but do not yet evidence successful electronic Lohnsteuer-Anmeldung submissions. The Notion connector exposes the attachment names and row/page sources, but not an uploadable local browser file, so the PDFs still need to be downloaded or otherwise exposed before an ELSTER evidence message can be sent.
+
+Notion attached-file inventory confirmed on 2026-05-25:
+
+| Period | Payslip attachment | Payment-proof row | Payment-proof attachment |
+| --- | --- | --- | --- |
+| 2024-05 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` | `https://www.notion.so/36be41301314803faefbcd003306a91c` | `46013371-9232-4713-a50a-d25d46ed7c2c.pdf` |
+| 2024-06 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-06.pdf` | `https://www.notion.so/36be41301314805ba0f2f7741f283f4b` | `80d9afde-1407-44f0-9874-e34572e80e59.pdf` |
+| 2024-07 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-07.pdf` | `https://www.notion.so/36be4130131480008027eba55e9a7ab0` | `ce450072-f5b0-49f5-b895-445c4d57903c.pdf` |
+| 2024-08 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-08.pdf` | `https://www.notion.so/36be4130131480a8913bdf0be31639a9` | `0d3ee19a-b311-4ff5-af9a-2d7bfa2bfa1d.pdf` |
+| 2024-09 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-09.pdf` | `https://www.notion.so/36be413013148081b09eec48fdf9f426` | `d42a264d-2f0e-4b6d-834b-4e45ab759ca9.pdf` |
+| 2024-10 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-10.pdf` | `https://www.notion.so/36be41301314803cae62ca2016b72b13` | `45fa2c38-ed76-468f-b113-621c371a2625.pdf` |
+| 2024-11 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-11.pdf` | `https://www.notion.so/36be41301314806aa109c7121746f4b0` | `833b4999-ecdf-4728-9543-eaa4a05bc944.pdf` |
+| 2024-12 | `Byron-Jarvis_Frasier_Lohnabrechnung_2024-12.pdf` | `https://www.notion.so/36be4130131480f58e1ed146947cc499` | `dfc3588a-eb78-4e43-a84f-bbaa734ab0db.pdf` |
+| 2025-01 | `Byron-Jarvis_Frasier_Lohnabrechnung_2025-01.pdf` | `https://www.notion.so/36be413013148087a51cf30104f23820` | `70aa5fce-0dc5-4a3f-9e3b-f262319f01ab.pdf` |
+| 2025-02 | `Byron-Jarvis_Frasier_Lohnabrechnung_2025-02.pdf` | `https://www.notion.so/36be4130131480feba33d33294890e67` | `6deedbd4-db36-49a3-a84b-08714194d1f3.pdf` |
+| 2025-03 | `Byron-Jarvis_Frasier_Lohnabrechnung_2025-03.pdf` | `https://www.notion.so/36be4130131480fb8b32cec4c8454816` | `62f813ca-29c3-4994-b2c9-e4a352d2aa9a.pdf` |
+| 2025-04 | `Byron-Jarvis_Frasier_Lohnabrechnung_2025-04.pdf` | `https://www.notion.so/36be413013148016a62acdebce145b10` | `3a0de174-c9e1-4b2f-8ec4-33547153c4df.pdf` |
 
 The 2026-05-19 Finanzamt account statement/Mahnung shows visible Lohnsteuer credits for May 2024 through April 2025 and a handwritten note indicating payroll tax was paid but not registered/submitted. Working conclusion: AGL should acknowledge that it had German employment from 2024-05-01, then reconcile or file/correct the missing monthly Lohnsteuer-Anmeldungen rather than saying there were no employees.
 

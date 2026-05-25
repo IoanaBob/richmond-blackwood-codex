@@ -43,6 +43,7 @@ Use this skill for German tax-authority packets where RB must decide what to fil
    - For scanned PDFs, render/OCR enough to identify date, tax type, deadline, amount, reference, and action requested.
    - For important local files, record filename, source, and where practical size/hash; raw evidence belongs in Drive, not git.
    - Separate source documents from forwarded emails and internal notes.
+   - If Notion or Drive exposes attached-file metadata but not an uploadable local file, create a manifest with exact attachment names, row/page URLs, source dates, and download/upload blockers. Do not imply those attachments were sent to ELSTER until the files are actually available to the browser/local file picker or another approved upload route.
 
 4. Classify every notice before drafting.
    - `Umsatzsteuererklaerung`: annual VAT return; quarterly `UStVA` protocols support it but do not replace it.
@@ -71,6 +72,7 @@ Use this skill for German tax-authority packets where RB must decide what to fil
    - For annual VAT, summarize the filing basis from UStVA protocols, bookkeeping, invoices, and financial statements; identify whether it appears zero/near-zero, but verify against books before submission.
    - For E-Bilanz, identify the tool/owner that can generate the dataset. If no tool is available, draft an extension or holding message instead of pretending a PDF satisfies the request.
    - For payroll tax, do not deny employment when employment/payroll records exist. Confirm whether Lohnsteuer-Anmeldungen were missing, filed late, rejected, or misallocated, then prepare corrected submissions or an explanatory response.
+   - When the user is actively reviewing a final ELSTER `Absenden` screen, leave that browser page untouched. Use the waiting time for local evidence staging, connector reads, response drafting, and repo records only; return to the live browser only after the user approves submission or asks for a change.
 
 ### Lohnsteuer-Anmeldung Batch Filing Guardrail
 

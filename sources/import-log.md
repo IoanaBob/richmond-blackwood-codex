@@ -1735,3 +1735,25 @@ Unresolved:
 - The final workbook is a support pack for E-Bilanz software, not the official XBRL/datensatz.
 - Generate, validate, transmit, and save the protocol/ticket through E-Bilanz-capable software.
 - Confirm the E-Bilanz tool's sign conventions and whether the Finanzamt expects whole-company statutory accounts or a German PE/tax-balance scope before transmission.
+
+## 2026-05-25 - AGL Annual VAT Review Prep And Evidence Staging
+
+Imported:
+
+- User instruction to leave the annual VAT final ELSTER review page untouched while the user reviews.
+- Local AGL Finanzamt PDFs and scans, including `Agile Lincs 2024.pdf`, `Agile Lincs 2024 Transmission.pdf`, `SD79-26003 AGILE LINCS LIMITED 信件3.pdf`, and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf`.
+- Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` and embedded payment-proof rows for May 2024-April 2025.
+
+Actions:
+
+- Staged a local working evidence packet at `/private/tmp/agl_finanzamt_ready_packet/`.
+- Identified the 2026-03-23 USt 2024 Bescheid for EUR 5,200.00 VAT plus EUR 75.00 Verspaetungszuschlag as a likely basis for the VAT component of the Mahnung.
+- Flagged the local 2024 Belegnachreichung printout because its text says it transmitted a 2025 P&L/period, so it should not be relied on as the requested 2024 E-Bilanz Datensatz.
+- Recorded exact Notion payment-proof attachment filenames and row URLs for May 2024-April 2025.
+- Added reusable guidance to `rb-finanzamt-response` for Notion/Drive attachment manifests and final-ELSTER-screen waiting periods.
+
+Unresolved:
+
+- Submit the annual VAT return only after user approval on the final ELSTER page.
+- Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files.
+- Send an ELSTER/Finanzamt message requesting processing/amendment and collection pause after annual VAT submission.

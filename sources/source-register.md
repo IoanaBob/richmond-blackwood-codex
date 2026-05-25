@@ -139,6 +139,8 @@ AKS company sources are routed to `clients/Companies/AKS/source-register.md`. Th
 
 Anastasia personal sources are routed to `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/source-register.md`. The import uses Anastasia's Notion individual record, 2023/2024/2025 personal-tax filings, AKS employment/payroll context, Drive personal-tax folders, the payment-plan sheet, Gmail ELSTER/payment context, and WhatsApp bookkeeping/tax-message pointers.
 
+AGL company Finanzamt May 2026 sources are routed to `clients/Companies/AGL/source-register.md`. The 2026-05-25 follow-up used the live user-reviewed ELSTER annual VAT draft, local source PDFs in Downloads, Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`, Google Drive source/correspondence files, and the local staging packet `/private/tmp/agl_finanzamt_ready_packet/`. The repo stores source pointers and provisional readings, not ELSTER credentials or raw private evidence files.
+
 ## AMC / Aaron Sources
 
 AMC company sources are routed to `clients/Companies/AMC/source-register.md`. The 2026-05-18 load used the Notion company record `https://www.notion.so/165e41301314804baeead148b54263de`, project `https://www.notion.so/328e41301314802993b3f5136bf74a2c`, Aaron individual record, employment record, contracts, filing registrations, VAT tasks, tax prepayment records, Google Drive folder `https://drive.google.com/drive/folders/1a_m5ASzsGDnaViTjeSvawroRVr6cQ-oG`, Gmail invoice/Finanzamt/ELSTER threads, WhatsApp `Chamberlain, Aaron | Richmond Blackwood`, and Slack internal context. Live Notion comments were added to the Riot, Echo Sports, and UVS contract pages with the captured variable-invoice workflow and message-template notes.
