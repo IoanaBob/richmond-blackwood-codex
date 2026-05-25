@@ -875,3 +875,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not press `Absenden` without explicit approval of the exact filing figures, despite the user's broad authority, because the next click transmits a tax return to the Finanzamt. Treat visible absence of Lohnsteuer-Anmeldungen in Mein ELSTER as strong but provisional evidence because external tax-software submissions may not appear there.
 - Verification: ELSTER reported no errors for the May 2024 draft; Notion comment read-back confirmed the internal task update; `git diff --check` passed.
 - Limitations or gaps: No tax return or Finanzamt message was submitted. The remaining periods June 2024-April 2025 should be prepared after approval unless Simoneta/payroll proves prior external-software submissions or rejected/corrected filings.
+
+## 2026-05-25 - AGL 2024 E-Bilanz Workpaper Preparation
+
+- User request: Prepare the balance sheet from the uploaded documents and internal records, using judgment to move the Finanzamt issue forward quickly.
+- Context read: Financial statements PDF, final FY24 SFS workbook, earlier 2024 accounts workbook, AGL repo records, Finanzamt E-Bilanz/VAT request letters, 2024 UStVA protocols, and official ELSTER/BMF guidance.
+- Actions taken: Created local workbook `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx`, imported it as native Google Sheet `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`, added Notion filing comment `36be4130-1314-81f4-8516-001d684ec5c2`, and updated AGL source/filing/Drive/open-question records.
+- Decisions made: Treat the workpaper as the balance-sheet/P&L bridge for E-Bilanz preparation, not as the valid XBRL/datensatz. Preserve two review points instead of guessing: negative bank balance classification and whether the German E-Bilanz should follow whole-company statutory accounts or a German PE/tax-balance view.
+- Verification: Workbook formula-error scan found no matches; summary/trial-balance checks tie; rendered previews were inspected; Drive import and read-back succeeded.
+- Limitations or gaps: The Google Sheet import landed in My Drive because the connector import action did not expose a parent-folder option. No E-Bilanz/XBRL dataset was generated or submitted.

@@ -65,6 +65,7 @@ Review: See `finanzamt-2026-05-response-plan.md`. Do not submit filings or messa
 | 2024 E-Bilanz Datensatz request | Open; due 2026-06-02 per Finanzamt letter dated 2026-05-19 | Local `SD79-26003 AGILE LINCS LIMITED 信件1.pdf`; Notion KSt/GewSt filing record | Generate and electronically submit the E-Bilanz/XBRL dataset. Existing KSt/GewSt submissions do not close this request. |
 | 2026-05-19 Mahnung / account statement | Open; urgent | Local scanned `SD79-26003 AGILE LINCS LIMITED 信件3.pdf` and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf` | Account statement shows EUR 5,781.25 total with USt/KSt/GewSt/soli and surcharges. Retrieve underlying Bescheide and request suspension/collection pause while missing filings are processed. |
 | 2024 financial statements | Available in Drive | `https://drive.google.com/file/d/1jBoStq1KZRTQUXjB1SEjlGiZCSvvwBil` | FS period is 2024-01-10 to 2024-12-31 and shows EUR 14,447 loss for the year; use for E-Bilanz preparation and response support. |
+| 2024 E-Bilanz workpaper | Prepared; not filed | `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk` | Workpaper ties the final FY24 SFS trial balance to the abridged accounts and flags mapping decisions. It is not an XBRL/datensatz submission. |
 
 ## Board Meetings For Irish Tax Residence
 

@@ -14,6 +14,7 @@ Review: Needs operator/accountant review before any ELSTER submission, Einspruch
 | Mahnung / account statement | `SD79-26003 AGILE LINCS LIMITED 信件3.pdf` and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf` in the user Downloads folder | Scanned account statement dated 2026-05-19 shows an enforcement-facing balance of EUR 5,781.25 and visible Lohnsteuer credits for May 2024 through April 2025. Original assessment notices behind the balance were not in the packet. |
 | 2024 quarterly UStVA protocols | `2024-Q1-UStVa-Protokoll.pdf` through `2024-Q4-UStVa-Protokoll.pdf` | Q1-Q4 2024 UStVA transmissions were made on 2025-06-27 and each shows line 83 as EUR 0.00. These support a zero annual-VAT position but do not replace the annual VAT return. |
 | 2024 financial statements | `Agile LinCS Limited FS Abridged Jan 10 2024 - Dec 31 2025.pdf`; Drive copy `https://drive.google.com/file/d/1jBoStq1KZRTQUXjB1SEjlGiZCSvvwBil` | Financial statements are for 2024-01-10 to 2024-12-31 and show loss for the year of EUR 14,447. |
+| 2024 E-Bilanz workpaper | `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`; local `.xlsx` build at `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx` | Prepared on 2026-05-25 from the abridged financial statements, final FY24 SFS workbook, earlier 2024 accounts workbook, Finanzamt request, and VAT protocols. This is a review workpaper, not an XBRL/E-Bilanz transmission dataset. |
 | Payroll query task | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Task contains payslips and monthly tax-payment proof attachments for May 2024-April 2025. Notion attached-file extraction on 2026-05-25 confirmed the monthly payslip tax figures below. It does not yet prove that Lohnsteuer-Anmeldungen were submitted or processed. |
 | Live ELSTER review | Mein ELSTER session opened by the user on 2026-05-25 | Visible transmitted forms did not show any Lohnsteuer-Anmeldung for the queried periods through Mein ELSTER. Caveat: ELSTER warns that forms submitted through external tax software may not appear in this list. May 2024 was prepared as an original Lohnsteuer-Anmeldung and validated successfully, but not sent. |
 | Unrelated user packet files | `4c55f975-9f13-4df2-ab11-c118db334078.pdf`; `SD79-26002-AARON MEDIC CHAMBERLAIN LIMITED-2026年税单 (1).pdf` | These appear to relate to AARON MEDIC CHAMBERLAIN LIMITED, not AGL. Do not use for the AGL response. |
@@ -24,7 +25,7 @@ Review: Needs operator/accountant review before any ELSTER submission, Einspruch
 | --- | --- | --- | --- | --- |
 | 1 | Resolve the payroll-tax query for May 2024-April 2025 before the Finanzamt treats the payment credits as unexplained. | ELSTER Lohnsteuer-Anmeldung route and/or ELSTER authority message. | AGL had German employment from 2024-05-01. Payslip tax figures are now extracted month by month; payment proof/visible credits exist. May 2024 has been prepared and validated in ELSTER as an original return, pending explicit approval before transmission. | Confirm whether these are original missing monthly submissions or corrections to previously filed/rejected returns. |
 | 2 | File the 2024 Umsatzsteuererklaerung electronically, likely as zero if the books confirm no German VATable output/input VAT. | ELSTER / AGL certificate or filing software. | Filing basis prepared from the four zero UStVA protocols and 2024 financial statements. Not submitted yet. | Confirm annual VAT figures and submit via ELSTER. |
-| 3 | Generate and submit the 2024 E-Bilanz Datensatz. | Lexoffice, tax software, or an E-Bilanz/XBRL tool; ordinary PDF accounts are not enough. | Finanzamt requested the dataset by 2026-06-02. Existing KSt/GewSt filings were submitted, but this separate dataset remains missing. | Confirm dataset production route and final values. |
+| 3 | Generate and submit the 2024 E-Bilanz Datensatz. | Lexoffice, tax software, or an E-Bilanz/XBRL tool; ordinary PDF accounts are not enough. | Balance-sheet/P&L workpaper prepared and read back as Google Sheet `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`. A valid XBRL/datensatz still needs E-Bilanz-capable software. | Confirm the final German mapping, especially negative bank balances and whether the dataset should be whole-company statutory accounts or German PE/tax-balance view. |
 | 4 | Respond to the 2026-05-19 Mahnung before enforcement pressure escalates. | ELSTER form/message, ideally with the annual VAT filing and E-Bilanz timing referenced. | Account statement shows EUR 5,781.25 total, including estimated-looking 2024 USt/KSt/GewSt/soli amounts and surcharges. | Ask for suspension of collection/enforcement while the missing filings are processed; request the underlying Bescheide if not already in records. |
 | 5 | File the new May 2026 Finanzamt letters and 2024 UStVA protocols into Drive. | AGL Drive. | FS PDF is already in Drive. New letters/protocols were local only in this run; repo helper upload was blocked by missing `ts-node/register`. | Upload to the existing AGL folders when Drive helper/dependency is available. |
 
@@ -38,7 +39,7 @@ Review: Confirm through the original ELSTER account/filing software before relyi
 The Finanzamt issues should be handled as related but separate defects:
 
 - Annual VAT: quarterly UStVA protocols exist, but the annual 2024 Umsatzsteuererklaerung is still requested. The four quarterly protocols all show EUR 0.00, so the annual return can be prepared as a zero/near-zero annual return if the bookkeeping confirms no German VATable activity.
-- E-Bilanz: the German KSt/GewSt returns were recorded as filed on 2026-04-30, but the separate E-Bilanz/XBRL dataset is still requested. The 2024 accounts show a EUR 14,447 loss, supporting the no-profit/no-tax operating position, but the Finanzamt wants the electronic dataset.
+- E-Bilanz: the German KSt/GewSt returns were recorded as filed on 2026-04-30, but the separate E-Bilanz/XBRL dataset is still requested. The 2024 accounts show a EUR 14,447 rounded loss, supporting the no-profit/no-tax operating position, but the Finanzamt wants the electronic dataset. A review workpaper has been prepared from the statutory financial statements and final FY24 SFS trial balance. It ties arithmetically, but two professional judgment points remain: negative bank balances and the exact filing scope for a foreign company/German PE position.
 - Mahnung: the EUR 5,781.25 balance appears inconsistent with AGL records and may be based on estimates or unprocessed/missing annual filings. Do not treat the Mahnung alone as proof that the tax is finally due. Get the underlying assessment notices and request suspension/collection pause while missing filings are cured.
 - Payroll tax: do not tell Finanzamt there were no employees. AGL had German employment from 2024-05-01. The payslips support monthly payroll-tax amounts; the open issue is why payments/credits exist without matching processed Lohnsteuer-Anmeldungen. Visible Mein ELSTER transmitted-form history did not show Lohnsteuer-Anmeldungen, but this remains provisional because external-software submissions may not be listed there.
 
@@ -64,6 +65,31 @@ Review: Before filing beyond the prepared May 2024 draft, confirm in ELSTER/acco
 | 2025-03 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
 | 2025-04 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
 | **Total** |  | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **EUR 20,921.95** |
+
+## E-Bilanz Balance-Sheet Workpaper
+
+Status: provisional.
+Source: Financial statements PDF `Agile LinCS Limited FS Abridged Jan 10 2024 - Dec 31 2025.pdf`; Drive FY24 SFS workbook `https://docs.google.com/spreadsheets/d/1OedbM87f75yXgZZvO3SV76tcscK4TFqI/edit`; earlier 2024 accounts workbook `https://docs.google.com/spreadsheets/d/1tHqrDm1XgUB5NdfVQY76HUqiMySBaIrF/edit`; Finanzamt E-Bilanz request dated 2026-05-19; official ELSTER/BMF guidance.
+Imported: 2026-05-25.
+Review: This workpaper prepares the balance sheet and P&L basis only. It is not a valid XBRL/E-Bilanz dataset and must not be treated as transmitted. Final review should decide the German taxonomy mapping and then generate the actual datensatz through E-Bilanz-capable software or AMD/tax-adviser tooling.
+
+Google Sheet: `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`.
+Local workbook: `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx`.
+
+Key figures:
+
+| Item | Working amount | Statutory rounded amount | Review |
+| --- | ---: | ---: | --- |
+| Turnover | EUR 157,525.50 | EUR 157,526 | Ties to FY24 SFS trial balance and abridged financial statements. |
+| Administrative expenses | EUR 171,972.62 | EUR 171,973 | Ties to FY24 SFS trial balance. |
+| Profit / loss before tax | EUR -14,447.12 | EUR -14,447 | Corporation tax expense is EUR 0 because the company is loss-making. |
+| Debtors due within one year | EUR 13,412.17 | EUR 13,413 | Trade receivables plus rental deposit/investment/rounding; minor raw-to-rounded source-note discrepancy flagged. |
+| Cash and cash equivalents - statutory net view | EUR -27,767.77 | EUR -27,768 | Requires German mapping review because statutory accounts net positive and negative bank balances in cash. |
+| Positive bank balances | EUR 11,285.14 | n/a | German review view separates positive cash. |
+| Negative bank balances / overdrafts | EUR 39,052.91 | n/a | German review view separates negative bank balances as possible current liabilities. |
+| Net assets / equity | EUR -14,355.60 | EUR -14,355 | Balance sheet checks passed. |
+
+The native Google Sheet was imported by the connector into My Drive rather than the AGL folder because this import action did not expose a parent-folder option. Move it into the AGL 2024 or Correspondence folder once a folder-aware Drive route is available.
 
 ## Draft ELSTER Message - Annual VAT, E-Bilanz, And Mahnung
 
@@ -129,6 +155,7 @@ Mit freundlichen Gruessen
 | --- | --- | --- |
 | ELSTER submission approval pending | The user opened the live ELSTER session. The May 2024 Lohnsteuer-Anmeldung was prepared and ELSTER validation reports no errors, but final transmission would send a tax return to the Finanzamt. | Obtain explicit approval for the exact May 2024 return before pressing `Absenden`: period Mai 2024, Steuernummer 29/628/00250, one employee, Kz42 EUR 1,735.66, Kz49 EUR 26.75, Kz83 EUR 1,762.41, no church tax, no supplemental note. |
 | E-Bilanz tooling not identified | The requested artifact is an electronic dataset, not just a PDF financial statement. | Confirm whether Lexoffice, AMD, or another E-Bilanz tool should generate the XBRL/taxonomy dataset. |
+| E-Bilanz mapping decisions open | The workpaper is arithmetically ready, but a professional decision is still needed on negative bank balances and whole-company vs German PE/tax-balance filing scope. | Review the workpaper, choose the final taxonomy mapping, then generate the datensatz through an approved E-Bilanz tool. |
 | Payroll filing status unresolved | Finanzamt's payroll question needs a factual explanation; payment proof alone does not explain missing returns. | Ask Simoneta/payroll owner for submission receipts, or proceed in ELSTER as original missing monthly Lohnsteuer-Anmeldungen if no prior submissions can be found. |
 | Original Bescheide behind Mahnung missing | The Mahnung lists amounts but not the legal basis/deadline for objections. | Retrieve the 2024 USt/KSt/GewSt/soli assessment notices from ELSTER, mail, AMD, or Drive. |
 | Drive upload helper blocked | The repo helper failed because `ts-node/register` is missing in the worktree. | Re-run after dependencies are available, or use another approved Drive upload route. |
