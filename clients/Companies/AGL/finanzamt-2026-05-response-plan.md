@@ -148,14 +148,14 @@ The native Google Sheet was imported by the connector into My Drive rather than 
 Status: draft for review only.
 Source: 2026-05-25 packet and repo/Notion records.
 Imported: 2026-05-25.
-Review: User asked to proceed with priority action 1 on 2026-05-25. The exact text below was shown in chat before entering it into ELSTER because it is an authority communication containing tax/account data. Send only after the user confirms the exact live-browser action or reviews the final ELSTER send screen.
+Review: User asked to proceed with priority action 1 on 2026-05-25 and then asked to add a short E-Bilanz extension request, state that payroll taxes have been completed, and include transmission references if useful. The exact text below should be shown in chat before entering it into ELSTER because it is an authority communication containing tax/account data. Send only after the user confirms the exact live-browser action or reviews the final ELSTER send screen.
 
 Sending channel: ELSTER under AGL certificate or authorised representative account, not email.
 Operator: not available from `.env.local` in this worktree.
 ELSTER route: `Sonstige Nachricht an das Finanzamt`, used narrowly as a processing/account/enforcement-pause message rather than a formal `Einspruch`.
 
 ```text
-Betreff: AGL - USt 2024 / Mahnung 19.05.2026
+Betreff: AGL - USt 2024 / E-Bilanz / Mahnung 19.05.2026
 
 Sehr geehrte Damen und Herren,
 
@@ -167,11 +167,27 @@ Die Umsatzsteuer-Jahreserklaerung 2024 wurde am 25.05.2026 elektronisch nachgere
 
 Wir bitten um zeitnahe Verarbeitung der nachgereichten Umsatzsteuer-Jahreserklaerung 2024 und um entsprechende Pruefung bzw. Aenderung des Umsatzsteuerbescheids 2024 vom 23.03.2026. Nach unserem Kenntnisstand beruhte die dort festgesetzte Umsatzsteuer von EUR 5.200,00 auf einer Schaetzung bzw. einem noch nicht verarbeiteten Jahreserklaerungsstand.
 
-Bis zur Verarbeitung der nachgereichten Umsatzsteuererklaerung und der in Bearbeitung befindlichen E-Bilanz 2024 bitten wir um Vollstreckungsaufschub bzw. Aussetzung weiterer Vollstreckungsmassnahmen zu den angemahnten Betraegen. Hilfsweise bitten wir um Mitteilung, welche weiteren Bescheide den angemahnten Betraegen zugrunde liegen und ob aus Ihrer Sicht fuer einzelne Bescheide ein gesonderter Einspruch und/oder Antrag auf Aussetzung der Vollziehung erforderlich ist.
+Die Koerperschaftsteuer- und Gewerbesteuererklaerungen 2024 wurden am 30.04.2026 elektronisch uebermittelt. Der E-Bilanz-Datensatz wird aus den Jahresabschlussdaten 2024 vorbereitet. Da die Aufbereitung und technische Validierung des elektronischen Datensatzes noch abschliessend fertiggestellt werden muss, beantragen wir vorsorglich eine kurze Fristverlaengerung fuer die elektronische Uebermittlung der E-Bilanz 2024 bis zum 16.06.2026. Wir reichen den Datensatz frueher ein, sofern die technische Validierung frueher abgeschlossen ist. Der Jahresabschluss fuer den Zeitraum 10.01.2024 bis 31.12.2024 weist einen Jahresfehlbetrag von EUR 14.447 aus.
 
-Die Koerperschaftsteuer- und Gewerbesteuererklaerungen 2024 wurden am 30.04.2026 elektronisch uebermittelt. Der E-Bilanz-Datensatz wird aus den Jahresabschlussdaten 2024 vorbereitet und kurzfristig elektronisch nachgereicht. Der Jahresabschluss fuer den Zeitraum 10.01.2024 bis 31.12.2024 weist einen Jahresfehlbetrag von EUR 14.447 aus.
+Bis zur Verarbeitung der nachgereichten Umsatzsteuererklaerung und bis zur Einreichung bzw. Verarbeitung der E-Bilanz 2024 bitten wir um Vollstreckungsaufschub bzw. Aussetzung weiterer Vollstreckungsmassnahmen zu den angemahnten Betraegen. Hilfsweise bitten wir um Mitteilung, welche weiteren Bescheide den angemahnten Betraegen zugrunde liegen und ob aus Ihrer Sicht fuer einzelne Bescheide ein gesonderter Einspruch und/oder Antrag auf Aussetzung der Vollziehung erforderlich ist.
 
-Zu den Lohnsteuerbetraegen: Fuer den Zeitraum ab Mai 2024 bestand eine Beschaeftigung in Deutschland. Die Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 wurden am 25.05.2026 elektronisch nachgereicht. Wir bitten, bereits vorhandene Zahlungen/Guthaben bis zur Zuordnung nicht auszubuchen bzw. nicht gegen andere Steuerarten umzubuchen. Eine gesonderte Rueckmeldung mit Zahlungs- und Lohnabrechnungsnachweisen folgt.
+Zu den Lohnsteuerbetraegen: Fuer den Zeitraum ab Mai 2024 bestand eine Beschaeftigung in Deutschland. Die Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 wurden am 25.05.2026 elektronisch nachgereicht und sind damit anmeldungsseitig abgeschlossen.
+
+Die ELSTER-Transfertickets lauten:
+05/2024: ep1456q36h6fax22pxruory2bqxg35rf
+06/2024: ep1454u0us91ak6ytxjoyr151gn0nk56
+07/2024: ep145389jhqoj850b37uqrxgeyt28o4a
+08/2024: ep1452vnk5ghwv23bhwn05y2p221g8h3
+09/2024: ep1450tm2w1u7q7g48mkzwc7n57axxyx
+10/2024: ep1452qend5kbe0n83t2hcw1jsrzb9h4
+11/2024: ep1453j2jqodee32j9c9phabtri3hwmv
+12/2024: ep1451zjxx1zon6gf99nh26gs93byiic
+01/2025: ep1457e90eko0j7fz6byc9eh2rf8w6kf
+02/2025: ep14550ufjdsj66zapbg7uy7r17sf1we
+03/2025: ep1450r65isi100n50ss8zj4x1mdqyyx
+04/2025: ep14546morrzf90ms3tri572k4qftjpb
+
+Wir bitten, bereits vorhandene Zahlungen/Guthaben bis zur Zuordnung nicht auszubuchen bzw. nicht gegen andere Steuerarten umzubuchen. Eine gesonderte Rueckmeldung mit Zahlungs- und Lohnabrechnungsnachweisen folgt.
 
 Mit freundlichen Gruessen
 
