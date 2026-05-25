@@ -49,6 +49,22 @@ The Notion payroll query task contains payslip and tax-payment proof attachments
 
 The 2026-05-19 Finanzamt account statement/Mahnung shows visible Lohnsteuer credits for May 2024 through April 2025 and a handwritten note indicating payroll tax was paid but not registered/submitted. Working conclusion: AGL should acknowledge that it had German employment from 2024-05-01, then reconcile or file/correct the missing monthly Lohnsteuer-Anmeldungen rather than saying there were no employees.
 
+### Extracted Payroll-Tax Schedule
+
+Status: provisional.
+Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; attached payslip PDFs extracted through Notion on 2026-05-25; live ELSTER review on 2026-05-25.
+Imported: 2026-05-25.
+Review: Treat the schedule as the filing basis, but confirm whether any returns were submitted outside Mein ELSTER before deciding that all periods are original missing returns.
+
+| Periods | Monthly gross | Monthly Lohnsteuer | Monthly SolZ | Monthly Kirchensteuer | Count | Total payroll tax |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2024-05 through 2024-11 | EUR 6,500.00 | EUR 1,735.66 | EUR 26.75 | EUR 0.00 | 7 | EUR 12,336.87 |
+| 2024-12 | EUR 6,500.00 | EUR 1,700.66 | EUR 22.58 | EUR 0.00 | 1 | EUR 1,723.24 |
+| 2025-01 through 2025-04 | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | 4 | EUR 6,861.84 |
+| **Total** | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **12** | **EUR 20,921.95** |
+
+Visible Mein ELSTER transmitted-form history did not show a Lohnsteuer-Anmeldung for the queried periods, subject to the ELSTER caveat that filings from external tax software may not be listed there. The May 2024 Lohnsteuer-Anmeldung is prepared in ELSTER as an original return and passed ELSTER validation, but it has not been submitted pending explicit approval of the final review figures.
+
 ## Retroactive Payroll Note
 
 Status: provisional.

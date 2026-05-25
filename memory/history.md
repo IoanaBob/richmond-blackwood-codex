@@ -866,3 +866,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: The reusable pattern belongs in a focused Finanzamt/ELSTER response skill, not only in the AGL client file, because the same workflow applies to annual VAT requests, E-Bilanz requests, Mahnungen/account statements, payroll-tax queries, and reviewed authority messages across German company clients.
 - Verification: `git diff --check` passed; ELSTER credential-prefix scan found no repo match.
 - Limitations or gaps: Future Finanzamt packets should validate whether more notice types or schema-specific Notion routing rules need to be added.
+
+## 2026-05-25 - AGL May 2024 Payroll-Tax ELSTER Preparation
+
+- User request: After logging Codex into ELSTER, proceed with the AGL payroll-tax task immediately, using the Notion payroll task evidence and handling the matter proactively for the Finanzamt.
+- Context read: Live ELSTER AGL session, Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`, previously extracted payslip figures, AGL client records, and the repo-local `rb-finanzamt-response` skill.
+- Actions taken: Prepared May 2024 Lohnsteuer-Anmeldung in ELSTER as an original return for StNr 29/628/00250 with one employee, Kz42 EUR 1,735.66, Kz49 EUR 26.75, Kz83 EUR 1,762.41, no church tax, and no supplemental note. ELSTER validation passed and the form is sitting at the final review/Absenden screen. Added a Notion task comment and updated AGL repo records with the payroll schedule and caveats.
+- Decisions made: Do not press `Absenden` without explicit approval of the exact filing figures, despite the user's broad authority, because the next click transmits a tax return to the Finanzamt. Treat visible absence of Lohnsteuer-Anmeldungen in Mein ELSTER as strong but provisional evidence because external tax-software submissions may not appear there.
+- Verification: ELSTER reported no errors for the May 2024 draft; Notion comment read-back confirmed the internal task update; `git diff --check` passed.
+- Limitations or gaps: No tax return or Finanzamt message was submitted. The remaining periods June 2024-April 2025 should be prepared after approval unless Simoneta/payroll proves prior external-software submissions or rejected/corrected filings.

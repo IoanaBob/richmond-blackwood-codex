@@ -12,7 +12,7 @@ Imported: 2026-05-13.
 | Confirm original 2024 USt/KSt/GewSt/Soli Bescheide behind the 2026-05-19 Mahnung. | Local scanned AGL Mahnung/account statement PDFs reviewed 2026-05-25 | The Mahnung lists EUR 5,781.25 due but does not show the underlying assessment notices or appeal deadlines. Retrieve from ELSTER, AMD, mail, or Drive before deciding whether to pay, object, or request Aussetzung der Vollziehung. |
 | Confirm how to generate AGL's 2024 E-Bilanz Datensatz. | Finanzamt E-Bilanz request dated 2026-05-19; AGL 2024 FS in Drive | Ordinary PDF financial statements are not the requested dataset. Confirm whether Lexoffice, AMD, or another E-Bilanz/XBRL tool will generate the electronic filing. |
 | Confirm annual VAT return figures before submitting 2024 Umsatzsteuererklaerung. | 2024 Q1-Q4 UStVA protocols reviewed 2026-05-25 | All quarterly protocols show EUR 0.00, but the annual return still needs review against bookkeeping before ELSTER submission. |
-| Confirm May 2024-April 2025 Lohnsteuer-Anmeldung status. | Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; 2026-05-19 account statement | Payment proofs and visible credits exist, but successful return submissions are not yet proven. |
+| Confirm May 2024-April 2025 Lohnsteuer-Anmeldung status. | Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; 2026-05-19 account statement; live ELSTER review on 2026-05-25 | Payment proofs and visible credits exist. Visible Mein ELSTER transmitted-form history did not show Lohnsteuer-Anmeldungen, but external-software submissions may not appear there. May 2024 is prepared and validated in ELSTER, pending explicit approval before submission. |
 
 ## Resolved On 2026-05-13
 
