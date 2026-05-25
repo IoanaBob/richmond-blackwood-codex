@@ -38,6 +38,17 @@ Berlin Finanzamt queried AGL about missing payroll-tax returns for May 2024 thro
 
 The source attachment from Gmail message `19dcef9e06c9b05a` was filed in Drive as `AGILE LINCS LIMITED.pdf` at `https://drive.google.com/file/d/1tqR347KxBiN8NUVGLnxqezx2D6bTHfvK/view?usp=drivesdk`; translated/read note at `https://drive.google.com/file/d/1HD-_Q4u5RY0Wp_svDNoWN3vH-bug3GWj/view?usp=drivesdk`.
 
+### 2026-05-25 Follow-Up Evidence
+
+Status: provisional.
+Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; local scanned May 2026 Finanzamt account statement PDFs; user instruction on 2026-05-25.
+Imported: 2026-05-25.
+Review: Simoneta/payroll owner must confirm whether the May 2024-April 2025 Lohnsteuer-Anmeldungen were missing, filed late, rejected, or only misallocated.
+
+The Notion payroll query task contains payslip and tax-payment proof attachments for each month from May 2024 through April 2025. Those attachments evidence payroll calculations/payments but do not yet evidence successful electronic Lohnsteuer-Anmeldung submissions.
+
+The 2026-05-19 Finanzamt account statement/Mahnung shows visible Lohnsteuer credits for May 2024 through April 2025 and a handwritten note indicating payroll tax was paid but not registered/submitted. Working conclusion: AGL should acknowledge that it had German employment from 2024-05-01, then reconcile or file/correct the missing monthly Lohnsteuer-Anmeldungen rather than saying there were no employees.
+
 ## Retroactive Payroll Note
 
 Status: provisional.

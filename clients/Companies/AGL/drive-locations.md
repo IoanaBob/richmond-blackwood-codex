@@ -32,3 +32,17 @@ Group/external classification: external client root, because the parent chain en
 | AGL - 2024 Accounts.xlsx | `https://docs.google.com/spreadsheets/d/1tHqrDm1XgUB5NdfVQY76HUqiMySBaIrF/edit?usp=drivesdk&ouid=117807479741277327905&rtpof=true&sd=true` | 2024 accounts. |
 | Invoices | `https://drive.google.com/drive/folders/1U7Qnu90LV_VHf97YeTYeFJYuYdXl-7Gp` | 2024 invoices. |
 | Client Back-Up | `https://drive.google.com/drive/folders/1R8xHZlflOrYYLg8ITWql6eAEE27VZ6UW` | 2024 backup folder. |
+
+## Pending Uploads From 2026-05-25 Finanzamt Packet
+
+Status: provisional.
+Source: User-provided local PDFs in Codex chat on 2026-05-25; Google Drive folder reads on 2026-05-25.
+Imported: 2026-05-25.
+Review: Upload when the Drive helper dependency issue is resolved or another approved Drive upload route is available. The FS PDF is already in Drive and should not be duplicated.
+
+| Local file | Target folder | Reason |
+| --- | --- | --- |
+| `SD79-26003 AGILE LINCS LIMITED 信件1.pdf` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Finanzamt request for 2024 E-Bilanz dataset. |
+| `SD79-26003 AGILE LINCS LIMITED 信件2（重复扫描？？）.pdf` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Finanzamt request for 2024 annual VAT return. |
+| `SD79-26003 AGILE LINCS LIMITED 信件3.pdf` and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf` | Correspondence / Incoming `https://drive.google.com/drive/folders/1VuDyiuhTp5_Uw1cx7U-9g0dmiaUCBvOd` | 2026-05-19 Mahnung / account statement pages. |
+| `2024-Q1-UStVa-Protokoll.pdf` through `2024-Q4-UStVa-Protokoll.pdf` | 2024 folder or 2024 Client Back-Up | Quarterly VAT pre-return protocols supporting the annual VAT response. Confirm exact filing destination before upload. |

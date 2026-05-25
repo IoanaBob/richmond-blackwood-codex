@@ -848,3 +848,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
+
+## 2026-05-25 - AGL Finanzamt May 2026 Response Planning
+
+- User request: Review AGL's new Finanzamt letters, 2024 VAT filings from le office, internal records, and the Simoneta payroll-tax query task; advise priorities; start the annual VAT filing path; and draft any Finanzamt communications for review.
+- Context read: Local AGL PDFs and UStVA protocols, AGL repo records, Notion company/task/filing records, Gmail thread `19e2263aa4379938`, Drive AGL folders, and official ELSTER/BMF public references.
+- Actions taken: Added `clients/Companies/AGL/finanzamt-2026-05-response-plan.md`, recorded the annual VAT, E-Bilanz, Mahnung, and payroll-tax workstreams separately, updated AGL tax/payroll/Drive/source/open-question files, and drafted ELSTER/payroll-tax response text for review.
+- Decisions made: Treat the annual VAT request as separate from the quarterly zero UStVA protocols; treat the E-Bilanz request as separate from the KSt/GewSt filings; do not say AGL had no employees; do not store the ELSTER credential in git.
+- Verification: Pending after repo edits.
+- Limitations or gaps: No live ELSTER filing or Finanzamt message was sent. Drive upload helper is blocked by missing `ts-node/register`, so the new letters/protocols are logged for later upload.

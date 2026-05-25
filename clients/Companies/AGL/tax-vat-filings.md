@@ -52,6 +52,20 @@ Superseded/stale source note: Notion task `https://www.notion.so/332e41301314818
 | PE declaration / response to Finanzamt | Done; awaiting response | `https://www.notion.so/337e413013148037bf1bfe76ccf6f3c5` | Page comment says this was submitted to the Finanzamt and is awaiting response; user confirmed no feedback yet on 2026-05-13. |
 | Payroll-tax query May 2024-April 2025 | In Review | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Berlin Finanzamt says no payroll tax returns were submitted for May 2024-April 2025 while payments were received; see `accounting-bookkeeping-payroll.md`. |
 
+## Finanzamt May 2026 Packet
+
+Status: provisional.
+Source: User instruction on 2026-05-25; local AGL PDFs downloaded by the user; Notion task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; Notion German corporation filing `https://www.notion.so/311e4130131481d49734d2b64b83b265`; Gmail message `19e2263aa4379938`; Google Drive AGL folder reads.
+Imported: 2026-05-25.
+Review: See `finanzamt-2026-05-response-plan.md`. Do not submit filings or messages without operator/accountant review.
+
+| Item | Status | Source | Next action |
+| --- | --- | --- | --- |
+| 2024 Umsatzsteuererklaerung request | Open; due 2026-06-02 per Finanzamt letter dated 2026-05-19 | Local `SD79-26003 AGILE LINCS LIMITED 信件2（重复扫描？？）.pdf`; quarterly 2024 UStVA protocols | File annual 2024 VAT return electronically. The four 2024 quarterly protocols show EUR 0.00, but annual return is still separately requested. |
+| 2024 E-Bilanz Datensatz request | Open; due 2026-06-02 per Finanzamt letter dated 2026-05-19 | Local `SD79-26003 AGILE LINCS LIMITED 信件1.pdf`; Notion KSt/GewSt filing record | Generate and electronically submit the E-Bilanz/XBRL dataset. Existing KSt/GewSt submissions do not close this request. |
+| 2026-05-19 Mahnung / account statement | Open; urgent | Local scanned `SD79-26003 AGILE LINCS LIMITED 信件3.pdf` and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf` | Account statement shows EUR 5,781.25 total with USt/KSt/GewSt/soli and surcharges. Retrieve underlying Bescheide and request suspension/collection pause while missing filings are processed. |
+| 2024 financial statements | Available in Drive | `https://drive.google.com/file/d/1jBoStq1KZRTQUXjB1SEjlGiZCSvvwBil` | FS period is 2024-01-10 to 2024-12-31 and shows EUR 14,447 loss for the year; use for E-Bilanz preparation and response support. |
+
 ## Board Meetings For Irish Tax Residence
 
 Status: provisional.

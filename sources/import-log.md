@@ -1646,3 +1646,31 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-25 - AGL Finanzamt May 2026 Packet
+
+Imported:
+
+- User-supplied local AGL Finanzamt PDFs and 2024 VAT filing protocols from the Codex chat.
+- AGL payroll-tax query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`.
+- AGL company page `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`.
+- AGL German corporation filing `https://www.notion.so/311e4130131481d49734d2b64b83b265`.
+- Gmail message `19e2263aa4379938`.
+- Drive FS PDF `https://drive.google.com/file/d/1jBoStq1KZRTQUXjB1SEjlGiZCSvvwBil`.
+- Official ELSTER/BMF public references for electronic USt, Lohnsteuer, KSt/GewSt, and E-Bilanz transmission.
+
+Actions:
+
+- Distinguished the annual VAT return request from the already-filed quarterly UStVA protocols.
+- Distinguished the E-Bilanz dataset request from the already-recorded German KSt/GewSt filing submissions.
+- Identified the 2026-05-19 Mahnung/account statement as urgent because it lists EUR 5,781.25 and possible enforcement pressure.
+- Recorded the payroll-tax response position: AGL had German employment from 2024-05-01, and the missing point is Lohnsteuer-Anmeldung submission/processing rather than employee existence.
+- Added a draft ELSTER response and a draft payroll-tax response for operator/accountant review.
+
+Unresolved:
+
+- File or review the 2024 Umsatzsteuererklaerung in ELSTER.
+- Generate and submit the 2024 E-Bilanz dataset through appropriate software.
+- Retrieve the underlying 2024 assessment notices behind the Mahnung.
+- Confirm the May 2024-April 2025 payroll-tax return submission status with Simoneta/payroll owner.
+- Upload the new local letters and UStVA protocols into Drive once the upload helper dependency or another approved upload route is available.
