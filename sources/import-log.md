@@ -1646,3 +1646,23 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-25 - AGL Board Minutes Signed Evidence And BOD Skill
+
+Imported:
+
+- User-provided signed PDF `/Users/jp/Downloads/AGL MINUTE BOD Q1 26.pdf`.
+- AGL `25.05.2026` Board Meeting folder `https://drive.google.com/drive/folders/1l8AD_Ay-GCHad98zDJTWpqfhah7WuQl3`.
+- Editable final minutes Google Doc `https://docs.google.com/document/d/1EWp1B0yzEUD02wOJ7GZTnWrZ2A9Eh2HjTgMnQjNuNqY/edit`.
+- Notion transcript page `https://www.notion.so/36be4130131480cb8262fdac95355570`.
+
+Actions:
+
+- Uploaded signed PDF as `25/05/2026 BOD Minute - signed.pdf` to the AGL 25.05.2026 Board Meeting folder.
+- Verified the folder contains the agenda, editable final minutes, and signed PDF.
+- Added `skills/rb-client-board-docs/SKILL.md` and registered it in `skills/index.md`.
+- Updated AGL Drive/source pointers and durable memory.
+
+Unresolved:
+
+- Repeat the workflow on another client BOD meeting to validate the skill outside AGL.

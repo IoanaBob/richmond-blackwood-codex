@@ -848,3 +848,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
+
+## 2026-05-25 - AGL Board Minutes Signed Evidence
+
+- User request: Upload the signed copy of AGL's Q1 2026 board minutes, update memory/skillset, and restate the repeatable process.
+- Context read: AGL 25.05.2026 Board Meeting Drive folder, the editable final minutes Google Doc, the signed local PDF `AGL MINUTE BOD Q1 26.pdf`, and the BOD document workflow.
+- Actions taken: Refreshed Google Drive auth with user approval, uploaded the signed PDF to the AGL `25.05.2026` Board Meeting folder, verified the folder listing, added the `rb-client-board-docs` repo-local skill, and recorded Drive/source pointers in the AGL company files and memory.
+- Decisions made: Signed board minutes should be uploaded to the same dated board folder as the agenda and editable minutes, then verified by a folder listing before closeout.
+- Verification: Drive listing verified the folder contains `25/05/2026 BOD Agenda`, `25/05/2026 BOD Minute final`, and `25/05/2026 BOD Minute - signed.pdf`; signed PDF URL is `https://drive.google.com/file/d/1g5me-4hNR6rgJr3b4LoGc3DjrMXRDpzu/view?usp=drivesdk`.
+- Limitations or gaps: None for the signed PDF upload; future local helper use depends on Google auth being current.
