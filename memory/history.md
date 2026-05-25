@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-05-25 - Client BOD Document Skill
+
+- User request: Add a reusable skill for preparing client board-of-directors documents.
+- Context read: `skills/index.md`, skill-creator guidance, existing RB file/signature/source skills, AGL Board Meetings Drive folder, CBMAX Board Meetings Drive folder, and local AGL/CBMAX Drive pointers.
+- Actions taken: Created `rb-client-board-docs`, added it to the repo skill index, and recorded the workflow in source/import/skill-run logs.
+- Decisions made: Client board-document work should be Drive-first: create or find the dated BOD meeting subfolder in the existing client Board Meetings folder, draft the agenda there before the meeting, draft minutes from meeting extracts after the meeting, produce editable and PDF/signing copies, and upload the signed copy to the same folder.
+- Verification: AGL Drive read-back showed dated board folders including `25.05.2026`; CBMAX Drive read-back showed `BOD Meeting ...` folders with agenda, editable minutes, signed PDF, and supporting documents.
+- Limitations or gaps: The new skill has not yet been used for a full end-to-end live board-document run.
+
 ## 2026-05-20 - Common Tasks Follow-Through Process Corrections
 
 - User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, require Stage 1 to pull latest `main`, and prepare a new PR.
