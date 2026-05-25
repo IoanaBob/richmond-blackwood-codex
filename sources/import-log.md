@@ -40,6 +40,22 @@ Unresolved:
 
 - Direct n8n MCP/REST execution was unavailable in the local Codex session, so live initiation relies on the scheduled voice runner and heartbeat sequencing until the call outcomes are verified.
 
+## 2026-05-25 - Standing Call-Initiation Memory Rule
+
+Imported:
+
+- User instruction in Codex conversation to use saved call skills to initiate calls and update memory to always do that.
+
+Actions:
+
+- Added `rb-authority-call-setup` to the repo-local skill index.
+- Updated `skills/rb-authority-call-setup/SKILL.md` with a live call initiation handoff: verify the Call record, try the saved `RB Calls Voice Execution` n8n/ElevenLabs route when configured and allowed, then read back call status/IDs.
+- Updated `memory/current-state.md` and `memory/handoff.md` with the standing rule and scheduled-runner fallback.
+
+Unresolved:
+
+- Current local Codex config has no n8n MCP URL, so this session cannot directly execute `RB Calls Voice Execution`; the active scheduled runner remains the execution path until n8n MCP/REST access is restored.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:

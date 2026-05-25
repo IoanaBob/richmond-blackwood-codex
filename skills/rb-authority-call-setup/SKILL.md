@@ -150,7 +150,17 @@ Keep a clear boundary: creating a contact is usually low risk; creating or mater
 
 Before creating a new call, query or search the Calls data source for open calls with the same Company, Individual, Contact, or similar `Short reason`. If a likely duplicate exists, show it in the review packet and ask whether to update that record or create a new one.
 
-Never place a live phone call from this skill. This skill creates the request record only. Calling is controlled later by the n8n and ElevenLabs workflows.
+Never place a live phone call from this skill. This skill creates or readies the request record only. Calling is controlled later by the n8n and ElevenLabs workflows.
+
+## Live Call Initiation Handoff
+
+When the user explicitly asks Codex to initiate, place, start, or retry an approved call, do not stop after creating or updating the Notion call record. Use this skill to verify call readiness, then hand off to the saved calling-bot runtime path.
+
+- Verify the relevant Call record is `Reviewed`, `Approved`, has a valid Contact and availability window, has a current or past `Next Call At`, and has stale runtime fields cleared before attempting execution.
+- Use `setup/mcp/elevenlabs-n8n.md`, `automation/README.md`, and `automation/live-readbacks/rb-calls-live-state.json` to identify the live `RB Calls Voice Execution` workflow and current runtime expectations.
+- If n8n MCP is configured and policy allows direct production execution, execute `RB Calls Voice Execution` once for the currently eligible reviewed/approved calls, then fetch the Call record and report the resulting `ElevenLabs Conversation ID`, `Twilio Call SID`, status, or blocker.
+- If direct execution is unavailable, rejected by policy, or missing local n8n MCP/REST credentials, verify the earliest valid `Next Call At`, rely on the active 15-minute scheduled runner, and clearly report the exact blocker and expected pickup window.
+- For ordered call sequences, keep later calls unapproved or otherwise ineligible until the prior call reaches a terminal state, or create/update a heartbeat automation to activate the next call. Do not approve several sequence calls at once unless the user explicitly wants parallel outbound calls.
 
 Do not store API keys, webhook secrets, recordings, full transcripts, or private credential material in the repo or in the call record.
 
