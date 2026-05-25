@@ -128,6 +128,12 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm remaining balance after the garnished account transfer; user says Finanzamt has not yet responded to the payment-plan proposal.
 - Confirm later whether Aaron's P-Konto becomes active; user says it is not confirmed now.
 - Confirm submission evidence and exposure for the prior Gewerbe trade-tax/VAT catch-up periods 2023, 2024, and Q1 2025; user says Aaron was deregistered after Q1 2025.
+- For Aaron's 2025 joint German personal-tax filing, obtain or extract Aaron's annual wage-tax certificate/payslips and verify April/May payroll tax, June correction, October offset, and December wage-tax treatment before filing.
+- For Aaron's 2025 joint German personal-tax filing, obtain or extract wife/Antje's annual wage-tax certificate and verify spouse details from the available payslip source before filing.
+- For Aaron's 2025 joint German personal-tax filing, collect exact receipt/invoice URLs and business-purpose support before claiming the excluded EUR 621.97 Uber/travel candidates and EUR 181.30 net bookkeeping candidate.
+- For Aaron's 2025 joint German personal-tax filing, confirm Hallescher annual private health-insurance certificate/covered months, investments/no-investments, home-office days, direct income-tax prepayments, and final Student Finance treatment.
+- Move or copy Aaron's 2025 German personal-tax workbook into the correct Drive filing folder after shared Google persona Drive copy auth is restored; the connector-created workbook currently exists as a native Sheet but was not placed in the target folder.
+- File or confirm Aaron's separate final-freelancer-year VAT and trade-tax wrap-up for the 2025 months worked, then confirm full deregistration evidence.
 - For future Riot/Echo sends, use the updated Business Partner invoice-to/CC fields plus Business Partner notes; Riot's Nicole recipient remains in notes because the current schema is single-email.
 - Decide whether Notion should get multi-recipient invoice-routing fields so Riot-style routes do not need to keep secondary To recipients in notes.
 - Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.

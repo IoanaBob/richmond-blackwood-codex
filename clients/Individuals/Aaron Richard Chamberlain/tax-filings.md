@@ -11,13 +11,14 @@ Review: This file is a compact index. Use `personal-tax-returns.md` for detailed
 | --- | --- | --- | --- |
 | 2023 - Personal Tax - Aaron | `https://www.notion.so/2cee4130131480159afac4c473b603c5` | Filed | Filed by RB on 2026-03-23 after prior accountant did not file. |
 | 2024 - Personal Tax - Aaron | `https://www.notion.so/2cae41301314802bb741d773f76a2b5d` | Filed | Filed by RB on 2026-03-23 after prior accountant did not file. |
-| 2025 - Personal Tax - Aaron - Germany | `https://www.notion.so/342e413013148081b46dc0d4952a7659` | Pending | Aaron confirmed 2025 onward joint filing with wife. |
+| 2025 - Personal Tax - Aaron - Germany | `https://www.notion.so/342e413013148081b46dc0d4952a7659` | In Progress | 2025 joint workbook prepared at `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`; filing task linked. |
 
 ## Related Tasks
 
 | Task | URL | Current note |
 | --- | --- | --- |
-| Start Aaron + wife 2025 joint personal tax filing | `https://www.notion.so/360e4130131481b881aad86ffaf1b958` | To Do in Notion read; should start within May 2026. |
+| Start Aaron + wife 2025 joint personal tax filing | `https://www.notion.so/360e4130131481b881aad86ffaf1b958` | In Progress; workbook prepared and filing task linked on 2026-05-25. |
+| File 2025 German personal tax return - Aaron Richard Chamberlain | `https://www.notion.so/36be41301314819bb2fdc42eb47d202d` | Created on 2026-05-25 from the annual personal-tax task template and linked to the 2025 filing record. |
 | Aaron Personal Taxes Update | `https://www.notion.so/342e4130131480988923e76bb5d9a425` | In Progress in Notion read; questionnaire/draft responses and debt info context. |
 | Call Finanzamt for Aaron's personal taxes | `https://www.notion.so/330e4130131481898cf2d1ae0ff99cd9` | Done in Notion read; comment says communication is now via ELSTER. |
 | Write to Finanzamt to propose payment plans for Aaron's personal taxes | `https://www.notion.so/337e41301314805db742dd34fd4f4b10` | Done in Notion read; related correspondence in Drive/Notion. |
