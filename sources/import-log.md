@@ -1780,3 +1780,26 @@ Unresolved:
 - Send a reviewed ELSTER/Finanzamt message requesting processing/amendment of the 2024 USt assessment and pause of collection/enforcement while E-Bilanz/payroll evidence follow-up is handled.
 - Generate, validate, submit, and save the official E-Bilanz/XBRL datensatz.
 - Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files for payroll evidence submission.
+
+## 2026-05-26 - AGL Finanzamt Holding Message And USt Appeal
+
+Imported:
+
+- User approval in Codex chat to submit the stronger ELSTER holding message and then the formal USt 2024 appeal/AdV path.
+- Live ELSTER Versandbestaetigungen for `Sonstige Nachricht an das Finanzamt` and `Einspruch`.
+- Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`.
+- Canonical Communications data source `https://www.notion.so/1b5e4130131480ab84f3cca356736807`.
+
+Actions:
+
+- Submitted the AGL holding Finanzamt message in ELSTER with ticket `ep1462eym8u2br1mdekveum80xchf83n`, Ordnungskriterium `29/628/00250`, and Abgabezeit `Dienstag, 26. Mai 2026, 00:50:02`.
+- Submitted the formal USt 2024 `Einspruch` with full AdV request in ELSTER with ticket `ep1465aipg984922yz1tff6f2r95kktx`, Ordnungskriterium `29/628/00250`, and Abgabezeit `Dienstag, 26. Mai 2026, 00:57:40`.
+- Added Notion task comment `36be4130-1314-8185-8f74-001d5e870a14`.
+- Created canonical Communications records `https://www.notion.so/36be413013148131a995ca7dc0decfcf` and `https://www.notion.so/36be413013148176af0bee390cdde567`.
+- Updated AGL client files and durable memory.
+
+Unresolved:
+
+- Generate, validate, submit, and save the official E-Bilanz/XBRL datensatz.
+- Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files for payroll evidence submission and allocation support.
+- Monitor Finanzamt processing, AdV/collection status, and any remaining KSt/GewSt/Soli assessment/account details behind the Mahnung.

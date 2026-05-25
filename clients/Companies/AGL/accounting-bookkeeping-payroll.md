@@ -68,6 +68,15 @@ The 2026-05-19 Finanzamt account statement/Mahnung shows visible Lohnsteuer cred
 
 The Drive AGL bank statement confirms the May 2024 payment row: on 2025-04-10 AGL paid EUR 1,762.41 to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524`. This matches the prepared May 2024 Lohnsteuer-Anmeldung total.
 
+### 2026-05-26 Finanzamt Payroll Status Notice
+
+Status: submitted.
+Source: Live ELSTER `Sonstige Nachricht an das Finanzamt` Versandbestaetigung on 2026-05-26; Notion payroll task comment `36be4130-1314-8185-8f74-001d5e870a14`; Communications record `https://www.notion.so/36be413013148131a995ca7dc0decfcf`.
+Imported: 2026-05-26.
+Review: The notice informed Finanzamt that the May 2024-April 2025 Lohnsteuer-Anmeldungen were submitted and listed the monthly transfer tickets. It did not attach payslips/payment proofs, which remain a separate evidence upload/allocation follow-up.
+
+ELSTER ticket for the combined Finanzamt notice: `ep1462eym8u2br1mdekveum80xchf83n`, submitted `Dienstag, 26. Mai 2026, 00:50:02` under Ordnungskriterium `29/628/00250`.
+
 ### Extracted Payroll-Tax Schedule
 
 Status: provisional.

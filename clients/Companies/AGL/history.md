@@ -30,3 +30,11 @@ Review: Keep this as a company-side summary. Byron personal-tax details belong i
 - Updated the live ELSTER May 2024 Lohnsteuer-Anmeldung company address to `Stralauer Platz 35, 10243 Berlin`, cleared the old Ehrenberg/Scanbox address, reran validation, and returned to the final `Absenden` review screen. No tax return was submitted.
 - Confirmed the May 2024 payment evidence in the AGL Drive bank statement: 2025-04-10 payment to Finanzamt fuer Koerperschaften III, reference `29/628/00250 LSt 0524`, amount EUR 1,762.41, matching the May 2024 return total.
 - Confirmed the Notion payroll task identifies May 2024 evidence attachments `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`. The exact PDFs still need an uploadable local/browser path before ELSTER Belegnachreichung can be sent.
+
+## 2026-05-25/26 - Finanzamt Submissions
+
+- After user approval, submitted all May 2024-April 2025 Lohnsteuer-Anmeldungen through ELSTER and recorded the transfer tickets in `accounting-bookkeeping-payroll.md`.
+- After user approval, submitted the 2024 Umsatzsteuererklaerung through ELSTER with final VAT/refund EUR 0.00 and transfer ticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`.
+- Filed a holding `Sonstige Nachricht an das Finanzamt` on 2026-05-26 with transfer ticket `ep1462eym8u2br1mdekveum80xchf83n`, asking for USt processing/amendment, AdV/Vollstreckungsaufschub, E-Bilanz extension to 2026-06-16, payroll-ticket recognition, and payment/credit preservation.
+- Filed the formal USt 2024 `Einspruch einreichen inkl. Aussetzung der Vollziehung` on 2026-05-26 with transfer ticket `ep1465aipg984922yz1tff6f2r95kktx`, covering the USt 2024 Bescheid dated 2026-03-23 and EUR 75.00 Verspaetungszuschlag.
+- Remaining company-side priorities are the official E-Bilanz/XBRL datensatz, uploadable payroll evidence/payment-credit allocation, and monitoring Finanzamt processing/enforcement status.
