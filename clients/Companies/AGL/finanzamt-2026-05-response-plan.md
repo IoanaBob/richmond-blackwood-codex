@@ -153,6 +153,7 @@ Review: User asked to proceed with priority action 1 on 2026-05-25 and then aske
 Sending channel: ELSTER under AGL certificate or authorised representative account, not email.
 Operator: not available from `.env.local` in this worktree.
 ELSTER route: `Sonstige Nachricht an das Finanzamt`, used narrowly as a processing/account/enforcement-pause message rather than a formal `Einspruch`.
+Live ELSTER status: entered in Mein ELSTER on 2026-05-25, validated with no errors and one non-blocking Hinweis, and stopped on the final `Formular absenden` / `Absenden` review page for user review. Not submitted.
 
 ```text
 Betreff: AGL - USt 2024 / E-Bilanz / Mahnung 19.05.2026
