@@ -143,34 +143,39 @@ Key figures:
 
 The native Google Sheet was imported by the connector into My Drive rather than the AGL folder because this import action did not expose a parent-folder option. Move it into the AGL 2024 or Correspondence folder once a folder-aware Drive route is available.
 
-## Draft ELSTER Message - Annual VAT, E-Bilanz, And Mahnung
+## Draft ELSTER Message - Annual VAT, E-Bilanz, Mahnung, And Payroll
 
 Status: draft for review only.
 Source: 2026-05-25 packet and repo/Notion records.
 Imported: 2026-05-25.
-Review: Send only after the filing path, exact sender/representative, and figures are confirmed.
+Review: User asked to proceed with priority action 1 on 2026-05-25. The exact text below was shown in chat before entering it into ELSTER because it is an authority communication containing tax/account data. Send only after the user confirms the exact live-browser action or reviews the final ELSTER send screen.
 
 Sending channel: ELSTER under AGL certificate or authorised representative account, not email.
 Operator: not available from `.env.local` in this worktree.
+ELSTER route: `Sonstige Nachricht an das Finanzamt`, used narrowly as a processing/account/enforcement-pause message rather than a formal `Einspruch`.
 
 ```text
-Betreff: AGILE LINCS LIMITED, StNr. 29/628/00250 - USt 2024 / E-Bilanz 2024 / Mahnung vom 19.05.2026
+Betreff: AGL - USt 2024 / Mahnung 19.05.2026
 
 Sehr geehrte Damen und Herren,
 
 wir haben Ihre Schreiben vom 19.05.2026 zur Umsatzsteuererklaerung 2024 und zur E-Bilanz 2024 sowie die Mahnung / Kontoauszuege vom 19.05.2026 erhalten.
 
-Die Umsatzsteuer-Voranmeldungen fuer das 1. bis 4. Kalendervierteljahr 2024 wurden am 27.06.2025 elektronisch uebermittelt und weisen jeweils EUR 0,00 verbleibende Umsatzsteuer-Vorauszahlung / Ueberschuss aus. Die Umsatzsteuer-Jahreserklaerung 2024 wurde am 25.05.2026 elektronisch nachgereicht; das ELSTER-Transferticket lautet ep1454t90i8mmb5zp5wtk182ewbfh5wq. Die Jahreserklaerung weist EUR 0,00 verbleibende Umsatzsteuer / Erstattung aus.
+Die Umsatzsteuer-Voranmeldungen fuer das 1. bis 4. Kalendervierteljahr 2024 wurden am 27.06.2025 elektronisch uebermittelt und weisen jeweils EUR 0,00 verbleibende Umsatzsteuer-Vorauszahlung / Ueberschuss aus.
 
-Die Koerperschaftsteuer- und Gewerbesteuererklaerungen 2024 wurden am 30.04.2026 elektronisch uebermittelt. Der E-Bilanz-Datensatz wird derzeit aus den Jahresabschlussdaten 2024 vorbereitet und ebenfalls elektronisch nachgereicht. Der Jahresabschluss fuer den Zeitraum 10.01.2024 bis 31.12.2024 weist einen Jahresfehlbetrag von EUR 14.447 aus.
+Die Umsatzsteuer-Jahreserklaerung 2024 wurde am 25.05.2026 elektronisch nachgereicht. Das ELSTER-Transferticket lautet ep1454t90i8mmb5zp5wtk182ewbfh5wq. Die Jahreserklaerung weist EUR 0,00 verbleibende Umsatzsteuer / Erstattung aus.
 
-Da die angemahnten Betraege offenbar auf geschaetzten oder noch nicht vollstaendig verarbeiteten Grundlagen beruhen, bitten wir bis zur Verarbeitung der nachgereichten Umsatzsteuererklaerung und der E-Bilanz um Aussetzung weiterer Vollstreckungsmassnahmen bzw. um Stundung der Vollziehung. Bitte pruefen Sie insbesondere den Umsatzsteuerbescheid 2024 vom 23.03.2026 nach Verarbeitung der nun uebermittelten Jahreserklaerung. Hilfsweise bitten wir um Mitteilung, welche weiteren Bescheide den angemahnten Betraegen zugrunde liegen und ob hierzu aus Ihrer Sicht noch Einspruch und/oder ein Antrag auf Aussetzung der Vollziehung erforderlich ist.
+Wir bitten um zeitnahe Verarbeitung der nachgereichten Umsatzsteuer-Jahreserklaerung 2024 und um entsprechende Pruefung bzw. Aenderung des Umsatzsteuerbescheids 2024 vom 23.03.2026. Nach unserem Kenntnisstand beruhte die dort festgesetzte Umsatzsteuer von EUR 5.200,00 auf einer Schaetzung bzw. einem noch nicht verarbeiteten Jahreserklaerungsstand.
 
-Zu den Lohnsteuerbetraegen: Fuer den Zeitraum ab Mai 2024 bestand eine Beschaeftigung in Deutschland. Zahlungen wurden geleistet; wir gleichen derzeit die Lohnsteuer-Anmeldungen und die Zuordnung der Zahlungen je Anmeldungszeitraum ab. Bitte buchen Sie vorhandene Guthaben bis zur Klaerung nicht aus bzw. nicht gegen andere Steuerarten um. Eine separate Rueckmeldung zu den Lohnsteuer-Anmeldungen folgt kurzfristig.
+Bis zur Verarbeitung der nachgereichten Umsatzsteuererklaerung und der in Bearbeitung befindlichen E-Bilanz 2024 bitten wir um Vollstreckungsaufschub bzw. Aussetzung weiterer Vollstreckungsmassnahmen zu den angemahnten Betraegen. Hilfsweise bitten wir um Mitteilung, welche weiteren Bescheide den angemahnten Betraegen zugrunde liegen und ob aus Ihrer Sicht fuer einzelne Bescheide ein gesonderter Einspruch und/oder Antrag auf Aussetzung der Vollziehung erforderlich ist.
+
+Die Koerperschaftsteuer- und Gewerbesteuererklaerungen 2024 wurden am 30.04.2026 elektronisch uebermittelt. Der E-Bilanz-Datensatz wird aus den Jahresabschlussdaten 2024 vorbereitet und kurzfristig elektronisch nachgereicht. Der Jahresabschluss fuer den Zeitraum 10.01.2024 bis 31.12.2024 weist einen Jahresfehlbetrag von EUR 14.447 aus.
+
+Zu den Lohnsteuerbetraegen: Fuer den Zeitraum ab Mai 2024 bestand eine Beschaeftigung in Deutschland. Die Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 wurden am 25.05.2026 elektronisch nachgereicht. Wir bitten, bereits vorhandene Zahlungen/Guthaben bis zur Zuordnung nicht auszubuchen bzw. nicht gegen andere Steuerarten umzubuchen. Eine gesonderte Rueckmeldung mit Zahlungs- und Lohnabrechnungsnachweisen folgt.
 
 Mit freundlichen Gruessen
 
-[authorised sender / representative]
+AGILE LINCS LIMITED
 ```
 
 ## Draft Payroll-Tax Response
