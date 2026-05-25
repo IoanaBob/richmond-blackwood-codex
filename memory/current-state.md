@@ -24,6 +24,7 @@ Current implementation includes:
 - Reference-based SVL company client folder under `clients/Companies/SVL/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Reference-based AMC company client folder under `clients/Companies/AMC/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Reference-based AKS company client folder under `clients/Companies/AKS/`, loaded on 2026-05-19 from Notion, Drive, Gmail, WhatsApp, Slack, Google Sheets, and user clarification.
+- Reference-based TPL company client folder under `clients/Companies/TPL/`, loaded on 2026-05-22 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
@@ -236,6 +237,20 @@ AKS / Anastasia Evgenyevna Kozhevnikova context import:
 - Payment-plan and penalties: Ana had Finanzamt debt, RB negotiated a payment plan, and RB must negotiate with Finanzamt ahead of the stop-date review before telling her when to stop paying. The payment-plan sheet is `https://docs.google.com/spreadsheets/d/1igtrASzoRrV7Oc1E8tpeczK0PEX1PDP-NmkUYBqEkJU/edit`. The sheet shows different payoff markers depending on whether 2025/future liabilities and penalties are included, so no stop instruction should be sent without a fresh balance and penalty-status check.
 - Live Notion tasks created on 2026-05-19: monitor payment plan and confirm stop date `https://www.notion.so/365e4130131481eb8580f224d0be5adf`; negotiate penalty reduction `https://www.notion.so/365e413013148157b952c94c04d72d90`; request 2025 tax and VAT information early `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`.
 - High-signal open items: exact WhatsApp JID, Q4 2025 and Q1 2026 VAT filing completion, 2025 company-tax filing record/owner, ELSTER activation before 2026-05-28, penalty-waiver response, final payment-plan stop date, and April 2025 payslip location. January 2025 payslip may not be expected because Ana may not have been employed then.
+
+TPL / Techpacito Limited context import:
+
+- Company folder: `clients/Companies/TPL/`.
+- No individual folder was created because user instruction says RB does only the company, not personal taxes.
+- Notion company: `https://www.notion.so/1afe41301314801ba185cabd85971769`; `Reference` is `TPL`.
+- Notion client project: `https://www.notion.so/32fe413013148053858de308234f56e9`.
+- WhatsApp route: `Gupta, Pradeep | Richmond Blackwood` / `120363399422225301@g.us`; saved as source/route pointer only.
+- Current user-instructed position: TPL is a new company-only client. Richmond Blackwood is contractor-on-record because Barden cannot contract TPL directly; Barden pays RB, RB forwards money to TPL, and RB charges an additional EUR 70/month for this route. If Barden can work with German VAT after the USt-IdNr./international VAT position is available, the target is to move TPL away from RB contractor-on-record.
+- Registrations: user says all registrations have been received except international VAT/USt-IdNr. User clarified on 2026-05-24 that the German tax number acts as the local German tax/VAT registration for 2025, while USt-IdNr. still needs questions submitted. Notion VAT row `https://www.notion.so/1e9e413013148108af4dd5788940476a` was updated to `Registered` / `TPL - DE VAT`; annual-return row `https://www.notion.so/1e9e4130131481099265c96960b24128` reads back as `Registered`. JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` was created/read back on 2026-05-25 for the remaining USt-IdNr. questions, due 2026-05-29. Public CRO sources confirm CORE is the annual-return filing route and TECHPACITO LIMITED / company number 786441 was registered on 2025-04-16; direct CRO Open Services annual-return checking returned an API-credential error.
+- Assets and structuring: Gmail `19dbf3b04574dbd8` shows Pradeep forwarded a Mercedes-Benz eSigning completion email for a Mercedes-Benz VLE 300 electric order. User instruction still expects 75 percent accelerated depreciation in 2025 after final acquisition details are confirmed. The Mercedes-Benz order PDF was downloaded to temporary local storage for verification on 2026-05-25, but the upload to Drive `Correspondance` is blocked until the canonical TPL folder exists. User clarified on 2026-05-25 that Everguard operational/payment detail belongs in Everguard records, not RB client memory.
+- Payroll: user confirmed the registered minijob amount is EUR 600/month; Pradeep and Sangita Notion employment rows were updated from EUR 550 to EUR 600 and read back on 2026-05-24.
+- Drive folder status: target canonical folder is `02. RB Client Companies/19. Techpacito Limited (TPL)`. The saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com` but cannot access the parent folder; `ioana-eip` can access it but needs explicit approval before being used for folder creation.
+- High-signal open items: JP USt-IdNr. follow-up, deciding whether Barden can work with German VAT after the USt-IdNr./international VAT number is available, canonical Drive folder creation/verification after write-persona access is resolved, Mercedes-Benz order PDF upload to `Correspondance`, car invoice/delivery/financing and BIK/payroll treatment, and payroll worked-hour support.
 
 Communication workflow update:
 
