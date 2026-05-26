@@ -43,6 +43,37 @@ Key points:
 - The callout flags possible Q2 2024 VAT liability and asks to check whether VAT exchange was used properly, including Richmond Blackwood, Joblift, and Job Guardian invoicing.
 - 2025 is labelled Ireland in the callout heading, but the body says Eran Peer was appointed and the tax house moved to Germany. This conflicts with the pending/limbo status and needs Notion cleanup rather than being treated as the current operational answer.
 
+## Hamburg Cleanup Nil Returns - Corporation And Trade Tax
+
+Status: provisional.
+Source: ELSTER confirmation screens captured in-session on 2026-05-26; user instruction in Codex chat on 2026-05-26; internal CBMAX records and prior Berlin-number filing context.
+Imported: 2026-05-26.
+Review: Sync these confirmations into the relevant Notion filing/task records and monitor whether Finanzamt Hamburg-Nord deactivates or asks for any further filings under Hamburg tax number `17/070/40129`.
+
+Finanzamt Hamburg-Nord requested nil filings under Hamburg tax number `17/070/40129` because the tax number was active during the relevant years. The Hamburg filings below are cleanup nil returns only; they do not settle the separate Berlin-number, VAT, payroll, Irish VAT, or Irish annual-return positions.
+
+| Return | Year | Tax number / Ordnungskriterium | ELSTER status | Transferticket | Abgabezeit | Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| Körperschaftsteuererklärung | 2024 | `17/070/40129` | Submitted | `ep1466hpp1o23y0mnvjaoio28eykkedt` | 2026-05-26 14:15:13 | Hamburg nil cleanup return. Explanation text did not fully spell out the Berlin-number context; later 2025 return text references that the same logic applies to the 2024 Hamburg cleanup filing. |
+| Körperschaftsteuererklärung | 2025 | `17/070/40129` | Submitted | `ep1461t5zk1smh5hm5psmx51piq1yy46` | 2026-05-26 15:43:49 | Hamburg nil cleanup return; line 23 share-capital figure was corrected to `20001` after cross-checking the latest CRO annual-return evidence supplied by the user. |
+| Gewerbesteuererklärung (GewSt 1 A) | 2024 | `17/070/40129` | Submitted by operator | `ep1462i5ygvrgh2kpp9j0ps42htb09ft` | 2026-05-26 16:09:58 | Hamburg nil cleanup return; user clicked final send. |
+| Gewerbesteuererklärung (GewSt 1 A) | 2025 | `17/070/40129` | Submitted by Codex with explicit action-time user authorisation | `ep1462sjpr8j5g7ghx3ja8b10qeuujst` | 2026-05-26 16:27:09 | Hamburg nil cleanup return; ELSTER validation had no blocking errors and only the expected Hinweis for supplemental explanation text. |
+
+Complete-year checklist for this Hamburg cleanup request:
+
+- Corporation tax: 2024 and 2025 Hamburg nil cleanup filings submitted under `17/070/40129`.
+- Trade tax: 2024 and 2025 Hamburg nil cleanup filings submitted under `17/070/40129`.
+- Solidarity surcharge: no separate ELSTER filing was prepared in this cleanup run; monitor whether it is covered through the corporation-tax assessment flow or whether Hamburg asks for a separate action.
+- VAT: separate issue. Earlier records mention a Hamburg VAT reminder and Berlin VAT filings under `29/648/60019`; do not mark VAT complete from these KSt/GewSt filings alone.
+- Payroll / wage tax: separate German filing-registration context; not part of the Hamburg KSt/GewSt cleanup unless an authority source says otherwise.
+- 2025 Ireland / tax-residence / VAT backdate: still in limbo pending ROS backdate confirmation and internal record reconciliation.
+
+The 2025 Gewerbesteuer explanatory note transmitted in ELSTER was:
+
+```text
+Diese Gewerbesteuererklaerung 2025 fuer die CBMAX FORGEMATE VENTURES LIMITED wird auf telefonische Aufforderung des Finanzamts Hamburg-Nord als Nullerklaerung unter der Hamburger Steuernummer 17/070/40129 uebermittelt. Die Erklaerung dient ausschliesslich der Bereinigung bzw. Schliessung dieser Hamburger Steuernummer. Nach unseren Unterlagen wird die Gesellschaft steuerlich unter der Berliner Steuernummer 29/648/60019 gefuehrt; die steuerliche Behandlung des Jahres 2025 unter der zustaendigen Steuernummer wird gesondert geprueft bzw. behandelt. Fuer die Hamburger Steuernummer werden im Erhebungszeitraum 2025 Besteuerungsgrundlagen und Gewerbeertrag von EUR 0,00 erklaert. Wir bitten nach Bearbeitung um Deaktivierung bzw. Abmeldung der Hamburger Steuernummer, sofern keine weiteren Erklaerungen erforderlich sind.
+```
+
 ## Active VAT / Tax Tasks
 
 | Task | Status | Detail | Source |
@@ -88,5 +119,5 @@ File-level Drive pointers are in `drive-locations.md`.
 - Sync the pending/limbo status and 2026-05-13 user correction back into the Notion company record/tax-history callout.
 - Confirm ROS's final response on the Irish VAT backdate request from January 2025 and the status of the seven pending filings.
 - Decide whether `DE451021099` and/or `DE455085802` should be retained as historical German VAT identifiers, written back to Notion, or left out of the active company field.
-- Confirm the Hamburg tax number `17/070/40128` and whether it belongs to CBMAX.
+- Reconcile the older task reference to Hamburg tax number `17/070/40128` with the ELSTER-confirmed Hamburg cleanup tax number `17/070/40129`.
 - Backfill filing records line-by-line if Notion data-source SQL export becomes available; the SQL query tool errored in this session.

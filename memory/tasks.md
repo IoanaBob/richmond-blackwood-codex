@@ -28,6 +28,7 @@ Imported: 2026-05-04.
 | Monitor AKS Finanzamt payment plan and confirm stop date before telling Ana to stop paying: `https://www.notion.so/365e4130131481eb8580f224d0be5adf`. | 2026-05-19 |
 | Negotiate AKS Finanzamt penalty reduction or waiver ahead of the stop-date review: `https://www.notion.so/365e413013148157b952c94c04d72d90`. | 2026-05-19 |
 | Request AKS/Anastasia 2025 tax and VAT information early because Ana replies slowly: `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`. | 2026-05-19 |
+| Sync CBMAX Hamburg KSt/GewSt cleanup filing confirmations into the relevant Notion task/filing records once the Notion connector is available. | 2026-05-26 |
 
 ## Done
 
