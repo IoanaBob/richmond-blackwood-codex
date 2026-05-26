@@ -2,6 +2,30 @@
 
 Status: active.
 
+## 2026-05-26 - KONVI Company Context Import
+
+Applied:
+
+- Created/updated `clients/Companies/KONVI/` from the Notion Companies `Reference` value.
+- Corrected the legacy tracked folder casing from `clients/Companies/Konvi/` to `clients/Companies/KONVI/`.
+- Preserved the existing controlled calling-bot context and updated its company reference casing.
+- Captured user instruction that Konvi is internal and has no WhatsApp client chat.
+- Populated company profile, source register, linked-individual, contracts/authority, tax/VAT/filing, accounting/payroll, invoices/payments, communications, project, Drive, Notion backup, open-question, and history files.
+- Recorded high-signal active issues from Notion: April books/Irish VAT/ROS demand, Revenue VAT refund support, VIES overdue row, `luigi@konvi.app` mailbox repair, LuxTrust order pack, Dracoon invoice evidence, passive-income payout process, XVault/MiCA/CASP risk, Konvi tax-support landing page, and shareholder-query review.
+- Separated archived or done items from active work: annual-return triage task, Garvan/Emma duplicate offboarding, Banksy liquidity package signing, and booking-link variant check.
+
+Verification:
+
+- Notion source context was reviewed through targeted fetches.
+- Broad Notion Tasks database search timed out, so this import used narrower targeted searches/fetches and should be treated as first pass rather than exhaustive.
+- No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- Confirm whether the Notion company communication preference should be changed away from WhatsApp.
+- Confirm the registered office field and canonical Drive folder.
+- Check live status for April 2026 Irish VAT/ROS demand, Revenue VAT refund request, VIES overdue row, 2026 annual-return row, UK VAT task title cleanup, and Konvi business-partner VAT metadata.
+
 ## 2026-05-22 - TPL / Techpacito Context Import
 
 Applied:
