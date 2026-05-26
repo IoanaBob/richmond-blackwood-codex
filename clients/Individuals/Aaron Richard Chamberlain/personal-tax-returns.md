@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs, Hallescher/Feather 2025 health-insurance certificate amounts loaded, and spouse/Antje payroll health and pension/social contributions now carried into `Deductibles`. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, non-basic insurance treatment review, and final review of DATEV-backed expense treatment before submission.
+Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs, a `VAT Review 2025` tab added for the loaded freelance VAT split, Hallescher/Feather 2025 health-insurance certificate amounts loaded, and spouse/Antje payroll health and pension/social contributions now carried into `Deductibles`. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, non-basic insurance treatment review, final review of DATEV-backed expense treatment, and confirmation of whether any separate March/Q1 VAT return material exists before submission.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -99,10 +99,12 @@ Workbook creation note:
 - On 2026-05-26, a second `employee-lump-sum` baseline row was added to `Deductibles` for spouse/Antje because she has positive salary-employment income in the joint filing. The calculation tabs were left intact; `Tax Analysis` now picks up EUR 1,230 for Aaron plus EUR 1,230 for Antje.
 - On 2026-05-26, the local Hallescher/Feather 2025 certificate was uploaded to Drive, logged as a Long Living Communications record, and used to replace the provisional private-health estimate in `Deductibles`: net basic health/care is EUR 5,609.79, and non-basic/additional private insurance is recorded at EUR 814.85 for review only.
 - On 2026-05-26, Antje's employee pension/social and health-insurance payroll amounts were added to `Deductibles` from `Revenue!G13:H13` because the calculation tabs only deduct Vorsorgeaufwand from `Deductibles`, not directly from payroll source columns.
+- On 2026-05-26, a `VAT Review 2025` source/review tab was added to make the freelance VAT split visible without editing formula tabs. It points to `Raw DATEV 2025`, `Revenue`, and `Category Rules` as the source tabs.
 
 Input summary captured:
 
 - Aaron freelance/business revenue from DATEV February 2025 exports: EUR 8,031.10 net, now entered as the two DATEV P&L revenue lines: Riot account 8400 EUR 7,870.29 net plus Twitch account 8338 EUR 160.81.
+- Freelance VAT treatment from the loaded DATEV rows is visible in workbook tab `VAT Review 2025`: Riot Games Services account 8400 is German domestic 19% VAT revenue, with EUR 7,870.29 net, EUR 1,495.36 VAT, and EUR 9,365.65 gross; Twitch account 8338 is third-country/non-taxable in Germany, with EUR 160.81 net/gross and EUR 0 VAT.
 - January DATEV shows a EUR 16,464.53 Riot Games Services bank receipt against debtor account 11801, but 2025 SUSA class 8 revenue for January is EUR 0.00 and the 2024 FS workbook shows the matching Riot debtor movement in December 2024. The receipt is recorded source-only unless final basis review finds it was not taxed in 2024.
 - Claimed source-backed business expenses currently loaded: EUR 825.95 across 21 DATEV expense rows, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30. The rows are no longer month/category aggregates.
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
@@ -114,7 +116,7 @@ Input summary captured:
 - Combined identified or modelled wage tax loaded: EUR 15,199.80.
 - Certificate-backed Aaron basic health/care insurance loaded: EUR 5,609.79, calculated as basic health EUR 5,989.37 plus compulsory care EUR 714.00 less refunded basic health/care EUR 1,093.58.
 - Hallescher/Feather non-basic/additional private insurance amount recorded for final review: EUR 814.85, included amount EUR 0.00 pending Vorsorgeaufwand cap and ELSTER treatment review.
-- VAT prepayment/source-only accounting item captured: EUR 2,628.79. This is not treated as a personal income-tax prepayment in the workbook.
+- VAT reconciliation source items in `VAT Review 2025` include input VAT on bookkeeping EUR 34.45, VAT prepayment/source-only accounting item EUR 2,628.79, and the January Riot debtor receipt EUR 16,464.53. These are not treated as personal income-tax prepayments or additional 2025 revenue in the workbook.
 
 Workbook formula read-back:
 
@@ -148,7 +150,7 @@ Remaining filing flags:
 - Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details; workbook currently uses the uploaded scan/model for EUR 1,570.86 pension/social and EUR 942.96 health-insurance contributions.
 - Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate.
 - Confirm investments/no-investments, home-office days, donation/other deductible evidence, final student-loan treatment, and final treatment of the EUR 814.85 non-basic/additional private insurance amount.
-- File or complete the separate VAT and trade-tax wrap-up for Aaron's final freelancer months and confirm full deregistration evidence.
+- File or complete the separate VAT and trade-tax wrap-up for Aaron's final freelancer months, confirm whether a separate March/Q1 2025 VAT source pack exists beyond the currently loaded DATEV rows, and confirm full deregistration evidence.
 
 ## Evidence / Workbook Pointers
 
@@ -158,6 +160,7 @@ Remaining filing flags:
 | 2023/2024 filing folder | `https://drive.google.com/drive/folders/1AUG3B7RJY_mas6KBq06rmrgTmwGaZHwj` | Filing support for 2023 and 2024. |
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 support folder under Aaron's personal folder. |
 | Hallescher/Feather 2025 health-insurance tax certificate | `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` | Uploaded to the 2025 client-provided documents folder and logged in Communications at `https://www.notion.so/36ce413013148121a22fe7eb9ef7c79d`; used for `Deductibles` health/care rows. |
+| 2025 workbook `VAT Review 2025` tab | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit#gid=18865027` | Shows loaded freelance VAT treatment: Riot domestic 19% VAT, Twitch third-country/non-taxable, plus VAT reconciliation source rows. Not a standalone VAT return calculation. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant source material. |
 | Finanzamt questionnaire workbook | `https://docs.google.com/spreadsheets/d/1NcGhQVn-H1EDvg5Dbn4ZRytXqCjq4SAA/edit` | Questionnaire and payment-plan support. |
 | 2023 FS workbook | `https://docs.google.com/spreadsheets/d/1OnLp0uM1SN2fVyltPrDOqv2p_Th3YzTA/edit` | Review latest version before use. |

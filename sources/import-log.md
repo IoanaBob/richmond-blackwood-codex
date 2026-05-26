@@ -1811,3 +1811,29 @@ Unresolved:
 
 - Antje's annual wage-tax certificate or direct payslip PDF readback remains required before final filing.
 - Confirm any health/care split needed for final ELSTER entry.
+
+## 2026-05-26 - Aaron 2025 VAT Review View
+
+Imported:
+
+- User VAT follow-up in Codex chat asking whether the workbook has the needed VAT information and where to see which freelance revenue is VATable.
+- Live workbook read-back from `Raw DATEV 2025`, `Revenue`, and `Category Rules`.
+- Existing DATEV source URLs `https://drive.google.com/file/d/10P0NH6JEUnWFk_QZ890wFAoS27brlRYc/view` and `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view`.
+
+Actions:
+
+- Added workbook tab `VAT Review 2025` with the currently loaded freelance revenue VAT treatment and exact source URLs.
+- Recorded Riot Games Services as German domestic 19% VAT revenue and Twitch as third-country/non-taxable revenue for the loaded DATEV rows.
+- Added VAT reconciliation source-only rows for bookkeeping input VAT, January VAT prepayment, and the January Riot debtor receipt.
+- Added Notion comments to Aaron's 2025 preparation task, filing task, and filing row.
+- Updated Aaron's individual personal-tax notes, source register, open questions, durable history, and skill-run ledger.
+
+Verification:
+
+- Google Sheets read-back confirmed the new tab `VAT Review 2025!A1:L17` and the source/treatment rows.
+- The new tab did not edit formula/calculation tabs.
+- Notion returned successful comment IDs `36ce4130-1314-8104-b4fb-001daefc7837`, `36ce4130-1314-818f-9b1f-001d52b57b20`, and `36ce4130-1314-816c-9166-001ddb207c6c`.
+
+Unresolved:
+
+- Confirm whether there is a separate March 2025 or Q1 2025 final VAT source pack beyond the currently loaded DATEV rows before completing the VAT/trade-tax wrap-up and deregistration review.
