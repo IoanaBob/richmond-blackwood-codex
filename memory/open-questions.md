@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-13.
+Updated: 2026-05-26.
 
 ## Notion Backup Questions
 
@@ -132,6 +132,14 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Decide whether Notion should get multi-recipient invoice-routing fields so Riot-style routes do not need to keep secondary To recipients in notes.
 - Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.
 - Confirm whether the Notion accounting-software email alias should be `accounts+amc` or `account+amc`.
+
+## KONVI Questions
+
+- Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.
+- Confirm next owner and cleanup path for the VIES filing row marked overdue; user confirmed on 2026-05-26 that this is a real problem.
+- Confirm whether a live 2026 annual-return filing row exists and whether the 2026-05-25 annual-return workflow was completed.
+- Clean up the future VAT filing title/date mismatch and the UK VAT automation tasks that are misnamed as IE VAT.
+- Confirm canonical Konvi Drive folder before claiming raw filing, LuxTrust, annual-return, name-change, or correspondence evidence is stored.
 
 ## NACV / Andrei Questions
 
