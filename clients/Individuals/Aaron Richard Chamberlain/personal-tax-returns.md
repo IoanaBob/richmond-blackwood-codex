@@ -89,6 +89,7 @@ Linked Notion records:
 - Filing: `https://www.notion.so/342e413013148081b46dc0d4952a7659`
 - Preparation task: `https://www.notion.so/360e4130131481b881aad86ffaf1b958`
 - Filing task: `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`
+- On 2026-05-26, after operator review, the preparation task was marked `Done` and the filing task was kept `In Progress` with the workbook URL in `Review Link` and a filing handoff comment.
 
 Workbook creation note:
 

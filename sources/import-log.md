@@ -1863,3 +1863,29 @@ Verification:
 Unresolved:
 
 - Confirm final March/Q1 2025 VAT/trade-tax source pack and deregistration evidence before treating VAT/trade-tax wrap-up as complete.
+
+## 2026-05-26 - Aaron 2025 Analysis Task Completion
+
+Imported:
+
+- User follow-up in Codex chat accepting the Aaron analysis and asking to update the filing task and mark the analysis task completed.
+- Notion preparation task `https://www.notion.so/360e4130131481b881aad86ffaf1b958`.
+- Notion filing task `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`.
+- Tasks data-source schema `collection://25de4130-1314-8158-af69-000b6c9fb49e`.
+
+Actions:
+
+- Marked the preparation task `Done` and set its completion timestamp to 2026-05-26.
+- Updated the filing task `Review Link` to the workbook URL and left `Status` as `In Progress`.
+- Added a closeout comment to the preparation task and a filing handoff comment to the filing task.
+- Updated Aaron's individual personal-tax notes, source register, durable history, and skill-run ledger.
+
+Verification:
+
+- Notion read-back confirmed the preparation task `Status` is `Done` with `Marked Complete` on 2026-05-26.
+- Notion read-back confirmed the filing task `Status` is `In Progress` and `Review Link` is `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
+- Comment creation returned IDs `36ce4130-1314-81d8-9026-001dbc32f664` and `36ce4130-1314-8197-ab82-001d44ec74e5`.
+
+Unresolved:
+
+- Filing task remains open for final submission. Remaining filing flags include direct payroll certificate/PDF readback for Aaron and Antje, final deductible/investment/tax-payment/home-office/student-finance/non-basic-health decisions, failed workbook checks/open missing-info items, and separate VAT/trade-tax final-freelancer-year plus deregistration evidence.

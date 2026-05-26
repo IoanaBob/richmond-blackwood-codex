@@ -965,3 +965,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Keep the collected VAT row source-only for EÜR/VAT reconciliation and outside the net P&L calculation, because the workbook's business P&L still uses pre-VAT net revenue and pre-VAT expense rows.
 - Verification: Summary read-back confirmed VATable operating revenue net EUR 7,870.29, non-taxable/§13b-style operating revenue net EUR 160.81, operating revenue net total EUR 8,031.10, collected VAT EUR 1,495.36, business expenses EUR 825.95, business/freelance net P&L EUR 7,205.15, income after deductions EUR 83,561.54, failed checks 6, and open missing-info count 38. Direct `Tax Analysis` read-back hit Google Sheets read quota twice after the write, but the Summary formula read-back confirmed the shifted `Tax Analysis` references and output values.
 - Limitations or gaps: Confirm final VAT/trade-tax source pack and deregistration evidence before treating the VAT/trade-tax wrap-up as complete.
+
+## 2026-05-26 - Aaron 2025 Analysis Handoff
+
+- User request: Update the filing task and mark the accepted analysis task completed.
+- Context read: Notion preparation task `https://www.notion.so/360e4130131481b881aad86ffaf1b958`, filing task `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`, and Tasks data-source schema.
+- Actions taken: Marked the preparation task `Done` with a 2026-05-26 completion timestamp, set the filing task `Review Link` to the workbook URL, left the filing task `In Progress`, and added handoff comments to both tasks.
+- Decisions made: Do not mark the filing task done because filing has not been submitted and the handoff still lists payroll certificate/PDF readback, final deductible/investment/tax-payment/home-office/student-finance/non-basic-health review, failed workbook checks/open missing info, and separate VAT/trade-tax deregistration evidence.
+- Verification: Notion read-back confirmed the preparation task `Status` is `Done` with `Marked Complete` on 2026-05-26, and the filing task `Status` is `In Progress` with the workbook URL in `Review Link`. Comment creation returned IDs `36ce4130-1314-81d8-9026-001dbc32f664` and `36ce4130-1314-8197-ab82-001d44ec74e5`.
+- Limitations or gaps: Filing task remains open for Johnpaul and final filing checks remain before submission.

@@ -22,6 +22,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-26 | Codex thread | Operator asked whether Aaron's wife/Antje's insurance had also been deducted. Live workbook was corrected to add Antje's payroll-model pension/social EUR 1,570.86 and health-insurance EUR 942.96 to `Deductibles`, while keeping annual certificate/direct payslip readback open. |
 | 2026-05-26 | Codex thread | Operator asked whether the VAT information is complete in the workbook and where to see which freelance revenue is subject to VAT. Added workbook tab `VAT Review 2025` for the currently loaded DATEV rows and kept separate March/Q1 VAT source-pack confirmation open. |
 | 2026-05-26 | Codex thread | Operator asked whether `Tax Analysis` row 3 should be split into revenue subject to VAT and revenue without VAT because ELSTER asks for the distinction. Made that split in Aaron's client workbook only and reflected it in `Summary`; maintained template was not changed. |
+| 2026-05-26 | Codex thread | Operator accepted the analysis and asked to update the filing task and mark the analysis task complete. Preparation task was marked `Done`; filing task stayed `In Progress`, had `Review Link` set to the workbook, and received a filing handoff comment with remaining flags. |
 
 ## Notion
 
@@ -34,8 +35,8 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 personal tax filing | `https://www.notion.so/342e413013148081b46dc0d4952a7659` | Pending German personal tax return. |
 | Personal tax garnishment meeting | `https://www.notion.so/337e413013148011a183c02e6dba2e4d` | Garnishment/payment-plan strategy and bank/salary route notes. |
 | Aaron Personal Taxes Update | `https://www.notion.so/342e4130131480988923e76bb5d9a425` | Questionnaire/draft response task. |
-| Start Aaron + wife 2025 joint personal tax filing | `https://www.notion.so/360e4130131481b881aad86ffaf1b958` | 2025 onward joint filing task. |
-| File 2025 German personal tax return - Aaron Richard Chamberlain | `https://www.notion.so/36be41301314819bb2fdc42eb47d202d` | Filing task created from the annual personal-tax task template and dependent on the preparation task. |
+| Start Aaron + wife 2025 joint personal tax filing | `https://www.notion.so/360e4130131481b881aad86ffaf1b958` | 2025 onward joint filing task; marked `Done` on 2026-05-26 after operator accepted the analysis workbook. |
+| File 2025 German personal tax return - Aaron Richard Chamberlain | `https://www.notion.so/36be41301314819bb2fdc42eb47d202d` | Filing task created from the annual personal-tax task template and dependent on the preparation task. Kept `In Progress` on 2026-05-26 with workbook in `Review Link` and a handoff comment for remaining filing flags. |
 | AMC employment record for Aaron | `https://www.notion.so/198e4130131480aba2c3d68f3f33ad80` | 2025 payroll source relation for Aaron's AMC employment. |
 | April 2025 Aaron payroll | `https://www.notion.so/198e4130131481a8a345dbd10765b85b` | Notion payroll row with `AMC_-_April_2025_Payroll.pdf` attachment handle and EUR 5,660.17 payment; `Tax Amount` set to EUR 1,542.50 on 2026-05-26 from later payroll/remittance evidence. Direct PDF readback remains blocked. |
 | May 2025 Aaron payroll | `https://www.notion.so/1e6e4130131481518a76ee5ae949fa06` | Notion payroll row with `Aaron_Chamberlain_-_May_2025_Payslip.pdf` attachment handle and EUR 5,660.17 payment; `Tax Amount` set to EUR 1,542.50 on 2026-05-26 from later payroll/remittance evidence. Comments say the paid net did not match May payroll. Direct PDF readback remains blocked. |
