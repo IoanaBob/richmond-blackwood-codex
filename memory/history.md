@@ -911,3 +911,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: The linked `10P0...` booking stack was added line by line, but it is internally identified as February 2025. Clearing rows, VAT prepayment, opening balance, and the January Riot debtor receipt remain source-only rather than additional personal income-tax revenue/expense rows.
 - Verification: Google Sheets read-back confirmed the changed input/source ranges. Workbook export/read-back confirmed operating revenue EUR 8,031.10, business expenses EUR 825.95, business net P&L EUR 7,205.15, failed checks 6, and open missing-info count 37.
 - Limitations or gaps: Confirm whether a separate March 2025 DATEV booking stack exists. Final filing still needs payroll certificate/PDF readback, spouse certificate, deductible/investment/direct-tax-payment confirmations, and separate VAT/trade-tax wrap-up review.
+
+## 2026-05-26 - Aaron 2025 Spouse Employee Lump-Sum Correction
+
+- User request: Check whether Aaron's wife/Antje also receives the employee lump sum against her employment income in the joint 2025 German personal-tax analysis.
+- Context read: Aaron's live workbook `Deductibles`, `Tax Analysis`, `Summary`, and `Revenue`; Aaron repo personal-tax notes; official EStG sources for the Arbeitnehmer-Pauschbetrag and joint assessment.
+- Actions taken: Added a second `employee-lump-sum` baseline row in the workbook `Deductibles` input/source tab for spouse/Antje, with official source URLs and a review note. Calculation tabs were not edited; the existing `Tax Analysis` formula now sums both baseline rows.
+- Decisions made: For the joint filing, Aaron and Antje each get a EUR 1,230 Arbeitnehmer-Pauschbetrag comparator because both have salary-employment income; the baseline remains source-only/comparator treatment and is not double-counted in `Included Deduction EUR`.
+- Verification: Google Sheets write-response and compact follow-up readback confirmed Summary employment work expenses used increased from EUR 1,230.00 to EUR 2,460.00, total deductions are EUR 2,496.00, income after deductions before final tax-rate calculation is EUR 91,685.15, failed workbook checks remain 6, and open missing-info count is 39.
+- Limitations or gaps: Final filing still needs direct payslip/annual wage-tax certificate readback for Aaron and Antje plus the other open workbook review flags.

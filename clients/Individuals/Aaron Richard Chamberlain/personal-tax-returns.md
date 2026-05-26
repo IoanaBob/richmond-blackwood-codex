@@ -96,6 +96,7 @@ Workbook creation note:
 - The connector import placed the workbook outside the target filing folder because the repo-local Drive copy helper was blocked by missing/expired shared Google persona credentials.
 - Preserve the template calculation tabs; move or copy the native workbook into the 2025 filing folder once Drive helper auth is restored.
 - On 2026-05-26, the DATEV/SUSA business section was corrected from monthly/category aggregates to line-level source rows: all Jan/Feb revenue and expense-account rows from the linked DATEV exports are now represented in `Revenue`, `Expenses`, and `Raw DATEV 2025` using pre-VAT/net amounts, with clearing/VAT rows retained as source-only.
+- On 2026-05-26, a second `employee-lump-sum` baseline row was added to `Deductibles` for spouse/Antje because she has positive salary-employment income in the joint filing. The calculation tabs were left intact; `Tax Analysis` now picks up EUR 1,230 for Aaron plus EUR 1,230 for Antje.
 
 Input summary captured:
 
@@ -116,11 +117,12 @@ Workbook formula read-back:
 - Business/freelance net P&L: EUR 7,205.15.
 - Operating revenue included: EUR 8,031.10.
 - Business expenses included: EUR 825.95.
-- Employment work expenses used: EUR 1,230.00.
+- Employment work expenses used: EUR 2,460.00.
 - Other personal deductions included: EUR 36.00.
-- Income after deductions before final tax-rate calculation: EUR 92,915.15.
+- Total deductions used: EUR 2,496.00.
+- Income after deductions before final tax-rate calculation: EUR 91,685.15.
 - Failed workbook checks: 6.
-- Open missing-info count: 37.
+- Open missing-info count: 39.
 
 Excluded or source-only items:
 
