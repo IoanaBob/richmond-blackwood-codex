@@ -62,6 +62,7 @@ function readN8nConfig() {
   const text = fs.readFileSync(configPath, 'utf8');
   const lines = text.split(/\r?\n/);
   let inN8n = false;
+  let inN8nHeaders = false;
   let url = '';
   let headers = {};
 
@@ -69,15 +70,17 @@ function readN8nConfig() {
     const trimmed = line.trim();
     if (/^\[/.test(trimmed)) {
       inN8n = trimmed === '[mcp_servers.n8n]';
+      inN8nHeaders = trimmed === '[mcp_servers.n8n.http_headers]';
       continue;
     }
-    if (!inN8n || !trimmed || trimmed.startsWith('#')) continue;
+    if ((!inN8n && !inN8nHeaders) || !trimmed || trimmed.startsWith('#')) continue;
     const separator = trimmed.indexOf('=');
     if (separator === -1) continue;
     const key = trimmed.slice(0, separator).trim();
     const value = trimmed.slice(separator + 1).trim();
-    if (key === 'url') url = unquote(value);
-    if (key === 'http_headers') headers = parseInlineHeaders(value);
+    if (inN8n && key === 'url') url = unquote(value);
+    if (inN8n && key === 'http_headers') headers = parseInlineHeaders(value);
+    if (inN8nHeaders) headers[unquote(key)] = unquote(value);
   }
 
   if (!url) throw new Error('n8n MCP url not found in ~/.codex/config.toml');

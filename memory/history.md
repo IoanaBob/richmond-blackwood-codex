@@ -866,3 +866,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Client work should start from the broader internal record set rather than only the triggering item; connector/source blockers must be recorded and caveated.
 - Verification: `git diff --check` passed before commit.
 - Limitations or gaps: Actual source coverage remains subject to connector availability and the scope/sensitivity of the task.
+
+## 2026-05-26 - Hamburg Contact Availability Hard Gate
+
+- User request: Fix the Hamburg contact with no linked availability and make the repository remember that availability is mandatory.
+- Context read: Notion Front Office Contacts and Contact Availabilities schemas, Hamburg contact `https://www.notion.so/2efe4130131480bb94bac672c2ae5c07`, official Hamburg.de Finanzamt Hamburg-Nord page, `rb-authority-call-setup`, and durable memory files.
+- Actions taken: Created five Contact Availabilities records for Finanzamt Hamburg-Nord Monday-Friday phone support and linked them to the Hamburg contact. Updated the contact page body with the official phone schedule and source metadata. Hardened `rb-authority-call-setup` and durable memory so missing linked contact availability is a hard blocker before Calls submission, review, approval, or live-callable status. Also increased `RB Calls Voice Execution`'s ElevenLabs outbound HTTP response timeout from 30 seconds to 120 seconds, fixed the local n8n deploy/readback helpers to read nested `[mcp_servers.n8n.http_headers]` auth config, published the workflow, and synced live readbacks.
+- Decisions made: Page-body schedule text is not enough for the calling bot. The Front Office Contact must have linked `Availabilities` relation records, and Codex should stop setup until that relation is fixed and fetched back.
+- Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
+- Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
+
+## 2026-05-26 - German Company Tax Complete-Year And Annual Consistency Rules
+
+- User request: Remember that company filing work must cover all filings needed to complete the relevant year, and that German tax filings for Irish companies must match internal records and same-year CRO annual-return or financial-statement evidence.
+- Context read: `rb-company-tax-de`, CBMAX German nil-return work, local CBMAX client files, and the CORE annual-return evidence used for the active CBMAX filing.
+- Actions taken: Extended the German company-tax skill so a company-year filing requires a complete filing-obligation checklist and an internal-record/CRO annual-return consistency cross-check before a German draft is treated as ready.
+- Decisions made: Copied ELSTER data must not override internal annual-return evidence. If the Irish annual return, financial statements, or latest approved internal record conflicts with a copied German field, Codex should correct the German draft or stop and flag the conflict.
+- Verification: `git diff --check` passed before commit.
+- Limitations or gaps: Cross-source checks remain limited by connector availability; unavailable Notion/Drive/communications sources should be reported as caveats or blockers when they could affect the filing.
