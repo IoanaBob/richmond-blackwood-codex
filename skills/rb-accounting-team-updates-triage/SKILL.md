@@ -13,9 +13,10 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 2. Read `processes/notion-operations.md` for Notion task and comment rules.
 3. Read `internal/people-roles.md` before assigning tasks.
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
-5. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
-6. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
-7. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
+5. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
+6. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
+7. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
+8. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
 
 ## Source Scope
 
@@ -68,23 +69,13 @@ Auto-approval:
 - Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet.
 - No Notion task write, Team Updates write-back, or task comment happens before Stage 3 Routing Plan approval.
 - No Slack send happens before Stage 5 exact-message approval, unless a future explicit standard-closeout auto-approval is added.
-- Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project, unexpected live mutation, or connector degradation that makes routing unsafe.
+- Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record, unexpected live mutation, or connector degradation that makes routing unsafe.
 
 ## Task Routing
 
 Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e`; default project is Richmond Blackwood Backlog: `https://www.notion.so/25de4130131481769758f5f2d465a141`.
 
-For each actionable line:
-
-1. If the line links to an existing Notion task/page, fetch it and update/comment that record when it is the right work item.
-2. Search for an existing task before creating a new one. Dedupe by Team Updates page URL, source line text, linked page/task URL, current date, owner, and subject.
-3. Create a new task only when no matching active task exists and the owner/project can be identified.
-4. Assign from explicit suffixes or wording such as `- JP`, `JP to`, `Simoneta to`, or `Ioana to`; known shorthand is `JP = Johnpaul Okolie`, `SV` or `Simoneta = Simoneta Vicente`, and `Ioana = Ioana Surdu-Bob`. Otherwise use `internal/people-roles.md`.
-5. If ownership, project, or source meaning is unclear, write an unresolved routing note back to the Team Updates page and do not create an unowned task.
-6. Keep `Assigned To` for the person doing the work. Treat approval wording as review: add the approver or reviewer to `Review By` on the owning task instead of assigning them the routine work.
-7. Do not create separate approval tasks when a recurring or operational task already owns the workflow. For invoice, contractor, expense, or payment approvals, update/comment the weekly invoice-payables/payables task and add the approver in `Review By`.
-8. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Use Simoneta as the routine owner unless the source or user explicitly identifies a different doer.
-9. Include the Team Updates page URL, source section, exact source line, linked page/task URLs, and the next concrete action in the task body or comment.
+Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, or owning operational record is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
 
 ## Write-Back And Verification
 

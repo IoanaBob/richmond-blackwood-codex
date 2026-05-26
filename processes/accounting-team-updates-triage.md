@@ -72,7 +72,7 @@ For each unchecked blocker/action point:
 4. Search for existing tasks by source page URL, linked page URL, exact or near-exact line text, owner, current date, and subject.
 5. Create a new task only when no matching active task exists and owner/project are clear.
 6. Set `Status = To Do` unless the source explicitly supports another active status.
-7. Assign from explicit line owner (`- JP`, `JP to`, `Simoneta to`, `Ioana to`), page owner, or `internal/people-roles.md`. Known shorthand is `JP = Johnpaul Okolie`, `SV` or `Simoneta = Simoneta Vicente`, and `Ioana = Ioana Surdu-Bob`. If ownership remains unclear, record an unresolved note on the Team Updates page and do not create an unowned task.
+7. Assign from explicit line owner (`- JP`, `JP to`, `Simoneta to`, `Ioana to`), page owner, or `internal/people-roles.md`. Known shorthand is `JP = Johnpaul Okolie`, `SV` or `Simoneta = Simoneta Vicente`, and `Ioana = Ioana Surdu-Bob`. If ownership, project, source meaning, or owning operational record remains unclear, Stage 3 must add an `unresolved` routing row with the proposed Team Updates note; Stage 4 writes that note only after approval. Do not create an unowned task.
 8. Keep task assignment on the operational doer. Treat approval wording as review: add the approver or reviewer to `Review By` on the most appropriate existing task instead of assigning the work to the reviewer.
 9. Do not create separate approval tasks when a recurring or operational task already owns the workflow. For invoice, contractor, expense, or payment approvals, update/comment the weekly invoice-payables/payables task and add the approver in `Review By`.
 10. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Use Simoneta as the routine owner unless the source or user explicitly identifies a different doer.
@@ -127,7 +127,7 @@ Rules:
 
 ## Packet Requirement
 
-This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-accounting-team-updates-triage/<run-id>/`, print the same packet in chat, and proceed only through approved or explicitly auto-approved stages. The detailed stage contract lives in `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`.
+This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-accounting-team-updates-triage/<run-id>/`, print the same packet in chat, and proceed only through approved or explicitly auto-approved stages. The detailed stage contract lives in `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`. Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing table.
 
 Required packet files:
 
@@ -144,7 +144,7 @@ Standing intent:
 - Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet.
 - No Notion writes happen until the routing plan packet is approved or covered by a future explicit auto-approval exception.
 - No Slack send happens until the exact closeout packet is approved or covered by an explicit standard-closeout auto-approval exception.
-- Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project, unexpected live mutation, or connector degradation that makes routing unsafe.
+- Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record, unexpected live mutation, or connector degradation that makes routing unsafe.
 
 ## Verification And Report
 

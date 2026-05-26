@@ -1,0 +1,3 @@
+display_name: Accounting Team Updates Routing
+short_description: Stage 3 routing decisions for Accounting Team Updates packets.
+default_prompt: Use $rb-accounting-team-updates-routing inside Stage 3 of Accounting Team Updates triage to produce create/update/skip/unresolved routing rows without live writes.

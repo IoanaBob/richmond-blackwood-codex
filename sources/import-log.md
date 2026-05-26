@@ -1750,3 +1750,22 @@ Actions:
 Unresolved:
 
 - Validate the packet protocol on the next live weekday Accounting Team Updates run.
+
+## 2026-05-26 - Accounting Packet Routing Skill
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 that unclear ownership, project, or source meaning should be proposed in the Stage 3 packet rather than immediately written to Team Updates.
+- User instruction that the packet workflow needs explicit per-stage execution detail so the machine knows what to do.
+- User suggestion to place detailed task-routing strategy in a new skill and have the packet stage apply that skill.
+
+Actions:
+
+- Added planning-only skill `skills/rb-accounting-team-updates-routing/SKILL.md` with deterministic Stage 3 decisions: `create_task`, `update_task`, `comment_existing`, `skip_already_handled`, and `unresolved`.
+- Updated `skills/rb-accounting-team-updates-triage/SKILL.md` and `processes/accounting-team-updates-triage.md` so Stage 3 applies the routing skill and unresolved rows stay in the packet until Stage 4 approved write-back.
+- Expanded `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md` with a stage execution contract and concrete execution steps for Stages 1-6.
+- Updated durable memory to replace stale `skip New client inbounds` and no-task-detail Slack wording with the packet-gated closeout rule.
+
+Unresolved:
+
+- Validate the Stage 3 routing table output and unresolved-row guard on the next live weekday Accounting Team Updates run.

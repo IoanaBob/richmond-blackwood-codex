@@ -42,6 +42,19 @@ Each packet must include:
 
 Print the packet content in chat after writing it. Then stop for approval unless the stage is explicitly auto-approved below.
 
+## Stage Execution Contract
+
+Each stage must say exactly what the runner has done or will do next:
+
+- `Inputs read`: files, packets, Notion pages, Slack channels, or linked tasks consulted.
+- `Decision method`: skill, process rule, or source evidence used to choose each row action.
+- `Rows considered`: every Team Updates blocker/action-point row and every material Slack context item.
+- `Proposed action` or `completed action`: exact live write/send/checkpoint when applicable.
+- `Approval status`: `auto-approved`, `requires approval`, `approved`, `executed`, or `blocked`.
+- `Next stage`: the next packet name and whether it can start automatically.
+
+No stage may rely on implied behavior. If a stage applies another skill, name that skill in the packet.
+
 ## Auto-Approval
 
 - Stage 1 - Run Preflight is always auto-approved after the packet is written and printed.
@@ -49,11 +62,19 @@ Print the packet content in chat after writing it. Then stop for approval unless
 - Stage 4 - Notion Write Results is approved only after the operator approves Stage 3 Routing Plan or a future explicit auto-approval exception covers the exact write.
 - Stage 6 - Slack Send And Run Closeout is approved only after the operator approves the exact Stage 5 Slack Closeout Plan, unless a future explicit standard-closeout auto-approval exception covers the exact send.
 
-Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project, unexpected live mutation, or connector degradation that makes routing unsafe.
+Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record, unexpected live mutation, or connector degradation that makes routing unsafe.
 
 ## Stage 1 - Run Preflight
 
 Purpose: establish the safe run frame.
+
+Execution:
+
+1. Run `git status --short --branch`.
+2. Run `git pull origin main` from the active repo/worktree.
+3. Create the run folder and `LOCK.md`.
+4. Verify the run date/window and connector availability.
+5. Write and print `stage-01-run-preflight.md`.
 
 Required packet fields:
 
@@ -72,6 +93,15 @@ No Notion write or Slack send is allowed in this stage.
 
 Purpose: read source material without deciding live mutations.
 
+Execution:
+
+1. Read the current-day Accounting Team Updates page and verify `Team`, `Date`, and company context.
+2. Split rows by section.
+3. Count `New client inbounds` as observed / out of scope.
+4. Read bounded human-authored Slack context from the approved channels and new in-window threads.
+5. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
+6. Write and print `stage-02-source-context.md`.
+
 Required packet fields:
 
 - Team Updates page URL, properties, and section rows;
@@ -88,6 +118,15 @@ Do not use the phrase `skipped New client inbounds` in packets or final reports;
 
 Purpose: propose all task and write-back decisions before mutation.
 
+Execution:
+
+1. Read `skills/rb-accounting-team-updates-routing/SKILL.md`.
+2. Apply that routing skill to the Stage 2 Source Context packet.
+3. Fetch linked Notion tasks/pages needed to decide ownership, dedupe, project, and reviewer fields.
+4. Produce a routing table with one decision per blocker/action-point row.
+5. For unclear ownership, project, source meaning, or owning operational record, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
+6. Write and print `stage-03-routing-plan.md`, then stop for approval.
+
 Required packet fields for every blocker/action point:
 
 - source section and exact line text;
@@ -101,9 +140,21 @@ Required packet fields for every blocker/action point:
 
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
+The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing`.
+The routing table columns must match that skill's `Output Table` contract.
+
 ## Stage 4 - Notion Write Results
 
 Purpose: execute the approved Stage 3 plan and prove read-back.
+
+Execution:
+
+1. Execute only rows approved in Stage 3.
+2. Create/update/comment tasks and existing pages exactly as approved.
+3. For approved `unresolved` rows, write only the approved unresolved note back to the Team Updates page; do not create a task.
+4. Write approved task links or unresolved notes back to the Team Updates page.
+5. Read back every task/page/comment/write-back result.
+6. Write and print `stage-04-notion-write-results.md`.
 
 Required packet fields:
 
@@ -121,6 +172,14 @@ Do not continue to Slack closeout if Notion write-back cannot be verified, unles
 
 Purpose: show the exact Slack message before sending.
 
+Execution:
+
+1. Build the Slack closeout only from verified Stage 4 results.
+2. Resolve Slack assignee mentions for each created/updated task line.
+3. Include `None` under empty Created/Updated headings.
+4. Keep source-line detail and unresolved notes out of Slack except for the approved short unresolved phrase.
+5. Write and print `stage-05-slack-closeout-plan.md`, then stop for approval.
+
 Required packet fields:
 
 - destination `#rb-client-updates`;
@@ -137,6 +196,14 @@ No Slack send is allowed before approval of this exact text unless a future expl
 ## Stage 6 - Slack Send And Run Closeout
 
 Purpose: send the approved Slack closeout and finish the run.
+
+Execution:
+
+1. Send exactly the approved Stage 5 Slack message.
+2. Read back the Slack message link.
+3. Record any final Team Updates or Communications log links when used.
+4. Write and print `stage-06-slack-send-and-run-closeout.md`.
+5. Release the lock only after the packet is written and printed.
 
 Required packet fields:
 
