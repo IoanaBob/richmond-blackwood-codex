@@ -78,8 +78,8 @@ export function gmailOAuthClientFile(explicitFile = "", fromEmail = ""): string 
 export function senderGcloudConfigDir(fromEmail: string): string {
   const email = fromEmail.toLowerCase();
   const slugByEmail: Record<string, string> = {
-    "accounting@richmondblackwood.com": "rb-accounting",
-    "johnpaul.okolie@richmondblackwood.com": "johnpaul-richmond-blackwood",
+    "accounting@richmondblackwood.com": "accounting-richmond-blackwood",
+    "johnpaul.okolie@richmondblackwood.com": "jp-richmond-blackwood",
     "ioana@eip.ventures": "ioana-eip",
     "ioana.sbob@gmail.com": "ioana-private",
     "eran@eip.ventures": "eran-everguard",

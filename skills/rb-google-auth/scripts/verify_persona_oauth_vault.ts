@@ -5,6 +5,7 @@ import {
   GooglePersonaDefinition,
   GooglePersonaService,
   hasPersonaOauthCredentials,
+  personaDefinitionForSlug,
   personaOauthSafeStatus,
   refreshPersonaOauthAccessToken,
   tokenHasGmailReadWriteScope,
@@ -45,7 +46,7 @@ interface PersonaVaultReport {
 async function main(argv: string[]): Promise<number> {
   const options = parseOptions(argv);
   const personas = options.personaSlug
-    ? GOOGLE_PERSONAS.filter((persona) => persona.slug === options.personaSlug)
+    ? [personaDefinitionForSlug(options.personaSlug)].filter((persona): persona is GooglePersonaDefinition => Boolean(persona))
     : GOOGLE_PERSONAS.filter((persona) => persona.configured);
   if (options.personaSlug && personas.length === 0) {
     throw new Error(`Unknown persona slug: ${options.personaSlug}`);

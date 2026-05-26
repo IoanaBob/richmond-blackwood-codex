@@ -56,6 +56,26 @@ Use this skill after, or alongside, `rb-finanzamt-response` when the payroll iss
    - Add a Notion task comment or operational-row update with the packet links and whether evidence is sent, pending, or blocked.
    - Update `source-register.md`, `memory/history.md`, `memory/skill-runs.md`, `memory/current-state.md`, and `memory/handoff.md` when the run changes live state or reusable process knowledge.
 
+## First-Reviewed Template Reuse
+
+Use this pattern when the user wants to review the first payroll evidence message or Belegnachreichung and then reuse the process for the remaining periods/items.
+
+- Treat the first approved final screen as the control template only for the same client, Steuernummer, authority route, tax type, evidence class, and source schedule.
+- For each later item, update only the bounded variables: period, amount, ELSTER ticket, payment date/reference, attachment label, attachment file, and source links.
+- Stop for review if the route, Steuernummer, company address, employee count, attachment set, payment total, warning text, or final ELSTER review screen differs from the approved template.
+- Keep the Finanzamt text consistent across the batch: state what was filed, what payment/evidence is being allocated, what is attached, and what remains available on request.
+- Do not use a template to send a stronger procedural act such as an objection, AdV, deadline extension, or payment proposal unless the first reviewed item included that exact procedural request.
+- After each submitted item, capture the ticket and update the schedule before starting the next one; never reconstruct tickets from memory.
+
+## ELSTER Belegnachreichung Upload Notes
+
+- Keep attachment descriptions short. ELSTER may enforce 50 characters; use a neutral label such as `AGL LSt` when the PDF filename and message body carry the detail.
+- A label alone is not an attachment. If ELSTER reports `Dateiname` missing or says `Dateiname, Dateigroesse, Bezeichnung, Dateityp und Inhalt` must be provided together, no file has landed.
+- Do not click final send with an empty attachment row. Delete or complete the row first.
+- If ELSTER carries a stale validation error after shortening a label, reload the attachment page or delete/recreate only the attachment row; do not edit the authority text unless the text itself is wrong.
+- The Codex in-app browser may not be able to set ELSTER's hidden native file input. In that case, ask the operator to choose the exact local PDF manually and continue only after the filename is visible in ELSTER.
+- ELSTER attachment warnings say uploaded files may be scanned or stripped. Put fristwahrend requests, objections, AdV, extensions, and collection-pause requests in the structured form body, not only inside an attachment.
+
 ## Suggested Authority Text Shape
 
 ```text

@@ -86,6 +86,16 @@ Use this pattern when a user explicitly approves filing multiple monthly payroll
 - Record every successful `Versandbestaetigung`: period, ELSTER Auftrag, Transferticket, Ordnungskriterium, and Abgabezeit.
 - Do not try to attach payslips or payment proofs inside a Lohnsteuer-Anmeldung if the final review has no attachment step. Use ELSTER Belegnachreichung or the most specific Finanzamt evidence/message route after the return is transmitted and the exact PDFs are uploadable.
 
+### Reviewed Template Reuse Guardrail
+
+Use this pattern when a user reviews the first ELSTER filing, message, appeal, or evidence upload and asks RB to use it as a template for related items.
+
+- Treat the first reviewed item as approval for the process and fixed wording structure, not as permission to ignore new differences.
+- Reuse the template only for the same client, authority route, tax type, Steuernummer, period series, and procedural purpose.
+- Change only source-backed variables such as period, amounts, transfer tickets, payment references, filenames, and deadlines.
+- Stop for review if any later item introduces a new procedural request, new tax type, new penalty/enforcement issue, different address/Steuernummer, unexpected ELSTER warning, different final-screen totals, or a missing attachment.
+- Capture each submission proof before proceeding to the next item. The batch is not complete until every item has a ticket/status and the client records say which periods/items were sent, pending, or blocked.
+
 ### E-Bilanz Workpaper Guardrail
 
 Use this pattern when a Finanzamt asks for an `E-Bilanz` or `Datensatz` and the available records include statutory accounts or a trial balance.

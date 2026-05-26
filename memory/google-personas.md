@@ -3,7 +3,7 @@ type: operating_memory
 status: provisional
 privacy: private
 confidence: medium
-last_reviewed: 2026-05-25
+last_reviewed: 2026-05-26
 tags: [google, personas, oauth]
 ---
 
@@ -32,10 +32,20 @@ The helper-facing OAuth vault is:
 
 | Persona slug | Expected account | Role | Config status | Notes |
 | --- | --- | --- | --- | --- |
-| `rb-accounting` | `accounting@richmondblackwood.com` | Shared RB service mailbox and default client-facing sender/auth route when available | configured in helper registry, credential unverified | This is not an actor. Use only as source/sender/auth route when explicitly scoped. |
+| `accounting-richmond-blackwood` | `accounting@richmondblackwood.com` | Shared RB service mailbox and default client-facing sender/auth route when available | configured and verified 2026-05-26 | This is not an actor. Use only as source/sender/auth route when explicitly scoped. Legacy helper alias: `rb-accounting`. |
 | `ioana-richmond-blackwood` | Needs confirmation | Human operator RB Google route | not configured | Do not infer this from `RB_CODEX_ACTOR`; confirm source/sender/auth separately. |
-| `johnpaul-richmond-blackwood` | `johnpaul.okolie@richmondblackwood.com` | Human operator RB Google route | not configured | Email is provisional in `internal/people-roles.md`. Confirm before treating as approved sender. |
+| `jp-richmond-blackwood` | `johnpaul.okolie@richmondblackwood.com` | Human operator RB Google route | configured and verified 2026-05-26 | Email is provisional in `internal/people-roles.md`. Legacy helper alias: `johnpaul-richmond-blackwood`. Confirm before treating as approved sender. |
 | `simoneta-richmond-blackwood` | Needs confirmation | Human operator RB Google route | not configured | Confirm email before use. |
+
+## 2026-05-26 Verification
+
+Status: provisional.
+Source: user instruction in Codex chat on 2026-05-26; Notion Google Persona Auth Migration Guide `https://www.notion.so/36be4130131481289808d08faf17d8f6`; local helper verification output.
+Imported: 2026-05-26.
+Review: Johnpaul's work email remains provisional in `internal/people-roles.md` until the team approves it as a sender; unrelated Eran/private MCP personas remain missing from the global store.
+
+- `accounting-richmond-blackwood`: OAuth vault created under global Codex storage, backed by `accounting@richmondblackwood.com`, using the Richmond Blackwood OAuth client context. Refresh, identity, Gmail, Drive, Calendar, and Gmail sender verify-only checks passed on 2026-05-26.
+- `jp-richmond-blackwood`: OAuth vault created under global Codex storage, backed by `johnpaul.okolie@richmondblackwood.com`, using the Richmond Blackwood OAuth client context. Refresh, identity, Gmail, Drive, Calendar, and exact From verify-only checks passed on 2026-05-26.
 
 ## Shared Global Personas
 
