@@ -2,6 +2,34 @@
 
 Status: active.
 
+## 2026-05-22 - TPL / Techpacito Context Import
+
+Applied:
+
+- Created `clients/Companies/TPL/` from the Notion Companies `Reference` value and populated company-side context for TECHPACITO LIMITED.
+- Captured user instruction that TPL is company-only, with no personal-tax scope.
+- Saved the resolved WhatsApp route `Gupta, Pradeep | Richmond Blackwood` / `120363399422225301@g.us` as a route/source pointer only.
+- Captured the contractor-on-record structure: Barden pays Richmond Blackwood, Richmond Blackwood forwards funds to TPL, and Richmond Blackwood charges an additional EUR 70/month.
+- Captured the two contract routes to track: Barden/Richmond Blackwood and Richmond Blackwood/Techpacito.
+- Captured the open registration point that all registrations have been received except international VAT.
+- Captured the electric-car planning point, including user instruction that 75 percent accelerated depreciation should apply in 2025 after final acquisition details are confirmed.
+- Captured the boundary that non-RB operational details should remain in their owning source systems; this was tightened on 2026-05-25 for Everguard details.
+
+Verification:
+
+- Notion, Drive, Gmail, WhatsApp, and Slack source context was reviewed from available connectors and local summaries.
+- No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- 2026-05-24 user answers resolved the local/international VAT split: German tax number covers local 2025 registration, while USt-IdNr. remains pending. Notion VAT filing registration was updated to `Registered` / `TPL - DE VAT`.
+- 2026-05-24 Notion employment rows for Pradeep and Sangita were updated from EUR 550 to EUR 600/month and verified by read-back.
+- 2026-05-24 Gmail search found the car source: Mercedes-Benz VLE 300 electric order email `19dbf3b04574dbd8`.
+- 2026-05-25 JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` was created/read back for submitting the remaining USt-IdNr./international VAT questions and confirming the VAT number. Existing direct Barden/VAT task `https://www.notion.so/365e4130131481a486b1d8f4f7e710d2` received a clarification comment that route changes should wait for the USt-IdNr./international VAT number.
+- 2026-05-25 Drive creation follow-up: the saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com` but cannot access the target parent folder `02. RB Client Companies`; `ioana-eip` can access the parent but needs approval before being used for creation. The Mercedes-Benz order PDF was downloaded to temporary local storage for verification but could not be uploaded until the canonical `Correspondance` folder exists.
+- 2026-05-25 CORE/CRO check: public CRO sources confirm CORE is the annual-return filing route and the CRO Gazette confirms TECHPACITO LIMITED / company number 786441 registration on 2025-04-16; direct CRO Open Services annual-return checking returned an API-credential error.
+- Still open: submit remaining USt-IdNr. questions, confirm whether Barden can work with German VAT after USt-IdNr./international VAT is available, create/verify canonical Drive folder after resolving approved write-persona access, upload the Mercedes-Benz order PDF to `Correspondance`, and confirm final car acquisition/BIK/payroll treatment.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:
