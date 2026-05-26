@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finanzamt Payment Proof"
+  short_description: "Prepare German Finanzamt payment-proof responses with Drive-backed evidence."
+  default_prompt: "Use $rb-finanzamt-payment-proof-response to match a Finanzamt notice to payment proof, prepare a German response preview, preserve the evidence in Drive, and record repo pointers without sending until approved."

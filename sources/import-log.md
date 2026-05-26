@@ -2,6 +2,26 @@
 
 Status: active.
 
+## 2026-05-26 - CLV Finanzamt Wage-Tax Payment Proof Response
+
+Imported:
+
+- User-provided local Finanzamt reminder `CLV SD79-26006 May 2026.pdf`.
+- User-provided local Wise transfer confirmation for transfer `#2101710783`.
+- CLV Drive folder and Correspondence/Outgoing destination.
+
+Actions:
+
+- Prepared a combined five-page response packet with a German cover letter, Wise payment confirmation, and the Finanzamt reminder.
+- Uploaded the packet to CLV Drive Correspondence/Outgoing at `https://drive.google.com/file/d/14CVyZX52Fe4WgfUGEQyjou16jbqKs1XW/view?usp=drivesdk`.
+- Added the reusable `rb-finanzamt-payment-proof-response` skill and registered it in `skills/index.md`.
+- Recorded client pointers and status in CLV drive, source, tax, and communications files.
+
+Unresolved:
+
+- The response has not been sent. Operator approval is needed for the exact channel, message, and attachment.
+- Finanzamt should confirm allocation of the EUR 294.33 payment to the March 2026 wage-tax item and whether the EUR 2.50 late-payment surcharge remains open.
+
 ## 2026-05-21 - Accounting Team Updates Slack Closeout Process
 
 Imported:
