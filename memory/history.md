@@ -866,3 +866,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: The receipt is not included as 2025 revenue for now because 2025 SUSA class 8 revenue for January is EUR 0.00, and the 2024 FS workbook shows the matching Riot debtor movement in December 2024.
 - Verification: Workbook read-back confirmed the source-only row exists and Summary still shows operating revenue EUR 8,031.10, business expenses EUR 825.95, and business net PNL EUR 7,205.15.
 - Limitations or gaps: Final reviewer should confirm the 2024 taxable treatment before filing 2025.
+
+## 2026-05-26 - RB Accounting And JP Persona Login
+
+- User request: Pull latest main and set up local Google persona auth for `accounting-richmond-blackwood` and `jp-richmond-blackwood`, following the Notion Google Persona Auth Migration Guide and using the provided Richmond Blackwood OAuth client file.
+- Context read: Notion guide `https://www.notion.so/36be4130131481289808d08faf17d8f6`, repo `rb-google-auth` skill, Google auth/persona memory, setup notes, and the OAuth client file structure without printing secrets.
+- Actions taken: Pulled `origin/main`, created branch `codex/setup-google-personas`, installed the repo's locked Node dependencies, copied the Richmond Blackwood OAuth client JSON into global Codex storage outside git with private permissions, updated helper persona slugs and sender routing, and completed browser OAuth reconnects for both requested personas.
+- Decisions made: The requested slugs are now canonical for RB accounting and JP. Legacy helper aliases `rb-accounting` and `johnpaul-richmond-blackwood` remain supported so older commands still resolve to the new vault locations.
+- Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
+- Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.

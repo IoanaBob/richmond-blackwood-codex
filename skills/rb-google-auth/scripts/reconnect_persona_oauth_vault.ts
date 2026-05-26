@@ -10,9 +10,9 @@ import { google } from "googleapis";
 
 import {
   AuthorizedUserCredentials,
-  GOOGLE_PERSONAS,
   GooglePersonaDefinition,
   PERSONA_OAUTH_SCOPES,
+  personaDefinitionForSlug,
   personaOauthCredentialFile,
   personaOauthSafeStatus,
   refreshPersonaOauthAccessToken,
@@ -160,7 +160,7 @@ function requiredValue(argv: string[], index: number, option: string): string {
 }
 
 function personaForSlug(personaSlug: string): GooglePersonaDefinition {
-  const persona = GOOGLE_PERSONAS.find((candidate) => candidate.slug === personaSlug);
+  const persona = personaDefinitionForSlug(personaSlug);
   if (!persona) {
     throw new Error(`Unknown persona slug: ${personaSlug}`);
   }

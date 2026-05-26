@@ -6,6 +6,7 @@ export type GooglePersonaService = "gmail" | "drive" | "calendar";
 
 export interface GooglePersonaDefinition {
   slug: string;
+  aliases?: string[];
   label: string;
   expectedEmail?: string;
   accountEmail?: string;
@@ -81,7 +82,8 @@ export const PERSONA_OAUTH_SCOPES = [
 
 export const GOOGLE_PERSONAS: GooglePersonaDefinition[] = [
   {
-    slug: "rb-accounting",
+    slug: "accounting-richmond-blackwood",
+    aliases: ["rb-accounting"],
     label: "RB Accounting shared mailbox",
     expectedEmail: "accounting@richmondblackwood.com",
     accountEmail: "accounting@richmondblackwood.com",
@@ -95,11 +97,12 @@ export const GOOGLE_PERSONAS: GooglePersonaDefinition[] = [
     services: ["gmail", "drive", "calendar"],
   },
   {
-    slug: "johnpaul-richmond-blackwood",
-    label: "Johnpaul Richmond Blackwood",
+    slug: "jp-richmond-blackwood",
+    aliases: ["johnpaul-richmond-blackwood"],
+    label: "JP Richmond Blackwood",
     expectedEmail: "johnpaul.okolie@richmondblackwood.com",
     accountEmail: "johnpaul.okolie@richmondblackwood.com",
-    configured: false,
+    configured: true,
     services: ["gmail", "drive", "calendar"],
   },
   {
@@ -179,11 +182,11 @@ export const GOOGLE_PERSONAS: GooglePersonaDefinition[] = [
 ];
 
 export function personaOauthCredentialFile(personaSlug: string): string {
-  return globalCodexPath("google-personas", personaSlug, "oauth", "authorized_user.json");
+  return globalCodexPath("google-personas", canonicalPersonaSlug(personaSlug), "oauth", "authorized_user.json");
 }
 
 export function personaOauthStatusFile(personaSlug: string): string {
-  return globalCodexPath("google-personas", personaSlug, "oauth", "status.json");
+  return globalCodexPath("google-personas", canonicalPersonaSlug(personaSlug), "oauth", "status.json");
 }
 
 export function hasPersonaOauthCredentials(personaSlug: string): boolean {
@@ -191,17 +194,24 @@ export function hasPersonaOauthCredentials(personaSlug: string): boolean {
 }
 
 export function personaDefinitionForSlug(personaSlug: string): GooglePersonaDefinition | undefined {
-  return GOOGLE_PERSONAS.find((persona) => persona.slug === personaSlug);
+  const normalized = personaSlug.trim().toLowerCase();
+  return GOOGLE_PERSONAS.find((persona) =>
+    persona.slug === normalized || persona.aliases?.some((alias) => alias === normalized),
+  );
+}
+
+export function canonicalPersonaSlug(personaSlug: string): string {
+  return personaDefinitionForSlug(personaSlug)?.slug || personaSlug;
 }
 
 export function personaSlugForOAuth(accountEmail = "", gcloudConfigDir = "", explicitPersonaSlug = ""): string {
   if (explicitPersonaSlug) {
-    return explicitPersonaSlug;
+    return canonicalPersonaSlug(explicitPersonaSlug);
   }
 
   const slugFromConfig = personaSlugFromGcloudConfigDir(gcloudConfigDir);
   if (slugFromConfig) {
-    return slugFromConfig;
+    return canonicalPersonaSlug(slugFromConfig);
   }
 
   const normalizedEmail = accountEmail.trim().toLowerCase();
