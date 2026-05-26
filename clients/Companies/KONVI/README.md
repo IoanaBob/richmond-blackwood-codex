@@ -1,9 +1,9 @@
 # KONVI LIMITED
 
 Status: provisional.
-Source: Notion company record `https://www.notion.so/b91261a784104aedb4a97494cd325bbb`, linked Notion records, and user instruction on 2026-05-26.
+Source: Notion company record `https://www.notion.so/b91261a784104aedb4a97494cd325bbb`, linked Notion records, CRO Open Data, and user instruction on 2026-05-26.
 Imported: 2026-05-26.
-Review: Confirm the Notion communication preference, registered-office field, live filing statuses, and whether any internal Konvi group data should be routed outside company client memory.
+Review: Confirm live filing statuses and whether any internal Konvi group data should be routed outside company client memory.
 
 Company reference for routing: KONVI.
 Legal name: KONVI LIMITED.
@@ -14,7 +14,8 @@ Tax residence in Notion: Ireland.
 Accounting software: Xero.
 Company email in Notion: `crowdfunding@konvi.app`.
 Correspondence address in Notion: Workhub, 77 Camden Street Lower, Dublin, Dublin 2, D02 XE80, Ireland.
-Registered office address in Notion: blank.
+Registered office address in Notion: Workhub, 77 Lower Camden Street, Dublin, D02 XE80, Ireland.
+Communication preference in Notion: Slack.
 Service in Notion: Internal Group Managed Services.
 Onboarding status in Notion: Active and Onboarded.
 Risk assigned in Notion: Medium.
@@ -27,9 +28,9 @@ Previous names recorded on the company page:
 
 ## Current Snapshot
 
-Konvi is an internal group company. User instruction on 2026-05-26 says there is no WhatsApp client chat for this company, so WhatsApp is not recorded as a client source route even though the Notion company communication preference currently says WhatsApp.
+Konvi is an internal group company. User instruction on 2026-05-26 says there is no WhatsApp client chat for this company. The Notion `Communication preference` schema was extended to include Slack and KONVI was updated from WhatsApp to Slack on 2026-05-26.
 
-The main active accounting/tax pressure points found in Notion are the April 2026 Irish VAT filing/ROS demand, the related Revenue VAT-refund support request, a VIES filing marked overdue, and stale or inconsistent filing metadata. Konvi also has UK VAT registered, historical/deregistered German VAT context, and payroll tax registration in Ireland.
+The main active accounting/tax pressure points found in Notion are the April 2026 Irish VAT filing/ROS demand, the related Revenue VAT-refund support request, a VIES filing marked overdue, and stale or inconsistent filing metadata. User confirmed on 2026-05-26 that the April books/VAT/ROS issue and the VIES/title-mismatch issues are real problems. Konvi also has UK VAT registered, historical/deregistered German VAT context, and payroll tax registration in Ireland.
 
 Operationally, Konvi has internal legal/admin issues in Notion that should stay visible: LuxTrust Scan order-pack completion, `luigi@konvi.app` mailbox/send-as repair, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, and the XVault/MiCA/CASP risk question.
 

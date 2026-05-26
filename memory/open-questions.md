@@ -135,13 +135,10 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## KONVI Questions
 
-- Confirm whether the Notion company communication preference should be changed away from WhatsApp, because user instruction on 2026-05-26 says Konvi is internal and has no WhatsApp client chat.
-- Confirm KONVI LIMITED's official registered-office address; the company record has correspondence address populated but registered office blank.
-- Confirm live status for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request.
-- Confirm whether the VIES filing row marked overdue is actually outstanding.
+- Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.
+- Confirm next owner and cleanup path for the VIES filing row marked overdue; user confirmed on 2026-05-26 that this is a real problem.
 - Confirm whether a live 2026 annual-return filing row exists and whether the 2026-05-25 annual-return workflow was completed.
-- Reconcile the Konvi business-partner VAT flag against IE VAT and UK VAT registration records.
-- Clean up KHL placeholder fields and the UK VAT automation tasks that are misnamed as IE VAT.
+- Clean up the future VAT filing title/date mismatch and the UK VAT automation tasks that are misnamed as IE VAT.
 - Confirm canonical Konvi Drive folder before claiming raw filing, LuxTrust, annual-return, name-change, or correspondence evidence is stored.
 
 ## NACV / Andrei Questions

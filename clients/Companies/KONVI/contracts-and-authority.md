@@ -1,9 +1,9 @@
 # Contracts And Authority
 
 Status: provisional.
-Source: Notion company record, linked contract records, shareholder company record, and user instruction on 2026-05-26.
+Source: Notion company record, linked contract records, shareholder company record, CRO Open Data, Companies House, and user instruction on 2026-05-26.
 Imported: 2026-05-26.
-Review: Confirm active vendor/support contract scope and reconcile stale shareholder-company placeholders before using this file for outbound authority statements.
+Review: Confirm active vendor/support contract scope before using this file for outbound authority statements.
 
 ## Authority And Governance
 
@@ -12,6 +12,13 @@ KONVI LIMITED is recorded in Notion as Irish incorporated and Irish tax resident
 The company page records previous names `KONVI FIVE YEAR WATCH HOLDINGS 001 LTD` and `KONVI CROWDFUNDING LTD (until Q4 2024)`. The Notion document `Konvi Name Change - Requirements` says the change from Konvi Crowdfunding Limited to Konvi Limited did not change legal identity, rights, obligations, contracts, debts, or liabilities, but tax records, ROS, bank accounts, insurance policies, financing agreements, partners, and invoices should be updated to the new name.
 
 Shareholder-company source: `KONVI HOLDINGS LIMITED` / `https://www.notion.so/e4f186fded244b34abfdf572f7bbd55d`.
+
+Official register addresses updated in Notion on 2026-05-26:
+
+- KONVI LIMITED: Workhub, 77 Lower Camden Street, Dublin, D02 XE80, Ireland, from CRO Open Data company record 683014.
+- KONVI HOLDINGS LIMITED: 6b Upper Water Street, Newry, Down, BT34 1DJ, from Companies House company record NI676502.
+
+KHL placeholder correspondence/email fields were cleaned on 2026-05-26: correspondence address now matches the Companies House registered office, `Register Number` is plain `NI676502`, and the placeholder company/accounting email values were cleared rather than replaced with invented emails.
 
 ## Active / Current Contracts
 

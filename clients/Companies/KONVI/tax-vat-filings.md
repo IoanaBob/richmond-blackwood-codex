@@ -16,6 +16,8 @@ Review: Verify live filing status in ROS/HMRC/Notion before treating any due, ov
 | German VAT | Deregistered | `https://www.notion.so/175e4130131480efb420f2d460c8ff6b` | Treat as historical/deregistered unless authority confirms an active German registration. |
 | Annual returns / RBO | Registered per linked records | Company relation map and calling-bot source context | Fetch the specific filing registration before public statements or filing work. |
 
+User confirmed on 2026-05-26 that Konvi is registered for VAT in Ireland and the UK, and German VAT is deregistered.
+
 ## Current Filing Issues
 
 | Issue | Status in Notion | Source | Review needed |
@@ -26,6 +28,8 @@ Review: Verify live filing status in ROS/HMRC/Notion before treating any due, ov
 | VIES filing for Jan-Mar 2026 | Overdue, due date 2026-04-21 | `https://www.notion.so/311e41301314811894dddf22779d5f1b` | Needs live status check. |
 | Future VAT filing title mismatch | Pending | `https://www.notion.so/33be4130131481bc8b0fdde8f5e5bf22` | Title says `19 Jun 2026` but due-date property is 2026-07-19 for May-Jun period. |
 | Payroll tax filing for May 2026 | Pending, due 2026-06-14 | `https://www.notion.so/365e4130131481a68a14c27005353a55` | No issue found beyond normal pending status. |
+
+User confirmed on 2026-05-26 that the April books / Irish VAT / ROS demand issue, the Revenue VAT refund support issue, the VIES overdue row, and the future VAT title/date mismatch are real problems, not just stale observations.
 
 ## Annual Returns
 

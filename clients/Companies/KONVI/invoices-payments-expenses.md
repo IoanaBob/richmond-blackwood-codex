@@ -1,7 +1,7 @@
 # Invoices, Payments, And Expenses
 
 Status: provisional.
-Source: Notion company, contract, business partner, invoice/payment relation summaries, and task records reviewed on 2026-05-26.
+Source: Notion company, contract, business partner, invoice/payment relation summaries, task records, and user instruction on 2026-05-26.
 Imported: 2026-05-26.
 Review: Confirm live invoicing metadata and whether deferred RB fee amounts should be separately tracked in an operating row.
 
@@ -13,9 +13,9 @@ Source: `https://www.notion.so/33be413013148032907afcac7ba0be3b`.
 
 ## Business Partner Metadata
 
-| Record | Source | Issue |
+| Record | Source | Current state |
 | --- | --- | --- |
-| `Konvi Limited` business partner | `https://www.notion.so/b99b161584fc4936a38fa9412bfa91b4` | Invoicing email is `invoices@konvi.app`, but `VAT Registered?` is set to `NO` and VAT Number is blank, while company registration records show IE VAT and UK VAT registrations. Treat as stale until reconciled. |
+| `Konvi Limited` business partner | `https://www.notion.so/b99b161584fc4936a38fa9412bfa91b4` | Updated on 2026-05-26: `VAT Registered?` is `YES`; VAT Number field records IE `3989866OH` and UK `503323441`; notes say German VAT is deregistered. Invoicing email remains `invoices@konvi.app`. |
 
 ## Contract-Linked Payment Issues
 

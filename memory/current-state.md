@@ -257,10 +257,11 @@ KONVI / KONVI LIMITED context import:
 - Company folder: `clients/Companies/KONVI/`.
 - Notion company: `https://www.notion.so/b91261a784104aedb4a97494cd325bbb`; `Reference` is `KONVI`.
 - Notion client project: `https://www.notion.so/32fe4130131480de8777e97adf079bae`.
-- No WhatsApp route is recorded because user instruction on 2026-05-26 says Konvi is internal and there is no WhatsApp with this company. The Notion company communication preference still says WhatsApp and is recorded as a data-quality issue.
+- No WhatsApp route is recorded because user instruction on 2026-05-26 says Konvi is internal and there is no WhatsApp with this company. User corrected the communication route to Slack; the Notion Companies schema was extended with `Slack`, and KONVI/KHL were updated to use Slack.
 - Current company state from Notion: Irish incorporated and tax resident, Xero accounting software, internal group managed services, Medium risk, RB monthly fee EUR 9,500. Previous names recorded are KONVI FIVE YEAR WATCH HOLDINGS 001 LTD and KONVI CROWDFUNDING LTD.
 - High-signal active issues: April books/Irish VAT/ROS demand, Revenue VAT refund support, VIES overdue row, `luigi@konvi.app` mailbox/send-as repair, LuxTrust order pack, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, XVault/MiCA/CASP risk review, Konvi tax-support landing page, and shareholder-query review.
-- High-signal data-quality issues: registered office blank, KHL placeholder fields, Konvi business-partner VAT flag stale, future VAT filing title/date mismatch, 2026 annual-return row not confirmed in this first pass, and UK VAT automation tasks misnamed as IE VAT.
+- Corrected source-of-truth fields on 2026-05-26: KONVI registered office is `Workhub, 77 Lower Camden Street, Dublin, D02 XE80, Ireland` from CRO Open Data; KHL registered/correspondence address is `6b Upper Water Street, Newry, Down, BT34 1DJ` from Companies House; KHL placeholder email fields were cleared; the Konvi business partner now records VAT registered in IE and UK, with German VAT deregistered.
+- Remaining data-quality issues: future VAT filing title/date mismatch, 2026 annual-return row not confirmed in this first pass, and UK VAT automation tasks misnamed as IE VAT.
 
 Communication workflow update:
 

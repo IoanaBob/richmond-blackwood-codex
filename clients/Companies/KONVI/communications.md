@@ -3,13 +3,13 @@
 Status: provisional.
 Source: Notion company record, task records, and user instruction on 2026-05-26.
 Imported: 2026-05-26.
-Review: Confirm whether the Notion communication preference should be changed from WhatsApp to internal channels/email.
+Review: Use Slack for internal Konvi routing unless a more specific internal channel/thread is identified.
 
 ## Routing
 
 User instruction on 2026-05-26 says there is no WhatsApp with Konvi because this is internal. No WhatsApp chat/contact JID is stored for Konvi in this import.
 
-The Notion company record currently says communication preference is WhatsApp. Treat that as a data-quality issue until the company record is updated or the user confirms a different routing rule.
+User confirmed on 2026-05-26 that Konvi communication preference should be Slack. The Notion `Communication preference` schema was extended to include Slack, and both KONVI and KHL were updated to Slack.
 
 ## Email And Internal Channels
 
