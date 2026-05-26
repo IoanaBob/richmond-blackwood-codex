@@ -1646,3 +1646,21 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-26 - Hamburg Contact Availability Fix
+
+Imported:
+
+- Official Hamburg.de Finanzamt Hamburg-Nord page `https://www.hamburg.de/politik-und-verwaltung/behoerden/finanzbehoerde/einrichtungen/finanzaemter/nord-207130`.
+- Notion Front Office Contact `https://www.notion.so/2efe4130131480bb94bac672c2ae5c07`.
+- Contact Availabilities data source `collection://342e4130-1314-8051-8d67-000b937562b5`.
+
+Actions:
+
+- Created and linked Monday-Friday phone-support Contact Availabilities for Finanzamt Hamburg-Nord using the official telephone reachability window.
+- Updated the Hamburg contact page with the schedule, source, imported date, and review note.
+- Updated the authority-call setup skill and durable memory so missing linked contact availability is a hard blocker before Calls submission or review.
+
+Unresolved:
+
+- Recheck Hamburg.de if public phone hours change.
