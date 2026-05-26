@@ -85,19 +85,29 @@ Fallbacks:
 
 ## Slack Completion Notice
 
-After all task create/update operations and the Team Updates write-back have been read back successfully, send one short Slack completion notice to `#rb-client-updates`.
+After all task create/update operations and the Team Updates write-back have been read back successfully, send one Slack completion notice to `#rb-client-updates`.
 
-The Slack notice is part of this automation and may be sent without a separate per-run approval only when it uses the standard shape below and contains no client-sensitive detail beyond the Team Updates page link:
+The Slack notice is part of this automation and may be sent without a separate per-run approval only when it uses the standard shape below, links the Team Updates page, and lists the task pages created or updated during the triage:
 
 ```text
 Accounting Team Updates task routing is done for <YYYY-MM-DD>: follow-up tasks were created/updated and linked on <Team Updates page link>.
+
+Created
+- <@SlackUserID> <Task title linked to task URL>
+
+Updated
+- <@SlackUserID> <Task title linked to task URL>
 ```
 
 Rules:
 
-- Link the Team Updates page as the primary destination for the team to inspect the routed task links.
+- Link the Team Updates page first, then list created and updated task titles as direct hyperlinks in the Slack message.
+- Prefix each task line with the assigned person's Slack mention, for example `<@U123> [Task title](task URL)`. If a task has multiple assignees, include every resolved assignee mention. Resolve Slack user IDs before sending when practical.
+- If an assignee cannot be resolved to a Slack user, use their plain name rather than a bare `@name`, and record the unresolved Slack mapping in the final report.
+- Include only task titles and task links in the created/updated lists; keep source-line detail and skipped-item notes on the Team Updates page.
+- If no tasks were created or no tasks were updated, include `None` under that heading.
 - If there are unresolved routing blockers, add only a short count or phrase such as `One item needs routing review; details are on the page.`
-- Do not list every task, client detail, private source content, or connector mechanics in Slack.
+- Do not include private source content, connector mechanics, skipped placeholder text, or broad operational commentary in Slack.
 - Do not use broad mentions such as `@here` or `@channel`.
 - Do not post Slack if no blocker/action-point task was created, updated, or commented; record the no-op on the Team Updates page and in the final report instead.
 - If Slack sending fails or the Slack connector is unavailable, do not roll back verified Notion work. Report the Slack blocker in the final run report and add it to the Team Updates page comment.

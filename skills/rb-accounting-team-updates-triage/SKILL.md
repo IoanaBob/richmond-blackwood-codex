@@ -69,13 +69,23 @@ Use this standard message shape:
 
 ```text
 Accounting Team Updates task routing is done for <YYYY-MM-DD>: follow-up tasks were created/updated and linked on <Team Updates page link>.
+
+Created
+- <@SlackUserID> <Task title linked to task URL>
+
+Updated
+- <@SlackUserID> <Task title linked to task URL>
 ```
 
 Rules:
 
-- The Team Updates page link is the primary destination; do not list every task link in Slack.
+- Link the Team Updates page first, then list created and updated task titles as direct hyperlinks in the Slack message.
+- Prefix each task line with the assigned person's Slack mention, for example `<@U123> [Task title](task URL)`. If a task has multiple assignees, include every resolved assignee mention. Resolve Slack user IDs before sending when practical.
+- If an assignee cannot be resolved to a Slack user, use their plain name rather than a bare `@name`, and record the unresolved Slack mapping in the final report.
+- Include only task titles and task links in the created/updated lists; keep source-line detail and skipped-item notes on the Team Updates page.
+- If no tasks were created or no tasks were updated, include `None` under that heading.
 - If routing blockers remain, add only a short phrase such as `One item needs routing review; details are on the page.`
-- Do not include client details, source content, connector mechanics, or broad mentions such as `@here` or `@channel`.
+- Do not include private source content, connector mechanics, skipped placeholder text, or broad mentions such as `@here` or `@channel`.
 - Do not post Slack on a no-op run where no blocker/action-point task was created, updated, or commented. Record the no-op on the Team Updates page and in the final report.
 - If Slack sending fails or the Slack connector is unavailable, do not roll back verified Notion work. Add a Team Updates page note for the Slack blocker and report it.
 - No other outbound Slack or app messages are part of this automation.
