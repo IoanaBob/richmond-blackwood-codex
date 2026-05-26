@@ -1,9 +1,9 @@
 # Accounting, Bookkeeping, And Payroll
 
 Status: provisional.
-Source: Notion company and employment records fetched 2026-05-13; Drive and Gmail context; user ELSTER session and payroll evidence review on 2026-05-25.
+Source: Notion company and employment records fetched 2026-05-13; Drive and Gmail context; user ELSTER session and payroll evidence review on 2026-05-25; payroll evidence packet prepared 2026-05-26.
 Imported: 2026-05-13.
-Review: Reconcile the post-submission payment allocation and confirm whether Notion employment/payroll records should attach the ELSTER transfer tickets and supporting evidence for May 2024-April 2025.
+Review: Reconcile the post-submission payment allocation and confirm whether Notion employment/payroll records should attach the ELSTER transfer tickets and supporting evidence for May 2024-April 2025. ELSTER evidence submission is drafted but still blocked by local file selection/upload mechanics and missing uploadable individual Notion PDFs.
 
 ## Accounting Setup
 
@@ -77,6 +77,43 @@ Review: The notice informed Finanzamt that the May 2024-April 2025 Lohnsteuer-An
 
 ELSTER ticket for the combined Finanzamt notice: `ep1462eym8u2br1mdekveum80xchf83n`, submitted `Dienstag, 26. Mai 2026, 00:50:02` under Ordnungskriterium `29/628/00250`.
 
+### 2026-05-26 Payroll Evidence Packet And Payment Allocation
+
+Status: prepared, not yet submitted to Finanzamt.
+Source: Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; Drive bank statement `Agile lincs Bank statement 07/24-06/25.xlsx` with Drive file ID `1EujbQqCxNJ0LrAixsBvDnu5hr7mSvp1H`; live ELSTER Lohnsteuer-Anmeldung transfer tickets; Notion task comments `36ce4130-1314-81d3-8039-001d6554242f` and `36ce4130-1314-8121-a08e-001db8dfe818`.
+Imported: 2026-05-26.
+Review: Local summary PDF and allocation workbook are ready. The individual payslip/payment-proof PDFs remain in protected Notion attachments and should not be described as attached until they are actually available to ELSTER or another approved submission route. Browser-based ELSTER Belegnachreichung is drafted on the 2024 Lohnsteuer-Anmeldung supporting-document route with the authority note and attachment description populated; it is blocked only at manual local PDF selection because the in-app browser cannot hand the local PDF to ELSTER's hidden upload control.
+
+Prepared local packet:
+
+| File | Location | SHA-256 |
+| --- | --- | --- |
+| Authority-facing PDF allocation summary | `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_2024-05_bis_2025-04_Beleguebersicht.pdf` | `64184e9f1220a75a50254b8ee9edaf29a8a05d56579284b7d8a53316c9e99796` |
+| Allocation workbook | `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_2024-05_bis_2025-04_Zuordnung.xlsx`; Drive copy `https://docs.google.com/spreadsheets/d/1JSN889NGPc86tCTBHhEVSiB_hylx2Ww0/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true` | `0d1fab35a58c564f998a143bb11aaa9300bf6be642a4bd0a9e6603930cf7129c` |
+| Allocation CSV | `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_2024-05_bis_2025-04_Zuordnung.csv` | `57f958100c96b0b6b2b62280f808b943f1523a7dd600f5b2130d8f5614cf1738` |
+| ELSTER message draft | `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_ELSTER_Nachricht_Entwurf.txt`; Drive Google Doc `https://docs.google.com/document/d/15lYOEt6XIl1xSurPnt5wUMQ-MzNiq9jhNcxbKwqqw_g/edit?usp=drivesdk` | `b0a0cf5ccd75cbc0f0e9ccaab346647caa33acfe7ff87891f4ac2e045a03ca26` |
+| Local ZIP packet | `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_Evidence_Packet_2026-05-26.zip` | `823244b6d5ad8d963796de2de8091bf73b325d356e275da70e696d36ab8bf7a6` |
+
+The Drive connector accepted the XLSX schedule and Google Doc draft into My Drive. Raw PDF upload to Drive through the exposed connector was unsupported, and the older folder-aware helper was blocked by expired Google auth. If the PDF should be retained in Drive before ELSTER submission, rerun a folder-aware upload after Google auth is refreshed or have the operator upload the local PDF/ZIP into the AGL 2024 folder.
+
+Payment allocation confirmed from the bank statement:
+
+| Period | ELSTER total | Bank payment date | Bank reference | Paid amount |
+| --- | ---: | --- | --- | ---: |
+| 2024-05 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 0524` | EUR 1,762.41 |
+| 2024-06 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 0624` | EUR 1,762.41 |
+| 2024-07 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 0724` | EUR 1,762.41 |
+| 2024-08 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 0824` | EUR 1,762.41 |
+| 2024-09 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 0924` | EUR 1,762.41 |
+| 2024-10 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 1024` | EUR 1,762.41 |
+| 2024-11 | EUR 1,762.41 | 2025-04-10 | `29/628/00250 LSt 1124` | EUR 1,762.41 |
+| 2024-12 | EUR 1,723.24 | 2025-04-10 | `29/628/00250 LSt 1224` | EUR 1,723.24 |
+| 2025-01 | EUR 1,715.46 | 2025-04-10 | `29/628/00250 LSt 0125` | EUR 1,715.46 |
+| 2025-02 | EUR 1,715.46 | 2025-04-10 | `29/628/00250 LSt 0225` | EUR 1,715.46 |
+| 2025-03 | EUR 1,715.46 | 2025-04-01 | `29/628/00250 LSt 0325` | EUR 1,715.46 |
+| 2025-04 | EUR 1,715.46 | 2025-04-29 | `29/628/00250 LSt 0425` | EUR 1,715.46 |
+| **Total** | **EUR 20,921.95** |  |  | **EUR 20,921.95** |
+
 ### Extracted Payroll-Tax Schedule
 
 Status: provisional.
@@ -89,7 +126,7 @@ Review: Filed as original monthly returns after user approval, because visible M
 | 2024-05 through 2024-11 | EUR 6,500.00 | EUR 1,735.66 | EUR 26.75 | EUR 0.00 | 7 | EUR 12,336.87 |
 | 2024-12 | EUR 6,500.00 | EUR 1,700.66 | EUR 22.58 | EUR 0.00 | 1 | EUR 1,723.24 |
 | 2025-01 through 2025-04 | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | 4 | EUR 6,861.84 |
-| **Total** | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **12** | **EUR 20,921.95** |
+| **Total** | **EUR 78,000.00** | **EUR 20,689.60** | **EUR 232.35** | **EUR 0.00** | **12** | **EUR 20,921.95** |
 
 Visible Mein ELSTER transmitted-form history did not show a Lohnsteuer-Anmeldung for the queried periods, subject to the ELSTER caveat that filings from external tax software may not be listed there. After explicit user approval on 2026-05-25, Codex submitted the May 2024 through April 2025 monthly Lohnsteuer-Anmeldungen in ELSTER as original returns using StNr `29/628/00250`, one employee, and company address `Stralauer Platz 35, 10243 Berlin`. The supporting payslips and payment proofs should be transmitted separately through ELSTER's supporting-document route once the exact PDFs are uploadable.
 

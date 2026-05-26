@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User instruction in Codex chat on 2026-05-25; local PDFs downloaded by the user; Notion task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`; Notion company `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`; Notion German corporation filing `https://www.notion.so/311e4130131481d49734d2b64b83b265`; Google Drive AGL folder reads; Gmail thread/message `19e2263aa4379938`; ELSTER public guidance at `https://www.elster.de/eportal/infoseite/rechtliches`; ELSTER Belegnachreichung page `https://www.elster.de/eportal/formulare-leistungen/alleformulare/belegnachreichung`.
 Imported: 2026-05-25.
-Review: Annual VAT, payroll-tax returns, the holding Finanzamt message, and the formal USt 2024 Einspruch/AdV listed below were submitted only after user approval. Further E-Bilanz transmission, payroll evidence submission, or payment decision still needs operator/accountant review. The ELSTER certificate/password are live credentials and are not stored here.
+Review: Annual VAT, payroll-tax returns, the holding Finanzamt message, and the formal USt 2024 Einspruch/AdV listed below were submitted only after user approval. Further E-Bilanz transmission, payroll evidence submission, or payment decision still needs operator/accountant review. A payroll evidence allocation packet was prepared on 2026-05-26 and ELSTER Belegnachreichung is drafted, but it is not yet submitted to the Finanzamt because the local PDF must be selected manually. The ELSTER certificate/password are live credentials and are not stored here.
 
 ## Source Packet
 
@@ -24,6 +24,7 @@ Review: Annual VAT, payroll-tax returns, the holding Finanzamt message, and the 
 | Payroll query task | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Task contains payslips and monthly tax-payment proof attachments for May 2024-April 2025. Notion attached-file extraction on 2026-05-25 confirmed the monthly payslip tax figures below. It does not yet prove that Lohnsteuer-Anmeldungen were submitted or processed. |
 | May 2024 payroll evidence | Notion payslip attachment `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf`; Notion payment-proof attachment `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`; Drive bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls` | Payslip supports the May 2024 payroll-tax figures. The bank statement shows payment on 2025-04-10 to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524` for EUR 1,762.41, matching the May 2024 Lohnsteuer-Anmeldung total. Exact Notion attachment PDFs still need an uploadable local/browser path before an ELSTER Belegnachreichung can be sent. |
 | Live ELSTER payroll submissions | Mein ELSTER session opened by the user on 2026-05-25 | Visible transmitted forms did not show any Lohnsteuer-Anmeldung for the queried periods through Mein ELSTER. Caveat: ELSTER warns that forms submitted through external tax software may not appear in this list. After explicit user approval, May 2024 through April 2025 monthly Lohnsteuer-Anmeldungen were submitted in ELSTER as original returns using StNr `29/628/00250`, one employee, and address `Stralauer Platz 35, 10243 Berlin`. Transfer tickets are recorded below and in `accounting-bookkeeping-payroll.md`. |
+| Payroll evidence allocation packet | Local `/private/tmp/agl_payroll_evidence_packet/`; Drive XLSX `https://docs.google.com/spreadsheets/d/1JSN889NGPc86tCTBHhEVSiB_hylx2Ww0/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true`; Drive Google Doc draft `https://docs.google.com/document/d/15lYOEt6XIl1xSurPnt5wUMQ-MzNiq9jhNcxbKwqqw_g/edit?usp=drivesdk`; Notion task comments `36ce4130-1314-81d3-8039-001d6554242f` and `36ce4130-1314-8121-a08e-001db8dfe818` | Prepared on 2026-05-26 to reconcile all 12 submitted Lohnsteuer-Anmeldungen to the bank payments/credits. Local PDF summary is `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_2024-05_bis_2025-04_Beleguebersicht.pdf`. Total payment allocation is EUR 20,921.95. ELSTER Belegnachreichung is drafted on the 2024 Lohnsteuer-Anmeldung route with note and attachment description populated; manual selection of the local PDF is still required. Individual Notion payslip/payment-proof PDFs are still not local uploadable files. |
 | Notion payroll task comment | Comment `36be4130-1314-8155-a56e-001db0bff9d5` on `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Records address correction, no-error ELSTER validation, May 2024 final review figures, Belegnachreichung/evidence route, and the remaining uploadable-PDF blocker. |
 | Notion payroll submission comment | Comment `36be4130-1314-81fc-9729-001d50577ebc` on `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Records all May 2024-April 2025 ELSTER transfer tickets and the remaining evidence/allocation follow-up. |
 | Notion company evidence-filing comment | Comment `36be4130-1314-8159-b628-001d87a90dd5` on `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e` | Records that the May 2026 incoming letters/scans, Q1-Q4 2024 UStVA protocols, and final E-Bilanz `.xlsx` review pack were filed to Drive, with the E-Bilanz pack link. |
@@ -34,7 +35,7 @@ Review: Annual VAT, payroll-tax returns, the holding Finanzamt message, and the 
 
 | Priority | Action | Owner / route | Current status | Review before sending |
 | --- | --- | --- | --- | --- |
-| 1 | Resolve the payroll-tax query for May 2024-April 2025 before the Finanzamt treats the payment credits as unexplained. | ELSTER Lohnsteuer-Anmeldung route plus separate ELSTER Belegnachreichung or authority message for supporting evidence. | AGL had German employment from 2024-05-01. Payslip tax figures were extracted month by month; payment proof/visible credits exist. Monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 were submitted in ELSTER on 2026-05-25 after explicit user approval. The 2026-05-26 Finanzamt message told the Finanzamt the payroll-tax returns were completed and listed the transfer tickets. | Send the payslip/payment-proof evidence separately once uploadable PDFs are available, ask Finanzamt to allocate the existing credits by period, and confirm whether any duplicate external-software filings need explanation. |
+| 1 | Resolve the payroll-tax query for May 2024-April 2025 before the Finanzamt treats the payment credits as unexplained. | ELSTER Lohnsteuer-Anmeldung route plus separate ELSTER Belegnachreichung or authority message for supporting evidence. | AGL had German employment from 2024-05-01. Payslip tax figures were extracted month by month; payment proof/visible credits exist. Monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 were submitted in ELSTER on 2026-05-25 after explicit user approval. The 2026-05-26 Finanzamt message told the Finanzamt the payroll-tax returns were completed and listed the transfer tickets. On 2026-05-26, a local evidence/allocation packet was prepared and reconciles EUR 20,921.95 of Lohnsteuer/SolZ to the filed returns and bank references. ELSTER Belegnachreichung is drafted and waiting for manual local PDF selection. | Select/upload the prepared allocation PDF, validate, then submit after final review/confirmation; separately make the individual payslip/payment-proof PDFs uploadable if Finanzamt requests them. Confirm whether any duplicate external-software filings need explanation. |
 | 2 | File the 2024 Umsatzsteuererklaerung electronically, likely as zero if the books confirm no German VATable output/input VAT. | ELSTER / AGL certificate. | Submitted in Mein ELSTER on 2026-05-25 after user approval. Transferticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`; final VAT/refund EUR 0.00. Saved return copy is in Drive. Finanzamt was notified in the 2026-05-26 holding message. | Monitor processing and save any corrected assessment. |
 | 3 | Generate and submit the 2024 E-Bilanz Datensatz. | Lexoffice, tax software, or an E-Bilanz/XBRL tool; ordinary PDF accounts are not enough. | Final clean review pack prepared at `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`. It gives the balance-sheet/P&L entry checklist and recommends separating negative bank balances as current bank liabilities. A valid XBRL/datensatz still needs E-Bilanz-capable software. The 2026-05-26 Finanzamt message requested a short extension to 2026-06-16. | In the E-Bilanz tool, confirm scope/sign conventions, run validation, transmit, and save the protocol/ticket. The pack assumes whole-company statutory accounts because no separate German PE-only balance sheet was located. |
 | 4 | Respond to the 2026-05-19 Mahnung before enforcement pressure escalates. | ELSTER form/message and formal Einspruch/AdV route. | Account statement shows EUR 5,781.25 total. The USt component is now traced to a 2026-03-23 USt Bescheid assessing EUR 5,200.00 plus EUR 75.00 Verspaetungszuschlag; the annual VAT return has now been electronically submitted as EUR 0.00. On 2026-05-26, AGL submitted a holding message requesting processing/amendment and Vollstreckungsaufschub, plus a formal Einspruch/AdV request against the USt 2024 Bescheid and Verspaetungszuschlag. KSt/GewSt/soli bases still need source review. | Monitor Finanzamt response, retrieve any still-missing Bescheide/account allocation details, and avoid payment decisions until the amended VAT processing/AdV position is known. |
@@ -52,7 +53,7 @@ The Finanzamt issues should be handled as related but separate defects:
 - Annual VAT: quarterly UStVA protocols exist, but the annual 2024 Umsatzsteuererklaerung was still requested. After user approval, the annual VAT return was submitted in Mein ELSTER on 2026-05-25 at 23:01:09 as EUR 0.00 final VAT/refund. Transferticket: `ep1454t90i8mmb5zp5wtk182ewbfh5wq`. On 2026-05-26, AGL submitted both a holding message and a formal USt 2024 Einspruch/AdV request to ask for processing/amendment of the estimated assessment and collection pause.
 - E-Bilanz: the German KSt/GewSt returns were recorded as filed on 2026-04-30, but the separate E-Bilanz/XBRL dataset is still requested. The 2024 accounts show a EUR 14,447 rounded loss, supporting the no-profit/no-tax operating position, but the Finanzamt wants the electronic dataset. A final clean review pack has been prepared from the statutory financial statements and final FY24 SFS trial balance. It ties arithmetically, recommends presenting negative bank balances as current bank liabilities for German mapping, and assumes whole-company statutory accounts because no separate German PE-only balance sheet was located in the available records. A local Belegnachreichung printout says it transmitted a 2025 P&L under the 2024 route, so do not rely on it as the 2024 E-Bilanz Datensatz. The 2026-05-26 holding message requested a short extension to 2026-06-16.
 - Mahnung: the EUR 5,781.25 balance appears connected at least partly to the 2026-03-23 USt 2024 assessment for EUR 5,200.00 plus EUR 75.00 late-filing surcharge. Do not treat the Mahnung alone as proof that the tax is finally due. AGL has now asked for processing/amendment, Aussetzung der Vollziehung, and Vollstreckungsaufschub while the annual VAT and E-Bilanz are processed; retrieve any remaining KSt/GewSt/soli assessment basis.
-- Payroll tax: do not tell Finanzamt there were no employees. AGL had German employment from 2024-05-01. The payslips support monthly payroll-tax amounts. Monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 have now been submitted through ELSTER, and the 2026-05-26 holding message gave the Finanzamt all payroll transfer tickets. The open issue is payment-credit allocation, supporting evidence, and any explanation if prior external-software submissions later surface.
+- Payroll tax: do not tell Finanzamt there were no employees. AGL had German employment from 2024-05-01. The payslips support monthly payroll-tax amounts. Monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 have now been submitted through ELSTER, and the 2026-05-26 holding message gave the Finanzamt all payroll transfer tickets. A payment allocation packet prepared on 2026-05-26 reconciles EUR 20,921.95 of Lohnsteuer/SolZ payments to the filed returns and bank references. The open issue is actual ELSTER evidence transmission, individual-payslip/payment-proof uploadability, and any explanation if prior external-software submissions later surface.
 - Supporting evidence: the Lohnsteuer-Anmeldung final review screen does not expose an attachment step. ELSTER has a separate `Belegnachreichung` route for sending PDF files and e-invoices to the Finanzamt. Use that route, or a more specific Finanzamt message route if ELSTER presents one, for payslips and payment proofs after the return itself is approved for transmission.
 
 ## Payroll-Tax Filing Schedule - May 2024 To April 2025
@@ -76,7 +77,7 @@ Review: Filed in ELSTER on 2026-05-25 after explicit user approval. Confirm paym
 | 2025-02 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
 | 2025-03 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
 | 2025-04 | Byron Jarvis Frasier | EUR 6,500.00 | EUR 1,709.83 | EUR 5.63 | EUR 0.00 | EUR 1,715.46 |
-| **Total** |  | **EUR 78,000.00** | **EUR 20,715.82** | **EUR 206.13** | **EUR 0.00** | **EUR 20,921.95** |
+| **Total** |  | **EUR 78,000.00** | **EUR 20,689.60** | **EUR 232.35** | **EUR 0.00** | **EUR 20,921.95** |
 
 ## Payroll-Tax ELSTER Transfer Tickets
 
@@ -234,30 +235,51 @@ AGILE LINCS LIMITED
 
 ## Draft Payroll-Tax Response
 
-Status: draft for review only.
-Source: Notion payroll query task and repo payroll records.
-Imported: 2026-05-25.
-Review: Send only after the supporting PDFs are uploadable and the operator/accountant approves the exact wording. If Finanzamt processing confirms all monthly returns and credits are allocated correctly, a shorter status note may be enough.
+Status: prepared locally, not yet submitted.
+Source: Notion payroll query task, repo payroll records, Drive bank statement, and local evidence packet `/private/tmp/agl_payroll_evidence_packet/`.
+Imported: 2026-05-25; updated 2026-05-26.
+Review: The 2026-05-26 local draft gives period-by-period payment allocation and is suitable as a text-only authority notice if attachments cannot be uploaded. ELSTER submission is blocked until the certificate is selected and final send is confirmed.
 
 Sending channel: ELSTER or Finanzamt-approved response route.
 Operator: not available from `.env.local` in this worktree.
 
+Prepared draft location: `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_ELSTER_Nachricht_Entwurf.txt`.
+Drive Google Doc draft: `https://docs.google.com/document/d/15lYOEt6XIl1xSurPnt5wUMQ-MzNiq9jhNcxbKwqqw_g/edit?usp=drivesdk`.
+Drive XLSX allocation schedule: `https://docs.google.com/spreadsheets/d/1JSN889NGPc86tCTBHhEVSiB_hylx2Ww0/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true`.
+
 ```text
-Betreff: AGILE LINCS LIMITED, StNr. 29/628/00250 - Lohnsteuer-Anmeldungen Mai 2024 bis April 2025
+Betreff: AGILE LINCS LIMITED, StNr. 29/628/00250 - Lohnsteuer 05/2024 bis 04/2025 / Zahlungszuordnung und Beleguebersicht
 
 Sehr geehrte Damen und Herren,
 
-zu Ihrem Schreiben vom 17.04.2026 teilen wir mit, dass AGILE LINCS LIMITED im angefragten Zeitraum einen in Deutschland lohnsteuerpflichtigen Arbeitnehmer beschaeftigt hatte.
+zu Ihrem Schreiben zur Lohnsteuer und zu den am 25.05.2026 elektronisch nachgereichten Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 reichen wir die Zahlungszuordnung und Beleguebersicht nach.
 
-Nach unserer Pruefung wurden monatliche Zahlungen geleistet. Die monatlichen Lohnabrechnungen weisen fuer Mai bis November 2024 jeweils EUR 1.735,66 Lohnsteuer und EUR 26,75 Solidaritaetszuschlag aus, fuer Dezember 2024 EUR 1.700,66 Lohnsteuer und EUR 22,58 Solidaritaetszuschlag, sowie fuer Januar bis April 2025 jeweils EUR 1.709,83 Lohnsteuer und EUR 5,63 Solidaritaetszuschlag. Kirchensteuer faellt jeweils mit EUR 0,00 an.
+Fuer den Zeitraum ab Mai 2024 bestand ein lohnsteuerpflichtiges Beschaeftigungsverhaeltnis in Deutschland fuer Byron Jarvis Frasier. Die Lohnsteuer-Anmeldungen fuer 05/2024 bis 04/2025 wurden am 25.05.2026 elektronisch uebermittelt. Die in den Anmeldungen ausgewiesenen Lohnsteuer- und Solidaritaetszuschlagbetraege stimmen mit den internen Lohnabrechnungen ueberein.
 
-Die Lohnsteuer-Anmeldungen fuer Mai 2024 bis April 2025 wurden am 25.05.2026 elektronisch nachgereicht. Wir bitten um Zuordnung der bereits vorhandenen Zahlungen/Guthaben auf dem Lohnsteuerkonto zu den jeweiligen Anmeldungszeitraeumen.
+Die Zahlungen an das Finanzamt fuer Koerperschaften III wurden nach unseren Unterlagen wie folgt geleistet:
 
-Bitte beruecksichtigen Sie die bereits vorhandenen Guthaben auf dem Lohnsteuerkonto und teilen Sie uns mit, falls einzelne Zahlungsnachweise oder Anmeldungszeitraeume nicht zugeordnet werden koennen.
+05/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0524, ELSTER-Ticket ep1456q36h6fax22pxruory2bqxg35rf
+06/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0624, ELSTER-Ticket ep1454u0us91ak6ytxjoyr151gn0nk56
+07/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0724, ELSTER-Ticket ep145389jhqoj850b37uqrxgeyt28o4a
+08/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0824, ELSTER-Ticket ep1452vnk5ghwv23bhwn05y2p221g8h3
+09/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0924, ELSTER-Ticket ep1450tm2w1u7q7g48mkzwc7n57axxyx
+10/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 1024, ELSTER-Ticket ep1452qend5kbe0n83t2hcw1jsrzb9h4
+11/2024: EUR 1.762,41, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 1124, ELSTER-Ticket ep1453j2jqodee32j9c9phabtri3hwmv
+12/2024: EUR 1.723,24, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 1224, ELSTER-Ticket ep1451zjxx1zon6gf99nh26gs93byiic
+01/2025: EUR 1.715,46, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0125, ELSTER-Ticket ep1457e90eko0j7fz6byc9eh2rf8w6kf
+02/2025: EUR 1.715,46, gezahlt am 10.04.2025, Referenz 29/628/00250 LSt 0225, ELSTER-Ticket ep14550ufjdsj66zapbg7uy7r17sf1we
+03/2025: EUR 1.715,46, gezahlt am 01.04.2025, Referenz 29/628/00250 LSt 0325, ELSTER-Ticket ep1450r65isi100n50ss8zj4x1mdqyyx
+04/2025: EUR 1.715,46, gezahlt am 29.04.2025, Referenz 29/628/00250 LSt 0425, ELSTER-Ticket ep14546morrzf90ms3tri572k4qftjpb
+
+Gesamtbetrag fuer 05/2024 bis 04/2025: EUR 20.921,95. Dieser Gesamtbetrag entspricht den nachgereichten Lohnsteuer-Anmeldungen.
+
+Wir bitten, die vorhandenen Zahlungen/Guthaben den jeweiligen Lohnsteuer-Anmeldungszeitraeumen zuzuordnen und etwaige Mahn-, Saeumnis- oder Vollstreckungsfolgen nach Zuordnung entsprechend zu pruefen bzw. zu bereinigen.
+
+Die monatlichen Lohnabrechnungen und Zahlungseinzelbelege liegen vor. Soweit einzelne PDF-Belege noch gesondert benoetigt werden oder in diesem elektronischen Verfahren nicht vollstaendig zugeordnet werden koennen, bitten wir um kurze Rueckmeldung; wir reichen die Einzelbelege dann umgehend auf dem von Ihnen gewuenschten Weg nach.
 
 Mit freundlichen Gruessen
 
-[authorised sender / representative]
+AGILE LINCS LIMITED
 ```
 
 ## Draft ELSTER Belegnachreichung - Payroll Evidence May 2024 To April 2025
@@ -275,7 +297,8 @@ Attachments to include:
 | --- | --- | --- |
 | Monthly payslips May 2024-April 2025 | Notion payroll task attachments | Exact attachment names/rows are visible in the task; uploadable local/browser files still need to be exposed before ELSTER upload. |
 | Monthly payment proofs May 2024-April 2025 | Notion payment-proof attachments on the payroll query task rows | Exact attachment names/rows are visible in the task; uploadable local/browser files still need to be exposed before ELSTER upload. |
-| Bank statement/payment row export, if needed | Drive bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls` | The relevant row was read: 2025-04-10, payee Finanzamt fuer Koerperschaften III, reference `29/628/00250 LSt 0524`, amount EUR 1,762.41. |
+| Payment allocation PDF / schedule | Local `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_2024-05_bis_2025-04_Beleguebersicht.pdf`; Drive XLSX `https://docs.google.com/spreadsheets/d/1JSN889NGPc86tCTBHhEVSiB_hylx2Ww0/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true` | Prepared locally and internally logged in Notion. ELSTER Belegnachreichung text and attachment description are populated; the local PDF must still be selected manually in the ELSTER file picker before validation/submission. |
+| Bank statement/payment row export, if needed | Drive bank statement `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls`; raw exported file `Agile lincs Bank statement 07/24-06/25.xlsx` Drive ID `1EujbQqCxNJ0LrAixsBvDnu5hr7mSvp1H` | Payment rows for all 12 periods were read. The payments total EUR 20,921.95 and match the Lohnsteuer-Anmeldungen. |
 
 Notion payment-proof manifest:
 
@@ -316,7 +339,8 @@ Mit freundlichen Gruessen
 
 | Blocker | Why it matters | Next step |
 | --- | --- | --- |
-| Uploadable payroll evidence PDFs not yet available | The Notion task shows payslip and payment-proof attachments for May 2024-April 2025, and the payment row is confirmed in Drive for May 2024, but ELSTER upload needs actual files available to the browser/local file picker. | Download or otherwise expose the monthly payslip and payment-proof PDFs as uploadable files before sending Belegnachreichung/supporting evidence. |
+| ELSTER payroll evidence route blocked at local file-picker | The browser reached the Belegnachreichung route, populated the 2024 Lohnsteuer-Anmeldung category, authority note, and attachment description. The in-app browser cannot attach the local PDF through ELSTER's hidden file input. | User/operator must manually select `/private/tmp/agl_payroll_evidence_packet/AGL_Lohnsteuer_2024-05_bis_2025-04_Beleguebersicht.pdf` in the ELSTER upload control; Codex can then continue with `Eintrag uebernehmen`, validation, and final-send review. |
+| Uploadable individual payroll evidence PDFs not yet available | The Notion task shows payslip and payment-proof attachments for May 2024-April 2025, and the bank payment allocation is now confirmed for all periods, but ELSTER upload needs actual files available to the browser/local file picker. | Download or otherwise expose the monthly payslip and payment-proof PDFs as uploadable files before sending Belegnachreichung/supporting evidence. If PDFs cannot be extracted, send the prepared text/payment-allocation notice and invite Finanzamt to request specific Einzelbelege. |
 | E-Bilanz tooling not identified | The requested artifact is an electronic dataset, not just a PDF financial statement. | Confirm whether Lexoffice, AMD, or another E-Bilanz tool should generate the XBRL/taxonomy dataset. |
 | E-Bilanz tool/scope decision open | The final pack is arithmetically ready and recommends the negative bank liability mapping, but the official XBRL tool must still confirm sign conventions and whether the Finanzamt expects whole-company statutory accounts or a separate German PE/tax-balance scope. | Use the final pack in the approved E-Bilanz tool, validate the preview, then transmit and save the protocol/ticket. |
 | Historic payroll filing status caveat | The monthly returns have now been submitted through ELSTER, but external tax-software submissions may not have been visible in Mein ELSTER. | If Simoneta/payroll later finds prior submissions, prepare a short explanation for Finanzamt and reconcile whether any duplicate/corrective handling is needed. |
