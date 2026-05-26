@@ -159,6 +159,7 @@ User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pay
 
 | Source | Status |
 | --- | --- |
+| `https://www.hamburg.de/politik-und-verwaltung/behoerden/finanzbehoerde/einrichtungen/finanzaemter/nord-207130` | Official Finanzamt Hamburg-Nord contact/phone-hours source imported provisionally on 2026-05-26 for Front Office Contact availability setup |
 | `https://www.richmondblackwood.com/en` | Public website identified; direct extraction limited by JS rendering |
 | Public company/web references | Not yet imported as truth |
 
