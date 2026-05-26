@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, but final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, deductible evidence, and final review of DATEV-backed expense treatment before submission.
+Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, deductible evidence, and final review of DATEV-backed expense treatment before submission.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -95,12 +95,13 @@ Workbook creation note:
 - A fresh Google Sheets workbook was created from the maintained template export and only input/source tabs were populated.
 - The connector import placed the workbook outside the target filing folder because the repo-local Drive copy helper was blocked by missing/expired shared Google persona credentials.
 - Preserve the template calculation tabs; move or copy the native workbook into the 2025 filing folder once Drive helper auth is restored.
+- On 2026-05-26, the DATEV/SUSA business section was corrected from monthly/category aggregates to line-level source rows: all Jan/Feb revenue and expense-account rows from the linked DATEV exports are now represented in `Revenue`, `Expenses`, and `Raw DATEV 2025` using pre-VAT/net amounts, with clearing/VAT rows retained as source-only.
 
 Input summary captured:
 
-- Aaron freelance/business revenue from DATEV February 2025 exports: EUR 8,031.10 net.
+- Aaron freelance/business revenue from DATEV February 2025 exports: EUR 8,031.10 net, now entered as the two DATEV P&L revenue lines: Riot account 8400 EUR 7,870.29 net plus Twitch account 8338 EUR 160.81.
 - January DATEV shows a EUR 16,464.53 Riot Games Services bank receipt against debtor account 11801, but 2025 SUSA class 8 revenue for January is EUR 0.00 and the 2024 FS workbook shows the matching Riot debtor movement in December 2024. The receipt is recorded source-only unless final basis review finds it was not taxed in 2024.
-- Claimed source-backed business expenses currently loaded: EUR 825.95, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30.
+- Claimed source-backed business expenses currently loaded: EUR 825.95 across 21 DATEV expense rows, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30. The rows are no longer month/category aggregates.
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
 - Aaron salary rows loaded from AMC payroll records: EUR 72,000 gross for April to December 2025, with EUR 14,095.86 wage tax currently identified or inferred from the reviewed payroll records after correcting April and May to EUR 1,542.50 each.
 - Wife/Antje annual payroll model loaded from AMC Liquidity 2025 and wife payslip communication: EUR 14,976 gross, EUR 1,103.94 wage tax, EUR 1,570.86 pension/social contribution model, and EUR 942.96 health contribution model.
@@ -119,14 +120,14 @@ Workbook formula read-back:
 - Other personal deductions included: EUR 36.00.
 - Income after deductions before final tax-rate calculation: EUR 92,915.15.
 - Failed workbook checks: 6.
-- Open missing-info count: 39.
+- Open missing-info count: 37.
 
 Excluded or source-only items:
 
 - The user-supplied Drive folder `https://drive.google.com/drive/folders/1L79z8YliS-sjzhRTH46RonwM8eimexfK` belongs to Byron Jarvis Frasier, not Aaron, and was excluded.
 - The 30 January 2025 Riot receipt of EUR 16,464.53 was recorded as source-only because DATEV posts it to debtor account 11801 rather than a 2025 revenue account, and the 2024 FS workbook shows the matching December 2024 Riot debtor movement.
 - User clarified on 2026-05-25 that the previous accountant vetted the DATEV entries, so the January/February expense-account bookings are claimed in the workbook using exact DATEV CSV evidence URLs.
-- Non-expense DATEV balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance rows remain source-only and are not treated as personal-income-tax expenses.
+- Non-expense DATEV balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance rows remain source-only and are not treated as personal-income-tax expenses. The user-linked `10P0...` booking stack is internally titled February 2025; all P&L rows from that file are loaded line by line, while debtor/bank clearing and VAT prepayment rows are source-only.
 - Student Finance evidence in the 2025 client-provided folder was recorded as debt/source context, not claimed as a German deductible.
 - Hallescher private health-insurance estimate EUR 8,280 was recorded for review only; it is not claimed until exact annual certificate/covered-month evidence is provided.
 

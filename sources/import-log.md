@@ -1682,3 +1682,28 @@ Actions:
 Unresolved:
 
 - Final reviewer should confirm the 30 January 2025 Riot receipt was already included in 2024 taxable revenue/debtor treatment before filing 2025.
+
+## 2026-05-26 - Aaron 2025 DATEV Line-Level Workbook Correction
+
+Imported:
+
+- User instruction in Codex chat that the SUSA/DATEV summaries and linked booking stack should be reflected 1:1 in the worksheet.
+- Live Google Sheets read-back and exported workbook content from Aaron's 2025 German personal-tax analysis workbook.
+
+Actions:
+
+- Replaced DATEV month/category aggregate rows in `Revenue`, `Expenses`, and `Raw DATEV 2025` with line-level DATEV rows.
+- Loaded the two P&L revenue lines pre-VAT: Riot account 8400 EUR 7,870.29 and Twitch account 8338 EUR 160.81.
+- Loaded 21 expense-account rows pre-VAT/source amount: bank fees EUR 22.68, Uber/travel EUR 621.97, and bookkeeping net EUR 181.30.
+- Kept debtor/bank clearing rows, the January Riot debtor receipt, VAT payment, opening balance, and other non-P&L rows as source-only.
+- Updated Aaron's individual personal-tax notes, source register, Drive pointers, open questions, and skill-run ledger.
+
+Verification:
+
+- Read back the changed `Revenue`, `Expenses`, and `Raw DATEV 2025` ranges from Google Sheets after editing.
+- Export/read-back confirmed operating revenue EUR 8,031.10, business expenses EUR 825.95, business net P&L EUR 7,205.15, failed checks 6, and open missing-info count 37.
+
+Unresolved:
+
+- Confirm whether a separate March 2025 DATEV booking stack exists; the user-linked `10P0...` file is internally identified as February 2025.
+- Final reviewer still needs to review payroll certificates/PDFs, deductible evidence, investments/no-investments, direct tax payment confirmation, and separate VAT/trade-tax wrap-up before filing.

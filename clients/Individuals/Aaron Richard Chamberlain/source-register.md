@@ -17,6 +17,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-25 | Codex thread | Operator clarified that the previous accountant vetted the January/February DATEV bookings; include the booked expense-account rows in the 2025 personal-tax workbook using the exact DATEV CSV URLs as support. |
 | 2026-05-25 | Codex thread | Operator asked about January revenue; January DATEV receipt of EUR 16,464.53 from Riot was reviewed as a debtor-account receipt and left source-only pending final 2024/2025 basis review. |
 | 2026-05-26 | Codex thread | Operator challenged missing January/April wage-tax withholding and instructed that actual payslip PDFs must be read. Live workbook was corrected for April/May from Notion payroll and bank/remittance evidence; direct PDF readback remains blocked because Notion exposes only attachment handles to the connector and browser access requires login. |
+| 2026-05-26 | Codex thread | Operator instructed that SUSA/DATEV revenue and expenses must be reflected 1:1 in the worksheet, using pre-VAT amounts and adding the linked booking stack rows. Live workbook was corrected to line-level DATEV revenue/expense rows; clearing and VAT payment rows remain source-only. |
 
 ## Notion
 
@@ -49,10 +50,10 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Fresh template-derived workbook populated only on input/source tabs. |
 | 2025 client-provided documents | `https://drive.google.com/drive/folders/1oyXCmXYXqZCivQVciE2K6JFVSzzAV4cL` | Client-provided documents reviewed for source-only/support treatment. |
 | 2025 accounting folder | `https://drive.google.com/drive/folders/1iAsc0GPkwm3vbnvsGZo2s2kkevCTmOkS` | User-supplied accounting folder used for January-February 2025 freelance inputs. |
-| 188650 - 2025.pdf | `https://drive.google.com/file/d/1ek9d8w-TVky8TZ1k5XcA9bGgZULMzYEt/view` | DATEV/SUSA summary source for January-February 2025. |
+| 188650 - 2025.pdf | `https://drive.google.com/file/d/1ek9d8w-TVky8TZ1k5XcA9bGgZULMzYEt/view` | DATEV/SUSA summary source for January-February 2025; used to verify line-level revenue and expense totals. |
 | DATEV opening balance CSV | `https://drive.google.com/file/d/1Pn0FuV5_t9oIXJmawCBoehYRPAubgJcE/view` | Opening balance export. |
-| DATEV January 2025 CSV | `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view` | January 2025 export used for bank-fee and Uber/travel expense-account claims, plus source-only Riot debtor receipt review. |
-| DATEV February 2025 CSV | `https://drive.google.com/file/d/10P0NH6JEUnWFk_QZ890wFAoS27brlRYc/view` | February 2025 export used for revenue, bank-fee, Uber/travel, bookkeeping, and VAT source-only review. |
+| DATEV January 2025 CSV | `https://drive.google.com/file/d/10E8Bo_Sgmgo7BZ3N2J85FYonSe6Vcz7Z/view` | January 2025 export used line by line for bank-fee and Uber/travel expense-account claims, plus source-only Riot debtor receipt review. |
+| DATEV February 2025 CSV | `https://drive.google.com/file/d/10P0NH6JEUnWFk_QZ890wFAoS27brlRYc/view` | February 2025 export used line by line for revenue, bank-fee, Uber/travel, bookkeeping, and VAT source-only review. Operator referenced this as March bookings, but the file's internal DATEV header identifies the period as February 2025. |
 | AMC Liquidity 2025 | `https://docs.google.com/spreadsheets/d/1kV0HAwSxEArS0JZ_d0lgJvwmbiZJ22vE_F8zuAUsm-Q/edit` | Payroll model source used for wife/Antje provisional annual figures. |
 | Student Finance statement | `https://drive.google.com/file/d/1UYSoPs_ftPbxxYwqCHJr5Q38qzimuN1q/view` | Student loan/debt source-only evidence; not claimed as German deductible. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant material. |
