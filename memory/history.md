@@ -849,6 +849,105 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
 
+## 2026-05-25 - AGL Finanzamt May 2026 Response Planning
+
+- User request: Review AGL's new Finanzamt letters, 2024 VAT filings from le office, internal records, and the Simoneta payroll-tax query task; advise priorities; start the annual VAT filing path; and draft any Finanzamt communications for review.
+- Context read: Local AGL PDFs and UStVA protocols, AGL repo records, Notion company/task/filing records, Gmail thread `19e2263aa4379938`, Drive AGL folders, and official ELSTER/BMF public references.
+- Actions taken: Added `clients/Companies/AGL/finanzamt-2026-05-response-plan.md`, recorded the annual VAT, E-Bilanz, Mahnung, and payroll-tax workstreams separately, updated AGL tax/payroll/Drive/source/open-question files, and drafted ELSTER/payroll-tax response text for review.
+- Decisions made: Treat the annual VAT request as separate from the quarterly zero UStVA protocols; treat the E-Bilanz request as separate from the KSt/GewSt filings; do not say AGL had no employees; do not store the ELSTER credential in git.
+- Verification: `git diff --check` passed; ELSTER credential-prefix scan found no repo match.
+- Limitations or gaps: No live ELSTER filing or Finanzamt message was sent. Drive upload helper is blocked by missing `ts-node/register`, so the new letters/protocols are logged for later upload.
+
+## 2026-05-25 - AGL Finanzamt Skill Extraction
+
+- User request: Save any reusable skill that can be picked up from the AGL Finanzamt task into the repository.
+- Context read: `skills/index.md`, `skill-creator`, existing RB local skill patterns, and the AGL Finanzamt response-plan workflow.
+- Actions taken: Added `skills/rb-finanzamt-response/SKILL.md` and registered it in `skills/index.md`.
+- Decisions made: The reusable pattern belongs in a focused Finanzamt/ELSTER response skill, not only in the AGL client file, because the same workflow applies to annual VAT requests, E-Bilanz requests, Mahnungen/account statements, payroll-tax queries, and reviewed authority messages across German company clients.
+- Verification: `git diff --check` passed; ELSTER credential-prefix scan found no repo match.
+- Limitations or gaps: Future Finanzamt packets should validate whether more notice types or schema-specific Notion routing rules need to be added.
+
+## 2026-05-25 - AGL May 2024 Payroll-Tax ELSTER Preparation
+
+- User request: After logging Codex into ELSTER, proceed with the AGL payroll-tax task immediately, using the Notion payroll task evidence and handling the matter proactively for the Finanzamt.
+- Context read: Live ELSTER AGL session, Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`, previously extracted payslip figures, AGL client records, and the repo-local `rb-finanzamt-response` skill.
+- Actions taken: Prepared May 2024 Lohnsteuer-Anmeldung in ELSTER as an original return for StNr 29/628/00250 with one employee, Kz42 EUR 1,735.66, Kz49 EUR 26.75, Kz83 EUR 1,762.41, no church tax, and no supplemental note. ELSTER validation passed and the form is sitting at the final review/Absenden screen. Added a Notion task comment and updated AGL repo records with the payroll schedule and caveats.
+- Decisions made: Do not press `Absenden` without explicit approval of the exact filing figures, despite the user's broad authority, because the next click transmits a tax return to the Finanzamt. Treat visible absence of Lohnsteuer-Anmeldungen in Mein ELSTER as strong but provisional evidence because external tax-software submissions may not appear there.
+- Verification: ELSTER reported no errors for the May 2024 draft; Notion comment read-back confirmed the internal task update; `git diff --check` passed.
+- Limitations or gaps: No tax return or Finanzamt message was submitted. The remaining periods June 2024-April 2025 should be prepared after approval unless Simoneta/payroll proves prior external-software submissions or rejected/corrected filings.
+
+## 2026-05-25 - AGL 2024 E-Bilanz Workpaper Preparation
+
+- User request: Prepare the balance sheet from the uploaded documents and internal records, using judgment to move the Finanzamt issue forward quickly.
+- Context read: Financial statements PDF, final FY24 SFS workbook, earlier 2024 accounts workbook, AGL repo records, Finanzamt E-Bilanz/VAT request letters, 2024 UStVA protocols, and official ELSTER/BMF guidance.
+- Actions taken: Created local workbook `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx`, imported it as native Google Sheet `https://docs.google.com/spreadsheets/d/14bHLfT_NVgBPzqmIE6v7nmZQdJuxjfNiYSAa0CINx-Q/edit?usp=drivesdk`, added Notion filing comment `36be4130-1314-81f4-8516-001d684ec5c2`, and updated AGL source/filing/Drive/open-question records.
+- Decisions made: Treat the workpaper as the balance-sheet/P&L bridge for E-Bilanz preparation, not as the valid XBRL/datensatz. Preserve two review points instead of guessing: negative bank balance classification and whether the German E-Bilanz should follow whole-company statutory accounts or a German PE/tax-balance view.
+- Verification: Workbook formula-error scan found no matches; summary/trial-balance checks tie; rendered previews were inspected; Drive import and read-back succeeded.
+- Limitations or gaps: The Google Sheet import landed in My Drive because the connector import action did not expose a parent-folder option. No E-Bilanz/XBRL dataset was generated or submitted.
+
+## 2026-05-25 - AGL Payroll-Tax Evidence Correction
+
+- User request: Correct the May 2024 ELSTER Lohnsteuer-Anmeldung address to `Stralauer Platz 35, 10243 Berlin` and account for the missing payslip/payment-proof evidence.
+- Context read: Live ELSTER final-review session, Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`, May 2024 Notion payment-proof row, Drive AGL bank statement, official ELSTER Belegnachreichung guidance, and AGL client records.
+- Actions taken: Corrected the company address in ELSTER from the old Ehrenberg/Scanbox address to `Stralauer Platz 35, 10243 Berlin`, revalidated with no errors, returned to the final `Absenden` review screen, and recorded a separate Belegnachreichung/supporting-message plan for the May 2024 payslip and payment proof.
+- Decisions made: The payslip and payment proof are important for the Finanzamt query, but should be sent through ELSTER's supporting-document route or a specific authority-message route rather than forced into the Lohnsteuer-Anmeldung itself. Do not submit the return or supporting evidence without exact reviewed approval.
+- Verification: ELSTER final review now shows period Mai 2024, StNr 29/628/00250, address `Stralauer Platz 35, 10243 Berlin`, Kz42 EUR 1,735.66, Kz49 EUR 26.75, and Kz83 EUR 1,762.41. Drive statement read-back confirmed the 2025-04-10 payment to Finanzamt fuer Koerperschaften III with reference `29/628/00250 LSt 0524`.
+- Limitations or gaps: The Notion attachments are identified but not yet available to the browser/local file picker as uploadable PDFs: `Byron-Jarvis_Frasier_Lohnabrechnung_2024-05.pdf` and `46013371-9232-4713-a50a-d25d46ed7c2c.pdf`.
+
+## 2026-05-25 - AGL ELSTER Payroll-Tax Submissions
+
+- User request: Submit the prepared May 2024 Lohnsteuer-Anmeldung and, if the reviewed details matched, use the same template to submit the other payroll-tax months without further approval.
+- Context read: Live ELSTER final review/session, AGL payroll schedule in repo, Notion payroll query task, and the repo-local `rb-finanzamt-response` batch-filing guardrail.
+- Actions taken: Submitted monthly Lohnsteuer-Anmeldungen for May 2024 through April 2025 in ELSTER. Reused the template for unchanged months, edited December 2024 and January 2025 amounts where the payroll schedule changed, validated each return, recorded all ELSTER transfer tickets, and added Notion task comment `36be4130-1314-81fc-9729-001d50577ebc`.
+- Decisions made: Treat the filings as original missing returns because visible Mein ELSTER history did not show processed Lohnsteuer-Anmeldungen and the user gave explicit approval to submit; keep supporting payslips/payment proofs for Belegnachreichung or a specific Finanzamt evidence route rather than forcing them into the return.
+- Verification: ELSTER returned `Ihr Formular wurde erfolgreich uebermittelt` for all 12 periods, with tickets recorded in `clients/Companies/AGL/accounting-bookkeeping-payroll.md` and `clients/Companies/AGL/finanzamt-2026-05-response-plan.md`.
+- Limitations or gaps: Supporting payroll evidence PDFs are still not uploadable in the browser/local session. Annual VAT, E-Bilanz, and Mahnung response actions remain separate open workstreams.
+
+## 2026-05-25 - AGL E-Bilanz Final Review Pack
+
+- User request: Confirm what comes next and make the E-Bilanz balance-sheet/P&L workpaper final, clean, locally saved, and ready for submission work.
+- Context read: Existing AGL E-Bilanz draft workbook, final FY24 SFS figures already captured in repo records, AGL Finanzamt response plan, official BMF/EStH E-Bilanz guidance, and the repo-local `rb-finanzamt-response` skill.
+- Actions taken: Built the final clean local workbook `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx` with a Read Me, Submission Input, Balance Sheet Detail, P&L Detail, Trial Balance, Checks, and Sources tabs. Updated AGL filing, source, Drive-location, open-question, and durable memory records, and added an E-Bilanz workpaper guardrail to `skills/rb-finanzamt-response/SKILL.md`.
+- Decisions made: Treat the final pack as ready for E-Bilanz/XBRL software handoff but not as the transmitted datensatz. Recommend separating positive bank balances as assets and negative bank balances/overdrafts as current bank liabilities for the German mapping. Use whole-company statutory accounts as the source-basis assumption because no German PE-only balance sheet was located.
+- Verification: Workbook error scan found no broken-reference/formula-error text; rendered previews for the key sheets were inspected; local Downloads copy checksum matched the generated workbook.
+- Limitations or gaps: No XBRL/datensatz was generated or transmitted. The filer still needs to use E-Bilanz-capable software, confirm scope/sign conventions in the validation preview, submit, and save the protocol/ticket.
+
+## 2026-05-25 - AGL Annual VAT Review Prep And Evidence Staging
+
+- User request: While the user reviews the annual VAT final ELSTER screen, leave the ELSTER page alone and check/prepare the other pending work.
+- Context read: Local AGL Finanzamt PDFs and scans, Notion payroll query task and embedded payment-proof rows, Drive source correspondence, AGL response plan, and the repo-local `rb-finanzamt-response` skill.
+- Actions taken: Staged a local working evidence packet under `/private/tmp/agl_finanzamt_ready_packet/`; identified `Agile Lincs 2024.pdf` as the 2026-03-23 2024 USt Bescheid assessing EUR 5,200.00 VAT plus EUR 75.00 Verspaetungszuschlag; flagged `Agile Lincs 2024 Transmission.pdf` because its text describes a 2025 P&L despite the 2024 Belegnachreichung route; inventoried the Notion payment-proof attachment filenames and row URLs for May 2024 through April 2025; updated AGL client records and the Finanzamt response skill.
+- Decisions made: Do not touch the ELSTER browser while the user reviews the final `Absenden` screen. Treat the annual VAT as ready-but-unsubmitted, and treat Notion file metadata as an evidence manifest until actual uploadable PDFs are available.
+- Verification: Local staging folder listing was checked; Notion page/row fetches confirmed the attachment inventory; scanned Mahnung pages were rendered for visual review.
+- Limitations or gaps: The annual VAT return still needs user approval and final submission. Payroll payslips/payment proofs are identified but not yet downloaded to uploadable files. The Mahnung still needs a collection-pause/amendment message after annual VAT submission.
+
+## 2026-05-25 - AGL Annual VAT ELSTER Submission
+
+- User request: Submit the AGL 2024 annual VAT return after user review, add the saved Downloads copy to Notion, and proceed with the remaining Finanzamt work.
+- Context read: Live ELSTER annual VAT final review and Versandbestaetigung, user-saved PDF `/Users/jp/Downloads/annual vat return.pdf`, AGL Drive folder pointers, Notion company/task pages, AGL response plan, and repo-local `rb-finanzamt-response` / `rb-file-uploads` rules.
+- Actions taken: Submitted the 2024 Umsatzsteuererklaerung in ELSTER after user approval; uploaded the saved ELSTER return/review PDF to the AGL 2024 Drive folder; uploaded the four incoming May 2026 Finanzamt letters/scans, Q1-Q4 2024 UStVA protocols, and final E-Bilanz `.xlsx` workpaper to AGL Drive; added Notion company/task comments with the Drive link, transfer ticket, and source-packet filing status; copied the PDF into the local staging packet; and updated AGL filing, source, Drive-location, open-question, current-state, import-log, and response-plan records.
+- Decisions made: Treat the ELSTER transfer ticket as the submission proof and the saved PDF as the return/review copy. Do not send a Finanzamt message or evidence upload without reviewed wording and attachments, even though the VAT return itself is now submitted.
+- Verification: ELSTER returned successful submission with Transferticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`, Ordnungskriterium `29/628/00250`, Abgabezeit `Montag, 25. Mai 2026, 23:01:09`, and EUR 0.00 final VAT/refund. Drive uploads returned file links for the VAT PDF, four incoming Finanzamt letters/scans, Q1-Q4 2024 UStVA protocols, and final E-Bilanz `.xlsx` pack; Notion comments `36be4130-1314-81ca-9006-001dfcf9a622`, `36be4130-1314-81d9-b2eb-001d8a850ea2`, and `36be4130-1314-8159-b628-001d87a90dd5` succeeded.
+- Limitations or gaps: The official E-Bilanz/XBRL datensatz remains unsubmitted. Payroll payslips/payment proofs still need uploadable local/browser files before a Belegnachreichung or other evidence message can be sent. The Mahnung still needs a reviewed collection-pause/amendment message.
+
+## 2026-05-26 - AGL Finanzamt Holding Message And USt Appeal
+
+- User request: Proceed with the approved stronger ELSTER holding message and then file the dedicated formal appeal/AdV path without further review if good for purpose.
+- Context read: Live ELSTER AGL session, local USt 2024 Bescheid facts, submitted annual VAT ticket, submitted payroll-tax tickets, AGL response plan, and repo-local `rb-finanzamt-response` rules.
+- Actions taken: Submitted a `Sonstige Nachricht an das Finanzamt` asking for processing/amendment of the USt 2024 assessment, AdV/Vollstreckungsaufschub, E-Bilanz extension to 2026-06-16, payroll-ticket recognition, and credit preservation. Then submitted a formal `Einspruch einreichen inkl. Aussetzung der Vollziehung` against the USt 2024 Bescheid dated 2026-03-23 and Verspaetungszuschlag. Added Notion task comment and canonical Communications records, then updated AGL client files and durable memory.
+- Decisions made: Do not attach PDFs to the formal appeal because the fristwahrend objection and AdV request are inside the structured ELSTER form; keep payslips/payment proofs as a separate evidence upload once the exact PDFs are uploadable. Leave the optional phone field blank rather than inventing a number.
+- Verification: ELSTER reported no errors for the formal appeal, only a non-blocking phone-number Hinweis. Holding message ticket `ep1462eym8u2br1mdekveum80xchf83n`, Abgabezeit `Dienstag, 26. Mai 2026, 00:50:02`; formal appeal ticket `ep1465aipg984922yz1tff6f2r95kktx`, Abgabezeit `Dienstag, 26. Mai 2026, 00:57:40`. Notion task comment `36be4130-1314-8185-8f74-001d5e870a14` and Communications records `https://www.notion.so/36be413013148131a995ca7dc0decfcf` / `https://www.notion.so/36be413013148176af0bee390cdde567` succeeded.
+- Limitations or gaps: E-Bilanz/XBRL datensatz remains unsubmitted. Payroll payslips/payment proofs still need uploadable local/browser files and allocation follow-up. Remaining KSt/GewSt/soli Bescheide/account details behind the Mahnung still need review.
+
+## 2026-05-26 - AGL Payroll Evidence Allocation Packet
+
+- User request: Start with preparing and sending payroll payslip/payment-credit evidence for the AGL Finanzamt payroll-tax query.
+- Context read: AGL payroll task, AGL bank statement, existing ELSTER payroll-ticket records, AGL response plan, and repo-local Finanzamt/file-upload/memory rules.
+- Actions taken: Prepared local payroll evidence packet under `/private/tmp/agl_payroll_evidence_packet/`, including a two-page Finanzamt-facing payment-allocation PDF, CSV/XLSX schedules, ZIP bundle, and ELSTER text draft. The packet reconciles EUR 20,921.95 of Lohnsteuer/SolZ payments to the 12 submitted ELSTER Lohnsteuer-Anmeldungen and bank references. Imported the XLSX schedule into Drive as `https://docs.google.com/spreadsheets/d/1JSN889NGPc86tCTBHhEVSiB_hylx2Ww0/edit?usp=drivesdk&ouid=109514422493708579539&rtpof=true&sd=true`, imported the text draft as Google Doc `https://docs.google.com/document/d/15lYOEt6XIl1xSurPnt5wUMQ-MzNiq9jhNcxbKwqqw_g/edit?usp=drivesdk`, and added Notion task comment `36ce4130-1314-81d3-8039-001d6554242f`. Added repo-local skill `rb-finanzamt-payroll-evidence`.
+- Decisions made: Use a payment-allocation packet immediately rather than waiting for every protected Notion PDF, but do not tell the Finanzamt the individual payslips/payment proofs were attached until actual files are transmitted. Keep ELSTER certificate/password and Notion signed URLs out of git.
+- Verification: Local PDF is readable and two pages; XLSX read-back shows total ELSTER/payments EUR 20,921.95; Drive connector upload succeeded for the XLSX and Google Doc draft; Notion comment succeeded.
+- Limitations or gaps: Raw PDF upload to Drive via connector was unsupported and folder-aware helper auth was expired. ELSTER Belegnachreichung reached certificate login, but macOS blocked automated file-picker control; the user/operator must select the local AGL ELSTER certificate before Codex can continue login and evidence submission. Individual protected Notion payslip/payment-proof PDFs are still not locally uploadable.
+
 ## 2026-05-26 - RB Accounting And JP Persona Login
 
 - User request: Pull latest main and set up local Google persona auth for `accounting-richmond-blackwood` and `jp-richmond-blackwood`, following the Notion Google Persona Auth Migration Guide and using the provided Richmond Blackwood OAuth client file.
@@ -857,3 +956,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: The requested slugs are now canonical for RB accounting and JP. Legacy helper aliases `rb-accounting` and `johnpaul-richmond-blackwood` remain supported so older commands still resolve to the new vault locations.
 - Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
 - Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.
+
+## 2026-05-26 - AGL Payroll Evidence Template Knowledge Capture
+
+- User request: Treat the first AGL ELSTER Belegnachreichung/payroll evidence item as the reviewable pilot, use the same template/process for later related items, and save the knowledge in the repository.
+- Context read: Live ELSTER attachment-page behavior, `skill-creator`, existing `rb-finanzamt-response` and `rb-finanzamt-payroll-evidence` skills, and the current AGL payroll evidence packet state.
+- Actions taken: Merged latest `origin/main` into the AGL task branch, resolving append-only memory conflicts by preserving both the AGL and Google-persona entries. Updated the Finanzamt payroll-evidence skill with first-reviewed template reuse rules and ELSTER Belegnachreichung upload notes, and added a general reviewed-template reuse guardrail to the Finanzamt response skill.
+- Decisions made: Template reuse is bounded to the same client, route, tax type, Steuernummer, evidence class, and source schedule. A later item still stops for review if ELSTER warnings, final-screen figures, procedural requests, attachments, address, Steuernummer, or route differ. A Belegnachreichung attachment is not considered transmitted until ELSTER visibly shows the filename and a submission ticket is captured.
+- Verification: `npm run typecheck` and `git diff --check` passed. Skill frontmatter spot-check passed for both updated skills. The `skill-creator` `quick_validate.py` script could not run in this local runtime because PyYAML is not installed. Secret scan found only policy/guardrail text about not storing credentials.
+- Limitations or gaps: The current ELSTER attachment is still awaiting manual local PDF selection in the browser; no payroll evidence Belegnachreichung has been submitted in this step.

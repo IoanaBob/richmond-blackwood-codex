@@ -1646,3 +1646,160 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-25 - AGL Finanzamt May 2026 Packet
+
+Imported:
+
+- User-supplied local AGL Finanzamt PDFs and 2024 VAT filing protocols from the Codex chat.
+- AGL payroll-tax query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`.
+- AGL company page `https://www.notion.so/2719f60f2f8c40128ec93d9758336f9e`.
+- AGL German corporation filing `https://www.notion.so/311e4130131481d49734d2b64b83b265`.
+- Gmail message `19e2263aa4379938`.
+- Drive FS PDF `https://drive.google.com/file/d/1jBoStq1KZRTQUXjB1SEjlGiZCSvvwBil`.
+- Official ELSTER/BMF public references for electronic USt, Lohnsteuer, KSt/GewSt, and E-Bilanz transmission.
+
+Actions:
+
+- Distinguished the annual VAT return request from the already-filed quarterly UStVA protocols.
+- Distinguished the E-Bilanz dataset request from the already-recorded German KSt/GewSt filing submissions.
+- Identified the 2026-05-19 Mahnung/account statement as urgent because it lists EUR 5,781.25 and possible enforcement pressure.
+- Recorded the payroll-tax response position: AGL had German employment from 2024-05-01, and the missing point is Lohnsteuer-Anmeldung submission/processing rather than employee existence.
+- Added a draft ELSTER response and a draft payroll-tax response for operator/accountant review.
+
+Unresolved:
+
+- File or review the 2024 Umsatzsteuererklaerung in ELSTER.
+- Generate and submit the 2024 E-Bilanz dataset through appropriate software.
+- Retrieve the underlying 2024 assessment notices behind the Mahnung.
+- Confirm the May 2024-April 2025 payroll-tax return submission status with Simoneta/payroll owner.
+- Upload the new local letters and UStVA protocols into Drive once the upload helper dependency or another approved upload route is available.
+
+## 2026-05-25 - AGL Finanzamt Skill Extraction
+
+Imported:
+
+- User instruction to save any reusable skill from the AGL Finanzamt task into the repository.
+- The AGL response planning workflow created from the May 2026 packet.
+
+Actions:
+
+- Added repo-local skill `skills/rb-finanzamt-response/SKILL.md`.
+- Registered the skill in `skills/index.md`.
+- Captured reusable rules for Finanzamt packet classification, ELSTER credential safety, source-backed response plans, annual VAT vs UStVA separation, E-Bilanz dataset handling, Mahnung/enforcement triage, payroll-tax query handling, reviewed communications, and client-file closeout.
+
+Unresolved:
+
+- Future live runs should validate the skill against the next Finanzamt packet and tighten it if a missing notice type or database routing pattern appears.
+
+## 2026-05-25 - AGL ELSTER Payroll-Tax Submissions
+
+Imported:
+
+- User approval in Codex chat to submit the prepared May 2024 Lohnsteuer-Anmeldung and use the same reviewed pattern for the other matching months.
+- Live ELSTER Versandbestaetigung screens for AGL Lohnsteuer-Anmeldungen May 2024 through April 2025.
+- Existing AGL payroll-tax query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` and repo payroll schedule.
+
+Actions:
+
+- Submitted May 2024 through April 2025 monthly Lohnsteuer-Anmeldungen through ELSTER using StNr `29/628/00250`, one employee, and address `Stralauer Platz 35, 10243 Berlin`.
+- Validated each period before transmission and stopped for review/editing when December 2024 and January 2025 figures changed from the repeated-month template.
+- Recorded ELSTER transfer tickets in the AGL payroll file and Finanzamt response plan.
+- Added Notion payroll task comment `36be4130-1314-81fc-9729-001d50577ebc` with the submitted periods, transfer tickets, and remaining evidence/allocation follow-up.
+- Added the reusable Lohnsteuer batch-filing guardrail to `skills/rb-finanzamt-response/SKILL.md`.
+
+Unresolved:
+
+- Send or upload monthly payslips/payment proofs through ELSTER Belegnachreichung or a specific Finanzamt evidence route once the PDFs are uploadable.
+- Confirm Finanzamt allocation of existing payroll-tax credits to the submitted periods.
+- Continue annual VAT, E-Bilanz, and Mahnung response workstreams separately.
+
+## 2026-05-25 - AGL E-Bilanz Final Review Pack
+
+Imported:
+
+- User request to locate the E-Bilanz balance-sheet/P&L workpaper, make it final and clean, and save it locally for submission work.
+- Existing local E-Bilanz draft workbook and rendered previews in `/private/tmp/agl_ebilanz_workpaper/outputs/`.
+- AGL final FY24 SFS figures already captured from the financial statements PDF and source workbooks.
+- Official BMF/EStH E-Bilanz guidance confirming that balance sheet and P&L data are transmitted as the prescribed electronic dataset.
+
+Actions:
+
+- Built final clean workbook `/Users/jp/Downloads/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx` with Read Me, Submission Input, Balance Sheet Detail, P&L Detail, Trial Balance, Checks, and Sources tabs.
+- Preserved the draft workbook location `/private/tmp/agl_ebilanz_workpaper/outputs/AGL_2024_E-Bilanz_Balance_Sheet_Workpaper.xlsx` and generated final copy `/private/tmp/agl_ebilanz_workpaper/final/AGL_2024_E-Bilanz_Final_Review_Pack.xlsx`.
+- Updated AGL filing, source, Drive-location, open-question, current-state, history, and skill-run records.
+- Added an E-Bilanz workpaper guardrail to `skills/rb-finanzamt-response/SKILL.md`.
+
+Unresolved:
+
+- The final workbook is a support pack for E-Bilanz software, not the official XBRL/datensatz.
+- Generate, validate, transmit, and save the protocol/ticket through E-Bilanz-capable software.
+- Confirm the E-Bilanz tool's sign conventions and whether the Finanzamt expects whole-company statutory accounts or a German PE/tax-balance scope before transmission.
+
+## 2026-05-25 - AGL Annual VAT Review Prep And Evidence Staging
+
+Imported:
+
+- User instruction to leave the annual VAT final ELSTER review page untouched while the user reviews.
+- Local AGL Finanzamt PDFs and scans, including `Agile Lincs 2024.pdf`, `Agile Lincs 2024 Transmission.pdf`, `SD79-26003 AGILE LINCS LIMITED 信件3.pdf`, and `SD79-26003 AGILE LINCS LIMITED 信件4.pdf`.
+- Notion payroll query task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` and embedded payment-proof rows for May 2024-April 2025.
+
+Actions:
+
+- Staged a local working evidence packet at `/private/tmp/agl_finanzamt_ready_packet/`.
+- Identified the 2026-03-23 USt 2024 Bescheid for EUR 5,200.00 VAT plus EUR 75.00 Verspaetungszuschlag as a likely basis for the VAT component of the Mahnung.
+- Flagged the local 2024 Belegnachreichung printout because its text says it transmitted a 2025 P&L/period, so it should not be relied on as the requested 2024 E-Bilanz Datensatz.
+- Recorded exact Notion payment-proof attachment filenames and row URLs for May 2024-April 2025.
+- Added reusable guidance to `rb-finanzamt-response` for Notion/Drive attachment manifests and final-ELSTER-screen waiting periods.
+
+Unresolved:
+
+- Submit the annual VAT return only after user approval on the final ELSTER page.
+- Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files.
+- Send an ELSTER/Finanzamt message requesting processing/amendment and collection pause after annual VAT submission.
+
+## 2026-05-25 - AGL Annual VAT ELSTER Submission And Notion Filing
+
+Imported:
+
+- User approval in Codex chat to submit the prepared 2024 annual VAT return.
+- Live ELSTER Versandbestaetigung for AGL 2024 Umsatzsteuererklaerung.
+- User-saved local PDF `/Users/jp/Downloads/annual vat return.pdf`.
+
+Actions:
+
+- Submitted AGL 2024 Umsatzsteuererklaerung in ELSTER after user approval; ELSTER returned Transferticket `ep1454t90i8mmb5zp5wtk182ewbfh5wq`, Ordnungskriterium `29/628/00250`, Abgabezeit `Montag, 25. Mai 2026, 23:01:09`, and final VAT/refund EUR 0.00.
+- Uploaded the saved ELSTER return/review copy to the AGL 2024 Drive folder as `https://drive.google.com/file/d/1aFHjF8spGtE1g_tYavgmG2rO9-jYsTP2/view?usp=drivesdk`.
+- Uploaded the four May 2026 incoming Finanzamt letters/scans to AGL Correspondence / Incoming, Q1-Q4 2024 UStVA protocols to the AGL 2024 Drive folder, and the final E-Bilanz `.xlsx` workpaper to the AGL 2024 Drive folder; Drive links are indexed in `clients/Companies/AGL/drive-locations.md`.
+- Added Notion comments `36be4130-1314-81ca-9006-001dfcf9a622` on the AGL company page and `36be4130-1314-81d9-b2eb-001d8a850ea2` on the AGL Finanzamt/payroll task.
+- Added Notion company evidence-filing comment `36be4130-1314-8159-b628-001d87a90dd5` with the source-packet/E-Bilanz Drive filing status.
+- Updated AGL filing, source, Drive-location, open-question, current-state, and response-plan records.
+
+Unresolved:
+
+- Send a reviewed ELSTER/Finanzamt message requesting processing/amendment of the 2024 USt assessment and pause of collection/enforcement while E-Bilanz/payroll evidence follow-up is handled.
+- Generate, validate, submit, and save the official E-Bilanz/XBRL datensatz.
+- Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files for payroll evidence submission.
+
+## 2026-05-26 - AGL Finanzamt Holding Message And USt Appeal
+
+Imported:
+
+- User approval in Codex chat to submit the stronger ELSTER holding message and then the formal USt 2024 appeal/AdV path.
+- Live ELSTER Versandbestaetigungen for `Sonstige Nachricht an das Finanzamt` and `Einspruch`.
+- Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`.
+- Canonical Communications data source `https://www.notion.so/1b5e4130131480ab84f3cca356736807`.
+
+Actions:
+
+- Submitted the AGL holding Finanzamt message in ELSTER with ticket `ep1462eym8u2br1mdekveum80xchf83n`, Ordnungskriterium `29/628/00250`, and Abgabezeit `Dienstag, 26. Mai 2026, 00:50:02`.
+- Submitted the formal USt 2024 `Einspruch` with full AdV request in ELSTER with ticket `ep1465aipg984922yz1tff6f2r95kktx`, Ordnungskriterium `29/628/00250`, and Abgabezeit `Dienstag, 26. Mai 2026, 00:57:40`.
+- Added Notion task comment `36be4130-1314-8185-8f74-001d5e870a14`.
+- Created canonical Communications records `https://www.notion.so/36be413013148131a995ca7dc0decfcf` and `https://www.notion.so/36be413013148176af0bee390cdde567`.
+- Updated AGL client files and durable memory.
+
+Unresolved:
+
+- Generate, validate, submit, and save the official E-Bilanz/XBRL datensatz.
+- Download or expose Notion payslip/payment-proof PDFs as uploadable local/browser files for payroll evidence submission and allocation support.
+- Monitor Finanzamt processing, AdV/collection status, and any remaining KSt/GewSt/Soli assessment/account details behind the Mahnung.
