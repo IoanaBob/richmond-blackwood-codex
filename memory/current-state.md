@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-25.
+Updated: 2026-05-26.
 
 ## Repo State
 
@@ -14,6 +14,7 @@ Current implementation includes:
 - RB process map and SOP mirror.
 - Source register and import log.
 - Master chat/skill run git rule: repository-changing or live-state-changing RB Codex runs inspect status, run `git pull origin main`, create a new `codex/<task-slug>` branch from a clean updated base, split dirty/conflicting starts into scoped commits and PRs, then push the task branch, check it against `origin/main`, fix conflicts, and open or update the PR at closeout.
+- Client context intake rule: before substantive company or individual client work, check the broader internal client record set, including local client files, Notion company/individual and operational records, Drive folders/files, and relevant communications/source pointers when available. Record blockers and caveats when an expected source cannot be read.
 - Root npm/TypeScript helper layer with Drive, Gmail, generic SignNow, Google Doc transform, PDF signing-plan, and task PR helper scripts.
 - Company profile, service positioning, systems context, and internal history.
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.

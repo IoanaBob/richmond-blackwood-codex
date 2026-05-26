@@ -21,6 +21,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
 - `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process Communications attachments, create or update task-capable Notion rows, notify Slack after approval, and update checkpoints.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
+- `rb-company-tax-de`: prepare German company tax filings in ELSTER, including nil corporation/trade tax returns, with the operator clicking final submission unless explicitly authorised otherwise.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
 - `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
 - `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.

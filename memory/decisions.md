@@ -30,6 +30,20 @@ Targets:
 Source: user instruction on 2026-05-04.
 Review: approved as a routing rule by user instruction; specific client mapping remains provisional.
 
+## 2026-05-26 - Comprehensive Client Context Before Client Work
+
+Decision: Before making client-specific decisions or doing substantive company or individual client work, Codex should check the broader internal client record set rather than relying only on the triggering page, message, filing screen, or document.
+
+Consequence:
+
+- For company clients, check the local company folder, Notion company and operational records, Drive company folder/files, and relevant prior communications/source pointers when available.
+- For individual clients, check the local individual folder, Notion individual and personal-tax/asset/bank/correspondence records, Drive folders/files, linked-company context, and relevant prior communications/source pointers when available.
+- If an expected internal source such as Notion, Drive, Gmail, WhatsApp, Slack, or calls is unavailable, record the blocker and proceed only with caveats unless the missing source could materially change the decision.
+- The purpose is to understand the client as a whole, spot conflicts, and improve decision quality before acting.
+
+Source: user instruction in Codex chat on 2026-05-26.
+Review: approved as a client-work operating rule by user instruction; individual source coverage still depends on connector availability and explicit task scope.
+
 ## 2026-05-05 - Port Neutral Helper Infrastructure
 
 Decision: Port neutral local helper infrastructure from `everguard-research-codex` into RB with RB-specific routing and sender defaults.

@@ -858,6 +858,15 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
 - Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.
 
+## 2026-05-26 - Comprehensive Client Context Intake Rule
+
+- User request: Remember to check all internal records about CBMAX, including Notion and Google Drive, and apply the same principle to all company and individual clients.
+- Context read: `AGENTS.md`, `rb-memory-capture`, `rb-source-research`, `rb-client-file`, `rb-company-tax-de`, and durable memory files.
+- Actions taken: Added a client-context intake rule to root instructions, source/client-file skills, German company-tax filing skill, decisions, current state, and handoff.
+- Decisions made: Client work should start from the broader internal record set rather than only the triggering item; connector/source blockers must be recorded and caveated.
+- Verification: `git diff --check` passed before commit.
+- Limitations or gaps: Actual source coverage remains subject to connector availability and the scope/sensitivity of the task.
+
 ## 2026-05-26 - Hamburg Contact Availability Hard Gate
 
 - User request: Fix the Hamburg contact with no linked availability and make the repository remember that availability is mandatory.
@@ -866,3 +875,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Page-body schedule text is not enough for the calling bot. The Front Office Contact must have linked `Availabilities` relation records, and Codex should stop setup until that relation is fixed and fetched back.
 - Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
 - Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
+
+## 2026-05-26 - German Company Tax Complete-Year And Annual Consistency Rules
+
+- User request: Remember that company filing work must cover all filings needed to complete the relevant year, and that German tax filings for Irish companies must match internal records and same-year CRO annual-return or financial-statement evidence.
+- Context read: `rb-company-tax-de`, CBMAX German nil-return work, local CBMAX client files, and the CORE annual-return evidence used for the active CBMAX filing.
+- Actions taken: Extended the German company-tax skill so a company-year filing requires a complete filing-obligation checklist and an internal-record/CRO annual-return consistency cross-check before a German draft is treated as ready.
+- Decisions made: Copied ELSTER data must not override internal annual-return evidence. If the Irish annual return, financial statements, or latest approved internal record conflicts with a copied German field, Codex should correct the German draft or stop and flag the conflict.
+- Verification: `git diff --check` passed before commit.
+- Limitations or gaps: Cross-source checks remain limited by connector availability; unavailable Notion/Drive/communications sources should be reported as caveats or blockers when they could affect the filing.
