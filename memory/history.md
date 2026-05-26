@@ -885,6 +885,15 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: Notion readback confirmed the April/May/June payroll source facts and comment creation IDs. Drive search and folder listing did not surface Drive copies of the April/May payslip PDFs; the client-provided folder contains DATEV CSVs and the 2025 SUSA PDF. Workbook read-back confirmed combined wage tax withheld EUR 15,199.80, gross employment income EUR 86,976.00, operating revenue EUR 8,031.10, business expenses EUR 825.95, business/freelance net PNL EUR 7,205.15, income after deductions before tax-rate calculation EUR 92,915.15, 6 failed checks, and 37 open missing-info items.
 - Limitations or gaps: The actual Notion payslip attachment binaries were not readable through the connector, and browser access was blocked by Notion login. Final filing still needs direct PDF readback or Drive copies of the payslip/annual wage-tax certificate PDFs.
 
+## 2026-05-26 - Aaron April/May Payroll Status Truth-Up
+
+- User request: Confirm whether the wage-tax-withheld values in the Revenue tab came from actual payslip PDF readback, and correct Notion/workbook state if discrepancies were found.
+- Context read: Notion April-December 2025 payroll rows, the Payroll data-source schema, the AMC personal-tax Drive folders, Drive search results for Aaron payslip filenames, and the live workbook `Revenue` tab.
+- Actions taken: Set the Notion April and May payroll `Tax Amount` fields to EUR 1,542.50, added page comments explaining the payroll/bank basis and unresolved PDF readback, and changed the live workbook April/May revenue rows from `Ready` to `Needs direct payslip PDF readback`.
+- Decisions made: Leave April/May Notion `Net Payment` at EUR 5,660.17 because that appears to be the cash amount paid before the June catch-up, not the modeled payroll net. Continue to use EUR 1,542.50 wage tax in the tax workbook because it is supported by LSt 0425/0525 and the June correction comment, but do not treat those two rows as final-ready until the PDFs or annual wage-tax certificate are read directly.
+- Verification: Notion readback confirmed April and May `Tax Amount` = EUR 1,542.50 and the May page-level comment. Sheets readback confirmed April/May revenue rows have wage tax EUR 1,542.50, review status `Needs direct payslip PDF readback`, and notes stating the PDFs still need direct readback.
+- Limitations or gaps: Actual payslip PDF binaries remain unread because Notion exposes only internal attachment handles through the connector and Drive search did not find separate PDF copies.
+
 ## 2026-05-26 - Hamburg Contact Availability Hard Gate
 
 - User request: Fix the Hamburg contact with no linked availability and make the repository remember that availability is mandatory.

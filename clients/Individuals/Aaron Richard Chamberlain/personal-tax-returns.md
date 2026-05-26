@@ -133,7 +133,7 @@ Excluded or source-only items:
 
 Remaining filing flags:
 
-- Extract or obtain Aaron's annual German wage-tax certificate and direct payslip PDF readback. The live workbook now corrects April/May withholding from blank to EUR 1,542.50 each using Notion payroll comments, bank payments, Finanzamt LSt 0425/0525 remittances, and the June catch-up; final filing should still read the attached PDFs or annual certificate directly.
+- Extract or obtain Aaron's annual German wage-tax certificate and direct payslip PDF readback. The live workbook corrects April/May withholding from blank to EUR 1,542.50 each using Notion payroll comments, bank payments, Finanzamt LSt 0425/0525 remittances, and the June catch-up; on 2026-05-26 the matching Notion April/May payroll `Tax Amount` fields were also set to EUR 1,542.50 while their `Net Payment` fields were left at the cash-paid EUR 5,660.17. The April/May workbook rows are now flagged `Needs direct payslip PDF readback`, not final-ready.
 - Treat January as no Aaron AMC employment payroll unless later evidence contradicts the Notion employment record, which starts on 2025-02-11.
 - Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details.
 - Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate.
