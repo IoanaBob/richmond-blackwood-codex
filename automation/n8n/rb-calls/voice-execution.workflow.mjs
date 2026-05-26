@@ -16,6 +16,7 @@ const TAX_PAYMENTS_DATABASE_ID = '1fae4130-1314-8099-907c-f544585f1b5b';
 const TAX_PREPAYMENTS_DATABASE_ID = '162e4130-1314-803d-800a-cef0a0719d01';
 const RB_CALLS_CHANNEL_ID = 'C0ASXSTFSVA';
 const RB_AGENT_ID = 'agent_2001kq39ea0hf5yb86c4a7hj9gp1';
+const OUTBOUND_CALL_RESPONSE_TIMEOUT_MS = 120000;
 
 const every15Minutes = trigger({
   type: 'n8n-nodes-base.scheduleTrigger',
@@ -1135,7 +1136,7 @@ const makeOutboundCall = node({
       sendBody: true,
       specifyBody: 'json',
       jsonBody: '={{ $("Limit Startup Context").item.json.elevenlabs_body }}',
-      options: { response: { response: { fullResponse: true, neverError: true, responseFormat: 'json' } }, timeout: 30000 },
+      options: { response: { response: { fullResponse: true, neverError: true, responseFormat: 'json' } }, timeout: OUTBOUND_CALL_RESPONSE_TIMEOUT_MS },
     },
   },
 });
