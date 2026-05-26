@@ -22,10 +22,12 @@ Review: Apply to every future RB authority filing skill and browser workflow unl
 
 ## Required Sources
 
-1. Company folder under `clients/Companies/<client-reference>/`, especially `tax-vat-filings.md`, `source-register.md`, and `open-questions.md`.
-2. Latest Notion communication, task, filing-registration, or authority-response source that triggered the filing.
-3. Existing ELSTER or filing evidence only as source material, never as proof that a new filing can be submitted without operator approval.
-4. Official ELSTER help or form availability pages when deciding whether a return can be filed online.
+1. Company folder under `clients/Companies/<client-reference>/`, especially `README.md`, `tax-vat-filings.md`, `source-register.md`, `drive-locations.md`, `communications.md`, and `open-questions.md`.
+2. Notion company record plus relevant Communications, Tasks, Filing Registrations, Filings, Tax Payments, Employment, Payroll, and other operational records that could affect the filing.
+3. Drive company folder, evidence files, prior filing confirmations, and saved Drive pointers.
+4. Latest Notion communication, task, filing-registration, or authority-response source that triggered the filing.
+5. Existing ELSTER or filing evidence only as source material, never as proof that a new filing can be submitted without operator approval.
+6. Official ELSTER help or form availability pages when deciding whether a return can be filed online.
 
 ## Workflow
 

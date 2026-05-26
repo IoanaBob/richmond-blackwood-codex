@@ -11,6 +11,17 @@ Use this whenever source context contains private client-specific information.
 
 Use the pattern in `clients/Companies/_template/`.
 
+## Client Context Intake
+
+Before making a client-specific decision or completing a client task, check the client's wider internal record set rather than relying only on the triggering source.
+
+- Local repo folder for the company or individual.
+- Notion company/individual record and relevant task-capable operational records.
+- Drive folder, source files, evidence folders, and saved Drive pointers.
+- Prior communications and source pointers from Gmail, WhatsApp, Slack, calls, and Notion where relevant.
+
+If a source cannot be read, record the blocker and say how the missing context limits the answer or task. Stop for review when missing context could materially change the decision.
+
 ## Routing
 
 - Before creating a client folder, fetch the Notion Companies record and use its exact `Reference` value.

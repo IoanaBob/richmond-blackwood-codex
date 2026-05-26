@@ -14,6 +14,12 @@ These instructions apply to every Codex session in this repository.
 - Local active human operator identity is read from ignored `.env.local` as `RB_CODEX_ACTOR="<human name>"`, with valid names recorded in `internal/people-roles.md`. Read only that key when operator-specific approval, authorship, source-access attribution, or per-operator closeout matters; never print or dump full env files.
 - `RB_CODEX_ACTOR` is not a mailbox. Shared mailboxes such as `accounting@richmondblackwood.com` may be source mailboxes or sending identities, but must not be used as the active human actor.
 
+## Client Context Intake
+
+Before making client-specific decisions or doing substantive company or individual client work, build context from the full internal client record set, not only the triggering item. Check the relevant local client folder, Notion company/individual and operational records, Drive folders/files, and relevant prior communications or source pointers when available. Use the broader context to understand the client, spot conflicts, and avoid narrow decisions based on a single page, message, or filing screen.
+
+If Notion, Drive, Gmail, Slack, WhatsApp, or another internal source is unavailable, record the blocker and continue only with clear caveats or ask for review when the missing source could change the decision.
+
 ## Master Chat And Skill Run Git Rule
 
 For every Richmond Blackwood Codex chat or skill run that can change repository files, helper behavior, or live workspace state:

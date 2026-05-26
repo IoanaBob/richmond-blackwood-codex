@@ -12,6 +12,9 @@ Imported: 2026-05-04.
 5. For Gmail work, keep `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separate in packets and previews. The default client-facing sender is still `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, but Gmail reads can come from accounting or personal/operator mailboxes when explicitly scoped.
 6. For Google helper auth, read `memory/google-auth.md`, `memory/google-personas.md`, and `setup/google-persona-auth.md`. Durable persona caches and OAuth client files live under shared global Codex storage `~/.codex`, not worktree `.codex-local`; default to no-login/no-reauth unless the user approves an exact persona reconnect.
 7. Check `skills/index.md` before using repo-local helpers.
+
+Client context intake rule: before making client-specific decisions or doing substantive company/individual client work, check the broader internal client record set: local client folder, Notion company/individual and operational rows, Drive folders/files, and relevant prior communications/source pointers when available. If Notion, Drive, Gmail, WhatsApp, Slack, or another expected internal source is unavailable, record the blocker and proceed only with caveats unless the missing source could materially change the decision.
+
 8. Review the active VUN company pilot in `clients/Companies/VUN/` and the linked individual pilot in `clients/Individuals/Nathan Mawali A Vandy/`.
 9. Resolve `memory/open-questions.md` before creating client Notion pages or Drive folders.
 10. Use Notion Companies `Reference` for company folders and Notion legal names for individual folders; do not invent slugs.

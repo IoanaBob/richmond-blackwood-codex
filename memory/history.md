@@ -857,3 +857,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: The requested slugs are now canonical for RB accounting and JP. Legacy helper aliases `rb-accounting` and `johnpaul-richmond-blackwood` remain supported so older commands still resolve to the new vault locations.
 - Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
 - Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.
+
+## 2026-05-26 - Comprehensive Client Context Intake Rule
+
+- User request: Remember to check all internal records about CBMAX, including Notion and Google Drive, and apply the same principle to all company and individual clients.
+- Context read: `AGENTS.md`, `rb-memory-capture`, `rb-source-research`, `rb-client-file`, `rb-company-tax-de`, and durable memory files.
+- Actions taken: Added a client-context intake rule to root instructions, source/client-file skills, German company-tax filing skill, decisions, current state, and handoff.
+- Decisions made: Client work should start from the broader internal record set rather than only the triggering item; connector/source blockers must be recorded and caveated.
+- Verification: `git diff --check` passed before commit.
+- Limitations or gaps: Actual source coverage remains subject to connector availability and the scope/sensitivity of the task.
