@@ -156,3 +156,23 @@ Open workbook checks after setup:
 | Deductibles review | FAIL - operator must review applicability before claims |
 | Tax credit review | FAIL - operator must review applicability before claims |
 | Direct tax payment/prepayment confirmation | FAIL - review bank statements/notices or confirm none |
+
+## 2026-05-26 Filing Readiness Check
+
+Status: provisional.
+Source: Notion filing task `https://www.notion.so/359e4130131481d88a99df5939bbe6ed`; Notion filing record `https://www.notion.so/342e4130131480eab03dd8498d24d23e`; workbook `Checks!A1:F80` in `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`.
+Imported: 2026-05-26.
+Review: Do not submit the 2025 return through ELSTER until the failed checks are cleared or explicitly accepted by the operator/filer.
+
+The live Notion analysis task was `Done` and the filing task was `To Do` at the 2026-05-26 check. The filing record stayed `In Progress` with document gathering `In progress`. Workbook `Checks!A1:F80` still had these failed items:
+
+| Check | Current count |
+| --- | ---: |
+| Prior-year opening links missing | 9 |
+| Missing expense confirmation | 1 |
+| Missing investment confirmation | 1 |
+| Deductible rows needing review | 14 |
+| Tax credit rows needing review | 7 |
+| Missing direct tax payment confirmation | 1 |
+
+No ELSTER submission was attempted. A page-level Notion comment was added to the filing task on 2026-05-26 to record the blocker for the filer.

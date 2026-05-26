@@ -848,3 +848,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
+
+## 2026-05-26 - German Personal Tax Filing Readiness Check
+
+- User request: Check internally for any new German personal-tax analysis ready to file, prepare for filing, and proceed via ELSTER unless blocked.
+- Context read: Repo-local `rb-personal-tax-analysis-de`, Notion Personal Tax Filings and Tasks, Selin/Nathan/Andrei/Mark/Byron/Aaron individual records, and Selin 2025 workbook `Checks!A1:F80`.
+- Actions taken: Confirmed Mark 2024, Andrei 2024, and Byron 2025 were already marked filed in Notion with filed dates and submission evidence. Checked Selin 2025 as the closest open analysis-done/filing-open candidate, read back the workbook checks, and added a Notion filing-task comment stating that ELSTER filing should not proceed until failed checks are cleared or explicitly accepted.
+- Decisions made: Do not submit Selin 2025 through ELSTER from the current workbook state. Aaron 2025 remains in preparation with explicit do-not-file flags. Nathan 2025 has filing evidence/status inconsistency plus unresolved workbook audit items, so it is not a clean "ready to file" candidate.
+- Verification: Notion fetch verified task and filing statuses. Google Sheets read-back of Selin `Checks!A1:F80` showed failed checks for prior-year opening links, missing expense confirmation, missing investment confirmation, deductible review, tax credit review, and missing direct tax payment/prepayment confirmation.
+- Limitations or gaps: A Google Sheets `Missing Info` range read hit the per-minute quota limit, but the workbook `Checks` tab supplied the decisive blocker list. No ELSTER submission was attempted because filing blockers remain.
