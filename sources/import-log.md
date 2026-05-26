@@ -1769,3 +1769,22 @@ Actions:
 Unresolved:
 
 - Validate the Stage 3 routing table output and unresolved-row guard on the next live weekday Accounting Team Updates run.
+
+## 2026-05-26 - Accounting Packet Gap Hardening
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 to fix all gaps from the critical review of the Accounting Team Updates skill.
+
+Actions:
+
+- Tightened Stage 1 so auto-continuation only applies to clean/no-conflict git state.
+- Required exact Notion and Slack query bounds in Stage 2 packets.
+- Updated Stage 3 routing to split multi-action source rows into atomic routing items, resolve owning operational rows and client projects before Central Tasks/RB Backlog, verify target schema/property names, and include exact write payloads, due dates, write-back methods, and Slack mention status.
+- Updated Stage 4 to execute only the approved write payloads and read back owner/status/project/reviewer/due-date fields.
+- Updated Stage 5 Slack closeout to include updated/commented tasks and to block on unresolved assignee Slack mentions unless the operator approves a plain-name no-notification fallback.
+- Updated durable memory with the hardened packet rules.
+
+Unresolved:
+
+- Validate the hardened packet contract on the next live weekday Accounting Team Updates run, especially client-project routing, comment-only closeouts, and Slack mention blocking.

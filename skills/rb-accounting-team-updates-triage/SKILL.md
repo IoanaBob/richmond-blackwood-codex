@@ -65,30 +65,30 @@ Stages:
 
 Auto-approval:
 
-- Stage 1 is always auto-approved after its packet is written and printed.
+- Stage 1 is auto-approved after its packet is written and printed only when the worktree is clean, `git pull origin main` succeeds, and no conflicts appear.
 - Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet.
 - No Notion task write, Team Updates write-back, or task comment happens before Stage 3 Routing Plan approval.
 - No Slack send happens before Stage 5 exact-message approval, unless a future explicit standard-closeout auto-approval is added.
-- Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record, unexpected live mutation, or connector degradation that makes routing unsafe.
+- Stop despite auto-approval if a packet introduces dirty or conflicted git state, a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record/target schema/write-back method, unexpected live mutation, or connector degradation that makes routing unsafe.
 
 ## Task Routing
 
-Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e`; default project is Richmond Blackwood Backlog: `https://www.notion.so/25de4130131481769758f5f2d465a141`.
+Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` only for extra action work or when the owning task-capable operational row cannot represent the action. Use Richmond Blackwood Backlog `https://www.notion.so/25de4130131481769758f5f2d465a141` only for truly RB-internal work. Client-related actions must resolve the responsible Company record and its linked client project; if that project is not readable, Stage 3 must mark the item `unresolved`.
 
-Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, or owning operational record is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
+Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
 
 ## Write-Back And Verification
 
-Before task writes, confirm that the Team Updates page can be updated through a page-body edit or an actual page comment. After every task create/update:
+Before task writes, confirm that the Team Updates page can be updated through a page-body edit or an actual page comment. After every approved task create/update/comment or operational-row update:
 
-- write the task link back to the Team Updates source item, preferably under the source checkbox line;
+- write the task, operational-row, or comment link back to the Team Updates source item, preferably under the source checkbox line;
 - check off the source line only after the task create/update and page write-back both read back correctly;
 - if checking the box is not safely supported, leave the checkbox unchanged and add `Codex routed: <task link> - <action>` under the item or in an actual page comment;
 - never rely on the final report as the only record of routing.
 
 Verify by reading back:
 
-- the created/updated task link and owner/status/project;
+- the created/updated/commented task or operational-row link and owner/status/project/reviewer/due date;
 - the Team Updates page routing note, task link, and checkbox state when changed;
 - any skipped checked item that was reviewed because it appeared still open.
 
@@ -104,17 +104,17 @@ Accounting Team Updates task routing is done for <YYYY-MM-DD>: follow-up tasks w
 Created
 - <@SlackUserID> <Task title linked to task URL>
 
-Updated
+Updated / Commented
 - <@SlackUserID> <Task title linked to task URL>
 ```
 
 Rules:
 
-- Link the Team Updates page first, then list created and updated task titles as direct hyperlinks in the Slack message.
-- Prefix each task line with the assigned person's Slack mention, for example `<@U123> [Task title](task URL)`. If a task has multiple assignees, include every resolved assignee mention. Resolve Slack user IDs before sending when practical.
-- If an assignee cannot be resolved to a Slack user, use their plain name rather than a bare `@name`, and record the unresolved Slack mapping in the final report.
+- Link the Team Updates page first, then list created and updated/commented task titles as direct hyperlinks in the Slack message.
+- Prefix each task line with the assigned person's Slack mention, for example `<@U123> [Task title](task URL)`. If a task has multiple assignees, include every resolved assignee mention. Resolve Slack user IDs before sending.
+- If an assignee cannot be resolved to a Slack user, Stage 5 is blocked unless the operator explicitly approves a plain-name no-notification fallback. If that fallback is approved, use the person's plain name rather than a bare `@name`, and record the unresolved Slack mapping in the final report.
 - Include only task titles and task links in the created/updated lists; keep source-line detail and skipped-item notes on the Team Updates page.
-- If no tasks were created or no tasks were updated, include `None` under that heading.
+- Treat comment-only changes as `Updated / Commented`. If no tasks were created or no tasks were updated/commented, include `None` under that heading.
 - If routing blockers remain, add only a short phrase such as `One item needs routing review; details are on the page.`
 - Do not include private source content, connector mechanics, skipped placeholder text, or broad mentions such as `@here` or `@channel`.
 - Do not post Slack on a no-op run where no blocker/action-point task was created, updated, or commented. Record the no-op on the Team Updates page and in the final report.
