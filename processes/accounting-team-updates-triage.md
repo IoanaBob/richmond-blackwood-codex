@@ -1,9 +1,9 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26
 imported: 2026-05-21
-review: Validate the Slack closeout wording on the next weekday automation run.
+review: Validate Slack context reads, ChatGPT/Codex filtering, and closeout wording on the next weekday automation run.
 ---
 
 # Accounting Team Updates Triage
@@ -28,6 +28,17 @@ Team Updates:
 - Filter: `Team = Accounting`; prefer `Company = Richmond Blackwood` when present.
 
 If a data source query tool is available, query by `Team = Accounting` and `Date = current working day`. If not, use Notion search/fetch on the Accounting view/current-date candidates and verify properties after fetch.
+
+Slack context channels:
+
+- `#rb-client-updates` (`C0B1UTJJDLJ`, private)
+- `#rb-operations` (`C0AMJHHHAKY`, private)
+- `#rb-structuring` (`C0AMDDTNSFL`, private)
+- `#all-richmond-blackwood` (`C0ALBMSLL5A`, public)
+
+For the same working-day/run window, read human-authored messages in these channels and read new message threads where the parent message or any reply falls in the window. If an in-window reply needs the parent message for context, read the parent even if it predates the window. Do not read broad older channel history beyond what is needed for thread context.
+
+Exclude messages authored by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Slack is supporting context for blockers, action points, owner corrections, completion signals, duplicate/superseded work, and review routing; it is not a replacement source for Team Updates and must not be used here to process `New client inbounds`.
 
 ## Sections To Process
 
@@ -66,6 +77,7 @@ For each unchecked blocker/action point:
 9. Do not create separate approval tasks when a recurring or operational task already owns the workflow. For invoice, contractor, expense, or payment approvals, update/comment the weekly invoice-payables/payables task and add the approver in `Review By`.
 10. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Use Simoneta as the routine owner unless the source or user explicitly identifies a different doer.
 11. Include the source section, exact source line, Team Updates page URL, linked pages, and next concrete action in the task body/comment.
+12. When Slack context changes the routing decision, include the relevant Slack message or thread link in the task comment or Team Updates routing note unless doing so would expose inappropriate private source content.
 
 Do not process invoices, receipts, expenses, or correspondence as source documents from this page. If an action point refers to one, create/update the operational task or blocker only; document intake remains owned by the inbound/finance workflows.
 
@@ -113,6 +125,27 @@ Rules:
 - If Slack sending fails or the Slack connector is unavailable, do not roll back verified Notion work. Report the Slack blocker in the final run report and add it to the Team Updates page comment.
 - Any non-standard Slack text still follows `processes/communications.md` and `skills/rb-communications/SKILL.md` approval rules.
 
+## Packet-Based Improvement Plan
+
+The next workflow upgrade should make this skill packet-based, borrowing the review and recovery model from `rb-common-tasks-follow-through` without merging the two automations.
+
+Planned packets:
+
+1. **Run Preflight**: current date/window, branch and `git pull origin main` result, Notion/Slack connector availability, Team Updates query, Slack channel IDs, and ChatGPT/Codex exclusion rule.
+2. **Source Context**: Team Updates page, section rows, skipped `New client inbounds` count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
+3. **Routing Plan**: create/update/skip proposal for each blocker/action point, dedupe evidence, assignee, project, reviewer, assignee Slack mention, and unresolved decisions.
+4. **Notion Write Results**: task create/update links, owner/status/project read-back, Team Updates write-back read-back, and unresolved rows.
+5. **Slack Closeout Plan**: exact standard Slack notice with Team Updates link, created/updated task links, assigned-person mentions, and any short unresolved-item phrase.
+6. **Slack Send And Run Closeout**: Slack message link, communication/log backlinks when used, verification summary, preserved scratch path, and final blocker list.
+
+Standing intent:
+
+- Preflight and source-context packets may continue automatically when reads are complete or clearly marked degraded.
+- No Notion writes happen until the routing plan packet is approved or covered by a future explicit auto-approval exception.
+- No Slack send happens until the exact closeout packet is approved or covered by an explicit standard-closeout auto-approval exception.
+- Packets should be stored under `/private/tmp/rb-accounting-team-updates-triage/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and `stage-XX-<short-name>.md` files.
+- Until this upgrade is implemented, keep an equivalent local ledger and report whether packetization remains pending.
+
 ## Verification And Report
 
 Read back every task, Team Updates write-back, and Slack send result before reporting success.
@@ -125,6 +158,7 @@ Final report:
 - tasks created;
 - existing tasks/pages updated or commented;
 - checked/completed items skipped as already handled;
+- Slack context channels read and material human-authored thread context used;
 - Team Updates page write-backs verified;
 - Slack completion notice status and message link when available;
 - unresolved routing blockers.

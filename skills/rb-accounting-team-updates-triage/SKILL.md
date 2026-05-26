@@ -1,6 +1,6 @@
 ---
 name: rb-accounting-team-updates-triage
-description: "Use for the separate Richmond Blackwood weekday 11:00 Accounting Team Updates run that reads the current working day's Team Updates page, skips New client inbounds, creates or updates Notion tasks from blockers and action points, and posts the standard Slack completion notice."
+description: "Use for the separate Richmond Blackwood weekday 11:00 Accounting Team Updates run that reads the current working day's Team Updates page plus bounded human Slack context, skips New client inbounds, creates or updates Notion tasks from blockers and action points, and posts the standard Slack completion notice."
 ---
 
 # RB Accounting Team Updates Triage
@@ -12,8 +12,9 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 1. Read `processes/accounting-team-updates-triage.md`.
 2. Read `processes/notion-operations.md` for Notion task and comment rules.
 3. Read `internal/people-roles.md` before assigning tasks.
-4. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
-5. Use the Slack connector only for the standard completion notice described below. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
+4. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
+5. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
+6. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
 
 ## Source Scope
 
@@ -22,6 +23,23 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 - Filter for `Team = Accounting`.
 - Use the `Date` property for the current working day in `Europe/Dublin`; page title wording is not authoritative.
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
+
+Slack context:
+
+- `#rb-client-updates` (`C0B1UTJJDLJ`)
+- `#rb-operations` (`C0AMJHHHAKY`)
+- `#rb-structuring` (`C0AMDDTNSFL`)
+- `#all-richmond-blackwood` (`C0ALBMSLL5A`)
+
+Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
+
+Slack read rules:
+
+- Read Slack as context for blockers, action-point routing, owner corrections, completion signals, duplicate/superseded work, and review routing.
+- Do not treat Slack as a replacement for Team Updates; the Team Updates page remains the primary source for this automation.
+- Do not process `New client inbounds` from Slack in this skill. Client inbound reading remains owned by `rb-common-tasks-follow-through`.
+- Exclude messages sent by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Analyze only human-authored source messages.
+- Preserve Slack message or thread links in the local ledger when a Slack message affects a task decision.
 
 ## Section Rules
 
@@ -90,6 +108,19 @@ Rules:
 - If Slack sending fails or the Slack connector is unavailable, do not roll back verified Notion work. Add a Team Updates page note for the Slack blocker and report it.
 - No other outbound Slack or app messages are part of this automation.
 
+## Packet-Based Upgrade Plan
+
+This skill is not yet fully packet-gated like `rb-common-tasks-follow-through`, but future improvements should use the same packet discipline for auditability and compaction recovery:
+
+1. **Preflight Packet**: run ID, current date/window, branch/pull state, Team Updates query, Slack channels searched, ChatGPT/Codex exclusion rule, and connector availability.
+2. **Source Context Packet**: Team Updates source rows, skipped `New client inbounds` count, relevant human Slack messages/threads by channel, and source links.
+3. **Routing Plan Packet**: proposed create/update/skip decision for each blocker/action point, assignee, project, reviewer, Slack assignee mention, dedupe evidence, and unresolved blockers.
+4. **Notion Write Results Packet**: created/updated task links, owner/status/project/read-back status, Team Updates write-back/read-back status, and items left unresolved.
+5. **Slack Closeout Packet**: exact standard Slack completion text with Team Updates link, created/updated task hyperlinks, and assigned-person mentions.
+6. **Send And Closeout Packet**: Slack message link, any Communications/Team Updates log links, verification summary, preserved scratch path, and final unresolved items.
+
+Until the packet flow is implemented, keep a local ledger with the same fields and include the packet-plan status in the final run report.
+
 ## Output
 
 Return a concise run report with:
@@ -98,6 +129,7 @@ Return a concise run report with:
 - skipped `New client inbounds` count;
 - blockers/action points reviewed;
 - tasks created, updated, or skipped as already handled;
+- relevant Slack context read, including channels and any skipped ChatGPT/Codex-authored messages when material;
 - Team Updates page write-backs verified;
 - Slack completion notice status and message link when available;
 - unresolved items and the exact reason.

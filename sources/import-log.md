@@ -1711,3 +1711,22 @@ Actions:
 Unresolved:
 
 - Confirm whether broader non-accounting workflows should receive the same explicit `Review By` wording beyond the central Notion task rules.
+
+## 2026-05-26 - Accounting Slack Context And Packet Plan
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 to add bounded Slack channel reads to the Accounting Team Updates skill.
+- Slack channel search results for `#rb-client-updates`, `#rb-operations`, `#rb-structuring`, and `#all-richmond-blackwood`.
+- User instruction to plan a packet-based upgrade similar to the daily common tasks run-through.
+
+Actions:
+
+- Resolved channel IDs: `#rb-client-updates` `C0B1UTJJDLJ`, `#rb-operations` `C0AMJHHHAKY`, `#rb-structuring` `C0AMDDTNSFL`, and `#all-richmond-blackwood` `C0ALBMSLL5A`.
+- Updated `skills/rb-accounting-team-updates-triage/SKILL.md` and `processes/accounting-team-updates-triage.md` so future runs read current-window human Slack messages and new thread context while excluding ChatGPT/Codex/OpenAI/bot-authored messages.
+- Added a six-packet upgrade plan covering preflight, source context, routing plan, Notion write results, Slack closeout plan, and send/closeout results.
+- Backed up the updated process to RB Internal Knowledge Base page `https://www.notion.so/367e413013148175b709e35f31d37821` and verified it by read-back.
+
+Unresolved:
+
+- Implement the packet runner and validate the Slack-context filter on the next weekday Accounting Team Updates run.
