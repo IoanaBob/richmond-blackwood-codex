@@ -16,6 +16,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-25 | Codex thread | Prepare Aaron's 2025 German personal-tax analysis jointly with wife, check Aaron payslips, use the client-provided folders, preserve template formulas, claim only exact evidence-backed rows, and keep VAT/trade-tax final-freelancer-year work separate. |
 | 2026-05-25 | Codex thread | Operator clarified that the previous accountant vetted the January/February DATEV bookings; include the booked expense-account rows in the 2025 personal-tax workbook using the exact DATEV CSV URLs as support. |
 | 2026-05-25 | Codex thread | Operator asked about January revenue; January DATEV receipt of EUR 16,464.53 from Riot was reviewed as a debtor-account receipt and left source-only pending final 2024/2025 basis review. |
+| 2026-05-26 | Codex thread | Operator challenged missing January/April wage-tax withholding and instructed that actual payslip PDFs must be read. Live workbook was corrected for April/May from Notion payroll and bank/remittance evidence; direct PDF readback remains blocked because Notion exposes only attachment handles to the connector and browser access requires login. |
 
 ## Notion
 
@@ -31,6 +32,9 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Start Aaron + wife 2025 joint personal tax filing | `https://www.notion.so/360e4130131481b881aad86ffaf1b958` | 2025 onward joint filing task. |
 | File 2025 German personal tax return - Aaron Richard Chamberlain | `https://www.notion.so/36be41301314819bb2fdc42eb47d202d` | Filing task created from the annual personal-tax task template and dependent on the preparation task. |
 | AMC employment record for Aaron | `https://www.notion.so/198e4130131480aba2c3d68f3f33ad80` | 2025 payroll source relation for Aaron's AMC employment. |
+| April 2025 Aaron payroll | `https://www.notion.so/198e4130131481a8a345dbd10765b85b` | Notion payroll row with `AMC_-_April_2025_Payroll.pdf` attachment handle and EUR 5,660.17 payment; April workbook row corrected from later payroll/remittance evidence. |
+| May 2025 Aaron payroll | `https://www.notion.so/1e6e4130131481518a76ee5ae949fa06` | Notion payroll row with `Aaron_Chamberlain_-_May_2025_Payslip.pdf` attachment handle and EUR 5,660.17 payment; comments say the paid net did not match May payroll. |
+| June 2025 Aaron payroll correction | `https://www.notion.so/206e413013148140968cec8b3c8e5061` | Notion payroll comments state tax class 3 applied from 1 April, normal monthly net was EUR 6,457.50, and June included EUR 797.33 catch-up for each of April and May. |
 | Aaron Wife Payslip communication | `https://www.notion.so/342e4130131480e49bf3d1a3495ad741` | Wife/Antje payslip source pointer; raw attachment stays in Notion. |
 | Remaining balance with Finanzamt | `https://www.notion.so/35ae41301314807da439eee8bc3e5642` | Remaining balance after garnishment transfer. |
 | Prepare P&L and Balance Sheet for Aaron | `https://www.notion.so/353e413013148070ad92d56880997fb6` | 2023/2024 P&L and balance-sheet support. |

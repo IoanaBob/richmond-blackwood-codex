@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, but final filing still needs the annual payroll certificates/payslip extraction, deductible evidence, and final review of DATEV-backed expense treatment before submission.
+Review: Workbook is ready for internal review, but final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, deductible evidence, and final review of DATEV-backed expense treatment before submission.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -102,16 +102,16 @@ Input summary captured:
 - January DATEV shows a EUR 16,464.53 Riot Games Services bank receipt against debtor account 11801, but 2025 SUSA class 8 revenue for January is EUR 0.00 and the 2024 FS workbook shows the matching Riot debtor movement in December 2024. The receipt is recorded source-only unless final basis review finds it was not taxed in 2024.
 - Claimed source-backed business expenses currently loaded: EUR 825.95, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30.
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
-- Aaron salary rows loaded from AMC payroll records: EUR 72,000 gross for April to December 2025, with EUR 11,010.86 wage tax currently identified or inferred from the reviewed payroll records.
+- Aaron salary rows loaded from AMC payroll records: EUR 72,000 gross for April to December 2025, with EUR 14,095.86 wage tax currently identified or inferred from the reviewed payroll records after correcting April and May to EUR 1,542.50 each.
 - Wife/Antje annual payroll model loaded from AMC Liquidity 2025 and wife payslip communication: EUR 14,976 gross, EUR 1,103.94 wage tax, EUR 1,570.86 pension/social contribution model, and EUR 942.96 health contribution model.
 - Combined employment gross loaded: EUR 86,976.
-- Combined identified or modelled wage tax loaded: EUR 12,114.80.
+- Combined identified or modelled wage tax loaded: EUR 15,199.80.
 - VAT prepayment/source-only accounting item captured: EUR 2,628.79. This is not treated as a personal income-tax prepayment in the workbook.
 
 Workbook formula read-back:
 
 - Employment gross: EUR 86,976.00.
-- Wage tax withheld: EUR 12,114.80.
+- Wage tax withheld: EUR 15,199.80 after the 2026-05-26 April/May correction.
 - Business/freelance net P&L: EUR 7,205.15.
 - Operating revenue included: EUR 8,031.10.
 - Business expenses included: EUR 825.95.
@@ -132,7 +132,8 @@ Excluded or source-only items:
 
 Remaining filing flags:
 
-- Extract or obtain Aaron's annual German wage-tax certificate and verify April/May payroll treatment, June correction, October offset, and December wage-tax amount.
+- Extract or obtain Aaron's annual German wage-tax certificate and direct payslip PDF readback. The live workbook now corrects April/May withholding from blank to EUR 1,542.50 each using Notion payroll comments, bank payments, Finanzamt LSt 0425/0525 remittances, and the June catch-up; final filing should still read the attached PDFs or annual certificate directly.
+- Treat January as no Aaron AMC employment payroll unless later evidence contradicts the Notion employment record, which starts on 2025-02-11.
 - Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details.
 - Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate.
 - Confirm investments/no-investments, home-office days, donation/insurance/other deductible evidence, and final student-loan treatment.
