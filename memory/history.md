@@ -849,6 +849,15 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
 
+## 2026-05-25 - TPL Rebase And Accounting Persona Follow-Up
+
+- User request: Rebase the TPL branch from master/main, use the accounting Richmond Blackwood persona, and finish the missing TPL follow-up work.
+- Context read: rebased main/shared Google auth docs, TPL repo files, saved Google persona store, Google Drive parent-folder checks, Gmail Mercedes-Benz source, Notion Tasks, and public CRO/CORE sources.
+- Actions taken: Rebasing `codex/tpl-context` onto `origin/main` succeeded, and TPL memory conflicts were resolved by preserving main's shared Google persona context and reapplying TPL entries. Verified that the saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com`. Created/read back JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` for the remaining USt-IdNr./international VAT questions. Downloaded the Mercedes-Benz order PDF to temporary local storage for verification, but left upload blocked until the canonical `Correspondance` folder exists. Removed Everguard operational/payment detail from RB client memory per user correction.
+- Decisions made: Do not create the canonical TPL Drive folder in the wrong Drive location. The approved target remains `02. RB Client Companies/19. Techpacito Limited (TPL)` with subfolders `2025`, `Correspondance`, `Filings`, and `Secretarial`.
+- Verification: Google API userinfo confirmed the accounting persona email; Drive API with accounting returned `File not found` for the target parent folder, while `ioana-eip` could read the parent. Notion read-back confirmed the JP task assignment/project/due date/comment. Gmail API download verified the Mercedes-Benz PDF size and SHA-256 in temporary storage. Public CRO sources confirm CORE is the annual-return filing route and TECHPACITO LIMITED / company number 786441 registration on 2025-04-16; direct CRO Open Services annual-return checking returned an API-credential error.
+- Limitations or gaps: Canonical Drive folder creation and Mercedes-Benz PDF upload remain blocked until `accounting@richmondblackwood.com` is granted access to the `02. RB Client Companies` parent or the user approves `ioana-eip` as the write persona for this folder.
+
 ## 2026-05-26 - RB Accounting And JP Persona Login
 
 - User request: Pull latest main and set up local Google persona auth for `accounting-richmond-blackwood` and `jp-richmond-blackwood`, following the Notion Google Persona Auth Migration Guide and using the provided Richmond Blackwood OAuth client file.
