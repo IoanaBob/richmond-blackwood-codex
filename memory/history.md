@@ -803,3 +803,39 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not create new n8n context categories for this issue. The correct fix is prompt/edge routing plus ensuring call setup puts the actual service-card or loyalty identifier into the call context when already known.
 - Verification: Live ElevenLabs readback confirmed `RB Call Bot` version `agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1`; live n8n readback confirmed `RB Calls Context Lookup` remains at 23 nodes; Notion read-back confirmed `RBCALL-25` is reviewed/approved with explicit service-card context and blank conversation/Twilio IDs.
 - Limitations or gaps: The retry depends on the next scheduled `RB Calls Voice Execution` run and contact availability.
+
+## 2026-05-22 - Andrei 2024 ELSTER Submission
+
+- User request: Finalize Andrei's 2024 German personal-tax filing after Ioana review, confirm whether remaining BFD/prepayment flags block submission, update the reusable ELSTER filing skill, and then submit after explicit approval.
+- Context read: ELSTER final submission overview, submitted-forms read-back, Andrei 2024 personal-tax workbook, Notion filing and preparation task comments, and the client-specific individual filing files.
+- Actions taken: Treated operator confirmation of no direct tax prepayments as clearing that filing-gate item; recorded the update in Notion; documented the later operator clarification that Elena's correct-year payslip is the overriding source of truth for zero taxable spouse wage and zero spouse social deductions; updated Andrei's client filing notes and the reusable ELSTER filing skill with the BFD, prepayment, ELSTER save/read-back, and post-submission evidence logging rules. After final action-time approval, clicked `Absenden`, verified ELSTER showed successful transmission, opened the transmitted-form row and transfer ticket, updated the Personal Tax Filing row to `Filed`, `Filed on` 2026-05-22, and `Tax Due` EUR 297, marked the filing and preparation tasks done, added evidence comments to all three Notion pages, and created the internal KB summary `RB Personal Tax Filing via ELSTER - Provisional` at `https://www.notion.so/368e413013148156960ce39c77eb4b81`.
+- Decisions made: Elena's payslip controls the spouse BFD/Taschengeld treatment for this filing, with no WhatsApp follow-up or extra BFD caveat unless the operator later asks for it. ELSTER transfer-ticket proof is the filing evidence pointer until any PDF transfer protocol is manually saved to Drive.
+- Verification: ELSTER validation had no errors before submission; submitted-forms read-back showed `Successfully transmitted`; Notion read-back confirmed the filing row status/date/tax due, task statuses, proof comments, and internal KB page.
+- Limitations or gaps: The in-app browser did not save a PDF transfer protocol to Drive. If a PDF copy is needed later, save it manually from ELSTER and link the Drive file in the Notion filing row/comments.
+
+## 2026-05-22 - Byron WhatsApp Personal-Tax Reply Monitor
+
+- User request: Watch for Byron's WhatsApp response to Ioana's questions about his 2024 and 2025 taxes, then use the response to proceed with the 2025 filing and return it for review before any submission.
+- Context read: RB WhatsApp inbound-monitoring skill/process, Byron and AGL communications files, Byron source register, and current durable memory.
+- Actions taken: Added a narrow Byron personal-tax WhatsApp monitoring checkpoint in `clients/Individuals/Byron Jarvis Frasier/communications.md` starting at 2026-05-22T17:45:07+01:00, recorded the user instruction in Byron's source register, and created active heartbeat automation `monitor-byron-whatsapp-tax-reply`.
+- Decisions made: Monitor only new messages after the checkpoint in the saved `Frasier, Byron | Richmond Blackwood` chat. If Byron replies, summarize only the tax-relevant facts, update RB records/checkpoint through the WhatsApp monitoring workflow, and continue the 2025 filing workflow only up to operator review. Do not submit in ELSTER without explicit action-time approval.
+- Verification: Automation creation returned id `monitor-byron-whatsapp-tax-reply`.
+- Limitations or gaps: The monitor depends on the WhatsApp MCP/bridge being available when the heartbeat runs. Current repo changes remain local because the linked worktree Git metadata is protected.
+
+## 2026-05-22 - ELSTER Submission Field Closeout Correction
+
+- User request: Add the final Notion completion rule for ELSTER filings: after the form is complete and submit approval is given, print the final form, then attach that file in the Personal Tax Filing `Submission` field when marking the filing complete.
+- Context read: Current `rb-personal-tax-filing-de-elster` skill closeout section, the internal KB page `RB Personal Tax Filing via ELSTER - Provisional`, and the user's screenshot of the correct Andrei filing row state.
+- Actions taken: Updated the repo ELSTER filing skill and the Internal Knowledge Base mirror to require printing/downloading the final ELSTER version from `Drucken` before `Absenden`, saving it to the Drive filing folder, attaching it to the Personal Tax Filing `Submission` property, setting `Document gathering status = Attached in Drive`, and verifying by read-back before treating the filing as fully complete.
+- Decisions made: A transfer ticket or comment alone is not enough for full closeout when a final PDF exists; the `Submission` file property must hold the final printed ELSTER file.
+- Verification: Notion read-back confirmed the updated internal KB wording; `git diff --check` passed.
+- Limitations or gaps: Existing local repo edits still cannot be committed/pushed because linked-worktree Git metadata is protected.
+
+## 2026-05-25 - Byron 2025 Maintenance Reply Detected
+
+- User request: Retry the Byron WhatsApp personal-tax monitor.
+- Context read: Byron monitoring checkpoint, WhatsApp inbound-monitoring skill/process, Byron 2024/2025 personal-tax files, and the saved `Frasier, Byron | Richmond Blackwood` WhatsApp chat.
+- Actions taken: Read only messages after the saved checkpoint, with minimal surrounding context to classify the short reply. Byron answered Ioana's 2025 German personal-tax maintenance-payment question; local Byron communications, source register, personal-tax return notes, and open questions now record the business meaning and the Notion logging blocker.
+- Decisions made: Treat Byron's current answer as no 2025 cash maintenance payments to a divorced or permanently separated spouse, unless later evidence contradicts it. Do not advance the WhatsApp monitoring checkpoint yet because Notion Communications/filing logging failed.
+- Verification: WhatsApp MCP read-back confirmed the latest group message timestamp is 2026-05-25T07:59:46+01:00. `git pull origin main` succeeded past the sandbox issue after approval but then stopped because the current branch diverges and no pull strategy is configured.
+- Limitations or gaps: Notion MCP startup timed out twice, so the canonical Communications record, 2025 filing comment, and official checkpoint advance remain pending.

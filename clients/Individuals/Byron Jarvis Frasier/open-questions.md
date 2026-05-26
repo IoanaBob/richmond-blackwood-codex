@@ -12,6 +12,7 @@ Imported: 2026-05-13.
 | Confirm Roth/IRA statements, contributions, distributions, rollovers, withholding, dividends/interest, and realized gains for German tax. | User instruction; brokerage analysis `https://www.notion.so/2a0e4130131480979a6fea007ccfdc49` | Needed before workbook conclusions. |
 | Confirm whether the SteuerGo data retrieval activation code/action for Byron has been completed. | Gmail `19e20f06924b8d7b`; task `https://www.notion.so/35fe413013148127abdbca7305da03be` | SteuerGo email says activation/data retrieval needs completion depending on ELSTER setup. |
 | Confirm whether 2025 personal-tax Drive folder should be created/linked in Notion now or only when active 2025 work begins. | Notion 2025 filing `https://www.notion.so/342e41301314800197bad5f6b9c7330e` | 2025 filing had no `GDrive Docs` value at fetch time. |
+| Review the 2025 workbook-to-ELSTER wage-certificate difference before submission. | Corrected 2025 workbook and ELSTER final overview read-back on 2026-05-25 | Workbook shows EUR 68,984.94 gross wages, EUR 16,874.48 wage tax, and EUR 0.00 solidarity surcharge; ELSTER imports EUR 69,309.98 gross wages, EUR 16,977.29 wage tax, and EUR 22.52 solidarity surcharge from certificate data. Workbook says annual LStB remains final tie-out, so ELSTER has been left as the draft source pending review. |
 
 ## 2024 Analysis Open Questions
 

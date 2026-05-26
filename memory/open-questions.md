@@ -96,6 +96,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## Byron Jarvis Frasier Personal Tax Questions
 
+- Retry Notion logging for Byron's 2026-05-25 WhatsApp reply: Byron confirmed no cash maintenance payments to a divorced or permanently separated spouse for 2025, but Notion Communications/filing-page logging failed because the Notion MCP timed out during startup. The WhatsApp monitoring checkpoint is intentionally still at 2026-05-22T17:45:07+01:00 until official logging succeeds.
 - Obtain/extract AGL May-Dec 2024 wage-tax, social, health, solidarity, and net-pay details from AGL payslips or the 2024 Lohnsteuerbescheinigung.
 - Confirm May 2024 AGL payroll treatment, because the employment start is 2024-05-01 and first payroll date found was 2024-06-27.
 - Review the November/December 2024 payroll relation mismatch on payroll page `https://www.notion.so/131e4130131481f68790cfb5fe5e8c42`.

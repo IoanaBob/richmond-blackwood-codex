@@ -113,6 +113,20 @@ Review: Needs accountant/operator review before workbook conclusions.
 - If there were retirement-account distributions while German tax resident, budget for German tax review and US consequences.
 - If funds moved between brokerage accounts, tax depends on realized income/gains rather than the withdrawal/deposit movement itself.
 
+## 2025 German Personal Tax Preparation
+
+Status: provisional.
+Source: WhatsApp chat `Frasier, Byron | Richmond Blackwood` / `120363222065866778@g.us`, reply reviewed on 2026-05-25; workbook `https://docs.google.com/spreadsheets/d/1MY_KeeJWvg6TOYV5EFEOMGJl2mq_1hdCT_ZtWq0NxSM/edit`; ELSTER 2025 draft final overview read-back in Browser Use on 2026-05-25.
+Imported: 2026-05-25.
+Review: Notion Communications, the 2025 filing page, and any Ioana-owned preparation/filing task still need official logging once the Notion connector is available; do not submit in ELSTER before Ioana/source reconciliation and operator review.
+
+- Byron confirmed he has no cash maintenance payments to a divorced or permanently separated spouse for the 2025 German personal-tax filing.
+- This resolves the 2025 Unterhaltsleistungen question for current preparation unless later evidence contradicts it.
+- ELSTER 2025 draft read-back showed the employment figures were not manual entries; they were marked `Übernommen aus Bescheinigung` in `Anlage N`. Visible values: gross wages EUR 69,309.98, wage tax EUR 16,977.29, solidarity surcharge EUR 22.52, tax class 1. ELSTER also showed private basic health insurance EUR 2,287 and care insurance EUR 860 as certificate-imported values, with a provisional refund of EUR 633.52.
+- Corrected 2025 workbook read-back on 2026-05-25: gross employment income EUR 68,984.94, wage tax withheld EUR 16,874.48, solidarity surcharge EUR 0.00, health/care insurance EUR 3,145.80, investment/dividend/interest/staking income EUR 0.00, business/freelance net PNL EUR 0.00, tax credits EUR 0.00, direct tax payments/prepayments EUR 0.00, failed checks 5, open missing-info count 27.
+- Workbook-to-ELSTER wage-certificate tie-out: ELSTER imported annual certificate exceeds the workbook by EUR 325.04 gross wages, EUR 102.81 wage tax, and EUR 22.52 solidarity surcharge. Workbook October payroll row still says `Needs payroll tax/social extraction`, and the revenue notes repeatedly say the annual LStB remains the final payroll tie-out, so ELSTER certificate values were preserved for the draft rather than overwritten.
+- Current readiness view: the draft validates in ELSTER and appears to contain `Hauptvordruck`, `Anlage N`, and `Anlage Vorsorgeaufwand`, with no visible `Anlage Unterhalt`, `Anlage KAP`, `Anlage S`, or rental/foreign-income attachment. Submission still needs operator review of the ELSTER print/review PDF and the wage-certificate tie-out difference.
+
 ## Workflow Note
 
 Future German personal-tax analysis should start from the maintained native Google Sheets template `RB German Personal Tax Analysis - Machine-Readable Template v1`: `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`.

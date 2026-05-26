@@ -1646,3 +1646,62 @@ Actions:
 Unresolved:
 
 - Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-22 - Andrei 2024 ELSTER Submission
+
+Imported:
+
+- ELSTER submitted-forms read-back for Andrei Nasonov's 2024 German personal-tax return.
+- Notion Personal Tax Filing row `https://www.notion.so/2cae4130131480358061f09398a4d71a`.
+- Notion filing task `https://www.notion.so/364e413013148174b03aefbc624e1e38`.
+- Notion preparation task `https://www.notion.so/352e41301314804a9895db42f9cf07af`.
+- Internal Knowledge Base page `https://www.notion.so/368e413013148156960ce39c77eb4b81`.
+
+Actions:
+
+- Submitted the 2024 German personal-tax return through Mein ELSTER after explicit operator approval.
+- Verified ELSTER submitted-forms read-back showed successful transmission.
+- Recorded the ELSTER transfer-ticket proof in Notion comments on the filing row, filing task, and preparation task.
+- Updated the Personal Tax Filing row to `Filed`, `Filed on` 2026-05-22, and `Tax Due` EUR 297.
+- Marked the linked filing task and preparation task `Done`.
+- Updated Andrei client files and the reusable ELSTER filing skill with the post-submission evidence logging step.
+- Created and verified the Internal Knowledge Base summary `RB Personal Tax Filing via ELSTER - Provisional`.
+
+Unresolved:
+
+- A PDF transfer protocol was not saved to Drive by the in-app browser. If a PDF copy is needed, save it manually from ELSTER and link the Drive file in the Notion filing row/comments.
+
+## 2026-05-22 - Byron Personal-Tax WhatsApp Monitor
+
+Imported:
+
+- User instruction in Codex to monitor Byron's WhatsApp response to Ioana's 2024/2025 personal-tax questions.
+- Byron individual communications file `clients/Individuals/Byron Jarvis Frasier/communications.md`.
+- Saved WhatsApp chat pointer `Frasier, Byron | Richmond Blackwood` / `120363222065866778@g.us`.
+
+Actions:
+
+- Added a provisional WhatsApp monitoring checkpoint for Byron personal-tax follow-up starting at 2026-05-22T17:45:07+01:00.
+- Created heartbeat automation `monitor-byron-whatsapp-tax-reply` to check every 30 minutes, stay quiet when there is no relevant reply, and return to the operator with a 2025 filing review packet before any ELSTER submission.
+
+Unresolved:
+
+- The monitor depends on the WhatsApp MCP/bridge being available during heartbeat runs.
+- The monitor should not backfill older WhatsApp history or send replies unless explicitly approved.
+
+## 2026-05-25 - Byron 2025 Maintenance-Payment Reply
+
+Imported:
+
+- WhatsApp MCP read of new messages after the saved Byron checkpoint in `Frasier, Byron | Richmond Blackwood` / `120363222065866778@g.us`.
+- Minimal surrounding context needed to classify Byron's short reply to Ioana's 2025 personal-tax maintenance-payment question.
+
+Actions:
+
+- Recorded the business meaning in local Byron files: no cash maintenance payments to a divorced or permanently separated spouse for 2025.
+- Recorded the Notion logging blocker in durable memory because the Notion MCP timed out during startup.
+
+Unresolved:
+
+- Create the canonical RB Communications record and add a 2025 filing-page comment once Notion is available.
+- Advance the WhatsApp checkpoint only after that official logging succeeds and is read back.

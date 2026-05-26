@@ -13,6 +13,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-19 | Codex thread | Andrei is married, so filings are joint returns. 2024 personal taxes are pending, and RB wants to file 2024 plus 2025 in one go. |
 | 2026-05-19 | Codex thread | User confirmed the WhatsApp chat is `NA Capital Ventures`. |
 | 2026-05-19 | Codex thread review answers | Keep one filing record for each year. Billing mechanics from 2025 onward are unclear. No spouse individual folder is needed because she is not a company shareholder. Andrei's official personal/director address should be confirmed with him. |
+| 2026-05-22 | Codex thread / ELSTER | User gave final action-time approval to submit Andrei's 2024 German personal tax return. ELSTER reported successful transmission and provided a transfer ticket recorded in the Notion filing records. |
 
 ## Notion
 
@@ -20,10 +21,10 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | --- | --- | --- |
 | Individual | `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072` | Andrei's individual record, linked company roles, and personal-tax filing relations. |
 | NACV company | `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8` | Linked company; company operational context. |
-| 2024 Personal Tax Filing | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | 2024 German filing record; in progress; Drive folder linked. |
+| 2024 Personal Tax Filing | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | 2024 German filing record; filed 2026-05-22; Drive folder linked; ELSTER transfer-ticket proof recorded in Notion comments. |
 | 2025 Personal Tax Filing | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | 2025 German filing record; pending; no Drive docs linked in Notion. |
-| 2024 filing task | `https://www.notion.so/364e413013148174b03aefbc624e1e38` | Filing task linked from 2024 filing. |
-| 2024 analysis task | `https://www.notion.so/352e41301314804a9895db42f9cf07af` | In review; current workbook link. |
+| 2024 filing task | `https://www.notion.so/364e413013148174b03aefbc624e1e38` | Filing task linked from 2024 filing; marked done after ELSTER submission on 2026-05-22. |
+| 2024 analysis task | `https://www.notion.so/352e41301314804a9895db42f9cf07af` | Marked done after ELSTER submission on 2026-05-22; current workbook link. |
 | Evidence-gathering task from WhatsApp | `https://www.notion.so/35ee4130131481c699b4f70befe1d234` | Personal-tax, home-office, payroll, insurance inputs. |
 | TK/private-insurance nudge | `https://www.notion.so/35fe41301314810a8d28eb74a1d96c21` | Insurance follow-up. |
 | Document split task | `https://www.notion.so/35fe413013148199954ed6471f95767a` | Split 2024 docs from mistaken 2025 folder. |
