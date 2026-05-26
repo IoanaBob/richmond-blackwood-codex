@@ -1756,3 +1756,30 @@ Unresolved:
 
 - Final reviewer needs to confirm non-basic/additional insurance treatment under the Vorsorgeaufwand cap and ELSTER input.
 - Payroll certificate/PDF readback and the other existing Aaron 2025 filing checks remain open.
+
+## 2026-05-26 - Aaron 2025 Spouse Vorsorgeaufwand Correction
+
+Imported:
+
+- User follow-up in Codex chat asking about Aaron's wife/Antje's insurance deduction.
+- Live workbook read-back from Aaron's 2025 German personal-tax analysis workbook.
+- Existing wife payslip communication `https://www.notion.so/342e4130131480e49bf3d1a3495ad741`.
+- Existing AMC Liquidity 2025 source `https://docs.google.com/spreadsheets/d/1kV0HAwSxEArS0JZ_d0lgJvwmbiZJ22vE_F8zuAUsm-Q`.
+
+Actions:
+
+- Confirmed Antje's payroll-model pension/social and health-insurance amounts were present in `Revenue!G13:H13`.
+- Added `Deductibles` rows for Antje pension/social EUR 1,570.86 and health-insurance EUR 942.96 so the template calculation tabs include those Vorsorgeaufwand amounts.
+- Added Notion comments to Aaron's 2025 preparation task, filing task, and filing row.
+- Updated Aaron's individual personal-tax notes, source register, durable history, and skill-run ledger.
+
+Verification:
+
+- Google Sheets read-back confirmed the new `Deductibles` rows and updated `Summary`/`Tax Analysis` outputs.
+- Summary after correction: pension/retirement EUR 1,570.86, health/care EUR 6,552.75, other personal deductions EUR 8,159.61, and income after deductions EUR 83,561.54.
+- Notion returned successful comment IDs for the preparation task, filing task, and filing row updates.
+
+Unresolved:
+
+- Antje's annual wage-tax certificate or direct payslip PDF readback remains required before final filing.
+- Confirm any health/care split needed for final ELSTER entry.

@@ -19,6 +19,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-26 | Codex thread | Operator challenged missing January/April wage-tax withholding and instructed that actual payslip PDFs must be read. Live workbook was corrected for April/May from Notion payroll and bank/remittance evidence; direct PDF readback remains blocked because Notion exposes only attachment handles to the connector and browser access requires login. |
 | 2026-05-26 | Codex thread | Operator instructed that SUSA/DATEV revenue and expenses must be reflected 1:1 in the worksheet, using pre-VAT amounts and adding the linked booking stack rows. Live workbook was corrected to line-level DATEV revenue/expense rows; clearing and VAT payment rows remain source-only. |
 | 2026-05-26 | Codex thread plus local PDF | Operator supplied Aaron's Hallescher/Feather 2025 health-insurance tax certificate and asked Codex to cross-check it, upload it appropriately, and log it in Communications as Long Living. |
+| 2026-05-26 | Codex thread | Operator asked whether Aaron's wife/Antje's insurance had also been deducted. Live workbook was corrected to add Antje's payroll-model pension/social EUR 1,570.86 and health-insurance EUR 942.96 to `Deductibles`, while keeping annual certificate/direct payslip readback open. |
 
 ## Notion
 

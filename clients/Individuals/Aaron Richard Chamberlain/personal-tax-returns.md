@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs and Hallescher/Feather 2025 health-insurance certificate amounts loaded. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, non-basic insurance treatment review, and final review of DATEV-backed expense treatment before submission.
+Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs, Hallescher/Feather 2025 health-insurance certificate amounts loaded, and spouse/Antje payroll health and pension/social contributions now carried into `Deductibles`. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, non-basic insurance treatment review, and final review of DATEV-backed expense treatment before submission.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -98,6 +98,7 @@ Workbook creation note:
 - On 2026-05-26, the DATEV/SUSA business section was corrected from monthly/category aggregates to line-level source rows: all Jan/Feb revenue and expense-account rows from the linked DATEV exports are now represented in `Revenue`, `Expenses`, and `Raw DATEV 2025` using pre-VAT/net amounts, with clearing/VAT rows retained as source-only.
 - On 2026-05-26, a second `employee-lump-sum` baseline row was added to `Deductibles` for spouse/Antje because she has positive salary-employment income in the joint filing. The calculation tabs were left intact; `Tax Analysis` now picks up EUR 1,230 for Aaron plus EUR 1,230 for Antje.
 - On 2026-05-26, the local Hallescher/Feather 2025 certificate was uploaded to Drive, logged as a Long Living Communications record, and used to replace the provisional private-health estimate in `Deductibles`: net basic health/care is EUR 5,609.79, and non-basic/additional private insurance is recorded at EUR 814.85 for review only.
+- On 2026-05-26, Antje's employee pension/social and health-insurance payroll amounts were added to `Deductibles` from `Revenue!G13:H13` because the calculation tabs only deduct Vorsorgeaufwand from `Deductibles`, not directly from payroll source columns.
 
 Input summary captured:
 
@@ -107,6 +108,8 @@ Input summary captured:
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
 - Aaron salary rows loaded from AMC payroll records: EUR 72,000 gross for April to December 2025, with EUR 14,095.86 wage tax currently identified or inferred from the reviewed payroll records after correcting April and May to EUR 1,542.50 each.
 - Wife/Antje annual payroll model loaded from AMC Liquidity 2025 and wife payslip communication: EUR 14,976 gross, EUR 1,103.94 wage tax, EUR 1,570.86 pension/social contribution model, and EUR 942.96 health contribution model.
+- Wife/Antje pension/social contribution loaded to `Deductibles`: EUR 1,570.86.
+- Wife/Antje health-insurance contribution loaded to `Deductibles`: EUR 942.96, with annual wage-tax certificate/direct payslip readback still required before final filing.
 - Combined employment gross loaded: EUR 86,976.
 - Combined identified or modelled wage tax loaded: EUR 15,199.80.
 - Certificate-backed Aaron basic health/care insurance loaded: EUR 5,609.79, calculated as basic health EUR 5,989.37 plus compulsory care EUR 714.00 less refunded basic health/care EUR 1,093.58.
@@ -121,10 +124,11 @@ Workbook formula read-back:
 - Operating revenue included: EUR 8,031.10.
 - Business expenses included: EUR 825.95.
 - Employment work expenses used: EUR 2,460.00.
-- Health / care insurance included: EUR 5,609.79.
-- Other personal deductions included: EUR 5,645.79.
-- Total deductions used: EUR 8,105.79.
-- Income after deductions before final tax-rate calculation: EUR 86,075.36.
+- Pension / retirement contributions included: EUR 1,570.86.
+- Health / care insurance included: EUR 6,552.75.
+- Other personal deductions included: EUR 8,159.61.
+- Total deductions used: EUR 10,619.61.
+- Income after deductions before final tax-rate calculation: EUR 83,561.54.
 - Failed workbook checks: 6.
 - Open missing-info count: 38.
 
@@ -141,7 +145,7 @@ Remaining filing flags:
 
 - Extract or obtain Aaron's annual German wage-tax certificate and direct payslip PDF readback. The live workbook corrects April/May withholding from blank to EUR 1,542.50 each using Notion payroll comments, bank payments, Finanzamt LSt 0425/0525 remittances, and the June catch-up; on 2026-05-26 the matching Notion April/May payroll `Tax Amount` fields were also set to EUR 1,542.50 while their `Net Payment` fields were left at the cash-paid EUR 5,660.17. The April/May workbook rows are now flagged `Needs direct payslip PDF readback`, not final-ready.
 - Treat January as no Aaron AMC employment payroll unless later evidence contradicts the Notion employment record, which starts on 2025-02-11.
-- Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details.
+- Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details; workbook currently uses the uploaded scan/model for EUR 1,570.86 pension/social and EUR 942.96 health-insurance contributions.
 - Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate.
 - Confirm investments/no-investments, home-office days, donation/other deductible evidence, final student-loan treatment, and final treatment of the EUR 814.85 non-basic/additional private insurance amount.
 - File or complete the separate VAT and trade-tax wrap-up for Aaron's final freelancer months and confirm full deregistration evidence.

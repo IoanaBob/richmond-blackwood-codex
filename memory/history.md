@@ -929,3 +929,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Replace the provisional EUR 8,280 private-health estimate with certificate-backed net basic health/care EUR 5,609.79. Record the EUR 814.85 non-basic/additional private-insurance amount as review-only with included amount EUR 0.00 until final Vorsorgeaufwand cap and ELSTER treatment are reviewed.
 - Verification: PDF extraction with `pypdf`, SHA-256 source hash capture, Drive folder listing after upload, Google Sheets read-back of `Deductibles`, `Tax Analysis`, and `Summary`, Notion Communications read-back, and Notion comment creation all completed. Summary now shows income after deductions before tax-rate calculation EUR 86,075.36, failed workbook checks 6, and open missing-info count 38.
 - Limitations or gaps: Final filing still needs payroll certificate/PDF readback, non-basic insurance treatment review, and the existing investment/home-office/direct-tax-payment/student-loan checks.
+
+## 2026-05-26 - Aaron 2025 Spouse Vorsorgeaufwand Correction
+
+- User request: Check what happened to Aaron's wife/Antje's insurance after Aaron's Hallescher amount was deducted.
+- Context read: Aaron workbook `Revenue`, `Deductibles`, `Summary`, `Tax Analysis`, and `Raw Payroll 2025`; Aaron repo personal-tax notes and source register.
+- Actions taken: Added two `Deductibles` input/source rows for Antje: pension/social EUR 1,570.86 and health-insurance EUR 942.96, linked to the wife payslip communication and AMC Liquidity source. Formula/calculation tabs were not edited. Added Notion comments to the preparation task, filing task, and filing row.
+- Decisions made: The amounts were already present in `Revenue!G13:H13` but were not tax-effecting because the template's Vorsorgeaufwand summary only sums `Deductibles`. Include them now for the joint filing while retaining the annual wage-tax certificate/direct payslip PDF readback flag.
+- Verification: Sheets read-back confirmed `Deductibles!A21:W22`, Summary pension/retirement EUR 1,570.86, health/care EUR 6,552.75, other personal deductions EUR 8,159.61, total deductions EUR 10,619.61, income after deductions EUR 83,561.54, failed checks 6, and open missing-info count 38. Notion returned successful comment IDs for the preparation task, filing task, and filing row.
+- Limitations or gaps: Antje's annual certificate or direct PDF readback is still required before final filing, including any health/care split confirmation needed for ELSTER.
