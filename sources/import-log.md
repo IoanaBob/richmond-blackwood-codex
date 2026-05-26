@@ -1729,4 +1729,24 @@ Actions:
 
 Unresolved:
 
-- Implement the packet runner and validate the Slack-context filter on the next weekday Accounting Team Updates run.
+- Validate the Slack-context filter on the next weekday Accounting Team Updates run.
+
+## 2026-05-26 - Accounting Packet Workflow Implementation
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 to implement the packet-based Accounting Team Updates triage plan.
+- User instruction to make Stage 1 auto-approved and clarify that `New client inbounds` are observed / out of scope rather than skipped.
+- GitHub PR state for #53 and #56.
+
+Actions:
+
+- Reordered PR #56 history so #53's 2026-05-26 Accounting Team Updates run-log row is the first accounting-skill commit.
+- Made packet mode mandatory in `skills/rb-accounting-team-updates-triage/SKILL.md` and `processes/accounting-team-updates-triage.md`.
+- Added `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md` with six packet stages, Stage 1 auto-approval, Stage 2 read-only continuation, mutation safety rules, and compaction recovery.
+- Replaced ambiguous `skipped New client inbounds` wording in the active process/skill path with `New client inbounds observed / out of scope`.
+- Backed up the packet workflow to RB Internal Knowledge Base page `https://www.notion.so/367e413013148175b709e35f31d37821` and verified it by read-back.
+
+Unresolved:
+
+- Validate the packet protocol on the next live weekday Accounting Team Updates run.

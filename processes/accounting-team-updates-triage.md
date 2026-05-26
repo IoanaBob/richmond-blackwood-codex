@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26
 imported: 2026-05-21
 review: Validate Slack context reads, ChatGPT/Codex filtering, and closeout wording on the next weekday automation run.
 ---
@@ -52,7 +52,7 @@ The page may include:
 Rules:
 
 - Ignore `What was achieved yesterday?` unless it links to an open blocker that is also repeated in the blockers/action-points sections.
-- Skip `New client inbounds`; `rb-common-tasks-follow-through` owns client inbound reading and routing.
+- Treat `New client inbounds` as observed / out of scope; count and report it, but do not route it from this skill because `rb-common-tasks-follow-through` owns client inbound reading and routing.
 - Process `Any blockers?`.
 - Process `What are the action points today?` / `Action points`.
 - Treat checked items as likely already handled from the previous day. Do not create new tasks from checked items unless the linked record or text still says the item is open.
@@ -97,9 +97,9 @@ Fallbacks:
 
 ## Slack Completion Notice
 
-After all task create/update operations and the Team Updates write-back have been read back successfully, send one Slack completion notice to `#rb-client-updates`.
+After all task create/update operations and the Team Updates write-back have been read back successfully, prepare one Slack completion notice to `#rb-client-updates`.
 
-The Slack notice is part of this automation and may be sent without a separate per-run approval only when it uses the standard shape below, links the Team Updates page, and lists the task pages created or updated during the triage:
+The Slack notice is part of this automation, but packet mode requires approval of the exact Stage 5 Slack Closeout Plan before sending unless a future explicit standard-closeout auto-approval is added. The standard notice must use the shape below, link the Team Updates page, and list the task pages created or updated during the triage:
 
 ```text
 Accounting Team Updates task routing is done for <YYYY-MM-DD>: follow-up tasks were created/updated and linked on <Team Updates page link>.
@@ -125,14 +125,14 @@ Rules:
 - If Slack sending fails or the Slack connector is unavailable, do not roll back verified Notion work. Report the Slack blocker in the final run report and add it to the Team Updates page comment.
 - Any non-standard Slack text still follows `processes/communications.md` and `skills/rb-communications/SKILL.md` approval rules.
 
-## Packet-Based Improvement Plan
+## Packet Requirement
 
-The next workflow upgrade should make this skill packet-based, borrowing the review and recovery model from `rb-common-tasks-follow-through` without merging the two automations.
+This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-accounting-team-updates-triage/<run-id>/`, print the same packet in chat, and proceed only through approved or explicitly auto-approved stages. The detailed stage contract lives in `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`.
 
-Planned packets:
+Required packet files:
 
 1. **Run Preflight**: current date/window, branch and `git pull origin main` result, Notion/Slack connector availability, Team Updates query, Slack channel IDs, and ChatGPT/Codex exclusion rule.
-2. **Source Context**: Team Updates page, section rows, skipped `New client inbounds` count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
+2. **Source Context**: Team Updates page, section rows, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
 3. **Routing Plan**: create/update/skip proposal for each blocker/action point, dedupe evidence, assignee, project, reviewer, assignee Slack mention, and unresolved decisions.
 4. **Notion Write Results**: task create/update links, owner/status/project read-back, Team Updates write-back read-back, and unresolved rows.
 5. **Slack Closeout Plan**: exact standard Slack notice with Team Updates link, created/updated task links, assigned-person mentions, and any short unresolved-item phrase.
@@ -140,11 +140,11 @@ Planned packets:
 
 Standing intent:
 
-- Preflight and source-context packets may continue automatically when reads are complete or clearly marked degraded.
+- Stage 1 is always auto-approved after its packet is written and printed.
+- Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet.
 - No Notion writes happen until the routing plan packet is approved or covered by a future explicit auto-approval exception.
 - No Slack send happens until the exact closeout packet is approved or covered by an explicit standard-closeout auto-approval exception.
-- Packets should be stored under `/private/tmp/rb-accounting-team-updates-triage/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and `stage-XX-<short-name>.md` files.
-- Until this upgrade is implemented, keep an equivalent local ledger and report whether packetization remains pending.
+- Stop despite auto-approval if a packet introduces a new destination, broad Slack mention, unresolved owner/project, unexpected live mutation, or connector degradation that makes routing unsafe.
 
 ## Verification And Report
 
@@ -153,12 +153,13 @@ Read back every task, Team Updates write-back, and Slack send result before repo
 Final report:
 
 - page processed and date;
-- count of skipped `New client inbounds` items;
+- count of `New client inbounds` observed / out-of-scope items;
 - blockers/action points reviewed;
 - tasks created;
 - existing tasks/pages updated or commented;
 - checked/completed items skipped as already handled;
 - Slack context channels read and material human-authored thread context used;
+- packet run folder and final stage reached;
 - Team Updates page write-backs verified;
 - Slack completion notice status and message link when available;
 - unresolved routing blockers.
