@@ -848,3 +848,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
+
+## 2026-05-26 - RB Accounting And JP Persona Login
+
+- User request: Pull latest main and set up local Google persona auth for `accounting-richmond-blackwood` and `jp-richmond-blackwood`, following the Notion Google Persona Auth Migration Guide and using the provided Richmond Blackwood OAuth client file.
+- Context read: Notion guide `https://www.notion.so/36be4130131481289808d08faf17d8f6`, repo `rb-google-auth` skill, Google auth/persona memory, setup notes, and the OAuth client file structure without printing secrets.
+- Actions taken: Pulled `origin/main`, created branch `codex/setup-google-personas`, installed the repo's locked Node dependencies, copied the Richmond Blackwood OAuth client JSON into global Codex storage outside git with private permissions, updated helper persona slugs and sender routing, and completed browser OAuth reconnects for both requested personas.
+- Decisions made: The requested slugs are now canonical for RB accounting and JP. Legacy helper aliases `rb-accounting` and `johnpaul-richmond-blackwood` remain supported so older commands still resolve to the new vault locations.
+- Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
+- Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.

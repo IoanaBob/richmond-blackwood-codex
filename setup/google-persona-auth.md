@@ -19,9 +19,9 @@ Safe status metadata can be recorded in `memory/google-personas.md`; tokens, cli
 
 ## RB-Specific Personas
 
-- `rb-accounting`
+- `accounting-richmond-blackwood`
 - `ioana-richmond-blackwood`
-- `johnpaul-richmond-blackwood`
+- `jp-richmond-blackwood`
 - `simoneta-richmond-blackwood`
 
 Shared global personas from other local Codex projects may also be present under `~/.codex/google-personas/`. Do not treat those personas as RB actors.

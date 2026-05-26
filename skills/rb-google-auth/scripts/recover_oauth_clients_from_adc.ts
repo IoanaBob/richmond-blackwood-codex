@@ -21,12 +21,12 @@ interface CliOptions {
 const PERSONA_MAPPINGS: PersonaMapping[] = [
   {
     sender: "accounting@richmondblackwood.com",
-    personaSlug: "rb-accounting",
+    personaSlug: "accounting-richmond-blackwood",
     outputName: "google-oauth-client.richmondblackwood.json",
   },
   {
     sender: "johnpaul.okolie@richmondblackwood.com",
-    personaSlug: "johnpaul-richmond-blackwood",
+    personaSlug: "jp-richmond-blackwood",
     outputName: "google-oauth-client.richmondblackwood.json",
   },
   {
