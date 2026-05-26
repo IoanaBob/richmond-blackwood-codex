@@ -41,7 +41,10 @@ For each actionable line:
 3. Create a new task only when no matching active task exists and the owner/project can be identified.
 4. Assign from explicit suffixes or wording such as `- JP`, `JP to`, `Simoneta to`, or `Ioana to`; known shorthand is `JP = Johnpaul Okolie`, `SV` or `Simoneta = Simoneta Vicente`, and `Ioana = Ioana Surdu-Bob`. Otherwise use `internal/people-roles.md`.
 5. If ownership, project, or source meaning is unclear, write an unresolved routing note back to the Team Updates page and do not create an unowned task.
-6. Include the Team Updates page URL, source section, exact source line, linked page/task URLs, and the next concrete action in the task body or comment.
+6. Keep `Assigned To` for the person doing the work. Treat approval wording as review: add the approver or reviewer to `Review By` on the owning task instead of assigning them the routine work.
+7. Do not create separate approval tasks when a recurring or operational task already owns the workflow. For invoice, contractor, expense, or payment approvals, update/comment the weekly invoice-payables/payables task and add the approver in `Review By`.
+8. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Use Simoneta as the routine owner unless the source or user explicitly identifies a different doer.
+9. Include the Team Updates page URL, source section, exact source line, linked page/task URLs, and the next concrete action in the task body or comment.
 
 ## Write-Back And Verification
 

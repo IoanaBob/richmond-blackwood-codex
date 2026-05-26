@@ -62,7 +62,10 @@ For each unchecked blocker/action point:
 5. Create a new task only when no matching active task exists and owner/project are clear.
 6. Set `Status = To Do` unless the source explicitly supports another active status.
 7. Assign from explicit line owner (`- JP`, `JP to`, `Simoneta to`, `Ioana to`), page owner, or `internal/people-roles.md`. Known shorthand is `JP = Johnpaul Okolie`, `SV` or `Simoneta = Simoneta Vicente`, and `Ioana = Ioana Surdu-Bob`. If ownership remains unclear, record an unresolved note on the Team Updates page and do not create an unowned task.
-8. Include the source section, exact source line, Team Updates page URL, linked pages, and next concrete action in the task body/comment.
+8. Keep task assignment on the operational doer. Treat approval wording as review: add the approver or reviewer to `Review By` on the most appropriate existing task instead of assigning the work to the reviewer.
+9. Do not create separate approval tasks when a recurring or operational task already owns the workflow. For invoice, contractor, expense, or payment approvals, update/comment the weekly invoice-payables/payables task and add the approver in `Review By`.
+10. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Use Simoneta as the routine owner unless the source or user explicitly identifies a different doer.
+11. Include the source section, exact source line, Team Updates page URL, linked pages, and next concrete action in the task body/comment.
 
 Do not process invoices, receipts, expenses, or correspondence as source documents from this page. If an action point refers to one, create/update the operational task or blocker only; document intake remains owned by the inbound/finance workflows.
 

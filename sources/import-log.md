@@ -1692,3 +1692,20 @@ Actions:
 Unresolved:
 
 - Recheck Hamburg.de if public phone hours change.
+
+## 2026-05-26 - Accounting Task Review Routing Correction
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 that routine tasks should not be assigned to Ioana as managing director.
+- User instruction that approval should be treated as review by adding the reviewer to `Review By` on the owning task.
+- Notion task corrections for Teamdash, EIP Circle / Mono contractor payment approval, weekly invoice payables, and Stripe invite.
+
+Actions:
+
+- Updated `processes/notion-operations.md`, `processes/accounting-team-updates-triage.md`, `skills/rb-accounting-team-updates-triage/SKILL.md`, `internal/people-roles.md`, `memory/skill-runs.md`, and `memory/handoff.md`.
+- Backed up the Accounting Team Updates triage rule change to the existing RB Internal Knowledge Base page `https://www.notion.so/367e413013148175b709e35f31d37821`.
+
+Unresolved:
+
+- Confirm whether broader non-accounting workflows should receive the same explicit `Review By` wording beyond the central Notion task rules.
