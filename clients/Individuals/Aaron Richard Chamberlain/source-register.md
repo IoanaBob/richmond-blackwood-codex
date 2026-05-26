@@ -18,6 +18,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-25 | Codex thread | Operator asked about January revenue; January DATEV receipt of EUR 16,464.53 from Riot was reviewed as a debtor-account receipt and left source-only pending final 2024/2025 basis review. |
 | 2026-05-26 | Codex thread | Operator challenged missing January/April wage-tax withholding and instructed that actual payslip PDFs must be read. Live workbook was corrected for April/May from Notion payroll and bank/remittance evidence; direct PDF readback remains blocked because Notion exposes only attachment handles to the connector and browser access requires login. |
 | 2026-05-26 | Codex thread | Operator instructed that SUSA/DATEV revenue and expenses must be reflected 1:1 in the worksheet, using pre-VAT amounts and adding the linked booking stack rows. Live workbook was corrected to line-level DATEV revenue/expense rows; clearing and VAT payment rows remain source-only. |
+| 2026-05-26 | Codex thread plus local PDF | Operator supplied Aaron's Hallescher/Feather 2025 health-insurance tax certificate and asked Codex to cross-check it, upload it appropriately, and log it in Communications as Long Living. |
 
 ## Notion
 
@@ -37,6 +38,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | May 2025 Aaron payroll | `https://www.notion.so/1e6e4130131481518a76ee5ae949fa06` | Notion payroll row with `Aaron_Chamberlain_-_May_2025_Payslip.pdf` attachment handle and EUR 5,660.17 payment; `Tax Amount` set to EUR 1,542.50 on 2026-05-26 from later payroll/remittance evidence. Comments say the paid net did not match May payroll. Direct PDF readback remains blocked. |
 | June 2025 Aaron payroll correction | `https://www.notion.so/206e413013148140968cec8b3c8e5061` | Notion payroll comments state tax class 3 applied from 1 April, normal monthly net was EUR 6,457.50, and June included EUR 797.33 catch-up for each of April and May. |
 | Aaron Wife Payslip communication | `https://www.notion.so/342e4130131480e49bf3d1a3495ad741` | Wife/Antje payslip source pointer; raw attachment stays in Notion. |
+| Hallescher/Feather 2025 health-insurance tax certificate communication | `https://www.notion.so/36ce413013148121a22fe7eb9ef7c79d` | Long Living Communications record for the uploaded certificate and extracted tax-deductible contribution summary. |
 | Remaining balance with Finanzamt | `https://www.notion.so/35ae41301314807da439eee8bc3e5642` | Remaining balance after garnishment transfer. |
 | Prepare P&L and Balance Sheet for Aaron | `https://www.notion.so/353e413013148070ad92d56880997fb6` | 2023/2024 P&L and balance-sheet support. |
 
@@ -49,6 +51,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 evidence. |
 | 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Fresh template-derived workbook populated only on input/source tabs. |
 | 2025 client-provided documents | `https://drive.google.com/drive/folders/1oyXCmXYXqZCivQVciE2K6JFVSzzAV4cL` | Client-provided documents reviewed for source-only/support treatment. |
+| Hallescher/Feather 2025 health-insurance tax certificate | `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` | Uploaded 2026-05-26 from the operator-supplied local PDF; source for `Deductibles` net basic health/care EUR 5,609.79 and non-basic/additional insurance EUR 814.85 review-only row. |
 | 2025 accounting folder | `https://drive.google.com/drive/folders/1iAsc0GPkwm3vbnvsGZo2s2kkevCTmOkS` | User-supplied accounting folder used for January-February 2025 freelance inputs. |
 | 188650 - 2025.pdf | `https://drive.google.com/file/d/1ek9d8w-TVky8TZ1k5XcA9bGgZULMzYEt/view` | DATEV/SUSA summary source for January-February 2025; used to verify line-level revenue and expense totals. |
 | DATEV opening balance CSV | `https://drive.google.com/file/d/1Pn0FuV5_t9oIXJmawCBoehYRPAubgJcE/view` | Opening balance export. |

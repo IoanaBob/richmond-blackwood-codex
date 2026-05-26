@@ -1725,3 +1725,34 @@ Actions:
 Unresolved:
 
 - Recheck Hamburg.de if public phone hours change.
+
+## 2026-05-26 - Aaron 2025 Hallescher Health Certificate
+
+Imported:
+
+- Operator-supplied local PDF `Aaron_Chamberlain_Feather_Information_zu_Ihren_steuerlich_absetzbaren_Beitraegen_fuer_2025.pdf`.
+- Uploaded Drive evidence file `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk`.
+- Long Living Communications record `https://www.notion.so/36ce413013148121a22fe7eb9ef7c79d`.
+- Live workbook read-back from Aaron's 2025 German personal-tax analysis workbook.
+
+Actions:
+
+- Extracted the certificate contribution summary without copying raw identifiers into git.
+- Updated workbook `Deductibles` input/source rows for certificate-backed health/care insurance.
+- Replaced the provisional EUR 8,280 health-insurance estimate with net basic health/care EUR 5,609.79.
+- Recorded EUR 814.85 non-basic/additional private insurance as review-only with included amount EUR 0.00.
+- Added Notion comments to Aaron's 2025 preparation task, filing task, and filing row.
+- Updated Aaron's individual personal-tax notes, source register, Drive pointers, communications file, open questions, durable history, and skill-run ledger.
+
+Verification:
+
+- Local PDF hash and text extraction were checked.
+- Drive listing confirmed the uploaded PDF in Aaron's 2025 client-provided documents folder.
+- Google Sheets read-back confirmed the updated `Deductibles`, `Tax Analysis`, and `Summary` values.
+- Notion Communications read-back confirmed the Long Living record and Drive document link.
+- Notion returned successful comment IDs for the preparation task, filing task, and filing row updates.
+
+Unresolved:
+
+- Final reviewer needs to confirm non-basic/additional insurance treatment under the Vorsorgeaufwand cap and ELSTER input.
+- Payroll certificate/PDF readback and the other existing Aaron 2025 filing checks remain open.

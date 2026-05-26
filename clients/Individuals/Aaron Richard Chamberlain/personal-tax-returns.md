@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, deductible evidence, and final review of DATEV-backed expense treatment before submission.
+Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs and Hallescher/Feather 2025 health-insurance certificate amounts loaded. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, non-basic insurance treatment review, and final review of DATEV-backed expense treatment before submission.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -97,6 +97,7 @@ Workbook creation note:
 - Preserve the template calculation tabs; move or copy the native workbook into the 2025 filing folder once Drive helper auth is restored.
 - On 2026-05-26, the DATEV/SUSA business section was corrected from monthly/category aggregates to line-level source rows: all Jan/Feb revenue and expense-account rows from the linked DATEV exports are now represented in `Revenue`, `Expenses`, and `Raw DATEV 2025` using pre-VAT/net amounts, with clearing/VAT rows retained as source-only.
 - On 2026-05-26, a second `employee-lump-sum` baseline row was added to `Deductibles` for spouse/Antje because she has positive salary-employment income in the joint filing. The calculation tabs were left intact; `Tax Analysis` now picks up EUR 1,230 for Aaron plus EUR 1,230 for Antje.
+- On 2026-05-26, the local Hallescher/Feather 2025 certificate was uploaded to Drive, logged as a Long Living Communications record, and used to replace the provisional private-health estimate in `Deductibles`: net basic health/care is EUR 5,609.79, and non-basic/additional private insurance is recorded at EUR 814.85 for review only.
 
 Input summary captured:
 
@@ -108,6 +109,8 @@ Input summary captured:
 - Wife/Antje annual payroll model loaded from AMC Liquidity 2025 and wife payslip communication: EUR 14,976 gross, EUR 1,103.94 wage tax, EUR 1,570.86 pension/social contribution model, and EUR 942.96 health contribution model.
 - Combined employment gross loaded: EUR 86,976.
 - Combined identified or modelled wage tax loaded: EUR 15,199.80.
+- Certificate-backed Aaron basic health/care insurance loaded: EUR 5,609.79, calculated as basic health EUR 5,989.37 plus compulsory care EUR 714.00 less refunded basic health/care EUR 1,093.58.
+- Hallescher/Feather non-basic/additional private insurance amount recorded for final review: EUR 814.85, included amount EUR 0.00 pending Vorsorgeaufwand cap and ELSTER treatment review.
 - VAT prepayment/source-only accounting item captured: EUR 2,628.79. This is not treated as a personal income-tax prepayment in the workbook.
 
 Workbook formula read-back:
@@ -118,11 +121,12 @@ Workbook formula read-back:
 - Operating revenue included: EUR 8,031.10.
 - Business expenses included: EUR 825.95.
 - Employment work expenses used: EUR 2,460.00.
-- Other personal deductions included: EUR 36.00.
-- Total deductions used: EUR 2,496.00.
-- Income after deductions before final tax-rate calculation: EUR 91,685.15.
+- Health / care insurance included: EUR 5,609.79.
+- Other personal deductions included: EUR 5,645.79.
+- Total deductions used: EUR 8,105.79.
+- Income after deductions before final tax-rate calculation: EUR 86,075.36.
 - Failed workbook checks: 6.
-- Open missing-info count: 39.
+- Open missing-info count: 38.
 
 Excluded or source-only items:
 
@@ -131,7 +135,7 @@ Excluded or source-only items:
 - User clarified on 2026-05-25 that the previous accountant vetted the DATEV entries, so the January/February expense-account bookings are claimed in the workbook using exact DATEV CSV evidence URLs.
 - Non-expense DATEV balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance rows remain source-only and are not treated as personal-income-tax expenses. The user-linked `10P0...` booking stack is internally titled February 2025; all P&L rows from that file are loaded line by line, while debtor/bank clearing and VAT prepayment rows are source-only.
 - Student Finance evidence in the 2025 client-provided folder was recorded as debt/source context, not claimed as a German deductible.
-- Hallescher private health-insurance estimate EUR 8,280 was recorded for review only; it is not claimed until exact annual certificate/covered-month evidence is provided.
+- The earlier Hallescher private-health estimate of EUR 8,280 is superseded by the uploaded Hallescher/Feather 2025 certificate. The certificate-backed net basic health/care amount is claimed; the EUR 814.85 non-basic/additional amount remains review-only and is not included yet.
 
 Remaining filing flags:
 
@@ -139,7 +143,7 @@ Remaining filing flags:
 - Treat January as no Aaron AMC employment payroll unless later evidence contradicts the Notion employment record, which starts on 2025-02-11.
 - Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details.
 - Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate.
-- Confirm investments/no-investments, home-office days, donation/insurance/other deductible evidence, and final student-loan treatment.
+- Confirm investments/no-investments, home-office days, donation/other deductible evidence, final student-loan treatment, and final treatment of the EUR 814.85 non-basic/additional private insurance amount.
 - File or complete the separate VAT and trade-tax wrap-up for Aaron's final freelancer months and confirm full deregistration evidence.
 
 ## Evidence / Workbook Pointers
@@ -149,6 +153,7 @@ Remaining filing flags:
 | Aaron personal folder | `https://drive.google.com/drive/folders/1jlL1I2mxwscawqTN_aic9f-OZwPiPnHh` | Personal tax and Finanzamt correspondence root. |
 | 2023/2024 filing folder | `https://drive.google.com/drive/folders/1AUG3B7RJY_mas6KBq06rmrgTmwGaZHwj` | Filing support for 2023 and 2024. |
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 support folder under Aaron's personal folder. |
+| Hallescher/Feather 2025 health-insurance tax certificate | `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` | Uploaded to the 2025 client-provided documents folder and logged in Communications at `https://www.notion.so/36ce413013148121a22fe7eb9ef7c79d`; used for `Deductibles` health/care rows. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant source material. |
 | Finanzamt questionnaire workbook | `https://docs.google.com/spreadsheets/d/1NcGhQVn-H1EDvg5Dbn4ZRytXqCjq4SAA/edit` | Questionnaire and payment-plan support. |
 | 2023 FS workbook | `https://docs.google.com/spreadsheets/d/1OnLp0uM1SN2fVyltPrDOqv2p_Th3YzTA/edit` | Review latest version before use. |
