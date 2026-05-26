@@ -100,11 +100,13 @@ Workbook creation note:
 - On 2026-05-26, the local Hallescher/Feather 2025 certificate was uploaded to Drive, logged as a Long Living Communications record, and used to replace the provisional private-health estimate in `Deductibles`: net basic health/care is EUR 5,609.79, and non-basic/additional private insurance is recorded at EUR 814.85 for review only.
 - On 2026-05-26, Antje's employee pension/social and health-insurance payroll amounts were added to `Deductibles` from `Revenue!G13:H13` because the calculation tabs only deduct Vorsorgeaufwand from `Deductibles`, not directly from payroll source columns.
 - On 2026-05-26, a `VAT Review 2025` source/review tab was added to make the freelance VAT split visible without editing formula tabs. It points to `Raw DATEV 2025`, `Revenue`, and `Category Rules` as the source tabs.
+- On 2026-05-26, the client workbook only was adjusted so `Tax Analysis` and `Summary` split the freelance/EÜR revenue into VATable and non-taxable/§13b-style buckets. The maintained template was not changed.
 
 Input summary captured:
 
 - Aaron freelance/business revenue from DATEV February 2025 exports: EUR 8,031.10 net, now entered as the two DATEV P&L revenue lines: Riot account 8400 EUR 7,870.29 net plus Twitch account 8338 EUR 160.81.
 - Freelance VAT treatment from the loaded DATEV rows is visible in workbook tab `VAT Review 2025`: Riot Games Services account 8400 is German domestic 19% VAT revenue, with EUR 7,870.29 net, EUR 1,495.36 VAT, and EUR 9,365.65 gross; Twitch account 8338 is third-country/non-taxable in Germany, with EUR 160.81 net/gross and EUR 0 VAT.
+- The `Summary` EÜR section now separately shows VATable operating revenue net EUR 7,870.29, non-taxable/§13b-style operating revenue net EUR 160.81, operating revenue net total EUR 8,031.10, and collected VAT EUR 1,495.36 as an EÜR/VAT reconciliation row outside net P&L.
 - January DATEV shows a EUR 16,464.53 Riot Games Services bank receipt against debtor account 11801, but 2025 SUSA class 8 revenue for January is EUR 0.00 and the 2024 FS workbook shows the matching Riot debtor movement in December 2024. The receipt is recorded source-only unless final basis review finds it was not taxed in 2024.
 - Claimed source-backed business expenses currently loaded: EUR 825.95 across 21 DATEV expense rows, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30. The rows are no longer month/category aggregates.
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
@@ -124,6 +126,9 @@ Workbook formula read-back:
 - Wage tax withheld: EUR 15,199.80 after the 2026-05-26 April/May correction.
 - Business/freelance net P&L: EUR 7,205.15.
 - Operating revenue included: EUR 8,031.10.
+- EÜR VATable operating revenue net: EUR 7,870.29.
+- EÜR non-taxable/§13b-style operating revenue net: EUR 160.81.
+- EÜR collected VAT on VATable revenue, source-only for EÜR/VAT reconciliation: EUR 1,495.36.
 - Business expenses included: EUR 825.95.
 - Employment work expenses used: EUR 2,460.00.
 - Pension / retirement contributions included: EUR 1,570.86.

@@ -1837,3 +1837,29 @@ Verification:
 Unresolved:
 
 - Confirm whether there is a separate March 2025 or Q1 2025 final VAT source pack beyond the currently loaded DATEV rows before completing the VAT/trade-tax wrap-up and deregistration review.
+
+## 2026-05-26 - Aaron 2025 EÜR Revenue Split
+
+Imported:
+
+- User follow-up in Codex chat asking whether `Tax Analysis` row 3 should be split into revenue subject to VAT and revenue without VAT because ELSTER asks for it.
+- Official 2025 Anlage EÜR / ELSTER help confirming separate EÜR revenue lines for VATable business income, VAT-exempt/non-taxable/§13b-style business income, and collected VAT.
+- Live workbook read-back from Aaron's `Tax Analysis`, `Summary`, `Revenue`, `Raw DATEV 2025`, and `VAT Review 2025` tabs.
+
+Actions:
+
+- Changed Aaron's client workbook only; the maintained template was not changed.
+- Inserted `Tax Analysis` rows for VATable net freelance revenue, non-taxable/§13b-style net freelance revenue, and net operating revenue total.
+- Added matching `Summary` EÜR rows for VATable net revenue, non-taxable/§13b-style net revenue, total net operating revenue, collected VAT source-only, and business expenses.
+- Added Notion comments to Aaron's 2025 preparation task, filing task, and filing row.
+- Updated Aaron's individual personal-tax notes, source register, durable history, and skill-run ledger.
+
+Verification:
+
+- Summary formula/value read-back confirmed the split and downstream totals: VATable net revenue EUR 7,870.29, non-taxable/§13b-style net revenue EUR 160.81, net operating revenue EUR 8,031.10, collected VAT EUR 1,495.36, business expenses EUR 825.95, business/freelance net P&L EUR 7,205.15, income after deductions EUR 83,561.54, failed checks 6, and open missing-info count 38.
+- Direct `Tax Analysis` read-back was attempted twice after the write, but Google Sheets returned read quota errors. The Summary formula read-back confirmed the shifted `Tax Analysis` references and output values.
+- Notion returned successful comment IDs `36ce4130-1314-8129-ae48-001de0d37e7a`, `36ce4130-1314-81c3-b7e0-001df1dfcbed`, and `36ce4130-1314-81ed-b48d-001d2231f5d1`.
+
+Unresolved:
+
+- Confirm final March/Q1 2025 VAT/trade-tax source pack and deregistration evidence before treating VAT/trade-tax wrap-up as complete.

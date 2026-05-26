@@ -21,6 +21,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-26 | Codex thread plus local PDF | Operator supplied Aaron's Hallescher/Feather 2025 health-insurance tax certificate and asked Codex to cross-check it, upload it appropriately, and log it in Communications as Long Living. |
 | 2026-05-26 | Codex thread | Operator asked whether Aaron's wife/Antje's insurance had also been deducted. Live workbook was corrected to add Antje's payroll-model pension/social EUR 1,570.86 and health-insurance EUR 942.96 to `Deductibles`, while keeping annual certificate/direct payslip readback open. |
 | 2026-05-26 | Codex thread | Operator asked whether the VAT information is complete in the workbook and where to see which freelance revenue is subject to VAT. Added workbook tab `VAT Review 2025` for the currently loaded DATEV rows and kept separate March/Q1 VAT source-pack confirmation open. |
+| 2026-05-26 | Codex thread | Operator asked whether `Tax Analysis` row 3 should be split into revenue subject to VAT and revenue without VAT because ELSTER asks for the distinction. Made that split in Aaron's client workbook only and reflected it in `Summary`; maintained template was not changed. |
 
 ## Notion
 
@@ -51,7 +52,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Aaron personal folder | `https://drive.google.com/drive/folders/1jlL1I2mxwscawqTN_aic9f-OZwPiPnHh` | Personal tax and correspondence root. |
 | 2023/2024 filing folder | `https://drive.google.com/drive/folders/1AUG3B7RJY_mas6KBq06rmrgTmwGaZHwj` | Filing evidence. |
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 evidence. |
-| 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Fresh template-derived workbook populated only on input/source tabs. `VAT Review 2025` tab at `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit#gid=18865027` surfaces the loaded freelance VAT treatment and source-only VAT reconciliation rows. |
+| 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Fresh template-derived workbook populated from the maintained template. Client-only calculation view edits on 2026-05-26 split `Tax Analysis`/`Summary` EÜR revenue by VAT treatment. `VAT Review 2025` tab at `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit#gid=18865027` surfaces the loaded freelance VAT treatment and source-only VAT reconciliation rows. |
 | 2025 client-provided documents | `https://drive.google.com/drive/folders/1oyXCmXYXqZCivQVciE2K6JFVSzzAV4cL` | Client-provided documents reviewed for source-only/support treatment. |
 | Hallescher/Feather 2025 health-insurance tax certificate | `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` | Uploaded 2026-05-26 from the operator-supplied local PDF; source for `Deductibles` net basic health/care EUR 5,609.79 and non-basic/additional insurance EUR 814.85 review-only row. |
 | 2025 accounting folder | `https://drive.google.com/drive/folders/1iAsc0GPkwm3vbnvsGZo2s2kkevCTmOkS` | User-supplied accounting folder used for January-February 2025 freelance inputs. |
