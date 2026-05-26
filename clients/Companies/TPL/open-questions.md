@@ -1,0 +1,16 @@
+# Open Questions
+
+Status: provisional.
+Source: Notion, Drive, Gmail, WhatsApp, user instruction on 2026-05-22, and user answers on 2026-05-24 and 2026-05-25.
+Imported: 2026-05-22.
+Review: Resolve these before treating the relevant registration, contract, asset, or Drive position as settled.
+
+| Question | Source | Review needed |
+| --- | --- | --- |
+| Submit/answer the remaining international VAT / USt-IdNr. questions and obtain the USt-IdNr. | User instruction 2026-05-22, 2026-05-24, and 2026-05-25; Gmail `19e4147bc3500e2d`; Notion call task `https://www.notion.so/368e4130131481d48a11e42782fc533e`; JP task `https://www.notion.so/36be413013148127893fcb3fc99958c8`; WhatsApp 2026-05-19 | The German tax number is treated as local 2025 tax/VAT registration; only international VAT remains open. JP-owned task is due 2026-05-29. |
+| Confirm the outcome of the queued TPL ELSTER/VAT follow-up call and whether further forms or Finanzamt messages are needed. | Notion call task `https://www.notion.so/368e4130131481d48a11e42782fc533e` | First call date shown as 2026-05-25; update after call. |
+| Confirm whether/when Barden can work with German VAT so TPL can move away from the Richmond Blackwood contractor-on-record route. | User instruction 2026-05-22, 2026-05-24, and 2026-05-25; Notion contracts `https://www.notion.so/2c7e413013148092b28fe58d99359f39`, `https://www.notion.so/322e41301314805c9a59ed7681a372cd`; Gmail `19e3acfd62720201` | Keep current two-contract route until the direct route is confirmed and contracted. User assumes the USt-IdNr./international VAT number is needed first. |
+| Confirm the canonical Drive client folder creation after the approved write persona has parent-folder access. | Drive search 2026-05-22; user answer 2026-05-24; Google persona check 2026-05-25 | User approved creating `19. Techpacito Limited (TPL)` under `02. RB Client Companies`. The requested `accounting@richmondblackwood.com` persona authenticates but cannot access the target parent; `ioana-eip` can see it but is not the user-requested persona for creation. |
+| Confirm annual return filing on CORE if needed. | Filing registration `https://www.notion.so/1e9e4130131481099265c96960b24128`; user answer 2026-05-24 and 2026-05-25; CRO public documentation/API check | User says it is registered and Notion read-back confirms `Registered`; public CRO sources show CORE is the filing/status route, but direct public API checking returned an API-credential error. |
+| Confirm final electric-car invoice date, delivery date, financing route, and benefit-in-kind/payroll-hour treatment. | User instruction 2026-05-22 and 2026-05-24; WhatsApp 2026-03-14 and 2026-05-11; Gmail `19dbf3b04574dbd8`; Notion task `https://www.notion.so/337e4130131480c681f7e536076f2f8f` | Gmail shows Mercedes-Benz VLE 300 electric order evidence, but final filing data should come from the order PDF/dealer documents. |
+| Reconcile payroll worked hours against Lexware after the Notion gross monthly values were updated to EUR 600. | Notion employments `https://www.notion.so/229e4130131480fbadeed728038a43d8`, `https://www.notion.so/229e413013148090a9a0e8af3d52824d`; WhatsApp 2026-05-20; Gmail `19e4c280fb7a91b8`; user answer 2026-05-24 | Notion gross amounts are now corrected; worked-hour evidence still matters for payroll support. |

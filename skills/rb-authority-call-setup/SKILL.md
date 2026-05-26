@@ -36,7 +36,7 @@ Create or complete these Notion properties:
 - `Desired outcome` text.
 - `Main question` text.
 
-The selected Front Office Contact must also have at least one linked `Availabilities` relation. Treat missing contact availability as a blocker because the voice workflow will not call contacts without availability windows.
+The selected Front Office Contact must have at least one linked `Availabilities` relation before any Calls record is submitted or moved toward review. Missing contact availability is a hard blocker because the voice workflow will not call contacts without availability windows. Create or link Contact Availabilities on the Contact first, then fetch the Contact back and verify the relation. Do not rely on page-body schedule text alone, and do not bypass this by creating a reviewed, approved, or blocked/review-only call record.
 
 Set normal intake defaults unless the user explicitly asks otherwise:
 
@@ -62,8 +62,8 @@ Do not set `Call Status` to `Reviewed` or `Approved` to `__YES__` unless the use
    - Prefer exact relation evidence over fuzzy name matches.
 3. Reconcile user corrections and supporting entity changes.
    - The user may correct a matched Company, Individual, Contact, reviewer, PoA assumption, call date, subject, phone number, authority office, or other detail in the original prompt or follow-up prompts. Apply those corrections before preparing the final review packet.
-   - If the correct Front Office Contact does not exist, offer to create it as part of the flow after collecting at least `Name`, one usable contact route such as `Phone`, `Website`, or `Email`, and at least one `Availabilities` window. Add `Language(s)`, `Location(s)`, and `Purposes` when known.
-   - If the selected Front Office Contact has no `Availabilities`, create or link an availability record before submitting the Calls record, or ask for approval to submit a blocked/review-only request.
+   - If the correct Front Office Contact does not exist, offer to create it as part of the flow after collecting at least `Name`, one usable contact route such as `Phone`, `Website`, or `Email`, and at least one linked `Availabilities` window. Add `Language(s)`, `Location(s)`, and `Purposes` when known.
+   - If the selected Front Office Contact has no linked `Availabilities`, create or link an availability record on the Contact before submitting the Calls record. If availability cannot be verified, stop with a blocker instead of submitting the call.
    - If a Company or Individual exists but has an incorrect or missing field needed for the call, offer to update that existing record after showing the exact change. Examples: add a missing `Company PoA`/`Individual PoA` reference through the supported file workflow, fix a phone/email field, add contact availability, or correct a relation between Company and Individual.
    - If a required Company or Individual does not exist, do not create a full client record casually. Explain that client entity creation is higher impact, ask for explicit approval, and create only the minimum schema-valid record needed when the user confirms. Mark it provisional and route any private details under the normal client filing rules.
    - After any supporting record is created or updated, fetch it back and use the verified Notion URL in the call review packet.
@@ -138,7 +138,7 @@ Do not set `Call Status` to `Reviewed` or `Approved` to `__YES__` unless the use
 Support user-requested changes during the setup conversation when they are necessary to make the call request correct.
 
 - Create Front Office Contacts when an authority/contact is missing and the user provides enough detail.
-- Create or link Contact Availabilities when a new or existing Contact has no availability windows. Do this before final call submission unless the user explicitly wants a blocked/review-only record.
+- Create or link Contact Availabilities when a new or existing Contact has no availability windows. This is mandatory before final call submission; missing availability must stop the setup until the Contact relation is fixed and verified.
 - Update existing Contacts when the selected authority has a better phone number, website, language, location, purpose, or availability.
 - Update Company/Individual call-critical fields only with explicit user confirmation and source context.
 - Use the repo-local file upload workflow for PoA files; do not fake a file reference or claim a PoA exists when only a filename or intent was mentioned.

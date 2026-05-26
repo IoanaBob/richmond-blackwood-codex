@@ -158,6 +158,16 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm whether the ELSTER activation expiring 2026-05-28 was completed.
 - Confirm whether April 2025 payslip evidence is missing or stored outside the listed Drive payslip folder. January 2025 may not be expected because Ana may not have been employed then.
 
+## TPL / Techpacito Questions
+
+- Submit/answer the remaining international VAT / USt-IdNr. questions and obtain the USt-IdNr.; user confirmed the German tax number acts as local 2025 German tax/VAT registration. JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` is due 2026-05-29.
+- Confirm the outcome of the queued TPL ELSTER/VAT follow-up call and whether further forms or Finanzamt messages are needed.
+- Confirm whether/when Barden can work with German VAT so TPL can move away from the Richmond Blackwood contractor-on-record route; user assumes the USt-IdNr./international VAT number is needed first.
+- Confirm the canonical Drive client folder after creation/verification; user approved creating `19. Techpacito Limited (TPL)` in the current RB client-company format, but the requested `accounting@richmondblackwood.com` persona cannot access the `02. RB Client Companies` parent. Either share the parent with accounting or approve another write persona such as `ioana-eip`.
+- Confirm annual-return status in CORE if needed; user says it is registered and Notion read-back shows `Registered`, public CRO sources confirm CORE is the annual-return filing route, and direct CRO Open Services checking returned an API-credential error.
+- Confirm final electric-car invoice date, delivery date, financing route, and benefit-in-kind/payroll-hour treatment. Gmail shows a Mercedes-Benz VLE 300 electric order source; upload the order PDF to `Correspondance` once the canonical Drive folder exists.
+- Reconcile payroll worked hours against Lexware after Notion gross monthly values were updated to EUR 600 for Pradeep and Sangita.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.
