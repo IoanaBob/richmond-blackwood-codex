@@ -974,3 +974,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not mark the filing task done because filing has not been submitted and the handoff still lists payroll certificate/PDF readback, final deductible/investment/tax-payment/home-office/student-finance/non-basic-health review, failed workbook checks/open missing info, and separate VAT/trade-tax deregistration evidence.
 - Verification: Notion read-back confirmed the preparation task `Status` is `Done` with `Marked Complete` on 2026-05-26, and the filing task `Status` is `In Progress` with the workbook URL in `Review Link`. Comment creation returned IDs `36ce4130-1314-81d8-9026-001dbc32f664` and `36ce4130-1314-8197-ab82-001d44ec74e5`.
 - Limitations or gaps: Filing task remains open for Johnpaul and final filing checks remain before submission.
+
+## 2026-05-27 - Aaron 2025 Workbook Drive Access Fix
+
+- User request: Find where Aaron's 2025 German personal-tax workbook was saved because a teammate could not access it, and move it to the right folder.
+- Context read: Drive metadata for workbook `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`, Aaron's shared 2025 folder `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`, and the Aaron 2025 folder listing.
+- Actions taken: Moved the workbook from connector Drive parent `0APO_eChhDoQPUk9PVA` into Aaron's shared 2025 Drive folder. Added comments to the filing task and filing row noting the unchanged workbook URL, corrected folder, and access read-back.
+- Decisions made: Use the 2025 folder root, not the nested client-provided-documents folder, because the root already contains the Aaron tax template/workbook-level material and has the RB teammate permissions.
+- Verification: Drive read-back confirmed parent `113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`, folder listing showed the workbook in the 2025 folder, and permissions included writer access for `johnpaul.okolie@richmondblackwood.com` and `accounting@richmondblackwood.com`. Notion comment creation returned IDs `36de4130-1314-816a-a806-001d721a7a84` and `36de4130-1314-81fe-8a6e-001db70a279c`.
+- Limitations or gaps: Workbook content was not changed in this access-only fix; final filing flags from the analysis handoff remain open.

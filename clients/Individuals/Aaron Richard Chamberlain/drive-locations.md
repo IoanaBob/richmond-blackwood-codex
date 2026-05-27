@@ -15,7 +15,7 @@ Review: Confirm whether the P&L/balance-sheet final outputs are stored in the 20
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 support folder. |
 | 2025 client-provided documents | `https://drive.google.com/drive/folders/1oyXCmXYXqZCivQVciE2K6JFVSzzAV4cL` | Client-provided 2025 support, including Student Finance evidence recorded as source-only debt context. |
 | Hallescher/Feather 2025 health-insurance tax certificate | `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` | Uploaded 2026-05-26 into the 2025 client-provided documents folder; source for certificate-backed basic health/care deduction and non-basic insurance review row. |
-| 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Fresh native workbook from the maintained template export. Needs Drive-folder move/copy after shared Google persona auth is restored. |
+| 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Fresh native workbook from the maintained template export. Moved into the shared 2025 folder on 2026-05-27; Drive read-back confirmed parent `113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` and inherited writer access for Johnpaul/RB users. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant source material. |
 
 ## Accounting / P&L Support

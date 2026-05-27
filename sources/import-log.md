@@ -1889,3 +1889,28 @@ Verification:
 Unresolved:
 
 - Filing task remains open for final submission. Remaining filing flags include direct payroll certificate/PDF readback for Aaron and Antje, final deductible/investment/tax-payment/home-office/student-finance/non-basic-health decisions, failed workbook checks/open missing-info items, and separate VAT/trade-tax final-freelancer-year plus deregistration evidence.
+
+## 2026-05-27 - Aaron 2025 Workbook Folder Access Fix
+
+Imported:
+
+- User follow-up in Codex chat asking where the workbook was saved because a teammate lacked access.
+- Drive metadata for workbook `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
+- Drive metadata and folder listing for Aaron's 2025 folder `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`.
+
+Actions:
+
+- Moved the workbook from connector/default parent `0APO_eChhDoQPUk9PVA` into Aaron's shared 2025 folder.
+- Added Notion comments to the filing task `https://www.notion.so/36be41301314819bb2fdc42eb47d202d` and filing record `https://www.notion.so/342e413013148081b46dc0d4952a7659`.
+- Updated Aaron's individual Drive, source, personal-tax, open-question, and task-index notes plus durable history and skill-run ledgers.
+
+Verification:
+
+- Drive read-back confirmed workbook parent `113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`.
+- The 2025 folder listing showed the workbook in the folder.
+- Drive permissions read-back included writer access for RB users including `johnpaul.okolie@richmondblackwood.com` and `accounting@richmondblackwood.com`.
+- Notion returned comment IDs `36de4130-1314-816a-a806-001d721a7a84` and `36de4130-1314-81fe-8a6e-001db70a279c`.
+
+Unresolved:
+
+- No workbook content changed in this folder/access correction. Filing task remains open with the prior final filing flags.

@@ -84,18 +84,21 @@ Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
+Current Drive parent: `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`.
+
 Linked Notion records:
 
 - Filing: `https://www.notion.so/342e413013148081b46dc0d4952a7659`
 - Preparation task: `https://www.notion.so/360e4130131481b881aad86ffaf1b958`
 - Filing task: `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`
 - On 2026-05-26, after operator review, the preparation task was marked `Done` and the filing task was kept `In Progress` with the workbook URL in `Review Link` and a filing handoff comment.
+- On 2026-05-27, the workbook was moved into Aaron's shared 2025 Drive folder and the filing task/filing row were commented with the access correction.
 
 Workbook creation note:
 
 - A fresh Google Sheets workbook was created from the maintained template export and only input/source tabs were populated.
-- The connector import placed the workbook outside the target filing folder because the repo-local Drive copy helper was blocked by missing/expired shared Google persona credentials.
-- Preserve the template calculation tabs; move or copy the native workbook into the 2025 filing folder once Drive helper auth is restored.
+- The connector import initially placed the workbook outside the target filing folder under Drive parent `0APO_eChhDoQPUk9PVA`, with only `ioana@eip.ventures` permission.
+- On 2026-05-27, the workbook was moved into Aaron's shared 2025 filing folder `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`; the workbook URL stayed unchanged and Drive read-back showed inherited writer access for RB users including `johnpaul.okolie@richmondblackwood.com` and `accounting@richmondblackwood.com`.
 - On 2026-05-26, the DATEV/SUSA business section was corrected from monthly/category aggregates to line-level source rows: all Jan/Feb revenue and expense-account rows from the linked DATEV exports are now represented in `Revenue`, `Expenses`, and `Raw DATEV 2025` using pre-VAT/net amounts, with clearing/VAT rows retained as source-only.
 - On 2026-05-26, a second `employee-lump-sum` baseline row was added to `Deductibles` for spouse/Antje because she has positive salary-employment income in the joint filing. The calculation tabs were left intact; `Tax Analysis` now picks up EUR 1,230 for Aaron plus EUR 1,230 for Antje.
 - On 2026-05-26, the local Hallescher/Feather 2025 certificate was uploaded to Drive, logged as a Long Living Communications record, and used to replace the provisional private-health estimate in `Deductibles`: net basic health/care is EUR 5,609.79, and non-basic/additional private insurance is recorded at EUR 814.85 for review only.
@@ -165,6 +168,7 @@ Remaining filing flags:
 | Aaron personal folder | `https://drive.google.com/drive/folders/1jlL1I2mxwscawqTN_aic9f-OZwPiPnHh` | Personal tax and Finanzamt correspondence root. |
 | 2023/2024 filing folder | `https://drive.google.com/drive/folders/1AUG3B7RJY_mas6KBq06rmrgTmwGaZHwj` | Filing support for 2023 and 2024. |
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 support folder under Aaron's personal folder. |
+| 2025 German personal-tax workbook | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit` | Moved into the shared 2025 folder on 2026-05-27; inherited RB writer access confirmed by Drive read-back. |
 | Hallescher/Feather 2025 health-insurance tax certificate | `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` | Uploaded to the 2025 client-provided documents folder and logged in Communications at `https://www.notion.so/36ce413013148121a22fe7eb9ef7c79d`; used for `Deductibles` health/care rows. |
 | 2025 workbook `VAT Review 2025` tab | `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit#gid=18865027` | Shows loaded freelance VAT treatment: Riot domestic 19% VAT, Twitch third-country/non-taxable, plus VAT reconciliation source rows. Not a standalone VAT return calculation. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant source material. |
