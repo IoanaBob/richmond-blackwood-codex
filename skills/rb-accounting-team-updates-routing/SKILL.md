@@ -43,14 +43,15 @@ Decision rules:
 4. Use Richmond Blackwood Backlog only for truly RB-internal work. If a client-related item has no readable company project, choose `unresolved`.
 5. Search for existing tasks by Team Updates page URL, linked page URL, exact or near-exact line text, owner, current date, company, project, and subject.
 6. Reuse the owning task/page/operational row when a source line already links to the correct work item.
-7. Do not create duplicate approval tasks. Treat approval wording as review by adding the approver to `Review By` on the owning task or recurring workflow.
-8. For invoice, contractor, expense, or payment approvals, route to the weekly invoice-payables/payables task when it owns the workflow.
-9. Keep assignment on the operational doer. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should default to Simoneta unless the source or user identifies another doer.
-10. Do not assign routine operational work to Ioana by default.
-11. Include `Status = To Do` for active Central Task creates unless the source supports another status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
-12. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
-13. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
-14. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task.
+7. Do not choose `unresolved` solely because no matching active task or operational row was found. If the owner, responsible company/project, source action, and Tasks schema are clear, propose `create_task` with source caveats instead.
+8. Do not create duplicate approval tasks. Treat approval wording as review by adding the approver to `Review By` on the owning task or recurring workflow.
+9. For invoice, contractor, expense, or payment approvals, route to the weekly invoice-payables/payables task when it owns the workflow.
+10. Keep assignment on the operational doer. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should default to Simoneta unless the source or user identifies another doer.
+11. Do not assign routine operational work to Ioana by default.
+12. Include `Status = To Do` for active Central Task creates unless the source supports another status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
+13. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
+14. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
+15. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task. For every `unresolved` row, explicitly state why creating a new task is unsafe.
 
 ## Output Table
 
@@ -94,6 +95,7 @@ For `unresolved` rows:
 - leave `assignee`, `project`, `owning_row`, and `target_task_or_page` blank unless a partial value is verified;
 - set `team_updates_writeback_text` to the exact unresolved note proposed for the Team Updates page;
 - set `execution_guard` to `write unresolved note only after Stage 3 approval`;
+- state why `create_task` is unsafe, not merely why an existing task could not be found;
 - do not create a task.
 
 For `create_task`, `update_task`, or `comment_existing` rows:

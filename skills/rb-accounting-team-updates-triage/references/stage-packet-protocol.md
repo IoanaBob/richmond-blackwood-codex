@@ -129,7 +129,8 @@ Execution:
 4. Fetch linked Notion tasks/pages, responsible Company records, client project relations, task-capable operational rows, and target schemas needed to decide ownership, dedupe, project, reviewer, status, due date, and write payloads.
 5. Produce a routing table with one decision per atomic blocker/action-point item.
 6. For unclear ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
-7. Write and print `stage-03-routing-plan.md`, then stop for approval.
+7. Do not leave a row unresolved only because no existing task or operational row was found. If owner, responsible company/project, source action, and Tasks schema are clear, propose a new task. Every unresolved row must explain why creating a new task is unsafe.
+8. Write and print `stage-03-routing-plan.md`, then stop for approval.
 
 Required packet fields for every blocker/action point:
 
@@ -147,6 +148,8 @@ Required packet fields for every blocker/action point:
 - blockers and unresolved decisions.
 
 Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text that tells a person an item was routed must include the source entity URL being routed from.
+
+An unresolved decision must include a create-task safety analysis. If the only gap is that no matching active task exists, Stage 3 should propose `create_task` instead of `unresolved`.
 
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
