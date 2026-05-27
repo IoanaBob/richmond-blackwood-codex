@@ -2,6 +2,31 @@
 
 Status: active.
 
+## 2026-05-27 - Aaron 2025 ESt/EÜR Submission Proofs
+
+Imported:
+
+- User instruction in Codex conversation that Aaron and Antje's 2025 German joint ESt and Aaron's 2025 EÜR had been submitted in ELSTER.
+- User-supplied local PDFs `/Users/jp/Downloads/Aaron PIT 2025.pdf` and `/Users/jp/Downloads/Aaron EUR 2025.pdf`.
+- Notion filing record `https://www.notion.so/342e413013148081b46dc0d4952a7659` and filing task `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`.
+
+Actions:
+
+- Uploaded the submitted PDFs to Aaron's 2025 Drive folder `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`.
+- Updated the Notion Personal Tax Filing row to Filed, Attached in Drive, filed on 2026-05-27, with Drive folder and submission proof link.
+- Marked the linked filing task Done and added closeout comments with both proof links.
+- Updated Aaron's individual local source/register and filing pointers.
+
+Verification:
+
+- Drive folder read-back showed `Aaron PIT 2025.pdf` and `Aaron EUR 2025.pdf` in the 2025 folder.
+- Notion read-back confirmed the filing row is Filed and the filing task is Done.
+
+Follow-up:
+
+- Final Finanzamt assessment remains pending.
+- Aaron's 2025 trade tax return and annual VAT return remain separate next workflows using the same source information.
+
 ## 2026-05-22 - TPL / Techpacito Context Import
 
 Applied:
