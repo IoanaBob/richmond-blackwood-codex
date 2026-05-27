@@ -49,7 +49,8 @@ Decision rules:
 10. Do not assign routine operational work to Ioana by default.
 11. Include `Status = To Do` for active Central Task creates unless the source supports another status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
 12. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
-13. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task.
+13. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
+14. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task.
 
 ## Output Table
 
@@ -61,6 +62,7 @@ Stage 3 must include a routing table with these columns:
 - `source_text`
 - `checkbox_state`
 - `source_links`
+- `source_entity_url`
 - `slack_source_links`
 - `scope`
 - `responsible_company`
@@ -97,6 +99,7 @@ For `unresolved` rows:
 For `create_task`, `update_task`, or `comment_existing` rows:
 
 - include the exact proposed task title, task properties, or comment text;
+- include the exact source entity URL in any proposed text that says the item was routed;
 - include the exact Team Updates write-back method and text;
 - include the resolved assignee and verified Slack mention;
 - include `Review By` when the source asks for approval, review, or sign-off.

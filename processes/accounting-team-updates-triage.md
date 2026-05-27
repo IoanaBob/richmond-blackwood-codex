@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -78,6 +78,7 @@ For each unchecked blocker/action point:
 10. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Use Simoneta as the routine owner unless the source or user explicitly identifies a different doer.
 11. Include the source section, exact source line, Team Updates page URL, linked pages, exact target properties, and next concrete action in the task body/comment or operational-row update.
 12. When Slack context changes the routing decision, include the relevant Slack message or thread link in the task comment or Team Updates routing note unless doing so would expose inappropriate private source content.
+13. Any task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For this automation the default source entity URL is the Team Updates page URL. If a block/row URL is available, include that more specific URL; if not, include the Team Updates page URL plus the source section and exact source line.
 
 Do not process invoices, receipts, expenses, or correspondence as source documents from this page. If an action point refers to one, create/update the operational task or blocker only; document intake remains owned by the inbound/finance workflows.
 
@@ -87,7 +88,7 @@ After creating/updating/commenting a task or operational row, update the Team Up
 
 Preferred write-back:
 
-- add a child note under the source item: `Codex routed: <task/row/comment link> - <short action/status>`;
+- add a child note under the source item: `Codex routed from <source entity URL>: <task/row/comment link> - <short action/status>`;
 - check the source checkbox only after the task/row/comment update and the page write-back both read back correctly.
 
 Fallbacks:
@@ -114,6 +115,7 @@ Updated / Commented
 Rules:
 
 - Link the Team Updates page first, then list created and updated/commented task titles as direct hyperlinks in the Slack message.
+- The Team Updates page link is the source entity URL for the Slack closeout; do not omit it from any message that says task routing is done.
 - Prefix each task line with the assigned person's Slack mention, for example `<@U123> [Task title](task URL)`. If a task has multiple assignees, include every resolved assignee mention. Resolve Slack user IDs before sending.
 - If an assignee cannot be resolved to a Slack user, Stage 5 is blocked unless the operator explicitly approves a plain-name no-notification fallback. If that fallback is approved, use their plain name rather than a bare `@name`, and record the unresolved Slack mapping in the final report.
 - Include only task titles and task links in the created/updated lists; keep source-line detail and skipped-item notes on the Team Updates page.

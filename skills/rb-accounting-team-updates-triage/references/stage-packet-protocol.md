@@ -136,6 +136,7 @@ Required packet fields for every blocker/action point:
 - source section and exact line text;
 - source row ID and atomic routing item ID;
 - checkbox state and linked Notion pages/tasks;
+- source entity URL used in routing comments/write-backs; use the Team Updates page URL when no more specific source row or block URL is available;
 - relevant Slack source links when they affect routing;
 - responsible Company, scope, owning data source, owning row, and project source;
 - proposed action: create task, update/comment existing task, skip already handled, or unresolved;
@@ -144,6 +145,8 @@ Required packet fields for every blocker/action point:
 - exact target Notion schema/property names and proposed write payload;
 - Team Updates write-back method and text;
 - blockers and unresolved decisions.
+
+Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text that tells a person an item was routed must include the source entity URL being routed from.
 
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 

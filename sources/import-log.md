@@ -1788,3 +1788,19 @@ Actions:
 Unresolved:
 
 - Validate the hardened packet contract on the next live weekday Accounting Team Updates run, especially client-project routing, comment-only closeouts, and Slack mention blocking.
+
+## 2026-05-27 - Accounting Routing Source Entity URL Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-27 that when telling people something is being routed, the message must include the URL of the entity it is being routed from.
+
+Actions:
+
+- Updated the Accounting Team Updates process, triage skill, routing subskill, and stage-packet protocol so task comments, operational-row updates, Team Updates write-backs, Slack closeouts, and packet text that say an item was routed must include the source entity URL.
+- Set the default source entity URL for Accounting Team Updates to the Team Updates page URL, with block/row URLs preferred when available and source section/exact line included when no block-level URL exists.
+- Updated the active 2026-05-27 Stage 3 packet examples so proposed Team Updates write-backs and task comments include the source Team Updates page URL.
+
+Unresolved:
+
+- Internal Knowledge Base mirror is pending because the Notion connector returned `Auth required` for page `https://www.notion.so/367e413013148175b709e35f31d37821`.

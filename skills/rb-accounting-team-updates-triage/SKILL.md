@@ -92,7 +92,8 @@ Before task writes, confirm that the Team Updates page can be updated through a 
 
 - write the task, operational-row, or comment link back to the Team Updates source item, preferably under the source checkbox line;
 - check off the source line only after the task create/update and page write-back both read back correctly;
-- if checking the box is not safely supported, leave the checkbox unchanged and add `Codex routed: <task link> - <action>` under the item or in an actual page comment;
+- if checking the box is not safely supported, leave the checkbox unchanged and add `Codex routed from <source entity URL>: <task link> - <action>` under the item or in an actual page comment;
+- whenever a task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text tells a person an item was routed, include the source entity URL being routed from; use the Team Updates page URL plus source section/exact line when no block-level URL exists;
 - never rely on the final report as the only record of routing.
 
 Verify by reading back:
@@ -122,6 +123,7 @@ Updated / Commented
 Rules:
 
 - Link the Team Updates page first, then list created and updated/commented task titles as direct hyperlinks in the Slack message.
+- Treat the Team Updates page link as the source entity URL for the Slack closeout; messages that say task routing is done must include it.
 - Prefix each task line with the assigned person's Slack mention, for example `<@U123> [Task title](task URL)`. If a task has multiple assignees, include every resolved assignee mention. Resolve Slack user IDs before sending.
 - If an assignee cannot be resolved to a Slack user, Stage 5 is blocked unless the operator explicitly approves a plain-name no-notification fallback. If that fallback is approved, use the person's plain name rather than a bare `@name`, and record the unresolved Slack mapping in the final report.
 - Include only task titles and task links in the created/updated lists; keep source-line detail and skipped-item notes on the Team Updates page.
