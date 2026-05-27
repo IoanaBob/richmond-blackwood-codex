@@ -196,6 +196,9 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm Andrei's official personal/director address with him; user says it is not 100 percent clear.
 - Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
 - Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
+- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung covering June/August and severance/final payment before filing.
+- Confirm 2025 WFH qualifying days and whether to keep Vodafone/telephone and utility costs excluded to avoid overlap with employee lump-sum/WFH treatment.
+- Confirm whether `Deutsch_Kurse.pdf`, `BVG_Lena_24-25.pdf`, and any direct Finanzamt payments/prepayments should be claimed or marked out after filer review.
 
 ## AKS / Anastasia Questions
 

@@ -30,7 +30,7 @@ Andrei is married, so the personal-tax filing should be prepared as a joint retu
 | Period | Record | Jurisdiction | Status | Document gathering | Due date | Drive docs |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | In progress | 2026-04-30 | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` |
-| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Not provided | 2026-07-31 | blank in Notion |
+| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | In Progress | In progress | 2026-07-31 | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` |
 
 User review on 2026-05-19 confirmed the structure should stay as one filing record for each year.
 
@@ -75,7 +75,37 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 | 2024 personal-tax folder | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` | Notion filing folder; contains current workbook and evidence. |
 | 2025 personal-tax folder | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents, including items to review/split for 2024. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current Google Sheets workbook. |
+| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Fresh copy of the maintained native template, populated with source/input rows only on 2026-05-27. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
+
+## 2025 Analysis
+
+Status: provisional.
+Source: Fresh Google Sheets workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`, Notion filing row `https://www.notion.so/342e4130131480139e81d7f94450de8b`, Drive folder `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`, and user instruction on 2026-05-27.
+Imported: 2026-05-27.
+Review: Final filing must wait for Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung, especially the June/August/severance treatment.
+
+Live task links:
+
+- Preparation task: `https://www.notion.so/36de4130131481229597f18922528158`
+- Filing task: `https://www.notion.so/36de413013148126adb9ea22f31e604c`
+
+Current workbook figures entered from source rows:
+
+- Gross employment income with complete payroll/tax extraction: EUR 56,880.85.
+- Wage tax withheld with complete payroll/tax extraction: EUR 7,830.30.
+- Andrei MRM Jan-May cumulative gross: EUR 30,624.85.
+- Spouse 2025 wage-tax certificate gross: EUR 26,256.00.
+- Pension/retirement contributions entered in `Deductibles`: EUR 5,289.86.
+- Health/care insurance entered in `Deductibles`: EUR 8,725.46.
+- Known June and August MRM bank receipts with missing payroll extraction: EUR 19,651.64 net, flagged in `Revenue` and excluded from gross/tax totals until the final payslip or 2025 wage-tax certificate is available.
+
+Workbook exclusions and flags:
+
+- Vodafone/telephone and Vattenfall utility evidence is recorded as not claimed to avoid overlap with the employee lump-sum and possible WFH daily allowance route unless the operator approves separate treatment.
+- `Deutsch_Kurse.pdf` and `BVG_Lena_24-25.pdf` are recorded as not claimed pending OCR/readability, amount, and tax relevance review.
+- The MRM August bank transfer is treated as a severance/final-payment candidate only; it is not filing-ready without the final payslip or 2025 Lohnsteuerbescheinigung.
+- The special-expense lump sum row still needs filer review for joint-assessment treatment because the maintained template baseline is single-person.
 
 ## Current Missing / Open Items
 
@@ -84,5 +114,7 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 - Confirm spouse-related evidence needed for the joint returns; no spouse individual folder is needed because she is not a company shareholder.
 - Confirm phone/Vodafone recurring cost support for 2024 and 2025 after the WhatsApp request for filtered extracts.
 - Confirm TK/private-health-insurance outcome before final insurance/social-insurance treatment.
-- Link 2025 Drive docs into the 2025 Notion filing when 2025 work starts, if the current 2025 folder is confirmed as canonical.
+- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung covering June/August and severance/final payment.
+- Confirm whether any 2025 direct Finanzamt payments/prepayments exist outside payroll withholding; no evidence was found in the supplied folder.
+- Confirm 2025 WFH qualifying day count before claiming the home-office daily allowance, and do not overlap it with phone/utility actual-cost claims without explicit operator approval.
 - Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.

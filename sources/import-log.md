@@ -2106,3 +2106,24 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+## 2026-05-27 - Andrei Nasonov 2025 German Personal Tax Analysis
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-27 to prepare Andrei Nasonov's 2025 German personal-tax analysis from the repo-local workflow.
+- Notion individual `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`.
+- Notion filing row `https://www.notion.so/342e4130131480139e81d7f94450de8b`.
+- Drive folder `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`.
+
+Actions:
+
+- Copied the maintained native German personal-tax template to `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`.
+- Populated workbook input/source tabs only: `Setup`, `Revenue`, `Expenses`, `Deductibles`, and `Sources`.
+- Created preparation task `https://www.notion.so/36de4130131481229597f18922528158` and filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c`, linked them to the 2025 filing row, and set the filing task dependency.
+- Updated Andrei's repo-local personal-tax, Drive, source-register, and open-question records with source pointers and review flags.
+
+Unresolved:
+
+- Obtain Andrei's final 2025 MRM payslip or 2025 Lohnsteuerbescheinigung to reconcile June/August payroll and severance.
+- Confirm WFH day count and avoid overlap with phone/utility actual-cost claims unless explicitly approved.
+- Final filer should review the workbook's remaining failed checks/open missing-info rows before filing; read-back on 2026-05-27 showed these are expected from missing final payroll evidence and unresolved optional deductions/credits.
