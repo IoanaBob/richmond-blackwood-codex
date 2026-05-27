@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion individual and Personal Tax Filings records, Client Notes & Updates, Gmail, WhatsApp, Drive, and user instruction reviewed on 2026-05-18.
 Imported: 2026-05-18.
-Review: User confirmed no payment-plan response yet and no confirmed active P-Konto; confirm 2025 joint filing scope and final submission evidence for the 2023/2024 P&L/balance-sheet package.
+Review: User confirmed no payment-plan response yet and no confirmed active P-Konto; final assessments, 2025 trade tax, and 2025 annual VAT remain separate follow-up items.
 
 ## Linked Person
 
@@ -23,7 +23,7 @@ Aaron Richard Chamberlain:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2023 | `https://www.notion.so/2cee4130131480159afac4c473b603c5` | Germany | Filed | Attached in Drive | 2025-06-02 | 2026-03-23 | `https://drive.google.com/drive/folders/1hsyw_2ioWBOmD_e4KDf060-351A8uXYz` |
 | 2024 | `https://www.notion.so/2cae41301314802bb741d773f76a2b5d` | Germany | Filed | Attached in Drive | 2026-04-30 | 2026-03-23 | `https://drive.google.com/drive/folders/1AUG3B7RJY_mas6KBq06rmrgTmwGaZHwj?usp=drive_link` |
-| 2025 | `https://www.notion.so/342e413013148081b46dc0d4952a7659` | Germany | Pending | Not provided | 2026-07-31 | blank | blank |
+| 2025 | `https://www.notion.so/342e413013148081b46dc0d4952a7659` | Germany | Filed | Attached in Drive | 2026-07-31 | 2026-05-27 | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` |
 
 ## Filed 2023 And 2024
 
@@ -67,13 +67,21 @@ Relevant task: `Prepare P&L and Balance Sheet for Aaron` at `https://www.notion.
 ## 2025 Joint Filing
 
 Status: provisional.
-Source: WhatsApp 2026-05-13 to 2026-05-14 and Notion task `https://www.notion.so/360e4130131481b881aad86ffaf1b958`.
-Imported: 2026-05-18.
-Review: Confirm spouse details, missing documents, and whether the 2025 filing record should be updated with Drive docs once work starts.
+Source: WhatsApp 2026-05-13 to 2026-05-14, user instruction on 2026-05-27, Notion filing record `https://www.notion.so/342e413013148081b46dc0d4952a7659`, Notion filing task `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`, and Drive folder `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`.
+Imported: 2026-05-18; updated 2026-05-27.
+Review: Await final Finanzamt assessment. 2025 trade tax and 2025 annual VAT returns remain separate workflows using the same source information.
 
 Aaron asked whether RB can do his wife's taxes too because they are married. RB's Notion task says the 2025 process should start within May 2026, use wife's details already available from her payslip, ask Aaron only for missing information once work starts, and link/create relevant filing/client records before delivery.
 
-Aaron confirmed on WhatsApp that 2025 onwards would be great.
+Aaron confirmed on WhatsApp that 2025 onwards would be great. On 2026-05-27 the user confirmed the ESt and EÜR submissions had been made in ELSTER and supplied the submitted PDFs. Those PDFs were uploaded to the Aaron 2025 Drive folder, linked in/commented on the Personal Tax Filing record, and the filing task was marked Done.
+
+Submission record:
+
+- ESt / PIT proof: `https://drive.google.com/file/d/1xpQd_9UXDSCxSeXQDz1qrieUbF14bdbM/view?usp=drivesdk`
+- EÜR proof: `https://drive.google.com/file/d/1ufayxL6jZ8MLbGx2kbdl2N-HJyZnfLKM/view?usp=drivesdk`
+- Notion filing row status: Filed.
+- Notion filing task status: Done.
+- Recorded filing figures from the ELSTER proofs/review: provisional ESt Nachzahlung EUR 590.00, Anlage S profit EUR 6,037, EÜR taxable profit EUR 6,037.27.
 
 ## Evidence / Workbook Pointers
 
@@ -82,6 +90,8 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 | Aaron personal folder | `https://drive.google.com/drive/folders/1jlL1I2mxwscawqTN_aic9f-OZwPiPnHh` | Personal tax and Finanzamt correspondence root. |
 | 2023/2024 filing folder | `https://drive.google.com/drive/folders/1AUG3B7RJY_mas6KBq06rmrgTmwGaZHwj` | Filing support for 2023 and 2024. |
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 support folder under Aaron's personal folder. |
+| 2025 ESt / PIT submission PDF | `https://drive.google.com/file/d/1xpQd_9UXDSCxSeXQDz1qrieUbF14bdbM/view?usp=drivesdk` | User-supplied submitted PDF uploaded to Drive on 2026-05-27. |
+| 2025 EÜR submission PDF | `https://drive.google.com/file/d/1ufayxL6jZ8MLbGx2kbdl2N-HJyZnfLKM/view?usp=drivesdk` | User-supplied submitted PDF uploaded to Drive on 2026-05-27. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant source material. |
 | Finanzamt questionnaire workbook | `https://docs.google.com/spreadsheets/d/1NcGhQVn-H1EDvg5Dbn4ZRytXqCjq4SAA/edit` | Questionnaire and payment-plan support. |
 | 2023 FS workbook | `https://docs.google.com/spreadsheets/d/1OnLp0uM1SN2fVyltPrDOqv2p_Th3YzTA/edit` | Review latest version before use. |
