@@ -24,7 +24,8 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 - For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
 - The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
-- For operational closeouts, write the Slack body like a human team update rather than an automation trace. Omit background Gmail-label/source-marker/checkpoint/Codex mechanics. Hyperlink incoming items, pending replies, and blockers. When assigning action checks to people, resolve Slack user IDs and use `<@USERID>`; do not rely on bare names if the message is intended to notify them.
+- For operational closeouts, write the Slack body like a human team update rather than an automation trace. Omit background Gmail-label/source-marker/checkpoint/Codex mechanics. Hyperlink incoming items, pending replies, and blockers. When assigning action checks to people, resolve Slack user IDs and use `<@USERID>`; bare responsible-person names are allowed only after the operator explicitly approves a no-notification fallback for the exact person and message.
+- Manual Slack-post fallbacks must still use Slack-native named links (`<url|label>`) and resolved responsible-person mentions (`<@USERID>`). Do not ask the operator to post a degraded bare-URL or bare-name version.
 - Do not report that a Codex approval notification was sent unless the prompt tool call succeeds and returns a user-visible prompt.
 - If the native Codex approval prompt is unavailable and the operator has approved a popup fallback, use a local macOS approval dialog as the fallback. First show the exact Slack message as a rendered, clickable Codex preview. Then request sandbox permission only to run the local dialog command. The dialog itself must ask whether to send the exact Slack message shown in chat to the named Slack destination and must include Send and Do Not Send choices.
 - Treat the sandbox command-permission prompt only as permission to show the local dialog, never as approval to send Slack. Send Slack only if the local dialog command returns the explicit Send choice.
@@ -46,7 +47,7 @@ Before sending any communication, show:
 - Attachments or files.
 - Message body.
 
-For Slack previews, do not use a code block by default. Use normal Codex-rendered text with clickable named links so the operator can review destinations and records without copying URLs.
+For Slack previews, do not use a code block by default. Use normal Codex-rendered text with clickable named links and visible `<@USERID>` responsible-person mentions so the operator can review destinations, records, and tags without copying URLs.
 
 For Richmond Blackwood accounting/client email, default to:
 

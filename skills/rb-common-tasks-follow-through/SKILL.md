@@ -55,7 +55,8 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - For client follow-through Slack closeouts, use the latest available Ioana-approved `#rb-client-updates` client follow-through template from Notion/canonical Communications unless the operator provides a newer exact template. Current known template shape uses a short first-person completion line followed by `New Correspondence`, `Received invoices`, and `Updated tasks`. Do not replace this with ad hoc sections such as `Completed/recorded`, `Owner updates`, or `Skipped per operator instruction`.
 - If the Ioana template cannot be located, cannot fit the run, or required template fields/links/mentions cannot be resolved, stop with a blocker packet and ask for the exact template or explicit approval of a degraded version. Do not post manually or through Slack MCP until the template issue is resolved.
 - Stage 12 Slack copy must read like a human operator update, not an automation trace. Do not include background source-marker mechanics, Codex/internal process actions, checkpoint details, or no-reply/no-action rows that do not matter to humans. Include only actionable or useful business context, with named Notion links.
-- When addressing people in Slack, resolve Slack user IDs and use `<@USERID>` mentions so assignees are notified. Do not use bare names for addressed action rows unless the Slack ID cannot be resolved; if unresolved, say so in the packet and avoid implying a notification will fire.
+- When addressing people in Slack, resolve Slack user IDs and use `<@USERID>` mentions so assignees are notified. Bare names are not acceptable for responsible-person routing in the final Stage 12 Slack payload. If a required Slack ID cannot be resolved through Slack MCP or a repo-approved mapping, Stage 12 is blocked unless the operator explicitly approves a named, no-notification fallback for that exact person and message.
+- Stage 12 manual-post fallbacks must provide Slack-ready raw text with Slack-native links (`<url|label>`) and resolved Slack mentions (`<@USERID>`), plus a rendered preview when useful. Do not give the operator a degraded manual message with bare URLs or bare responsible-person names.
 
 ## Company And Project Resolution
 
@@ -247,9 +248,11 @@ The message must be a readable rendered preview, not a fenced Markdown block and
 
 Slack preview requirements:
 
-- Hyperlink every item in `Incoming handled`.
-- Hyperlink every item in `Replies coming up`.
-- Hyperlink every blocker to the relevant task, Communication, invoice, or operational row.
+- Use the Ioana-approved section labels and ordering exactly.
+- Hyperlink every Communication, task, invoice, expense, filing, contract, blocker, or operational row reference with a named link. For a manual Slack payload, use Slack-native `<url|label>` links.
+- Tag every responsible person on an action/update line with a resolved Slack user mention (`<@USERID>`). Bare responsible-person names are a format failure, not a harmless style issue.
+- Include a mention-resolution table in the Stage 12 packet for every responsible person, showing the source used to resolve the Slack ID.
+- If any required link or responsible-person mention is missing, stop with a blocker packet before asking send approval.
 - Use Slack user IDs for addressed people, for example `<@U123>`, after resolving them through Slack search.
 - Address only actual people with concrete checks; do not address generic process labels such as "Codex/run" or "weekly workflow owner".
 - Do not include background source-marker/checkpoint/Gmail-label mechanics in the Slack body.

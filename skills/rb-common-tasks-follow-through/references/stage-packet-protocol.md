@@ -61,6 +61,19 @@ The operator must approve the exact next action packet unless the stage is cover
 
 Stage 15 does not need separate approval when limited to already-identified Stage 14 evidence/media blockers and already-resolved destinations. Stage 15 must stop for approval before any reply/send, source marker/checkpoint, new task, new Expense/Invoicing/Communication row, new Drive destination, disputed task relation, unresolved client subject mapping, or business-judgment decision.
 
+## Stage 12 Slack Format Gate
+
+Before Stage 12 can request send approval, the packet must include a Slack-format checklist:
+
+- Ioana-approved template source, section labels, and ordering used without improvisation.
+- Every Communication, task, invoice, expense, filing, contract, blocker, or operational row reference is a named link; manual-post payloads use Slack-native `<url|label>` links.
+- Every responsible person on an action/update line has a resolved Slack mention (`<@USERID>`).
+- Mention-resolution table lists every responsible person, Slack ID, and resolution source.
+- No bare responsible-person names remain in the final Slack payload unless the operator explicitly approved a no-notification fallback for that exact person and message.
+- No background Gmail label, source-marker, checkpoint, packet, or Codex-process mechanics appear in the Slack body.
+
+If any required link or mention cannot be resolved, write and print a blocker packet instead of asking for send approval.
+
 ## Compaction Recovery
 
 If context is compacted or the run resumes:

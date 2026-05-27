@@ -114,6 +114,7 @@ Consequence:
 - Stage 3 WhatsApp discovery must use the common-tasks WhatsApp source roster. Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana were missed in the 2026-05-19 corrective run and must be resolved/read next time before any checkpoint is advanced for those routes.
 - Slack closeouts should sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming items, pending replies, and blockers, and tag actual people with resolved Slack user IDs.
 - Ioana-authored or Ioana-approved templates are final for Slack closeouts. Use the latest available Ioana template exactly; for client follow-through the current known `#rb-client-updates` template uses `New Correspondence`, `Received invoices`, and `Updated tasks`. Stop instead of posting if the template or required links/mentions cannot be resolved.
+- Manual Slack-post fallbacks must not degrade the format: every operational row reference needs a named Slack link (`<url|label>`) and every responsible person needs a resolved Slack mention (`<@USERID>`). If Slack IDs cannot be resolved through Slack MCP or a repo-approved mapping, block the closeout unless the operator explicitly approves a no-notification fallback for the exact person/message.
 
 Source: user instruction and approved redesign on 2026-05-19.
 Review: validate on the next common-tasks run after the 2026-05-20 process corrections.
