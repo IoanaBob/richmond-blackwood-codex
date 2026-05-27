@@ -48,6 +48,8 @@ Use the owning task-capable RB Client Databases row first for Richmond Blackwood
 - Create follow-up tasks with `Name`, `Status`, `Assigned To`, and `Project`.
 - Link client tasks to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work.
 - Use explicit user instructions, existing row owner, owner of the project linked on the responsible Company record, established process rules, or `internal/people-roles.md` to choose the assignee. If none is clear, ask before creating the task.
+- Keep `Assigned To` for the person doing the work. Treat approvals as review: when Ioana or another team member needs to approve, check, or sign off, add that person to `Review By` on the owning operational or recurring task instead of assigning them the work.
+- Do not create a standalone approval task when the approval belongs inside an existing operational task. For invoice/payment approvals, prefer the existing invoice-payables/payables task and add a page comment with the specific payment/invoice context.
 - Communication records, client notes, and repo files can be source context, but they are not substitutes for updating the owning task-capable row when RB action is required.
 
 ## Known Connector Limits

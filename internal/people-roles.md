@@ -52,6 +52,8 @@ Use these defaults when creating client-inbound tasks from WhatsApp, Gmail, or s
 
 Edge-case owner rules:
 
+- Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should not be assigned to Ioana by default. Assign these to Simoneta unless the user or source names another doer.
+- Approval is a review role, not task ownership. When Ioana or another team member needs to approve, check, or sign off, keep the task assigned to the operational owner and add the approving person to the Notion task `Review By` field.
 - Legal contract/counterparty/VAT-route decisions are Johnpaul-owned unless the operator explicitly assigns another legal owner.
 - TK/private-health-insurance/social-insurance transition tasks are Johnpaul-owned when Simoneta is not onboarded on the task.
 
