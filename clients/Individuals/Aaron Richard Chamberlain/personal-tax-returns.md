@@ -80,7 +80,7 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 Status: provisional.
 Source: Maintained German personal-tax template, Notion filing/task records, Drive accounting/client folders, DATEV exports, AMC payroll records, and user instruction on 2026-05-25.
 Imported: 2026-05-25.
-Review: Workbook is ready for internal review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs, a `VAT Review 2025` tab added for the loaded freelance VAT split, Hallescher/Feather 2025 health-insurance certificate amounts loaded, and spouse/Antje payroll health and pension/social contributions now carried into `Deductibles`. Final filing still needs direct readback of the Notion payslip/annual payroll certificate PDFs, non-basic insurance treatment review, final review of DATEV-backed expense treatment, and confirmation of whether any separate March/Q1 VAT return material exists before submission.
+Review: Workbook is ready for filing review, with DATEV/SUSA freelance revenue and expenses reflected line by line on source/input tabs, a `VAT Review 2025` tab added for the loaded freelance VAT split, Hallescher/Feather 2025 health-insurance certificate amounts loaded, Antje's official annual wage certificate loaded, and Aaron's payroll now reconciled to the ELSTER-imported 2025 Lohnsteuerbescheinigung. Final filing still needs final filer/client confirmation for no direct personal ESt prepayments, no investment/KAP/SO items, deductible/credit applicability, non-basic insurance treatment, prior-year opening-link review, and separate VAT/trade-tax/deregistration wrap-up.
 
 Prepared workbook: `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`.
 
@@ -105,6 +105,7 @@ Workbook creation note:
 - On 2026-05-26, Antje's employee pension/social and health-insurance payroll amounts were added to `Deductibles` from `Revenue!G13:H13` because the calculation tabs only deduct Vorsorgeaufwand from `Deductibles`, not directly from payroll source columns.
 - On 2026-05-26, a `VAT Review 2025` source/review tab was added to make the freelance VAT split visible without editing formula tabs. It points to `Raw DATEV 2025`, `Revenue`, and `Category Rules` as the source tabs.
 - On 2026-05-26, the client workbook only was adjusted so `Tax Analysis` and `Summary` split the freelance/EÜR revenue into VATable and non-taxable/§13b-style buckets. The maintained template was not changed.
+- On 2026-05-27, Aaron's monthly payroll rows were moved out of counted `Revenue` totals and retained in `Raw Payroll 2025` as source-only audit trail. `Revenue` now uses the ELSTER-imported annual Lohnsteuerbescheinigung row for Aaron as the filing source: gross wages EUR 72,000.00, wage tax EUR 13,882.50, solidarity surcharge EUR 0.00.
 
 Input summary captured:
 
@@ -114,20 +115,20 @@ Input summary captured:
 - January DATEV shows a EUR 16,464.53 Riot Games Services bank receipt against debtor account 11801, but 2025 SUSA class 8 revenue for January is EUR 0.00 and the 2024 FS workbook shows the matching Riot debtor movement in December 2024. The receipt is recorded source-only unless final basis review finds it was not taxed in 2024.
 - Claimed source-backed business expenses currently loaded: EUR 825.95 across 21 DATEV expense rows, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30. The rows are no longer month/category aggregates.
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
-- Aaron salary rows loaded from AMC payroll records: EUR 72,000 gross for April to December 2025, with EUR 14,095.86 wage tax currently identified or inferred from the reviewed payroll records after correcting April and May to EUR 1,542.50 each.
-- Wife/Antje annual payroll model loaded from AMC Liquidity 2025 and wife payslip communication: EUR 14,976 gross, EUR 1,103.94 wage tax, EUR 1,570.86 pension/social contribution model, and EUR 942.96 health contribution model.
-- Wife/Antje pension/social contribution loaded to `Deductibles`: EUR 1,570.86.
-- Wife/Antje health-insurance contribution loaded to `Deductibles`: EUR 942.96, with annual wage-tax certificate/direct payslip readback still required before final filing.
-- Combined employment gross loaded: EUR 86,976.
-- Combined identified or modelled wage tax loaded: EUR 15,199.80.
+- Aaron employment loaded from ELSTER-imported 2025 Lohnsteuerbescheinigung: EUR 72,000.00 gross wages, EUR 13,882.50 wage tax, EUR 0.00 solidarity surcharge. Monthly payroll rows remain in `Raw Payroll 2025` as audit trail only; they previously summed to EUR 14,095.86 wage tax and are no longer the filing source.
+- Wife/Antje official 2025 Lohnsteuerbescheinigung loaded: EUR 17,048.72 gross wages, EUR 1,461.05 wage tax, pension/social net-reconciliation amount EUR 1,519.06, and health/care net-reconciliation amount EUR 1,651.70.
+- Combined employment gross loaded: EUR 89,048.72.
+- Combined wage tax loaded: EUR 15,343.55.
 - Certificate-backed Aaron basic health/care insurance loaded: EUR 5,609.79, calculated as basic health EUR 5,989.37 plus compulsory care EUR 714.00 less refunded basic health/care EUR 1,093.58.
 - Hallescher/Feather non-basic/additional private insurance amount recorded for final review: EUR 814.85, included amount EUR 0.00 pending Vorsorgeaufwand cap and ELSTER treatment review.
+- No direct personal ESt prepayment rows are loaded in `Tax Payments`; searches did not find direct personal ESt prepayment evidence, but final filer/client confirmation remains open. VAT/trade-tax payments stay separate.
+- Investment/KAP/SO summary is EUR 0.00 and investment source tabs are empty; searches did not find Aaron 2025 KAP/SO, dividend, interest, broker, or investment evidence, but final filer/client confirmation remains open.
 - VAT reconciliation source items in `VAT Review 2025` include input VAT on bookkeeping EUR 34.45, VAT prepayment/source-only accounting item EUR 2,628.79, and the January Riot debtor receipt EUR 16,464.53. These are not treated as personal income-tax prepayments or additional 2025 revenue in the workbook.
 
 Workbook formula read-back:
 
-- Employment gross: EUR 86,976.00.
-- Wage tax withheld: EUR 15,199.80 after the 2026-05-26 April/May correction.
+- Employment gross: EUR 89,048.72.
+- Wage tax withheld / known withholding: EUR 15,343.55 after the 2026-05-27 ELSTER certificate reconciliation.
 - Business/freelance net P&L: EUR 7,205.15.
 - Operating revenue included: EUR 8,031.10.
 - EÜR VATable operating revenue net: EUR 7,870.29.
@@ -135,13 +136,12 @@ Workbook formula read-back:
 - EÜR collected VAT on VATable revenue, source-only for EÜR/VAT reconciliation: EUR 1,495.36.
 - Business expenses included: EUR 825.95.
 - Employment work expenses used: EUR 2,460.00.
-- Pension / retirement contributions included: EUR 1,570.86.
-- Health / care insurance included: EUR 6,552.75.
-- Other personal deductions included: EUR 8,159.61.
-- Total deductions used: EUR 10,619.61.
-- Income after deductions before final tax-rate calculation: EUR 83,561.54.
-- Failed workbook checks: 6.
-- Open missing-info count: 38.
+- Pension / retirement contributions included: EUR 1,332.76.
+- Health / care insurance included: EUR 7,261.49.
+- Other personal deductions included: EUR 8,630.25.
+- Income after deductions before final tax-rate calculation: EUR 85,163.62.
+- Failed workbook checks: 5.
+- Open missing-info count: 28.
 
 Excluded or source-only items:
 
@@ -149,16 +149,17 @@ Excluded or source-only items:
 - The 30 January 2025 Riot receipt of EUR 16,464.53 was recorded as source-only because DATEV posts it to debtor account 11801 rather than a 2025 revenue account, and the 2024 FS workbook shows the matching December 2024 Riot debtor movement.
 - User clarified on 2026-05-25 that the previous accountant vetted the DATEV entries, so the January/February expense-account bookings are claimed in the workbook using exact DATEV CSV evidence URLs.
 - Non-expense DATEV balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance rows remain source-only and are not treated as personal-income-tax expenses. The user-linked `10P0...` booking stack is internally titled February 2025; all P&L rows from that file are loaded line by line, while debtor/bank clearing and VAT prepayment rows are source-only.
+- Aaron monthly payroll rows remain source-only in `Raw Payroll 2025`; the ELSTER-imported annual certificate is the primary filing source for Aaron's gross wages and wage tax.
 - Student Finance evidence in the 2025 client-provided folder was recorded as debt/source context, not claimed as a German deductible.
 - The earlier Hallescher private-health estimate of EUR 8,280 is superseded by the uploaded Hallescher/Feather 2025 certificate. The certificate-backed net basic health/care amount is claimed; the EUR 814.85 non-basic/additional amount remains review-only and is not included yet.
 
 Remaining filing flags:
 
-- Extract or obtain Aaron's annual German wage-tax certificate and direct payslip PDF readback. The live workbook corrects April/May withholding from blank to EUR 1,542.50 each using Notion payroll comments, bank payments, Finanzamt LSt 0425/0525 remittances, and the June catch-up; on 2026-05-26 the matching Notion April/May payroll `Tax Amount` fields were also set to EUR 1,542.50 while their `Net Payment` fields were left at the cash-paid EUR 5,660.17. The April/May workbook rows are now flagged `Needs direct payslip PDF readback`, not final-ready.
+- Aaron's ELSTER-imported 2025 wage certificate is now the primary wage-tax source; treat monthly payroll rows only as audit trail unless stronger certificate evidence appears.
 - Treat January as no Aaron AMC employment payroll unless later evidence contradicts the Notion employment record, which starts on 2025-02-11.
-- Extract or obtain wife/Antje annual wage-tax certificate from the payslip source and confirm final joint filing identifiers/details; workbook currently uses the uploaded scan/model for EUR 1,570.86 pension/social and EUR 942.96 health-insurance contributions.
-- Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate.
-- Confirm investments/no-investments, home-office days, donation/other deductible evidence, final student-loan treatment, and final treatment of the EUR 814.85 non-basic/additional private insurance amount.
+- Confirm final joint filing identifiers/details and use Antje's official annual wage-certificate values loaded in the workbook.
+- Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate and no direct personal ESt prepayment rows are currently loaded.
+- Confirm no investment/KAP/SO items, home-office days, donation/other deductible evidence, final student-loan treatment, and final treatment of the EUR 814.85 non-basic/additional private insurance amount.
 - File or complete the separate VAT and trade-tax wrap-up for Aaron's final freelancer months, confirm whether a separate March/Q1 2025 VAT source pack exists beyond the currently loaded DATEV rows, and confirm full deregistration evidence.
 
 ## Evidence / Workbook Pointers

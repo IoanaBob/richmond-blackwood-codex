@@ -1914,3 +1914,34 @@ Verification:
 Unresolved:
 
 - No workbook content changed in this folder/access correction. Filing task remains open with the prior final filing flags.
+
+## 2026-05-27 - Aaron 2025 ELSTER Wage Certificate Reconciliation
+
+Imported:
+
+- Reviewer comment relayed in Codex chat: ELSTER marks Aaron's 2025 wage certificate as `Übernommen aus Bescheinigung` and shows gross wages EUR 72,000.00, wage tax EUR 13,882.50, solidarity surcharge EUR 0.00; Antje official certificate wage tax is EUR 1,461.05; no submission has been made.
+- Live workbook read-back from `Revenue`, `Raw Payroll 2025`, `Summary`, `Setup`, `Tax Payments`, `Investment Lots`, investment event tabs, `Checks`, and `Missing Info`.
+- Drive/Notion/repo searches for Aaron 2025 direct prepayment and KAP/SO/investment evidence.
+
+Actions:
+
+- Updated Aaron's live workbook so `Revenue` uses Aaron's ELSTER-imported annual wage certificate as the counted payroll source.
+- Retained monthly Aaron payroll reconstruction rows in `Raw Payroll 2025` only as source-only audit trail.
+- Left Antje's official annual certificate values in `Revenue`.
+- Updated `Setup` to record that no direct personal ESt prepayment evidence and no investment/KAP/SO evidence was found, while keeping final confirmation open.
+- Added Notion comments to the filing task and filing row.
+- Updated Aaron's individual personal-tax notes, source register, open questions, durable history, and skill-run ledger.
+
+Verification:
+
+- Summary read-back confirmed employment gross EUR 89,048.72 and wage tax withheld / known withholding EUR 15,343.55.
+- Summary read-back confirmed KAP/SO/investment income EUR 0.00.
+- `Tax Payments` read-back showed no populated payment rows.
+- Investment tabs read-back showed no populated investment entries.
+- EÜR read-back remained VATable revenue EUR 7,870.29, non-taxable/third-country revenue EUR 160.81, net operating revenue EUR 8,031.10, collected VAT EUR 1,495.36 source-only, and business/freelance net P&L EUR 7,205.15.
+- Checks read-back showed failed checks reduced from 6 to 5 and open missing-info count from 38 to 28.
+- Notion returned comment IDs `36de4130-1314-81e9-af92-001d2c6ce2a9` and `36de4130-1314-81e7-be9c-001d55512687`.
+
+Unresolved:
+
+- Do not submit until the final filer/client confirms no direct personal ESt prepayments and no investment/KAP/SO items, and reviews the remaining deductible/tax-credit/prior-year-opening checks. VAT/trade-tax/deregistration wrap-up remains separate from this personal-return workbook.
