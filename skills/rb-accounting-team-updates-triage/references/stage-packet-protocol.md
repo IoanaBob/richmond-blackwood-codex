@@ -129,27 +129,34 @@ Execution:
 4. Fetch linked Notion tasks/pages, responsible Company records, client project relations, task-capable operational rows, and target schemas needed to decide ownership, dedupe, project, reviewer, status, due date, and write payloads.
 5. Produce a routing table with one decision per atomic blocker/action-point item.
 6. For unclear ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
-7. Write and print `stage-03-routing-plan.md`, then stop for approval.
+7. Do not leave a row unresolved only because no existing task or operational row was found. If owner, responsible company/project, source action, and Tasks schema are clear, propose a new task. Every unresolved row must explain why creating a new task is unsafe.
+8. Write and print `stage-03-routing-plan.md`, then stop for approval.
 
 Required packet fields for every blocker/action point:
 
 - source section and exact line text;
 - source row ID and atomic routing item ID;
 - checkbox state and linked Notion pages/tasks;
+- source entity URL used in routing comments/write-backs; use the Team Updates page URL when no more specific source row or block URL is available;
 - relevant Slack source links when they affect routing;
 - responsible Company, scope, owning data source, owning row, and project source;
 - proposed action: create task, update/comment existing task, skip already handled, or unresolved;
 - dedupe evidence;
+- create-task safety analysis for every unresolved row;
 - assignee, project, reviewer, status, due date, due-date source, and verified Slack assignee mention;
 - exact target Notion schema/property names and proposed write payload;
 - Team Updates write-back method and text;
 - blockers and unresolved decisions.
 
+Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text that tells a person an item was routed must include the source entity URL being routed from.
+
+An unresolved decision must include a create-task safety analysis. If the only gap is that no matching active task exists, Stage 3 should propose `create_task` instead of `unresolved`.
+
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
 The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing`.
 The routing table columns must match that skill's `Output Table` contract.
-No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit or the row is marked `unresolved`.
+No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit or the row is marked `unresolved` with a concrete create-task unsafe reason.
 
 ## Stage 4 - Notion Write Results
 
@@ -158,11 +165,12 @@ Purpose: execute the approved Stage 3 plan and prove read-back.
 Execution:
 
 1. Execute only rows approved in Stage 3.
-2. Create/update/comment tasks, recurring tasks, and operational rows exactly as approved. Do not add ad hoc fields or infer missing properties during execution.
-3. For approved `unresolved` rows, write only the approved unresolved note back to the Team Updates page; do not create a task.
-4. Write approved task links, operational-row links, comment links, or unresolved notes back to the Team Updates page using the approved write-back method.
-5. Read back every task/page/comment/write-back result.
-6. Write and print `stage-04-notion-write-results.md`.
+2. Before writing, reject the approved packet and return to Stage 3 correction if any `unresolved` row lacks a concrete create-task unsafe reason or lists only "no existing task found" as the reason.
+3. Create/update/comment tasks, recurring tasks, and operational rows exactly as approved. Do not add ad hoc fields or infer missing properties during execution.
+4. For approved `unresolved` rows, write only the approved unresolved note back to the Team Updates page; do not create a task.
+5. Write approved task links, operational-row links, comment links, or unresolved notes back to the Team Updates page using the approved write-back method.
+6. Read back every task/page/comment/write-back result.
+7. Write and print `stage-04-notion-write-results.md`.
 
 Required packet fields:
 
