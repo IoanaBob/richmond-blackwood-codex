@@ -1,3 +1,3 @@
 display_name: Accounting Team Updates Triage
-short_description: Route Accounting Team Updates blockers and action points into verified Notion tasks.
-default_prompt: Use $rb-accounting-team-updates-triage to process today's Accounting Team Updates blockers and action points into verified Notion tasks, write the task links back to the Team Updates page, and send the standard Slack completion notice when task routing was performed.
+short_description: Packet-gated routing for Accounting Team Updates blockers and action points.
+default_prompt: Use $rb-accounting-team-updates-triage to run today's Accounting Team Updates packet workflow, observe New client inbounds as out of scope, route blockers and action points into verified Notion tasks or owning operational rows, write verified links back to the Team Updates page, and prepare/send the standard Slack completion notice when approved.
