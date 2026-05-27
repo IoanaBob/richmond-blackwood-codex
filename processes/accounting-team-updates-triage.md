@@ -80,6 +80,7 @@ For each unchecked blocker/action point:
 12. When Slack context changes the routing decision, include the relevant Slack message or thread link in the task comment or Team Updates routing note unless doing so would expose inappropriate private source content.
 13. Any task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For this automation the default source entity URL is the Team Updates page URL. If a block/row URL is available, include that more specific URL; if not, include the Team Updates page URL plus the source section and exact source line.
 14. Do not leave a blocker/action point unresolved only because no existing task or owning operational row was found. If the assignee, responsible company/project, source action, and Tasks schema are clear, create a new follow-up task. Unresolved rows must explain why creating a task would be unsafe.
+15. Stage 4 must reject a Stage 3 packet before writing if any unresolved row lacks a concrete create-task unsafe reason or only says no existing task was found.
 
 Do not process invoices, receipts, expenses, or correspondence as source documents from this page. If an action point refers to one, create/update the operational task or blocker only; document intake remains owned by the inbound/finance workflows.
 

@@ -1801,6 +1801,7 @@ Actions:
 - Updated the Accounting Team Updates process, triage skill, routing subskill, and stage-packet protocol so task comments, operational-row updates, Team Updates write-backs, Slack closeouts, and packet text that say an item was routed must include the source entity URL.
 - Set the default source entity URL for Accounting Team Updates to the Team Updates page URL, with block/row URLs preferred when available and source section/exact line included when no block-level URL exists.
 - Tightened the routing rule so unresolved rows must explain why creating a task is unsafe; if owner, project, action, and Tasks schema are clear, Stage 3 must propose `create_task` when no existing owner task is found.
+- Added a Stage 4 packet gate that rejects unresolved rows before writing when they lack a concrete create-task unsafe reason or only say no existing task was found.
 - Updated the active 2026-05-27 Stage 3 packet examples so proposed Team Updates write-backs and task comments include the source Team Updates page URL.
 
 Unresolved:

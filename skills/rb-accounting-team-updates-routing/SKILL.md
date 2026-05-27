@@ -82,6 +82,7 @@ Stage 3 must include a routing table with these columns:
 - `slack_assignee_mention`
 - `slack_mention_status`
 - `dedupe_evidence`
+- `create_task_safety_analysis`
 - `notion_schema_verified`
 - `proposed_notion_write_payload`
 - `proposed_task_or_comment_text`
@@ -95,7 +96,7 @@ For `unresolved` rows:
 - leave `assignee`, `project`, `owning_row`, and `target_task_or_page` blank unless a partial value is verified;
 - set `team_updates_writeback_text` to the exact unresolved note proposed for the Team Updates page;
 - set `execution_guard` to `write unresolved note only after Stage 3 approval`;
-- state why `create_task` is unsafe, not merely why an existing task could not be found;
+- set `create_task_safety_analysis` to a concrete unsafe reason covering the missing owner, project, action, schema, source meaning, or write-back method; "no existing task found" is not a valid unsafe reason;
 - do not create a task.
 
 For `create_task`, `update_task`, or `comment_existing` rows:
