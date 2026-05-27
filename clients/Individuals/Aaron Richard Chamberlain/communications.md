@@ -22,6 +22,7 @@ Review: Use the WhatsApp group as the selected route unless the operator explici
 - WhatsApp on 2026-05-08: Aaron reported that the garnished account had transferred just over EUR 10k to Finanzamt; RB said the remaining balance would be worked out.
 - WhatsApp on 2026-05-11 and 2026-05-18: Finanzamt P&L/balance-sheet support and ELSTER approval were active.
 - WhatsApp on 2026-05-14: Aaron confirmed he wants RB to handle 2025 onward joint personal tax filing with his wife.
+- Operator-supplied document on 2026-05-26: Aaron's Hallescher/Feather 2025 health-insurance tax certificate was uploaded to Drive at `https://drive.google.com/file/d/1lt2tcud5y0sOld-CxEN1x8EYTp-FGJnC/view?usp=drivesdk` and logged as a Long Living Communications record at `https://www.notion.so/36ce413013148121a22fe7eb9ef7c79d`; it supersedes the provisional health-insurance estimate in the 2025 workbook.
 
 ## Boundary
 

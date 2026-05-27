@@ -849,6 +849,24 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
 
+## 2026-05-25 - Aaron 2025 DATEV Expense Clarification
+
+- User request: Add everything booked in the January/February DATEV files because the previous accountant vetted those entries.
+- Context read: Aaron's 2025 German personal-tax workbook, `Raw DATEV 2025`, `Expenses`, `Setup`, and repo-local Aaron source records.
+- Actions taken: Added the vetted DATEV expense-account bookings to `Expenses`: January Uber/travel EUR 241.02, February Uber/travel EUR 380.95, and February bookkeeping net EUR 181.30. Updated workbook source notes, Aaron's individual records, source register, Drive pointers, open questions, import log, and skill-run ledger.
+- Decisions made: Balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance DATEV rows remain source-only because they were not booked to expense accounts.
+- Verification: Workbook read-back confirmed business expenses EUR 825.95, business/freelance net PNL EUR 7,205.15, and income after deductions before final tax-rate calculation EUR 92,915.15.
+- Limitations or gaps: Final filing still needs payroll certificate/deductible review, target-folder workbook move/copy after shared Drive auth recovery, and separate VAT/trade-tax wrap-up.
+
+## 2026-05-25 - Aaron 2025 January Riot Receipt Review
+
+- User request: Check whether Aaron got paid in January and whether January revenue is missing.
+- Context read: January 2025 DATEV CSV, 2025 SUSA/PDF, 2024 FS workbook, Aaron 2025 workbook, and Aaron repo source notes.
+- Actions taken: Added a source-only `Raw DATEV 2025` row for the 30 January 2025 Riot Games Services receipt of EUR 16,464.53 against debtor account 11801, and updated Aaron's repo notes/open questions.
+- Decisions made: The receipt is not included as 2025 revenue for now because 2025 SUSA class 8 revenue for January is EUR 0.00, and the 2024 FS workbook shows the matching Riot debtor movement in December 2024.
+- Verification: Workbook read-back confirmed the source-only row exists and Summary still shows operating revenue EUR 8,031.10, business expenses EUR 825.95, and business net PNL EUR 7,205.15.
+- Limitations or gaps: Final reviewer should confirm the 2024 taxable treatment before filing 2025.
+
 ## 2026-05-25 - TPL Rebase And Accounting Persona Follow-Up
 
 - User request: Rebase the TPL branch from master/main, use the accounting Richmond Blackwood persona, and finish the missing TPL follow-up work.
@@ -867,6 +885,24 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
 - Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.
 
+## 2026-05-26 - Aaron 2025 Payroll Withholding Correction
+
+- User request: Explain why January and April had no wage tax withheld and read the actual payslip PDFs for Aaron's 2025 German personal-tax workbook.
+- Context read: Aaron's workbook source tabs, Notion April/May/June/October payroll rows, AMC bank statement evidence, Drive payroll model/search results, the specified Drive folders, and Aaron repo source files.
+- Actions taken: Corrected the live workbook source tabs for Aaron April and May payroll from blank wage-tax cells to EUR 1,542.50 each with explicit zero payroll social/health deductions. Added Notion comments to the preparation task, filing task, filing row, and April payroll row. Updated Aaron's repo source register, personal-tax-return notes, and open questions.
+- Decisions made: January remains no Aaron AMC employment payroll because the Notion employment record starts on 2025-02-11. April/May withholding is supported by the June Notion payroll comment, which states tax class 3 applied from 1 April, monthly net was EUR 6,457.50, and June included EUR 797.33 catch-up for both April and May, plus bank LSt 0425/0525 remittances.
+- Verification: Notion readback confirmed the April/May/June payroll source facts and comment creation IDs. Drive search and folder listing did not surface Drive copies of the April/May payslip PDFs; the client-provided folder contains DATEV CSVs and the 2025 SUSA PDF. Workbook read-back confirmed combined wage tax withheld EUR 15,199.80, gross employment income EUR 86,976.00, operating revenue EUR 8,031.10, business expenses EUR 825.95, business/freelance net PNL EUR 7,205.15, income after deductions before tax-rate calculation EUR 92,915.15, 6 failed checks, and 37 open missing-info items.
+- Limitations or gaps: The actual Notion payslip attachment binaries were not readable through the connector, and browser access was blocked by Notion login. Final filing still needs direct PDF readback or Drive copies of the payslip/annual wage-tax certificate PDFs.
+
+## 2026-05-26 - Aaron April/May Payroll Status Truth-Up
+
+- User request: Confirm whether the wage-tax-withheld values in the Revenue tab came from actual payslip PDF readback, and correct Notion/workbook state if discrepancies were found.
+- Context read: Notion April-December 2025 payroll rows, the Payroll data-source schema, the AMC personal-tax Drive folders, Drive search results for Aaron payslip filenames, and the live workbook `Revenue` tab.
+- Actions taken: Set the Notion April and May payroll `Tax Amount` fields to EUR 1,542.50, added page comments explaining the payroll/bank basis and unresolved PDF readback, and changed the live workbook April/May revenue rows from `Ready` to `Needs direct payslip PDF readback`.
+- Decisions made: Leave April/May Notion `Net Payment` at EUR 5,660.17 because that appears to be the cash amount paid before the June catch-up, not the modeled payroll net. Continue to use EUR 1,542.50 wage tax in the tax workbook because it is supported by LSt 0425/0525 and the June correction comment, but do not treat those two rows as final-ready until the PDFs or annual wage-tax certificate are read directly.
+- Verification: Notion readback confirmed April and May `Tax Amount` = EUR 1,542.50 and the May page-level comment. Sheets readback confirmed April/May revenue rows have wage tax EUR 1,542.50, review status `Needs direct payslip PDF readback`, and notes stating the PDFs still need direct readback.
+- Limitations or gaps: Actual payslip PDF binaries remain unread because Notion exposes only internal attachment handles through the connector and Drive search did not find separate PDF copies.
+
 ## 2026-05-26 - Hamburg Contact Availability Hard Gate
 
 - User request: Fix the Hamburg contact with no linked availability and make the repository remember that availability is mandatory.
@@ -875,3 +911,93 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Page-body schedule text is not enough for the calling bot. The Front Office Contact must have linked `Availabilities` relation records, and Codex should stop setup until that relation is fixed and fetched back.
 - Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
 - Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
+
+## 2026-05-26 - Aaron 2025 DATEV Line-Level Correction
+
+- User request: Fix Aaron's 2025 German personal-tax workbook because the SUSA/DATEV summaries and linked booking stack were not reflected 1:1, especially revenue sources and pre-VAT expenses.
+- Context read: Aaron's workbook `Revenue`, `Expenses`, `Raw DATEV 2025`, `Tax Analysis`, `Summary`, and `Checks`; DATEV/SUSA PDF `188650 - 2025.pdf`; January and February 2025 DATEV CSVs; Aaron repo source files; Notion preparation/filing tasks and filing row.
+- Actions taken: Replaced aggregate DATEV business revenue and expense rows with line-level source rows. `Revenue` now has the two pre-VAT P&L lines: Riot EUR 7,870.29 and Twitch EUR 160.81. `Expenses` now has 21 DATEV expense-account rows totaling EUR 825.95 pre-VAT/source amount. `Raw DATEV 2025` now shows the P&L rows plus source-only debtor/bank clearing, January Riot debtor receipt, VAT payment, and opening-balance rows. Added Notion comments to the preparation task, filing task, and filing row, and updated Aaron repo records.
+- Decisions made: The linked `10P0...` booking stack was added line by line, but it is internally identified as February 2025. Clearing rows, VAT prepayment, opening balance, and the January Riot debtor receipt remain source-only rather than additional personal income-tax revenue/expense rows.
+- Verification: Google Sheets read-back confirmed the changed input/source ranges. Workbook export/read-back confirmed operating revenue EUR 8,031.10, business expenses EUR 825.95, business net P&L EUR 7,205.15, failed checks 6, and open missing-info count 37.
+- Limitations or gaps: Confirm whether a separate March 2025 DATEV booking stack exists. Final filing still needs payroll certificate/PDF readback, spouse certificate, deductible/investment/direct-tax-payment confirmations, and separate VAT/trade-tax wrap-up review.
+
+## 2026-05-26 - Aaron 2025 Spouse Employee Lump-Sum Correction
+
+- User request: Check whether Aaron's wife/Antje also receives the employee lump sum against her employment income in the joint 2025 German personal-tax analysis.
+- Context read: Aaron's live workbook `Deductibles`, `Tax Analysis`, `Summary`, and `Revenue`; Aaron repo personal-tax notes; official EStG sources for the Arbeitnehmer-Pauschbetrag and joint assessment.
+- Actions taken: Added a second `employee-lump-sum` baseline row in the workbook `Deductibles` input/source tab for spouse/Antje, with official source URLs and a review note. Calculation tabs were not edited; the existing `Tax Analysis` formula now sums both baseline rows.
+- Decisions made: For the joint filing, Aaron and Antje each get a EUR 1,230 Arbeitnehmer-Pauschbetrag comparator because both have salary-employment income; the baseline remains source-only/comparator treatment and is not double-counted in `Included Deduction EUR`.
+- Verification: Google Sheets write-response and compact follow-up readback confirmed Summary employment work expenses used increased from EUR 1,230.00 to EUR 2,460.00, total deductions are EUR 2,496.00, income after deductions before final tax-rate calculation is EUR 91,685.15, failed workbook checks remain 6, and open missing-info count is 39.
+- Limitations or gaps: Final filing still needs direct payslip/annual wage-tax certificate readback for Aaron and Antje plus the other open workbook review flags.
+
+## 2026-05-26 - Aaron 2025 Hallescher Health Certificate Cross-Check
+
+- User request: Cross-check Aaron's local Hallescher/Feather 2025 health-insurance tax certificate against the 2025 German personal-tax workbook, upload it to the appropriate Drive evidence folder, and log it in Communications as Long Living.
+- Context read: Local PDF metadata/text, Aaron's 2025 client-provided Drive folder, the live workbook `Deductibles`, `Tax Analysis`, and `Summary` tabs, Aaron's Notion individual record, and an existing RB Communications record to infer the current schema.
+- Actions taken: Uploaded the PDF to Aaron's 2025 client-provided documents folder, created a Long Living Communications record linked to Aaron, updated only workbook input/source rows in `Deductibles`, and added Notion comments to the preparation task, filing task, and filing row.
+- Decisions made: Replace the provisional EUR 8,280 private-health estimate with certificate-backed net basic health/care EUR 5,609.79. Record the EUR 814.85 non-basic/additional private-insurance amount as review-only with included amount EUR 0.00 until final Vorsorgeaufwand cap and ELSTER treatment are reviewed.
+- Verification: PDF extraction with `pypdf`, SHA-256 source hash capture, Drive folder listing after upload, Google Sheets read-back of `Deductibles`, `Tax Analysis`, and `Summary`, Notion Communications read-back, and Notion comment creation all completed. Summary now shows income after deductions before tax-rate calculation EUR 86,075.36, failed workbook checks 6, and open missing-info count 38.
+- Limitations or gaps: Final filing still needs payroll certificate/PDF readback, non-basic insurance treatment review, and the existing investment/home-office/direct-tax-payment/student-loan checks.
+
+## 2026-05-26 - Aaron 2025 Spouse Vorsorgeaufwand Correction
+
+- User request: Check what happened to Aaron's wife/Antje's insurance after Aaron's Hallescher amount was deducted.
+- Context read: Aaron workbook `Revenue`, `Deductibles`, `Summary`, `Tax Analysis`, and `Raw Payroll 2025`; Aaron repo personal-tax notes and source register.
+- Actions taken: Added two `Deductibles` input/source rows for Antje: pension/social EUR 1,570.86 and health-insurance EUR 942.96, linked to the wife payslip communication and AMC Liquidity source. Formula/calculation tabs were not edited. Added Notion comments to the preparation task, filing task, and filing row.
+- Decisions made: The amounts were already present in `Revenue!G13:H13` but were not tax-effecting because the template's Vorsorgeaufwand summary only sums `Deductibles`. Include them now for the joint filing while retaining the annual wage-tax certificate/direct payslip PDF readback flag.
+- Verification: Sheets read-back confirmed `Deductibles!A21:W22`, Summary pension/retirement EUR 1,570.86, health/care EUR 6,552.75, other personal deductions EUR 8,159.61, total deductions EUR 10,619.61, income after deductions EUR 83,561.54, failed checks 6, and open missing-info count 38. Notion returned successful comment IDs for the preparation task, filing task, and filing row.
+- Limitations or gaps: Antje's annual certificate or direct PDF readback is still required before final filing, including any health/care split confirmation needed for ELSTER.
+
+## 2026-05-26 - Aaron 2025 VAT Review Tab
+
+- User request: Check whether the workbook has the VAT information and show where to see which freelance revenue is subject to VAT.
+- Context read: Aaron's live workbook `Raw DATEV 2025`, `Revenue`, `Category Rules`, and the existing DATEV source/register notes.
+- Actions taken: Added workbook tab `VAT Review 2025` as a source/review tab, leaving formula/calculation tabs untouched. The tab shows the loaded freelance VAT split, exact Drive source URLs, and VAT reconciliation source-only rows. Added Notion comments to the preparation task, filing task, and filing row.
+- Decisions made: For the currently loaded DATEV rows, Riot Games Services is domestic 19% VAT revenue with EUR 7,870.29 net, EUR 1,495.36 VAT, and EUR 9,365.65 gross. Twitch is third-country/non-taxable in Germany with EUR 160.81 net/gross and EUR 0 VAT. The tab is not a standalone VAT return calculation.
+- Verification: Google Sheets read-back confirmed `VAT Review 2025!A1:L17`, including source URLs for `10P0...` and `10E8...`, the EUR 8,031.10 net freelance revenue total, EUR 1,495.36 output VAT on loaded revenue rows, EUR 34.45 input VAT on bookkeeping, EUR 2,628.79 January VAT prepayment source-only, and the EUR 16,464.53 January Riot debtor receipt source-only. Notion returned successful comment IDs `36ce4130-1314-8104-b4fb-001daefc7837`, `36ce4130-1314-818f-9b1f-001d52b57b20`, and `36ce4130-1314-816c-9166-001ddb207c6c`.
+- Limitations or gaps: Confirm whether there is a separate March 2025 or Q1 2025 final VAT source pack beyond the currently loaded DATEV rows before completing the VAT/trade-tax wrap-up and deregistration review.
+
+## 2026-05-26 - Aaron 2025 EÜR Revenue Split
+
+- User request: Split `Tax Analysis` row 3 into revenue subject to VAT and revenue without VAT, and reflect the split in `Summary`, for Aaron's client workbook only.
+- Context read: Official 2025 Anlage EÜR / ELSTER help for business revenue lines, Aaron workbook `Tax Analysis`, `Summary`, `Revenue`, `Raw DATEV 2025`, and `VAT Review 2025`.
+- Actions taken: Inserted client-only rows in `Tax Analysis` so freelance revenue is shown as VATable net revenue, non-taxable/§13b-style net revenue, and net total before expenses. Added matching `Summary` EÜR rows for VATable revenue, non-taxable/§13b-style revenue, total net operating revenue, collected VAT, and business expenses. Added Notion comments to the preparation task, filing task, and filing row.
+- Decisions made: Keep the collected VAT row source-only for EÜR/VAT reconciliation and outside the net P&L calculation, because the workbook's business P&L still uses pre-VAT net revenue and pre-VAT expense rows.
+- Verification: Summary read-back confirmed VATable operating revenue net EUR 7,870.29, non-taxable/§13b-style operating revenue net EUR 160.81, operating revenue net total EUR 8,031.10, collected VAT EUR 1,495.36, business expenses EUR 825.95, business/freelance net P&L EUR 7,205.15, income after deductions EUR 83,561.54, failed checks 6, and open missing-info count 38. Direct `Tax Analysis` read-back hit Google Sheets read quota twice after the write, but the Summary formula read-back confirmed the shifted `Tax Analysis` references and output values.
+- Limitations or gaps: Confirm final VAT/trade-tax source pack and deregistration evidence before treating the VAT/trade-tax wrap-up as complete.
+
+## 2026-05-26 - Aaron 2025 Analysis Handoff
+
+- User request: Update the filing task and mark the accepted analysis task completed.
+- Context read: Notion preparation task `https://www.notion.so/360e4130131481b881aad86ffaf1b958`, filing task `https://www.notion.so/36be41301314819bb2fdc42eb47d202d`, and Tasks data-source schema.
+- Actions taken: Marked the preparation task `Done` with a 2026-05-26 completion timestamp, set the filing task `Review Link` to the workbook URL, left the filing task `In Progress`, and added handoff comments to both tasks.
+- Decisions made: Do not mark the filing task done because filing has not been submitted and the handoff still lists payroll certificate/PDF readback, final deductible/investment/tax-payment/home-office/student-finance/non-basic-health review, failed workbook checks/open missing info, and separate VAT/trade-tax deregistration evidence.
+- Verification: Notion read-back confirmed the preparation task `Status` is `Done` with `Marked Complete` on 2026-05-26, and the filing task `Status` is `In Progress` with the workbook URL in `Review Link`. Comment creation returned IDs `36ce4130-1314-81d8-9026-001dbc32f664` and `36ce4130-1314-8197-ab82-001d44ec74e5`.
+- Limitations or gaps: Filing task remains open for Johnpaul and final filing checks remain before submission.
+
+## 2026-05-27 - Aaron 2025 Workbook Drive Access Fix
+
+- User request: Find where Aaron's 2025 German personal-tax workbook was saved because a teammate could not access it, and move it to the right folder.
+- Context read: Drive metadata for workbook `https://docs.google.com/spreadsheets/d/1_CprHOA6XIxEvYxa527Sp3ykCVJT1dLvsF6IDMfXxwA/edit`, Aaron's shared 2025 folder `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`, and the Aaron 2025 folder listing.
+- Actions taken: Moved the workbook from connector Drive parent `0APO_eChhDoQPUk9PVA` into Aaron's shared 2025 Drive folder. Added comments to the filing task and filing row noting the unchanged workbook URL, corrected folder, and access read-back.
+- Decisions made: Use the 2025 folder root, not the nested client-provided-documents folder, because the root already contains the Aaron tax template/workbook-level material and has the RB teammate permissions.
+- Verification: Drive read-back confirmed parent `113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1`, folder listing showed the workbook in the 2025 folder, and permissions included writer access for `johnpaul.okolie@richmondblackwood.com` and `accounting@richmondblackwood.com`. Notion comment creation returned IDs `36de4130-1314-816a-a806-001d721a7a84` and `36de4130-1314-81fe-8a6e-001db70a279c`.
+- Limitations or gaps: Workbook content was not changed in this access-only fix; final filing flags from the analysis handoff remain open.
+
+## 2026-05-27 - Aaron 2025 ELSTER Wage Certificate Reconciliation
+
+- User request: Address a reviewer comment before filing: reconcile Aaron's ELSTER-imported 2025 Lohnsteuerbescheinigung against the workbook, use ELSTER as primary unless the workbook has stronger evidence, and confirm direct prepayments, KAP/SO/investment items, and EÜR status before submission.
+- Context read: Aaron workbook `Revenue`, `Raw Payroll 2025`, `Summary`, `Setup`, `Tax Payments`, `Investment Lots`, investment event tabs, `Checks`, and `Missing Info`; Drive/Notion/repo searches for Aaron 2025 direct prepayment and investment/KAP/SO evidence; Notion filing task and filing row.
+- Actions taken: Reworked `Revenue` so Aaron's counted payroll source is the ELSTER-imported annual certificate row: gross EUR 72,000.00, wage tax EUR 13,882.50, Soli EUR 0.00. Monthly Aaron payroll rows were removed from counted `Revenue` totals and retained in `Raw Payroll 2025` as source-only audit trail. Antje remains on the official annual certificate. Updated `Setup` with no evidence found for direct personal ESt prepayments or investment/KAP/SO items, while keeping final confirmation open. Added Notion comments to the filing task and filing row.
+- Decisions made: ELSTER's `Übernommen aus Bescheinigung` import is the stronger filing source for Aaron wage tax than the monthly Notion/payroll reconstruction, which previously summed to EUR 14,095.86. Do not mark direct prepayments or investment/KAP/SO as confirmed none without final filer/client confirmation.
+- Verification: Summary read-back confirmed employment gross EUR 89,048.72, wage tax withheld / known withholding EUR 15,343.55, KAP/SO/investment income EUR 0.00, business/freelance net P&L EUR 7,205.15, VATable revenue EUR 7,870.29, non-taxable/third-country revenue EUR 160.81, failed checks 5, and open missing-info count 28. `Tax Payments` read-back showed only headers. Investment tabs showed no populated entries. Notion comment creation returned IDs `36de4130-1314-81e9-af92-001d2c6ce2a9` and `36de4130-1314-81e7-be9c-001d55512687`.
+- Limitations or gaps: No submission was made. Remaining workbook checks are prior-year opening links, investment confirmation, deductible review, tax-credit review, and direct tax payment confirmation; separate VAT/trade-tax/deregistration wrap-up remains outside the personal-return submission.
+
+## 2026-05-27 - Aaron Corrected Lohnsteuerbescheinigung Upload
+
+- User request: Provide the source document link for Aaron's ELSTER-imported 2025 wage certificate, then upload the operator-provided corrected Lohnsteuerbescheinigung PDF with the December payslip if it was not already uploaded.
+- Context read: Aaron's 2025 client-provided Drive folder, existing SteuerGo employment-tax-statement PDF, AMC employment/payroll relation, December 2025 payroll row, and workbook `Revenue` Aaron annual certificate row.
+- Actions taken: Uploaded `Aaron-Richard_Chamberlain_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-05.pdf` to Aaron's 2025 client-provided Drive folder at `https://drive.google.com/file/d/1LPMa-c-h85E3-RndzcYrlOOv_WguFjnG/view?usp=drivesdk`. Updated workbook `Revenue` row `REV-AARON-ELSTER-LOHNSTEUERBESCHEINIGUNG-2025` so the evidence URL points directly to the uploaded PDF and the payroll record URL points to the December 2025 payroll row. Added comments to the December 2025 payroll row and filing task.
+- Decisions made: The existing Drive file `2025_beleg_employment_tax_statement_lstb_Aaron_Chamberlain.pdf` is a SteuerGo Beleg extraction with the same filing figures, but the operator-provided Lexware correction PDF was uploaded separately because the exact local document was not already present.
+- Verification: Drive metadata confirmed the uploaded PDF in folder `1oyXCmXYXqZCivQVciE2K6JFVSzzAV4cL`; workbook read-back confirmed `Revenue!T4:U4` points to the new Drive file and December payroll row; Notion comment read-back confirmed the December payroll page link.
+- Limitations or gaps: The corrected Lohnsteuerbescheinigung is linked as Drive evidence and via a December payroll comment rather than replacing the existing Notion `Payslip` file property, to avoid overwriting the original December payslip attachment.
