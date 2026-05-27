@@ -191,10 +191,10 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Request or confirm lower German VAT filing cadence after the VAT/compliance position is clear.
 - Confirm the additional information requested by Finanzamt for the filed NACV 2024/2025 company taxes and whether RB's response has been accepted.
 - Complete the split of misrouted 2024 personal-tax documents from Andrei's 2025 folder.
-- Confirm spouse-related evidence completeness for Andrei's joint returns.
+- Confirm spouse-related evidence completeness for Andrei's joint returns. Elena's 2025 wage-tax certificate supports a separate employee lump-sum baseline in the 2025 workbook, but the filer should still confirm final joint-return handling.
 - Confirm billing mechanics for normal-fee treatment from Andrei's 2025 personal-tax filing onward.
 - Confirm Andrei's official personal/director address with him; user says it is not 100 percent clear.
-- Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
+- Extract or upload Andrei's NACV Sep-Dec 2025 payslip PDFs from the Notion payroll records or Lexoffice; the workbook now links the payroll rows but still needs exact wage tax, pension/social, health/care, and other-insurance splits.
 - Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
 - Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung covering June/August and severance/final payment before filing.
 - Confirm 2025 WFH qualifying days and whether to keep Vodafone/telephone and utility costs excluded to avoid overlap with employee lump-sum/WFH treatment.
