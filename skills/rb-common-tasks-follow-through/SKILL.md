@@ -51,6 +51,9 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Do not save German `W-IdNr` values. If a communication only provides a `W-IdNr` or asks RB to store it, treat that as a verified no-op unless there is a separate operational action; if action is needed, create the action without storing the number.
 - Do not use raw timestamp ranges as user-facing Slack copy. Use a human window label such as "yesterday's client follow-through" or "the May 18 corrective rerun" and keep exact timestamps inside packets.
 - Never describe an unsent Slack preview as "corrected"; use "corrected" only when replacing or superseding a Slack message that was actually sent.
+- Ioana-authored or Ioana-approved Slack templates are the final source of truth. Do not improvise section labels, message shape, or level of detail when such a template exists.
+- For client follow-through Slack closeouts, use the latest available Ioana-approved `#rb-client-updates` client follow-through template from Notion/canonical Communications unless the operator provides a newer exact template. Current known template shape uses a short first-person completion line followed by `New Correspondence`, `Received invoices`, and `Updated tasks`. Do not replace this with ad hoc sections such as `Completed/recorded`, `Owner updates`, or `Skipped per operator instruction`.
+- If the Ioana template cannot be located, cannot fit the run, or required template fields/links/mentions cannot be resolved, stop with a blocker packet and ask for the exact template or explicit approval of a degraded version. Do not post manually or through Slack MCP until the template issue is resolved.
 - Stage 12 Slack copy must read like a human operator update, not an automation trace. Do not include background source-marker mechanics, Codex/internal process actions, checkpoint details, or no-reply/no-action rows that do not matter to humans. Include only actionable or useful business context, with named Notion links.
 - When addressing people in Slack, resolve Slack user IDs and use `<@USERID>` mentions so assignees are notified. Do not use bare names for addressed action rows unless the Slack ID cannot be resolved; if unresolved, say so in the packet and avoid implying a notification will fire.
 
@@ -237,6 +240,8 @@ Auto-approved stage: write and print the packet, then continue directly to Stage
 Build one `#rb-client-updates` message after task closeout.
 
 Include communications handled, invoices/expenses/contracts updated, tasks closed, tasks advanced, owner action list, replies sent/snoozed, and blockers.
+
+Before drafting the message, locate and apply the Ioana-approved template for the relevant update type. For client follow-through, the current known template sections are `New Correspondence`, `Received invoices`, and `Updated tasks`; include blockers inline only where the template does. If a newer Ioana template exists, use that newer template exactly.
 
 The message must be a readable rendered preview, not a fenced Markdown block and not a raw internal packet. It must sound like it was written by the operator or another human team member.
 

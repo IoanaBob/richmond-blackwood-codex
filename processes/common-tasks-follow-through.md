@@ -155,6 +155,9 @@ Slack closeout text must be a rendered, readable preview with named links and `N
 
 Slack closeout quality rules:
 
+- Ioana-authored or Ioana-approved Slack templates are the source of truth and override improvised formatting. For client follow-through, use the latest available Ioana-approved `#rb-client-updates` client follow-through template from Notion/canonical Communications unless the operator provides a newer exact template.
+- The current known client follow-through template shape is a short first-person completion line followed by `New Correspondence`, `Received invoices`, and `Updated tasks`. Do not substitute ad hoc sections such as `Completed/recorded`, `Owner updates`, or `Skipped per operator instruction`.
+- If the template cannot be located, cannot fit the run, or required links/mentions cannot be resolved, stop and ask for the exact template or explicit approval of a degraded version before posting.
 - Write like the operator or a human team member, not like an automation report.
 - Do not include background Gmail label, source-marker, checkpoint, packet, or Codex-process mechanics in the Slack body.
 - Hyperlink all items in `Incoming handled`, `Replies coming up`, and `Blocked`.
