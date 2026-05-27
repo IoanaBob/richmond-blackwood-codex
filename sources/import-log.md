@@ -1829,3 +1829,25 @@ Unresolved:
 - Obtain Andrei's final 2025 MRM payslip or 2025 Lohnsteuerbescheinigung to reconcile June/August payroll and severance.
 - Confirm WFH day count and avoid overlap with phone/utility actual-cost claims unless explicitly approved.
 - Final filer should review the workbook's remaining failed checks/open missing-info rows before filing; read-back on 2026-05-27 showed these are expected from missing final payroll evidence and unresolved optional deductions/credits.
+
+## 2026-05-27 - Andrei 2025 Payroll And Spouse Allowance Correction
+
+Imported:
+
+- User correction in Codex chat on 2026-05-27 questioning whether the MRM May payslip included severance, pointing out NACV employment from September/October 2025 with healthcare and pension in payslips, and asking whether Elena's allowance can be applied.
+- MRM May payslip `https://drive.google.com/file/d/11rPZcRgXZF-wLHlDIQCRCF5LqYYU69CQ/view?usp=drivesdk`.
+- NACV employment record `https://www.notion.so/25fe4130131480649c1afeba93b44af8`.
+- NACV payroll runs `https://www.notion.so/25fe41301314803e8106f2ef4ae23c23`, `https://www.notion.so/27ee41301314817ab64bc205d0b603b1`, `https://www.notion.so/29de41301314813baa32ce50a8e943b0`, and `https://www.notion.so/2bae413013148152b268e178a053a1a8`.
+
+Actions:
+
+- Rechecked the MRM May payslip and recorded that no `Abfindung`, `Einmalzahlung`, or severance line is visible and `Austritt` is blank; the August MRM bank transfer remains the final/severance candidate pending final payroll evidence.
+- Added NACV Sep-Dec 2025 payroll rows to the 2025 workbook, using Notion page fields where exposed and marking all NACV rows as needing payroll tax/social extraction.
+- Added separate pending NACV pension, health/care, and other-insurance deductible rows so the missing NACV deductions are explicit and not inferred from net pay or separate-insurance page fields.
+- Added Elena's second employee lump-sum baseline to the workbook because her 2025 wage-tax certificate shows employment income.
+- Added Notion correction comments to the 2025 filing row, preparation task, and filing task.
+
+Unresolved:
+
+- Extract the NACV payslip PDF contents or upload the PDFs to Drive so the workbook can populate exact wage tax, pension/social, health/care, and other-insurance figures for Sep-Dec 2025.
+- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung for June/August and severance/final-payment treatment.
