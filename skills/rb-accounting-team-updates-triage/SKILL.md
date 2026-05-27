@@ -18,13 +18,26 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 7. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
 8. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
 
-## Source Scope
+## Packet Workflow
+
+Packet mode is required. Use `/private/tmp/rb-accounting-team-updates-triage/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and one `stage-XX-<short-name>.md` packet per stage. Each packet must be written to disk and printed in chat before moving on.
+
+The exact packet filenames, required fields, and recovery rules are defined in `references/stage-packet-protocol.md`; do not restate the full protocol here.
+
+Shared gates:
+
+- No Notion task write, Team Updates write-back, or task comment happens before Stage 3 Routing Plan approval.
+- No Slack send happens before Stage 5 exact-message approval, unless a future explicit standard-closeout auto-approval is added.
+- Stop despite auto-approval if a packet introduces dirty or conflicted git state, a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record/target schema/write-back method, unexpected live mutation, or connector degradation that makes routing unsafe.
+
+### Stage 1 - Run Preflight
+
+Source scope:
 
 - Team Updates database: `https://www.notion.so/1e4e413013148065a944d94dc14c6ddf`
 - Team Updates data source: `collection://1e4e4130-1314-8090-9cd7-000b1c19d92f`
 - Filter for `Team = Accounting`.
 - Use the `Date` property for the current working day in `Europe/Dublin`; page title wording is not authoritative.
-- If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
 
 Slack context:
 
@@ -33,7 +46,23 @@ Slack context:
 - `#rb-structuring` (`C0AMDDTNSFL`)
 - `#all-richmond-blackwood` (`C0ALBMSLL5A`)
 
-Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
+Auto-approval:
+
+- Stage 1 is auto-approved after its packet is written and printed only when the worktree is clean, `git pull origin main` succeeds, and no conflicts appear.
+
+### Stage 2 - Source Context
+
+Source reads:
+
+- If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
+- Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
+
+Section rules:
+
+- Treat `New client inbounds` as observed / out of scope; count and report the section, but do not route those lines into tasks from this skill.
+- Process only `Any blockers?` and `What are the action points today?` / `Action points`.
+- Treat checked items as likely already handled from the prior day. Do not create new tasks from checked items unless the text or linked Notion record clearly remains open.
+- For unchecked blockers/action points, verify linked Notion page/task mentions first.
 
 Slack read rules:
 
@@ -43,41 +72,21 @@ Slack read rules:
 - Exclude messages sent by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Analyze only human-authored source messages.
 - Preserve Slack message or thread links in the local ledger when a Slack message affects a task decision.
 
-## Section Rules
-
-- Treat `New client inbounds` as observed / out of scope; count and report the section, but do not route those lines into tasks from this skill.
-- Process only `Any blockers?` and `What are the action points today?` / `Action points`.
-- Treat checked items as likely already handled from the prior day. Do not create new tasks from checked items unless the text or linked Notion record clearly remains open.
-- For unchecked blockers/action points, verify linked Notion page/task mentions first.
-
-## Packet Workflow
-
-Packet mode is required. Use `/private/tmp/rb-accounting-team-updates-triage/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and one `stage-XX-<short-name>.md` packet per stage. Each packet must be written to disk and printed in chat before moving on.
-
-Stages:
-
-1. Run Preflight.
-2. Source Context.
-3. Routing Plan.
-4. Notion Write Results.
-5. Slack Closeout Plan.
-6. Slack Send And Run Closeout.
-
 Auto-approval:
 
-- Stage 1 is auto-approved after its packet is written and printed only when the worktree is clean, `git pull origin main` succeeds, and no conflicts appear.
 - Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet.
-- No Notion task write, Team Updates write-back, or task comment happens before Stage 3 Routing Plan approval.
-- No Slack send happens before Stage 5 exact-message approval, unless a future explicit standard-closeout auto-approval is added.
-- Stop despite auto-approval if a packet introduces dirty or conflicted git state, a new destination, broad Slack mention, unresolved owner/project/source meaning/owning operational record/target schema/write-back method, unexpected live mutation, or connector degradation that makes routing unsafe.
 
-## Task Routing
+### Stage 3 - Routing Plan
+
+Task routing:
 
 Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` only for extra action work or when the owning task-capable operational row cannot represent the action. Use Richmond Blackwood Backlog `https://www.notion.so/25de4130131481769758f5f2d465a141` only for truly RB-internal work. Client-related actions must resolve the responsible Company record and its linked client project; if that project is not readable, Stage 3 must mark the item `unresolved`.
 
 Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
 
-## Write-Back And Verification
+### Stage 4 - Notion Write Results
+
+Write-back and verification:
 
 Before task writes, confirm that the Team Updates page can be updated through a page-body edit or an actual page comment. After every approved task create/update/comment or operational-row update:
 
@@ -92,7 +101,9 @@ Verify by reading back:
 - the Team Updates page routing note, task link, and checkbox state when changed;
 - any skipped checked item that was reviewed because it appeared still open.
 
-## Slack Completion Notice
+### Stage 5 - Slack Closeout Plan
+
+Slack completion notice:
 
 After task create/update operations and the Team Updates write-back have been read back successfully, prepare exactly one Stage 5 completion notice to `#rb-client-updates` when at least one blocker/action-point task was created, updated, or commented. Send it only after the exact Stage 5 Slack text is approved, unless a future explicit standard-closeout auto-approval is added.
 
@@ -118,10 +129,15 @@ Rules:
 - If routing blockers remain, add only a short phrase such as `One item needs routing review; details are on the page.`
 - Do not include private source content, connector mechanics, skipped placeholder text, or broad mentions such as `@here` or `@channel`.
 - Do not post Slack on a no-op run where no blocker/action-point task was created, updated, or commented. Record the no-op on the Team Updates page and in the final report.
+
+### Stage 6 - Slack Send And Run Closeout
+
+Slack send:
+
 - If Slack sending fails or the Slack connector is unavailable, do not roll back verified Notion work. Add a Team Updates page note for the Slack blocker and report it.
 - No other outbound Slack or app messages are part of this automation.
 
-## Output
+Output:
 
 Return a concise run report with:
 
