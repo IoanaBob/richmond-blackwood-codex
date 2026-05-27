@@ -1945,3 +1945,29 @@ Verification:
 Unresolved:
 
 - Do not submit until the final filer/client confirms no direct personal ESt prepayments and no investment/KAP/SO items, and reviews the remaining deductible/tax-credit/prior-year-opening checks. VAT/trade-tax/deregistration wrap-up remains separate from this personal-return workbook.
+
+## 2026-05-27 - Aaron Corrected 2025 Lohnsteuerbescheinigung Upload
+
+Imported:
+
+- Operator follow-up asking for the document link behind Aaron's ELSTER-imported 2025 Lohnsteuerbescheinigung.
+- Local file `/Users/ioana/Downloads/Aaron-Richard_Chamberlain_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-05.pdf`.
+- Aaron December 2025 payroll row `https://www.notion.so/2bae4130131481deb38af737dbc97155`.
+- Aaron 2025 client-provided Drive folder `https://drive.google.com/drive/folders/1oyXCmXYXqZCivQVciE2K6JFVSzzAV4cL`.
+
+Actions:
+
+- Uploaded the corrected 2025 Lohnsteuerbescheinigung PDF to Drive: `https://drive.google.com/file/d/1LPMa-c-h85E3-RndzcYrlOOv_WguFjnG/view?usp=drivesdk`.
+- Updated workbook `Revenue` row `REV-AARON-ELSTER-LOHNSTEUERBESCHEINIGUNG-2025` so `Evidence URL` points to the uploaded Drive PDF and `Payroll Record URL` points to the December 2025 payroll row.
+- Added Notion comments to the December payroll row and filing task with the direct Drive evidence link.
+- Updated Aaron's individual source register, personal-tax notes, durable history, and skill-run ledger.
+
+Verification:
+
+- Drive metadata read-back confirmed the uploaded PDF filename, type, parent folder, and file URL.
+- Workbook read-back confirmed `Revenue!T4:U4` contains the new Drive PDF and December payroll row links.
+- Notion comment read-back confirmed the December payroll comment and Drive link.
+
+Unresolved:
+
+- The original Notion December `Payslip` file property was not overwritten. The corrected Lohnsteuerbescheinigung is linked by Drive evidence and payroll-row comment to preserve the existing December payslip attachment.

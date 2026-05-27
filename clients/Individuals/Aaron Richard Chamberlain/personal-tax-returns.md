@@ -106,6 +106,7 @@ Workbook creation note:
 - On 2026-05-26, a `VAT Review 2025` source/review tab was added to make the freelance VAT split visible without editing formula tabs. It points to `Raw DATEV 2025`, `Revenue`, and `Category Rules` as the source tabs.
 - On 2026-05-26, the client workbook only was adjusted so `Tax Analysis` and `Summary` split the freelance/EÜR revenue into VATable and non-taxable/§13b-style buckets. The maintained template was not changed.
 - On 2026-05-27, Aaron's monthly payroll rows were moved out of counted `Revenue` totals and retained in `Raw Payroll 2025` as source-only audit trail. `Revenue` now uses the ELSTER-imported annual Lohnsteuerbescheinigung row for Aaron as the filing source: gross wages EUR 72,000.00, wage tax EUR 13,882.50, solidarity surcharge EUR 0.00.
+- On 2026-05-27, the operator-supplied corrected 2025 Lohnsteuerbescheinigung PDF was uploaded to Drive at `https://drive.google.com/file/d/1LPMa-c-h85E3-RndzcYrlOOv_WguFjnG/view?usp=drivesdk`. The workbook `Revenue` Aaron annual certificate row now uses that exact Drive URL as evidence and links to the December 2025 payroll row at `https://www.notion.so/2bae4130131481deb38af737dbc97155`.
 
 Input summary captured:
 
@@ -115,7 +116,7 @@ Input summary captured:
 - January DATEV shows a EUR 16,464.53 Riot Games Services bank receipt against debtor account 11801, but 2025 SUSA class 8 revenue for January is EUR 0.00 and the 2024 FS workbook shows the matching Riot debtor movement in December 2024. The receipt is recorded source-only unless final basis review finds it was not taxed in 2024.
 - Claimed source-backed business expenses currently loaded: EUR 825.95 across 21 DATEV expense rows, made up of bank fees EUR 22.68, Uber/travel DATEV expense-account bookings EUR 621.97, and bookkeeping net expense EUR 181.30. The rows are no longer month/category aggregates.
 - Provisional freelance/business net before tax-form adjustments: EUR 7,205.15.
-- Aaron employment loaded from ELSTER-imported 2025 Lohnsteuerbescheinigung: EUR 72,000.00 gross wages, EUR 13,882.50 wage tax, EUR 0.00 solidarity surcharge. Monthly payroll rows remain in `Raw Payroll 2025` as audit trail only; they previously summed to EUR 14,095.86 wage tax and are no longer the filing source.
+- Aaron employment loaded from ELSTER-imported / corrected 2025 Lohnsteuerbescheinigung: EUR 72,000.00 gross wages, EUR 13,882.50 wage tax, EUR 0.00 solidarity surcharge. The direct Drive evidence is `https://drive.google.com/file/d/1LPMa-c-h85E3-RndzcYrlOOv_WguFjnG/view?usp=drivesdk`. Monthly payroll rows remain in `Raw Payroll 2025` as audit trail only; they previously summed to EUR 14,095.86 wage tax and are no longer the filing source.
 - Wife/Antje official 2025 Lohnsteuerbescheinigung loaded: EUR 17,048.72 gross wages, EUR 1,461.05 wage tax, pension/social net-reconciliation amount EUR 1,519.06, and health/care net-reconciliation amount EUR 1,651.70.
 - Combined employment gross loaded: EUR 89,048.72.
 - Combined wage tax loaded: EUR 15,343.55.
@@ -149,13 +150,13 @@ Excluded or source-only items:
 - The 30 January 2025 Riot receipt of EUR 16,464.53 was recorded as source-only because DATEV posts it to debtor account 11801 rather than a 2025 revenue account, and the 2024 FS workbook shows the matching December 2024 Riot debtor movement.
 - User clarified on 2026-05-25 that the previous accountant vetted the DATEV entries, so the January/February expense-account bookings are claimed in the workbook using exact DATEV CSV evidence URLs.
 - Non-expense DATEV balance-sheet, clearing, private-transfer, bank-transfer, VAT payment, and opening-balance rows remain source-only and are not treated as personal-income-tax expenses. The user-linked `10P0...` booking stack is internally titled February 2025; all P&L rows from that file are loaded line by line, while debtor/bank clearing and VAT prepayment rows are source-only.
-- Aaron monthly payroll rows remain source-only in `Raw Payroll 2025`; the ELSTER-imported annual certificate is the primary filing source for Aaron's gross wages and wage tax.
+- Aaron monthly payroll rows remain source-only in `Raw Payroll 2025`; the ELSTER-imported / corrected annual certificate is the primary filing source for Aaron's gross wages and wage tax.
 - Student Finance evidence in the 2025 client-provided folder was recorded as debt/source context, not claimed as a German deductible.
 - The earlier Hallescher private-health estimate of EUR 8,280 is superseded by the uploaded Hallescher/Feather 2025 certificate. The certificate-backed net basic health/care amount is claimed; the EUR 814.85 non-basic/additional amount remains review-only and is not included yet.
 
 Remaining filing flags:
 
-- Aaron's ELSTER-imported 2025 wage certificate is now the primary wage-tax source; treat monthly payroll rows only as audit trail unless stronger certificate evidence appears.
+- Aaron's ELSTER-imported / corrected 2025 wage certificate is now directly uploaded and is the primary wage-tax source; treat monthly payroll rows only as audit trail unless stronger certificate evidence appears.
 - Treat January as no Aaron AMC employment payroll unless later evidence contradicts the Notion employment record, which starts on 2025-02-11.
 - Confirm final joint filing identifiers/details and use Antje's official annual wage-certificate values loaded in the workbook.
 - Confirm no missing direct German income-tax prepayments beyond wage withholding; VAT/trade-tax items stay separate and no direct personal ESt prepayment rows are currently loaded.
