@@ -16,6 +16,7 @@ Review: Direct Kristjan WhatsApp contact search returned no match; use the resol
 
 ## Recent Communication Context
 
+- Gmail `19e466661c8d01c8` on 2026-05-20 is the outgoing TK insurance-duty review bundle for SVL/Kristjan employment context. Notion Communication `https://www.notion.so/367e4130131481ec97ddded1fda701a3` was moved to `Logged` on 2026-05-22 after the image-only PDFs were OCR-reviewed, the German TK documents were translated, and the raw OCR export was stored separately in Drive. Pointers are in `drive-locations.md`.
 - WhatsApp on 2026-05-13 confirms SVL does not yet have a VAT number and that 806985 is the company registration number.
 - WhatsApp on 2026-05-07 to 2026-05-11 covers freelancer deregistration inputs and individual ELSTER access setup for Kristjan; route individual details to `../../Individuals/KRISTJAN MAR OLAFSSON/`.
 - WhatsApp on 2026-05-01 captured the Mediainvesting monthly invoicing input route: ask Kristjan for hours worked and all bonuses; he shared a Google Sheet for April hours/bonus support.
