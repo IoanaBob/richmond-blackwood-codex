@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; Meetings database/action-point instruction from user on 2026-05-28; previous-action-point carryover instruction from user on 2026-05-28; active-task context matching instruction from user on 2026-05-28
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -40,6 +40,23 @@ For the same working-day/run window, read human-authored messages in these chann
 
 Exclude messages authored by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Slack is supporting context for blockers, action points, owner corrections, completion signals, duplicate/superseded work, and review routing; it is not a replacement source for Team Updates and must not be used here to process `New client inbounds`.
 
+Meeting notes:
+
+- Database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
+- Data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
+- Use `skills/rb-meeting-notes-action-points/SKILL.md` to find/read the current-day Richmond Blackwood meeting note.
+- Prefer `Companies` relation containing Richmond Blackwood (`https://www.notion.so/2d9e4130131480e68232ce1b2c7c313b`), current-day `Event time`, and the note closest to the calendar invite/event time when no automatic match exists.
+- Fetch transcript/action items when available and compare them with yesterday's and today's Accounting Team Updates.
+- Extract and save task-relevant meeting context, not just explicit action items. Stage 3 must match that context against the full active task list assigned to the RB team.
+
+Active RB team task inventory:
+
+- Data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
+- Team users: Ioana Surdu-Bob, Johnpaul Okolie, and Simoneta Vicente from `internal/people-roles.md`.
+- Stage 2 must pull active tasks assigned to those users with status `To Do`, `In Progress`, `In Review`, or `Blocked`.
+- Store task URL, title, status, assignee, project, labels, due date, last edited time, and enough task/page/comment context for Stage 3 matching.
+- If the connector cannot return the full inventory, record the exact blocker/degradation. Stage 3 must not claim exhaustive matching and must avoid unsafe creates/appends that depend on the missing inventory.
+
 ## Sections To Process
 
 The page may include:
@@ -51,11 +68,26 @@ The page may include:
 
 Rules:
 
-- Ignore `What was achieved yesterday?` unless it links to an open blocker that is also repeated in the blockers/action-points sections.
+- Ignore `What was achieved yesterday?` as a carryover baseline unless it links to an open blocker that is also repeated in the blockers/action-points sections.
 - Treat `New client inbounds` as observed / out of scope; count and report it, but do not route it from this skill because `rb-common-tasks-follow-through` owns client inbound reading and routing.
 - Process `Any blockers?`.
 - Process `What are the action points today?` / `Action points`.
-- Treat checked items as likely already handled from the previous day. Do not create new tasks from checked items unless the linked record or text still says the item is open.
+- Treat checked items in today's blocker/action-point sections as likely already handled. Do not create new tasks from checked current-day items unless the linked record or text still says the item is open.
+- Stage 2 reads yesterday's and today's Accounting Team Updates plus current-day meeting notes. Yesterday's `Action points` section is the carryover baseline. Stage 3 must classify each prior action point as handled/completed or not completed; handled points can be proposed for today's `What was achieved yesterday?`, and incomplete points must be carried into today's `Action points`.
+
+## Team Updates Fill Plan
+
+Stage 3 must include a read-only fill plan for today's Accounting Team Updates before live writes:
+
+- proposed `What was achieved yesterday?` bullets from yesterday's action points that have evidence of completion or handling; do not copy yesterday's checked `What was achieved yesterday?` rows into today's achievements;
+- carryover action points from yesterday's action points that are not completed, with existing task links where known;
+- blocker/action-point review against the meeting transcript;
+- missing transcript action points that should be added to today's Team Updates;
+- task-relevant meeting context to append to existing active RB team tasks, matched against the full Stage 2 active task inventory;
+- rows that are already checked/completed and should not create duplicate tasks;
+- unresolved meeting-note items where owner, project, or source meaning is unclear.
+
+Do not update the Team Updates page with this plan until Stage 4 executes an approved packet.
 
 ## Task Handling
 
@@ -137,7 +169,7 @@ Required packet files:
 
 1. **Run Preflight**: current date/window, clean/dirty/conflicted git status, `git pull origin main` result, Notion/Slack connector availability, Team Updates query, Slack channel IDs, and ChatGPT/Codex exclusion rule.
 2. **Source Context**: Team Updates page, section rows, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
-3. **Routing Plan**: atomic create/update/comment/skip proposal for each blocker/action point item, owning data source/row, company, project source, exact schema/property write payload, assignee, reviewer, due date, verified assignee Slack mention, dedupe evidence, write-back method, and unresolved decisions.
+3. **Routing Plan**: Team Updates fill/action plan; atomic create/update/comment/skip proposal for each blocker/action point or missing meeting-note action item, owning data source/row, company, project source, exact schema/property write payload, assignee, reviewer, due date, verified assignee Slack mention, dedupe evidence, write-back method, and unresolved decisions.
 4. **Notion Write Results**: task/operational-row create/update/comment links, owner/status/project/reviewer/due-date read-back, exact payload executed, Team Updates write-back read-back, and unresolved rows.
 5. **Slack Closeout Plan**: exact standard Slack notice with Team Updates link, created and updated/commented task links, verified assigned-person mentions, Slack mention resolution table, and any short unresolved-item phrase.
 6. **Slack Send And Run Closeout**: Slack message link, communication/log backlinks when used, verification summary, preserved scratch path, and final blocker list.
@@ -157,6 +189,7 @@ Read back every task, Team Updates write-back, and Slack send result before repo
 Final report:
 
 - page processed and date;
+- meeting note processed and selection reason;
 - count of `New client inbounds` observed / out-of-scope items;
 - blockers/action points reviewed;
 - tasks created;

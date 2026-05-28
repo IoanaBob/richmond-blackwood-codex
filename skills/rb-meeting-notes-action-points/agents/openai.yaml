@@ -1,0 +1,3 @@
+display_name: Meeting Notes
+short_description: Reads RB meeting notes and matches action/context snippets to active tasks.
+default_prompt: Use $rb-meeting-notes-action-points inside Accounting Team Updates triage to find today's Richmond Blackwood meeting note, extract transcript action items and task-relevant context, compare yesterday/today Team Updates, match context against the active RB team task inventory, and propose Team Updates fill/context append text without live writes.
