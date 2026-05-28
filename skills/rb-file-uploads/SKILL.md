@@ -26,6 +26,24 @@ Use this skill whenever a local or cloud file should be preserved for Richmond B
 7. For native Google Docs that have already been edited through the connector, export/upload PDF with `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`.
 8. Update the relevant repo memory, source register, import log, tasks, and handoff.
 
+## Client Export Folder Map (WEW Current)
+
+For WEW offboarding/handover exports, keep this exact root structure:
+
+- `1.Bookkeeping Archive`
+- `2.Filings`
+- `3.Co-Sec`
+- `4.Correspondence`
+- `5.Contracts`
+- `6.Payroll`
+- `7.Personal Tax Filings`
+- `8.Registrations`
+
+Required subfolder rules:
+
+- `4.Correspondence`: always split into `Incoming` and `Outgoing`; route current-year correspondence by direction.
+- `6.Payroll`: create one subfolder per person and verify payroll entries per linked employment before marking payroll complete.
+
 ## Boundaries
 
 Do not commit live credentials, private keys, certificate bundles, credential exports, OAuth vault files, token responses, or unsafe secret material. Store large raw documents in Drive when they do not need always-on Codex access.
