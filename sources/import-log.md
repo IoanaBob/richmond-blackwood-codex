@@ -1807,3 +1807,21 @@ Actions:
 Unresolved:
 
 - Internal Knowledge Base mirror is pending because the Notion connector returned `Auth required` for page `https://www.notion.so/367e413013148175b709e35f31d37821`.
+
+## 2026-05-28 - Accounting Meeting Notes Source
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-28 that Accounting Team Updates triage should read meeting notes/action points from the Meetings database `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`.
+- Meetings database schema fetched from data source `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`.
+- Richmond Blackwood company page verified as `https://www.notion.so/2d9e4130131480e68232ce1b2c7c313b`.
+
+Actions:
+
+- Added read-only skill `skills/rb-accounting-meeting-notes-action-points/SKILL.md` with current-day Richmond Blackwood meeting-note selection, transcript/action extraction, yesterday/today Team Updates comparison, and Team Updates fill-plan guidance.
+- Updated `skills/rb-accounting-team-updates-triage/SKILL.md`, `skills/rb-accounting-team-updates-routing/SKILL.md`, `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`, and `processes/accounting-team-updates-triage.md` so Stage 2 reads meeting notes plus yesterday/today Team Updates and Stage 3 includes a Team Updates fill/action plan.
+
+Unresolved:
+
+- Mirror the updated Accounting Team Updates SOP to the Internal Knowledge Base once Notion page update access is available.
+- Validate the meeting-note matching rule on the next live weekday run where multiple Richmond Blackwood meeting notes exist.

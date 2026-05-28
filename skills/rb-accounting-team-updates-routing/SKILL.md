@@ -17,15 +17,16 @@ Read:
 2. `processes/accounting-team-updates-triage.md`;
 3. `processes/notion-operations.md`;
 4. `internal/people-roles.md`;
-5. linked Notion task/page records needed to understand source rows;
-6. responsible Company records, client project relations, and owning operational rows when a source row is client-related;
-7. target Notion data source schemas before proposing writes.
+5. current-day meeting-note extraction and Team Updates fill plan source rows from `rb-accounting-meeting-notes-action-points`;
+6. linked Notion task/page records needed to understand source rows;
+7. responsible Company records, client project relations, and owning operational rows when a source row is client-related;
+8. target Notion data source schemas before proposing writes.
 
-Route only `Any blockers?` and `What are the action points today?` / `Action points`. Treat `New client inbounds` as observed / out of scope.
+Route only `Any blockers?`, `What are the action points today?` / `Action points`, and missing current-day meeting-note action items that the Stage 3 fill plan says belong in today's Accounting Team Updates. Treat `New client inbounds` as observed / out of scope.
 
 ## Routing Strategy
 
-First split source rows into atomic routing items. A single Team Updates line may contain multiple companies, tasks, approvals, or next actions. Preserve the original source row ID, but produce one routing item and one decision per atomic action.
+First split source rows into atomic routing items. A single Team Updates or meeting-note action line may contain multiple companies, tasks, approvals, or next actions. Preserve the original source row ID, but produce one routing item and one decision per atomic action.
 
 For each atomic routing item, produce exactly one decision:
 
@@ -64,6 +65,7 @@ Stage 3 must include a routing table with these columns:
 - `checkbox_state`
 - `source_links`
 - `source_entity_url`
+- `source_origin`
 - `slack_source_links`
 - `scope`
 - `responsible_company`

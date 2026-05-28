@@ -1,0 +1,3 @@
+display_name: Accounting Meeting Notes
+short_description: Reads RB meeting notes and compares transcript action items with Team Updates.
+default_prompt: Use $rb-accounting-meeting-notes-action-points inside Accounting Team Updates triage to find today's Richmond Blackwood meeting note, extract transcript action items, compare yesterday/today Team Updates, and propose Team Updates fill text without live writes.

@@ -1,6 +1,6 @@
 ---
 name: rb-accounting-team-updates-triage
-description: "Use for the separate packet-gated Richmond Blackwood weekday 11:00 Accounting Team Updates run that reads the current working day's Team Updates page plus bounded human Slack context, treats New client inbounds as observed/out of scope, creates or updates Notion tasks from blockers and action points, and posts the standard Slack completion notice."
+description: "Use for the separate packet-gated Richmond Blackwood weekday 11:00 Accounting Team Updates run that reads the current and prior Accounting Team Updates pages, current-day RB meeting notes/transcripts, plus bounded human Slack context, treats New client inbounds as observed/out of scope, creates or updates Notion tasks from blockers and action points, proposes Team Updates fill text, and posts the standard Slack completion notice."
 ---
 
 # RB Accounting Team Updates Triage
@@ -13,10 +13,11 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 2. Read `processes/notion-operations.md` for Notion task and comment rules.
 3. Read `internal/people-roles.md` before assigning tasks.
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
-5. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
-6. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
-7. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
-8. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
+5. During Stage 2 and Stage 3, read and apply `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find current-day Richmond Blackwood meeting notes, extract transcript/action items, compare yesterday/today Team Updates, and propose Team Updates fill/action-plan text. That skill is read-only and must not perform live writes.
+6. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
+7. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
+8. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
+9. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
 
 ## Packet Workflow
 
@@ -55,6 +56,8 @@ Auto-approval:
 Source reads:
 
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
+- Fetch yesterday's Accounting Team Updates page for Richmond Blackwood as comparison context.
+- Apply `rb-accounting-meeting-notes-action-points` to read the current-day Richmond Blackwood meeting note from the Meetings database. If the note is not matched automatically, use the meeting note closest to the calendar invite/event time; if no event-time evidence exists, choose the strongest current-day Richmond Blackwood candidate and record the selection reason.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
 Section rules:
@@ -83,6 +86,13 @@ Task routing:
 Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` only for extra action work or when the owning task-capable operational row cannot represent the action. Use Richmond Blackwood Backlog `https://www.notion.so/25de4130131481769758f5f2d465a141` only for truly RB-internal work. Client-related actions must resolve the responsible Company record and its linked client project; if that project is not readable, Stage 3 must mark the item `unresolved`.
 
 Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
+
+Stage 3 must also include a `Team Updates Fill Plan` from `rb-accounting-meeting-notes-action-points`:
+
+- proposed bullets for today's `What was achieved yesterday?`;
+- meeting-note-backed review of today's blockers/action points;
+- missing transcript action points that should be added to today's Team Updates;
+- checked/completed action points that should be treated as already handled unless another source says they remain open.
 
 ### Stage 4 - Notion Write Results
 
@@ -144,6 +154,7 @@ Output:
 Return a concise run report with:
 
 - Team Updates page processed;
+- meeting note processed and selection reason;
 - `New client inbounds` observed / out-of-scope count;
 - blockers/action points reviewed;
 - tasks created, updated, or skipped as already handled;
