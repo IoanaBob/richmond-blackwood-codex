@@ -13,7 +13,7 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 2. Read `processes/notion-operations.md` for Notion task and comment rules.
 3. Read `internal/people-roles.md` before assigning tasks.
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
-5. During Stage 2 and Stage 3, read and apply `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find current-day Richmond Blackwood meeting notes, extract transcript/action items, compare yesterday/today Team Updates, and propose Team Updates fill/action-plan text. That skill is read-only and must not perform live writes.
+5. During Stage 2 and Stage 3, read and apply `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find current-day Richmond Blackwood meeting notes, extract transcript/action items, compare yesterday/today Team Updates, classify yesterday's action points as handled or carried forward, and propose Team Updates fill/action-plan text. That skill is read-only and must not perform live writes.
 6. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
 7. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
 8. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
@@ -56,7 +56,7 @@ Auto-approval:
 Source reads:
 
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
-- Fetch yesterday's Accounting Team Updates page for Richmond Blackwood as comparison context.
+- Fetch yesterday's Accounting Team Updates page for Richmond Blackwood as comparison context. Capture yesterday's `Action points` section separately; this section is the baseline for what should be marked handled in today's `What was achieved yesterday?` or carried forward into today's `Action points`.
 - Apply `rb-accounting-meeting-notes-action-points` to read the current-day Richmond Blackwood meeting note from the Meetings database. If the note is not matched automatically, use the meeting note closest to the calendar invite/event time; if no event-time evidence exists, choose the strongest current-day Richmond Blackwood candidate and record the selection reason.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
@@ -64,7 +64,8 @@ Section rules:
 
 - Treat `New client inbounds` as observed / out of scope; count and report the section, but do not route those lines into tasks from this skill.
 - Process only `Any blockers?` and `What are the action points today?` / `Action points`.
-- Treat checked items as likely already handled from the prior day. Do not create new tasks from checked items unless the text or linked Notion record clearly remains open.
+- Treat checked items in today's blocker/action-point sections as likely already handled. Do not create new tasks from checked current-day items unless the text or linked Notion record clearly remains open.
+- Do not use checked rows from yesterday's `What was achieved yesterday?` section as the source for today's achievements. For the fill plan, start from yesterday's `Action points`, classify each item using task status/write-back/meeting/Slack evidence, then carry forward any item that is not completed.
 - For unchecked blockers/action points, verify linked Notion page/task mentions first.
 
 Slack read rules:
@@ -89,7 +90,8 @@ Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and prod
 
 Stage 3 must also include a `Team Updates Fill Plan` from `rb-accounting-meeting-notes-action-points`:
 
-- proposed bullets for today's `What was achieved yesterday?`;
+- proposed bullets for today's `What was achieved yesterday?`, based on yesterday's action points that have evidence of completion or handling;
+- carryover action points from yesterday's action points that are not completed;
 - meeting-note-backed review of today's blockers/action points;
 - missing transcript action points that should be added to today's Team Updates;
 - checked/completed action points that should be treated as already handled unless another source says they remain open.

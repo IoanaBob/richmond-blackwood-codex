@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; Meetings database/action-point instruction from user on 2026-05-28
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; Meetings database/action-point instruction from user on 2026-05-28; previous-action-point carryover instruction from user on 2026-05-28
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -59,18 +59,19 @@ The page may include:
 
 Rules:
 
-- Ignore `What was achieved yesterday?` unless it links to an open blocker that is also repeated in the blockers/action-points sections.
+- Ignore `What was achieved yesterday?` as a carryover baseline unless it links to an open blocker that is also repeated in the blockers/action-points sections.
 - Treat `New client inbounds` as observed / out of scope; count and report it, but do not route it from this skill because `rb-common-tasks-follow-through` owns client inbound reading and routing.
 - Process `Any blockers?`.
 - Process `What are the action points today?` / `Action points`.
-- Treat checked items as likely already handled from the previous day. Do not create new tasks from checked items unless the linked record or text still says the item is open.
-- Stage 2 reads yesterday's and today's Accounting Team Updates plus current-day meeting notes. Stage 3 must use those sources to review whether today's action points are complete, stale, missing, or still actionable.
+- Treat checked items in today's blocker/action-point sections as likely already handled. Do not create new tasks from checked current-day items unless the linked record or text still says the item is open.
+- Stage 2 reads yesterday's and today's Accounting Team Updates plus current-day meeting notes. Yesterday's `Action points` section is the carryover baseline. Stage 3 must classify each prior action point as handled/completed or not completed; handled points can be proposed for today's `What was achieved yesterday?`, and incomplete points must be carried into today's `Action points`.
 
 ## Team Updates Fill Plan
 
 Stage 3 must include a read-only fill plan for today's Accounting Team Updates before live writes:
 
-- proposed `What was achieved yesterday?` bullets from yesterday's Team Updates, meeting notes, or verified Slack context;
+- proposed `What was achieved yesterday?` bullets from yesterday's action points that have evidence of completion or handling; do not copy yesterday's checked `What was achieved yesterday?` rows into today's achievements;
+- carryover action points from yesterday's action points that are not completed, with existing task links where known;
 - blocker/action-point review against the meeting transcript;
 - missing transcript action points that should be added to today's Team Updates;
 - rows that are already checked/completed and should not create duplicate tasks;

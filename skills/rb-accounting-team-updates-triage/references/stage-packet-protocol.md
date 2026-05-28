@@ -98,7 +98,7 @@ Purpose: read source material without deciding live mutations.
 Execution:
 
 1. Read the current-day Accounting Team Updates page and verify `Team`, `Date`, and company context.
-2. Read the previous working day's Accounting Team Updates page for the same Richmond Blackwood Accounting scope.
+2. Read the previous working day's Accounting Team Updates page for the same Richmond Blackwood Accounting scope. Capture its `Action points` section separately as the carryover baseline; do not use checked rows from its `What was achieved yesterday?` section to populate today's achievements.
 3. Apply `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find and read the current-day Richmond Blackwood meeting note from the Meetings database. If not matched automatically, choose the note closest to the calendar invite/event time and record the selection reason; if no safe match exists, record the blocker.
 4. Split Team Updates rows by section.
 5. Count `New client inbounds` as observed / out of scope.
@@ -109,7 +109,7 @@ Execution:
 Required packet fields:
 
 - Team Updates page URL, properties, and section rows;
-- previous working day's Team Updates page URL, properties, and section rows;
+- previous working day's Team Updates page URL, properties, section rows, and explicit prior-day `Action points` carryover baseline;
 - meeting note URL, properties, transcript/action-item summary, candidate-selection reason, and any meeting-note read degradation;
 - exact Notion and per-channel Slack query bounds, including timezone and preflight timestamp;
 - `New client inbounds observed / out of scope` count and a short note that inbound routing belongs to `rb-common-tasks-follow-through`;
@@ -130,7 +130,7 @@ Execution:
 1. Read `skills/rb-accounting-team-updates-routing/SKILL.md`.
 2. Read `skills/rb-accounting-meeting-notes-action-points/SKILL.md`.
 3. Apply both skills to the Stage 2 Source Context packet.
-4. Produce a `Team Updates Fill Plan` from yesterday's Team Updates, today's current Team Updates, and the meeting transcript/action items before the routing table.
+4. Produce a `Team Updates Fill Plan` from yesterday's action points, today's current Team Updates, and the meeting transcript/action items before the routing table. Classify each prior-day action point as handled/completed or not completed; put handled items in the proposed `What was achieved yesterday?` and carry incomplete items into the proposed current-day action points.
 5. Split source rows into atomic routing items where one line contains multiple actions.
 6. Fetch linked Notion tasks/pages, responsible Company records, client project relations, task-capable operational rows, and target schemas needed to decide ownership, dedupe, project, reviewer, status, due date, and write payloads.
 7. Produce a routing table with one decision per atomic blocker/action-point item, including missing meeting-note action items that should be added to today's Team Updates.
@@ -141,7 +141,7 @@ Execution:
 Required packet fields for every blocker/action point:
 
 - source section and exact line text;
-- whether the row came from today's Team Updates, yesterday's Team Updates comparison, or current-day meeting notes/transcript;
+- whether the row came from today's Team Updates, yesterday's Team Updates action-point carryover comparison, or current-day meeting notes/transcript;
 - source row ID and atomic routing item ID;
 - checkbox state and linked Notion pages/tasks;
 - source entity URL used in routing comments/write-backs; use the Team Updates page URL when no more specific source row or block URL is available;

@@ -1820,6 +1820,7 @@ Actions:
 
 - Added read-only skill `skills/rb-accounting-meeting-notes-action-points/SKILL.md` with current-day Richmond Blackwood meeting-note selection, transcript/action extraction, yesterday/today Team Updates comparison, and Team Updates fill-plan guidance.
 - Updated `skills/rb-accounting-team-updates-triage/SKILL.md`, `skills/rb-accounting-team-updates-routing/SKILL.md`, `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`, and `processes/accounting-team-updates-triage.md` so Stage 2 reads meeting notes plus yesterday/today Team Updates and Stage 3 includes a Team Updates fill/action plan.
+- Tightened the fill-plan rule after user clarification: use yesterday's `Action points` as the carryover baseline, put only completed/handled prior action points in today's `What was achieved yesterday?`, and carry incomplete prior action points into today's `Action points`; do not copy yesterday's checked `What was achieved yesterday?` rows.
 
 Unresolved:
 

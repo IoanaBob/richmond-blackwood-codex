@@ -26,6 +26,7 @@ Use this skill only as read-only source support for `rb-accounting-team-updates-
 4. If a calendar invite or meeting event time is available, choose the matching note closest to the invite time. If there are multiple plausible notes with no clear closest match, mark the meeting-note source unresolved rather than guessing.
 5. Fetch the selected meeting page with transcript when supported.
 6. Also fetch yesterday's and today's Accounting Team Updates pages for Richmond Blackwood so the transcript can be compared to what was already recorded and what changed today.
+7. Treat yesterday's `Action points` section as the carryover baseline. Do not populate today's `What was achieved yesterday?` by copying checked rows from yesterday's `What was achieved yesterday?` section.
 
 ## Extraction
 
@@ -41,9 +42,9 @@ Extract into the Stage 2 packet:
 
 Use the meeting-note extraction to produce a Team Updates fill/action plan:
 
-- `What was achieved yesterday`: proposed concise bullets supported by yesterday's Team Updates, meeting transcript, or Slack context.
+- `What was achieved yesterday`: proposed concise bullets only for yesterday's action points that have evidence of completion or handling, supported by task status/read-back, Team Updates write-back, meeting transcript, or Slack context.
 - `Any blockers?`: proposed blockers only when the transcript names a concrete ask/blocker.
-- `Action points`: review today's Team Updates action points against the meeting transcript and mark each as supported, stale/completed, missing, or unresolved.
+- `Action points`: carry forward yesterday's action points that are not completed, then review today's Team Updates action points against the meeting transcript and mark each as supported, stale/completed, missing, or unresolved.
 - `Missing action points from transcript`: propose action-point rows only when owner/action/source are clear enough for Stage 3 routing.
 
 Do not perform live Notion writes from this skill. The output feeds the Stage 3 packet; Stage 4 can write only after the updated Stage 3 plan is approved.
