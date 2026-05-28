@@ -15,7 +15,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-form-fill-assist`: read inbound forms/questionnaires, draft field-level answers from RB context, and route only unresolved questions to a human owner.
 - `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and verified Gmail draft fallback rules for `accounting@richmondblackwood.com` using shared global Codex auth storage.
 - `rb-common-tasks-follow-through`: packet-reviewed, task-first Gmail/WhatsApp communication follow-through across every task-capable RB Client Databases data source.
-- `rb-accounting-meeting-notes-action-points`: read current-day Richmond Blackwood meeting notes/transcripts, compare them with yesterday/today Accounting Team Updates, and produce read-only action-point and Team Updates fill plans.
+- `rb-meeting-notes-action-points`: read Richmond Blackwood meeting notes/transcripts, compare them with Team Updates and active RB team tasks, and produce read-only action-point, context-append, and Team Updates fill plans.
 - `rb-accounting-team-updates-triage`: packet-gated weekday Accounting Team Updates task routing from blockers/action points, with verified Notion write-back and the standard `#rb-client-updates` completion notice.
 - `rb-accounting-team-updates-routing`: Stage 3 planning-only routing decisions for Accounting Team Updates packets; produces create/update/skip/unresolved rows and performs no live writes.
 - `rb-signature-workflow`: run generic SignNow, Google Doc transform, and PDF signing-plan helper workflows.

@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; Meetings database/action-point instruction from user on 2026-05-28; previous-action-point carryover instruction from user on 2026-05-28
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; Meetings database/action-point instruction from user on 2026-05-28; previous-action-point carryover instruction from user on 2026-05-28; active-task context matching instruction from user on 2026-05-28
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -44,9 +44,18 @@ Meeting notes:
 
 - Database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
 - Data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
-- Use `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find/read the current-day Richmond Blackwood meeting note.
+- Use `skills/rb-meeting-notes-action-points/SKILL.md` to find/read the current-day Richmond Blackwood meeting note.
 - Prefer `Companies` relation containing Richmond Blackwood (`https://www.notion.so/2d9e4130131480e68232ce1b2c7c313b`), current-day `Event time`, and the note closest to the calendar invite/event time when no automatic match exists.
 - Fetch transcript/action items when available and compare them with yesterday's and today's Accounting Team Updates.
+- Extract and save task-relevant meeting context, not just explicit action items. Stage 3 must match that context against the full active task list assigned to the RB team.
+
+Active RB team task inventory:
+
+- Data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
+- Team users: Ioana Surdu-Bob, Johnpaul Okolie, and Simoneta Vicente from `internal/people-roles.md`.
+- Stage 2 must pull active tasks assigned to those users with status `To Do`, `In Progress`, `In Review`, or `Blocked`.
+- Store task URL, title, status, assignee, project, labels, due date, last edited time, and enough task/page/comment context for Stage 3 matching.
+- If the connector cannot return the full inventory, record the exact blocker/degradation. Stage 3 must not claim exhaustive matching and must avoid unsafe creates/appends that depend on the missing inventory.
 
 ## Sections To Process
 
@@ -74,6 +83,7 @@ Stage 3 must include a read-only fill plan for today's Accounting Team Updates b
 - carryover action points from yesterday's action points that are not completed, with existing task links where known;
 - blocker/action-point review against the meeting transcript;
 - missing transcript action points that should be added to today's Team Updates;
+- task-relevant meeting context to append to existing active RB team tasks, matched against the full Stage 2 active task inventory;
 - rows that are already checked/completed and should not create duplicate tasks;
 - unresolved meeting-note items where owner, project, or source meaning is unclear.
 

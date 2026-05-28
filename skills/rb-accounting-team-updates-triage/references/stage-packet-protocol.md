@@ -99,18 +99,22 @@ Execution:
 
 1. Read the current-day Accounting Team Updates page and verify `Team`, `Date`, and company context.
 2. Read the previous working day's Accounting Team Updates page for the same Richmond Blackwood Accounting scope. Capture its `Action points` section separately as the carryover baseline; do not use checked rows from its `What was achieved yesterday?` section to populate today's achievements.
-3. Apply `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find and read the current-day Richmond Blackwood meeting note from the Meetings database. If not matched automatically, choose the note closest to the calendar invite/event time and record the selection reason; if no safe match exists, record the blocker.
-4. Split Team Updates rows by section.
-5. Count `New client inbounds` as observed / out of scope.
-6. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
-7. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
-8. Write and print `stage-02-source-context.md`.
+3. Apply `skills/rb-meeting-notes-action-points/SKILL.md` to find and read the current-day Richmond Blackwood meeting note from the Meetings database. If not matched automatically, choose the note closest to the calendar invite/event time and record the selection reason; if no safe match exists, record the blocker.
+4. Pull the full active Tasks inventory assigned to the RB team users from `internal/people-roles.md` using Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e`, statuses `To Do`, `In Progress`, `In Review`, and `Blocked`. Include task URL, title, status, assignee, project, labels, due date, last edited time, and enough page/body/comment context for meeting-context matching.
+5. If the full task inventory cannot be pulled, record the exact connector gap and fallback scope. Stage 3 must then treat meeting-context matching as incomplete and must not claim exhaustive dedupe/context matching.
+6. Split Team Updates rows by section.
+7. Count `New client inbounds` as observed / out of scope.
+8. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
+9. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
+10. Write and print `stage-02-source-context.md`.
 
 Required packet fields:
 
 - Team Updates page URL, properties, and section rows;
 - previous working day's Team Updates page URL, properties, section rows, and explicit prior-day `Action points` carryover baseline;
 - meeting note URL, properties, transcript/action-item summary, candidate-selection reason, and any meeting-note read degradation;
+- active RB team task inventory query bounds, completeness status, active task rows, and any fallback/degraded search results;
+- saved meeting context snippets that may append to existing tasks, with source meeting-note URL and matching hints;
 - exact Notion and per-channel Slack query bounds, including timezone and preflight timestamp;
 - `New client inbounds observed / out of scope` count and a short note that inbound routing belongs to `rb-common-tasks-follow-through`;
 - relevant human-authored Slack messages and new thread context by channel;
@@ -128,20 +132,22 @@ Purpose: propose all task and write-back decisions before mutation.
 Execution:
 
 1. Read `skills/rb-accounting-team-updates-routing/SKILL.md`.
-2. Read `skills/rb-accounting-meeting-notes-action-points/SKILL.md`.
+2. Read `skills/rb-meeting-notes-action-points/SKILL.md`.
 3. Apply both skills to the Stage 2 Source Context packet.
-4. Produce a `Team Updates Fill Plan` from yesterday's action points, today's current Team Updates, and the meeting transcript/action items before the routing table. Classify each prior-day action point as handled/completed or not completed; put handled items in the proposed `What was achieved yesterday?` and carry incomplete items into the proposed current-day action points.
+4. Produce a `Team Updates Fill Plan` from yesterday's action points, today's current Team Updates, the meeting transcript/action items, and the Stage 2 active RB team task inventory before the routing table. Classify each prior-day action point as handled/completed or not completed; put handled items in the proposed `What was achieved yesterday?` and carry incomplete items into the proposed current-day action points.
 5. Split source rows into atomic routing items where one line contains multiple actions.
-6. Fetch linked Notion tasks/pages, responsible Company records, client project relations, task-capable operational rows, and target schemas needed to decide ownership, dedupe, project, reviewer, status, due date, and write payloads.
-7. Produce a routing table with one decision per atomic blocker/action-point item, including missing meeting-note action items that should be added to today's Team Updates.
-8. For unclear ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
-9. Do not leave a row unresolved only because no existing task or operational row was found. If owner, responsible company/project, source action, and Tasks schema are clear, propose a new task. Every unresolved row must explain why creating a new task is unsafe.
-10. Write and print `stage-03-routing-plan.md`, then stop for approval.
+6. Match saved meeting context snippets against the full active RB team task inventory from Stage 2. If a snippet materially helps an existing active task, propose an append/comment on that task. If the full inventory is unavailable, either return to Stage 2 or mark the match as non-exhaustive and avoid unsafe create/comment decisions.
+7. Fetch linked Notion tasks/pages, responsible Company records, client project relations, task-capable operational rows, and target schemas needed to decide ownership, dedupe, project, reviewer, status, due date, context append, and write payloads.
+8. Produce a routing table with one decision per atomic blocker/action-point item and per task-relevant meeting-context snippet, including missing meeting-note action items that should be added to today's Team Updates.
+9. For unclear ownership, project, source meaning, owning operational record, target schema, Team Updates write-back method, or incomplete active-task inventory, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
+10. Do not leave a row unresolved only because no existing task or operational row was found. If owner, responsible company/project, source action, full active-task inventory, and Tasks schema are clear, propose a new task. Every unresolved row must explain why creating a new task or appending context would be unsafe.
+11. Write and print `stage-03-routing-plan.md`, then stop for approval.
 
 Required packet fields for every blocker/action point:
 
 - source section and exact line text;
 - whether the row came from today's Team Updates, yesterday's Team Updates action-point carryover comparison, or current-day meeting notes/transcript;
+- for meeting-context rows, the active RB team task inventory match status and matched task candidates considered;
 - source row ID and atomic routing item ID;
 - checkbox state and linked Notion pages/tasks;
 - source entity URL used in routing comments/write-backs; use the Team Updates page URL when no more specific source row or block URL is available;
@@ -155,6 +161,7 @@ Required packet fields for every blocker/action point:
 - Team Updates write-back method and text;
 - blockers and unresolved decisions.
 - Team Updates fill/action plan with exact proposed text and write-back/update method.
+- meeting context append plan with exact proposed task comment text, or unresolved reason when no safe active-task match exists.
 
 Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout, or packet text that tells a person an item was routed must include the source entity URL being routed from.
 
@@ -162,7 +169,7 @@ An unresolved decision must include a create-task safety analysis. If the only g
 
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
-The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing` and `Applied skill: rb-accounting-meeting-notes-action-points`.
+The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing` and `Applied skill: rb-meeting-notes-action-points`.
 The routing table columns must match that skill's `Output Table` contract.
 No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit or the row is marked `unresolved` with a concrete create-task unsafe reason.
 

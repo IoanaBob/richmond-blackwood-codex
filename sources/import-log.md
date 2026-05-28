@@ -1808,7 +1808,7 @@ Unresolved:
 
 - Internal Knowledge Base mirror is pending because the Notion connector returned `Auth required` for page `https://www.notion.so/367e413013148175b709e35f31d37821`.
 
-## 2026-05-28 - Accounting Meeting Notes Source
+## 2026-05-28 - Meeting Notes Source
 
 Imported:
 
@@ -1818,9 +1818,11 @@ Imported:
 
 Actions:
 
-- Added read-only skill `skills/rb-accounting-meeting-notes-action-points/SKILL.md` with current-day Richmond Blackwood meeting-note selection, transcript/action extraction, yesterday/today Team Updates comparison, and Team Updates fill-plan guidance.
+- Added read-only skill `skills/rb-meeting-notes-action-points/SKILL.md` with current-day Richmond Blackwood meeting-note selection, transcript/action/context extraction, yesterday/today Team Updates comparison, active RB task matching, and Team Updates fill-plan guidance.
 - Updated `skills/rb-accounting-team-updates-triage/SKILL.md`, `skills/rb-accounting-team-updates-routing/SKILL.md`, `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`, and `processes/accounting-team-updates-triage.md` so Stage 2 reads meeting notes plus yesterday/today Team Updates and Stage 3 includes a Team Updates fill/action plan.
 - Tightened the fill-plan rule after user clarification: use yesterday's `Action points` as the carryover baseline, put only completed/handled prior action points in today's `What was achieved yesterday?`, and carry incomplete prior action points into today's `Action points`; do not copy yesterday's checked `What was achieved yesterday?` rows.
+- Renamed the earlier accounting-specific meeting-notes skill to `rb-meeting-notes-action-points`.
+- Added active RB task inventory and context-append matching requirements: Stage 2 must pull active tasks assigned to RB team users; Stage 3 must match saved meeting context against that full list and propose context appends to active tasks when relevant.
 
 Unresolved:
 

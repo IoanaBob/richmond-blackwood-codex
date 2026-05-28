@@ -13,7 +13,7 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 2. Read `processes/notion-operations.md` for Notion task and comment rules.
 3. Read `internal/people-roles.md` before assigning tasks.
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
-5. During Stage 2 and Stage 3, read and apply `skills/rb-accounting-meeting-notes-action-points/SKILL.md` to find current-day Richmond Blackwood meeting notes, extract transcript/action items, compare yesterday/today Team Updates, classify yesterday's action points as handled or carried forward, and propose Team Updates fill/action-plan text. That skill is read-only and must not perform live writes.
+5. During Stage 2 and Stage 3, read and apply `skills/rb-meeting-notes-action-points/SKILL.md` to find current-day Richmond Blackwood meeting notes, extract transcript/action items and task-relevant context, compare yesterday/today Team Updates, classify yesterday's action points as handled or carried forward, match meeting context against the active RB team task inventory, and propose Team Updates fill/action/context-append plan text. That skill is read-only and must not perform live writes.
 6. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
 7. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
 8. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
@@ -57,7 +57,8 @@ Source reads:
 
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
 - Fetch yesterday's Accounting Team Updates page for Richmond Blackwood as comparison context. Capture yesterday's `Action points` section separately; this section is the baseline for what should be marked handled in today's `What was achieved yesterday?` or carried forward into today's `Action points`.
-- Apply `rb-accounting-meeting-notes-action-points` to read the current-day Richmond Blackwood meeting note from the Meetings database. If the note is not matched automatically, use the meeting note closest to the calendar invite/event time; if no event-time evidence exists, choose the strongest current-day Richmond Blackwood candidate and record the selection reason.
+- Apply `rb-meeting-notes-action-points` to read the current-day Richmond Blackwood meeting note from the Meetings database. If the note is not matched automatically, use the meeting note closest to the calendar invite/event time; if no event-time evidence exists, choose the strongest current-day Richmond Blackwood candidate and record the selection reason.
+- Pull the full active Tasks inventory assigned to the RB team users listed in `internal/people-roles.md` before Stage 3. Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e`, active statuses `To Do`, `In Progress`, `In Review`, and `Blocked`, and include task URL, title, status, assignee, project, labels, due date, last edited time, and enough context for meeting-context matching. If the connector cannot return the full inventory, record the exact degradation in Stage 2 and Stage 3 must not claim exhaustive matching.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
 Section rules:
@@ -88,13 +89,16 @@ Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` only f
 
 Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
 
-Stage 3 must also include a `Team Updates Fill Plan` from `rb-accounting-meeting-notes-action-points`:
+Stage 3 must also include a `Team Updates Fill Plan` from `rb-meeting-notes-action-points`:
 
 - proposed bullets for today's `What was achieved yesterday?`, based on yesterday's action points that have evidence of completion or handling;
 - carryover action points from yesterday's action points that are not completed;
 - meeting-note-backed review of today's blockers/action points;
 - missing transcript action points that should be added to today's Team Updates;
+- task-relevant meeting context matched against the full active RB team task inventory from Stage 2, with proposed append comments for existing in-progress tasks when the context materially helps the task;
 - checked/completed action points that should be treated as already handled unless another source says they remain open.
+
+If the full active RB team task inventory was not pulled in Stage 2, Stage 3 must say the context-to-task match is incomplete and either rerun Stage 2 after the connector gap is resolved or limit proposals to explicitly fetched tasks with a clear non-exhaustive caveat.
 
 ### Stage 4 - Notion Write Results
 

@@ -17,16 +17,16 @@ Read:
 2. `processes/accounting-team-updates-triage.md`;
 3. `processes/notion-operations.md`;
 4. `internal/people-roles.md`;
-5. current-day meeting-note extraction and Team Updates fill plan source rows from `rb-accounting-meeting-notes-action-points`;
+5. current-day meeting-note extraction, saved meeting context snippets, Team Updates fill plan source rows, and active RB team task inventory from `rb-meeting-notes-action-points`;
 6. linked Notion task/page records needed to understand source rows;
 7. responsible Company records, client project relations, and owning operational rows when a source row is client-related;
 8. target Notion data source schemas before proposing writes.
 
-Route only `Any blockers?`, `What are the action points today?` / `Action points`, and missing current-day meeting-note action items that the Stage 3 fill plan says belong in today's Accounting Team Updates. Treat `New client inbounds` as observed / out of scope.
+Route only `Any blockers?`, `What are the action points today?` / `Action points`, missing current-day meeting-note action items that the Stage 3 fill plan says belong in today's Accounting Team Updates, and meeting context snippets that should be appended to existing active tasks. Treat `New client inbounds` as observed / out of scope.
 
 ## Routing Strategy
 
-First split source rows into atomic routing items. A single Team Updates or meeting-note action line may contain multiple companies, tasks, approvals, or next actions. Preserve the original source row ID, but produce one routing item and one decision per atomic action.
+First split source rows into atomic routing items. A single Team Updates or meeting-note action/context line may contain multiple companies, tasks, approvals, context snippets, or next actions. Preserve the original source row ID, but produce one routing item and one decision per atomic action or appendable context snippet.
 
 For each atomic routing item, produce exactly one decision:
 
@@ -43,16 +43,17 @@ Decision rules:
 3. Search task-capable operational rows before Central Tasks. Consider Invoicing, Expenses, Contracts, Filings, Payroll, Assets, Bank Accounts, Filing Registrations, Personal Tax Filings, and other RB Client Databases rows when they can own the action.
 4. Use Richmond Blackwood Backlog only for truly RB-internal work. If a client-related item has no readable company project, choose `unresolved`.
 5. Search for existing tasks by Team Updates page URL, linked page URL, exact or near-exact line text, owner, current date, company, project, and subject.
-6. Reuse the owning task/page/operational row when a source line already links to the correct work item.
-7. Do not choose `unresolved` solely because no matching active task or operational row was found. If the owner, responsible company/project, source action, and Tasks schema are clear, propose `create_task` with source caveats instead.
-8. Do not create duplicate approval tasks. Treat approval wording as review by adding the approver to `Review By` on the owning task or recurring workflow.
-9. For invoice, contractor, expense, or payment approvals, route to the weekly invoice-payables/payables task when it owns the workflow.
-10. Keep assignment on the operational doer. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should default to Simoneta unless the source or user identifies another doer.
-11. Do not assign routine operational work to Ioana by default.
-12. Include `Status = To Do` for active Central Task creates unless the source supports another status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
-13. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
-14. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
-15. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task. For every `unresolved` row, explicitly state why creating a new task is unsafe.
+6. Match meeting context snippets against the active RB team task inventory pulled in Stage 2 before creating new tasks. If a snippet adds useful background, decision detail, source evidence, or blocker context to an existing active task, choose `comment_existing` and append that context with the meeting-note URL.
+7. Reuse the owning task/page/operational row when a source line already links to the correct work item.
+8. Do not choose `unresolved` solely because no matching active task or operational row was found. If the owner, responsible company/project, source action, full active-task inventory, and Tasks schema are clear, propose `create_task` with source caveats instead.
+9. Do not create duplicate approval tasks. Treat approval wording as review by adding the approver to `Review By` on the owning task or recurring workflow.
+10. For invoice, contractor, expense, or payment approvals, route to the weekly invoice-payables/payables task when it owns the workflow.
+11. Keep assignment on the operational doer. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should default to Simoneta unless the source or user identifies another doer.
+12. Do not assign routine operational work to Ioana by default.
+13. Include `Status = To Do` for active Central Task creates unless the source supports another active status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
+14. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
+15. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
+16. If the owner, project, source meaning, owning record, target schema, active-task inventory, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task. For every `unresolved` row, explicitly state why creating a new task or appending context is unsafe.
 
 ## Output Table
 
@@ -67,6 +68,7 @@ Stage 3 must include a routing table with these columns:
 - `source_entity_url`
 - `source_origin`
 - `slack_source_links`
+- `active_task_inventory_match`
 - `scope`
 - `responsible_company`
 - `owning_data_source`
@@ -84,6 +86,7 @@ Stage 3 must include a routing table with these columns:
 - `slack_assignee_mention`
 - `slack_mention_status`
 - `dedupe_evidence`
+- `meeting_context_to_append`
 - `create_task_safety_analysis`
 - `notion_schema_verified`
 - `proposed_notion_write_payload`
@@ -98,13 +101,14 @@ For `unresolved` rows:
 - leave `assignee`, `project`, `owning_row`, and `target_task_or_page` blank unless a partial value is verified;
 - set `team_updates_writeback_text` to the exact unresolved note proposed for the Team Updates page;
 - set `execution_guard` to `write unresolved note only after Stage 3 approval`;
-- set `create_task_safety_analysis` to a concrete unsafe reason covering the missing owner, project, action, schema, source meaning, or write-back method; "no existing task found" is not a valid unsafe reason;
+- set `create_task_safety_analysis` to a concrete unsafe reason covering the missing owner, project, action, schema, source meaning, active-task inventory, or write-back method; "no existing task found" is not a valid unsafe reason;
 - do not create a task.
 
 For `create_task`, `update_task`, or `comment_existing` rows:
 
 - include the exact proposed task title, task properties, or comment text;
 - include the exact source entity URL in any proposed text that says the item was routed;
+- for meeting-context append rows, include the saved context snippet, matched task evidence, and concise proposed append comment;
 - include the exact Team Updates write-back method and text;
 - include the resolved assignee and verified Slack mention;
 - include `Review By` when the source asks for approval, review, or sign-off.
