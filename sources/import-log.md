@@ -2,6 +2,28 @@
 
 Status: active.
 
+## 2026-05-29 - Aaron Finanzamt E-Bilanz And Payment-Plan Evidence
+
+Applied:
+
+- Reviewed user-provided local PDFs for Aaron: E-Bilanz request, payment-plan/enforcement-deferral requirements, garnishment removal, and 2025 submitted income tax/EÜR/trade-tax/corrected VAT returns.
+- Uploaded the three Finanzamt correspondence PDFs to Aaron's personal Drive folder and verified by listing the folder.
+- Uploaded standardized-title copies of the four 2025 submitted-return PDFs to Aaron's 2025 Drive folder and verified by listing the folder. The 2025 folder already contained same-named originals from 2026-05-28.
+- Added a live Notion comment to `Prepare P&L and Balance Sheet for Aaron` with the E-Bilanz finding and moved the task to `In Progress`.
+- Updated Aaron's individual source register, correspondence, Drive-location, and personal-tax files with the new Drive links and routing notes.
+
+Verification:
+
+- Local MD5 checksums matched the Drive upload helper outputs for all seven uploaded PDFs.
+- Google Drive folder read-back showed the uploaded correspondence and 2025 submitted-return files in the target folders.
+- Notion task comment creation succeeded and the task status update returned the expected page id.
+
+Follow-up:
+
+- Submit 2023 and 2024 E-Bilanzen through an E-Bilanz-capable tax program/ELSTER-ERiC route by 2026-06-10; Excel/PDF is not sufficient for the newest Finanzamt request.
+- Store the ELSTER protocol/transfer evidence in Aaron's Drive folder and update the live Notion task.
+- Reconcile the uploaded 2025 submitted-return PDFs against the owning live Notion filing/tax rows before marking 2025 complete.
+
 ## 2026-05-22 - TPL / Techpacito Context Import
 
 Applied:

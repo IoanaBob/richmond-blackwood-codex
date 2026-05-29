@@ -13,6 +13,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-18 | Codex thread | Previous accountant did not file 2023/2024; RB filed both and discovered prior Gewerbe registration with trade tax and VAT filings also not filed. User clarified the open periods are 2023, 2024, and Q1 2025; after Q1 2025 Aaron was deregistered. |
 | 2026-05-18 | Codex thread | Finanzamt requested P&L/balance-sheet support. User clarified to follow source dates: WhatsApp 2026-05-19 at latest and Notion before 2026-05-22. |
 | 2026-05-18 | Codex thread | Finanzamt has not yet responded to the payment-plan proposal, and P-Konto is not confirmed active. |
+| 2026-05-29 | Codex thread and local files from Downloads | User provided new Finanzamt correspondence and 2025 submission PDFs. The 2026-05-20 Finanzamt letter requires electronic E-Bilanz submission for 2023 and 2024 by 2026-06-10; the 2026-05-21 letters cover enforcement-deferral/payment-plan conditions and garnishment removal. |
 
 ## Notion
 
@@ -38,6 +39,10 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 evidence. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant material. |
 | 2023/2024 FS workbooks | See `drive-locations.md` | P&L/balance-sheet source support. |
+| E-Bilanz request letter | `https://drive.google.com/file/d/1CicvmfDj5xMfO1lJ7EDA4BjTeQo6E7Rn/view?usp=drivesdk` | Uploaded from local scan on 2026-05-29; electronic E-Bilanz request for 2023 and 2024. |
+| Payment-plan/enforcement-deferral letter | `https://drive.google.com/file/d/1GEwF8JwMQSxsxQPZIsjxWHlw-e88EaQn/view?usp=drivesdk` | Uploaded from local scan on 2026-05-29; exact payment details remain in Drive. |
+| Garnishment removal letter | `https://drive.google.com/file/d/1VkVekTJm4e1LCKpbhRBjxGjC8zoS9LKs/view?usp=drivesdk` | Uploaded from local scan on 2026-05-29; exact garnishment/reference details remain in Drive. |
+| 2025 submitted return PDFs | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | Standardized-title copies of 2025 income tax, EÜR, trade-tax, and corrected VAT PDFs uploaded on 2026-05-29. |
 
 ## Gmail
 
