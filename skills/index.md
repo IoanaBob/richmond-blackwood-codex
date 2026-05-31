@@ -6,6 +6,7 @@ Repo-local skills for Richmond Blackwood work.
 
 - `rb-source-research`: gather and register context from local repos, Notion, Drive, Slack, Gmail, and public sources.
 - `rb-communications`: draft communications in chat, show the sending identity, send directly after approval, and log to Communications.
+- `rb-communications-follow-through`: move canonical RB Communications rows forward through row-led packet review, evidence/reply/task updates, approved sends, and verified closeout.
 - `rb-memory-capture`: write durable memory with provisional/approved status.
 - `rb-client-file`: route unsanitised client detail to the right client folder.
 - `rb-process-maintenance`: update process maps and SOP mirrors.
