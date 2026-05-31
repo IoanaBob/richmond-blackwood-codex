@@ -404,6 +404,42 @@ export class GmailClient {
     }
   }
 
+  public async sendMessage(input: DraftInput): Promise<gmail_v1.Schema$Message> {
+    await this.verifyAlias(input.fromEmail);
+    const replyContext = input.replyMessageId
+      ? await this.readReplyContext(input.replyMessageId)
+      : this.manualReplyContext(input);
+    const raw = this.encodeRawMessage(this.buildMime(input, replyContext));
+    try {
+      const result = await this.gmail.users.messages.send({
+        userId: "me",
+        requestBody: {
+          raw,
+          threadId: replyContext.threadId,
+        },
+      });
+      await this.requireSentSender(result.data, input.fromEmail);
+      return result.data;
+    } catch (error) {
+      throw this.withScopeHint(error, "send Gmail messages");
+    }
+  }
+
+  public async sendDraft(draftId: string, expectedEmail: string): Promise<gmail_v1.Schema$Message> {
+    await this.verifyAlias(expectedEmail);
+    await this.requireExistingDraftSender(draftId, expectedEmail);
+    try {
+      const result = await this.gmail.users.drafts.send({
+        userId: "me",
+        requestBody: { id: draftId },
+      });
+      await this.requireSentSender(result.data, expectedEmail);
+      return result.data;
+    } catch (error) {
+      throw this.withScopeHint(error, `send Gmail draft ${draftId}`);
+    }
+  }
+
   public async deleteDraft(draftId: string): Promise<void> {
     try {
       await this.gmail.users.drafts.delete({ userId: "me", id: draftId });
@@ -443,6 +479,50 @@ export class GmailClient {
       throw new Error(
         `Gmail draft ${draftId} was created, but the saved From header could not be verified. Deleted the draft to avoid an unsafe sender. ` +
           `Original verification error: ${message}`,
+      );
+    }
+  }
+
+  private async requireExistingDraftSender(draftId: string, expectedEmail: string): Promise<void> {
+    try {
+      const stored = await this.gmail.users.drafts.get({
+        userId: "me",
+        id: draftId,
+        format: "full",
+      });
+      const from = stored.data.message?.payload?.headers?.find((header: gmail_v1.Schema$MessagePartHeader) => (
+        header.name?.toLowerCase() === "from"
+      ))?.value || "";
+      if (!this.fromHeaderUsesEmail(from, expectedEmail)) {
+        throw new Error(
+          `Gmail draft ${draftId} has From "${from || "(missing)"}" instead of ${expectedEmail}. ` +
+            "Do not send this draft until the intended Gmail send-as alias is the actual saved sender.",
+        );
+      }
+    } catch (error) {
+      throw this.withScopeHint(error, `verify Gmail draft ${draftId} sender`);
+    }
+  }
+
+  private async requireSentSender(message: gmail_v1.Schema$Message, expectedEmail: string): Promise<void> {
+    const messageId = message.id;
+    if (!messageId) {
+      throw new Error("Gmail sent a message but did not return a message ID, so the sender could not be verified.");
+    }
+
+    const sent = await this.gmail.users.messages.get({
+      userId: "me",
+      id: messageId,
+      format: "metadata",
+      metadataHeaders: ["From"],
+    });
+    const from = sent.data.payload?.headers?.find((header: gmail_v1.Schema$MessagePartHeader) => (
+      header.name?.toLowerCase() === "from"
+    ))?.value || "";
+    if (!this.fromHeaderUsesEmail(from, expectedEmail)) {
+      throw new Error(
+        `Gmail sent message ${messageId} with From "${from || "(missing)"}" instead of ${expectedEmail}. ` +
+          "Do not treat this sender path as safe until the Gmail send-as alias is fixed.",
       );
     }
   }

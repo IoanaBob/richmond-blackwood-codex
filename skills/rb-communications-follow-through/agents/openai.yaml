@@ -1,0 +1,7 @@
+interface:
+  display_name: "RB Communications Follow-Through"
+  short_description: "Move RB Communications rows forward"
+  default_prompt: "Use $rb-communications-follow-through to move selected or open Richmond Blackwood Communications rows forward with packet-reviewed actions, verified sends, and readback."
+
+policy:
+  allow_implicit_invocation: true
