@@ -1807,3 +1807,23 @@ Actions:
 Unresolved:
 
 - Internal Knowledge Base mirror is pending because the Notion connector returned `Auth required` for page `https://www.notion.so/367e413013148175b709e35f31d37821`.
+
+## 2026-05-31 - Multi-Entity Open Banking Infrastructure
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-31 to implement multi-entity bank connectivity for Wamo, Bank of Ireland Business, and Wise, independent of internal/external classification.
+- personal-codex `origin/main` Enable Banking MCP pattern.
+- Provider documentation listed in `setup/mcp/rb-open-banking.md` and `sources/source-register.md`.
+
+Actions:
+
+- Added read-only RB open-banking MCP infrastructure under `setup/mcp/rb-open-banking/`.
+- Added safe entity-bank registry `internal/bank-connectivity-registry.md` keyed by Notion Company `Reference`.
+- Added `.env.example` routing placeholders, setup guide, repo-local `rb-open-banking` skill, and company bank-connectivity template.
+- Updated durable memory with the new bank-connectivity boundary and raw-data exclusions.
+
+Unresolved:
+
+- No live provider credentials, consent flows, ASPSP lookups, Wise profile reads, balance reads, transaction reads, or statement reads were run during infrastructure setup.
+- Entity-by-entity discovery remains required before any row is marked `registered` or `connected`.

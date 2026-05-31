@@ -66,6 +66,7 @@ Optional repo-pinned MCP setup guides live under `setup/mcp/`.
 
 - WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
 - ElevenLabs and n8n MCP: [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md). This enables local Codex access to the official ElevenLabs MCP server and remote n8n instance-level MCP. API keys, MCP tokens, webhook secrets, live instance URLs if private, client call transcripts, and personal Codex config stay local and ignored.
+- RB Open Banking MCP: [setup/mcp/rb-open-banking.md](mcp/rb-open-banking.md). This enables read-only multi-entity bank-connectivity setup for Wamo, Bank of Ireland Business, and Wise. Provider credentials, private keys, sessions, account IDs, balances, transactions, statement exports, and local Codex config stay local and ignored.
 - ElevenLabs API fallback: use only when the current MCP tools cannot perform a required live edit, and only after explicit user approval for the exact production change.
 
 Quick WhatsApp MCP install path:

@@ -149,6 +149,22 @@ Consequence:
 Source: user instruction in Codex chat on 2026-05-25 and personal-codex `origin/main` auth implementation.
 Review: verify which RB-specific persona slugs have approved credentials in the global store.
 
+## 2026-05-31 - Multi-Entity Bank Connectivity Registry
+
+Decision: RB bank connectivity is tracked per legal entity/client by Notion Company `Reference`, not by internal/external classification.
+
+Consequence:
+
+- Every company entity should be trackable against Wamo, Bank of Ireland Business, and Wise rails.
+- BOI Business and Wamo should use Enable Banking first for read-only account-information setup; direct Wamo/Salt Edge Berlin Group PSD2 is fallback-only after separate approval.
+- Wise uses the Wise Business API for profiles, balances, account details, and statements.
+- Shared provider credentials may be used when they can access multiple entity accounts/profiles, but entity-specific env/token/session routes must be supported.
+- Raw credentials, tokens, private keys, authorization codes, session IDs, account IDs, IBANs, balances, transactions, statement exports, and raw bank data must stay out of git.
+- Live API calls require explicit approval and an approval-purpose note.
+
+Source: user instruction in Codex chat on 2026-05-31 and provider docs linked in `setup/mcp/rb-open-banking.md`.
+Review: verify provider coverage and actual credential model entity by entity before marking any bank rail connected.
+
 ## 2026-05-12 - Calling Bot Minimal Startup Context
 
 Decision: RB authority calls should not preload every linked record into ElevenLabs. Startup context is limited to tax registration/reference context, Contact JSON, Company JSON, Individual JSON, routing/owner metadata, live-help sentinels, and the public-safe call brief. Other approved categories must be fetched on demand through the n8n `RB Calls Context Lookup` workflow and ElevenLabs `lookup_call_context` tool.

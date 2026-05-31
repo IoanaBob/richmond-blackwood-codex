@@ -48,6 +48,7 @@ clients/Companies/<client-reference>/
   linked-individuals.md
   contracts-and-authority.md
   accounting-bookkeeping-payroll.md
+  bank-connectivity.md
   tax-vat-filings.md
   invoices-payments-expenses.md
   communications.md
@@ -93,6 +94,7 @@ Every company client folder must have:
 - A Notion backup target or blocker in `notion-backup.md`.
 - A Drive destination or blocker in `drive-locations.md`.
 - A structured people and individual relationship map in `linked-individuals.md` when any person is a director, UBO, shareholder, POC, payroll employee, personal-tax client, or personal-service client.
+- Safe bank-connectivity routing pointers in `bank-connectivity.md` for required Wamo, Bank of Ireland Business, and Wise rails, with raw credentials/account data kept out of git.
 - Source pointers in `source-register.md`.
 - Any private fact marked provisional until reviewed.
 

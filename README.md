@@ -104,6 +104,8 @@ Outbound communications are drafted in chat with Codex, not as software drafts. 
 
 WhatsApp MCP setup is documented in [setup/mcp/whatsapp.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/whatsapp.md). It is optional and local-only: QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed.
 
+RB Open Banking MCP setup is documented in [setup/mcp/rb-open-banking.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/rb-open-banking.md). It is read-only infrastructure for Wamo, Bank of Ireland Business, and Wise connectivity setup across company entities. Provider credentials, private keys, tokens, sessions, account IDs, balances, transactions, and statement exports must stay local and ignored.
+
 Normal WhatsApp work should use the `whatsapp` MCP tools after the bridge is running. The bridge can be started with:
 
 ```sh
