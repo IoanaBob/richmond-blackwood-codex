@@ -168,6 +168,16 @@ User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pay
 
 | Source | Status |
 | --- | --- |
+| `https://www.bankofireland.com/accountaccess/help-roi/` | Bank of Ireland Open Banking help source used provisionally on 2026-05-31 for BOI Business consent/setup routing |
+| `https://developer.bankofireland.com/` | Bank of Ireland Developer Hub source used provisionally on 2026-05-31 for BOI API/Open Banking routing |
+| `https://docs.wise.com/api-docs/features/authentication-access/personal-tokens` | Wise authentication source used provisionally on 2026-05-31 for shared-vs-entity token routing |
+| `https://docs.wise.com/api-docs/api-reference/profile` | Wise profile API source used provisionally on 2026-05-31 for business profile discovery |
+| `https://docs.wise.com/api-reference/balance/balancelist` | Wise balances API source used provisionally on 2026-05-31 for read-only balance route |
+| `https://docs.wise.com/api-docs/api-reference/bank-account-details` | Wise account details API source used provisionally on 2026-05-31 for read-only account-details route |
+| `https://docs.wise.com/api-docs/api-reference/balance-statement` | Wise balance statements API source used provisionally on 2026-05-31 for statement route |
+| `https://enablebanking.com/docs/api/linked-accounts/` | Enable Banking linked-accounts source used provisionally on 2026-05-31 for restricted-production account availability caveat |
+| `https://enablebanking.com/docs/faq/` | Enable Banking FAQ source used provisionally on 2026-05-31 for provider setup context |
+| `https://priora.saltedge.com/docs/berlingroup/wamo_eu` | Wamo/Salt Edge Berlin Group PSD2 source used provisionally on 2026-05-31 for direct-Wamo fallback documentation |
 | `https://www.hamburg.de/politik-und-verwaltung/behoerden/finanzbehoerde/einrichtungen/finanzaemter/nord-207130` | Official Finanzamt Hamburg-Nord contact/phone-hours source imported provisionally on 2026-05-26 for Front Office Contact availability setup |
 | `https://www.richmondblackwood.com/en` | Public website identified; direct extraction limited by JS rendering |
 | Public company/web references | Not yet imported as truth |

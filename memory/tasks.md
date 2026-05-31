@@ -33,6 +33,7 @@ Imported: 2026-05-04.
 
 | Task | Created | Completed |
 | --- | --- | --- |
+| Added provisional RB multi-entity open-banking infrastructure for Wamo, Bank of Ireland Business, and Wise, with safe registry and MCP setup docs. | 2026-05-31 | 2026-05-31 |
 | Fixed Hamburg Front Office Contact by linking Monday-Friday availability records, hardened RB authority-call setup so missing linked contact availability is a hard blocker, and increased n8n outbound-call startup timeout to 120 seconds. | 2026-05-26 | 2026-05-26 |
 | Added RB active human operator and mailbox routing rules separating `RB_CODEX_ACTOR`, Gmail source mailbox, and Gmail sender identity. | 2026-05-24 | 2026-05-24 |
 | Ported shared global Google persona/OAuth helper model from personal-codex into RB helpers and memory. | 2026-05-25 | 2026-05-25 |

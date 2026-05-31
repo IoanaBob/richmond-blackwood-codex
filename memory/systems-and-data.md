@@ -29,6 +29,7 @@ Provisional tools and systems observed:
 - Stripe for payment flow.
 - Xero and Lexoffice for accounting contexts.
 - Wise and QuickBooks integrations in backend code.
+- RB open-banking MCP for read-only multi-entity Wamo, Bank of Ireland Business, and Wise connectivity setup. Status: provisional; setup docs live in `setup/mcp/rb-open-banking.md`.
 - Mailjet parseroute and invoice ingestion.
 - Dropscan referenced in cost/tooling memory.
 - Slack channels for RB operations, calls, structuring, accounting/finance, and management.
@@ -85,7 +86,7 @@ Routine helpers should run in no-login/no-reauth mode and try the per-persona OA
 
 ## Data Boundary
 
-Secrets and credentials may be referenced by name but must not be committed. `.env`, `.env.*`, node modules, and `.codex-local/` are ignored. Global Google persona vault files under `~/.codex` must not be printed or copied into git. WhatsApp QR/session state, SQLite databases, downloaded media, and transcripts must also stay out of git.
+Secrets and credentials may be referenced by name but must not be committed. `.env`, `.env.*`, node modules, and `.codex-local/` are ignored. Global Google persona vault files under `~/.codex` must not be printed or copied into git. WhatsApp QR/session state, SQLite databases, downloaded media, and transcripts must also stay out of git. Bank provider keys, private keys, tokens, authorization codes, session IDs, account IDs, IBANs, balances, transactions, statement exports, and raw bank data must stay out of git.
 
 ## Review Needed
 
