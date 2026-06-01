@@ -152,10 +152,10 @@ Goal: start a real conversation about who they are and what they do. The first m
 Rules:
 
 - Keep it to 2-4 short sentences.
-- Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, technical work, or founder decision.
+- Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, named project, shipped system, technical decision, or founder decision.
 - Ioana can reference operator/founder context only in natural wording. Avoid labels like "as a fellow tech founder" or "I am a tech founder too."
 - The message must prove real attention. It should contain a detail that came from the person's profile, company site, post, article, or other approved source.
-- Generic founder language is blocked. Do not say "saw the founder angle", "what are you focused on", "specific thing", or any phrasing that sounds templated.
+- Generic founder or professional language is blocked. Do not say "saw the founder angle", "saw your work", "what are you focused on", "specific thing", or any phrasing that sounds templated.
 - "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that Ioana can honestly point to.
 - Bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, then add one second difference tied to the person's actual topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption.
 - Preferred tax aside: "Admin and taxes I'm sure were much easier in the States."
@@ -192,7 +192,7 @@ Admin and taxes I'm sure were much easier in the States, but the part that seems
 Technical-role variant:
 
 ```text
-Thanks for connecting, [Name]. Saw your work on [specific system/product/domain] at [Company], especially [specific project, post, or technical signal].
+Thanks for connecting, [Name]. The [specific project/system/post/launch] at [Company] caught my eye - especially [specific technical or market detail].
 
 Admin and taxes I'm sure were much easier in the States. For [technical/product area], did [privacy/procurement/infrastructure/customer-behavior difference] force a different [architecture/roadmap/sales motion] for [specific thing]?
 ```
@@ -212,6 +212,7 @@ Avoid:
 - "Happy to jump on a quick call."
 - "We help Americans in Germany with taxes/admin."
 - "Saw the founder angle."
+- "Saw your work."
 - "What are you focused on this quarter?"
 - "Saw you are working on something interesting."
 - "As a fellow tech founder..."

@@ -32,6 +32,7 @@ Applied:
 - Tightened LinkedIn examples so founder outreach must sound natural and specific: name the company/product/work and a real public detail, avoid "saw the founder angle" and generic "what are you focused on" prompts, and ask a targeted question that proves the sender is actually connected into the person's work.
 - Replaced self-labeling phrases like "as a fellow tech founder" and "I am a tech founder too" with a US-vs-Germany contrast pattern: tax/admin as one shared difference, plus one topic-specific difference tied to the prospect's work.
 - Tightened the contrast pattern again so admin/taxes appears only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", and broad prompts like "How are you thinking about that?" are blocked in favor of highly pointed decision/tradeoff questions.
+- Blocked the broad opener "saw your work"; LinkedIn drafts must name a specific project, system, product, post, launch, or other concrete public signal instead.
 
 Verification:
 
