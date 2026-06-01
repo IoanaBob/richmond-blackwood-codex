@@ -54,4 +54,3 @@ Review: These remain missing from the export because the current Notion MCP retu
 | `4.Correspondence/Incoming` | `vat_notice_translation_en.pdf` | Notion attachment descriptor only; no exact Drive/Gmail/Slack source found. |
 | `5.Contracts` | `Consultancy_Agreement_Signed_May_14.pdf` | Notion attachment descriptor only; no exact Drive/Gmail/Slack source found. |
 | `5.Contracts` | `20240527155049-utc-c594094a-2ce2-4573-be10-321619d4345a-Signed-20240527-Richmond_Blackwood_Agreement_2024_-_Eran_Peer_-_Teresa_Eriksson_-_Mark_Wilshin.pdf` | Notion S3-style URL returns forbidden without a signed URL; no exact Drive/Gmail/Slack source found. |
-
