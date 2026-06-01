@@ -21,6 +21,8 @@ When the target database, company relation, or client reference is unclear, reco
 ## Page And Database Rules
 
 - Titles stay plain. Emoji belongs in icon metadata when the connector supports it.
+- Every Notion database must have an icon. Set the database icon at creation time whenever the connector supports it; if database creation tooling lacks an icon field, set the icon immediately after creation with the page/database update tool before treating the database as complete.
+- Use a purposeful icon that distinguishes the database's operating role. Do not leave a new database on Notion's default blank icon.
 - Notes fields describe the record itself, not connector status, upload history, or debug commentary.
 - If a database page has actual Notion comments and the update is a comment/update note, use the page comments section rather than a database text property such as `Comments`. If tooling cannot create the actual comment, record a blocker and ask for review instead of silently writing into the database field.
 - Google Drive-backed documents should use Notion file/files properties where possible, not plain URL fields as the primary file reference.

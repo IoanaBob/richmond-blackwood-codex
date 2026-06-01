@@ -21,7 +21,8 @@ Do not create client-specific Notion pages when the company relation or target d
 
 - Fetch schemas before creating or updating pages.
 - Keep page/database titles plain.
-- Use icon metadata where supported.
+- Every database must have an icon. Set it at creation time where supported, or immediately after creation through the page/database update tool before marking the database complete.
+- Keep emoji out of titles; use icon metadata for visual identity.
 - `Notes` fields describe the record itself, not connector/debug history.
 - When a database page has actual Notion comments and the work is a comment/update note, write into the page's comments section rather than a database text field such as `Comments`. If the connector cannot create the actual page comment, stop and report the blocker instead of falling back to the database field.
 - Use file/files properties for Drive-backed documents where possible.

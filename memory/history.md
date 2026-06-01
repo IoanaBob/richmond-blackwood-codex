@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-01 - Germany Growth Business Partners Routing And Skills
+
+- User request: Implement the Germany Growth System plan by removing the dedicated Growth Partnerships source, routing all partnership prospects through existing Business Partners, and creating master/channel multi-stage skills without running them.
+- Context read: `AGENTS.md`, `skills/index.md`, skill-creator guidance, Germany growth memory/source files, Business Partners, Audiences, project page, and the superseded growth partnership data source.
+- Actions taken: Pulled `origin/main`, created branch `codex/germany-growth-business-partners`, added optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields to Business Partners, removed the old audience relation to the legacy partnership source, trashed that legacy source after no rows were found to migrate, updated the Germany Growth project page, and added repo-local master, LinkedIn, Facebook groups, relocation partners, and Reddit skills.
+- Decisions made: Partnership prospects route immediately to Business Partners; non-partner LinkedIn individuals, Reddit communities/posts, and direct research targets stay in Growth Targets; canonical Communications remains the log for drafts, sends, replies, blockers, and follow-ups; Ioana remains the only sender persona for send-ready work.
+- Verification: Live Notion read-back verified the Business Partners icon and growth fields, the project page points partnership prospects to Business Partners, and the old partnership source is trashed. Final repo verification for this branch is recorded in the run closeout.
+- Limitations or gaps: Ioana identity registry setup and the daily automation are still separate open tasks; the user's "Refund" item remains out of scope pending clarification.
+
 ## 2026-05-20 - Common Tasks Follow-Through Process Corrections
 
 - User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, require Stage 1 to pull latest `main`, and prepare a new PR.
@@ -884,3 +893,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
 - Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
 - Limitations or gaps: None known yet.
+
+## 2026-06-01 - Germany Growth Communications Routing
+
+- User request: Use the canonical Communications database for growth outreach after deleting the separate growth outreach database.
+- Context read: RB communication process and skill, Germany growth project/page state, Audiences schema, canonical Communications schema, and linked growth task notes.
+- Actions taken: Added optional `Audience Target`, `Growth Channel`, and `Sender Identity` fields to canonical Communications; removed the stale Audiences relation to the deleted outreach database; updated the Germany growth project page, related task notes, communication process/skill, growth source register, backup pointers, import log, tasks, and current-state memory.
+- Decisions made: Superseded later on 2026-06-01 by Business Partners routing. At this point, the Germany growth system had six project child databases plus canonical Communications. Drafts, sends, replies, blockers, and follow-ups belonged in Communications; send-ready growth work had to block unless Ioana was verified as the active sender identity.
+- Verification: Notion read-back verified canonical Communications has the `📬` icon and growth fields, Audiences has a `Communications` relation, and project/task copy no longer points at a separate growth outreach database.
+- Limitations or gaps: The actual multi-stage growth skills and daily automation are still open, and Ioana identity verification remains the hard blocker before send-capable stages.

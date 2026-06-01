@@ -2,8 +2,8 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-05.
-Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`.
+Updated: 2026-06-01.
+Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`, Notion connector create/read-back on 2026-06-01.
 
 ## Growth Context
 
@@ -88,6 +88,55 @@ Provisional:
 - Backend supports HubSpot contact/deal sync and lead payment/order paths.
 - HubSpot pipeline and funnel metrics can be accessed through the HubSpot API and RB database on demand when the user asks for a specific task.
 
+## Germany Growth Operating System
+
+Status: provisional.
+Source: user instruction in Codex thread on 2026-06-01 and live Notion connector create/read-back.
+Imported: 2026-06-01.
+Review: confirm approved public claims, current offer framing, Ioana sender identity routes, future audience targets, and whether the user's "Refund" item is a separate channel or out of scope.
+
+Central project:
+
+- `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`
+
+Operating databases:
+
+- Audiences: `https://www.notion.so/3f6c49da1a4f455a9935cba8da1d22d7`
+- Channels: `https://www.notion.so/4d0f85fa5e7f4a208861c4705aecc2c4`
+- Targets: `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8`
+- Business Partners: `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`
+- Compliance Checks: `https://www.notion.so/cc0561be66e44aa0a5296271a376917d`
+- Metrics: `https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53`
+- Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807`
+
+Audience model:
+
+- The system is Germany growth overall, not only Americans in Germany.
+- Each channel, target, business partner, compliance check, metric, and growth communication should be attached to an `Audience Target` where the schema supports it.
+- First audience target: `Americans in Germany / relocating to Germany`.
+- The superseded `RB DE Growth Partnerships` data source was trashed on 2026-06-01. Partnership prospects now use the existing Business Partners database with optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields.
+
+Required channel skills:
+
+- Master daily orchestration.
+- LinkedIn direct connect followed by message after approval.
+- Facebook group sponsorship and posting for the active audience target.
+- Relocation-agent partnership outreach.
+- Reddit community presence for the active audience target.
+
+Operational gates:
+
+- Partnership prospects go to Business Partners immediately, including Facebook group sponsorship/admin leads, relocation agents, expat coaches, immigration-adjacent firms, and commercial/professional referral firms.
+- Non-partner LinkedIn individuals, Reddit communities/posts, and direct research targets stay in Growth Targets.
+- Business Partner `Invoicing Email` is only for genuine invoicing/commercial emails; casual/admin/contact routes stay in `Notes` and Communications.
+- All outbound send-ready stages must use Ioana as the sender persona.
+- Any send-ready action must block if the active connector or browser session is not verified as Ioana.
+- Drafts, sends, replies, and follow-ups for growth use canonical Communications, not a separate growth outreach database.
+- Growth communication records should set `Audience Target`, `Growth Channel`, and `Sender Identity` when available.
+- Prospect PII and channel state belong in Notion, not git.
+- Audience-target state belongs in Notion so the same Germany growth channel skills can run against future target groups.
+- Public claims remain provisional until approved claim by claim.
+
 ## Review Needed
 
 - Analyse Meta, Reddit, and Google ad accounts when a specific account-analysis task is requested.
@@ -101,4 +150,6 @@ Provisional:
   - "No hidden costs / full service, zero add-ons or surcharges."
   - "We protect your liability and your bottom line."
   - Investment compounding examples based on tax savings.
+- Verify Ioana identity/session checks for LinkedIn, Facebook, Reddit, and personal email before enabling send-capable growth skills.
+- Confirm whether the user's 2026-06-01 "Refund" item is a separate channel, a campaign angle, or intentionally out of scope.
 - Confirm which older tax-savings claims should be retired, reworded, or retained when marketing Authority Calling and the newer service model.

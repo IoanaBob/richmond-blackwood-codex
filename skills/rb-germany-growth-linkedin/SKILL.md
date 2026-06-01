@@ -1,0 +1,102 @@
+---
+name: rb-germany-growth-linkedin
+description: LinkedIn direct-connect and accepted-connection message flow for RB Germany growth, using Growth Targets for individuals and Ioana-only send gates.
+---
+
+# RB Germany Growth LinkedIn
+
+Use this skill for LinkedIn prospect research, connection request planning, accepted-connection messaging, follow-ups, and logging for a Germany growth audience target.
+
+## Hard Gates
+
+- Sender persona is always Ioana.
+- Connection requests and messages block unless the active LinkedIn account/session is verified as Ioana immediately before sending.
+- Do not send during daily automation.
+- Preview outbound text in chat. Do not save LinkedIn drafts.
+- Send only after explicit user approval for the exact request or message.
+- Log every request, reply, blocker, and follow-up in canonical Communications.
+
+## Data Routing
+
+- Individual LinkedIn prospects go to Growth Targets, not Business Partners.
+- A company, agency, or commercial counterparty discovered through LinkedIn goes to Business Partners only if there is a partner/commercial relationship.
+- Connection requests are Communications records tied to the Growth Target.
+- Accepted-connection messages are drafted only after acceptance is verified.
+
+## Packet Workflow
+
+When invoked standalone for a live run, use `/private/tmp/rb-germany-growth-linkedin/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and one `stage-XX-<short-name>.md` packet per stage. Print each packet in chat before moving on.
+
+When invoked by `rb-germany-growth`, return a channel work packet instead of performing sends. The master daily run may use this skill for read/plan work only.
+
+Shared gates:
+
+- No connection request or message is sent before exact text approval.
+- No first message is drafted until connection acceptance is verified.
+- Stop if Ioana is not the verified active LinkedIn session at a send-ready step.
+
+## Stages
+
+1. Preflight
+   - Read `rb-germany-growth` and `rb-communications`.
+   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
+   - Verify LinkedIn account identity only when approaching a send-ready step.
+
+2. Audience Criteria
+   - Default audience is `Americans in Germany / relocating to Germany`.
+   - Target people with a plausible US signal and Germany signal:
+     - Past US work experience.
+     - Past US university/study experience.
+     - US nationality/residency signals combined with current Germany location.
+     - Current relocation-to-Germany signal.
+   - Keep the criteria reusable for future Germany growth audiences.
+
+3. Discovery And Dedupe
+   - Search approved sources or user-provided lists.
+   - Dedupe by LinkedIn URL, name, current company, and location.
+   - Create/update Growth Targets with profile URL, audience, channel, status, evidence notes, and next action.
+   - Do not store sensitive personal details in git.
+
+4. Qualification
+   - Classify each target as `Research`, `Qualified`, `Blocked`, or not relevant using available Growth Target status fields.
+   - Record qualification evidence in Growth Target notes and, when action is needed, Communications or Tasks.
+   - Block targets where the US/Germany signal is too weak.
+
+5. Connection Request Packet
+   - Draft a short, non-promotional connection request in chat.
+   - Show sender identity: Ioana, LinkedIn account/session pending verification.
+   - Include target URL, qualification basis, and proposed follow-up date.
+   - Create/update a Communications operating record only after the packet is accepted for tracking.
+
+6. Approved Connection Send
+   - Run only after explicit approval.
+   - Re-check LinkedIn session is Ioana.
+   - If not Ioana, write a blocker in Communications and stop.
+   - Send the approved request directly and log result in Communications with next follow-up.
+
+7. Acceptance Check
+   - On later runs, check whether the connection was accepted.
+   - If not accepted, advance follow-up dates without messaging.
+   - If accepted, move to accepted-message drafting.
+
+8. Accepted-Connection Message Packet
+   - Draft the first message only after acceptance is verified.
+   - Use a helpful, low-pressure opener tailored to the audience signal.
+   - Include approved claims only; public claims remain provisional unless approved.
+   - Preview in chat with sender identity and source target.
+
+9. Approved Message Send And Follow-Up
+   - Re-check Ioana LinkedIn session before sending.
+   - Send only the approved text.
+   - Log send URL/message ID if available, response state, and next follow-up in Communications.
+   - Update Metrics for connection requests, acceptances, messages, replies, blockers, and meetings.
+
+## Output Packet
+
+Return:
+
+- Growth Targets created/updated.
+- Communications created/updated.
+- Blockers and Ioana-gate status.
+- Message previews awaiting approval.
+- Follow-ups and metrics to advance.

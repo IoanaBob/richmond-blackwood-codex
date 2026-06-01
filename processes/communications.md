@@ -22,6 +22,8 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the canonical Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
+- Germany growth outreach also uses the canonical Communications database. Do not create a separate growth outreach database for drafts, sends, replies, or follow-ups.
+- Germany growth partnership prospects use existing Business Partners for prospect state; Communications remains the log for drafts, sends, replies, blockers, and follow-ups.
 - For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
 - The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
 - For operational closeouts, write the Slack body like a human team update rather than an automation trace. Omit background Gmail-label/source-marker/checkpoint/Codex mechanics. Hyperlink incoming items, pending replies, and blockers. When assigning action checks to people, resolve Slack user IDs and use `<@USERID>`; bare responsible-person names are allowed only after the operator explicitly approves a no-notification fallback for the exact person and message.
@@ -80,6 +82,8 @@ After sending, create or update the canonical Communications database record wit
 - Related company or individual when the communication is client-relevant. Leave company empty for internal, system, spam, or non-client-relevant communications.
 - Follow-up owner, action, deadline, and priority when needed.
 - Letter flag, letter source/originator, letter date, and document links when an email or message contains a letter.
+
+For Germany growth communications, also set `Audience Target`, `Growth Channel`, and `Sender Identity` when those fields are present. If the communication concerns a partner prospect, include the Business Partner URL in `Notes` or the relevant relation field when available. Send-ready growth work must use `Sender Identity = Ioana`; if Ioana identity cannot be verified, block the send and record the blocker instead of sending from another account.
 
 Use the company relation for company/client-operational communications. Use the individual relation for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency communications. A communication record should usually be linked to either a company or an individual, not both. If both seem relevant, choose the entity that owns the subject matter and keep a pointer in the other entity's repo file if needed.
 

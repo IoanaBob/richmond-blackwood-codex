@@ -22,6 +22,11 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
 - `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process Communications attachments, create or update task-capable Notion rows, notify Slack after approval, and update checkpoints.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
+- `rb-germany-growth`: master daily Germany growth orchestration across audience targets, channel skills, Business Partners, Growth Targets, Communications, Compliance Checks, Metrics, and Tasks with Ioana-only send gates.
+- `rb-germany-growth-linkedin`: LinkedIn direct-connect and accepted-connection message flow for Germany growth audiences; individual prospects stay in Growth Targets.
+- `rb-germany-growth-facebook-groups`: Facebook group sponsorship/admin partnership and approved posting flow; group/admin prospects route to Business Partners.
+- `rb-germany-growth-relocation-partners`: relocation-agent, expat coach, immigration-adjacent firm, and professional-firm partnership flow using Business Partners.
+- `rb-germany-growth-reddit`: Reddit community presence and moderator-safe participation flow; communities/posts route to Growth Targets and mod/commercial counterparties to Business Partners.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
 - `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
 - `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.

@@ -18,6 +18,8 @@ Use this skill for any Richmond Blackwood outbound communication.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
 - After sending, store the sent communication in the canonical Communications database.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
+- Germany growth outreach uses canonical Communications for drafts, sends, replies, and follow-ups. Do not create or use a separate growth outreach database.
+- Germany growth partnership prospects use existing Business Partners for prospect state; Communications remains the log for drafts, sends, replies, blockers, and follow-ups.
 - For Slack closeouts or other Slack messages that need user review, use the Codex approval prompt/notification when the runtime exposes it. The prompt must identify the exact destination and exact message already shown in chat, and must offer a clear approve/send choice and a do-not-send choice.
 - The Slack message shown in chat for approval must be a rendered, readable Codex preview, not a fenced raw Markdown/code block. Use normal text, headings or labels where useful, Slack mention syntax, and named Markdown links so the operator can click each link in Codex before approving. Keep the raw Slack payload internal unless the operator explicitly asks to inspect it.
 - When a Slack message assigns, routes, or updates work owned by a person, the final Slack payload must use resolved Slack mentions (`<@USERID>`) for those responsible people. Bare names are acceptable only when the operator explicitly approves a no-notification fallback for the exact person and message.
@@ -85,6 +87,8 @@ Record enough detail to reconstruct the business action without dumping unnecess
 - Related company or individual when the communication is client-relevant. Leave company empty for internal, system, spam, or non-client-relevant communications.
 - Follow-up owner, action, deadline, and priority when needed.
 - For letters attached to or forwarded inside an email, record that the communication contains a letter, save/link the letter document, and record the actual letter source/originator separately from the email forwarder.
+
+For Germany growth communications, set `Audience Target`, `Growth Channel`, and `Sender Identity` when available. If the communication concerns a partner prospect, include the Business Partner URL in `Notes` or the relevant relation field when available. Send-ready growth work must use `Sender Identity = Ioana`; if Ioana identity cannot be verified, block the send and log the blocker instead of sending from another account.
 
 Client-specific communication facts must still follow the `clients/<client-reference>/` routing rule when repo storage is needed.
 
