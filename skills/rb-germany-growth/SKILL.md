@@ -5,7 +5,7 @@ description: Master daily orchestration for the Richmond Blackwood Germany growt
 
 # RB Germany Growth
 
-Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook groups, relocation partners, Reddit, Business Partners, Growth Targets, Communications, Compliance Checks, and Tasks.
+Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook partnerships, Facebook posting, relocation partners, Reddit, Business Partners, Growth Targets, Communications, Compliance Checks, and Tasks.
 
 ## Hard Gates
 
@@ -47,7 +47,8 @@ Shared gates:
 ## Routing Rules
 
 - Partnership prospects always go to Business Partners, including Facebook group sponsorship leads, group admins, relocation agents, expat coaches, immigration-adjacent firms, commercial referral partners, and professional firms.
-- Non-partner targets go to Growth Targets, including LinkedIn individuals, Reddit communities/posts, and non-commercial research targets.
+- Non-partner targets go to Growth Targets, including LinkedIn individuals, Facebook groups/posts/threads for non-commercial posting, Reddit communities/posts, and non-commercial research targets.
+- Facebook group admin/sponsorship acquisition and Facebook group public posting are separate channels. Use `rb-germany-growth-facebook-partnerships` for admin, sponsor, payment, commercial approval, and paid-promotion counterparties. Use `rb-germany-growth-facebook-posting` for public posts/comments/replies in groups where rules or approvals allow participation.
 - Reddit is direct community engagement first: subreddits, posts, recurring threads, comments, replies, and allowed reactive DMs stay in Growth Targets and Communications. Do not route Reddit moderator outreach, sponsorships, paid posts, cold/proactive DMs, modmail, or commercial counterparties to Business Partners unless the user explicitly re-enables that channel. Reactive DMs are allowed only when someone engaged with our public Reddit post/comment or sent an inbound DM first.
 - Communications is the canonical log for drafts, sends, replies, blockers, and follow-ups.
 - `Invoicing Email` on Business Partners is only for a real invoicing/commercial email. Casual contact routes, admin routes, and DM routes belong in Business Partner `Notes` and Communications.
@@ -81,7 +82,8 @@ Shared gates:
 4. Channel Work Packets
    - Run each channel skill in read/plan mode:
      - `rb-germany-growth-linkedin`
-     - `rb-germany-growth-facebook-groups`
+     - `rb-germany-growth-facebook-partnerships`
+     - `rb-germany-growth-facebook-posting`
      - `rb-germany-growth-relocation-partners`
      - `rb-germany-growth-reddit`
    - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, Compliance Checks, and Tasks.
@@ -96,6 +98,7 @@ Shared gates:
    - Set or preserve Business Partner `Ioana Gate`.
    - Send-ready items with unverified or non-Ioana sessions become blockers, not sends.
    - Promotional posts or sponsorship asks block without a rules basis, admin/moderator approval, or explicit user approval.
+   - Facebook posting work that requires admin sponsorship, payment, or commercial placement must be routed to the Facebook partnerships skill, not handled inside the posting skill.
    - For Reddit, promotional, moderator, sponsorship, paid-post, cold/proactive DM, modmail, and commercial-counterparty routes are disabled for now and become blockers. Reactive DMs may proceed only after public engagement with our post/comment or an inbound DM, with exact approval and immediate Ioana Reddit-session verification.
 
 6. Draft Packet
@@ -130,5 +133,6 @@ Shared gates:
 - Business Partners retains icon `🤝` and has `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate`.
 - Audiences has no active relation to the deleted legacy partnership data source.
 - Communications has `Audience Target`, `Growth Channel`, and `Sender Identity`.
+- Facebook partnership acquisition and Facebook posting are separate repo-local skills and are not mixed in a single workflow.
 - No send happened unless the exact send stage was approved and Ioana was verified.
 - The legacy growth partnership data source remains superseded/deleted.

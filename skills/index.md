@@ -24,7 +24,8 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-germany-growth`: master daily Germany growth orchestration across audience targets, channel skills, Business Partners, Growth Targets, Communications, Compliance Checks, and Tasks with Ioana-only send gates and timestamp-based reporting.
 - `rb-germany-growth-linkedin`: LinkedIn direct-connect and accepted-connection message flow for Germany growth audiences; individual prospects stay in Growth Targets.
-- `rb-germany-growth-facebook-groups`: Facebook group sponsorship/admin partnership and approved posting flow; group/admin prospects route to Business Partners.
+- `rb-germany-growth-facebook-partnerships`: Facebook group admin, sponsorship, paid-promotion, and commercial approval acquisition flow; group/admin/sponsorship prospects route to Business Partners.
+- `rb-germany-growth-facebook-posting`: Facebook group public posting/comment/reply flow; non-commercial group participation targets route to Growth Targets and Communications.
 - `rb-germany-growth-relocation-partners`: relocation-agent, expat coach, immigration-adjacent firm, and professional-firm partnership flow using Business Partners.
 - `rb-germany-growth-reddit`: Reddit community engagement flow; communities, posts, recurring threads, comments, replies, and allowed reactive DMs route to Growth Targets and Communications only.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.

@@ -18,9 +18,10 @@ Applied:
 - Removed the stale growth-audience relation to the deleted outreach database; Audiences now has a relation back to canonical Communications.
 - Linked the initial channel and compliance seed rows to the Americans audience target.
 - Seeded channel rows for master orchestration, LinkedIn direct connect/message flow, Facebook group sponsorships, relocation-agent partnerships, and Reddit community presence for the first audience target.
+- Split the Facebook group channel into separate live channel rows and skills for Facebook group partnerships/sponsorships and Facebook group posting/commenting after user clarified partnership acquisition and posting should not be mixed.
 - Seeded compliance checks for Ioana identity verification across LinkedIn, Facebook, Reddit, and personal email, plus approved public-claim review.
-- Created linked Tasks database rows for identity registry setup, multi-stage skill creation, daily run setup, and first research batches for LinkedIn, Facebook groups, relocation agents, and Reddit.
-- Added repo-local Germany growth skills for the master daily run, LinkedIn, Facebook groups, relocation partners, and Reddit.
+- Created linked Tasks database rows for identity registry setup, multi-stage skill creation, daily run setup, and first research batches for LinkedIn, Facebook partnerships/posting, relocation agents, and Reddit.
+- Added repo-local Germany growth skills for the master daily run, LinkedIn, Facebook partnerships, Facebook posting, relocation partners, and Reddit.
 - Updated Reddit to direct community engagement after user removed moderator/sponsorship/commercial-counterparty Reddit routing; Reddit now uses Growth Targets and Communications only unless explicitly re-enabled.
 - Added a limited Reddit DM route after user clarified DMs should be allowed when someone engages with our public post/comment or sends an inbound DM first. Cold/proactive DMs, modmail, sponsorships, paid posts, commercial counterparties, and Business Partner routing remain blocked.
 - Recorded the hard outbound rule that send-ready stages must use Ioana and must block if the active connector or browser session is not verified as Ioana.

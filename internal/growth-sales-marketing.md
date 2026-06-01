@@ -168,14 +168,16 @@ Required channel skills:
 
 - Master daily orchestration.
 - LinkedIn direct connect followed by message after approval.
-- Facebook group sponsorship and posting for the active audience target.
+- Facebook group partnerships/sponsorships for the active audience target.
+- Facebook group posting/commenting for the active audience target.
 - Relocation-agent partnership outreach.
 - Reddit community presence for the active audience target.
 
 Operational gates:
 
 - Partnership prospects go to Business Partners immediately, including Facebook group sponsorship/admin leads, relocation agents, expat coaches, immigration-adjacent firms, and commercial/professional referral firms.
-- Non-partner LinkedIn individuals, Reddit communities/posts, and direct research targets stay in Growth Targets.
+- Non-partner LinkedIn individuals, Facebook groups/posts/threads used for public posting, Reddit communities/posts, and direct research targets stay in Growth Targets.
+- Facebook admin/sponsorship acquisition and Facebook posting are separate skills. Use Business Partners for admin/sponsorship/payment/commercial approval counterparties; use Growth Targets and Communications for public group posting/commenting where rules or admin approval allow participation.
 - Reddit is direct community engagement first. Do not pursue Reddit moderator outreach, sponsorships, paid posts, cold/proactive DMs, modmail, or commercial counterparties, and do not create Business Partners from Reddit routes unless the user explicitly re-enables that channel. Reactive Reddit DMs are allowed only after someone engages with our public post/comment or sends an inbound DM first; they stay in Growth Targets and Communications and require exact approval plus immediate Ioana Reddit-session verification before sending.
 - Business Partner `Invoicing Email` is only for genuine invoicing/commercial emails; casual/admin/contact routes stay in `Notes` and Communications.
 - All outbound send-ready stages must use Ioana as the sender persona.
