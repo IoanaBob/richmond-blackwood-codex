@@ -73,7 +73,8 @@ Review: Confirm the RB Notion API connection is shared with RB Client Databases 
 
 - Tables: use `POST /v1/data_sources/{data_source_id}/query` with cursor pagination. `page_size` is at most `100`; there is no one-call all-rows endpoint.
 - Put all query parameters on the URL, for example `filter_properties[]`. Put all filters, sorts, and `page_size` in the JSON body.
-- Use the exact same URL and JSON body for every page. Add only `start_cursor` from the previous response when fetching page 2, page 3, and later pages.
+- First run the plain curl request and save page 1. If page 1 has `has_more: false`, the query is complete and no helper is needed.
+- If page 1 has `has_more: true`, continue with the exact same URL and JSON body. Add only `start_cursor` from the previous response when fetching page 2, page 3, and later pages.
 - Stop only when `has_more` is false. Keep the results from every page together, and dedupe by page ID/URL during analysis if the table may have changed during the run.
 
 Example first-page request:
@@ -84,7 +85,8 @@ curl -sS -X POST \
   -H "Authorization: Bearer $NOTION_TOKEN" \
   -H "Notion-Version: 2026-03-11" \
   -H "Content-Type: application/json" \
-  --data @/private/tmp/<run-id>/query-body.json
+  --data @/private/tmp/<run-id>/query-body.json \
+  > /private/tmp/<run-id>/page-1.json
 ```
 
 Example body:
@@ -134,10 +136,11 @@ Optional minimal loop helper:
 npm run notion:query-data-source -- \
   "https://api.notion.com/v1/data_sources/<data-source-id>/query?filter_properties[]=Title&filter_properties[]=Status" \
   --body /private/tmp/<run-id>/query-body.json \
+  --first-response /private/tmp/<run-id>/page-1.json \
   --out /private/tmp/<run-id>/all-results.json
 ```
 
-The helper changes only `start_cursor` between requests and appends every response's `results` array.
+Use the helper only after checking that page 1 has `has_more: true`. The helper starts with page 1's `results`, changes only `start_cursor` for later requests, and appends every response's `results` array.
 
 - Downloads: retrieve the page or block through the API and download the returned `file.url` or `external.url`. Notion-hosted URLs are temporary, so re-fetch before downloading.
 - Uploads: use the File Upload API. Single-part upload is for files up to 20 MiB; larger files use multi-part upload. Attach the resulting `file_upload` ID to a `files` property, media block, icon, or cover before it expires.

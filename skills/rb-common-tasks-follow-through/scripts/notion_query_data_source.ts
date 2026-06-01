@@ -20,8 +20,9 @@ async function main(argv: string[]): Promise<number> {
   }
 
   const bodyFile = stringOption(options, "body");
+  const firstResponseFile = stringOption(options, "firstResponse");
   const outFile = stringOption(options, "out");
-  if (!bodyFile || !outFile) {
+  if (!bodyFile || !firstResponseFile || !outFile) {
     printUsage();
     return 2;
   }
@@ -33,33 +34,26 @@ async function main(argv: string[]): Promise<number> {
 
   const url = endpointUrl(endpoint);
   const baseBody = readJsonObject(bodyFile);
-  const results: Json[] = [];
-  let cursor = typeof baseBody.start_cursor === "string" ? baseBody.start_cursor : undefined;
-  let pageCount = 0;
+  const firstResponse = readQueryResponse(firstResponseFile);
+  const results: Json[] = [...(firstResponse.results || [])];
+  let cursor = firstResponse.next_cursor || undefined;
+  let pageCount = 1;
+
+  if (!firstResponse.has_more || !cursor) {
+    writeJson(outFile, outputPayload(url, bodyFile, firstResponseFile, pageCount, results, firstResponse));
+    return 0;
+  }
 
   for (;;) {
     const requestBody = { ...baseBody };
-    if (cursor) {
-      requestBody.start_cursor = cursor;
-    } else {
-      delete requestBody.start_cursor;
-    }
+    requestBody.start_cursor = cursor;
 
     const response = await postQuery(url, token, stringOption(options, "notionVersion", NOTION_VERSION), requestBody);
     pageCount += 1;
     results.push(...(response.results || []));
 
     if (!response.has_more || !response.next_cursor) {
-      writeJson(outFile, {
-        endpoint: url.toString(),
-        body_file: path.resolve(bodyFile),
-        fetched_at: new Date().toISOString(),
-        page_count: pageCount,
-        result_count: results.length,
-        has_more: Boolean(response.has_more),
-        next_cursor: response.next_cursor || null,
-        results,
-      });
+      writeJson(outFile, outputPayload(url, bodyFile, firstResponseFile, pageCount, results, response));
       return 0;
     }
 
@@ -132,6 +126,35 @@ function readJsonObject(file: string): Record<string, Json> {
   return parsed as Record<string, Json>;
 }
 
+function readQueryResponse(file: string): QueryResponse {
+  const parsed = readJsonObject(file);
+  if (!Array.isArray(parsed.results)) {
+    throw new Error("--first-response must point to a Notion query response with a results array.");
+  }
+  return parsed as QueryResponse;
+}
+
+function outputPayload(
+  url: URL,
+  bodyFile: string,
+  firstResponseFile: string,
+  pageCount: number,
+  results: Json[],
+  lastResponse: QueryResponse,
+): Json {
+  return {
+    endpoint: url.toString(),
+    body_file: path.resolve(bodyFile),
+    first_response_file: path.resolve(firstResponseFile),
+    fetched_at: new Date().toISOString(),
+    page_count: pageCount,
+    result_count: results.length,
+    has_more: Boolean(lastResponse.has_more),
+    next_cursor: lastResponse.next_cursor || null,
+    results,
+  };
+}
+
 function writeJson(file: string, value: Json): void {
   const resolved = path.resolve(file);
   fs.mkdirSync(path.dirname(resolved), { recursive: true, mode: 0o700 });
@@ -148,11 +171,12 @@ function camelCase(name: string): string {
 }
 
 function printUsage(): void {
-  process.stdout.write(`Usage: notion_query_data_source.ts <data-source-id-or-query-url> --body query.json --out results.json
+  process.stdout.write(`Usage: notion_query_data_source.ts <data-source-id-or-query-url> --body query.json --first-response page-1.json --out results.json
 
 The body file is the full JSON request body for POST /v1/data_sources/{id}/query.
+Run the first curl manually, save its response, and call this only when page 1 has has_more=true.
 The endpoint argument may be a collection ID, collection:// ID, /v1 path, or full URL with query params such as filter_properties[].
-The script changes only start_cursor between requests and appends every response's results array.
+The script starts with page 1's results, changes only start_cursor between later requests, and appends every response's results array.
 
 Auth env: RB_NOTION_API_KEY, NOTION_API_KEY, or NOTION_TOKEN.
 `);
