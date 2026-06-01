@@ -8,7 +8,7 @@ Imported: 2026-05-04.
 | Task | Created |
 | --- | --- |
 | Configure the Ioana identity registry and hard send gate for every Germany growth channel before any outbound send-ready stage can run. | 2026-06-01 |
-| Create the daily Codex automation for the Germany growth system after the channel skills and identity registry are in place; it should advance Communications follow-ups and blockers without sending messages. | 2026-06-01 |
+| Create the daily Codex automation for the Germany growth system after the channel skills and identity registry are in place; it should advance Growth Messages follow-ups and blockers without sending messages. | 2026-06-01 |
 | Confirm whether the user's 2026-06-01 "Refund" item is a separate growth channel, a campaign angle, or out of scope. | 2026-06-01 |
 | Ask user to review the VUN client-reference pilot. | 2026-05-05 |
 | Confirm whether VUN domain details should also be entered in specific databases such as Invoicing, Filings, Payroll, Employment, Tax Payments, Bank Accounts, or Client Notes & Updates. | 2026-05-05 |
@@ -36,7 +36,7 @@ Imported: 2026-05-04.
 
 | Task | Created | Completed |
 | --- | --- | --- |
-| Created repo-local multi-stage Germany growth skills with master orchestration, audience-target selection, LinkedIn, Facebook partnerships, Facebook posting, relocation partnerships, and Reddit channels. First active audience: American tech workers in Germany / relocating to Germany. Partnership prospects route through Business Partners, non-partner targets through Growth Targets, and all drafts/sends/replies/follow-ups through canonical Communications. Notion project: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`. LinkedIn planning uses an internal target of 320 blank connection requests/month, normally 15-20 blank requests/business day; personalized invite notes are off by default. | 2026-06-01 | 2026-06-01 |
+| Created repo-local multi-stage Germany growth skills with master orchestration, audience-target selection, LinkedIn, Facebook partnerships, Facebook posting, relocation partnerships, and Reddit channels. First active audience: American tech workers in Germany / relocating to Germany. Partnership prospects route through Business Partners, non-partner targets through Growth Targets, and pre-lead drafts/sends/posts/comments/DMs/replies/follow-ups through Growth Messages. Notion project: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`. LinkedIn planning uses an internal target of 320 blank connection requests/month, normally 15-20 blank requests/business day; personalized invite notes are off by default. | 2026-06-01 | 2026-06-01 |
 | Fixed Hamburg Front Office Contact by linking Monday-Friday availability records, hardened RB authority-call setup so missing linked contact availability is a hard blocker, and increased n8n outbound-call startup timeout to 120 seconds. | 2026-05-26 | 2026-05-26 |
 | Added RB active human operator and mailbox routing rules separating `RB_CODEX_ACTOR`, Gmail source mailbox, and Gmail sender identity. | 2026-05-24 | 2026-05-24 |
 | Ported shared global Google persona/OAuth helper model from personal-codex into RB helpers and memory. | 2026-05-25 | 2026-05-25 |

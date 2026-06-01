@@ -14,7 +14,7 @@ Use this skill for relocation-agent and immigration-adjacent partner research, q
 - Do not send during daily automation.
 - Preview outbound text in chat. Do not save app drafts.
 - Send only after explicit user approval for the exact text.
-- Log every send, reply, blocker, commercial approval, and follow-up in canonical Communications.
+- Log every pre-lead send, reply, blocker, commercial approval, and follow-up in Growth Messages.
 - Commercial terms and sponsorship/payment commitments remain approval-gated.
 - Daily operating target is at least 5 new first-time email conversations with distinct relocation-partner prospects per business day for the active audience. This is a planning and approved-send target, not permission to send without approval.
 
@@ -25,7 +25,8 @@ Use this skill for relocation-agent and immigration-adjacent partner research, q
 - Put contact route, audience fit, service focus, commercial model, approval state, next action, and source notes in `Notes`.
 - Use `Audience Target`, `Growth Channel = Relocation Partnerships`, `Growth Stage`, and `Ioana Gate` when available.
 - Link Contracts only later through the existing Contracts relation if a real agreement exists.
-- Represent each first-time email conversation as a Business Partner row plus a canonical Communications row with sender identity, audience, channel, contact route, sent/blocked state, and next follow-up. Replies and follow-ups update Communications; they do not count toward the 5/day first-time conversation target.
+- Represent each first-time email conversation as a Business Partner row plus a Growth Messages row with sender identity, audience, channel, contact route, sent/blocked state, and next follow-up. Replies and follow-ups update Growth Messages; they do not count toward the 5/day first-time conversation target.
+- Promote/link to canonical Communications only when the thread becomes a lead/client/business communication that belongs in the main RB communications ledger.
 
 ## Packet Workflow
 
@@ -43,7 +44,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Business Partners schema, Communications schema, and relevant Tasks.
+   - Load active Audience Target, Business Partners schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Count relocation-partner first-time email sends, queued approved-send items, replies, due follow-ups, blockers, and remaining daily target for the current business day.
 
@@ -74,8 +75,8 @@ Shared gates:
 5. Commercial Model Review
    - Identify likely model: referral, content partnership, paid placement, co-marketing, webinar, affiliate, service bundle, or other.
    - Do not offer pricing, commission, payments, or contract terms without user approval.
-   - Preserve proposed commercial terms and approval state in Business Partner `Notes` and Communications.
-   - Treat solicitation rules, approved claims, commercial approval, and Ioana-session checks as in-run gates. Record blockers in Communications or Tasks, not in a compliance-check database.
+   - Preserve proposed commercial terms and approval state in Business Partner `Notes` and Growth Messages.
+   - Treat solicitation rules, approved claims, commercial approval, and Ioana-session checks as in-run gates. Record blockers in Growth Messages or Tasks, not in a compliance-check database.
 
 6. Pitch Draft Packet
    - Draft outreach in chat, personalized to the partner type and active audience.
@@ -86,14 +87,14 @@ Shared gates:
 7. Approved Send
    - Run only after explicit approval.
    - Re-check the sending session is Ioana.
-   - If not Ioana, log a blocker in Communications and stop.
+   - If not Ioana, log a blocker in Growth Messages and stop.
    - Send the approved message directly through the supported route.
-   - Log send result, URL/message ID, `Growth Event = First Contact`, `Growth Event At`, `Sent/Received On`, and follow-up in Communications.
+   - Log send result, URL/message ID, `Message Kind = Partner Pitch` or `First Message`, `Status = Sent/Posted`, `Growth Event At`, `Sent/Posted At`, and follow-up in Growth Messages.
    - Set Business Partner `First Contacted At`, `Last Contacted At`, `Growth Stage Updated At`, and `Growth Stage = Contacted by Ioana`.
    - Stop opening new first-time conversations for the day once the 5/day target is met unless the user explicitly approves an additional batch.
 
 8. Reply Drafting And Negotiation Packet
-   - Route replies into Communications and summarize what the partner actually said.
+   - Route replies into Growth Messages and summarize what the partner actually said.
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the partner's service, audience, commercial model, or open question.
    - Do not introduce pricing, commission, payments, contract terms, or pilot commitments without explicit user approval.
@@ -107,7 +108,7 @@ Shared gates:
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct daily/weekly/monthly reporting from Business Partner milestone timestamps and Communications `Growth Event` records for prospects researched, qualified partners, first-time email conversations opened, daily first-time email target met/missed, replies, meetings, pilots, blockers, and closed outcomes.
+   - Reconstruct daily/weekly/monthly reporting from Business Partner milestone timestamps and Growth Messages records for prospects researched, qualified partners, first-time email conversations opened, daily first-time email target met/missed, replies, meetings, pilots, blockers, and closed outcomes.
    - Report reply drafts, follow-up drafts, and commercial approval blockers.
 
 ## Output Packet
@@ -116,7 +117,7 @@ Return:
 
 - Business Partners created/updated.
 - Commercial approval needs.
-- Communications created/updated.
+- Growth Messages created/updated.
 - Daily first-time email target state: target 5, sent/opened today, remaining, queued, and blockers.
 - Pitch, reply, and follow-up previews awaiting approval.
 - Follow-ups, blockers, and reporting counts.

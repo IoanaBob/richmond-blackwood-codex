@@ -36,13 +36,14 @@ Operating sources:
 | RB DE Growth Audiences | 👥 | `https://www.notion.so/3f6c49da1a4f455a9935cba8da1d22d7` | Reusable audience targets for Germany growth; first target is American tech workers in Germany / relocating to Germany |
 | RB DE Growth Channels | 🧭 | `https://www.notion.so/4d0f85fa5e7f4a208861c4705aecc2c4` | Master/channel stage tracking and daily run state |
 | RB DE Growth Targets | 🎯 | `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8` | LinkedIn profiles, Reddit communities/posts, and other non-partner research targets |
+| RB DE Growth Messages | 💬 | `https://www.notion.so/ca339af617e5497483970cac110abc03` | Pre-lead growth message/post/comment/DM log for drafts, sends/posts, replies, blockers, approvals, and follow-ups |
 | Business Partners - Original | 🤝 | `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f` | Existing RB partner/counterparty database for all Germany growth partnership prospects, including Facebook sponsorship leads and relocation/professional partners |
-| Communications | 📬 | `https://www.notion.so/1b5e4130131480ab84f3cca356736807` | Existing canonical communication log for growth drafts, sends, replies, blockers, and follow-ups; linked to growth audiences through optional growth fields |
+| Communications | 📬 | `https://www.notion.so/1b5e4130131480ab84f3cca356736807` | Existing canonical communication log, used by Germany growth only for promoted lead/client/business handoffs |
 
 Superseded:
 
 - `RB DE Growth Metrics` (`https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53`) was trashed on 2026-06-01. Germany growth reporting is reconstructed from timestamped source records rather than summary rows.
-- `RB DE Growth Compliance Checks` (`https://www.notion.so/cc0561be66e44aa0a5296271a376917d`) was trashed on 2026-06-01. Compliance checks are now one-time skill-stage gates; blockers and follow-ups are recorded in Communications or Tasks.
+- `RB DE Growth Compliance Checks` (`https://www.notion.so/cc0561be66e44aa0a5296271a376917d`) was trashed on 2026-06-01. Compliance checks are now one-time skill-stage gates; blockers and follow-ups are recorded in Growth Messages or Tasks.
 
 ## Active Client Backup Pointer Standard
 

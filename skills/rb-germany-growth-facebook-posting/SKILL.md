@@ -1,6 +1,6 @@
 ---
 name: rb-germany-growth-facebook-posting
-description: Facebook group posting, commenting, reply, and follow-up flow for RB Germany growth, using Growth Targets, Communications, and Ioana-only send gates.
+description: Facebook group posting, commenting, reply, and follow-up flow for RB Germany growth, using Growth Targets, Growth Messages, and Ioana-only send gates.
 ---
 
 # RB Germany Growth Facebook Posting
@@ -15,7 +15,7 @@ Use this skill for Facebook group rule review, public post/comment planning, gro
 - Do not send/post/comment during daily automation.
 - Preview outbound text in chat. Do not save Facebook drafts.
 - Post/comment/reply only after explicit user approval for the exact text.
-- Log every post, comment, reply, blocker, approval basis, and follow-up in canonical Communications.
+- Log every pre-lead post, comment, reply, blocker, approval basis, and follow-up in Growth Messages.
 
 ## Data Routing
 
@@ -23,6 +23,8 @@ Use this skill for Facebook group rule review, public post/comment planning, gro
 - Use `Target Type = Facebook Group` for groups and `Channel = Facebook Groups` where available.
 - Store group URL in `URL`, rules and participation angle in `Review` or `Notes`-style fields, and rule status in `Rules Status`.
 - Use `Audience Target` and timestamp fields on Growth Targets.
+- Use Growth Messages for post/comment drafts, approved posting events, replies, blockers, rule/approval basis, and follow-ups.
+- Promote/link to canonical Communications only when an interaction becomes a lead/client/business communication that belongs in the main RB communications ledger.
 - If the work becomes an admin sponsorship, paid-promotion, commercial placement, or group-owner relationship, stop and route that counterparty through `rb-germany-growth-facebook-partnerships` and Business Partners.
 
 ## Packet Workflow
@@ -42,7 +44,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Communications schema, and relevant Tasks.
+   - Load active Audience Target, Growth Targets schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
    - Confirm posting work is not being routed to Business Partners unless a partnership/admin route is explicitly required.
 
 2. Audience And Group Criteria
@@ -61,7 +63,7 @@ Shared gates:
    - Classify allowed actions: helpful post, helpful comment, reply to replies, recurring-thread participation, admin/partner approval required, or blocked.
    - If rules require admin approval, sponsorship, payment, or commercial permission before posting, block the item and hand it to `rb-germany-growth-facebook-partnerships`.
    - Do not infer permission from similar groups.
-   - Treat this as an in-run compliance gate. Store rule evidence on the Growth Target and blockers/follow-ups in Communications or Tasks, not in a compliance-check database.
+   - Treat this as an in-run compliance gate. Store rule evidence on the Growth Target and blockers/follow-ups in Growth Messages or Tasks, not in a compliance-check database.
 
 5. Helpful Posting Packet
    - Draft useful, non-promotional group posts or comments in chat when rules allow.
@@ -78,9 +80,9 @@ Shared gates:
 7. Approved Post/Comment
    - Run only after explicit approval.
    - Re-check the active Facebook session is Ioana.
-   - If not Ioana, log a blocker in Communications and stop.
+   - If not Ioana, log a blocker in Growth Messages and stop.
    - Post/comment/reply only the approved text in the approved group/thread.
-   - Log post/comment URL, approval/rule basis, result, `Growth Event = Post or Comment`, `Growth Event At`, and next follow-up in Communications.
+   - Log post/comment URL, approval/rule basis, result, `Message Kind = Post` or `Comment`, `Status = Sent/Posted`, `Growth Event At`, and next follow-up in Growth Messages.
    - Set Growth Target `Outreach Active At`, `Stage Updated At`, and `Last Activity At` when participation starts.
 
 8. Reply Drafting Packet
@@ -93,11 +95,11 @@ Shared gates:
    - Inspect due follow-ups for live posts, comments, replies, removals, warnings, and recurring threads.
    - Draft follow-up posts/comments/replies only when there is a real thread reason to add value.
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
-   - Use Communications follow-up dates for later checks.
+   - Use Growth Messages follow-up dates for later checks.
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets and Communications records: groups researched, rule checks, posts/comments/replies, helpful engagements, blockers, removals/warnings, and replies.
+   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records: groups researched, rule checks, posts/comments/replies, helpful engagements, blockers, removals/warnings, and replies.
 
 ## Output Packet
 
@@ -105,6 +107,6 @@ Return:
 
 - Growth Targets created/updated.
 - Rule/compliance findings.
-- Communications created/updated.
+- Growth Messages created/updated.
 - Post/comment/reply previews awaiting approval.
 - Partnership-route blockers, Ioana-gate blockers, reply drafts, follow-up drafts, and reporting counts.

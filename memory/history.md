@@ -930,3 +930,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Superseded later on 2026-06-01 by Business Partners routing. At this point, the Germany growth system had six project child databases plus canonical Communications. Drafts, sends, replies, blockers, and follow-ups belonged in Communications; send-ready growth work had to block unless Ioana was verified as the active sender identity.
 - Verification: Notion read-back verified canonical Communications has the `📬` icon and growth fields, Audiences has a `Communications` relation, and project/task copy no longer points at a separate growth outreach database.
 - Limitations or gaps: The actual multi-stage growth skills and daily automation are still open, and Ioana identity verification remains the hard blocker before send-capable stages.
+
+## 2026-06-01 - Germany Growth Messages Database
+
+- User request: Add a Communications-like database for growth-related messaging before prospects become leads, including public channel posting, and ensure the growth databases and skills link to it.
+- Context read: Germany growth skills and memory, communications process/skill, Notion `RB Client Databases`, Audiences, Channels, Growth Targets, Business Partners, canonical Communications, and Tasks schemas.
+- Actions taken: Created `RB DE Growth Messages` (`https://www.notion.so/ca339af617e5497483970cac110abc03`, data source `collection://0eb425a4-f739-412c-acc6-3fee8cc825df`) under `RB Client Databases` with icon `💬`, added relations to Audiences, Channels, Growth Targets, Business Partners, Communications, and Tasks, and updated master/channel Germany growth skills so pre-lead sends/posts/comments/DMs, replies, blockers, approvals, and follow-ups log there.
+- Decisions made: Growth Messages is the pre-lead growth log. Canonical Communications is used only when a growth thread is promoted into a lead/client/business communication and linked through `Promoted Communication`. Ioana-only send gates and exact approval rules remain unchanged.
+- Verification: Notion read-back verified the database parent, icon, views, and relation fields. Repo verification is recorded in the branch closeout.
+- Limitations or gaps: The daily automation and Ioana identity registry remain open tasks; no growth messages were sent or posted in this run.

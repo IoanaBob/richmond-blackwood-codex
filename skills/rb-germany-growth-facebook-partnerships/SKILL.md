@@ -1,6 +1,6 @@
 ---
 name: rb-germany-growth-facebook-partnerships
-description: Facebook group admin, sponsorship, and paid-promotion partnership acquisition flow for RB Germany growth, using Business Partners, Communications, and Ioana-only send gates.
+description: Facebook group admin, sponsorship, and paid-promotion partnership acquisition flow for RB Germany growth, using Business Partners, Growth Messages, and Ioana-only send gates.
 ---
 
 # RB Germany Growth Facebook Partnerships
@@ -14,7 +14,7 @@ Use this skill for Facebook group/admin sponsorship discovery, partner qualifica
 - Do not send during daily automation.
 - Preview outbound text in chat. Do not save Facebook drafts.
 - Send only after explicit user approval for the exact text.
-- Log every ask, approval, reply, blocker, payment/promotion status, and follow-up in canonical Communications.
+- Log every pre-lead ask, approval, reply, blocker, payment/promotion status, and follow-up in Growth Messages.
 - Commercial terms, payment, and disclosure language remain approval-gated.
 
 ## Data Routing
@@ -24,6 +24,8 @@ Use this skill for Facebook group/admin sponsorship discovery, partner qualifica
 - Put the group URL in `Website`.
 - Put admin route, group rules, audience fit, sponsor terms, commercial model, and approval evidence in `Notes`.
 - Use `Audience Target`, `Growth Channel = Facebook Groups`, `Growth Stage`, and `Ioana Gate` on Business Partners when available.
+- Use Growth Messages for admin asks, partner pitches, approvals, replies, blockers, and follow-ups until the relationship becomes a lead/client/business communication.
+- Promote/link to canonical Communications only when the thread becomes a lead/client/business communication that belongs in the main RB communications ledger.
 - Non-commercial public group participation belongs to `rb-germany-growth-facebook-posting`, not this skill.
 
 ## Packet Workflow
@@ -42,7 +44,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Business Partners schema, Communications schema, and relevant Tasks.
+   - Load active Audience Target, Business Partners schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
 
 2. Partner Criteria
@@ -62,7 +64,7 @@ Shared gates:
    - If rules are unclear, create a blocker and propose an admin-permission ask.
    - Do not infer permission from similar groups.
    - Keep payment terms, promotion deliverables, and disclosure requirements explicit.
-   - Treat rule, disclosure, approved-claim, commercial-approval, and Ioana-session checks as in-run gates. Preserve evidence in Business Partner notes and Communications, not in a compliance-check database.
+   - Treat rule, disclosure, approved-claim, commercial-approval, and Ioana-session checks as in-run gates. Preserve evidence in Business Partner notes and Growth Messages, not in a compliance-check database.
 
 5. Sponsorship/Admin Ask Packet
    - Draft the admin or sponsorship ask in chat.
@@ -73,8 +75,8 @@ Shared gates:
 6. Approved Admin/Sponsor Send
    - Run only after explicit approval.
    - Re-check the active Facebook session is Ioana.
-   - If not Ioana, log a blocker in Communications and stop.
-   - Send the approved ask and log result in Communications.
+   - If not Ioana, log a blocker in Growth Messages and stop.
+   - Send the approved ask and log result in Growth Messages.
    - Move Business Partner `Growth Stage` only when the result supports it, and set `Growth Stage Updated At`, `First Contacted At`, and `Last Contacted At` where applicable.
 
 7. Reply Drafting Packet
@@ -90,7 +92,7 @@ Shared gates:
 
 9. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Business Partner and Communications records: prospects, asks, approvals, spend, replies, blockers, and partner-stage movement.
+   - Reconstruct channel reporting from timestamped Business Partner and Growth Messages records: prospects, asks, approvals, spend, replies, blockers, and partner-stage movement.
 
 ## Output Packet
 
@@ -98,6 +100,6 @@ Return:
 
 - Business Partners created/updated.
 - Rule/commercial/compliance findings.
-- Communications created/updated.
+- Growth Messages created/updated.
 - Sponsorship/admin ask previews awaiting approval.
 - Ioana-gate blockers, reply drafts, follow-up drafts, and reporting counts.
