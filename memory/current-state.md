@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-25.
+Updated: 2026-06-01.
 
 ## Repo State
 
@@ -254,6 +254,7 @@ TPL / Techpacito Limited context import:
 
 Communication workflow update:
 
+- Browser/API/MCP boundary from 2026-06-01 user instruction: reject browser use for live workspace or business-system workflows when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before using browser automation, check whether the current plan can use one of those routes; if unclear, ask the responsible RB team member whether an API/MCP path exists. If possible access is blocked by missing credentials, stop and ask the responsible team member to provision the right keys or credentials through approved secret storage. Do not use browser as a workaround for missing API/MCP access.
 - For Slack messages requiring review, put the proposed text in Codex chat first as a rendered, readable preview with clickable named links, not as a fenced raw Markdown/code block. When the runtime exposes a working Codex approval prompt/notification, use it for Slack send approval instead of typed chat approval, especially when the operator requests notification-based approval. Do not claim a notification was sent unless the prompt tool succeeds. If the native prompt is unavailable and the operator approves a popup fallback, use a local macOS approval dialog: the sandbox prompt only authorizes showing the dialog, and Slack may be sent only after the dialog returns the explicit Send choice. After approval, send the approved text directly in Slack; do not create Slack drafts as the default review step.
 - For Slack closeouts and manual-post fallbacks, every operational row reference must be a named link, and every responsible-person action/update line must use a resolved Slack mention (`<@USERID>`). Bare responsible-person names are a format failure unless the operator explicitly approves a no-notification fallback for that exact person/message.
 - 2026-05-12 inbound-triage closeout correction: Slack closeouts for `#rb-client-updates` must follow the repo/task-oriented template and include the full actual work completed, including any follow-up work after a rejected preview. For the May 8-12 triage, the approval packet must include the created/updated task sections, assignees, one-by-one finance invoice records, Gmail `Triaged` labels applied, remaining blockers, and any material rejected-preview context. Do not call a Slack closeout `corrected` unless replacing or superseding a message that was actually sent, and do not send without explicit approval of the exact rendered message.

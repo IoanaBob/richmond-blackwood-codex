@@ -60,6 +60,17 @@ Do not record secrets, credentials, bearer-token links, or confidential document
 
 ## Connector And Helper Boundary
 
+Reject browser use for any live workspace or business-system workflow when an API, app connector, MCP tool, or repo-approved helper could support the current plan.
+
+Before choosing browser automation:
+
+1. Check whether the current plan can use an app connector, MCP tool, public/private API, or repo-approved helper.
+2. If the route is unclear, ask the responsible RB team member whether an API/MCP path exists.
+3. If API/MCP access is possible but blocked by missing credentials, stop and ask the responsible RB team member to provision the right API keys or credentials through approved secret storage.
+4. Do not use browser automation as a workaround for missing API/MCP access, and do not store keys, tokens, credential dumps, or pasted secrets in git.
+
+Browser use is limited to visual QA, local UI verification, public/manual-only pages, or explicitly approved human-only steps after the no-API/MCP reason is clear.
+
 Prefer connectors for app-native workspace state:
 
 - Gmail connector for search, read, and thread context.

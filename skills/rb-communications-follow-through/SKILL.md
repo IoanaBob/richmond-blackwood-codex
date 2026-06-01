@@ -53,6 +53,23 @@ Do not change the Notion schema in this skill. If source URL, source message ID,
 
 Do not write new RB records to the old `RB Communications` database at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
 
+## Inventory Pull Contract
+
+For any scope that says "all", "since inception", "every assigned row", or otherwise requires complete coverage, Stage 2 must use an authoritative row pull, not Notion search.
+
+Do a live capability check before deciding the inventory path. Prior failures are useful context, not proof of the current connector state. At the start of Stage 2, fetch the canonical Communications database, then run one non-mutating SQL probe such as `SELECT COUNT(*)` and, where a view URL is relevant, one non-mutating view-mode probe. Record the exact tool names, inputs, and errors/successes in the packet/run state.
+
+Authoritative row pulls are:
+
+- Notion connector data-source SQL query against `collection://1b5e4130-1314-8183-afd8-000b6f4da982`, paged with `LIMIT` / `OFFSET` until a page returns fewer rows than requested.
+- Notion connector view query against a supplied or approved view URL, paged with `page_size: 100` and `next_cursor` until `has_more` is false.
+- A user-provided/exported CSV or other full table export from the canonical Communications database/view.
+- A direct Notion API/export helper path that can prove it read the full table, including total row count or unambiguous pagination completion. Do not use the browser for Communications inventory unless the operator explicitly overrides that boundary for the run.
+
+For rows assigned to the active operator, resolve `RB_CODEX_ACTOR` through `internal/people-roles.md`, then filter on the Notion user ID in `Assigned To`. For Ioana Surdu-Bob the current provisional Notion user ID is `3a46f87a-9bc2-408f-baff-b4c23326e0f2`.
+
+Notion search is not inventory. Search has a 25-result page cap, semantic ranking, and can match related page content or linked tasks without the Communication row itself being assigned. Use search only for candidate discovery, source lookup, or recovery after a complete inventory has already defined the row set. If the query/export path is unavailable, stop with a coverage blocker or ask for browser login/CSV/export support; do not present search results as "all records".
+
 ## Core Rules
 
 - Create or update one canonical Communications row for each material sent, received, internal, system, call, draft, or status event that changes RB client/work context or creates follow-up work.
