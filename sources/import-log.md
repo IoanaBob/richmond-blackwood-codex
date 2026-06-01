@@ -29,6 +29,7 @@ Applied:
 - Added LinkedIn intra-day run modes for invite batches, acceptance checks, first-message packets, follow-up sweeps, reply triage, and metrics-only closeout.
 - Added explicit reply-drafting and follow-up-drafting packet stages across the growth channel skills.
 - Rewrote LinkedIn first-message, reply, and follow-up guidance so outreach is about who the person is and what they do, not RB services, tax/admin offerings, savings claims, sales paths, or booking a call. The Germany tax/admin pain opener is allowed only as shared human context before pivoting to the person's work.
+- Tightened LinkedIn examples so founder outreach must sound natural and specific: name the company/product/work and a real public detail, avoid "saw the founder angle" and generic "what are you focused on" prompts, and ask a targeted question that proves the sender is actually connected into the person's work.
 
 Verification:
 

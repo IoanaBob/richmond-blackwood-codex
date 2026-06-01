@@ -119,9 +119,11 @@ Shared gates:
 8. Accepted-Connection Message Packet
    - Draft the first message only after acceptance is verified.
    - Use a helpful, low-pressure opener tailored to who the person is and what they do.
+   - Cite at least one concrete public signal: company/product name, specific feature, market, article, launch, role scope, technical area, or founder decision.
+   - Block the draft if it could be sent unchanged to many people in the batch.
    - Include approved claims only; public claims remain provisional unless approved.
    - Do not mention RB services, tax offerings, sales paths, or booking a call.
-   - Make the message short, specific, non-salesy, and designed to start a genuine conversation.
+   - Make the message short, highly specific, non-salesy, and designed to start a genuine conversation.
    - Preview in chat with sender identity and source target.
 
 9. Reply Drafting Packet
@@ -150,21 +152,24 @@ Goal: start a real conversation about who they are and what they do. The first m
 Rules:
 
 - Keep it to 2-4 short sentences.
-- Open with the relevant profile signal: what they build, their role, company, founder/operator context, technical area, or recent move.
+- Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, technical work, or founder decision.
 - Ioana may write from the position of a tech founder/operator who is curious about their work.
+- The message must prove real attention. It should contain a detail that came from the person's profile, company site, post, article, or other approved source.
+- Generic founder language is blocked. Do not say "saw the founder angle", "what are you focused on", "specific thing", or any phrasing that sounds templated.
+- "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that Ioana can honestly point to.
 - Acknowledge Germany relocation/tax/admin pain only as shared human context, not as a service hook.
-- Ask one direct, low-pressure question.
+- Ask one direct, low-pressure question that is specific to the concrete signal.
 - Do not ask for a call in the first message.
 - Do not mention RB, services, discounts, savings claims, fear-based tax language, or broad marketing copy.
 - Do not imply RB knows private facts. Use only visible profile/source evidence.
-- Do not send if the only personalization available is the person's name.
+- Do not send if the only personalization available is the person's name, title, country, or generic founder status.
 
 Good message shape:
 
 ```text
-Thanks for connecting, [Name]. Saw you are working on [specific product/problem/company] - I am a tech founder as well and always curious how people are approaching [specific area].
+Thanks for connecting, [Name]. Saw you founded [Company] - I am a big fan of [specific product/feature/positioning], especially the way you are handling [specific customer/problem/technical tradeoff].
 
-What has been the hardest part of building that so far?
+I am a tech founder too, and I am curious: how did you decide to approach [specific decision] that way?
 ```
 
 Germany move opener:
@@ -172,31 +177,31 @@ Germany move opener:
 ```text
 Thanks for connecting, [Name]. I imagine moving to Germany with the taxes and admin side was a massive pain, right?
 
-Also saw you are working on [specific thing] - I am a tech founder too and would love to understand what you are building there.
+Also saw you founded [Company] and are building [specific product] for [specific audience]. I liked [specific feature/positioning] - how are you thinking about [specific challenge visible from their work]?
 ```
 
 Founder/operator variant:
 
 ```text
-Thanks for connecting, [Name]. Saw the founder angle at [company/project].
+Thanks for connecting, [Name]. Saw you founded [Company]; I have been following [specific launch/product/post] and really liked [specific reason].
 
-I am a tech founder too, so I am always interested in how people are tackling [specific market/problem]. What are you focused on this quarter?
+As a fellow tech founder, I am curious how you are handling [specific founder/operator challenge tied to their company] now that [specific context] is true.
 ```
 
 Technical-role variant:
 
 ```text
-Thanks for connecting, [Name]. Saw your work around [AI/data/cloud/security/product area].
+Thanks for connecting, [Name]. Saw your work on [specific system/product/domain] at [Company], especially [specific project, post, or technical signal].
 
-I am curious how you are seeing that space evolve in Germany compared with the US.
+Curious how you are thinking about [specific technical/market question] in Germany compared with the US.
 ```
 
 Follow-up after no reply:
 
 ```text
-No pressure on this, [Name] - just thought your work on [specific thing] looked interesting.
+No pressure on this, [Name] - I asked because [specific product/feature/post/company move] stood out to me.
 
-Curious what you are building toward next.
+Curious whether [specific question tied to that signal] is something you are still thinking through.
 ```
 
 Avoid:
@@ -205,6 +210,9 @@ Avoid:
 - "Book a call now to learn about our offer."
 - "Happy to jump on a quick call."
 - "We help Americans in Germany with taxes/admin."
+- "Saw the founder angle."
+- "What are you focused on this quarter?"
+- "Saw you are working on something interesting."
 - Long explanations of RB services.
 - Generic compliments unrelated to the profile.
 - More than one question in the same message.
