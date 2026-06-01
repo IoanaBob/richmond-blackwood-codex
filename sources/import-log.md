@@ -27,7 +27,8 @@ Applied:
 - Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.
 - Added the LinkedIn internal operating target for the first audience: 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days, with a normal send range of 15-20 blank requests/business day. This supersedes the earlier conservative 80/month quota.
 - Added LinkedIn intra-day run modes for invite batches, acceptance checks, first-message packets, follow-up sweeps, reply triage, and metrics-only closeout.
-- Added first-time-message guidance and examples: short, profile-relevant, non-salesy, approved-claims only, and conducive to a short call.
+- Added explicit reply-drafting and follow-up-drafting packet stages across the growth channel skills.
+- Rewrote LinkedIn first-message, reply, and follow-up guidance so outreach is about who the person is and what they do, not RB services, tax/admin offerings, savings claims, sales paths, or booking a call. The Germany tax/admin pain opener is allowed only as shared human context before pivoting to the person's work.
 
 Verification:
 

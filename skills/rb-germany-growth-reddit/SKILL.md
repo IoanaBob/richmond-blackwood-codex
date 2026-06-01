@@ -78,12 +78,20 @@ Shared gates:
    - Send/post/comment only the approved text.
    - Log the URL/message ID, rule basis, result, and next follow-up in Communications.
 
-8. Reply And Follow-Up Advancement
+8. Reply Drafting Packet
    - Track replies, removals, bans/warnings, helpful engagements, and link clicks if available.
+   - Draft Reddit replies in chat before any send.
+   - Keep replies useful to the thread and responsive to the other person's comment.
+   - Do not pitch, request DMs, ask for mod approval, suggest paid/commercial placement, or introduce RB services.
    - Update Growth Target status only when evidence supports it.
+
+9. Follow-Up Drafting Packet
+   - Inspect due follow-ups for posts, comments, replies, removals, warnings, and recurring threads.
+   - Draft follow-up comments/replies only when there is a real thread reason to add value.
+   - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Communications follow-up dates for later checks.
 
-9. Metrics And Closeout
+10. Metrics And Closeout
    - Update Metrics for communities researched, rule checks, comments/posts/replies, helpful engagements, blockers, replies, and meetings.
    - Report any community-specific constraints before future runs.
 
@@ -94,4 +102,4 @@ Return:
 - Growth Targets created/updated.
 - Rule/compliance findings.
 - Communications created/updated.
-- Previews awaiting approval, blockers, follow-ups, and metrics.
+- Post/comment previews, reply drafts, follow-up drafts, blockers, and metrics.

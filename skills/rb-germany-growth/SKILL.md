@@ -73,7 +73,7 @@ Shared gates:
    - Pull due Tasks linked to `RB Germany Growth System`.
    - Pull Business Partners matching the active `Audience Target` and active `Growth Stage`.
    - Pull Growth Targets for non-partner LinkedIn, Reddit, and direct research targets.
-   - Separate send-ready items from research, reply, blocker, and follow-up work.
+   - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
 
 4. Channel Work Packets
    - Run each channel skill in read/plan mode:
@@ -82,6 +82,7 @@ Shared gates:
      - `rb-germany-growth-relocation-partners`
      - `rb-germany-growth-reddit`
    - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, Compliance Checks, Metrics, and Tasks.
+   - Include explicit reply-drafting and follow-up-drafting packets when replies or due follow-ups exist.
    - Do not send messages in the daily automation.
    - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or metrics-only.
 
@@ -97,6 +98,7 @@ Shared gates:
    - Show sender identity as Ioana and the channel/account context.
    - Create/update Communications only as operating log and follow-up state, not as software drafts.
    - Include target URL, Business Partner URL or Growth Target URL, audience, channel, proposed next action, and follow-up date.
+   - Label each preview as first message, reply draft, follow-up draft, post/comment draft, admin ask, or partner pitch.
 
 7. Approved Send Stage
    - Only run when the user explicitly asks to send approved messages.

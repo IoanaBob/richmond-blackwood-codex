@@ -84,8 +84,18 @@ Shared gates:
    - Post only the approved content in the approved group.
    - Log post URL, approval basis, payment/promotion details, and next follow-up in Communications.
 
-9. Follow-Up And Metrics
-   - Advance Communications follow-ups for unanswered admin asks, sponsorship approvals, rejected posts, live posts, and replies.
+9. Reply Drafting Packet
+   - Inspect Facebook group/admin replies and summarize what changed.
+   - Draft exact reply text in chat before any send.
+   - Keep replies tied to the group/admin context, approval basis, sponsorship terms, or posting rules actually discussed.
+   - Do not introduce new commercial terms, claims, or commitments without explicit user approval.
+
+10. Follow-Up Drafting Packet
+   - Inspect due follow-ups for unanswered admin asks, sponsorship approvals, rejected posts, live posts, and replies.
+   - Draft follow-up text in chat only when there is a specific next reason to follow up.
+   - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
+
+11. Metrics And Closeout
    - Update Metrics by audience and Facebook Groups channel for prospects, asks, approvals, posts, spend, replies, blockers, and meetings.
 
 ## Output Packet
@@ -96,4 +106,4 @@ Return:
 - Rule/compliance findings.
 - Communications created/updated.
 - Sponsorship or post previews awaiting approval.
-- Ioana-gate blockers and follow-ups.
+- Ioana-gate blockers, reply drafts, follow-up drafts, and metrics.

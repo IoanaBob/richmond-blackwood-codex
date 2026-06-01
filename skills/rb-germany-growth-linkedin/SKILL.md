@@ -28,8 +28,8 @@ This skill can run multiple times per business day because LinkedIn state change
 - `invite-batch`: prepare or send an approved block of blank connection requests inside the 15-20/day range.
 - `acceptance-check`: check pending requests for accepted connections and update Communications/Growth Targets.
 - `first-message`: prepare first-message packets for newly accepted connections.
-- `follow-up-sweep`: advance due follow-ups, stale acceptances, pending messages, blockers, and Tasks.
-- `reply-triage`: inspect new LinkedIn replies and prepare response or call-booking packets.
+- `follow-up-sweep`: inspect due follow-ups and prepare follow-up drafts for review.
+- `reply-triage`: inspect new LinkedIn replies and prepare reply drafts for review.
 - `metrics-only`: update counts and conversion rates without preparing sends.
 
 Suggested operating rhythm:
@@ -47,7 +47,7 @@ Do not duplicate sends across intra-day runs. Every run must read current Commun
 - A company, agency, or commercial counterparty discovered through LinkedIn goes to Business Partners only if there is a partner/commercial relationship.
 - Connection requests are Communications records tied to the Growth Target.
 - Accepted-connection messages are drafted only after acceptance is verified.
-- First messages, replies, call asks, blockers, and follow-ups are Communications records tied to the Growth Target.
+- First messages, replies, blockers, and follow-ups are Communications records tied to the Growth Target.
 
 ## Packet Workflow
 
@@ -118,12 +118,26 @@ Shared gates:
 
 8. Accepted-Connection Message Packet
    - Draft the first message only after acceptance is verified.
-   - Use a helpful, low-pressure opener tailored to the person's profile signal.
+   - Use a helpful, low-pressure opener tailored to who the person is and what they do.
    - Include approved claims only; public claims remain provisional unless approved.
-   - Make the message short, specific, non-salesy, and conducive to a call.
+   - Do not mention RB services, tax offerings, sales paths, or booking a call.
+   - Make the message short, specific, non-salesy, and designed to start a genuine conversation.
    - Preview in chat with sender identity and source target.
 
-9. Approved Message Send And Follow-Up
+9. Reply Drafting Packet
+   - Inspect new replies and summarize what the person actually said.
+   - Draft a reply in chat that responds to their topic, not a preset sales path.
+   - Keep the reply founder/operator-to-founder/operator when relevant.
+   - Do not pitch, mention services, ask for a call, or steer toward a sales path. If the person explicitly asks for help, draft a neutral human reply for user review rather than converting the thread into an offer.
+   - Preview exact reply text with sender identity, source target, and proposed follow-up date.
+
+10. Follow-Up Drafting Packet
+   - Inspect due follow-ups for accepted connections, first messages, replies, and blockers.
+   - Draft follow-ups only when there is a reason beyond "checking in": their work, product, founder context, relocation context, or a previous thread detail.
+   - Keep follow-ups short and human; no pressure, no call ask, no sales framing.
+   - If no useful context exists, advance the follow-up date or close the thread instead of drafting filler.
+
+11. Approved Message Send And Follow-Up
    - Re-check Ioana LinkedIn session before sending.
    - Send only the approved text.
    - Log send URL/message ID if available, response state, and next follow-up in Communications.
@@ -131,61 +145,66 @@ Shared gates:
 
 ## First-Time Message Guidance
 
-Goal: start a relevant conversation that can naturally become a 15-minute call. The first message is not a pitch deck, not a service dump, and not a claim-heavy sales message.
+Goal: start a real conversation about who they are and what they do. The first message is not a pitch, not a path to a call, not a tax/admin services opener, and not a claim-heavy sales message. Any sale should happen later, outside the outreach copy.
 
 Rules:
 
 - Keep it to 2-4 short sentences.
-- Open with the relevant profile signal: US background, current Germany location, tech role, founder/remote-worker context, or recent move.
-- State the useful context in plain language: German tax/admin/company setup, relocation friction, cross-border setup, or freelancer/founder admin.
+- Open with the relevant profile signal: what they build, their role, company, founder/operator context, technical area, or recent move.
+- Ioana may write from the position of a tech founder/operator who is curious about their work.
+- Acknowledge Germany relocation/tax/admin pain only as shared human context, not as a service hook.
 - Ask one direct, low-pressure question.
-- Offer a short call only when it follows from the question.
-- Do not mention discounts, savings claims, fear-based tax language, or broad marketing copy.
+- Do not ask for a call in the first message.
+- Do not mention RB, services, discounts, savings claims, fear-based tax language, or broad marketing copy.
 - Do not imply RB knows private facts. Use only visible profile/source evidence.
 - Do not send if the only personalization available is the person's name.
 
 Good message shape:
 
 ```text
-Thanks for connecting, [Name]. I noticed the US -> Germany tech path in your profile, and we often speak with people who are trying to make the German tax/admin side less painful after moving.
+Thanks for connecting, [Name]. Saw you are working on [specific product/problem/company] - I am a tech founder as well and always curious how people are approaching [specific area].
 
-Is that something on your plate at the moment, or already handled?
+What has been the hardest part of building that so far?
 ```
 
-Call-oriented variant:
+Germany move opener:
 
 ```text
-Thanks for connecting, [Name]. Saw you are in [role/field] and now based around [city/Germany]; that US-to-Germany setup can create a lot of tax and admin friction.
+Thanks for connecting, [Name]. I imagine moving to Germany with the taxes and admin side was a massive pain, right?
 
-If any of that is currently open, happy to compare notes on a quick 15-minute call.
+Also saw you are working on [specific thing] - I am a tech founder too and would love to understand what you are building there.
 ```
 
-Founder/company setup variant:
+Founder/operator variant:
 
 ```text
-Thanks for connecting, [Name]. I noticed the founder/startup angle and the Germany move signal.
+Thanks for connecting, [Name]. Saw the founder angle at [company/project].
 
-We help with the practical German tax/admin setup around that. If you are still deciding how to structure it, worth a quick 15-minute chat?
+I am a tech founder too, so I am always interested in how people are tackling [specific market/problem]. What are you focused on this quarter?
 ```
 
-Employee/relocation variant:
+Technical-role variant:
 
 ```text
-Thanks for connecting, [Name]. Saw the US background and Germany tech role.
+Thanks for connecting, [Name]. Saw your work around [AI/data/cloud/security/product area].
 
-Quick question: have you already sorted the German tax/admin side of the move, or is that still creating friction?
+I am curious how you are seeing that space evolve in Germany compared with the US.
 ```
 
 Follow-up after no reply:
 
 ```text
-Just checking whether this is relevant, [Name]. If German tax/admin setup is already handled, no need to reply. If it is still open, I can point you in the right direction or set up a short call.
+No pressure on this, [Name] - just thought your work on [specific thing] looked interesting.
+
+Curious what you are building toward next.
 ```
 
 Avoid:
 
 - "We can save you EUR X."
 - "Book a call now to learn about our offer."
+- "Happy to jump on a quick call."
+- "We help Americans in Germany with taxes/admin."
 - Long explanations of RB services.
 - Generic compliments unrelated to the profile.
 - More than one question in the same message.

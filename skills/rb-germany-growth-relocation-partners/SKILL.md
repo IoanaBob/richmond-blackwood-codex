@@ -82,14 +82,22 @@ Shared gates:
    - Send the approved message directly through the supported route.
    - Log send result, URL/message ID, and follow-up in Communications.
 
-8. Reply, Negotiation, And Pilot Tracking
-   - Route replies into Communications.
+8. Reply Drafting And Negotiation Packet
+   - Route replies into Communications and summarize what the partner actually said.
+   - Draft exact reply text in chat before any send.
+   - Keep replies tied to the partner's service, audience, commercial model, or open question.
+   - Do not introduce pricing, commission, payments, contract terms, or pilot commitments without explicit user approval.
    - Update Business Partner `Growth Stage` to `Contacted by Ioana`, `Negotiating`, `Pilot Active`, `Blocked`, or `Closed` only when evidence supports it.
    - Link Contracts only when there is a real agreement or contract workflow.
 
-9. Metrics And Closeout
+9. Follow-Up Drafting Packet
+   - Inspect due follow-ups for sent pitches, partner replies, commercial approvals, blockers, and negotiation items.
+   - Draft follow-up text in chat only when there is a specific reason and source context.
+   - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
+
+10. Metrics And Closeout
    - Update Metrics for prospects researched, qualified partners, pitches, replies, meetings, pilots, blockers, and closed outcomes.
-   - Report follow-ups and commercial approval blockers.
+   - Report reply drafts, follow-up drafts, and commercial approval blockers.
 
 ## Output Packet
 
@@ -98,5 +106,5 @@ Return:
 - Business Partners created/updated.
 - Commercial approval needs.
 - Communications created/updated.
-- Pitch previews awaiting approval.
+- Pitch, reply, and follow-up previews awaiting approval.
 - Follow-ups, blockers, and metrics.
