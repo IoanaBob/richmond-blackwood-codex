@@ -95,9 +95,13 @@ Source: user instruction in Codex thread on 2026-06-01 and live Notion connector
 Imported: 2026-06-01.
 Review: confirm approved public claims, current offer framing, Ioana sender identity routes, future audience targets, and whether the user's "Refund" item is a separate channel or out of scope.
 
-Central project:
+Task project:
 
 - `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`
+
+Database home:
+
+- `RB Client Databases`: `https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`
 
 Operating databases:
 
@@ -112,6 +116,7 @@ Operating databases:
 Audience model:
 
 - The system is Germany growth overall, not only Americans in Germany.
+- The Germany Growth project is for tasks only; operating databases live in the Richmond Blackwood teamspace database hub.
 - Each channel, target, business partner, compliance check, metric, and growth communication should be attached to an `Audience Target` where the schema supports it.
 - First audience target: `Americans in Germany / relocating to Germany`.
 - The superseded `RB DE Growth Partnerships` data source was trashed on 2026-06-01. Partnership prospects now use the existing Business Partners database with optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields.

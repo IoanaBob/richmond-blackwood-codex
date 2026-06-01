@@ -7,7 +7,7 @@ Status: active.
 Applied:
 
 - Created central Notion project `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`.
-- Created live project-scoped operating databases for the campaign: Audiences, Channels, Targets, Compliance Checks, and Metrics. The initially-created separate growth outreach database was deleted by the user and superseded by canonical Communications.
+- Created live operating databases for the campaign: Audiences, Channels, Targets, Compliance Checks, and Metrics. The initially-created separate growth outreach database was deleted by the user and superseded by canonical Communications.
 - Seeded the first audience target, `Americans in Germany / relocating to Germany`, while keeping the overall system broader than that audience.
 - Added `Audience Target` relations to Channels, Targets, Compliance Checks, and Metrics so each item can target a specific group.
 - Added optional Germany growth fields to existing Business Partners - Original (`https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`): `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate`.
@@ -21,20 +21,22 @@ Applied:
 - Created linked Tasks database rows for identity registry setup, multi-stage skill creation, daily run setup, and first research batches for LinkedIn, Facebook groups, relocation agents, and Reddit.
 - Added repo-local Germany growth skills for the master daily run, LinkedIn, Facebook groups, relocation partners, and Reddit.
 - Recorded the hard outbound rule that send-ready stages must use Ioana and must block if the active connector or browser session is not verified as Ioana.
-- Added icons to the live Germany growth child databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
+- Added icons to the live Germany growth operating databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
+- Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.
 
 Verification:
 
 - Live Notion connector returned project, database, seed-row, task, and view URLs during create/read-back operations.
-- Live Notion connector accepted icon updates for the growth child databases and read-back verified canonical Communications has growth fields and the `📬` icon.
+- Live Notion connector accepted icon updates for the growth operating databases and read-back verified canonical Communications has growth fields and the `📬` icon.
 - Live Notion connector read-back verified the project page and linked Tasks rows no longer refer to a separate growth outreach database.
 - Live Notion connector read-back verified Business Partners retained icon `🤝` and has the new optional growth fields.
+- Live Notion connector move/read-back verified the five Germany growth operating databases now sit under `RB Client Databases`, while the Germany Growth project page has task-only scope copy and no child database blocks.
 - Search of the superseded Growth Partnerships data source returned no rows before it was trashed, so no row migration was needed.
 - Prospect PII was not imported into git; the repo stores operating pointers and provisional process notes only.
 
 Open:
 
-- Confirm whether the new Notion project, five child databases, Business Partners growth fields, and canonical Communications fields are the canonical operating surface before enabling daily automation.
+- Confirm whether the task project, teamspace-hosted growth databases, Business Partners growth fields, and canonical Communications fields are the canonical operating surface before enabling daily automation.
 - Confirm future Germany growth audience targets beyond the first Americans audience.
 - Confirm Ioana identity/session verification routes per channel before any send-capable stage runs.
 - Clarify whether the user's "Refund" item is a separate channel, a campaign angle, or out of scope.

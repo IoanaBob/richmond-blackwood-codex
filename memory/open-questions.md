@@ -54,7 +54,7 @@ Updated: 2026-06-01.
 - Verify Ioana identity/session checks for LinkedIn, Facebook, Reddit, and personal email before any Germany growth send-ready stage can run.
 - Confirm whether the user's 2026-06-01 "Refund" item is a separate channel, a campaign angle, or intentionally out of scope. Current Notion setup treats it as out of scope pending confirmation.
 - Confirm future Germany growth audience targets beyond the first active audience, `Americans in Germany / relocating to Germany`.
-- Confirm whether the 2026-06-01 Notion project, five project child databases, Business Partners growth fields, and canonical Communications are the canonical operating surface for Germany growth before enabling daily automation.
+- Confirm whether the 2026-06-01 task project, teamspace-hosted growth databases under RB Client Databases, Business Partners growth fields, and canonical Communications are the canonical operating surface for Germany growth before enabling daily automation.
 
 ## Process Questions
 

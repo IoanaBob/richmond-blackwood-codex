@@ -20,7 +20,8 @@ Use this skill for the master Germany growth daily run or any coordinated German
 
 ## Operating Sources
 
-- Project: `RB Germany Growth System` (`https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`)
+- Task project: `RB Germany Growth System` (`https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`)
+- Database home: `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) in the Richmond Blackwood teamspace.
 - Audiences: `collection://a02aa29c-be9c-4983-985d-233ed8f6b31b`
 - Channels: `collection://0d028144-e767-41fb-aefe-a59237b5dd68`
 - Growth Targets: `collection://1b84523e-9d56-47d0-9215-1618efee0b41`
@@ -48,6 +49,7 @@ Shared gates:
 - Communications is the canonical log for drafts, sends, replies, blockers, and follow-ups.
 - `Invoicing Email` on Business Partners is only for a real invoicing/commercial email. Casual contact routes, admin routes, and DM routes belong in Business Partner `Notes` and Communications.
 - Growth Business Partners should use `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` when available.
+- Growth operating databases live in the Richmond Blackwood teamspace database hub, not under the Germany Growth task project. The project is for task grouping and due-work tracking only.
 
 ## Stages
 

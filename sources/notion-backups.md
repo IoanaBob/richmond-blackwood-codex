@@ -21,9 +21,13 @@ Source: user instruction in Codex thread on 2026-06-01 and live Notion connector
 Imported: 2026-06-01.
 Review: confirm this is the canonical operating surface for the broader Germany growth system before enabling daily automation and send-capable channel runs.
 
-Central project:
+Task project:
 
 - `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`
+
+Database home:
+
+- `RB Client Databases`: `https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`
 
 Operating sources:
 
