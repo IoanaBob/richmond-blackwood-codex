@@ -41,7 +41,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, and relevant Tasks.
+   - Load active Audience Target, Growth Targets schema, Communications schema, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Confirm no Reddit work is routed to Business Partners, modmail, cold DMs, sponsorship, paid posts, or commercial counterparties.
 
@@ -60,6 +60,7 @@ Shared gates:
    - Read subreddit rules, wiki/sidebar, pinned posts, and recent visible moderator guidance when available.
    - Classify allowed actions for community-first engagement: helpful comments, helpful non-promotional posts, replies to replies, recurring-thread participation, reactive DMs after a valid trigger, or blocked.
    - If rules require modmail, moderator approval, sponsorship, payment, or commercial permission before participation, mark the item blocked for now.
+   - Treat rule, approved-claim, and Ioana-session checks as in-run gates. Store rule evidence on the Growth Target and blockers/follow-ups in Communications or Tasks, not in a compliance-check database.
 
 5. Helpful Participation Packet
    - Draft helpful, non-promotional comments or posts in chat when rules allow.
@@ -100,7 +101,7 @@ Shared gates:
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets, Compliance Checks, and Communications records for communities researched, rule checks, comments/posts/replies, reactive DMs, helpful engagements, blockers, and replies.
+   - Reconstruct channel reporting from timestamped Growth Targets and Communications records for communities researched, rule checks, comments/posts/replies, reactive DMs, helpful engagements, blockers, and replies.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet

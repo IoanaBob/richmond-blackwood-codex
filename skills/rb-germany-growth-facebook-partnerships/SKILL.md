@@ -42,7 +42,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, and relevant Tasks.
+   - Load active Audience Target, Business Partners schema, Communications schema, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
 
 2. Partner Criteria
@@ -62,6 +62,7 @@ Shared gates:
    - If rules are unclear, create a blocker and propose an admin-permission ask.
    - Do not infer permission from similar groups.
    - Keep payment terms, promotion deliverables, and disclosure requirements explicit.
+   - Treat rule, disclosure, approved-claim, commercial-approval, and Ioana-session checks as in-run gates. Preserve evidence in Business Partner notes and Communications, not in a compliance-check database.
 
 5. Sponsorship/Admin Ask Packet
    - Draft the admin or sponsorship ask in chat.
@@ -89,7 +90,7 @@ Shared gates:
 
 9. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Business Partner, Communications, and Compliance Checks records: prospects, asks, approvals, spend, replies, blockers, and partner-stage movement.
+   - Reconstruct channel reporting from timestamped Business Partner and Communications records: prospects, asks, approvals, spend, replies, blockers, and partner-stage movement.
 
 ## Output Packet
 

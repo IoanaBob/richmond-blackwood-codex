@@ -42,7 +42,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, and relevant Tasks.
+   - Load active Audience Target, Growth Targets schema, Communications schema, and relevant Tasks.
    - Confirm posting work is not being routed to Business Partners unless a partnership/admin route is explicitly required.
 
 2. Audience And Group Criteria
@@ -61,6 +61,7 @@ Shared gates:
    - Classify allowed actions: helpful post, helpful comment, reply to replies, recurring-thread participation, admin/partner approval required, or blocked.
    - If rules require admin approval, sponsorship, payment, or commercial permission before posting, block the item and hand it to `rb-germany-growth-facebook-partnerships`.
    - Do not infer permission from similar groups.
+   - Treat this as an in-run compliance gate. Store rule evidence on the Growth Target and blockers/follow-ups in Communications or Tasks, not in a compliance-check database.
 
 5. Helpful Posting Packet
    - Draft useful, non-promotional group posts or comments in chat when rules allow.
@@ -96,7 +97,7 @@ Shared gates:
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets, Compliance Checks, and Communications records: groups researched, rule checks, posts/comments/replies, helpful engagements, blockers, removals/warnings, and replies.
+   - Reconstruct channel reporting from timestamped Growth Targets and Communications records: groups researched, rule checks, posts/comments/replies, helpful engagements, blockers, removals/warnings, and replies.
 
 ## Output Packet
 

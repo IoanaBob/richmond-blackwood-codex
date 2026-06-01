@@ -65,7 +65,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, and relevant Tasks.
+   - Load active Audience Target, Growth Targets schema, Communications schema, and relevant Tasks.
    - Choose run mode(s): `invite-batch`, `acceptance-check`, `first-message`, `follow-up-sweep`, `reply-triage`, or `reporting-only`.
    - Load current-day sent counts, monthly sent counts, pending requests, accepted connections awaiting first message, due follow-ups, and open blockers before proposing any send.
    - Verify LinkedIn account identity only when approaching a send-ready step.
@@ -97,6 +97,7 @@ Shared gates:
    - Record qualification evidence in Growth Target notes and, when action is needed, Communications or Tasks.
    - When a target becomes qualified, set `Qualified At`; when it becomes blocked, set `Blocked At`.
    - Block targets where the US/Germany signal is too weak.
+   - Treat LinkedIn rules, approved claims, and Ioana identity as in-run compliance gates. Do not create compliance-check rows.
 
 5. Connection Request Packet
    - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.

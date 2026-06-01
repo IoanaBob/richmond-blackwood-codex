@@ -5,7 +5,7 @@ description: Master daily orchestration for the Richmond Blackwood Germany growt
 
 # RB Germany Growth
 
-Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook partnerships, Facebook posting, relocation partners, Reddit, Business Partners, Growth Targets, Communications, Compliance Checks, and Tasks.
+Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook partnerships, Facebook posting, relocation partners, Reddit, Business Partners, Growth Targets, Communications, Tasks, and ephemeral compliance gates.
 
 ## Hard Gates
 
@@ -30,7 +30,6 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Growth Targets: `collection://1b84523e-9d56-47d0-9215-1618efee0b41`
 - Business Partners: `collection://f52ad152-d91f-4663-86f1-e63a18edd90a`
 - Communications: `collection://1b5e4130-1314-8183-afd8-000b6f4da982`
-- Compliance Checks: `collection://3b6e8e51-0d0d-47d3-bf3b-e450363b6c54`
 - Tasks: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
 
 ## Packet Workflow
@@ -54,15 +53,16 @@ Shared gates:
 - `Invoicing Email` on Business Partners is only for a real invoicing/commercial email. Casual contact routes, admin routes, and DM routes belong in Business Partner `Notes` and Communications.
 - Growth Business Partners should use `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` when available.
 - Growth operating databases live in the Richmond Blackwood teamspace database hub, not under the Germany Growth task project. The project is for task grouping and due-work tracking only.
-- There is no active growth summary database. The old summary source is superseded/trashed; reporting must be reconstructed from timestamped rows in Communications, Growth Targets, Business Partners, Channels, Compliance Checks, and Audiences.
+- There is no active growth summary database and no active growth compliance-check database. The old summary and Compliance Checks sources are superseded/trashed; reporting must be reconstructed from timestamped rows in Communications, Growth Targets, Business Partners, Channels, and Audiences.
 - Every growth stage/status transition must set `Stage Updated At` or the matching milestone timestamp at the same time as the stage/status change. Every Communications event must set `Growth Event` and `Growth Event At` for growth reporting.
+- Compliance is a one-time in-run gate inside the relevant skill stage. Record only the outcome that matters: approved sends in Communications, blockers in Communications/Tasks, and rule/claim evidence in the relevant target or partner notes.
 
 ## Stages
 
 1. Preflight
    - Inspect `git status --short --branch` and pull latest `origin/main` before repo or live-state changes.
    - Read `skills/index.md`, `skills/rb-communications/SKILL.md`, this skill, channel skill files, and `internal/growth-sales-marketing.md`.
-   - Fetch Notion schemas for Audiences, Channels, Growth Targets, Business Partners, Communications, Compliance Checks, and Tasks.
+   - Fetch Notion schemas for Audiences, Channels, Growth Targets, Business Partners, Communications, and Tasks.
    - Check that the legacy growth partnership data source is deleted/trashed or unavailable. Block if it is active after migration should be complete.
 
 2. Audience Selection
@@ -86,7 +86,7 @@ Shared gates:
      - `rb-germany-growth-facebook-posting`
      - `rb-germany-growth-relocation-partners`
      - `rb-germany-growth-reddit`
-   - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, Compliance Checks, and Tasks.
+   - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, and Tasks.
    - Include timestamp updates for each proposed state transition, milestone, send, reply, blocker, approval, post/comment, or follow-up.
    - Include explicit reply-drafting and follow-up-drafting packets when replies or due follow-ups exist.
    - Do not send messages in the daily automation.
@@ -94,9 +94,10 @@ Shared gates:
    - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
 
 5. Compliance And Ioana Gate
-   - Verify platform rules, approved claims, commercial approval needs, and sender-session status.
+   - Verify platform rules, approved claims, commercial approval needs, and sender-session status as an in-run checklist, not as database rows.
    - Set or preserve Business Partner `Ioana Gate`.
    - Send-ready items with unverified or non-Ioana sessions become blockers, not sends.
+   - Record blockers in canonical Communications and, only when extra action is needed, Tasks.
    - Promotional posts or sponsorship asks block without a rules basis, admin/moderator approval, or explicit user approval.
    - Facebook posting work that requires admin sponsorship, payment, or commercial placement must be routed to the Facebook partnerships skill, not handled inside the posting skill.
    - For Reddit, promotional, moderator, sponsorship, paid-post, cold/proactive DM, modmail, and commercial-counterparty routes are disabled for now and become blockers. Reactive DMs may proceed only after public engagement with our post/comment or an inbound DM, with exact approval and immediate Ioana Reddit-session verification.
@@ -133,6 +134,7 @@ Shared gates:
 - Business Partners retains icon `🤝` and has `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate`.
 - Audiences has no active relation to the deleted legacy partnership data source.
 - Communications has `Audience Target`, `Growth Channel`, and `Sender Identity`.
+- The legacy Compliance Checks source remains superseded/trashed; no skill creates or updates compliance-check rows.
 - Facebook partnership acquisition and Facebook posting are separate repo-local skills and are not mixed in a single workflow.
 - No send happened unless the exact send stage was approved and Ioana was verified.
 - The legacy growth partnership data source remains superseded/deleted.

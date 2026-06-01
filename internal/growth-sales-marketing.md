@@ -109,17 +109,17 @@ Operating databases:
 - Channels: `https://www.notion.so/4d0f85fa5e7f4a208861c4705aecc2c4`
 - Targets: `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8`
 - Business Partners: `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`
-- Compliance Checks: `https://www.notion.so/cc0561be66e44aa0a5296271a376917d`
 - Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807`
 
 Audience model:
 
 - The system is Germany growth overall, not only Americans in Germany.
 - The Germany Growth project is for tasks only; operating databases live in the Richmond Blackwood teamspace database hub.
-- Each channel, target, business partner, compliance check, and growth communication should be attached to an `Audience Target` where the schema supports it.
+- Each channel, target, business partner, and growth communication should be attached to an `Audience Target` where the schema supports it.
 - First audience target: `American tech workers in Germany / relocating to Germany`.
 - The superseded `RB DE Growth Partnerships` data source was trashed on 2026-06-01. Partnership prospects now use the existing Business Partners database with optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields.
 - The superseded `RB DE Growth Metrics` data source was trashed on 2026-06-01. Growth reporting is reconstructed from timestamped records instead of summary rows.
+- The superseded `RB DE Growth Compliance Checks` data source was trashed on 2026-06-01. Compliance is now a one-time in-run skill gate, with blockers recorded in Communications or Tasks when action is needed.
 
 Reporting model:
 
@@ -128,11 +128,11 @@ Reporting model:
 - Imported: 2026-06-01.
 - Review: validate the timestamp update discipline during the first daily run.
 - Do not create or update summary reporting rows for Germany growth.
-- Reconstruct daily, weekly, and monthly reporting by querying event and stage timestamps in Communications, Growth Targets, Business Partners, Channels, Compliance Checks, and Audiences.
+- Reconstruct daily, weekly, and monthly reporting by querying event and stage timestamps in Communications, Growth Targets, Business Partners, Channels, and Audiences.
 - Communications growth events use `Growth Event` and `Growth Event At`, plus `Sent/Received On` for real sends/replies where applicable.
 - Growth Targets use `Stage Updated At`, `Qualified At`, `Ready To Draft At`, `Outreach Active At`, `Waiting Since`, `Blocked At`, `Closed At`, `Rules Checked At`, and `Last Activity At`.
 - Business Partners use `Growth Stage Updated At`, `Growth Qualified At`, `Pitch Drafted At`, `First Contacted At`, `Last Contacted At`, `Last Reply At`, `Growth Blocked At`, `Growth Closed At`, `Pilot Started At`, and `Ioana Gate Updated At`.
-- Channels, Compliance Checks, and Audiences use their stage/result/status timestamp fields to reconstruct setup, compliance, and blocker history.
+- Channels and Audiences use their stage/status timestamp fields to reconstruct setup and blocker history. Compliance gate outcomes are reconstructed from Communications blockers, send records, target/partner notes, and Tasks when extra action is required.
 
 LinkedIn operating quota:
 

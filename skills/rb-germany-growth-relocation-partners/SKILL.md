@@ -43,7 +43,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, and relevant Tasks.
+   - Load active Audience Target, Business Partners schema, Communications schema, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Count relocation-partner first-time email sends, queued approved-send items, replies, due follow-ups, blockers, and remaining daily target for the current business day.
 
@@ -75,6 +75,7 @@ Shared gates:
    - Identify likely model: referral, content partnership, paid placement, co-marketing, webinar, affiliate, service bundle, or other.
    - Do not offer pricing, commission, payments, or contract terms without user approval.
    - Preserve proposed commercial terms and approval state in Business Partner `Notes` and Communications.
+   - Treat solicitation rules, approved claims, commercial approval, and Ioana-session checks as in-run gates. Record blockers in Communications or Tasks, not in a compliance-check database.
 
 6. Pitch Draft Packet
    - Draft outreach in chat, personalized to the partner type and active audience.
