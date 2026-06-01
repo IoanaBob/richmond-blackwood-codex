@@ -26,7 +26,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-germany-growth-linkedin`: LinkedIn direct-connect and accepted-connection message flow for Germany growth audiences; individual prospects stay in Growth Targets.
 - `rb-germany-growth-facebook-groups`: Facebook group sponsorship/admin partnership and approved posting flow; group/admin prospects route to Business Partners.
 - `rb-germany-growth-relocation-partners`: relocation-agent, expat coach, immigration-adjacent firm, and professional-firm partnership flow using Business Partners.
-- `rb-germany-growth-reddit`: Reddit direct community engagement flow; communities, posts, recurring threads, comments, and replies route to Growth Targets and Communications only.
+- `rb-germany-growth-reddit`: Reddit community engagement flow; communities, posts, recurring threads, comments, replies, and allowed reactive DMs route to Growth Targets and Communications only.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
 - `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
 - `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.

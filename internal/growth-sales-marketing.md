@@ -176,7 +176,7 @@ Operational gates:
 
 - Partnership prospects go to Business Partners immediately, including Facebook group sponsorship/admin leads, relocation agents, expat coaches, immigration-adjacent firms, and commercial/professional referral firms.
 - Non-partner LinkedIn individuals, Reddit communities/posts, and direct research targets stay in Growth Targets.
-- Reddit is direct community engagement only for now. Do not pursue Reddit moderator outreach, sponsorships, paid posts, DMs, modmail, or commercial counterparties, and do not create Business Partners from Reddit routes unless the user explicitly re-enables that channel.
+- Reddit is direct community engagement first. Do not pursue Reddit moderator outreach, sponsorships, paid posts, cold/proactive DMs, modmail, or commercial counterparties, and do not create Business Partners from Reddit routes unless the user explicitly re-enables that channel. Reactive Reddit DMs are allowed only after someone engages with our public post/comment or sends an inbound DM first; they stay in Growth Targets and Communications and require exact approval plus immediate Ioana Reddit-session verification before sending.
 - Business Partner `Invoicing Email` is only for genuine invoicing/commercial emails; casual/admin/contact routes stay in `Notes` and Communications.
 - All outbound send-ready stages must use Ioana as the sender persona.
 - Any send-ready action must block if the active connector or browser session is not verified as Ioana.
