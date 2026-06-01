@@ -33,6 +33,10 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
 - Do not write new RB communication logs to the old `RB Communications` database `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
+- Treat MCP `_notion_query_data_sources` as unavailable for all-row inventory unless a future run proves the exact connector path reliable again. Do not retry it as the default Stage 2 path.
+- Keep MCP `fetch` for schema fetches and known page/data-source readbacks. Keep MCP `search` only for candidate discovery; never use search as proof of a complete inventory.
+- For authoritative all-row inventory, page data sources through the repo-local Notion REST API helper with an approved non-browser Notion API credential stored outside git. Canonical Communications inventory uses `npm run notion:communications-export -- --out /private/tmp/<run-id>/communications.json`; arbitrary data sources use `npm run notion:query-data-source -- <collection-id> --out /private/tmp/<run-id>/<name>.json`.
+- The Notion REST helper reads `RB_NOTION_API_KEY`, `NOTION_API_KEY`, or `NOTION_TOKEN` from the environment or `~/.codex/richmond-blackwood/notion.env`. Do not put Notion API credentials in tracked files or packet output.
 - At Communication creation/update time, set `Relevance` to exactly one of `Ignore`, `Short Living`, or `Long Living`, and choose one primary client subject: `Company` or `Individual`, not both.
 - Do not use `Assigned To` as a substitute for the communication subject. Use `Assigned To` only for the internal owner of the Communication row itself; action ownership normally belongs on the linked task or operational row.
 - Treat every live data source under `RB Client Databases` as task-capable for inventory and closeout analysis, even if its field names differ.

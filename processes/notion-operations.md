@@ -20,6 +20,9 @@ Do not create client-specific Notion pages when the company relation or target d
 ## Page And Database Rules
 
 - Fetch schemas before creating or updating pages.
+- For complete table inventory, use the Notion REST API data-source query endpoint through the repo-local helper and page until `has_more` is false. Do not use MCP search for full inventory.
+- Treat MCP `_notion_query_data_sources` as unavailable for inventory unless the exact connector path is proven reliable again in a future run.
+- Use MCP fetch for schema and known page/readback checks; use MCP search only to discover likely candidate pages or databases.
 - Keep page/database titles plain.
 - Use icon metadata where supported.
 - `Notes` fields describe the record itself, not connector/debug history.
@@ -58,3 +61,17 @@ Use the owning task-capable RB Client Databases row first for Richmond Blackwood
 - Page-property groups may require manual Notion UI work.
 - Native task conversion is a UI handoff.
 - Some file display names may need verification after URL-based attachment.
+- MCP search is not a reliable exhaustive list of all accessible rows.
+- Full data-source paging, Notion file downloads, and private image/file uploads require an approved Notion API token stored outside git, such as `~/.codex/richmond-blackwood/notion.env`.
+
+## API Helper Notes
+
+Status: provisional.
+Source: Notion developer documentation for data sources, search limitations, file/media APIs, and request limits; user instruction in Codex chat on 2026-06-01.
+Imported: 2026-06-01.
+Review: Confirm the RB Notion API connection has read/write/file upload capabilities and is shared with RB Client Databases before relying on it for production inventory or attachment writes.
+
+- Tables: use `POST /v1/data_sources/{data_source_id}/query` with cursor pagination and `filter_properties` for lean exports. The helper command is `npm run notion:communications-export -- --out /private/tmp/<run-id>/communications.json` for canonical Communications, or `npm run notion:query-data-source -- <collection-id> --out /private/tmp/<run-id>/<name>.json` for other data sources.
+- Downloads: retrieve the page or block through the API and download the returned `file.url` or `external.url`. Notion-hosted URLs are temporary, so re-fetch before downloading.
+- Uploads: use the File Upload API. Single-part upload is for files up to 20 MiB; larger files use multi-part upload. Attach the resulting `file_upload` ID to a `files` property, media block, icon, or cover before it expires.
+- Rate limits: keep REST helper calls paced for Notion's API limits and handle `429`, `503`, and `504` with backoff. Do not switch to browser automation for missing credentials or connector gaps.
