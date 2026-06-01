@@ -119,6 +119,9 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 
 ## Helper And Connector Boundary
 
+- Reject browser use for any live workspace or business-system workflow when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before choosing browser automation, check whether the current plan can use one of those routes; if unsure, ask the responsible RB team member whether an API/MCP path exists.
+- If API/MCP access is possible but unavailable because credentials are missing, stop and ask the responsible RB team member to provision the correct API keys or credentials through approved secret storage. Do not use the browser as a workaround for missing API/MCP access, and never store keys, tokens, credential dumps, or pasted secrets in git.
+- Browser use is limited to visual QA, local UI verification, public/manual-only pages, or explicitly approved human-only steps after the no-API/MCP reason is clear.
 - Prefer app connectors for app-native workspace state: Notion records/pages, Drive/Docs reads and edits, Gmail search/read/thread context, Slack reads/drafts/sends, and SignNow supported sends/status/document operations.
 - Use repo-local `npm` helpers only for connector gaps and mechanical actions: Drive local upload/export/organize, Gmail drafts that must save from `accounting@richmondblackwood.com`, generic SignNow local-file upload/field/review/status work, explicit PDF/Google Doc transforms, and Google persona auth recovery/verification.
 - Helper output is support material, not final business state. A task is complete only when the relevant live source of truth is updated, verified, and recorded.
