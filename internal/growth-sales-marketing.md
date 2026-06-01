@@ -126,10 +126,11 @@ LinkedIn operating quota:
 - Status: provisional internal operating rule.
 - Source: user instruction on 2026-06-01; LinkedIn Help pages `https://www.linkedin.com/help/linkedin/answer/a550555`, `https://www.linkedin.com/help/linkedin/answer/a563153/`, and `https://www.linkedin.com/help/linkedin/answer/a6264256` fetched on 2026-06-01.
 - Imported: 2026-06-01.
-- Review: confirm Ioana's account type and live LinkedIn warning/restriction state before any send-capable run.
-- Calculation: 4 connection requests per business day x 20 business days/month = 80 connection requests/month.
-- Weekly guardrail: 20 connection requests/week.
-- Personalized invite-note cap: use the stricter 3 personalized connection-request notes/month from LinkedIn's personalized-invitations Help page unless Ioana Premium is verified. Another LinkedIn restriction page currently references 5/month, so keep the stricter 3/month operating cap until the account UI and guidance are verified. Blank connection requests remain inside the 80/month invite quota; messages are drafted only after acceptance.
+- Review: confirm live LinkedIn warning/restriction state before any send-capable run.
+- Goal math: target 4 customers/month. Planning assumption is about 1.5 meetings/business day, or about 30-32 meetings/month. At about 10% invite-to-meeting conversion, plan about 320 blank invite requests/month.
+- Calculation: 320 blank connection requests/month / 20 business days = 16 requests/business day.
+- Daily operating range: 15-20 blank connection requests/business day after approval and immediate Ioana-session verification.
+- Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for Ioana's account.
 - If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Communications.
 
 Required channel skills:

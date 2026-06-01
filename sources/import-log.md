@@ -24,7 +24,7 @@ Applied:
 - Recorded the hard outbound rule that send-ready stages must use Ioana and must block if the active connector or browser session is not verified as Ioana.
 - Added icons to the live Germany growth operating databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
 - Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.
-- Added the LinkedIn internal operating quota for the first audience: 80 connection requests/month, calculated as 4 Ioana-verified requests per business day across 20 business days; personalized invite notes are capped at 3/month unless Ioana Premium is verified.
+- Added the LinkedIn internal operating target for the first audience: 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days, with a normal send range of 15-20 blank requests/business day. This supersedes the earlier conservative 80/month quota.
 
 Verification:
 
@@ -33,7 +33,7 @@ Verification:
 - Live Notion connector read-back verified the project page and linked Tasks rows no longer refer to a separate growth outreach database.
 - Live Notion connector read-back verified Business Partners retained icon `🤝` and has the new optional growth fields.
 - Live Notion connector move/read-back verified the five Germany growth operating databases now sit under `RB Client Databases`, while the Germany Growth project page has task-only scope copy and no child database blocks.
-- Live Notion connector read-back verified the first audience row title is `American tech workers in Germany / relocating to Germany` and its messaging notes include the 80/month LinkedIn invite quota.
+- Live Notion connector read-back verified the first audience row title is `American tech workers in Germany / relocating to Germany` and its messaging notes include the 320/month blank LinkedIn invite target.
 - Search of the superseded Growth Partnerships data source returned no rows before it was trashed, so no row migration was needed.
 - Prospect PII was not imported into git; the repo stores operating pointers and provisional process notes only.
 

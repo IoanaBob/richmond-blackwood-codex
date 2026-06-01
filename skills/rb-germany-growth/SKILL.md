@@ -17,7 +17,7 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Every send, reply, blocker, follow-up, and material state change is recorded in canonical Communications.
 - Daily automation advances queues, blockers, tasks, and metrics. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
-- LinkedIn invite planning for the first active audience uses an internal quota of 80 connection requests/month, calculated as 4 Ioana-verified requests per business day across 20 business days. Sends still require explicit approval and immediate Ioana-session verification.
+- LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
 
 ## Operating Sources
 
@@ -108,7 +108,7 @@ Shared gates:
 
 9. Metrics And Closeout
    - Update Metrics with daily counts by audience and channel.
-   - For LinkedIn, include monthly invite quota state: planned invites, sent invites, remaining invites, personalized notes used, warnings, acceptances, and acceptance rate where available.
+   - For LinkedIn, include monthly invite quota state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
 

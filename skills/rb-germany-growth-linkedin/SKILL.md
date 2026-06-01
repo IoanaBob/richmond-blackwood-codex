@@ -15,9 +15,10 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Preview outbound text in chat. Do not save LinkedIn drafts.
 - Send only after explicit user approval for the exact request or message.
 - Log every request, reply, blocker, and follow-up in canonical Communications.
-- Default invite operating quota for the active first audience is 80 connection requests/month, calculated as 4 Ioana-verified requests per business day across a conservative 20-business-day month.
-- Treat LinkedIn platform limits as dynamic. Do not exceed the internal quota without explicit user approval, current LinkedIn guidance review, and read-back of recent warnings, acceptance rate, and pending-invite state.
-- Use no more than 3 personalized connection-request notes/month unless Ioana Premium is verified. Blank connection requests may still be used inside the invite quota; message only after acceptance.
+- Default invite operating quota for the active first audience is 320 blank connection requests/month, calculated as a 16-request planning baseline across a 20-business-day month.
+- Daily send range is 15-20 blank connection requests/business day after explicit approval and immediate Ioana-session verification.
+- Treat LinkedIn platform limits as dynamic. Do not exceed the internal quota or 20/day without explicit user approval, current LinkedIn guidance review, and read-back of recent warnings, acceptance rate, pending-invite state, and meeting conversion.
+- Do not add personalized connection-request notes by default. If the user requests an exception, require separate approval and respect the current LinkedIn personalized-note limit for Ioana's account.
 - Stop immediately if LinkedIn shows a warning, temporary restriction, or unusual checkpoint. Log the blocker; do not work around it.
 
 ## Data Routing
@@ -65,7 +66,7 @@ Shared gates:
    - Dedupe by LinkedIn URL, name, current company, and location.
    - Create/update Growth Targets with profile URL, audience, channel, status, evidence notes, and next action.
    - Do not store sensitive personal details in git.
-   - Track each planned invite against the current monthly LinkedIn quota and note whether it is a blank request or one of the monthly personalized-note slots.
+   - Track each planned invite against the current monthly LinkedIn quota. Default every request to blank/no-note.
 
 4. Qualification
    - Classify each target as `Research`, `Qualified`, `Blocked`, or not relevant using available Growth Target status fields.
@@ -73,18 +74,18 @@ Shared gates:
    - Block targets where the US/Germany signal is too weak.
 
 5. Connection Request Packet
-   - Draft a short, non-promotional connection request in chat.
+   - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.
    - Show sender identity: Ioana, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
-   - Include current month counts: planned invites, sent invites, remaining invite quota, personalized notes used, and personalized notes remaining.
+   - Include current month counts: planned invites, sent blank invites, remaining invite quota, daily send count, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
    - Create/update a Communications operating record only after the packet is accepted for tracking.
 
 6. Approved Connection Send
    - Run only after explicit approval.
    - Re-check LinkedIn session is Ioana.
    - If not Ioana, write a blocker in Communications and stop.
-   - If monthly quota is exhausted, if the personalized-note cap would be exceeded, or if LinkedIn displays any warning/restriction, write a blocker in Communications and stop.
-   - Send the approved request directly and log result in Communications with next follow-up.
+   - If monthly quota is exhausted, daily count would exceed 20, or LinkedIn displays any warning/restriction, write a blocker in Communications and stop.
+   - Send the approved blank request directly and log result in Communications with next follow-up.
 
 7. Acceptance Check
    - On later runs, check whether the connection was accepted.
@@ -101,7 +102,7 @@ Shared gates:
    - Re-check Ioana LinkedIn session before sending.
    - Send only the approved text.
    - Log send URL/message ID if available, response state, and next follow-up in Communications.
-   - Update Metrics for monthly invite quota, connection requests, personalized notes, acceptances, messages, replies, blockers, and meetings.
+   - Update Metrics for monthly invite quota, blank connection requests, acceptances, accepted-connection messages, replies, blockers, meetings, and invite-to-meeting conversion.
 
 ## Output Packet
 
