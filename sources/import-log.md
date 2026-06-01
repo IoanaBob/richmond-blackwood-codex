@@ -1807,3 +1807,20 @@ Actions:
 Unresolved:
 
 - Internal Knowledge Base mirror is pending because the Notion connector returned `Auth required` for page `https://www.notion.so/367e413013148175b709e35f31d37821`.
+
+## 2026-06-01 - Browser API/MCP Rejection Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-01 to reject browser use when an API or MCP route might be possible, check API/MCP feasibility within the current plan, and ask the responsible team member for the right API keys when access is possible but credentials are missing.
+
+Actions:
+
+- Added the rule to `AGENTS.md` under Helper And Connector Boundary.
+- Mirrored the rule in `processes/repo-operation.md` under Connector And Helper Boundary.
+- Updated skill-run, current-state, history, and handoff memory with the new operating rule.
+- Backed up the rule to Internal Knowledge Base page `https://www.notion.so/356e41301314811383fff7212a56a0cd` (`RB Codex Repository Operating Rules`).
+
+Unresolved:
+
+- PR closeout pending.
