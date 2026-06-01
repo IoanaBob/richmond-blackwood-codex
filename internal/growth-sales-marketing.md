@@ -2,8 +2,8 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-05-05.
-Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`.
+Updated: 2026-06-01.
+Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`, Notion connector create/read-back on 2026-06-01, LinkedIn Help pages fetched on 2026-06-01.
 
 ## Growth Context
 
@@ -88,6 +88,109 @@ Provisional:
 - Backend supports HubSpot contact/deal sync and lead payment/order paths.
 - HubSpot pipeline and funnel metrics can be accessed through the HubSpot API and RB database on demand when the user asks for a specific task.
 
+## Germany Growth Operating System
+
+Status: provisional.
+Source: user instruction in Codex thread on 2026-06-01 and live Notion connector create/read-back.
+Imported: 2026-06-01.
+Review: confirm approved public claims, current offer framing, Ioana sender identity routes, future audience targets, and whether the user's "Refund" item is a separate channel or out of scope.
+
+Task project:
+
+- `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`
+
+Database home:
+
+- `RB Client Databases`: `https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`
+
+Operating databases:
+
+- Audiences: `https://www.notion.so/3f6c49da1a4f455a9935cba8da1d22d7`
+- Channels: `https://www.notion.so/4d0f85fa5e7f4a208861c4705aecc2c4`
+- Targets: `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8`
+- Business Partners: `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`
+- Growth Messages: `https://www.notion.so/ca339af617e5497483970cac110abc03`
+- Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` for promoted lead/client/business handoffs.
+
+Audience model:
+
+- The system is Germany growth overall, not only Americans in Germany.
+- The Germany Growth project is for tasks only; operating databases live in the Richmond Blackwood teamspace database hub.
+- Each channel, target, business partner, and growth communication should be attached to an `Audience Target` where the schema supports it.
+- First audience target: `American tech workers in Germany / relocating to Germany`.
+- The superseded `RB DE Growth Partnerships` data source was trashed on 2026-06-01. Partnership prospects now use the existing Business Partners database with optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields.
+- The superseded `RB DE Growth Metrics` data source was trashed on 2026-06-01. Growth reporting is reconstructed from timestamped records instead of summary rows.
+- `RB DE Growth Messages` was added on 2026-06-01 as the pre-lead growth message/post/comment/DM log and has the `💬` icon.
+- The superseded `RB DE Growth Compliance Checks` data source was trashed on 2026-06-01. Compliance is now a one-time in-run skill gate, with blockers recorded in Growth Messages or Tasks when action is needed.
+
+Reporting model:
+
+- Status: provisional internal operating rule.
+- Source: user instruction on 2026-06-01.
+- Imported: 2026-06-01.
+- Review: validate the timestamp update discipline during the first daily run.
+- Do not create or update summary reporting rows for Germany growth.
+- Reconstruct daily, weekly, and monthly reporting by querying event and stage timestamps in Growth Messages, Growth Targets, Business Partners, Channels, and Audiences.
+- Growth Messages use `Message Kind`, `Status`, `Growth Event At`, `Sent/Posted At`, `Received At`, and `Follow-Up Due` for pre-lead sends/posts/comments/DMs, replies, blockers, approvals, and follow-ups.
+- Growth Targets use `Stage Updated At`, `Qualified At`, `Ready To Draft At`, `Outreach Active At`, `Waiting Since`, `Blocked At`, `Closed At`, `Rules Checked At`, and `Last Activity At`.
+- Business Partners use `Growth Stage Updated At`, `Growth Qualified At`, `Pitch Drafted At`, `First Contacted At`, `Last Contacted At`, `Last Reply At`, `Growth Blocked At`, `Growth Closed At`, `Pilot Started At`, and `Ioana Gate Updated At`.
+- Channels and Audiences use their stage/status timestamp fields to reconstruct setup and blocker history. Compliance gate outcomes are reconstructed from Growth Messages blockers, send/post records, target/partner notes, and Tasks when extra action is required.
+
+LinkedIn operating quota:
+
+- Status: provisional internal operating rule.
+- Source: user instruction on 2026-06-01; LinkedIn Help pages `https://www.linkedin.com/help/linkedin/answer/a550555`, `https://www.linkedin.com/help/linkedin/answer/a563153/`, and `https://www.linkedin.com/help/linkedin/answer/a6264256` fetched on 2026-06-01.
+- Imported: 2026-06-01.
+- Review: confirm live LinkedIn warning/restriction state before any send-capable run.
+- Goal math: target 4 customers/month. Planning assumption is about 1.5 meetings/business day, or about 30-32 meetings/month. At about 10% invite-to-meeting conversion, plan about 320 blank invite requests/month.
+- Calculation: 320 blank connection requests/month / 20 business days = 16 requests/business day.
+- Daily operating range: 15-20 blank connection requests/business day after approval and immediate Ioana-session verification.
+- Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for Ioana's account.
+- The LinkedIn skill may run several times per business day for invite batches, acceptance checks, first-message packets, explicit reply drafting, follow-up drafting, and reporting-only closeout.
+- First messages, replies, and follow-ups are sent only after acceptance or thread context warrants them. They must be short, relevant to the visible profile signal, and about who the person is and what they do.
+- LinkedIn message drafts must be highly specific and targeted: name the company, product, project, shipped system, post, launch, or real public detail such as a feature, market, customer segment, technical problem, or founder decision. Generic phrasing like "saw the founder angle", "saw your work", or "what are you focused on" is blocked.
+- LinkedIn copy should bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", plus one second contrast tied to the prospect's topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption. Avoid self-labels like "as a fellow tech founder" or "I am a tech founder too."
+- Questions must be highly pointed and tied to a named detail. Broad prompts like "How are you thinking about that?" are blocked; prefer decision/tradeoff questions like "Did X push you toward Y instead of Z?"
+- Outreach copy must not mention RB services, tax/admin offerings, savings claims, sales paths, or booking a call. Ioana's tone should be natural, specific, and curious about the person's work; the sale happens later, outside the outreach copy.
+- The Germany move/tax/admin line may be used only as a light aside before pivoting to the person's work, not as a service hook.
+- If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Growth Messages.
+
+Relocation partner email quota:
+
+- Status: provisional internal operating rule.
+- Source: user instruction on 2026-06-01.
+- Imported: 2026-06-01.
+- Review: confirm Ioana email sender route and first partner queue quality before send-capable runs.
+- Daily operating target: open at least 5 new first-time email conversations with distinct relocation-partner Business Partner prospects per business day for the active audience.
+- First-time email conversations are counted separately from replies and follow-ups. Replies and follow-ups still advance Growth Messages and Business Partner stage, but they do not satisfy the 5/day first-time conversation target.
+- Daily automation may source, qualify, draft, and report the queue; it must not send. First-time emails send only after explicit approval for exact text and immediate Ioana sender-session verification.
+- If fewer than 5 qualified or draft-ready relocation partner prospects are available for the day, record a sourcing queue gap/blocker rather than lowering the target.
+
+Required channel skills:
+
+- Master daily orchestration.
+- LinkedIn direct connect followed by message after approval.
+- Facebook group partnerships/sponsorships for the active audience target.
+- Facebook group posting/commenting for the active audience target.
+- Relocation-agent partnership outreach.
+- Reddit community presence for the active audience target.
+
+Operational gates:
+
+- Partnership prospects go to Business Partners immediately, including Facebook group sponsorship/admin leads, relocation agents, expat coaches, immigration-adjacent firms, and commercial/professional referral firms.
+- Non-partner LinkedIn individuals, Facebook groups/posts/threads used for public posting, Reddit communities/posts, and direct research targets stay in Growth Targets.
+- Facebook admin/sponsorship acquisition and Facebook posting are separate skills. Use Business Partners for admin/sponsorship/payment/commercial approval counterparties; use Growth Targets and Growth Messages for public group posting/commenting where rules or admin approval allow participation.
+- Reddit is direct community engagement first. Do not pursue Reddit moderator outreach, sponsorships, paid posts, cold/proactive DMs, modmail, or commercial counterparties, and do not create Business Partners from Reddit routes unless the user explicitly re-enables that channel. Reactive Reddit DMs are allowed only after someone engages with our public post/comment or sends an inbound DM first; they stay in Growth Targets and Growth Messages and require exact approval plus immediate Ioana Reddit-session verification before sending.
+- Business Partner `Invoicing Email` is only for genuine invoicing/commercial emails; casual/admin/contact routes stay in `Notes` and Growth Messages.
+- All outbound send-ready stages must use Ioana as the sender persona.
+- Any send-ready action must block if the active connector or browser session is not verified as Ioana.
+- Drafts, sends, posts, comments, DMs, replies, blockers, approvals, and follow-ups for pre-lead growth use Growth Messages.
+- Canonical Communications is used only when a growth thread becomes a lead/client/business communication or when a Growth Messages record is intentionally promoted and linked through `Promoted Communication`.
+- Growth Messages records should set `Audience Target`, `Growth Channel`, `Sender Identity`, `Message Kind`, `Status`, and relevant timestamps when available.
+- Prospect PII and channel state belong in Notion, not git.
+- Audience-target state belongs in Notion so the same Germany growth channel skills can run against future target groups.
+- Public claims remain provisional until approved claim by claim.
+
 ## Review Needed
 
 - Analyse Meta, Reddit, and Google ad accounts when a specific account-analysis task is requested.
@@ -101,4 +204,6 @@ Provisional:
   - "No hidden costs / full service, zero add-ons or surcharges."
   - "We protect your liability and your bottom line."
   - Investment compounding examples based on tax savings.
+- Verify Ioana identity/session checks for LinkedIn, Facebook, Reddit, and personal email before enabling send-capable growth skills.
+- Confirm whether the user's 2026-06-01 "Refund" item is a separate channel, a campaign angle, or intentionally out of scope.
 - Confirm which older tax-savings claims should be retired, reworded, or retained when marketing Authority Calling and the newer service model.
