@@ -875,3 +875,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Page-body schedule text is not enough for the calling bot. The Front Office Contact must have linked `Availabilities` relation records, and Codex should stop setup until that relation is fixed and fetched back.
 - Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
 - Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
+
+## 2026-06-01 - Browser API/MCP Rejection Rule
+
+- User request: Make a general rule rejecting browser use for anything that might be reachable through an API or MCP route; check feasibility within the current plan, ask when unsure, and ask the responsible team member for API keys when access is possible but credentials are missing.
+- Context read: `AGENTS.md`, `processes/index.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, and recent process/source/memory logs.
+- Actions taken: Added the rule to the global Helper And Connector Boundary in `AGENTS.md` and mirrored it in `processes/repo-operation.md`. Recorded the process update in `sources/import-log.md`, `memory/skill-runs.md`, `memory/current-state.md`, and `memory/handoff.md`.
+- Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
+- Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
+- Limitations or gaps: None known yet.
