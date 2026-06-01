@@ -19,10 +19,8 @@ Do not create client-specific Notion pages when the company relation or target d
 
 ## Page And Database Rules
 
-- Fetch schemas before creating or updating pages.
-- For complete table inventory, use the Notion REST API data-source query endpoint and page until `has_more` is false. Do not use MCP search for full inventory.
-- Treat MCP `_notion_query_data_sources` as unavailable for inventory unless the exact connector path is proven reliable again in a future run.
-- Use MCP fetch for schema and known page/readback checks; use MCP search only to discover likely candidate pages or databases.
+- Default to the Notion MCP connector for schemas, known page/data-source fetches, readbacks, ordinary supported page updates, and candidate discovery.
+- Use the Notion REST API, not MCP search, for complete table inventory that must prove all matching rows were considered.
 - Keep page/database titles plain.
 - Use icon metadata where supported.
 - `Notes` fields describe the record itself, not connector/debug history.
@@ -62,19 +60,30 @@ Use the owning task-capable RB Client Databases row first for Richmond Blackwood
 - Native task conversion is a UI handoff.
 - Some file display names may need verification after URL-based attachment.
 - MCP search is not a reliable exhaustive list of all accessible rows.
-- Full data-source paging, Notion file downloads, and private image/file uploads require an approved Notion API token stored outside git.
+- Notion-hosted file downloads and Notion-native file/image uploads require the Notion REST API or an approved connector path with a Notion API credential stored outside git.
 
-## Data Source Query
+## MCP Default And API Exceptions
 
 Status: provisional.
-Source: Notion developer documentation for data sources, search limitations, file/media APIs, and request limits; user instruction in Codex chat on 2026-06-01.
+Source: Notion developer documentation for data sources, file/media APIs, and request limits; user instruction and live Codex tests on 2026-06-01.
 Imported: 2026-06-01.
-Review: Confirm the RB Notion API connection is shared with RB Client Databases before relying on it for production inventory.
+Review: Keep provisional until the RB Notion API connection is confirmed shared with every target database/page needed for production runs.
 
-- Tables: use `POST /v1/data_sources/{data_source_id}/query` with cursor pagination. `page_size` is at most `100`; there is no one-call all-rows endpoint.
-- Put all query parameters on the URL, for example `filter_properties[]`. Put all filters, sorts, and `page_size` in the JSON body.
-- First run the plain curl request and save page 1. If page 1 has `has_more: false`, the query is complete and no helper is needed.
-- If page 1 has `has_more: true`, continue with the exact same URL and JSON body. Add only `start_cursor` from the previous response when fetching page 2, page 3, and later pages.
+- Default to MCP for normal Notion work: schema fetches, known page/data-source readback, ordinary connector-supported updates, and search-based candidate discovery.
+- Use the REST API for these tested exceptions:
+  - exhaustive table/data-source queries and filters that may need pagination;
+  - downloading Notion-hosted files/images from a `files` property or media block;
+  - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
+- Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
+- Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
+- Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.
+
+### Data Source Query
+
+- Use `POST /v1/data_sources/{data_source_id}/query` with cursor pagination. `page_size` is at most `100`; there is no one-call all-rows endpoint.
+- Put URL query parameters such as `filter_properties[]` on the request URL. Put filters, sorts, and `page_size` in the JSON body.
+- First run the plain request and save page 1. If page 1 has `has_more: false`, the query is complete.
+- If page 1 has `has_more: true`, continue with the exact same URL and JSON body plus only `start_cursor` from the previous response.
 - Stop only when `has_more` is false. Keep the results from every page together, and dedupe by page ID/URL during analysis if the table may have changed during the run.
 
 Example first-page request:
@@ -82,7 +91,7 @@ Example first-page request:
 ```sh
 curl -sS -X POST \
   "https://api.notion.com/v1/data_sources/<data-source-id>/query?filter_properties[]=Title&filter_properties[]=Status" \
-  -H "Authorization: Bearer $NOTION_TOKEN" \
+  -H "Authorization: Bearer $NOTION_ACCESS_TOKEN" \
   -H "Notion-Version: 2026-03-11" \
   -H "Content-Type: application/json" \
   --data @/private/tmp/<run-id>/query-body.json \
@@ -109,7 +118,7 @@ Example body:
 }
 ```
 
-Example later page body:
+Example later page body adds only `start_cursor`:
 
 ```json
 {
@@ -130,18 +139,9 @@ Example later page body:
 }
 ```
 
-Optional minimal loop helper:
+### Notion-Hosted File Transfer
 
-```sh
-npm run notion:query-data-source -- \
-  "https://api.notion.com/v1/data_sources/<data-source-id>/query?filter_properties[]=Title&filter_properties[]=Status" \
-  --body /private/tmp/<run-id>/query-body.json \
-  --first-response /private/tmp/<run-id>/page-1.json \
-  --out /private/tmp/<run-id>/all-results.json
-```
-
-Use the helper only after checking that page 1 has `has_more: true`. The helper starts with page 1's `results`, changes only `start_cursor` for later requests, and appends every response's `results` array.
-
-- Downloads: retrieve the page or block through the API and download the returned `file.url` or `external.url`. Notion-hosted URLs are temporary, so re-fetch before downloading.
+- Downloads: retrieve the page or block through the REST API and download the returned `file.url` or `external.url`. Notion-hosted URLs are temporary, so re-fetch immediately before downloading.
 - Uploads: use the File Upload API. Single-part upload is for files up to 20 MiB; larger files use multi-part upload. Attach the resulting `file_upload` ID to a `files` property, media block, icon, or cover before it expires.
-- Rate limits: keep REST API calls paced for Notion's API limits. Do not switch to browser automation for missing credentials or connector gaps.
+- Prefer Drive-backed evidence for client documents unless the operational target explicitly requires a Notion file property, image block, icon, or cover.
+- Keep REST API calls paced for Notion's API limits. Do not switch to browser automation for missing credentials or connector gaps.
