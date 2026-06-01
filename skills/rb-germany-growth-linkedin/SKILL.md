@@ -153,10 +153,11 @@ Rules:
 
 - Keep it to 2-4 short sentences.
 - Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, technical work, or founder decision.
-- Ioana may write from the position of a tech founder/operator who is curious about their work.
+- Ioana can reference operator/founder context only in natural wording. Avoid labels like "as a fellow tech founder" or "I am a tech founder too."
 - The message must prove real attention. It should contain a detail that came from the person's profile, company site, post, article, or other approved source.
 - Generic founder language is blocked. Do not say "saw the founder angle", "what are you focused on", "specific thing", or any phrasing that sounds templated.
 - "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that Ioana can honestly point to.
+- Bring up US-vs-Germany differences when relevant: tax/admin is a good shared human difference, then add one second difference tied to the person's actual topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption.
 - Acknowledge Germany relocation/tax/admin pain only as shared human context, not as a service hook.
 - Ask one direct, low-pressure question that is specific to the concrete signal.
 - Do not ask for a call in the first message.
@@ -169,7 +170,7 @@ Good message shape:
 ```text
 Thanks for connecting, [Name]. Saw you founded [Company] - I am a big fan of [specific product/feature/positioning], especially the way you are handling [specific customer/problem/technical tradeoff].
 
-I am a tech founder too, and I am curious: how did you decide to approach [specific decision] that way?
+Germany feels so different from the US on tax/admin, but I am even more curious whether [topic-specific difference] changes how you think about [specific product/market decision].
 ```
 
 Germany move opener:
@@ -177,7 +178,7 @@ Germany move opener:
 ```text
 Thanks for connecting, [Name]. I imagine moving to Germany with the taxes and admin side was a massive pain, right?
 
-Also saw you founded [Company] and are building [specific product] for [specific audience]. I liked [specific feature/positioning] - how are you thinking about [specific challenge visible from their work]?
+Also saw you founded [Company] and are building [specific product] for [specific audience]. I liked [specific feature/positioning] - beyond the tax/admin side, does [topic-specific US-vs-Germany difference] change how you build or sell it here?
 ```
 
 Founder/operator variant:
@@ -185,7 +186,7 @@ Founder/operator variant:
 ```text
 Thanks for connecting, [Name]. Saw you founded [Company]; I have been following [specific launch/product/post] and really liked [specific reason].
 
-As a fellow tech founder, I am curious how you are handling [specific founder/operator challenge tied to their company] now that [specific context] is true.
+The tax/admin difference between the US and Germany is already a lot, but [topic-specific difference] seems like the part that would really affect [Company]. How are you thinking about that?
 ```
 
 Technical-role variant:
@@ -193,7 +194,7 @@ Technical-role variant:
 ```text
 Thanks for connecting, [Name]. Saw your work on [specific system/product/domain] at [Company], especially [specific project, post, or technical signal].
 
-Curious how you are thinking about [specific technical/market question] in Germany compared with the US.
+Tax/admin is the obvious US-vs-Germany headache, but for [technical/product area] I imagine [privacy/procurement/infrastructure/customer-behavior difference] matters more. Is that actually showing up in how you build [specific thing]?
 ```
 
 Follow-up after no reply:
@@ -213,6 +214,8 @@ Avoid:
 - "Saw the founder angle."
 - "What are you focused on this quarter?"
 - "Saw you are working on something interesting."
+- "As a fellow tech founder..."
+- "I am a tech founder too..."
 - Long explanations of RB services.
 - Generic compliments unrelated to the profile.
 - More than one question in the same message.
