@@ -18,6 +18,7 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Daily automation advances queues, blockers, tasks, and metrics. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
 - LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
+- The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and metrics. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
 
 ## Operating Sources
 
@@ -81,6 +82,7 @@ Shared gates:
      - `rb-germany-growth-reddit`
    - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, Compliance Checks, Metrics, and Tasks.
    - Do not send messages in the daily automation.
+   - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or metrics-only.
 
 5. Compliance And Ioana Gate
    - Verify platform rules, approved claims, commercial approval needs, and sender-session status.

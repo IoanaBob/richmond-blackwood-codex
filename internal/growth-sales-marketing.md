@@ -131,6 +131,8 @@ LinkedIn operating quota:
 - Calculation: 320 blank connection requests/month / 20 business days = 16 requests/business day.
 - Daily operating range: 15-20 blank connection requests/business day after approval and immediate Ioana-session verification.
 - Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for Ioana's account.
+- The LinkedIn skill may run several times per business day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and metrics-only closeout.
+- First messages are sent only after acceptance, must be short and relevant to the visible profile signal, must not look salesy, and should lead naturally toward a short call where the person's German tax/admin setup is actually relevant.
 - If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Communications.
 
 Required channel skills:
