@@ -44,8 +44,8 @@ Shared gates:
    - Confirm no work is routed to the deleted legacy partnership data source.
 
 2. Audience And Community Criteria
-   - Default audience is `Americans in Germany / relocating to Germany`.
-   - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, or expat administration.
+   - Default audience is `American tech workers in Germany / relocating to Germany`.
+   - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, tech careers, startup/founder setup, remote work, or expat administration.
    - Keep research reusable for future Germany growth audience targets.
 
 3. Discovery And Growth Target Upsert

@@ -3,7 +3,7 @@
 Status: provisional.
 Imported: 2026-05-04.
 Updated: 2026-06-01.
-Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`, Notion connector create/read-back on 2026-06-01.
+Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`, Notion connector create/read-back on 2026-06-01, LinkedIn Help pages fetched on 2026-06-01.
 
 ## Growth Context
 
@@ -118,8 +118,19 @@ Audience model:
 - The system is Germany growth overall, not only Americans in Germany.
 - The Germany Growth project is for tasks only; operating databases live in the Richmond Blackwood teamspace database hub.
 - Each channel, target, business partner, compliance check, metric, and growth communication should be attached to an `Audience Target` where the schema supports it.
-- First audience target: `Americans in Germany / relocating to Germany`.
+- First audience target: `American tech workers in Germany / relocating to Germany`.
 - The superseded `RB DE Growth Partnerships` data source was trashed on 2026-06-01. Partnership prospects now use the existing Business Partners database with optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields.
+
+LinkedIn operating quota:
+
+- Status: provisional internal operating rule.
+- Source: user instruction on 2026-06-01; LinkedIn Help pages `https://www.linkedin.com/help/linkedin/answer/a550555`, `https://www.linkedin.com/help/linkedin/answer/a563153/`, and `https://www.linkedin.com/help/linkedin/answer/a6264256` fetched on 2026-06-01.
+- Imported: 2026-06-01.
+- Review: confirm Ioana's account type and live LinkedIn warning/restriction state before any send-capable run.
+- Calculation: 4 connection requests per business day x 20 business days/month = 80 connection requests/month.
+- Weekly guardrail: 20 connection requests/week.
+- Personalized invite-note cap: use the stricter 3 personalized connection-request notes/month from LinkedIn's personalized-invitations Help page unless Ioana Premium is verified. Another LinkedIn restriction page currently references 5/month, so keep the stricter 3/month operating cap until the account UI and guidance are verified. Blank connection requests remain inside the 80/month invite quota; messages are drafted only after acceptance.
+- If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Communications.
 
 Required channel skills:
 

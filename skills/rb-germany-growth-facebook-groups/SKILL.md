@@ -45,9 +45,9 @@ Shared gates:
    - Confirm no work is routed to the deleted legacy partnership data source.
 
 2. Audience And Group Criteria
-   - Default audience is `Americans in Germany / relocating to Germany`.
+   - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Search for groups with explicit audience fit, activity, admin route, and rules visibility.
-   - Classify groups as community, relocation, city-specific, professional, student/alumni, tax/admin, or other.
+   - Classify groups as community, relocation, city-specific, professional, tech/professional, startup/founder, student/alumni, tax/admin, or other.
 
 3. Discovery And Business Partner Upsert
    - Dedupe by Facebook group URL and group name.

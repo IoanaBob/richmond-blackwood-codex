@@ -8,7 +8,8 @@ Applied:
 
 - Created central Notion project `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`.
 - Created live operating databases for the campaign: Audiences, Channels, Targets, Compliance Checks, and Metrics. The initially-created separate growth outreach database was deleted by the user and superseded by canonical Communications.
-- Seeded the first audience target, `Americans in Germany / relocating to Germany`, while keeping the overall system broader than that audience.
+- Seeded the first audience target, initially `Americans in Germany / relocating to Germany`, while keeping the overall system broader than that audience.
+- Refined the first active audience target on 2026-06-01 to `American tech workers in Germany / relocating to Germany` and updated its Notion row with tech-worker qualification signals.
 - Added `Audience Target` relations to Channels, Targets, Compliance Checks, and Metrics so each item can target a specific group.
 - Added optional Germany growth fields to existing Business Partners - Original (`https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`): `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate`.
 - Trashed the superseded `RB DE Growth Partnerships` data source after search found no existing rows to migrate.
@@ -23,6 +24,7 @@ Applied:
 - Recorded the hard outbound rule that send-ready stages must use Ioana and must block if the active connector or browser session is not verified as Ioana.
 - Added icons to the live Germany growth operating databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
 - Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.
+- Added the LinkedIn internal operating quota for the first audience: 80 connection requests/month, calculated as 4 Ioana-verified requests per business day across 20 business days; personalized invite notes are capped at 3/month unless Ioana Premium is verified.
 
 Verification:
 
@@ -31,13 +33,14 @@ Verification:
 - Live Notion connector read-back verified the project page and linked Tasks rows no longer refer to a separate growth outreach database.
 - Live Notion connector read-back verified Business Partners retained icon `🤝` and has the new optional growth fields.
 - Live Notion connector move/read-back verified the five Germany growth operating databases now sit under `RB Client Databases`, while the Germany Growth project page has task-only scope copy and no child database blocks.
+- Live Notion connector read-back verified the first audience row title is `American tech workers in Germany / relocating to Germany` and its messaging notes include the 80/month LinkedIn invite quota.
 - Search of the superseded Growth Partnerships data source returned no rows before it was trashed, so no row migration was needed.
 - Prospect PII was not imported into git; the repo stores operating pointers and provisional process notes only.
 
 Open:
 
 - Confirm whether the task project, teamspace-hosted growth databases, Business Partners growth fields, and canonical Communications fields are the canonical operating surface before enabling daily automation.
-- Confirm future Germany growth audience targets beyond the first Americans audience.
+- Confirm future Germany growth audience targets beyond the first American tech workers audience.
 - Confirm Ioana identity/session verification routes per channel before any send-capable stage runs.
 - Clarify whether the user's "Refund" item is a separate channel, a campaign angle, or out of scope.
 

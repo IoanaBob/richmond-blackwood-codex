@@ -45,12 +45,13 @@ Shared gates:
    - Confirm no work is routed to the deleted legacy partnership data source.
 
 2. Audience And Partner Criteria
-   - Default audience is `Americans in Germany / relocating to Germany`.
+   - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Target firms that influence the relocation decision or early German admin setup:
      - Relocation agents.
      - Expat coaches.
      - Immigration/visa-adjacent service firms.
      - International tax, legal, accounting, or admin firms.
+     - Startup, tech-talent, global-mobility, and remote-worker relocation operators.
      - US-to-Germany professional communities with a commercial operator.
 
 3. Discovery And Business Partner Upsert

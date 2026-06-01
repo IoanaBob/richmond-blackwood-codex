@@ -33,7 +33,7 @@ Operating sources:
 
 | Database | Icon | URL | Purpose |
 | --- | --- | --- | --- |
-| RB DE Growth Audiences | 👥 | `https://www.notion.so/3f6c49da1a4f455a9935cba8da1d22d7` | Reusable audience targets for Germany growth; first target is Americans in Germany / relocating to Germany |
+| RB DE Growth Audiences | 👥 | `https://www.notion.so/3f6c49da1a4f455a9935cba8da1d22d7` | Reusable audience targets for Germany growth; first target is American tech workers in Germany / relocating to Germany |
 | RB DE Growth Channels | 🧭 | `https://www.notion.so/4d0f85fa5e7f4a208861c4705aecc2c4` | Master/channel stage tracking and daily run state |
 | RB DE Growth Targets | 🎯 | `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8` | LinkedIn profiles, Reddit communities/posts, and other non-partner research targets |
 | Business Partners - Original | 🤝 | `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f` | Existing RB partner/counterparty database for all Germany growth partnership prospects, including Facebook sponsorship leads and relocation/professional partners |
