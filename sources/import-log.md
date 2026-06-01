@@ -21,6 +21,7 @@ Applied:
 - Seeded compliance checks for Ioana identity verification across LinkedIn, Facebook, Reddit, and personal email, plus approved public-claim review.
 - Created linked Tasks database rows for identity registry setup, multi-stage skill creation, daily run setup, and first research batches for LinkedIn, Facebook groups, relocation agents, and Reddit.
 - Added repo-local Germany growth skills for the master daily run, LinkedIn, Facebook groups, relocation partners, and Reddit.
+- Updated Reddit to direct community engagement only after user removed moderator/sponsorship/commercial-counterparty Reddit routing; Reddit now uses Growth Targets and Communications only unless explicitly re-enabled.
 - Recorded the hard outbound rule that send-ready stages must use Ioana and must block if the active connector or browser session is not verified as Ioana.
 - Added icons to the live Germany growth operating databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
 - Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.

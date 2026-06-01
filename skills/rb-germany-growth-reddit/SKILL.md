@@ -1,27 +1,27 @@
 ---
 name: rb-germany-growth-reddit
-description: Reddit community presence, moderator-safe participation, and sponsorship/moderator flow for RB Germany growth with Growth Targets, Business Partners, and Ioana-only send gates.
+description: Reddit direct community engagement flow for RB Germany growth with Growth Targets, Communications, and Ioana-only send gates.
 ---
 
 # RB Germany Growth Reddit
 
-Use this skill for Reddit community discovery, rule review, helpful participation planning, moderator outreach, sponsorship prospects, follow-ups, and logging for a Germany growth audience target.
+Use this skill for Reddit community discovery, rule review, helpful community participation planning, follow-ups, and logging for a Germany growth audience target. Reddit is direct community engagement only for now.
 
 ## Hard Gates
 
 - Sender persona is always Ioana.
-- Any Reddit post, comment, modmail, DM, or sponsorship ask blocks unless the active Reddit account/session is verified as Ioana immediately before sending.
-- No promotional post without subreddit-rule basis or moderator approval.
+- Any Reddit post, comment, or reply blocks unless the active Reddit account/session is verified as Ioana immediately before sending.
+- No promotional posts, moderator outreach, modmail, DMs, sponsorship asks, paid posts, or commercial-counterparty work in the Reddit channel for now.
 - Do not send/post/comment during daily automation.
 - Preview outbound text in chat. Do not save Reddit drafts.
 - Send/post/comment only after explicit user approval for the exact text.
-- Log every post, comment, modmail, DM, reply, blocker, and follow-up in canonical Communications.
+- Log every post, comment, reply, blocker, and follow-up in canonical Communications.
 
 ## Data Routing
 
 - Subreddits, posts, and non-commercial community targets go to Growth Targets.
-- Moderator, sponsorship, or commercial counterparties go to Business Partners.
-- Helpful participation can be tracked in Growth Targets and Communications without creating a Business Partner unless there is a moderator/commercial relationship.
+- Do not create Business Partners from Reddit moderator, sponsorship, paid-post, or commercial-counterparty routes unless the user explicitly re-enables that channel later.
+- Helpful participation is tracked in Growth Targets and Communications.
 - Use `Audience Target` and `Growth Channel = Reddit` where available.
 
 ## Packet Workflow
@@ -32,16 +32,17 @@ When invoked by `rb-germany-growth`, return a channel work packet instead of per
 
 Shared gates:
 
-- No post, comment, modmail, DM, or sponsorship ask is sent before exact text approval.
-- No promotional post is drafted as send-ready unless rules or moderator approval support it.
+- No post, comment, or reply is sent before exact text approval.
+- No promotional post, moderator outreach, modmail, DM, sponsorship ask, paid post, or commercial-counterparty ask is drafted or routed from this skill.
 - Stop if Ioana is not the verified active Reddit session at a send-ready step.
 
 ## Stages
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Business Partners schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
+   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
+   - Confirm no Reddit work is routed to Business Partners, modmail, DMs, sponsorship, paid posts, or commercial counterparties.
 
 2. Audience And Community Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
@@ -54,9 +55,9 @@ Shared gates:
    - Record audience fit, activity, rules URL, promotional restrictions, and participation angle.
 
 4. Rule And Compliance Review
-   - Read subreddit rules, wiki/sidebar, pinned posts, and recent moderator guidance when available.
-   - Classify allowed actions: helpful comments only, self-promo allowed under conditions, modmail required, sponsorship possible, or blocked.
-   - Promotional content blocks without a rules basis or moderator approval.
+   - Read subreddit rules, wiki/sidebar, pinned posts, and recent visible moderator guidance when available.
+   - Classify allowed actions for direct community engagement only: helpful comments, helpful non-promotional posts, replies to replies, recurring-thread participation, or blocked.
+   - If rules require modmail, moderator approval, sponsorship, payment, or commercial permission before participation, mark the item blocked for now.
 
 5. Helpful Participation Packet
    - Draft helpful, non-promotional comments or posts in chat when rules allow.
@@ -64,11 +65,11 @@ Shared gates:
    - Show sender identity as Ioana and Reddit account/session verification requirement.
    - Include target URL, rule basis, and follow-up date.
 
-6. Moderator/Sponsorship Routing
-   - If a moderator, sponsorship, or commercial relationship is needed, create/update a Business Partner.
-   - Put subreddit/mod route in `Website` or `Notes` as appropriate.
-   - Set `Growth Channel = Reddit`, `Growth Stage`, `Audience Target`, and `Ioana Gate` when available.
-   - Draft modmail or sponsorship asks in chat for approval.
+6. Community Engagement Readiness
+   - Confirm the proposed action is a direct community post, comment, or reply.
+   - Confirm the content is useful on its own without relying on RB promotion.
+   - Confirm there is no request for moderator approval, commercial placement, sponsorship, paid posting, DM, or modmail.
+   - If any commercial or moderator route is needed, block the item and record that Reddit commercial/moderator routing is disabled.
 
 7. Approved Send/Post/Comment
    - Run only after explicit approval.
@@ -78,12 +79,12 @@ Shared gates:
    - Log the URL/message ID, rule basis, result, and next follow-up in Communications.
 
 8. Reply And Follow-Up Advancement
-   - Track replies, moderator responses, removals, bans/warnings, helpful engagements, and link clicks if available.
-   - Update Growth Target status and Business Partner `Growth Stage` only when evidence supports it.
+   - Track replies, removals, bans/warnings, helpful engagements, and link clicks if available.
+   - Update Growth Target status only when evidence supports it.
    - Use Communications follow-up dates for later checks.
 
 9. Metrics And Closeout
-   - Update Metrics for communities researched, rule checks, comments/posts, mod asks, approvals, replies, blockers, and meetings.
+   - Update Metrics for communities researched, rule checks, comments/posts/replies, helpful engagements, blockers, replies, and meetings.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet
@@ -91,7 +92,6 @@ Shared gates:
 Return:
 
 - Growth Targets created/updated.
-- Business Partners created/updated for mod/commercial relationships.
 - Rule/compliance findings.
 - Communications created/updated.
 - Previews awaiting approval, blockers, follow-ups, and metrics.

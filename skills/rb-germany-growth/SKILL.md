@@ -48,6 +48,7 @@ Shared gates:
 
 - Partnership prospects always go to Business Partners, including Facebook group sponsorship leads, group admins, relocation agents, expat coaches, immigration-adjacent firms, commercial referral partners, and professional firms.
 - Non-partner targets go to Growth Targets, including LinkedIn individuals, Reddit communities/posts, and non-commercial research targets.
+- Reddit is direct community engagement only for now: subreddits, posts, recurring threads, comments, and replies stay in Growth Targets and Communications. Do not route Reddit moderator outreach, sponsorships, paid posts, DMs, modmail, or commercial counterparties to Business Partners unless the user explicitly re-enables that channel.
 - Communications is the canonical log for drafts, sends, replies, blockers, and follow-ups.
 - `Invoicing Email` on Business Partners is only for a real invoicing/commercial email. Casual contact routes, admin routes, and DM routes belong in Business Partner `Notes` and Communications.
 - Growth Business Partners should use `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` when available.
@@ -89,6 +90,7 @@ Shared gates:
    - Set or preserve Business Partner `Ioana Gate`.
    - Send-ready items with unverified or non-Ioana sessions become blockers, not sends.
    - Promotional posts or sponsorship asks block without a rules basis, admin/moderator approval, or explicit user approval.
+   - For Reddit, promotional, moderator, sponsorship, paid-post, DM, modmail, and commercial-counterparty routes are disabled for now and become blockers.
 
 6. Draft Packet
    - Prepare exact outbound message previews in chat.
