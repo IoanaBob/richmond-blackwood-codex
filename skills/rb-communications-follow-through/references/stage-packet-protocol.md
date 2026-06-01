@@ -145,8 +145,9 @@ Use parameter:
 
 Fallback method:
 
+- Do not rely on historical connector behavior alone. Each run must do a live `fetch` probe and a live non-mutating SQL/view query probe before deciding whether complete inventory is available.
 - If SQL/view query returns an error such as `Tool notion-query-data-sources not found`, treat that as a connector backend blocker, not as an empty result.
-- If SQL/view query is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, logs the browser into Notion for an export/read path, or explicitly approves a degraded candidate-only run.
+- If SQL/view query is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables a direct Notion API/export helper path, or explicitly approves a degraded candidate-only run.
 - Notion search may be used only for candidate discovery. It has a 25-result cap, semantic ranking, and can return false positives where linked tasks or page content mention the operator while the Communication row has no `Assigned To` value.
 - Any search-based packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
 
