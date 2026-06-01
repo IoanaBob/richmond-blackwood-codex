@@ -34,6 +34,14 @@ Source: Notion MCP fetches; Drive API exact and broad search; Gmail API exact at
 Imported: 2026-06-01.
 Review: These remain missing from the export because the current Notion MCP returns `file://` attachment descriptors, not downloadable signed URLs; no official Notion API token is available in the local environment; exact Drive/Gmail/Slack recovery found no safe source copy.
 
+Second-pass review on 2026-06-01:
+
+- Internet research confirmed the official Notion API route is to re-fetch the page, block, or file property and use the returned temporary `file.url`; Notion states these URLs expire after one hour and must be refreshed by re-fetching the file object.
+- The updated Notion connector advertised data-source SQL query support, but the MCP backend returned `Tool notion-query-data-sources not found`; page fetches still exposed only `file://` attachment descriptors.
+- Direct Notion signing attempts through `www.notion.so/api/v3/getSignedFileUrls` returned `signedUrls: [null]` without a usable authenticated Notion file session; the `/signed/...` proxy returned `User does not have access`.
+- Additional accounting-persona Drive API broad searches and Gmail API broad attachment searches found no safe exact source copy. One payroll-looking Gmail candidate was inspected and rejected because its parsed content identified another client.
+- Additional Slack public/private searches found no matching source files before Slack returned rate limiting. WhatsApp remained skipped per user instruction.
+
 | Export folder | Filename | Current blocker |
 | --- | --- | --- |
 | `2.Filings` | `Wewrite_Corporation_tax.pdf` | Notion attachment descriptor only; no exact Drive/Gmail/Slack source found. |
