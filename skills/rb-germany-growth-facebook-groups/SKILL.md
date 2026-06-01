@@ -41,7 +41,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
+   - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
 
 2. Audience And Group Criteria
@@ -54,6 +54,7 @@ Shared gates:
    - Create/update a Business Partner for each group/admin/sponsorship prospect immediately.
    - Preserve group URL, admin/contact route, visible rules, member/activity signals, and audience fit in `Notes`.
    - Set `Ioana Gate = Unverified` unless a current Ioana session has been verified for this channel.
+   - Set `Growth Stage Updated At` and the matching growth milestone timestamp whenever `Growth Stage` changes.
 
 4. Rule And Compliance Review
    - Record whether promotional posts, sponsorships, paid posts, partner offers, or admin DMs are allowed.
@@ -71,7 +72,7 @@ Shared gates:
    - Re-check the active Facebook session is Ioana.
    - If not Ioana, log a blocker in Communications and stop.
    - Send the approved ask and log result in Communications.
-   - Move Business Partner `Growth Stage` only when the result supports it.
+   - Move Business Partner `Growth Stage` only when the result supports it, and set `Growth Stage Updated At`, `First Contacted At`, and `Last Contacted At` where applicable.
 
 7. Approved Posting Packet
    - Draft group posts only when rules or admin approval allow them.
@@ -82,7 +83,7 @@ Shared gates:
 8. Post/Promotion Execution
    - Re-check Ioana session before posting.
    - Post only the approved content in the approved group.
-   - Log post URL, approval basis, payment/promotion details, and next follow-up in Communications.
+   - Log post URL, approval basis, payment/promotion details, `Growth Event = Post or Comment`, `Growth Event At`, and next follow-up in Communications.
 
 9. Reply Drafting Packet
    - Inspect Facebook group/admin replies and summarize what changed.
@@ -95,8 +96,9 @@ Shared gates:
    - Draft follow-up text in chat only when there is a specific next reason to follow up.
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
 
-11. Metrics And Closeout
-   - Update Metrics by audience and Facebook Groups channel for prospects, asks, approvals, posts, spend, replies, blockers, and meetings.
+11. Reporting And Closeout
+   - Do not create or update summary reporting rows.
+   - Reconstruct channel reporting from timestamped Business Partner, Communications, and Compliance Checks records: prospects, asks, approvals, posts, spend, replies, blockers, and meetings.
 
 ## Output Packet
 
@@ -106,4 +108,4 @@ Return:
 - Rule/compliance findings.
 - Communications created/updated.
 - Sponsorship or post previews awaiting approval.
-- Ioana-gate blockers, reply drafts, follow-up drafts, and metrics.
+- Ioana-gate blockers, reply drafts, follow-up drafts, and reporting counts.

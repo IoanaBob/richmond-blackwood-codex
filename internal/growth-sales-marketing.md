@@ -110,16 +110,29 @@ Operating databases:
 - Targets: `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8`
 - Business Partners: `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`
 - Compliance Checks: `https://www.notion.so/cc0561be66e44aa0a5296271a376917d`
-- Metrics: `https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53`
 - Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807`
 
 Audience model:
 
 - The system is Germany growth overall, not only Americans in Germany.
 - The Germany Growth project is for tasks only; operating databases live in the Richmond Blackwood teamspace database hub.
-- Each channel, target, business partner, compliance check, metric, and growth communication should be attached to an `Audience Target` where the schema supports it.
+- Each channel, target, business partner, compliance check, and growth communication should be attached to an `Audience Target` where the schema supports it.
 - First audience target: `American tech workers in Germany / relocating to Germany`.
 - The superseded `RB DE Growth Partnerships` data source was trashed on 2026-06-01. Partnership prospects now use the existing Business Partners database with optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields.
+- The superseded `RB DE Growth Metrics` data source was trashed on 2026-06-01. Growth reporting is reconstructed from timestamped records instead of summary rows.
+
+Reporting model:
+
+- Status: provisional internal operating rule.
+- Source: user instruction on 2026-06-01.
+- Imported: 2026-06-01.
+- Review: validate the timestamp update discipline during the first daily run.
+- Do not create or update summary reporting rows for Germany growth.
+- Reconstruct daily, weekly, and monthly reporting by querying event and stage timestamps in Communications, Growth Targets, Business Partners, Channels, Compliance Checks, and Audiences.
+- Communications growth events use `Growth Event` and `Growth Event At`, plus `Sent/Received On` for real sends/replies where applicable.
+- Growth Targets use `Stage Updated At`, `Qualified At`, `Ready To Draft At`, `Outreach Active At`, `Waiting Since`, `Blocked At`, `Closed At`, `Rules Checked At`, and `Last Activity At`.
+- Business Partners use `Growth Stage Updated At`, `Growth Qualified At`, `Pitch Drafted At`, `First Contacted At`, `Last Contacted At`, `Last Reply At`, `Growth Blocked At`, `Growth Closed At`, `Pilot Started At`, and `Ioana Gate Updated At`.
+- Channels, Compliance Checks, and Audiences use their stage/result/status timestamp fields to reconstruct setup, compliance, and blocker history.
 
 LinkedIn operating quota:
 
@@ -131,7 +144,7 @@ LinkedIn operating quota:
 - Calculation: 320 blank connection requests/month / 20 business days = 16 requests/business day.
 - Daily operating range: 15-20 blank connection requests/business day after approval and immediate Ioana-session verification.
 - Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for Ioana's account.
-- The LinkedIn skill may run several times per business day for invite batches, acceptance checks, first-message packets, explicit reply drafting, follow-up drafting, and metrics-only closeout.
+- The LinkedIn skill may run several times per business day for invite batches, acceptance checks, first-message packets, explicit reply drafting, follow-up drafting, and reporting-only closeout.
 - First messages, replies, and follow-ups are sent only after acceptance or thread context warrants them. They must be short, relevant to the visible profile signal, and about who the person is and what they do.
 - LinkedIn message drafts must be highly specific and targeted: name the company, product, project, shipped system, post, launch, or real public detail such as a feature, market, customer segment, technical problem, or founder decision. Generic phrasing like "saw the founder angle", "saw your work", or "what are you focused on" is blocked.
 - LinkedIn copy should bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", plus one second contrast tied to the prospect's topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption. Avoid self-labels like "as a fellow tech founder" or "I am a tech founder too."

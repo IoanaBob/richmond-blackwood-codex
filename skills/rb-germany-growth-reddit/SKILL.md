@@ -40,7 +40,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
+   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Confirm no Reddit work is routed to Business Partners, modmail, DMs, sponsorship, paid posts, or commercial counterparties.
 
@@ -53,6 +53,7 @@ Shared gates:
    - Dedupe by subreddit URL, post URL, and community name.
    - Create/update Growth Targets for subreddits, relevant posts, recurring threads, and non-commercial research targets.
    - Record audience fit, activity, rules URL, promotional restrictions, and participation angle.
+   - Set `Stage Updated At`, `Rules Checked At`, and `Last Activity At` when target state or rule state changes.
 
 4. Rule And Compliance Review
    - Read subreddit rules, wiki/sidebar, pinned posts, and recent visible moderator guidance when available.
@@ -76,7 +77,8 @@ Shared gates:
    - Re-check the Reddit session is Ioana.
    - If not Ioana, log a blocker in Communications and stop.
    - Send/post/comment only the approved text.
-   - Log the URL/message ID, rule basis, result, and next follow-up in Communications.
+   - Log the URL/message ID, rule basis, result, `Growth Event = Post or Comment`, `Growth Event At`, and next follow-up in Communications.
+   - Set Growth Target `Outreach Active At`, `Stage Updated At`, and `Last Activity At` when participation starts.
 
 8. Reply Drafting Packet
    - Track replies, removals, bans/warnings, helpful engagements, and link clicks if available.
@@ -91,8 +93,9 @@ Shared gates:
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Communications follow-up dates for later checks.
 
-10. Metrics And Closeout
-   - Update Metrics for communities researched, rule checks, comments/posts/replies, helpful engagements, blockers, replies, and meetings.
+10. Reporting And Closeout
+   - Do not create or update summary reporting rows.
+   - Reconstruct channel reporting from timestamped Growth Targets, Compliance Checks, and Communications records for communities researched, rule checks, comments/posts/replies, helpful engagements, blockers, replies, and meetings.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet
@@ -102,4 +105,4 @@ Return:
 - Growth Targets created/updated.
 - Rule/compliance findings.
 - Communications created/updated.
-- Post/comment previews, reply drafts, follow-up drafts, blockers, and metrics.
+- Post/comment previews, reply drafts, follow-up drafts, blockers, and reporting counts.

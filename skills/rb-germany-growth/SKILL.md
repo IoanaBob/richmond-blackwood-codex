@@ -5,7 +5,7 @@ description: Master daily orchestration for the Richmond Blackwood Germany growt
 
 # RB Germany Growth
 
-Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook groups, relocation partners, Reddit, Business Partners, Growth Targets, Communications, Compliance Checks, Metrics, and Tasks.
+Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook groups, relocation partners, Reddit, Business Partners, Growth Targets, Communications, Compliance Checks, and Tasks.
 
 ## Hard Gates
 
@@ -15,10 +15,10 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Outbound content is previewed in chat, not saved as an app draft.
 - Sends only happen after explicit user approval for the exact message(s).
 - Every send, reply, blocker, follow-up, and material state change is recorded in canonical Communications.
-- Daily automation advances queues, blockers, tasks, and metrics. It does not send messages.
+- Daily automation advances queues, blockers, tasks, and timestamped state. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
 - LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
-- The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and metrics. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
+- The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
 - Relocation partner planning uses a daily target of at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Daily automation may prepare the packet and queue, but first-time emails still require exact approval and immediate Ioana email-session verification.
 
 ## Operating Sources
@@ -31,7 +31,6 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Business Partners: `collection://f52ad152-d91f-4663-86f1-e63a18edd90a`
 - Communications: `collection://1b5e4130-1314-8183-afd8-000b6f4da982`
 - Compliance Checks: `collection://3b6e8e51-0d0d-47d3-bf3b-e450363b6c54`
-- Metrics: `collection://709de0f5-ac41-4b88-845e-efee49813daf`
 - Tasks: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
 
 ## Packet Workflow
@@ -54,13 +53,15 @@ Shared gates:
 - `Invoicing Email` on Business Partners is only for a real invoicing/commercial email. Casual contact routes, admin routes, and DM routes belong in Business Partner `Notes` and Communications.
 - Growth Business Partners should use `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` when available.
 - Growth operating databases live in the Richmond Blackwood teamspace database hub, not under the Germany Growth task project. The project is for task grouping and due-work tracking only.
+- There is no active growth summary database. The old summary source is superseded/trashed; reporting must be reconstructed from timestamped rows in Communications, Growth Targets, Business Partners, Channels, Compliance Checks, and Audiences.
+- Every growth stage/status transition must set `Stage Updated At` or the matching milestone timestamp at the same time as the stage/status change. Every Communications event must set `Growth Event` and `Growth Event At` for growth reporting.
 
 ## Stages
 
 1. Preflight
    - Inspect `git status --short --branch` and pull latest `origin/main` before repo or live-state changes.
    - Read `skills/index.md`, `skills/rb-communications/SKILL.md`, this skill, channel skill files, and `internal/growth-sales-marketing.md`.
-   - Fetch Notion schemas for Audiences, Channels, Growth Targets, Business Partners, Communications, Compliance Checks, Metrics, and Tasks.
+   - Fetch Notion schemas for Audiences, Channels, Growth Targets, Business Partners, Communications, Compliance Checks, and Tasks.
    - Check that the legacy growth partnership data source is deleted/trashed or unavailable. Block if it is active after migration should be complete.
 
 2. Audience Selection
@@ -83,10 +84,11 @@ Shared gates:
      - `rb-germany-growth-facebook-groups`
      - `rb-germany-growth-relocation-partners`
      - `rb-germany-growth-reddit`
-   - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, Compliance Checks, Metrics, and Tasks.
+   - Produce proposed creates/updates for Growth Targets, Business Partners, Communications, Compliance Checks, and Tasks.
+   - Include timestamp updates for each proposed state transition, milestone, send, reply, blocker, approval, post/comment, or follow-up.
    - Include explicit reply-drafting and follow-up-drafting packets when replies or due follow-ups exist.
    - Do not send messages in the daily automation.
-   - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or metrics-only.
+   - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or reporting-only.
    - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
 
 5. Compliance And Ioana Gate
@@ -115,10 +117,11 @@ Shared gates:
    - Update Business Partner `Growth Stage` only when the communication result justifies it.
    - Do not move a partner to `Contacted by Ioana`, `Negotiating`, or `Pilot Active` without supporting Communications evidence.
 
-9. Metrics And Closeout
-   - Update Metrics with daily counts by audience and channel.
-   - For LinkedIn, include monthly invite quota state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available.
-   - For relocation partners, include first-time email conversations opened, daily 5/day target met or missed, remaining approved-send queue, replies, follow-ups drafted, and blockers.
+9. Reporting And Closeout
+   - Do not create or update summary reporting rows.
+   - Reconstruct daily/weekly/monthly counts by querying timestamped records by audience and channel.
+   - For LinkedIn, report monthly invite quota state from Communications `Growth Event`/`Growth Event At`, Growth Target stage timestamps, and current pending/blocker state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available.
+   - For relocation partners, report first-time email conversations opened from Communications `Growth Event = First Contact`, Business Partner `First Contacted At`, daily 5/day target met or missed, remaining approved-send queue, replies, follow-ups drafted, and blockers.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
 

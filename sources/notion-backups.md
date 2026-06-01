@@ -38,8 +38,11 @@ Operating sources:
 | RB DE Growth Targets | 🎯 | `https://www.notion.so/c4faf7ded71a4f7580dee4aa39106ee8` | LinkedIn profiles, Reddit communities/posts, and other non-partner research targets |
 | Business Partners - Original | 🤝 | `https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f` | Existing RB partner/counterparty database for all Germany growth partnership prospects, including Facebook sponsorship leads and relocation/professional partners |
 | RB DE Growth Compliance Checks | ✅ | `https://www.notion.so/cc0561be66e44aa0a5296271a376917d` | Ioana identity gates, platform rules, and approved-claim checks |
-| RB DE Growth Metrics | 📊 | `https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53` | Daily/weekly/monthly channel metrics and spend/reply/meeting tracking |
 | Communications | 📬 | `https://www.notion.so/1b5e4130131480ab84f3cca356736807` | Existing canonical communication log for growth drafts, sends, replies, blockers, and follow-ups; linked to growth audiences through optional growth fields |
+
+Superseded:
+
+- `RB DE Growth Metrics` (`https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53`) was trashed on 2026-06-01. Germany growth reporting is reconstructed from timestamped source records rather than summary rows.
 
 ## Active Client Backup Pointer Standard
 

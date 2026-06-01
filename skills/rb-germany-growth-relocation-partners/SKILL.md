@@ -43,7 +43,7 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
+   - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Count relocation-partner first-time email sends, queued approved-send items, replies, due follow-ups, blockers, and remaining daily target for the current business day.
 
@@ -62,11 +62,13 @@ Shared gates:
    - Dedupe by legal/brand name, website, domain, and contact route.
    - Create/update Business Partners immediately for all plausible partner prospects.
    - Store source URL, audience evidence, service overlap, and contact route in `Notes`.
+   - Set `Growth Stage Updated At` and `Last Contacted At`/`Last Reply At` only when the matching event actually happens; do not use a summary table.
    - Keep enough qualified or qualifiable Business Partners to support the 5/day first-time email target. If fewer than 5 send-ready or draft-ready prospects exist for the day, produce a sourcing queue gap instead of lowering the target.
 
 4. Qualification
    - Classify `Growth Stage` as `Research`, `Qualified`, `Blocked`, or `Closed`.
    - Mark blockers for weak audience fit, unclear contact route, restricted solicitation, competitor conflict, or missing approval.
+   - Set `Growth Stage Updated At` on every stage change; set `Growth Qualified At`, `Growth Blocked At`, or `Growth Closed At` when those milestones happen.
    - Keep public claims provisional unless approved.
 
 5. Commercial Model Review
@@ -85,7 +87,8 @@ Shared gates:
    - Re-check the sending session is Ioana.
    - If not Ioana, log a blocker in Communications and stop.
    - Send the approved message directly through the supported route.
-   - Log send result, URL/message ID, and follow-up in Communications.
+   - Log send result, URL/message ID, `Growth Event = First Contact`, `Growth Event At`, `Sent/Received On`, and follow-up in Communications.
+   - Set Business Partner `First Contacted At`, `Last Contacted At`, `Growth Stage Updated At`, and `Growth Stage = Contacted by Ioana`.
    - Stop opening new first-time conversations for the day once the 5/day target is met unless the user explicitly approves an additional batch.
 
 8. Reply Drafting And Negotiation Packet
@@ -93,7 +96,7 @@ Shared gates:
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the partner's service, audience, commercial model, or open question.
    - Do not introduce pricing, commission, payments, contract terms, or pilot commitments without explicit user approval.
-   - Update Business Partner `Growth Stage` to `Contacted by Ioana`, `Negotiating`, `Pilot Active`, `Blocked`, or `Closed` only when evidence supports it.
+   - Update Business Partner `Last Reply At` for replies and update `Growth Stage` to `Contacted by Ioana`, `Negotiating`, `Pilot Active`, `Blocked`, or `Closed` only when evidence supports it. Set the matching timestamp field with every stage move.
    - Link Contracts only when there is a real agreement or contract workflow.
 
 9. Follow-Up Drafting Packet
@@ -101,8 +104,9 @@ Shared gates:
    - Draft follow-up text in chat only when there is a specific reason and source context.
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
 
-10. Metrics And Closeout
-   - Update Metrics for prospects researched, qualified partners, first-time email conversations opened, daily first-time email target met/missed, replies, meetings, pilots, blockers, and closed outcomes.
+10. Reporting And Closeout
+   - Do not create or update summary reporting rows.
+   - Reconstruct daily/weekly/monthly reporting from Business Partner milestone timestamps and Communications `Growth Event` records for prospects researched, qualified partners, first-time email conversations opened, daily first-time email target met/missed, replies, meetings, pilots, blockers, and closed outcomes.
    - Report reply drafts, follow-up drafts, and commercial approval blockers.
 
 ## Output Packet
@@ -114,4 +118,4 @@ Return:
 - Communications created/updated.
 - Daily first-time email target state: target 5, sent/opened today, remaining, queued, and blockers.
 - Pitch, reply, and follow-up previews awaiting approval.
-- Follow-ups, blockers, and metrics.
+- Follow-ups, blockers, and reporting counts.

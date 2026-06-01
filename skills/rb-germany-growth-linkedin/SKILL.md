@@ -30,14 +30,14 @@ This skill can run multiple times per business day because LinkedIn state change
 - `first-message`: prepare first-message packets for newly accepted connections.
 - `follow-up-sweep`: inspect due follow-ups and prepare follow-up drafts for review.
 - `reply-triage`: inspect new LinkedIn replies and prepare reply drafts for review.
-- `metrics-only`: update counts and conversion rates without preparing sends.
+- `reporting-only`: reconstruct counts and conversion rates from timestamped records without preparing sends.
 
 Suggested operating rhythm:
 
 - Morning: queue and send approved blank invite batch; check overnight acceptances/replies.
 - Midday: acceptance check and first-message packets for newly accepted connections.
 - Afternoon: second invite batch only if daily quota and approval remain available; follow-up sweep.
-- End of day: metrics-only closeout and next-day queue preparation.
+- End of day: reporting-only closeout and next-day queue preparation.
 
 Do not duplicate sends across intra-day runs. Every run must read current Communications and Growth Targets before proposing a send.
 
@@ -65,8 +65,8 @@ Shared gates:
 
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
-   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
-   - Choose run mode(s): `invite-batch`, `acceptance-check`, `first-message`, `follow-up-sweep`, `reply-triage`, or `metrics-only`.
+   - Load active Audience Target, Growth Targets schema, Communications schema, Compliance Checks, and relevant Tasks.
+   - Choose run mode(s): `invite-batch`, `acceptance-check`, `first-message`, `follow-up-sweep`, `reply-triage`, or `reporting-only`.
    - Load current-day sent counts, monthly sent counts, pending requests, accepted connections awaiting first message, due follow-ups, and open blockers before proposing any send.
    - Verify LinkedIn account identity only when approaching a send-ready step.
 
@@ -88,12 +88,14 @@ Shared gates:
    - Search approved sources or user-provided lists.
    - Dedupe by LinkedIn URL, name, current company, and location.
    - Create/update Growth Targets with profile URL, audience, channel, status, evidence notes, and next action.
+   - Set `Stage Updated At` and `Last Activity At` on Growth Targets whenever stage or material state changes.
    - Do not store sensitive personal details in git.
    - Track each planned invite against the current monthly LinkedIn quota. Default every request to blank/no-note.
 
 4. Qualification
    - Classify each target as `Research`, `Qualified`, `Blocked`, or not relevant using available Growth Target status fields.
    - Record qualification evidence in Growth Target notes and, when action is needed, Communications or Tasks.
+   - When a target becomes qualified, set `Qualified At`; when it becomes blocked, set `Blocked At`.
    - Block targets where the US/Germany signal is too weak.
 
 5. Connection Request Packet
@@ -108,13 +110,14 @@ Shared gates:
    - Re-check LinkedIn session is Ioana.
    - If not Ioana, write a blocker in Communications and stop.
    - If monthly quota is exhausted, daily count would exceed 20, or LinkedIn displays any warning/restriction, write a blocker in Communications and stop.
-   - Send the approved blank request directly and log result in Communications with next follow-up.
+   - Send the approved blank request directly and log result in Communications with `Growth Event = First Contact` or `Send`, `Growth Event At`, `Sent/Received On`, and next follow-up.
+   - Move the Growth Target to `Outreach Active` only with `Outreach Active At`, `Stage Updated At`, and `Last Activity At`.
 
 7. Acceptance Check
    - This stage may run several times per day.
    - On later runs, check whether the connection was accepted.
    - If not accepted, advance follow-up dates without messaging.
-   - If accepted, update the Growth Target, create/update a Communications first-message item, and move to accepted-message drafting.
+   - If accepted, update the Growth Target with `Last Activity At`, create/update a Communications first-message item with `Growth Event = Draft` and `Growth Event At`, and move to accepted-message drafting.
 
 8. Accepted-Connection Message Packet
    - Draft the first message only after acceptance is verified.
@@ -142,8 +145,8 @@ Shared gates:
 11. Approved Message Send And Follow-Up
    - Re-check Ioana LinkedIn session before sending.
    - Send only the approved text.
-   - Log send URL/message ID if available, response state, and next follow-up in Communications.
-   - Update Metrics for monthly invite quota, blank connection requests, acceptances, accepted-connection messages, replies, blockers, meetings, and invite-to-meeting conversion.
+   - Log send URL/message ID if available, response state, `Growth Event`, `Growth Event At`, `Sent/Received On`, and next follow-up in Communications.
+   - Do not write a summary reporting row. Reconstruct invite quota, blank connection requests, acceptances, accepted-connection messages, replies, blockers, meetings, and invite-to-meeting conversion by querying Communications and Growth Target timestamps.
 
 ## First-Time Message Guidance
 
@@ -231,4 +234,4 @@ Return:
 - Communications created/updated.
 - Blockers and Ioana-gate status.
 - Message previews awaiting approval.
-- Follow-ups and metrics to advance.
+- Follow-ups and reporting counts to advance.

@@ -7,10 +7,10 @@ Status: active.
 Applied:
 
 - Created central Notion project `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`.
-- Created live operating databases for the campaign: Audiences, Channels, Targets, Compliance Checks, and Metrics. The initially-created separate growth outreach database was deleted by the user and superseded by canonical Communications.
+- Created live operating databases for the campaign: Audiences, Channels, Targets, and Compliance Checks. The initially-created separate growth outreach database was deleted by the user and superseded by canonical Communications. The initially-created summary table was later superseded by timestamp-based reporting and trashed.
 - Seeded the first audience target, initially `Americans in Germany / relocating to Germany`, while keeping the overall system broader than that audience.
 - Refined the first active audience target on 2026-06-01 to `American tech workers in Germany / relocating to Germany` and updated its Notion row with tech-worker qualification signals.
-- Added `Audience Target` relations to Channels, Targets, Compliance Checks, and Metrics so each item can target a specific group.
+- Added `Audience Target` relations to Channels, Targets, and Compliance Checks so each item can target a specific group.
 - Added optional Germany growth fields to existing Business Partners - Original (`https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`): `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate`.
 - Trashed the superseded `RB DE Growth Partnerships` data source after search found no existing rows to migrate.
 - Removed the stale Growth Partnerships relation from Audiences and updated the project page to point partnership prospects to Business Partners.
@@ -26,7 +26,7 @@ Applied:
 - Added icons to the live Germany growth operating databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
 - Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.
 - Added the LinkedIn internal operating target for the first audience: 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days, with a normal send range of 15-20 blank requests/business day. This supersedes the earlier conservative 80/month quota.
-- Added LinkedIn intra-day run modes for invite batches, acceptance checks, first-message packets, follow-up sweeps, reply triage, and metrics-only closeout.
+- Added LinkedIn intra-day run modes for invite batches, acceptance checks, first-message packets, follow-up sweeps, reply triage, and reporting-only closeout.
 - Added explicit reply-drafting and follow-up-drafting packet stages across the growth channel skills.
 - Rewrote LinkedIn first-message, reply, and follow-up guidance so outreach is about who the person is and what they do, not RB services, tax/admin offerings, savings claims, sales paths, or booking a call. The Germany tax/admin pain opener is allowed only as shared human context before pivoting to the person's work.
 - Tightened LinkedIn examples so founder outreach must sound natural and specific: name the company/product/work and a real public detail, avoid "saw the founder angle" and generic "what are you focused on" prompts, and ask a targeted question that proves the sender is actually connected into the person's work.
@@ -34,6 +34,7 @@ Applied:
 - Tightened the contrast pattern again so admin/taxes appears only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", and broad prompts like "How are you thinking about that?" are blocked in favor of highly pointed decision/tradeoff questions.
 - Blocked the broad opener "saw your work"; LinkedIn drafts must name a specific project, system, product, post, launch, or other concrete public signal instead.
 - Added the relocation partner daily target: at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Replies and follow-ups are tracked separately and do not count toward the target; first-time emails still require exact approval and immediate Ioana sender-session verification.
+- Replaced the dedicated summary table with timestamp-based reporting: added timestamp fields to Audiences, Channels, Targets, Business Partners, Communications, and Compliance Checks; removed the stale Audiences relation to the summary table; and trashed `RB DE Growth Metrics` (`https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53`).
 
 Verification:
 
@@ -43,6 +44,7 @@ Verification:
 - Live Notion connector read-back verified Business Partners retained icon `🤝` and has the new optional growth fields.
 - Live Notion connector move/read-back verified the five Germany growth operating databases now sit under `RB Client Databases`, while the Germany Growth project page has task-only scope copy and no child database blocks.
 - Live Notion connector read-back verified the first audience row title is `American tech workers in Germany / relocating to Germany` and its messaging notes include the 320/month blank LinkedIn invite target, intra-day LinkedIn run modes, and first-message guidance.
+- Live Notion connector read-back verified timestamp fields exist on Audiences, Channels, Growth Targets, Business Partners, Communications, and Compliance Checks, and the old summary table is trashed.
 - Search of the superseded Growth Partnerships data source returned no rows before it was trashed, so no row migration was needed.
 - Prospect PII was not imported into git; the repo stores operating pointers and provisional process notes only.
 
