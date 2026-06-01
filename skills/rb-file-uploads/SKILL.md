@@ -24,8 +24,8 @@ Use this skill whenever a local or cloud file should be preserved for Richmond B
    - Upload with `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"` only when connector upload is insufficient. The helper uses shared global Codex persona auth and defaults to no-login mode.
    - Attach the returned `webViewLink` to Notion and verify by fetching the record.
 7. For Notion-native image/file handling:
-   - Download existing Notion-hosted files by re-fetching the page or block, using the refreshed temporary file URL, and saving outside git. Use `npm run notion:download-page-files -- <page-id> --out-dir /private/tmp/<run-id>/notion-files` when a repo-local helper path is needed.
-   - Upload local images/files to Notion only through the File Upload API helper with an approved Notion API credential outside git: `npm run notion:upload-file -- <local-file> --attach-page-id <page-id> --property "<Files property>"` or `--append-to-page <page-id> --block-type image`.
+   - Download existing Notion-hosted files by re-fetching the page or block, using the refreshed temporary file URL, and saving outside git.
+   - Upload local images/files to Notion only through the File Upload API or an approved connector path with a Notion API credential outside git.
    - Prefer Drive-backed evidence for client documents unless the operational target explicitly requires a Notion file property, image block, icon, or cover.
 8. For native Google Docs that have already been edited through the connector, export/upload PDF with `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`.
 9. Update the relevant repo memory, source register, import log, tasks, and handoff.
