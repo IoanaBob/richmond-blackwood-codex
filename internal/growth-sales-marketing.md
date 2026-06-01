@@ -140,6 +140,17 @@ LinkedIn operating quota:
 - The Germany move/tax/admin line may be used only as a light aside before pivoting to the person's work, not as a service hook.
 - If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Communications.
 
+Relocation partner email quota:
+
+- Status: provisional internal operating rule.
+- Source: user instruction on 2026-06-01.
+- Imported: 2026-06-01.
+- Review: confirm Ioana email sender route and first partner queue quality before send-capable runs.
+- Daily operating target: open at least 5 new first-time email conversations with distinct relocation-partner Business Partner prospects per business day for the active audience.
+- First-time email conversations are counted separately from replies and follow-ups. Replies and follow-ups still advance Communications and Business Partner stage, but they do not satisfy the 5/day first-time conversation target.
+- Daily automation may source, qualify, draft, and report the queue; it must not send. First-time emails send only after explicit approval for exact text and immediate Ioana sender-session verification.
+- If fewer than 5 qualified or draft-ready relocation partner prospects are available for the day, record a sourcing queue gap/blocker rather than lowering the target.
+
 Required channel skills:
 
 - Master daily orchestration.

@@ -19,6 +19,7 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
 - LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and metrics. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
+- Relocation partner planning uses a daily target of at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Daily automation may prepare the packet and queue, but first-time emails still require exact approval and immediate Ioana email-session verification.
 
 ## Operating Sources
 
@@ -73,6 +74,7 @@ Shared gates:
    - Pull due Tasks linked to `RB Germany Growth System`.
    - Pull Business Partners matching the active `Audience Target` and active `Growth Stage`.
    - Pull Growth Targets for non-partner LinkedIn, Reddit, and direct research targets.
+   - Count relocation-partner first-time email conversations opened today, approved-send queue, draft-ready queue, blockers, and remaining count against the 5/business-day target.
    - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
 
 4. Channel Work Packets
@@ -85,6 +87,7 @@ Shared gates:
    - Include explicit reply-drafting and follow-up-drafting packets when replies or due follow-ups exist.
    - Do not send messages in the daily automation.
    - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or metrics-only.
+   - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
 
 5. Compliance And Ioana Gate
    - Verify platform rules, approved claims, commercial approval needs, and sender-session status.
@@ -115,6 +118,7 @@ Shared gates:
 9. Metrics And Closeout
    - Update Metrics with daily counts by audience and channel.
    - For LinkedIn, include monthly invite quota state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available.
+   - For relocation partners, include first-time email conversations opened, daily 5/day target met or missed, remaining approved-send queue, replies, follow-ups drafted, and blockers.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
 

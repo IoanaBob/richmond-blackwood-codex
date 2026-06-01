@@ -33,6 +33,7 @@ Applied:
 - Replaced self-labeling phrases like "as a fellow tech founder" and "I am a tech founder too" with a US-vs-Germany contrast pattern: tax/admin as one shared difference, plus one topic-specific difference tied to the prospect's work.
 - Tightened the contrast pattern again so admin/taxes appears only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", and broad prompts like "How are you thinking about that?" are blocked in favor of highly pointed decision/tradeoff questions.
 - Blocked the broad opener "saw your work"; LinkedIn drafts must name a specific project, system, product, post, launch, or other concrete public signal instead.
+- Added the relocation partner daily target: at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Replies and follow-ups are tracked separately and do not count toward the target; first-time emails still require exact approval and immediate Ioana sender-session verification.
 
 Verification:
 

@@ -16,6 +16,7 @@ Use this skill for relocation-agent and immigration-adjacent partner research, q
 - Send only after explicit user approval for the exact text.
 - Log every send, reply, blocker, commercial approval, and follow-up in canonical Communications.
 - Commercial terms and sponsorship/payment commitments remain approval-gated.
+- Daily operating target is at least 5 new first-time email conversations with distinct relocation-partner prospects per business day for the active audience. This is a planning and approved-send target, not permission to send without approval.
 
 ## Data Routing
 
@@ -24,6 +25,7 @@ Use this skill for relocation-agent and immigration-adjacent partner research, q
 - Put contact route, audience fit, service focus, commercial model, approval state, next action, and source notes in `Notes`.
 - Use `Audience Target`, `Growth Channel = Relocation Partnerships`, `Growth Stage`, and `Ioana Gate` when available.
 - Link Contracts only later through the existing Contracts relation if a real agreement exists.
+- Represent each first-time email conversation as a Business Partner row plus a canonical Communications row with sender identity, audience, channel, contact route, sent/blocked state, and next follow-up. Replies and follow-ups update Communications; they do not count toward the 5/day first-time conversation target.
 
 ## Packet Workflow
 
@@ -43,6 +45,7 @@ Shared gates:
    - Read `rb-germany-growth` and `rb-communications`.
    - Load active Audience Target, Business Partners schema, Communications schema, Compliance Checks, Metrics, and relevant Tasks.
    - Confirm no work is routed to the deleted legacy partnership data source.
+   - Count relocation-partner first-time email sends, queued approved-send items, replies, due follow-ups, blockers, and remaining daily target for the current business day.
 
 2. Audience And Partner Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
@@ -59,6 +62,7 @@ Shared gates:
    - Dedupe by legal/brand name, website, domain, and contact route.
    - Create/update Business Partners immediately for all plausible partner prospects.
    - Store source URL, audience evidence, service overlap, and contact route in `Notes`.
+   - Keep enough qualified or qualifiable Business Partners to support the 5/day first-time email target. If fewer than 5 send-ready or draft-ready prospects exist for the day, produce a sourcing queue gap instead of lowering the target.
 
 4. Qualification
    - Classify `Growth Stage` as `Research`, `Qualified`, `Blocked`, or `Closed`.
@@ -73,7 +77,8 @@ Shared gates:
 6. Pitch Draft Packet
    - Draft outreach in chat, personalized to the partner type and active audience.
    - Show sender identity as Ioana and the required account/session verification.
-   - Include Business Partner URL, website, contact route, commercial assumptions, and next follow-up date.
+   - Include today's first-time email target, sent count, remaining count, queued Business Partners, Business Partner URL, website, contact route, commercial assumptions, and next follow-up date.
+   - Label first-time email drafts separately from reply drafts and follow-up drafts.
 
 7. Approved Send
    - Run only after explicit approval.
@@ -81,6 +86,7 @@ Shared gates:
    - If not Ioana, log a blocker in Communications and stop.
    - Send the approved message directly through the supported route.
    - Log send result, URL/message ID, and follow-up in Communications.
+   - Stop opening new first-time conversations for the day once the 5/day target is met unless the user explicitly approves an additional batch.
 
 8. Reply Drafting And Negotiation Packet
    - Route replies into Communications and summarize what the partner actually said.
@@ -96,7 +102,7 @@ Shared gates:
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
 
 10. Metrics And Closeout
-   - Update Metrics for prospects researched, qualified partners, pitches, replies, meetings, pilots, blockers, and closed outcomes.
+   - Update Metrics for prospects researched, qualified partners, first-time email conversations opened, daily first-time email target met/missed, replies, meetings, pilots, blockers, and closed outcomes.
    - Report reply drafts, follow-up drafts, and commercial approval blockers.
 
 ## Output Packet
@@ -106,5 +112,6 @@ Return:
 - Business Partners created/updated.
 - Commercial approval needs.
 - Communications created/updated.
+- Daily first-time email target state: target 5, sent/opened today, remaining, queued, and blockers.
 - Pitch, reply, and follow-up previews awaiting approval.
 - Follow-ups, blockers, and metrics.
