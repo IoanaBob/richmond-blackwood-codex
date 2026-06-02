@@ -24,6 +24,7 @@ Review: Confirm access should remain active after the handover is complete.
 | Date | Folder | Principal | Role | Notification | Review |
 | --- | --- | --- | --- | --- | --- |
 | 2026-06-02 | `WeWrite Creative Limited  - Handover - Richmond Blackwood` (`https://drive.google.com/drive/folders/1C3RnMZsxGWc8ZprC8V7C251ldtyROhT3`) | `info@cllm.de` | `reader` | Google notification email disabled; bespoke email drafted in chat. | Permission creation and readback succeeded through `accounting@richmondblackwood.com` persona. |
+| 2026-06-02 | `WeWrite Creative Limited  - Handover - Richmond Blackwood` (`https://drive.google.com/drive/folders/1C3RnMZsxGWc8ZprC8V7C251ldtyROhT3`) | `teresa@we-write.de` | `reader` | Google invite notification enabled because Drive rejected a silent share for this non-Google-account address. | Permission creation and readback succeeded through `accounting@richmondblackwood.com` persona. |
 
 ## Export File Readback
 
