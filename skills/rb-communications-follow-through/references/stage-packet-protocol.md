@@ -179,7 +179,12 @@ Queue requirements:
 
 - For complete-scope runs, write a full selected queue CSV before Stage 3 starts.
 - Also write a skipped CSV for `Logged` rows and a batch manifest.
-- The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, and `batch_position` columns.
+- Sort the selected queue by deadline first and urgency second:
+  - `Due Date` ascending, with missing due dates last;
+  - `In Progress` before `Not started` before other non-`Logged` statuses;
+  - `Long Living`, then `Short Living`, then `Ignore`;
+  - `Sent/Received On`, `Created At`, and title as stable tie-breakers.
+- The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns.
 - Default batch size is 25.
 - Batch CSVs must be contiguous slices from the selected queue, for example rows 1-25, 26-50, and so on.
 - Do not define batches by due date, owner, status subgroup, or urgency unless the packet labels that pass as diagnostic/priority-only and not as the queue batch number.

@@ -89,7 +89,14 @@ Write:
 - a manifest with selected count, skipped count, batch size, batch count, and per-batch file paths;
 - batch CSVs that are contiguous slices of the selected queue.
 
-Default batch size is 25. Include stable `queue_index`, `batch_number`, and `batch_position` columns. Do not create ad hoc Stage 3 batches by urgency, due date, owner, or `In Progress` status unless the packet labels that pass as diagnostic or priority-only and does not use it as the queue batch number.
+Sort the selected queue before slicing batches:
+
+1. deadline: `Due Date` ascending, missing due dates last;
+2. urgency: `In Progress` before `Not started` before other non-`Logged` statuses;
+3. relevance: `Long Living`, then `Short Living`, then `Ignore`;
+4. stable tie-breakers: `Sent/Received On`, `Created At`, then title.
+
+Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns. Do not create ad hoc Stage 3 batches by urgency, due date, owner, or `In Progress` status unless the packet labels that pass as diagnostic or priority-only and does not use it as the queue batch number.
 
 ## Core Rules
 
