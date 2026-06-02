@@ -127,11 +127,9 @@ Classify `Relevance` by what the Communication row itself represents, not merely
 
 Receipt confirmations without the durable receipt/evidence file are `Short Living`. The receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
 
-Set Communication `Status` from the current canonical values: `Captured`, `Drafting`, `Needs Triage`, `Follow-Up`, `Needs Reply`, `Archived`, and `Done`.
-
 Set a Communication to `Done` when its logging work is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is saved in `Document(s)`, any non-English attachment has a Markdown translation uploaded in `Translated Doc(s)`, and `Notes` contains a usable description/summary.
 
-Use `Needs Triage` while evidence, translation, description, ownership, or routing is incomplete. Use `Needs Reply` when a reply is required and not yet sent or explicitly snoozed. Use `Follow-Up` only when the Communication row itself is the active follow-up item. Use `Drafting` for unsent outbound drafts, `Captured` for newly captured items awaiting classification, and `Archived` for duplicate, superseded, or inactive records retained for audit.
+Use `Needs Triage` while evidence, translation, description, ownership, or routing is incomplete.
 
 For a client task/action, fetch the responsible Company record and assign the client project from that Company's project relation/attribute. Use `Richmond Blackwood Backlog` only for truly RB-internal work. If the responsible Company has no readable linked client project, create a blocker packet row instead of choosing an arbitrary project.
 

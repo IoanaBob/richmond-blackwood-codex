@@ -104,20 +104,10 @@ Example body:
 {
   "page_size": 100,
   "filter": {
-    "and": [
-      {
-        "property": "Status",
-        "status": {
-          "does_not_equal": "Done"
-        }
-      },
-      {
-        "property": "Status",
-        "status": {
-          "does_not_equal": "Archived"
-        }
-      }
-    ]
+    "property": "Status",
+    "status": {
+      "does_not_equal": "Done"
+    }
   },
   "sorts": [
     {
@@ -134,20 +124,10 @@ Example later page body adds only `start_cursor`:
 {
   "page_size": 100,
   "filter": {
-    "and": [
-      {
-        "property": "Status",
-        "status": {
-          "does_not_equal": "Done"
-        }
-      },
-      {
-        "property": "Status",
-        "status": {
-          "does_not_equal": "Archived"
-        }
-      }
-    ]
+    "property": "Status",
+    "status": {
+      "does_not_equal": "Done"
+    }
   },
   "sorts": [
     {
