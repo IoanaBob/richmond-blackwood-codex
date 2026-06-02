@@ -32,9 +32,9 @@ Use this skill whenever a local or cloud file should be preserved for Richmond B
 8. For native Google Docs that have already been edited through the connector, export/upload PDF with `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`.
 9. Update the relevant repo memory, source register, import log, tasks, and handoff.
 
-## Client Export Folder Map (WEW Current)
+## Client Offboarding Export Folder Map
 
-For WEW offboarding/handover exports, keep this exact root structure:
+For client offboarding or external handover exports, use the approved Drive template or the existing client export folder first. When no more specific template is approved, audit against this generic root structure; create missing folders only after the export workflow has approved creation and the destination is clear:
 
 - `1.Bookkeeping Archive`
 - `2.Filings`
@@ -49,6 +49,8 @@ Required subfolder rules:
 
 - `4.Correspondence`: always split into `Incoming` and `Outgoing`; route current-year correspondence by direction.
 - `6.Payroll`: create one subfolder per person and verify payroll entries per linked employment before marking payroll complete.
+
+Do not make this map client-specific in the skill. Record client-specific export roots, missing folders, included files, excluded files, and readback evidence in the relevant client folder, for example `clients/Companies/<client-reference>/drive-locations.md`.
 
 ## Boundaries
 
