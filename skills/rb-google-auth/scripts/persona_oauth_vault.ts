@@ -204,6 +204,11 @@ export function canonicalPersonaSlug(personaSlug: string): string {
   return personaDefinitionForSlug(personaSlug)?.slug || personaSlug;
 }
 
+function defaultPersonaSlugFromEnv(): string {
+  const personaSlug = process.env.RB_GOOGLE_PERSONA || process.env.GOOGLE_PERSONA || "";
+  return personaSlug ? canonicalPersonaSlug(personaSlug) : "";
+}
+
 export function personaSlugForOAuth(accountEmail = "", gcloudConfigDir = "", explicitPersonaSlug = ""): string {
   if (explicitPersonaSlug) {
     return canonicalPersonaSlug(explicitPersonaSlug);
@@ -216,7 +221,7 @@ export function personaSlugForOAuth(accountEmail = "", gcloudConfigDir = "", exp
 
   const normalizedEmail = accountEmail.trim().toLowerCase();
   if (!normalizedEmail) {
-    return "";
+    return defaultPersonaSlugFromEnv();
   }
 
   const exactPersona = GOOGLE_PERSONAS.find((persona) => persona.accountEmail?.toLowerCase() === normalizedEmail);
