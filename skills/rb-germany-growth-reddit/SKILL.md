@@ -13,6 +13,10 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - Any Reddit post, comment, reply, or DM blocks unless the active Reddit account/session is verified as Ioana immediately before sending.
 - No promotional posts, cold/proactive DMs, moderator outreach, modmail, sponsorship asks, paid posts, or commercial-counterparty work in the Reddit channel for now.
 - Reactive DMs are allowed only when the person engaged with our public Reddit post/comment or sent an inbound DM first.
+- Public Reddit engagement must be recent. Prioritize posts/comments with meaningful activity in the last 72 hours; block direct public engagement when the target thread has no meaningful activity in the last 14 days.
+- Threads older than 14 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or have meaningful new comments in the last 14 days.
+- Threads older than 30 days are never direct engagement targets by default; use them only for audience research, wording patterns, subreddit fit, and rules/context.
+- Daily Reddit sourcing target is 10 recent relevant candidates for the active audience. This is a sourcing/review target, not permission to post/comment/DM. If fewer than 10 recent relevant candidates are found, report the sourcing gap and do not fill it with stale or weak-fit threads.
 - Do not send/post/comment/DM during daily automation.
 - Preview outbound text in chat. Do not save Reddit drafts.
 - Send/post/comment/DM only after explicit user approval for the exact text.
@@ -49,12 +53,16 @@ Shared gates:
 2. Audience And Community Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, tech careers, startup/founder setup, remote work, or expat administration.
+   - Target recent Reddit activity, not stale archive threads. For post/comment/reply opportunities, default to threads created or meaningfully active within the last 14 days, with highest priority for activity in the last 72 hours.
+   - Source at least 10 recent relevant Reddit candidates per day for the active audience. Track the count, quality, and gaps in the packet.
    - Keep research reusable for future Germany growth audience targets.
 
 3. Discovery And Growth Target Upsert
    - Dedupe by subreddit URL, post URL, and community name.
    - Create/update Growth Targets for subreddits, relevant posts, recurring threads, and non-commercial research targets.
-   - Record audience fit, activity, rules URL, promotional restrictions, and participation angle.
+   - Record audience fit, post created date, last meaningful activity date, activity recency, rules URL, promotional restrictions, and participation angle.
+   - Mark stale posts older than 14 days as research-only. Do not create them as active engagement targets unless they have meaningful new activity in the last 14 days.
+   - Do not create posts older than 30 days as direct engagement targets by default.
    - Set `Stage Updated At`, `Rules Checked At`, and `Last Activity At` when target state or rule state changes.
 
 4. Rule And Compliance Review
@@ -65,13 +73,16 @@ Shared gates:
 
 5. Helpful Participation Packet
    - Draft helpful, non-promotional comments or posts in chat when rules allow.
+   - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.
-   - Include target URL, rule basis, and follow-up date.
+   - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, and follow-up date.
 
 6. Community Engagement Readiness
    - Confirm the proposed action is a direct community post/comment/reply or an allowed reactive DM.
    - For DMs, confirm the exact trigger: the person engaged with our public post/comment, or the person sent an inbound DM first.
+   - For DMs, confirm the trigger is recent: inbound DM or engagement with our content within the last 14 days. Older triggers block by default unless the user explicitly approves the exact exception.
+   - Confirm public post/comment/reply targets have meaningful activity within the last 14 days, or are current recurring/pinned threads.
    - Confirm the content is useful on its own without relying on RB promotion.
    - Confirm there is no request for moderator approval, commercial placement, sponsorship, paid posting, cold DM, or modmail.
    - If any commercial or moderator route is needed, block the item and record that Reddit commercial/moderator routing is disabled.
@@ -102,7 +113,7 @@ Shared gates:
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, rule checks, comments/posts/replies, reactive DMs, helpful engagements, blockers, and replies.
+   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, recent relevant candidates sourced, 10/day sourcing target met or missed, rule checks, comments/posts/replies, reactive DMs, helpful engagements, blockers, and replies.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet
@@ -113,3 +124,4 @@ Return:
 - Rule/compliance findings.
 - Growth Messages created/updated.
 - Post/comment previews, reply drafts, reactive DM drafts, follow-up drafts, blockers, and reporting counts.
+- Daily sourcing target state: target 10 recent relevant candidates, found, engagement-ready, adjacent/monitoring, rejected, and sourcing gap.
