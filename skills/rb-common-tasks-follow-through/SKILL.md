@@ -39,7 +39,11 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Keep Notion pagination loops run-local under `/private/tmp` unless repeated production use proves a repo helper is needed. Do not add or retain repo-local Notion helper code just for a one-off query.
 - Use the Notion REST API for Notion-hosted file/image downloads and Notion-native file/image uploads. Do not treat MCP `file://...attachment...` references as downloadable URLs.
 - The tested Notion REST credential is `NOTION_ACCESS_TOKEN` in an ignored local env file. Do not put Notion API credentials in tracked files or packet output.
-- At Communication creation/update time, set `Relevance` to exactly one of `Ignore`, `Short Living`, or `Long Living`, and choose one primary client subject: `Company` or `Individual`, not both.
+- Do not create Communication rows for ignored, no-scope, spam, marketing, system-only, or no-action messages. List them as skipped in packets when useful for audit, but do not log them in canonical Communications.
+- `Ignore` is a legacy/readback value only. New Communication rows should be `Short Living` or `Long Living`; if a proposed row would be `Ignore`, skip it instead.
+- Do not process or log Wamo payment, cashback, account-notification, or marketing emails in this workflow unless the operator explicitly identifies a separate source document or business action outside the Wamo email itself.
+- Do not process or log WeWork newsletters or other marketing/newsletter emails.
+- At Communication creation/update time, set `Relevance` to `Short Living` or `Long Living`, and choose one primary client subject: `Company` or `Individual`, not both.
 - Do not use `Assigned To` as a substitute for the communication subject. Use `Assigned To` only for the internal owner of the Communication row itself; action ownership normally belongs on the linked task or operational row.
 - Treat every live data source under `RB Client Databases` as task-capable for inventory and closeout analysis, even if its field names differ.
 - For triage routing, assign each inbound first to one of `Communications`, `Invoicing`, `Expenses`, or `Central Tasks`; then update dependent/automation-backed tables only when the communication directly affects them.
@@ -86,7 +90,6 @@ For Communications, choose the more relevant primary subject relation:
 
 Set `Relevance` at the same time:
 
-- `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
 - `Short Living`: transactional chats, referral/status/follow-up messages, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination that should not become durable company/individual documentation after closeout.
 - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
 
@@ -140,13 +143,13 @@ If an email includes a letter, identify the letter source as the actual originat
 
 ### 4. Communication Ledger Plan
 
-Propose create/update of Communications rows for every real communication.
+Propose create/update of Communications rows only for actionable or durable communications.
 
-Spam and no-action communications still get logged and marked complete. Company stays empty unless the communication is a relevant incoming/outgoing client letter or client-operational communication.
+Do not log spam, no-action, ignored, system-only, marketing, newsletter, Wamo payment/cashback/account-notification, Wamo marketing, or WeWork newsletter messages. Include a skipped-source list in the packet when useful, but these items must not create or update Communications rows.
 
 Every proposed Communication row must include:
 
-- `Relevance`: `Ignore`, `Short Living`, or `Long Living`.
+- `Relevance`: `Short Living` or `Long Living`.
 - Primary subject relation: either `Company`, `Individual`, or neither. Never both without explicit operator approval.
 - Subject rationale: why the row is company-owned, individual-owned, or unowned.
 - Internal owner rule: if `Assigned To` is set on the Communication, explain why ownership belongs on the Communication row rather than only on the linked task/operational row.

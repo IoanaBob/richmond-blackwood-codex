@@ -95,10 +95,12 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 
 ## Communication Rules
 
-- Log every real communication in canonical Communications.
-- Spam/no-action communications are still logged and marked complete.
+- Log only actionable or durable communications in canonical Communications.
+- Do not log ignored, no-scope, spam, marketing, system-only, or no-action messages. List them as skipped in packets when useful for audit, but do not create Communication rows for them.
+- `Ignore` is a legacy/readback value only. New Communication rows should be `Short Living` or `Long Living`; if an item would be `Ignore`, skip it instead.
+- Do not process or log Wamo payment, cashback, account-notification, or marketing emails in this workflow unless the operator explicitly identifies a separate source document or business action outside the Wamo email itself.
+- Do not process or log WeWork newsletters or other marketing/newsletter emails.
 - Set `Relevance` when the Communication is created or updated:
-  - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
   - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination.
   - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
 - A receipt confirmation without the underlying durable receipt/evidence file is `Short Living`; the receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
