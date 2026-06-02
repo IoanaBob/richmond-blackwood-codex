@@ -1824,3 +1824,24 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-06-02 - CBMAX Hamburg VAT Zero-Return Evidence
+
+Imported:
+
+- User-provided local ELSTER PDFs `CBMAX Hamburg 2024 VAT return.pdf` and `CBMAX Hamburg 2025 VAT return.pdf`.
+- Live Notion task/filing search for CBMAX Hamburg VAT filings.
+- Existing CBMAX Drive folder pointers and live Drive folder listings.
+
+Actions:
+
+- Confirmed original task `Call Hamburg Tax Office - CBMAX VAT Issue` is `Done` and has a comment saying it was handled in another task.
+- Found the closest owning live filing row, `CB MAX - Hamburg (Nil) 2025 Trade and corporation tax for Hamburg (Nil)`, in the `Filings` data source: `https://www.notion.so/36fe413013148074906dff68162e653b`.
+- Uploaded `CBMAX Hamburg 2024 VAT return.pdf` to the CBMAX `2024` Drive folder: `https://drive.google.com/file/d/1HZFYLijGZ7xM6cHDf5d5oMBPZqZKDBXo/view?usp=drivesdk`.
+- Uploaded `CBMAX Hamburg 2025 VAT return.pdf` to the CBMAX `2025` Drive folder: `https://drive.google.com/file/d/17laVIdkPu0eIWZc2ZghCWNG-bGo7gaOg/view?usp=drivesdk`.
+- Updated the live Notion filing row comments with both Drive evidence links and left `Status` as `Filed`, preserving existing `Submission` attachments for Hamburg nil corporation/trade filings.
+- Updated CBMAX repo pointers in `drive-locations.md`, `tax-vat-filings.md`, and `source-register.md`.
+
+Unresolved:
+
+- No separate annual VAT-specific Notion filing row was found by targeted Notion searches. If RB wants annual Hamburg VAT represented separately from the existing Hamburg nil filing row, create a dedicated `Filings` row and move/copy these evidence links there.

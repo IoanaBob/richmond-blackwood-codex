@@ -83,6 +83,18 @@ Drive search found several likely tax/accounting files, including:
 
 File-level Drive pointers are in `drive-locations.md`.
 
+## Hamburg Annual VAT Zero-Return Evidence - 2026-06-02
+
+Status: provisional.
+Source: user-provided ELSTER PDFs in local Downloads uploaded to Drive; Notion filing row `https://www.notion.so/36fe413013148074906dff68162e653b` read back after update.
+Imported: 2026-06-02.
+Review: No separate annual VAT-specific Notion filing row was found by targeted Notion searches. The closest owning row is the existing Hamburg nil filing row in the `Filings` database; it remains `Filed` and now has Drive evidence links in `Comments`, while existing `Submission` attachments were preserved.
+
+| Return | Evidence | Notion handling |
+| --- | --- | --- |
+| Hamburg annual VAT zero return 2024 | `CBMAX Hamburg 2024 VAT return.pdf` in Drive: `https://drive.google.com/file/d/1HZFYLijGZ7xM6cHDf5d5oMBPZqZKDBXo/view?usp=drivesdk` | Linked in comments on Hamburg nil filing row `https://www.notion.so/36fe413013148074906dff68162e653b`. |
+| Hamburg annual VAT zero return 2025 | `CBMAX Hamburg 2025 VAT return.pdf` in Drive: `https://drive.google.com/file/d/17laVIdkPu0eIWZc2ZghCWNG-bGo7gaOg/view?usp=drivesdk` | Linked in comments on Hamburg nil filing row `https://www.notion.so/36fe413013148074906dff68162e653b`. |
+
 ## Review Needed
 
 - Sync the pending/limbo status and 2026-05-13 user correction back into the Notion company record/tax-history callout.
