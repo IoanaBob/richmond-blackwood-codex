@@ -20,7 +20,7 @@ Use this skill for relocation-agent and immigration-adjacent partner research, q
 
 ## Data Routing
 
-- Every relocation agent, expat coach, immigration-adjacent firm, tax/visa/admin advisory firm, or professional referral partner goes directly to Business Partners.
+- Every relocation agent, expat coach, immigration-adjacent firm, tax, visa, or admin advisory firm, or professional referral partner goes directly to Business Partners.
 - Put the official website in `Website`.
 - Put contact route, audience fit, service focus, commercial model, approval state, next action, and source notes in `Notes`.
 - Use `Audience Target`, `Growth Channel = Relocation Partnerships`, `Growth Stage`, and `Ioana Gate` when available.
@@ -96,7 +96,7 @@ Shared gates:
 
 8. Reply Drafting And Negotiation Packet
    - Route replies into Growth Messages and summarize what the partner actually said.
-   - Before each reply draft, show the initial partner/topic context, prior Ioana/RB message, latest partner reply, commercial/approval state, and the exact issue being answered.
+   - Before each reply draft, show the initial partner/topic context, prior Ioana or RB message, latest partner reply, commercial and approval state, and the exact issue being answered.
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the partner's service, audience, commercial model, or open question.
    - Do not introduce pricing, commission, payments, contract terms, or pilot commitments without explicit user approval.
@@ -107,7 +107,7 @@ Shared gates:
    - Inspect due follow-ups for sent pitches, partner replies, commercial approvals, blockers, and negotiation items.
    - Before each follow-up draft, show the initial partner/topic context, prior interaction, latest status, and the specific reason a follow-up adds value now.
    - Draft follow-up text in chat only when there is a specific reason and source context.
-   - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
+   - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked.
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.

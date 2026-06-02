@@ -85,7 +85,7 @@ Provisional:
 
 - Landing app routes leads into backend/API and HubSpot.
 - HubSpot booking link is embedded in the site.
-- Backend supports HubSpot contact/deal sync and lead payment/order paths.
+- Backend supports HubSpot contact/deal sync and lead payment/order flows.
 - HubSpot pipeline and funnel metrics can be accessed through the HubSpot API and RB database on demand when the user asks for a specific task.
 
 ## Germany Growth Operating System
@@ -151,7 +151,7 @@ LinkedIn operating quota:
 - LinkedIn message drafts must be highly specific and targeted: name the company, product, project, shipped system, post, launch, or real public detail such as a feature, market, customer segment, technical problem, or founder decision. Generic phrasing like "saw the founder angle", "saw your work", or "what are you focused on" is blocked.
 - LinkedIn copy should bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", plus one second contrast tied to the prospect's topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption. Avoid self-labels like "as a fellow tech founder" or "I am a tech founder too."
 - Questions must be highly pointed and tied to a named detail. Broad prompts like "How are you thinking about that?" are blocked; prefer decision/tradeoff questions like "Did X push you toward Y instead of Z?"
-- Outreach copy must not mention RB services, tax/admin offerings, savings claims, sales paths, or booking a call. Ioana's tone should be natural, specific, and curious about the person's work; the sale happens later, outside the outreach copy.
+- Outreach copy must not mention RB services, tax/admin offerings, savings claims, sales funnels, or booking a call. Ioana's tone should be natural, specific, and curious about the person's work; the sale happens later, outside the outreach copy.
 - The Germany move/tax/admin line may be used only as a light aside before pivoting to the person's work, not as a service hook.
 - If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Growth Messages.
 
@@ -164,7 +164,7 @@ Relocation partner email quota:
 - Daily operating target: open at least 5 new first-time email conversations with distinct relocation-partner Business Partner prospects per business day for the active audience.
 - First-time email conversations are counted separately from replies and follow-ups. Replies and follow-ups still advance Growth Messages and Business Partner stage, but they do not satisfy the 5/day first-time conversation target.
 - Daily automation may source, qualify, draft, and report the queue; it must not send. First-time emails send only after explicit approval for exact text and immediate Ioana sender-session verification.
-- If fewer than 5 qualified or draft-ready relocation partner prospects are available for the day, record a sourcing queue gap/blocker rather than lowering the target.
+- If fewer than 5 qualified or draft-ready relocation partner prospects are available for the day, record a sourcing queue gap/blocker and keep the target unchanged.
 
 Required channel skills:
 
@@ -180,7 +180,7 @@ Operational gates:
 - Partnership prospects go to Business Partners immediately, including Facebook group sponsorship/admin leads, relocation agents, expat coaches, immigration-adjacent firms, and commercial/professional referral firms.
 - Non-partner LinkedIn individuals, Facebook groups/posts/threads used for public posting, Reddit communities/posts, and direct research targets stay in Growth Targets.
 - Facebook admin/sponsorship acquisition and Facebook posting are separate skills. Use Business Partners for admin/sponsorship/payment/commercial approval counterparties; use Growth Targets and Growth Messages for public group posting/commenting where rules or admin approval allow participation.
-- Reddit is direct community engagement first. Do not pursue Reddit moderator outreach, sponsorships, paid posts, cold/proactive DMs, modmail, or commercial counterparties, and do not create Business Partners from Reddit routes unless the user explicitly re-enables that channel. Overt promotional posting stays blocked. When Ioana/RB can seriously help with the specific thread problem, propose a narrow soft DM-help line by default, label it as a promotion-rule risk, and remove it if rules or thread style make it unsafe. Reactive Reddit DMs are allowed only after someone engages with our public post/comment or sends an inbound DM first; they stay in Growth Targets and Growth Messages and require exact approval plus immediate Ioana Reddit-session verification before sending.
+- Reddit is direct community engagement first. Do not pursue Reddit moderator outreach, sponsorships, paid posts, cold/proactive DMs, modmail, or commercial counterparties, and do not create Business Partners from Reddit routes unless the user explicitly re-enables that channel. Overt promotional posting stays blocked. When Ioana or RB can seriously help with the specific thread problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful, label it as a promotion-rule risk, and remove it if rules or thread style make it unsafe. Reactive Reddit DMs are allowed only after someone engages with our public post/comment or sends an inbound DM first; they stay in Growth Targets and Growth Messages and require exact approval plus immediate Ioana Reddit-session verification before sending.
 - Reddit direct engagement must be recent. Prioritize posts/comments with meaningful activity in the last 72 hours; block direct public engagement when the target thread has no meaningful activity in the last 14 days; treat threads older than 30 days as research-only by default. Reactive DMs require a recent trigger: inbound DM or engagement with our public post/comment within the last 14 days unless the user explicitly approves the exact exception.
 - Reddit daily commenting target: post 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and second comments on the same post do not count. Daily automation prepares the source/draft packet only; posting still requires exact approval and immediate Ioana Reddit-session verification.
 - Reddit sourcing should normally collect 15-20 recent relevant candidate posts to produce 10 safe top-level comment drafts. If fewer than 10 safe recent comment-ready posts exist, report the comment-target gap and do not fill it with stale, weak-fit, or unsafe threads.
@@ -188,10 +188,12 @@ Operational gates:
 - All outbound send-ready stages must use Ioana as the sender persona.
 - Any send-ready action must block if the active connector or browser session is not verified as Ioana.
 - Drafts, sends, posts, comments, DMs, replies, blockers, approvals, and follow-ups for pre-lead growth use Growth Messages.
-- Every growth draft preview must show the source context before the draft text: initial question/topic, relevant source context, why the response is being proposed, and the target/thread/person/company URL. If that context is missing or unclear, block the draft until the source is read rather than guessing.
+- Every growth draft preview must show the source context before the draft text: initial question/topic, relevant source context, why the response is being proposed, and the target/thread/person/company URL. If that context is missing or unclear, block the draft until the source is read.
 - Reddit draft previews must also show a style basis from recent posts/comments in the same subreddit, and preferably the target thread: observed tone, typical length/specificity, terminology, and what style to avoid. Match the local subreddit style without violating RB gates, platform rules, professionalism, or accuracy.
-- Reddit draft previews must include a DM-help assessment. If Ioana/RB can seriously help with the specific issue, include a specific, low-pressure DM-help line by default; do not use generic CTAs, booking language, service names, or broad "happy to help" filler.
-- Reddit US-like compensation drafts should use the narrow baseline: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add other paths such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic AI-like market-summary lines unless explicitly approved for that thread.
+- Reddit draft previews must include a DM-help assessment. If Ioana or RB can seriously help with the specific issue, include a specific, low-pressure DM-help line only when it fits naturally; do not use generic CTAs, booking language, service names, or broad filler.
+- Reddit US-like compensation drafts should use the narrow baseline: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add other options such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic AI-like market-summary lines unless explicitly approved for that thread.
+- Reddit copy should avoid the word "path," slash-heavy phrasing, long enumerations unless the local style supports them, and mechanical contrast sentences that read like a template.
+- All growth outreach copy should follow the same style rule: avoid the word "path," slash-heavy phrasing, long enumerations unless the source style supports them, and mechanical contrast sentences that read like a template.
 - Canonical Communications is used only when a growth thread becomes a lead/client/business communication or when a Growth Messages record is intentionally promoted and linked through `Promoted Communication`.
 - Growth Messages records should set `Audience Target`, `Growth Channel`, `Sender Identity`, `Message Kind`, `Status`, and relevant timestamps when available.
 - Prospect PII and channel state belong in Notion, not git.

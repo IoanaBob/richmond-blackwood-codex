@@ -91,7 +91,7 @@ Shared gates:
    - Inspect due follow-ups for unanswered admin asks, sponsorship approvals, payment/promotion logistics, and replies.
    - Before each follow-up draft, show the initial ask/topic, prior interaction, latest status, and the specific reason a follow-up adds value now.
    - Draft follow-up text in chat only when there is a specific next reason to follow up.
-   - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
+   - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked.
 
 9. Reporting And Closeout
    - Do not create or update summary reporting rows.
