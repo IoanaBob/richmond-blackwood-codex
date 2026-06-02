@@ -2,6 +2,22 @@
 
 Status: active.
 
+## 2026-06-02 - Ioana Google Persona Setup
+
+Applied:
+
+- User approved the exact `ioana-richmond-blackwood` and `ioana-eip` Google helper persona setup.
+- Confirmed `ioana@richmondblackwood.com` as Ioana's Richmond Blackwood Google email for helper auth routing.
+- Marked `ioana-richmond-blackwood` and `ioana-eip` as configured in the safe helper registry.
+- Completed interactive OAuth reconnects for both personas into ignored global Codex storage under `~/.codex/google-personas/`.
+- Updated safe repo memory and source pointers. No tokens, client secrets, or credential payloads were stored in git.
+
+Verification:
+
+- `ioana-richmond-blackwood` verified as `ioana@richmondblackwood.com` for refresh, identity, Gmail, Drive, and Calendar.
+- `ioana-eip` verified as `ioana@eip.ventures` for refresh, identity, Gmail, Drive, and Calendar.
+- The same `google-auth:verify-oauth-vault` run reported `accounting-richmond-blackwood` and `jp-richmond-blackwood` as missing from this local global store; reconnect those only after exact approval if needed.
+
 ## 2026-06-01 - Germany Growth Notion Operating System
 
 Applied:

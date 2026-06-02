@@ -939,3 +939,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Growth Messages is the pre-lead growth log. Canonical Communications is used only when a growth thread is promoted into a lead/client/business communication and linked through `Promoted Communication`. Ioana-only send gates and exact approval rules remain unchanged.
 - Verification: Notion read-back verified the database parent, icon, views, and relation fields. Repo verification is recorded in the branch closeout.
 - Limitations or gaps: The daily automation and Ioana identity registry remain open tasks; no growth messages were sent or posted in this run.
+
+## 2026-06-02 - Ioana Google Personas
+
+- User request: Add the missing Ioana RB and Ioana EIP Google helper personas after browser account setup.
+- Context read: `rb-google-auth`, `memory/google-auth.md`, `memory/google-personas.md`, `internal/people-roles.md`, and the local persona OAuth helper registry.
+- Actions taken: User approved `ioana@richmondblackwood.com` as Ioana's RB Google account and approved exact interactive reconnects for `ioana-richmond-blackwood` and `ioana-eip`. Configured both safe persona definitions and completed OAuth reconnects into ignored global Codex storage under `~/.codex/google-personas/`.
+- Decisions made: `ioana-richmond-blackwood` and `ioana-eip` are helper auth routes only; they do not change the active RB actor, source mailbox, or sender unless a future task scopes them explicitly.
+- Verification: `google-auth:verify-oauth-vault` verified both Ioana personas for refresh, identity, Gmail, Drive, and Calendar. The same run reported `accounting-richmond-blackwood` and `jp-richmond-blackwood` missing from this local global store.
+- Limitations or gaps: No Gmail/Drive/Calendar business action was performed. Future sends and Drive writes still require task-specific approval and destination/sender confirmation.

@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-01.
+Updated: 2026-06-02.
 
 ## Repo State
 
@@ -55,7 +55,7 @@ Available helper areas:
 - Task PR helper: `skills/rb-task-pr/scripts/task_pr.sh`.
 - Optional WhatsApp MCP bridge: `setup/mcp/start-whatsapp-bridge.sh`.
 
-Google auth now uses the shared global Codex persona model. Durable Google persona caches, OAuth client files, and MCP credentials belong under `~/.codex`, especially `~/.codex/google-personas/`, not worktree-local `.codex-local`. Gmail and Drive helpers default to no-login/no-reauth: per-persona OAuth vault first, then saved ADC/account-token fallback. `memory/google-auth.md`, `memory/google-personas.md`, and `setup/google-persona-auth.md` are the RB auth references.
+Google auth now uses the shared global Codex persona model. Durable Google persona caches, OAuth client files, and MCP credentials belong under `~/.codex`, especially `~/.codex/google-personas/`, not worktree-local `.codex-local`. Gmail and Drive helpers default to no-login/no-reauth: per-persona OAuth vault first, then saved ADC/account-token fallback. `memory/google-auth.md`, `memory/google-personas.md`, and `setup/google-persona-auth.md` are the RB auth references. As of 2026-06-02, `ioana-richmond-blackwood` verifies as `ioana@richmondblackwood.com` and `ioana-eip` verifies as `ioana@eip.ventures` for refresh, identity, Gmail, Drive, and Calendar. The same verification run showed `accounting-richmond-blackwood` and `jp-richmond-blackwood` vaults missing from this local global store.
 
 Gmail drafts default to `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`, use the repo-local Gmail API helper path with shared global Codex auth storage, and fail closed if Gmail stores another sender. Gmail jobs must keep `Operator`, `Source mailbox(es)`, `From`, `Thread/source`, and Google auth persona/account separate; do not assume all Gmail reads come from accounting or infer the sender/auth route from the active operator.
 
@@ -250,7 +250,7 @@ TPL / Techpacito Limited context import:
 - Registrations: user says all registrations have been received except international VAT/USt-IdNr. User clarified on 2026-05-24 that the German tax number acts as the local German tax/VAT registration for 2025, while USt-IdNr. still needs questions submitted. Notion VAT row `https://www.notion.so/1e9e413013148108af4dd5788940476a` was updated to `Registered` / `TPL - DE VAT`; annual-return row `https://www.notion.so/1e9e4130131481099265c96960b24128` reads back as `Registered`. JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` was created/read back on 2026-05-25 for the remaining USt-IdNr. questions, due 2026-05-29. Public CRO sources confirm CORE is the annual-return filing route and TECHPACITO LIMITED / company number 786441 was registered on 2025-04-16; direct CRO Open Services annual-return checking returned an API-credential error.
 - Assets and structuring: Gmail `19dbf3b04574dbd8` shows Pradeep forwarded a Mercedes-Benz eSigning completion email for a Mercedes-Benz VLE 300 electric order. User instruction still expects 75 percent accelerated depreciation in 2025 after final acquisition details are confirmed. The Mercedes-Benz order PDF was downloaded to temporary local storage for verification on 2026-05-25, but the upload to Drive `Correspondance` is blocked until the canonical TPL folder exists. User clarified on 2026-05-25 that Everguard operational/payment detail belongs in Everguard records, not RB client memory.
 - Payroll: user confirmed the registered minijob amount is EUR 600/month; Pradeep and Sangita Notion employment rows were updated from EUR 550 to EUR 600 and read back on 2026-05-24.
-- Drive folder status: target canonical folder is `02. RB Client Companies/19. Techpacito Limited (TPL)`. The saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com` but cannot access the parent folder; `ioana-eip` can access it but needs explicit approval before being used for folder creation.
+- Drive folder status: target canonical folder is `02. RB Client Companies/19. Techpacito Limited (TPL)`. Prior memory said `ioana-eip` could access the parent but needed explicit approval before folder creation; as of 2026-06-02 the `ioana-eip` helper persona is approved and verified, but folder creation still needs task-specific approval and destination confirmation before any Drive write.
 - High-signal open items: JP USt-IdNr. follow-up, deciding whether Barden can work with German VAT after the USt-IdNr./international VAT number is available, canonical Drive folder creation/verification after write-persona access is resolved, Mercedes-Benz order PDF upload to `Correspondance`, car invoice/delivery/financing and BIK/payroll treatment, and payroll worked-hour support.
 
 Communication workflow update:
