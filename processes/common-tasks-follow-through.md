@@ -159,6 +159,7 @@ These routes were resolved during the `2026-05-21-1006-daily-0800-window` correc
 - First classify each inbound into Communications, Invoicing, Expenses, or Central Tasks.
 - Contract-backed payables/receivables belong on the matching Invoicing row when a matching invoice/contract route exists.
 - Non-contract receipts/finance items belong on Expenses.
+- Payment notifications, payment receipts, invoice receipts, cashback notices, card/account notifications, and similar finance-source messages must not create standalone Central Tasks just to decide ownership/routing. If a finance-source item is business-scoped and no contract/Invoicing match exists, create or update an Expense row with a review-required status. If the source does not support business scope, skip/no-scope it.
 - Operational work that is not an invoice or expense belongs on Communications plus a Central Task when action is needed.
 - Dependent tables are filled opportunistically after the primary route is chosen, when the inbound affects that specific entity.
 - Create central Tasks for action work, especially when a dependent table receives a draft/update.

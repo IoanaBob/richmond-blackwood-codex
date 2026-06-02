@@ -51,6 +51,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - For triage routing, assign each inbound first to one of `Communications`, `Invoicing`, `Expenses`, or `Central Tasks`; then update dependent/automation-backed tables only when the communication directly affects them.
 - Central Tasks is for action work, especially when a dependent table gets a draft/update. It is not a substitute for keeping Communications, Expenses, or Invoicing current.
 - Do not create separate one-off Central Tasks for items that belong inside an existing recurring workflow, such as weekly invoice generation, weekly invoice payables/expenses, payroll, bookkeeping, or tax filing cadence tasks. Link the Communication/evidence to the recurring task or operational row instead.
+- Do not create Central Tasks for payment notifications, payment receipts, invoice receipts, cashback notices, card/account notifications, or other finance-source messages merely to decide ownership/routing. If no active contract or Invoicing row matches a finance-source item, route it to Expenses when business-scoped and source evidence is sufficient; if business scope is not supported by the source, skip/no-scope it. Use `Review Required` or the equivalent Expense status for finance review instead of creating a separate routing task.
 - Do not create human tasks for source extraction or evidence upload that Codex can perform from approved Gmail/WhatsApp reads during the run. Human tasks are only for inaccessible portals, missing permissions, unresolved destination/folder decisions, human judgment calls, or actions outside Codex's source access.
 - When approved Gmail/WhatsApp source messages include evidence attachments, route them through `rb-file-uploads` during the commit/update stage: upload/preserve the files, attach them to the Communication or owning operational row, link them to relevant tasks, then mark the Communication `Logged` once evidence, translation, and Notes are complete.
 - When an inbound includes a form/questionnaire, run `rb-form-fill-assist` before assigning human follow-up. Codex must read the form, draft field-level answers from existing RB context, list unknowns, and route only unresolved judgment calls or missing facts to the human owner.
@@ -216,10 +217,10 @@ Update `draft-operational-rows.csv`, `draft-tasks.csv`, `draft-replies.csv`, and
 For finance items:
 
 - If an active payable/receivable contract or matching Invoicing row exists, attach/link the communication and evidence to the invoice task row.
-- If no active contract applies, create/update the Expense task row.
+- If no active contract applies, create/update the Expense row. Do not create a Central Task just to decide ownership/routing for a payment notification or receipt.
 - If the item is a receipt paid by Richmond Blackwood, upload/link the receipt to the correct evidence/expense record. Do not create a Central Task unless there is an unresolved human decision or inaccessible source.
 - If the item belongs to an existing weekly invoice generation/payables workflow, attach/link the Communication and evidence to that workflow instead of creating a one-off task.
-- If company is unclear, do not guess; assign blocker ownership to Richmond Blackwood only as operational owner.
+- If company is unclear, do not guess a client company. For a business-scoped finance source, create/update the Expense row with the source-safe available evidence and `Review Required`/equivalent status; for a source that does not support business scope, skip/no-scope it. Do not create a standalone Central Task as a holding pen.
 
 For non-finance items, link the communication to an existing open row/task or propose one new action row. If the item is a form or questionnaire, the next action is a form-fill research packet unless the source file is unavailable.
 
