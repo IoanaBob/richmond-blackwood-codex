@@ -64,6 +64,19 @@ User clarified on 2026-05-18 to follow the source dates rather than the earlier 
 
 Relevant task: `Prepare P&L and Balance Sheet for Aaron` at `https://www.notion.so/353e413013148070ad92d56880997fb6`.
 
+## E-Bilanz Route Check - 2026-06-02
+
+Status: provisional.
+Source: Drive FS workbooks, Notion task `https://www.notion.so/353e413013148070ad92d56880997fb6`, public provider pricing pages, and internal Expenses row `https://www.notion.so/373e41301314814fb13ac4f2ca8ee01c`.
+Imported: 2026-06-02.
+Review: Simoneta still needs to complete the provider login/payment/invoice step; final E-Bilanz submission evidence is not yet recorded.
+
+The existing 2023 and 2024 FS workbooks are sufficient to prepare a manual online E-Bilanz entry packet. The workbook read-back showed P&L summaries, balance-sheet summaries, German SUSA account totals with account-level mappings, VAT accounts, equity/private drawings and contributions, and debtor schedules for both years.
+
+Preferred provider route for the urgent catch-up is eBilanz-Online because it does not require a Sage implementation. Public pricing checked on 2026-06-02 showed eBilanz-Online at EUR 39 plus USt per successful E-Bilanz transfer with no subscription/fixed cost. Alternatives checked: eBilanz+ direct at EUR 35 plus USt and Sage Active marketplace eBilanz+ at EUR 32 plus USt with the Sage customer discount, but the Sage route depends on Sage/eBilanz+ account setup.
+
+Internal payment action started: Expenses payable request `Aaron E-bilanz transmission credit - eBilanz-Online` was created for Simoneta, due 2026-06-02, with amount EUR 46.41 gross. Codex did not create provider credentials or make payment. After the provider credit/invoice is obtained, continue with the E-Bilanz data-entry/submission packet from the verified workbooks.
+
 ## 2025 Joint Filing
 
 Status: provisional.

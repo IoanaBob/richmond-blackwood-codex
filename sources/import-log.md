@@ -1948,3 +1948,21 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-02 - Aaron E-Bilanz Route Check
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-02 to verify whether the existing Aaron spreadsheets can support E-Bilanz preparation, book/start the provider route, obtain the invoice, and route it to Simoneta for same-day payment.
+- Public provider pricing from eBilanz-Online, eBilanz+, and Sage Active marketplace eBilanz+.
+
+Actions:
+
+- Verified by Drive read-back that the 2023 and 2024 FS workbooks contain P&L summaries, balance-sheet summaries, German SUSA account totals/mapping, VAT accounts, equity/private drawings/contributions, and debtor schedules sufficient for a manual online E-Bilanz entry packet.
+- Created internal Expenses payable request `https://www.notion.so/373e41301314814fb13ac4f2ca8ee01c` for Simoneta, due 2026-06-02, amount EUR 46.41 gross, status `Payment Requested`.
+- Added a Notion task comment to `https://www.notion.so/353e413013148070ad92d56880997fb6` with the workbook feasibility, provider comparison, and payment blocker.
+- Updated Aaron source/register files without copying raw taxpayer identifiers or workbook detail into git.
+
+Unresolved:
+
+- Provider login/registration, payment, and invoice retrieval require a human/approved payer account. E-Bilanz submission evidence is not yet recorded.

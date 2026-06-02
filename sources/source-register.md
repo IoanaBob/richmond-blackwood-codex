@@ -161,6 +161,8 @@ AMC company sources are routed to `clients/Companies/AMC/source-register.md`. Th
 
 Aaron personal sources are routed to `clients/Individuals/Aaron Richard Chamberlain/source-register.md`. The import uses Aaron's Notion individual record, 2023/2024/2025 personal-tax filings, garnishment meeting notes, payment-plan/P&L tasks, Drive personal-tax and previous-accountant folders, Gmail action-points email, and WhatsApp garnishment/P-Konto/joint-filing context.
 
+Aaron E-Bilanz route check sources added on 2026-06-02 are routed to `clients/Individuals/Aaron Richard Chamberlain/source-register.md` and `clients/Individuals/Aaron Richard Chamberlain/personal-tax-returns.md`. The run used the 2023/2024 FS workbooks, Notion task `https://www.notion.so/353e413013148070ad92d56880997fb6`, internal Expenses request `https://www.notion.so/373e41301314814fb13ac4f2ca8ee01c`, eBilanz-Online pricing, eBilanz+ pricing, and Sage Active marketplace pricing.
+
 ## SVL / Kristjan Sources
 
 SVL company sources are routed to `clients/Companies/SVL/source-register.md`. The 2026-05-18 load used the Notion company record `https://www.notion.so/2cde4130131480b89185d9ba4487a3b3`, project `https://www.notion.so/32fe4130131480abafdfd5d80e907c29`, Kristjan individual record, employment, contract, filing-registration, payroll, task and Client Notes records, Google Drive folder `https://drive.google.com/drive/folders/19IHrClZjr58Bt15cx9h0KV9RiVzzAC1G`, Gmail ELSTER/Stripe/Lexware/TK threads, WhatsApp `Olafsson, Kristjan | Richmond Blackwood`, and Slack internal context.
