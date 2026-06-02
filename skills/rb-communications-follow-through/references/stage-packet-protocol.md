@@ -95,9 +95,14 @@ Goal: choose Communications rows in scope.
 Default inclusion:
 
 - `Status` is not `Logged`;
-- `Due Date` is today or overdue;
 - the user supplied a specific row URL;
 - the row appears in a user-supplied Notion view/query scope.
+
+Default exclusion:
+
+- `Status` is `Logged`, even when `Due Date` is today or overdue.
+- A stale due date on a logged Communication is cleanup metadata, not follow-through selection.
+- If RB is waiting for a reply or follow-through, the Communication should be `In Progress`.
 
 Use the canonical data source:
 
@@ -169,6 +174,16 @@ Packet columns:
 - notes summary;
 - inclusion reason;
 - proposed next stage read need.
+
+Queue requirements:
+
+- For complete-scope runs, write a full selected queue CSV before Stage 3 starts.
+- Also write a skipped CSV for `Logged` rows and a batch manifest.
+- The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, and `batch_position` columns.
+- Default batch size is 25.
+- Batch CSVs must be contiguous slices from the selected queue, for example rows 1-25, 26-50, and so on.
+- Do not define batches by due date, owner, status subgroup, or urgency unless the packet labels that pass as diagnostic/priority-only and not as the queue batch number.
+- Stage 3 must consume the next not-yet-read batch file from the manifest and update the packet/run state with exact queue indices.
 
 Do not search Gmail, Slack, or WhatsApp in Stage 2.
 
