@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02; Meetings database source instruction from user on 2026-06-02
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -28,6 +28,15 @@ Team Updates:
 - Filter: `Team = Accounting`; prefer `Company = Richmond Blackwood` when present.
 
 If a data source query tool is available, query by `Team = Accounting` and `Date = current working day`. If not, use Notion search/fetch on the Accounting view/current-date candidates and verify properties after fetch.
+
+Meeting transcript / notes:
+
+- Meetings database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
+- Meetings data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
+- During Stage 2, check the Meetings database first for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on date, meeting name, Teams/Companies relations when present, and proximity to the Team Updates run. If a supplied Meetings view is too narrow, use the broader Meetings data source or All view rather than treating that as no transcript.
+- If the relevant meeting is found, fetch it with transcript included when supported and save task-relevant context in the Stage 2 packet or a linked transcript-context appendix/handover file in the run folder. Stage 3 task descriptions and contextual comments should use that saved context.
+- If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
+- If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Absence alone is not a blocker.
 
 Slack context channels:
 
@@ -131,13 +140,13 @@ Rules:
 
 ## Packet Requirement
 
-This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-accounting-team-updates-triage/<run-id>/`, print the same packet in chat, and proceed only through approved or explicitly auto-approved stages. The detailed stage contract lives in `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`. Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing table.
+This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-accounting-team-updates-triage/<run-id>/`, print the human approval surface in chat, and proceed only through approved or explicitly auto-approved stages. Long machine logs, schema payloads, dedupe notes, and continuation details belong later in the packet or in a linked handover/log file. The detailed stage contract lives in `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`. Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce a human-readable routing approval table and preserve a machine routing log.
 
 Required packet files:
 
 1. **Run Preflight**: current date/window, clean/dirty/conflicted git status, `git pull origin main` result, Notion/Slack connector availability, Team Updates query, Slack channel IDs, and ChatGPT/Codex exclusion rule.
-2. **Source Context**: Team Updates page, section rows, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
-3. **Routing Plan**: atomic create/update/comment/skip proposal for each blocker/action point item, owning data source/row, company, project source, exact schema/property write payload, assignee, reviewer, due date, verified assignee Slack mention, dedupe evidence, write-back method, and unresolved decisions.
+2. **Source Context**: Team Updates page, section rows, transcript/approved-notes existence check result, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
+3. **Routing Plan**: human-readable approval tables grouped as Creates, Updates / comments, Skips / no action, and Unresolved / needs decision. The visible tables must show source row, source line, decision, target, owner, due date, exact action, Team Updates write-back, and blocker/approval need. Exact schema/property write payloads, verified assignee Slack mentions, dedupe evidence, and other execution details must be preserved in a later machine log or linked handover file.
 4. **Notion Write Results**: task/operational-row create/update/comment links, owner/status/project/reviewer/due-date read-back, exact payload executed, Team Updates write-back read-back, and unresolved rows.
 5. **Slack Closeout Plan**: exact standard Slack notice with Team Updates link, created and updated/commented task links, verified assigned-person mentions, Slack mention resolution table, and any short unresolved-item phrase.
 6. **Slack Send And Run Closeout**: Slack message link, communication/log backlinks when used, verification summary, preserved scratch path, and final blocker list.
