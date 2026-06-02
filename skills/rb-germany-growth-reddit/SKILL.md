@@ -17,7 +17,8 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - Public Reddit engagement must be recent. Prioritize posts/comments with meaningful activity in the last 72 hours; block direct public engagement when the target thread has no meaningful activity in the last 14 days.
 - Threads older than 14 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or have meaningful new comments in the last 14 days.
 - Threads older than 30 days are never direct engagement targets by default; use them only for audience research, wording patterns, subreddit fit, and rules/context.
-- Daily Reddit sourcing target is 10 recent relevant candidates for the active audience. This is a sourcing/review target, not permission to post/comment/DM. If fewer than 10 recent relevant candidates are found, report the sourcing gap and do not fill it with stale or weak-fit threads.
+- Daily Reddit commenting target is 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and engagement with existing RB/Ioana comments do not count toward this target.
+- Source enough recent relevant posts, normally at least 15-20 candidates, to produce 10 safe top-level comment drafts. If fewer than 10 safe recent comment-ready posts are available, report the comment-target gap and do not fill it with stale, weak-fit, or unsafe threads.
 - Do not send/post/comment/DM during daily automation.
 - Preview outbound text in chat. Do not save Reddit drafts.
 - Send/post/comment/DM only after explicit user approval for the exact text.
@@ -54,13 +55,15 @@ Shared gates:
 2. Audience And Community Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, tech careers, startup/founder setup, remote work, or expat administration.
-   - Target recent Reddit activity, not stale archive threads. For post/comment/reply opportunities, default to threads created or meaningfully active within the last 14 days, with highest priority for activity in the last 72 hours.
-   - Source at least 10 recent relevant Reddit candidates per day for the active audience. Track the count, quality, and gaps in the packet.
+   - Target recent Reddit activity, not stale archive threads. For top-level comment opportunities, default to threads created or meaningfully active within the last 14 days, with highest priority for activity in the last 72 hours.
+   - Source enough recent relevant posts to prepare at least 10 top-level comment drafts per day for the active audience. Use 15-20 sourced candidates as the normal buffer when the subreddit quality is uneven.
+   - Track the daily top-level comment target state in the packet: target 10, safe comment drafts, high-risk/provisional drafts, approved comments posted today, replies/DMs excluded from count, and remaining gap.
    - Keep research reusable for future Germany growth audience targets.
 
 3. Discovery And Growth Target Upsert
    - Dedupe by subreddit URL, post URL, and community name.
    - Create/update Growth Targets for subreddits, relevant posts, recurring threads, and non-commercial research targets.
+   - Mark distinct recent posts that could receive a top-level comment as `Top-Level Comment Candidate` when the schema supports it.
    - Record audience fit, post created date, last meaningful activity date, activity recency, rules URL, promotional restrictions, and participation angle.
    - Mark stale posts older than 14 days as research-only. Do not create them as active engagement targets unless they have meaningful new activity in the last 14 days.
    - Do not create posts older than 30 days as direct engagement targets by default.
@@ -74,7 +77,7 @@ Shared gates:
    - Treat rule, approved-claim, and Ioana-session checks as in-run gates. Store rule evidence on the Growth Target and blockers/follow-ups in Growth Messages or Tasks, not in a compliance-check database.
 
 5. Helpful Participation Packet
-   - Draft helpful, non-promotional comments or posts in chat when rules allow.
+   - Draft helpful, non-promotional top-level comments or posts in chat when rules allow. Default Reddit daily output is 10 top-level comment drafts on 10 distinct posts.
    - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
    - Include a subreddit style-basis before each draft: recent posts/comments read, observed tone, typical specificity/length, terms users use, and any style to avoid. Drafts must match the local style without becoming rude, promotional, generic, or inaccurate.
    - Include a `DM help assessment` before each draft: whether Ioana/RB can seriously help with the thread's specific problem. If yes, include a soft DM-help line by default. If no, say why no DM line is included. If rules or style make the line unsafe, show the line as removed/blocked rather than silently omitting the assessment.
@@ -84,10 +87,11 @@ Shared gates:
    - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.
-   - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, and follow-up date.
+   - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, follow-up date, and whether the draft counts toward the 10/day top-level comment target.
 
 6. Community Engagement Readiness
-   - Confirm the proposed action is a direct community post/comment/reply or an allowed reactive DM.
+   - Confirm the proposed action is a direct community post/top-level comment, a reply, or an allowed reactive DM.
+   - For daily target accounting, confirm whether the item is a top-level comment on a distinct post. Replies, DMs, follow-ups, and second comments on the same post do not count toward the 10/day Reddit comment target.
    - For DMs, confirm the exact trigger: the person engaged with our public post/comment, or the person sent an inbound DM first.
    - For DMs, confirm the trigger is recent: inbound DM or engagement with our content within the last 14 days. Older triggers block by default unless the user explicitly approves the exact exception.
    - Confirm public post/comment/reply targets have meaningful activity within the last 14 days, or are current recurring/pinned threads.
@@ -100,6 +104,7 @@ Shared gates:
    - Re-check the Reddit session is Ioana.
    - If not Ioana, log a blocker in Growth Messages and stop.
    - Send/post/comment/DM only the approved text.
+   - Count only approved top-level comments on distinct posts toward the daily 10-comment target. Do not count replies, reactive DMs, follow-ups, modmail, votes, saves, or any second comment on the same post.
    - For DMs, send only when the approved packet includes the valid trigger and source URL/message context.
    - Log the URL/message ID, rule basis, result, `Message Kind = Post`, `Comment`, `Reply`, or `DM`, `Status = Sent/Posted`, `Growth Event At`, and next follow-up in Growth Messages.
    - Set Growth Target `Outreach Active At`, `Stage Updated At`, and `Last Activity At` when participation starts.
@@ -125,7 +130,7 @@ Shared gates:
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, recent relevant candidates sourced, 10/day sourcing target met or missed, rule checks, comments/posts/replies, reactive DMs, helpful engagements, blockers, and replies.
+   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, recent relevant candidates sourced, top-level comment drafts, approved top-level comments posted, 10/day top-level comment target met or missed, rule checks, replies, reactive DMs, helpful engagements, blockers, and follow-ups.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet
@@ -136,4 +141,4 @@ Return:
 - Rule/compliance findings.
 - Growth Messages created/updated.
 - Post/comment previews, reply drafts, reactive DM drafts, follow-up drafts, blockers, and reporting counts.
-- Daily sourcing target state: target 10 recent relevant candidates, found, engagement-ready, adjacent/monitoring, rejected, and sourcing gap.
+- Daily Reddit comment target state: target 10 top-level comments on distinct recent posts, sourced candidates, safe comment drafts, high-risk/provisional drafts, approved comments posted, replies/DMs excluded from count, rejected, and remaining comment-target gap.

@@ -21,6 +21,7 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
 - Relocation partner planning uses a daily target of at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Daily automation may prepare the packet and queue, but first-time emails still require exact approval and immediate Ioana email-session verification.
+- Reddit planning uses a daily target of 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and second comments on the same post do not count. Daily automation may source and draft the packet, but posting still requires exact approval and immediate Ioana Reddit-session verification.
 
 ## Operating Sources
 
@@ -80,6 +81,7 @@ Shared gates:
    - Pull Business Partners matching the active `Audience Target` and active `Growth Stage`.
    - Pull Growth Targets for non-partner LinkedIn, Reddit, and direct research targets.
    - Count relocation-partner first-time email conversations opened today, approved-send queue, draft-ready queue, blockers, and remaining count against the 5/business-day target.
+   - Count Reddit top-level comments posted today, safe top-level comment drafts, high-risk/provisional comment drafts, and remaining count against the 10/day top-level comment target. Do not count replies, DMs, follow-ups, or second comments on the same post.
    - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
 
 4. Channel Work Packets
@@ -95,6 +97,7 @@ Shared gates:
    - Do not send messages in the daily automation.
    - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or reporting-only.
    - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
+   - For Reddit, include the 10/day top-level comment target state and any sourcing/drafting gap needed to keep the daily target achievable.
 
 5. Compliance And Ioana Gate
    - Verify platform rules, approved claims, commercial approval needs, and sender-session status as an in-run checklist, not as database rows.
@@ -134,6 +137,7 @@ Shared gates:
    - Reconstruct daily/weekly/monthly counts by querying timestamped records by audience and channel.
    - For LinkedIn, report monthly invite quota state from Growth Messages `Message Kind`/`Growth Event At`, Growth Target stage timestamps, and current pending/blocker state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available.
    - For relocation partners, report first-time email conversations opened from Growth Messages `Message Kind = First Message` or `Partner Pitch`, Business Partner `First Contacted At`, daily 5/day target met or missed, remaining approved-send queue, replies, follow-ups drafted, and blockers.
+   - For Reddit, report top-level comments posted from Growth Messages `Message Kind = Comment` or `Post/Comment` plus `Growth Event At`, daily 10/day target met or missed, safe drafts, high-risk/provisional drafts, remaining comment gap, replies/DMs excluded from the count, and blockers.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
 
