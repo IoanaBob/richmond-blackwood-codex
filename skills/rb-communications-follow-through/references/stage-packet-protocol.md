@@ -95,9 +95,14 @@ Goal: choose Communications rows in scope.
 Default inclusion:
 
 - `Status` is not `Logged`;
-- `Due Date` is today or overdue;
 - the user supplied a specific row URL;
 - the row appears in a user-supplied Notion view/query scope.
+
+Default exclusion:
+
+- `Status` is `Logged`, even when `Due Date` is today or overdue.
+- A stale due date on a logged Communication is cleanup metadata, not follow-through selection.
+- If RB is waiting for a reply or follow-through, the Communication should be `In Progress`.
 
 Use the canonical data source:
 
@@ -107,11 +112,49 @@ collection://1b5e4130-1314-8183-afd8-000b6f4da982
 
 Preferred method:
 
-- Fetch/query the data source or view with the Notion connector.
+- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, fetch/query the full data source or a verified view with an authoritative pagination method.
+- SQL mode: use the canonical data source as the table name, request deterministic columns, and page with `LIMIT 100 OFFSET <n>` until a query returns fewer than 100 rows. Record every query, offset, returned row count, and final total in the packet.
+- View mode: query the supplied/approved view URL with `page_size: 100`; follow `next_cursor` until `has_more` is false. Record every cursor, returned row count, and final total in the packet.
+- For operator assignment scopes, resolve the active human operator from `RB_CODEX_ACTOR` and `internal/people-roles.md`, then filter by the Notion user ID stored in `Assigned To`.
+- If using a user-provided CSV/export, record the file path, export timestamp if known, source view/database URL, row count, and exact filter/sort that produced it.
+
+Example SQL for Ioana-assigned rows:
+
+```sql
+SELECT
+  url,
+  "Title",
+  "Status",
+  "Type",
+  "Relevance",
+  "date:Sent/Received On:start",
+  "date:Due Date:start",
+  "Company",
+  "Individual",
+  "Tasks",
+  "Assigned To",
+  "Document(s)",
+  "Translated Doc(s)",
+  "Notes"
+FROM "collection://1b5e4130-1314-8183-afd8-000b6f4da982"
+WHERE "Assigned To" LIKE ?
+ORDER BY COALESCE("date:Due Date:start", "date:Sent/Received On:start", "Created At", createdTime) ASC
+LIMIT 100 OFFSET 0;
+```
+
+Use parameter:
+
+```text
+%3a46f87a-9bc2-408f-baff-b4c23326e0f2%
+```
 
 Fallback method:
 
-- If SQL or view query is unavailable, use Notion search plus direct page fetches. Record the fallback and any coverage risk in the packet.
+- Do not rely on historical connector behavior alone. Each run must do a live `fetch` probe and a live non-mutating SQL/view query probe before deciding whether complete inventory is available.
+- If SQL/view query returns an error such as `Tool notion-query-data-sources not found`, treat that as a connector backend blocker, not as an empty result.
+- If SQL/view query is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables a direct Notion API/export helper path, or explicitly approves a degraded candidate-only run.
+- Notion search may be used only for candidate discovery. It has a 25-result cap, semantic ranking, and can return false positives where linked tasks or page content mention the operator while the Communication row has no `Assigned To` value.
+- Any search-based packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
 
 Packet columns:
 
@@ -132,7 +175,28 @@ Packet columns:
 - inclusion reason;
 - proposed next stage read need.
 
+Queue requirements:
+
+- For complete-scope runs, write a full selected queue CSV before Stage 3 starts.
+- Also write a skipped CSV for `Logged` rows and a batch manifest.
+- Sort the selected queue by deadline first and urgency second:
+  - `Due Date` ascending, with missing due dates last;
+  - `In Progress` before `Not started` before other non-`Logged` statuses;
+  - `Long Living`, then `Short Living`, then `Ignore`;
+  - `Sent/Received On`, `Created At`, and title as stable tie-breakers.
+- The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns.
+- Default batch size is 25.
+- Batch CSVs must be contiguous slices from the selected queue, for example rows 1-25, 26-50, and so on.
+- Do not define batches by due date, owner, status subgroup, or urgency unless the packet labels that pass as diagnostic/priority-only and not as the queue batch number.
+- Stage 3 must consume the next not-yet-read batch file from the manifest and update the packet/run state with exact queue indices.
+
 Do not search Gmail, Slack, or WhatsApp in Stage 2.
+
+Stage 2 cannot advance to Stage 3 for complete-scope runs until the packet has either:
+
+- an authoritative total and full row list;
+- a verified zero-row result from authoritative query/export;
+- or explicit operator approval to continue with degraded candidate discovery.
 
 ## Stage 3 - Context Read
 

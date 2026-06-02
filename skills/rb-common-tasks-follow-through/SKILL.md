@@ -33,6 +33,12 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
 - Do not write new RB communication logs to the old `RB Communications` database `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
+- Default to the Notion MCP connector for schema fetches, known page/data-source readbacks, ordinary connector-supported updates, and search-based candidate discovery.
+- Do not use MCP search as proof of a complete Stage 2 inventory. For authoritative all-row inventory, page data sources through the Notion REST API with an approved non-browser Notion API credential stored outside git.
+- For REST inventory, first run the plain request and save page 1. If page 1 has `has_more: false`, the query is complete. If `has_more: true`, continue with the exact same query URL, query parameters, filters, sorts, and `page_size`; add only `start_cursor` from the previous response until `has_more` is false.
+- Keep Notion pagination loops run-local under `/private/tmp` unless repeated production use proves a repo helper is needed. Do not add or retain repo-local Notion helper code just for a one-off query.
+- Use the Notion REST API for Notion-hosted file/image downloads and Notion-native file/image uploads. Do not treat MCP `file://...attachment...` references as downloadable URLs.
+- The tested Notion REST credential is `NOTION_ACCESS_TOKEN` in an ignored local env file. Do not put Notion API credentials in tracked files or packet output.
 - At Communication creation/update time, set `Relevance` to exactly one of `Ignore`, `Short Living`, or `Long Living`, and choose one primary client subject: `Company` or `Individual`, not both.
 - Do not use `Assigned To` as a substitute for the communication subject. Use `Assigned To` only for the internal owner of the Communication row itself; action ownership normally belongs on the linked task or operational row.
 - Treat every live data source under `RB Client Databases` as task-capable for inventory and closeout analysis, even if its field names differ.
@@ -83,6 +89,8 @@ Set `Relevance` at the same time:
 - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
 - `Short Living`: transactional chats, referral/status/follow-up messages, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination that should not become durable company/individual documentation after closeout.
 - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
+
+Classify `Relevance` by what the Communication row itself represents, not merely by whether the topic sounds durable. A tax, legal, finance, filing, contract, or authority topic can still be `Short Living` when the Communication is only a coordination/status/reply wrapper and the durable state lives on a task, filing row, invoice/expense row, or later evidence-bearing record. Use `Long Living` only when the Communication is or is expected to become the durable evidence container, especially when original files, letters, contracts, notices, receipts, filings, or other source documents are attached or will be attached.
 
 Receipt confirmations without the durable receipt/evidence file are `Short Living`. The receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
 
