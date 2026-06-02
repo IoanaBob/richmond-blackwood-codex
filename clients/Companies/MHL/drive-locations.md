@@ -15,6 +15,7 @@ Top-level contents found:
 
 | Item | URL | Notes |
 | --- | --- | --- |
+| `MHL - Kraftfahrzeugsteuerbescheid B NQ1547 - 2026-04-29.pdf` | `https://drive.google.com/file/d/1YkTmA1BVsVSTtCxbqJhquqtn5zSJCsmL/view?usp=drivesdk` | Uploaded 2026-06-02 from user-provided PDF as evidence for Expense `https://www.notion.so/373e41301314816aad5cc476505bcece`; SHA-256 `ecb3a0dec2ae495386a94ca216b4a662a8efd304a1953234d3fc3948afc55c14`; size 1,898,441 bytes. |
 | `Personal Tax Filings` | `https://drive.google.com/drive/folders/1XRdAps4UXzKVVEzPel27hfg96vJYwEqe` | Contains Gabriel personal-tax folder. |
 | `Gabriel - Outstanding Payments.xlsx` | `https://docs.google.com/spreadsheets/d/1u1fj0bnf2ifcgn5zc7weBJKOpndY2gcH/edit` | Office-mode XLSX in Drive. Not reviewed during this import. |
 | `MHL Liquidity 2025` | `https://docs.google.com/spreadsheets/d/1mCbxHQ0Fn938a6qMz6bMJDv8W9Zj1XFseZ4CBbXZDgw/edit` | Native Google Sheet. Not reviewed during this import. |
