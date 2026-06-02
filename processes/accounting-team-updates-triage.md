@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02; Meetings database source instruction from user on 2026-06-02
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -31,8 +31,11 @@ If a data source query tool is available, query by `Team = Accounting` and `Date
 
 Meeting transcript / notes:
 
-- During Stage 2, check whether a current-working-day Accounting Team Updates meeting transcript or approved meeting notes exist in the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
-- If transcript/notes are found, read them and save task-relevant context in the Stage 2 packet or a linked transcript-context appendix/handover file in the run folder. Stage 3 task descriptions and contextual comments should use that saved context.
+- Meetings database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
+- Meetings data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
+- During Stage 2, check the Meetings database first for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on date, meeting name, Teams/Companies relations when present, and proximity to the Team Updates run. If a supplied Meetings view is too narrow, use the broader Meetings data source or All view rather than treating that as no transcript.
+- If the relevant meeting is found, fetch it with transcript included when supported and save task-relevant context in the Stage 2 packet or a linked transcript-context appendix/handover file in the run folder. Stage 3 task descriptions and contextual comments should use that saved context.
+- If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
 - If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Absence alone is not a blocker.
 
 Slack context channels:

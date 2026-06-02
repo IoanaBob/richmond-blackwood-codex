@@ -1,7 +1,7 @@
 # Accounting Team Updates Stage Packet Protocol
 
 Status: provisional.
-Source: user instruction to make Accounting Team Updates triage packet-based, modelled on `rb-common-tasks-follow-through`; user instruction on 2026-06-02 that packet approval surfaces must be human-readable tables, with machine logs kept later or in a handover/log file; user instruction on 2026-06-02 to check whether a meeting transcript exists, read it when found, and continue when none is found.
+Source: user instruction to make Accounting Team Updates triage packet-based, modelled on `rb-common-tasks-follow-through`; user instruction on 2026-06-02 that packet approval surfaces must be human-readable tables, with machine logs kept later or in a handover/log file; user instruction on 2026-06-02 to check whether a meeting transcript exists, read it when found, and continue when none is found; user instruction on 2026-06-02 to use the relevant row from the Meetings database.
 Imported: 2026-05-26.
 Review: Validate on the next weekday Accounting Team Updates run.
 
@@ -104,17 +104,19 @@ Execution:
 1. Read the current-day Accounting Team Updates page and verify `Team`, `Date`, and company context.
 2. Split rows by section.
 3. Count `New client inbounds` as observed / out of scope.
-4. Check whether a current-day Accounting Team Updates meeting transcript or approved meeting notes exist in the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
-5. If transcript/notes are found, read them and preserve the task-relevant context in `stage-02-source-context.md` or a linked transcript-context appendix in the run folder.
-6. If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Missing transcript/notes alone is not a blocker.
-7. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
-8. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
-9. Write and print `stage-02-source-context.md`.
+4. Check the Meetings database `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8` / data source `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72` for the relevant current-day RB/Accounting/Operations daily meeting. Match on current working day, meeting name, Teams/Companies relations when present, and proximity to the Team Updates run.
+5. If the supplied Meetings view is too narrow or returns an irrelevant row, query/search the broader Meetings data source or All view before concluding no meeting exists.
+6. If the relevant meeting transcript/notes are found, read them and preserve the task-relevant context in `stage-02-source-context.md` or a linked meeting-context appendix in the run folder.
+7. If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
+8. If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Missing transcript/notes alone is not a blocker.
+9. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
+10. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
+11. Write and print `stage-02-source-context.md`.
 
 Required packet fields:
 
 - Team Updates page URL, properties, and section rows;
-- transcript/approved-notes existence check result: found/read with source link and saved context path, or `none found`;
+- Meetings database/view/data source checked, candidate meeting rows considered, transcript/approved-notes result, selected meeting source link when found/read, and saved meeting-context path or `none found`;
 - exact Notion and per-channel Slack query bounds, including timezone and preflight timestamp;
 - `New client inbounds observed / out of scope` count and a short note that inbound routing belongs to `rb-common-tasks-follow-through`;
 - relevant human-authored Slack messages and new thread context by channel;

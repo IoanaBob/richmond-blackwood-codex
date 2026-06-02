@@ -39,6 +39,12 @@ Source scope:
 - Filter for `Team = Accounting`.
 - Use the `Date` property for the current working day in `Europe/Dublin`; page title wording is not authoritative.
 
+Meetings context:
+
+- Meetings database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
+- Meetings data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
+- Use the relevant current-working-day Meetings row for RB/Accounting/Operations daily context before falling back to generic linked notes. If the operator provides a Meetings database/view URL, use it to identify the database/data source, but do not rely only on a filtered company view if it excludes the relevant RB daily meeting; search/query the broader Meetings data source or All view as needed.
+
 Slack context:
 
 - `#rb-client-updates` (`C0B1UTJJDLJ`)
@@ -55,7 +61,8 @@ Auto-approval:
 Source reads:
 
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
-- Check whether a current-working-day Accounting Team Updates meeting transcript or approved meeting notes exist in the Team Updates page, linked Notion pages, approved Slack threads, or other approved source location named by the run context. If found, read it and save the relevant task-context excerpts or summary in the Stage 2 packet or a linked transcript-context appendix in the run folder. If no transcript or notes are found after the check, record `Transcript check: none found` and continue; absence alone is not a blocker.
+- Check the Meetings database for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on current working day, RB/Accounting/Operations/Daily naming, Teams/Companies relations when present, and proximity to the Team Updates run. Fetch the selected meeting with transcript included when the connector supports it. Save the relevant task-context excerpts or summary in the Stage 2 packet or a linked meeting-context appendix in the run folder.
+- If no relevant Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or other approved source location named by the run context for transcript/approved notes. If no transcript or notes are found after these checks, record `Transcript check: none found` and continue; absence alone is not a blocker.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
 Section rules:
