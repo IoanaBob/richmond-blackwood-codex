@@ -125,8 +125,9 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 - `Ignore` is a legacy/readback value only. New Communication rows should be `Short Living` or `Long Living`; if an item would be `Ignore`, skip it instead.
 - Do not process or log Wamo payment, cashback, account-notification, or marketing emails in this workflow unless the operator explicitly identifies a separate source document or business action outside the Wamo email itself.
 - Do not process or log WeWork newsletters or other marketing/newsletter emails.
+- Do not process or log automated broker/investment portal availability notices, including IBKR daily/monthly activity statement or trade-confirmation availability emails, when the actual statement/document is not retrieved and the email contains no separate action request. Treat these as marketing/no-scope for this workflow: no Communication row, task, label/source marker, Slack line, or portal retrieval task unless the operator explicitly approves retrieving the statement or identifies a separate business action.
 - Set `Relevance` when the Communication is created or updated:
-  - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination.
+  - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, or short-lived coordination.
   - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
 - A receipt confirmation without the underlying durable receipt/evidence file is `Short Living`; the receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
 - ELSTER activation expiry reminders are `Short Living`; the durable work item is the linked activation task, and the reminder loses value once activation is complete.

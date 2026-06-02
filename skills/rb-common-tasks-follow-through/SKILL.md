@@ -45,6 +45,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - `Ignore` is a legacy/readback value only. New Communication rows should be `Short Living` or `Long Living`; if a proposed row would be `Ignore`, skip it instead.
 - Do not process or log Wamo payment, cashback, account-notification, or marketing emails in this workflow unless the operator explicitly identifies a separate source document or business action outside the Wamo email itself.
 - Do not process or log WeWork newsletters or other marketing/newsletter emails.
+- Do not process or log automated broker/investment portal availability notices, including IBKR daily/monthly activity statement or trade-confirmation availability emails, when the actual statement/document is not retrieved and the email contains no separate action request. Treat these as marketing/no-scope for this workflow: no Communication row, task, label/source marker, Slack line, or portal retrieval task unless the operator explicitly approves retrieving the statement or identifies a separate business action.
 - At Communication creation/update time, set `Relevance` to `Short Living` or `Long Living`, and choose one primary client subject: `Company` or `Individual`, not both.
 - Do not use `Assigned To` as a substitute for the communication subject. Use `Assigned To` only for the internal owner of the Communication row itself; action ownership normally belongs on the linked task or operational row.
 - Treat every live data source under `RB Client Databases` as task-capable for inventory and closeout analysis, even if its field names differ.
@@ -119,7 +120,7 @@ For Communications, choose the more relevant primary subject relation:
 
 Set `Relevance` at the same time:
 
-- `Short Living`: transactional chats, referral/status/follow-up messages, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination that should not become durable company/individual documentation after closeout.
+- `Short Living`: transactional chats, referral/status/follow-up messages, ELSTER activation expiry reminders, or short-lived coordination that should not become durable company/individual documentation after closeout.
 - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
 
 Classify `Relevance` by what the Communication row itself represents, not merely by whether the topic sounds durable. A tax, legal, finance, filing, contract, or authority topic can still be `Short Living` when the Communication is only a coordination/status/reply wrapper and the durable state lives on a task, filing row, invoice/expense row, or later evidence-bearing record. Use `Long Living` only when the Communication is or is expected to become the durable evidence container, especially when original files, letters, contracts, notices, receipts, filings, or other source documents are attached or will be attached.
@@ -184,7 +185,7 @@ Propose create/update of Communications rows only for actionable or durable comm
 
 Update `draft-communications.csv` first. Generate the Stage 4 packet from the updated CSV and `source-messages.csv`; do not requery Gmail/WhatsApp/Slack/Notion for planning data unless a snapshot-refresh addendum is needed.
 
-Do not log spam, no-action, ignored, system-only, marketing, newsletter, Wamo payment/cashback/account-notification, Wamo marketing, or WeWork newsletter messages. Include a skipped-source list in the packet when useful, but these items must not create or update Communications rows.
+Do not log spam, no-action, ignored, system-only, marketing, newsletter, Wamo payment/cashback/account-notification, Wamo marketing, WeWork newsletter, or automated broker/investment portal availability messages such as IBKR statement-available notices. Include a skipped-source list in the packet when useful, but these items must not create or update Communications rows.
 
 Every proposed Communication row must include:
 
