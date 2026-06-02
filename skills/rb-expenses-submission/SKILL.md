@@ -1,6 +1,6 @@
 ---
 name: rb-expenses-submission
-description: Submit Richmond Blackwood expense, receipt, invoice, tax-payment, reimbursement, or payable evidence into the live Notion Expenses data source with Drive-backed evidence and repo pointer updates. Use when the user asks to submit, process, log, route, or upload an expense through the expenses form from a local file, Drive file, Notion attachment, Gmail/WhatsApp attachment, or pasted expense details.
+description: Submit Richmond Blackwood expense, receipt, invoice, tax-payment, reimbursement, or payable evidence into the live Notion Expenses data source with direct Notion receipt attachments, optional Drive archive evidence, and repo pointer updates. Use when the user asks to submit, process, log, route, or upload an expense through the expenses form from a local file, Drive file, Notion attachment, Gmail/WhatsApp attachment, or pasted expense details.
 ---
 
 # RB Expenses Submission
@@ -59,9 +59,18 @@ Before creating an Expense row, decide whether another operational table owns th
 - Use `Expenses` when no active contract/invoice route applies, including receipts, reimbursements, supplier costs, authority/tax notices submitted as payables, direct-debit notices, and operating expenses.
 - For tax payments/prepayments, create or update the primary owning Expense/Task row first, then update tax-payment/prepayment tables only as a byproduct when clearly required.
 
-## Drive Preservation
+## Evidence Attachment And Preservation
 
-- Preserve raw evidence in Drive unless it is already attached in Drive or an approved Notion file property.
+For `Receipt / Invoice`, prefer a direct Notion-hosted file attachment when a local source file is available:
+
+1. Use the Notion REST File Upload API with the approved `NOTION_ACCESS_TOKEN` stored outside git.
+2. For files up to 20 MiB, create a `single_part` file upload with the source filename and MIME type, send the file bytes with multipart form data, then attach the resulting `file_upload` ID to `Receipt / Invoice` before it expires.
+3. Patch the Notion `files` property with only the intended current evidence file unless the user asks to preserve multiple visible attachments. Do not leave a Google Drive view in `Receipt / Invoice` when the user requested direct Notion attachment.
+4. Fetch the row back and verify the property no longer points at the old external Drive URL.
+5. If the Notion File Upload API token or target property access is unavailable, stop and report the blocker rather than using browser automation or silently falling back to Drive when the user asked for direct Notion attachment.
+
+Use Drive as archive evidence or fallback only when direct Notion attachment is unavailable, when the source is already a Drive file, when long-term client archive evidence is required in addition to the Notion attachment, or when the user explicitly asks for Drive:
+
 - Use the existing client Drive folder when known. Do not guess group/external classification or create replacement folder structures.
 - Prefer the Google Drive connector when it supports the needed upload or metadata read.
 - If generic upload is needed and connector upload is insufficient, use:
@@ -94,9 +103,9 @@ Current field conventions:
 - `Assignee`: use explicit instruction, existing row owner, client project owner, established rule, then `internal/people-roles.md`. Routine bookkeeping/payment processing defaults to Simoneta; legal/banking/tax-route decisions default to Johnpaul.
 - `Should be charged to`: fill only when recharge/client billing treatment is explicit. Do not infer.
 - `Supplier`: link an existing supplier only when confidently resolved. Do not create suppliers casually during a quick expense submission.
-- `Receipt / Invoice`: attach the Drive URL or approved Notion file reference.
+- `Receipt / Invoice`: attach the direct Notion `file_upload` reference for local evidence when possible. Use a Drive URL only as archive/fallback or when the source is already a Drive file.
 - `Categorisation`: use a short business category, for example `Company vehicle tax / Kraftfahrzeugsteuer`.
-- `Comments`: include source summary, reference numbers needed for processing, related operational rows, evidence URL, and unresolved review points. Do not include full bank account details or credentials.
+- `Comments`: include source summary, reference numbers needed for processing, related operational rows, and unresolved review points. Do not include full bank account details, credentials, or a Drive URL when the receipt is directly attached in Notion.
 
 Connector notes:
 
@@ -114,7 +123,7 @@ After writing, fetch the Expense row and verify:
 - `Status`;
 - assignee;
 - company or individual relation;
-- receipt/evidence link;
+- receipt/evidence attachment;
 - any recharge/refund fields used.
 
 Then update repo memory with pointers only:
@@ -131,7 +140,7 @@ Do not store raw PDFs, bank details, full IBANs, card numbers, private identifie
 Tell the user:
 
 - Expense row URL;
-- Drive evidence URL;
+- direct Notion receipt attachment status, and Drive evidence URL only when a Drive upload was used;
 - amount, due/paid date, status, and assignee;
 - verification performed;
 - blockers or fields intentionally left for review.

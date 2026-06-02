@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-27.
+Updated: 2026-06-02.
 
 ## Notion Backup Questions
 
@@ -54,6 +54,7 @@ Updated: 2026-05-27.
 
 ## Process Questions
 
+- Provision or confirm the approved local secret-storage location for `NOTION_ACCESS_TOKEN` so direct Notion File Upload API attachments can be used for Expenses `Receipt / Invoice` properties. On 2026-06-02 the Notion connector could fetch/update pages, but no connector-local-file-upload tool or standalone token was available for the MHL vehicle-tax direct attachment replacement.
 - Confirm the owner for German filings and VAT cleanup.
 - Confirm the canonical payroll runbook source, especially for external clients on Lexware.
 - Confirm the authority liaison / POA process owner and current escalation process.
