@@ -884,3 +884,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
 - Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
 - Limitations or gaps: None known yet.
+
+## 2026-05-25 - AGL Board Minutes Signed Evidence
+
+- User request: Upload the signed copy of AGL's Q1 2026 board minutes, update memory/skillset, and restate the repeatable process.
+- Context read: AGL 25.05.2026 Board Meeting Drive folder, editable final minutes Google Doc, signed local PDF `AGL MINUTE BOD Q1 26.pdf`, and board-document workflow requirements.
+- Actions taken: Uploaded the signed PDF to the AGL `25.05.2026` Board Meeting folder, verified the folder listing, added `rb-client-board-docs`, and recorded AGL board evidence pointers in client files and memory.
+- Decisions made: Signed board minutes should be stored in the same dated board folder as agenda/editable minutes, then verified by Drive listing before closeout.
+- Verification: Drive listing verified `25/05/2026 BOD Agenda`, `25/05/2026 BOD Minute final`, and `25/05/2026 BOD Minute - signed.pdf`; signed PDF URL is `https://drive.google.com/file/d/1g5me-4hNR6rgJr3b4LoGc3DjrMXRDpzu/view?usp=drivesdk`.
+- Limitations or gaps: Future live runs should validate the board-doc workflow on another client and keep Drive/auth tooling under review.
+
+## 2026-06-02 - PR #47 Board Docs Packet Refactor
+
+- User request: Resolve Ioana's PR #47 requested changes for `rb-client-board-docs`.
+- Context read: PR #47 review request, existing `rb-client-board-docs`, AGL board evidence records, `skills/index.md`, source ledgers, and skill-creator guidance.
+- Actions taken: Rewrote `rb-client-board-docs` into a packet-gated workflow and added seven external packet templates for setup, setup results, minutes review, signature execution, signature results, signed-copy intake/storage, and final storage/closeout.
+- Decisions made: Board meeting setup must gather destination, Calendar, agenda, board-pack, and follow-up context before live work. Missing/incomplete Calendar state should produce proposed Calendar create/update fields rather than default chairperson outreach. Signature execution and signed-copy filing are separate stages, and the signed-copy storage stage starts only after a signed file exists.
+- Verification: `git diff --check`, `git diff --cached --check`, `npm run typecheck`, and scaffold-TODO scan passed. `quick_validate.py` was blocked by missing PyYAML in the local Python runtime.
+- Limitations or gaps: No live Drive, Calendar, Notion, or signature writes were performed by this review-fix step.

@@ -1824,3 +1824,40 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-05-25 - AGL Board Minutes Signed Evidence And BOD Skill
+
+Imported:
+
+- User-provided signed PDF `/Users/jp/Downloads/AGL MINUTE BOD Q1 26.pdf`.
+- AGL `25.05.2026` Board Meeting folder `https://drive.google.com/drive/folders/1l8AD_Ay-GCHad98zDJTWpqfhah7WuQl3`.
+- Editable final minutes Google Doc `https://docs.google.com/document/d/1EWp1B0yzEUD02wOJ7GZTnWrZ2A9Eh2HjTgMnQjNuNqY/edit`.
+- Notion transcript page `https://www.notion.so/36be4130131480cb8262fdac95355570`.
+
+Actions:
+
+- Uploaded signed PDF as `25/05/2026 BOD Minute - signed.pdf` to the AGL 25.05.2026 Board Meeting folder.
+- Verified the folder contains the agenda, editable final minutes, and signed PDF.
+- Added `skills/rb-client-board-docs/SKILL.md` and registered it in `skills/index.md`.
+- Updated AGL Drive/source pointers and durable memory.
+
+Unresolved:
+
+- Repeat the workflow on another client BOD meeting to validate the skill outside AGL.
+
+## 2026-06-02 - PR #47 Board Docs Packet Refactor
+
+Imported:
+
+- Ioana's PR #47 review request for a template-backed, packet-gated board-docs skill.
+- Existing AGL board-docs skill and AGL board evidence/source pointers.
+
+Actions:
+
+- Rewrote `skills/rb-client-board-docs/SKILL.md` so live Drive, Calendar, Notion, signature, and communication writes are gated by approved packets.
+- Added external packet templates under `skills/rb-client-board-docs/references/` for Board Meeting Setup, Setup Results, Minutes Review, Signature Execution, Signature Results, Signed Copy Intake And Storage, and Final Storage And Closeout.
+- Updated the source register and durable memory with the packet-refactor rule.
+
+Unresolved:
+
+- PR closeout pending. `quick_validate.py` could not run because the local Python runtime lacks PyYAML; static scaffold scan, `git diff --check`, `git diff --cached --check`, and `npm run typecheck` passed.
