@@ -39,6 +39,8 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Keep Notion pagination loops run-local under `/private/tmp` unless repeated production use proves a repo helper is needed. Do not add or retain repo-local Notion helper code just for a one-off query.
 - Use the Notion REST API for Notion-hosted file/image downloads and Notion-native file/image uploads. Do not treat MCP `file://...attachment...` references as downloadable URLs.
 - The tested Notion REST credential is `NOTION_ACCESS_TOKEN` in an ignored local env file. Do not put Notion API credentials in tracked files or packet output.
+- Treat the Stage 2 and Stage 3 CSV snapshots as the run-local source of truth for planning. After those snapshots exist, do not repeatedly query Notion, Gmail, WhatsApp, Slack, or Drive just to re-answer planning questions already represented in the CSVs. Use live services later only for approved writes, targeted readbacks of changed rows, file upload/download operations approved by packet, source markers/checkpoints, or an explicit snapshot-refresh addendum when the CSV is missing data needed for safe routing.
+- Before proposing live creates/updates, first write the proposed change into the relevant draft CSV in the run folder, then generate the packet from that updated CSV. After approval, apply the live write from the approved draft CSV and update the CSV row with live URL, write status, and readback.
 - Do not create Communication rows for ignored, no-scope, spam, marketing, system-only, or no-action messages. List them as skipped in packets when useful for audit, but do not log them in canonical Communications.
 - `Ignore` is a legacy/readback value only. New Communication rows should be `Short Living` or `Long Living`; if a proposed row would be `Ignore`, skip it instead.
 - Do not process or log Wamo payment, cashback, account-notification, or marketing emails in this workflow unless the operator explicitly identifies a separate source document or business action outside the Wamo email itself.
@@ -57,7 +59,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Assign legal contract/counterparty/VAT-route decisions to Johnpaul Okolie, including cases where a client discussion may require a direct contract or legal route decision before a Contract row changes.
 - For TK/private-health-insurance/social-insurance transition edge cases where Simoneta is not onboarded, assign the active task to Johnpaul Okolie and merge duplicate backlog tasks into one active task.
 - Slack closeout happens after task closeout analysis and updates, not immediately after communication logging.
-- Do not include Team Updates in this workflow. Team Updates use a separate workflow/automation.
+- Do not include Team Updates in this workflow. Team Updates, daily standup updates, standup transcripts, and Team Updates-derived assignment audits use a separate workflow/automation. In this skill, the initial task inventory plus the communication snapshots are the context; do not query Team Updates or meeting transcripts to enrich this run. If the operator wants Team Updates handled, stop this workflow boundary and use the separate Team Updates skill.
 - Do not save German `W-IdNr` values. If a communication only provides a `W-IdNr` or asks RB to store it, treat that as a verified no-op unless there is a separate operational action; if action is needed, create the action without storing the number.
 - Do not use raw timestamp ranges as user-facing Slack copy. Use a human window label such as "yesterday's client follow-through" or "the May 18 corrective rerun" and keep exact timestamps inside packets.
 - Never describe an unsent Slack preview as "corrected"; use "corrected" only when replacing or superseding a Slack message that was actually sent.
@@ -67,6 +69,32 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Stage 12 Slack copy must read like a human operator update, not an automation trace. Do not include background source-marker mechanics, Codex/internal process actions, checkpoint details, or no-reply/no-action rows that do not matter to humans. Include only actionable or useful business context, with named Notion links.
 - When addressing people in Slack, resolve Slack user IDs and use `<@USERID>` mentions so assignees are notified. Bare names are not acceptable for responsible-person routing in the final Stage 12 Slack payload. If a required Slack ID cannot be resolved through Slack MCP or a repo-approved mapping, Stage 12 is blocked unless the operator explicitly approves a named, no-notification fallback for that exact person and message.
 - Stage 12 manual-post fallbacks must provide Slack-ready raw text with Slack-native links (`<url|label>`) and resolved Slack mentions (`<@USERID>`), plus a rendered preview when useful. Do not give the operator a degraded manual message with bare URLs or bare responsible-person names.
+
+## Run-Local CSV Source Tables
+
+Every run must keep structured CSV tables in the run folder. The Markdown packets are the approval surface, but the CSVs are the working ledger used to avoid repeated third-party reads.
+
+Minimum files:
+
+- `csv-manifest.csv`: every CSV artifact, stage created/updated, row count, source query/window, status, and notes.
+- `tasks-open.csv`: every open or non-terminal row from RB Client Databases and Central Tasks captured in Stage 2, excluding Team Updates. Include database, row URL, status, owner, company/individual, project, due date, source links, next action, closeout condition, and enough raw field/context columns to support later routing without requerying.
+- `source-messages.csv`: every in-window Gmail, WhatsApp, and explicitly in-scope Slack source message captured in Stage 3. Include source channel, source mailbox/channel/chat, source IDs, thread IDs, timestamp, sender, recipients, subject/title, attachment names, body/read summary, likely company/individual/project, classification, skipped flag, proposed Communication title, proposed relevance, and source-marker eligibility.
+- `source-attachments.csv`: every attachment/file found in approved source reads, with source message ID, filename, MIME/type, local path or external URL, text/OCR status, proposed destination, upload status, and live file URL after commit.
+- `draft-communications.csv`: proposed Communication creates/updates before Stage 4 packets and live Stage 6 writes.
+- `draft-operational-rows.csv`: proposed Invoicing, Expense, Filing, Filing Registration, Payroll, Tax Payment/Prepayment, Contract, Asset, Bank Account, Investment Account, Employment, or other operational-row creates/updates before Stage 5 packets and live Stage 6 writes.
+- `draft-tasks.csv`: proposed Central Task or task-capable row creates/updates, comments, owners, due dates, statuses, relations, and closeout changes before Stage 8 packets and live Stage 9 writes.
+- `draft-replies.csv`: reply, snooze, no-reply, sender, destination, and exact reply text decisions before Stage 8/9.
+- `draft-source-markers.csv`: Gmail label and WhatsApp checkpoint proposals before Stage 10/11.
+- `live-write-results.csv`: every approved live write, send, upload, label, checkpoint, readback, failed write, and skipped duplicate after execution.
+- `blockers.csv`: unresolved permissions, schema gaps, missing source data, unsafe routing decisions, and why they block or do not block the next stage.
+
+CSV usage rules:
+
+- Stage packets must cite the CSV files and row counts they were generated from.
+- If a later stage needs data that is not in the CSV, do not silently requery the third party. Write a snapshot-refresh addendum explaining the missing field/source, fetch only that bounded data after approval or auto-approval when applicable, update the CSV, then regenerate the packet from the CSV.
+- Use targeted live readbacks after writes to verify changed rows and update the CSV. Do not repeat broad Notion/Gmail/WhatsApp/Slack discovery after the snapshot unless the packet explicitly opens a corrective rerun or snapshot-refresh scope.
+- Preserve raw sensitive source values only in local scratch artifacts when necessary for the run. CSVs and packets must stay source-safe: do not copy exact tax, registration, payment-profile, or account identifiers unless the operator explicitly approves that exact storage.
+- Skipped Wamo, WeWork, marketing, setup, security, spam, no-scope, and other ignored messages may appear in `source-messages.csv` with `skipped=true` for audit, but they must not be copied into draft rows, logged, labeled, source-marked, or included in Slack.
 
 ## Company And Project Resolution
 
@@ -117,19 +145,27 @@ Before creating the run folder, pull latest `main` in the active repo/worktree:
 
 Create the run folder and lock.
 
-Packet must include run ID, run window, operator, source systems, canonical Communications DB, RB Client Databases page, task registry version, git branch/pull result, and prior incomplete run state.
+Initialize `csv-manifest.csv` and empty draft CSVs listed in `Run-Local CSV Source Tables`.
+
+Packet must include run ID, run window, operator, source systems, canonical Communications DB, RB Client Databases page, task registry version, `csv-manifest.csv` path, git branch/pull result, and prior incomplete run state.
 
 ### 2. Open Task Inventory
 
 Fetch every open or non-terminal row from every RB Client Databases data source plus central Tasks.
 
+Write `tasks-open.csv` before writing the Stage 2 packet. The packet must be generated from `tasks-open.csv`, list the row count per data source, and cite any inventory degradation or schema gaps.
+
 Packet columns: database, row URL, status, owner, company/individual, client project, due date, source links, next action, closeout condition.
 
 Treat dependent and automation-backed tables as context for later closeout analysis. Ignore the `Empty Databases` placeholder area.
 
+Do not fetch Team Updates, daily standup pages, standup transcripts, or Team Updates-derived assignment context in this stage. If a task already exists in the task database because another skill created it from Team Updates, it appears through the ordinary task inventory and that is sufficient context.
+
 ### 3. Communication Discovery And Read
 
-Fetch Gmail/WhatsApp communication metadata and read the needed body/files in the same stage.
+Fetch Gmail/WhatsApp communication metadata and read the needed body/files in the same stage. If Slack messages are explicitly in scope for the run, fetch only the approved Slack channels/threads/messages for the run window in this stage as well; Slack is not a default broad discovery source for this skill.
+
+Write `source-messages.csv` and `source-attachments.csv` before writing the Stage 3 packet. Later stages must use these CSVs for communication planning instead of repeating Gmail/WhatsApp/Slack reads.
 
 For Gmail, list every source mailbox searched or read. Do not assume all reads come from `accounting@richmondblackwood.com`; personal/operator mailbox reads are allowed only when explicitly in scope and must be labelled. Do not infer the eventual reply sender from the source mailbox or active operator.
 
@@ -137,13 +173,15 @@ For WhatsApp, use `references/whatsapp-source-roster.md` as the minimum route ch
 
 For corrective reruns, include items from the operator-approved correction start even if Gmail already has `Triaged`; keep old labels but record the correction note. For the current bad-triage correction, the start is `2026-05-18 00:00 Europe/Dublin`.
 
-Packet columns: operator, source mailbox or channel, source IDs, timestamp, sender, recipients, subject/title, attachment names, full-read summary, likely company or individual subject, likely project, topic/thread, contains-letter flag, letter source, classification, proposed Communication row, and proposed relevance.
+Packet columns: operator, source mailbox or channel, source IDs, timestamp, sender, recipients, subject/title, attachment names, full-read summary, likely company or individual subject, likely project, topic/thread, contains-letter flag, letter source, classification, proposed Communication row, proposed relevance, skipped flag, and source-marker eligibility.
 
 If an email includes a letter, identify the letter source as the actual originator/sender of the letter, not merely the forwarder.
 
 ### 4. Communication Ledger Plan
 
 Propose create/update of Communications rows only for actionable or durable communications.
+
+Update `draft-communications.csv` first. Generate the Stage 4 packet from the updated CSV and `source-messages.csv`; do not requery Gmail/WhatsApp/Slack/Notion for planning data unless a snapshot-refresh addendum is needed.
 
 Do not log spam, no-action, ignored, system-only, marketing, newsletter, Wamo payment/cashback/account-notification, Wamo marketing, or WeWork newsletter messages. Include a skipped-source list in the packet when useful, but these items must not create or update Communications rows.
 
@@ -173,6 +211,8 @@ First assign each inbound to one primary route:
 - `Expenses`
 - `Central Tasks`
 
+Update `draft-operational-rows.csv`, `draft-tasks.csv`, `draft-replies.csv`, and `blockers.csv` first. Generate the Stage 5 packet from those CSVs plus `tasks-open.csv`, `source-messages.csv`, `source-attachments.csv`, and `draft-communications.csv`.
+
 For finance items:
 
 - If an active payable/receivable contract or matching Invoicing row exists, attach/link the communication and evidence to the invoice task row.
@@ -200,13 +240,17 @@ Stop before writing.
 
 Apply approved Communications, source-file, operational DB, and task writes.
 
-Packet must list every created/updated row, linked company, linked project, owner, uploaded file, readback result, skipped duplicate, and failed write.
+Use the approved rows in `draft-communications.csv`, `draft-operational-rows.csv`, `draft-tasks.csv`, and `source-attachments.csv` as the execution input. After each live write/upload, perform only targeted readback for the changed row/file, then update `live-write-results.csv` and the relevant draft CSV row with live URL, status, and readback.
+
+Packet must list every created/updated row, linked company, linked project, owner, uploaded file, readback result, skipped duplicate, and failed write, generated from `live-write-results.csv`.
 
 For Communications, readback must include `Relevance`, primary subject relation, and whether `Assigned To` is empty or intentionally set.
 
 ### 7. Task Closeout Analysis
 
 Compare new communications against all open task-capable rows.
+
+Use `tasks-open.csv`, `draft-communications.csv`, `draft-operational-rows.csv`, `source-messages.csv`, and `live-write-results.csv` as the analysis inputs. Do not query Team Updates, daily standups, transcripts, Slack, Gmail, WhatsApp, or broad Notion search for assignment enrichment. If the CSVs are missing a necessary task field, write a bounded snapshot-refresh addendum instead of ad hoc requerying.
 
 Packet must state which rows can move to done, remain open, need human follow-up, need source reconstruction, or are duplicate/stale. Include exact proposed status and evidence.
 
@@ -215,6 +259,8 @@ Stop before status updates.
 ### 8. Task Update, Owner Follow-Up, And Reply Plan
 
 Packet proposes exact Notion updates, task comments, owner assignments, due dates, status changes, and Slack owner follow-up rows.
+
+Update `draft-tasks.csv` and `draft-replies.csv` first. Generate the Stage 8 packet from those CSVs and the prior snapshot CSVs.
 
 For each communication, include reply handling:
 
@@ -229,11 +275,15 @@ Stop before updates or sends.
 
 Apply approved task/database updates. Send only approved exact replies.
 
+Use the approved rows in `draft-tasks.csv` and `draft-replies.csv` as the execution input. After each live write/send, perform only targeted readback of changed rows/messages, then update `live-write-results.csv`, `tasks-open.csv`, `draft-tasks.csv`, and `draft-replies.csv`.
+
 Packet lists updated rows, sent replies, unsent replies, snoozed replies, and remaining blockers.
 
 ### 10. Source Marker Plan
 
 Propose Gmail labels and WhatsApp checkpoint changes only after records, tasks, and replies are correct.
+
+Update `draft-source-markers.csv` first. Generate the Stage 10 packet from that CSV and `source-messages.csv`.
 
 For prior bad triage, keep existing Gmail labels and add corrective packet notes.
 
@@ -243,6 +293,8 @@ Auto-approved stage: write and print the packet, then continue directly to Stage
 
 Apply approved Gmail labels and WhatsApp checkpoints.
 
+Use `draft-source-markers.csv` as the execution input. After each label/checkpoint write, update `live-write-results.csv`, `source-messages.csv`, and `draft-source-markers.csv` with readback state.
+
 Packet lists marked messages, skipped messages, and checkpoint state.
 
 Auto-approved stage: write and print the packet, then continue directly to Stage 12 unless marking failed or a route/checkpoint blocker needs operator review.
@@ -250,6 +302,8 @@ Auto-approved stage: write and print the packet, then continue directly to Stage
 ### 12. Slack Closeout Plan
 
 Build one `#rb-client-updates` message after task closeout.
+
+Build the Slack closeout from the CSVs and approved write results, not by requerying task, communication, Gmail, WhatsApp, Slack, or Team Updates sources. If a required link or mention is missing from the CSVs, resolve only that bounded missing field and update the relevant CSV before regenerating the packet.
 
 Include communications handled, invoices/expenses/contracts updated, tasks closed, tasks advanced, owner action list, replies sent/snoozed, and blockers.
 
@@ -286,6 +340,8 @@ Auto-approved after Stage 12 send approval: once the operator approves the exact
 ### 14. Run Closeout
 
 Packet summarizes sources checked, all DB rows created/updated, tasks closed/advanced, owner actions, replies, labels/checkpoints, blockers, and next run focus.
+
+Include the final CSV manifest, row counts, and run folder path in the closeout packet.
 
 Release the lock at closeout. Preserve scratch packets by default for audit/recovery; delete them only if the operator explicitly asks for cleanup after final closeout.
 

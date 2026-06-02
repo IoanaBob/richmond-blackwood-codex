@@ -21,7 +21,7 @@ This process supersedes the older inbound operating triage process.
 - Old RB Communications database `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c` is migration source only. Do not create new records there.
 - Central Tasks data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`; use it for additional action work, not as a replacement for the owning operational row.
 - Existing recurring workflow tasks, such as weekly invoice generation, weekly invoice payables/expenses, payroll, bookkeeping, and tax filing cadence tasks, should receive related Communications/evidence instead of duplicate one-off Central Tasks.
-- Team Updates are excluded from this process and must run through their own workflow/automation.
+- Team Updates are excluded from this process and must run through their own workflow/automation. Do not query RB Daily Team Updates, daily standup pages, meeting transcripts, or Team Updates-derived assignment audits inside common tasks follow-through. If the separate Team Updates skill has already created or updated a task, that task appears through the ordinary task inventory and is enough context for this workflow.
 - SteuerGo communications belong to Richmond Blackwood/RBL, not the underlying client company. Treat SteuerGo receipt confirmations as `Short Living`; the uploaded receipt/evidence file is the durable `Long Living` record.
 - Old RB Communications is a migration source. Any historical merge into canonical Communications must be proposed as a packet-approved migration action before live writes.
 
@@ -73,11 +73,36 @@ Standing auto-approval exceptions:
 
 Stop despite auto-approval if a packet introduces an unexpected mutation, a new destination, a broad Slack mention, an unresolved data-source mismatch that makes routing unsafe, or a source/checkpoint action outside this process.
 
+## Run-Local CSV Snapshots
+
+Stages 2 and 3 must create the run-local data snapshots used by the rest of the workflow. Later stages should plan from these CSVs instead of querying third-party systems again and again.
+
+Minimum CSV files in `/private/tmp/rb-common-tasks-follow-through/<run-id>/`:
+
+- `csv-manifest.csv`: every CSV artifact, stage created/updated, row count, source query/window, status, and notes.
+- `tasks-open.csv`: open/non-terminal rows from every task-capable RB Client Databases source and Central Tasks, excluding Team Updates.
+- `source-messages.csv`: in-window Gmail, WhatsApp, and explicitly in-scope Slack messages, including skipped-message flags and source-marker eligibility.
+- `source-attachments.csv`: source files/attachments and their local path, extraction status, proposed destination, upload status, and live file URL after commit.
+- `draft-communications.csv`, `draft-operational-rows.csv`, `draft-tasks.csv`, `draft-replies.csv`, and `draft-source-markers.csv`: proposed creates, updates, comments, replies, labels, and checkpoints before packets are printed for approval.
+- `live-write-results.csv`: approved live writes/sends/uploads/labels/checkpoints, readbacks, failed writes, and skipped duplicates.
+- `blockers.csv`: unresolved permissions, schema gaps, unsafe routing decisions, missing source fields, and open blockers.
+
+Workflow rule:
+
+1. Snapshot first: Stage 2 writes `tasks-open.csv`; Stage 3 writes `source-messages.csv` and `source-attachments.csv`.
+2. Draft in CSV first: before Stage 4/5/8/10 packets propose changes, the corresponding draft CSV is updated.
+3. Packet from CSV: packets are generated from the CSVs and cite row counts/source files.
+4. Approval then push: after approval, apply live writes from the approved draft CSV rows.
+5. Targeted readback only: after live writes, read back only changed rows/files/messages and update `live-write-results.csv` plus the relevant source/draft CSV.
+6. Snapshot refresh only when needed: if later planning needs data absent from the CSVs, write a bounded snapshot-refresh addendum, fetch only the missing approved data, update the CSV, then regenerate the packet. Do not run broad repeated Notion/Gmail/WhatsApp/Slack discovery to answer planning questions already covered by the initial snapshots.
+
+Sensitive identifiers remain source-safe in CSVs as well as packets. Do not copy exact tax, registration, payment-profile, or account identifiers into CSVs unless the operator explicitly approves storing that exact value.
+
 ## Stage Flow
 
-1. Run Preflight, including `git pull origin main` from the active repo/worktree before the run folder/lock is created.
-2. Open Task Inventory.
-3. Communication Discovery And Read.
+1. Run Preflight, including `git pull origin main` from the active repo/worktree before the run folder/lock is created, and initialize `csv-manifest.csv` / draft tables.
+2. Open Task Inventory and write `tasks-open.csv`.
+3. Communication Discovery And Read and write `source-messages.csv` / `source-attachments.csv`.
 4. Communication Ledger Plan.
 5. Finance / Operational Routing Plan.
 6. Ledger And Record Commit Results.
