@@ -14,6 +14,17 @@ Review: Use as the current WEW offboarding package root unless the user replaces
 
 - Drive folder: `https://drive.google.com/drive/folders/1C3RnMZsxGWc8ZprC8V7C251ldtyROhT3`
 
+## Access Readback
+
+Status: provisional.
+Source: user instruction on 2026-06-02; accounting Google persona Drive API readback.
+Imported: 2026-06-02.
+Review: Confirm access should remain active after the handover is complete.
+
+| Date | Folder | Principal | Role | Notification | Review |
+| --- | --- | --- | --- | --- | --- |
+| 2026-06-02 | `WeWrite Creative Limited  - Handover - Richmond Blackwood` (`https://drive.google.com/drive/folders/1C3RnMZsxGWc8ZprC8V7C251ldtyROhT3`) | `info@cllm.de` | `reader` | Google notification email disabled; bespoke email drafted in chat. | Permission creation and readback succeeded through `accounting@richmondblackwood.com` persona. |
+
 ## Export File Readback
 
 Status: provisional.
