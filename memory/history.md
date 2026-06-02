@@ -884,3 +884,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
 - Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
 - Limitations or gaps: None known yet.
+
+## 2026-05-25/26 - AGL Finanzamt May 2026 Response Progress
+
+- User request: Review AGL's May 2026 Finanzamt letters and payroll-tax query, start annual VAT filing, prepare the E-Bilanz handoff, and handle approved ELSTER responses.
+- Context read: AGL local Finanzamt PDFs, AGL repo records, Notion company/task/filing records, Gmail message `19e2263aa4379938`, AGL Drive files, live user-opened ELSTER pages, and official ELSTER/BMF guidance.
+- Actions taken: Submitted AGL May 2024-April 2025 Lohnsteuer-Anmeldungen and the 2024 annual VAT return after user approval; prepared the final E-Bilanz review workbook; submitted a Finanzamt holding message and a formal USt 2024 Einspruch/AdV after user approval; created a payroll evidence allocation packet and drafted an ELSTER Belegnachreichung that remains blocked on manual local PDF selection.
+- Decisions made: Treat annual VAT, E-Bilanz, Mahnung/account, USt assessment appeal, and payroll evidence allocation as separate but linked workstreams. Do not treat raw Drive evidence as the sent-message context when canonical Communications records exist. Do not claim payroll payslips/payment proofs were attached until ELSTER has actually transmitted them.
+- Verification: ELSTER returned tickets `ep1454t90i8mmb5zp5wtk182ewbfh5wq`, `ep1462eym8u2br1mdekveum80xchf83n`, and `ep1465aipg984922yz1tff6f2r95kktx`; AGL client files contain the detailed transfer-ticket and packet records.
+- Limitations or gaps: Official E-Bilanz/XBRL datensatz transmission remains open. Payroll evidence upload remains blocked until the local PDF is manually selected and the exact final ELSTER screen is approved.
+
+## 2026-06-02 - PR #48 ELSTER Message Skill Refactor
+
+- User request: Resolve Ioana's remaining requested changes, including the PR #48 request to replace the one-off payroll evidence skill with a general ELSTER message workflow and use Notion Communications context instead of raw Drive-only links.
+- Context read: PR #48 unresolved review threads, related open Finanzamt/ELSTER PRs, `skill-creator`, `rb-finanzamt-response`, AGL Finanzamt client files, source ledgers, and the existing one-off payroll evidence skill.
+- Actions taken: Added general `rb-send-elster-message`, removed the active `rb-finanzamt-payroll-evidence` skill, updated `rb-finanzamt-response` and `skills/index.md`, rerouted AGL tax status rows toward canonical Communications records for sent messages, and recorded the refactor in durable memory.
+- Decisions made: Payroll allocation, payment-proof responses, Belegnachreichung uploads, holding messages, objections/AdV, and deadline extensions are route/content inputs to one reusable ELSTER message skill. Client-specific text and facts stay in Notion Communications, response plans, and client files.
+- Verification: `git diff --check`, `git diff --cached --check`, `npm run typecheck`, and scaffold-TODO scan passed. `quick_validate.py` was blocked by missing PyYAML in the local Python runtime.
+- Limitations or gaps: No live ELSTER or Notion writes were performed by this review-fix step.

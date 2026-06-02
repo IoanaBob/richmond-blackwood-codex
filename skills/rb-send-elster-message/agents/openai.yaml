@@ -1,0 +1,4 @@
+interface:
+  display_name: "RB Send ELSTER Message"
+  short_description: "Packet-safe ELSTER message workflow"
+  default_prompt: "Use $rb-send-elster-message to prepare, review, send, and record a German ELSTER authority message without storing credentials or raw message content in the skill."

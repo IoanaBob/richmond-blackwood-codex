@@ -1824,3 +1824,43 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-05-25/26 - AGL Finanzamt May 2026 Response Progress
+
+Imported:
+
+- User approval in Codex chat for AGL monthly payroll-tax submissions, annual VAT submission, Finanzamt holding message, and formal USt 2024 Einspruch/AdV.
+- Live ELSTER submission confirmations and tickets for the submitted forms/messages.
+- AGL Notion payroll task `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2`.
+- Canonical Communications records `https://www.notion.so/36be413013148131a995ca7dc0decfcf` and `https://www.notion.so/36be413013148176af0bee390cdde567`.
+- AGL Drive/source-packet pointers recorded in `clients/Companies/AGL/drive-locations.md`.
+
+Actions:
+
+- Recorded submitted May 2024-April 2025 Lohnsteuer-Anmeldungen, the 2024 annual VAT return, the submitted holding message, and the formal USt 2024 Einspruch/AdV in the AGL client files.
+- Recorded the final E-Bilanz review workbook as a support pack, not the official XBRL/datensatz.
+- Recorded the 2026-05-26 payroll evidence allocation packet and the ELSTER Belegnachreichung blocker.
+
+Unresolved:
+
+- Submit the official E-Bilanz/XBRL datensatz through appropriate software.
+- Complete payroll evidence/allocation submission only after the uploadable PDF is selected, the final ELSTER page is reviewed, and a ticket is captured.
+
+## 2026-06-02 - PR #48 ELSTER Message Skill Refactor
+
+Imported:
+
+- Ioana's PR #48 review request that the payroll evidence workflow should not be a one-off skill.
+- Related review instruction to encompass other ELSTER-message PR patterns into a single general send-ELSTER-message skill and store actual letter text in Notion Communications plus repo memory.
+- Ioana's AGL tax-status review request to prefer Notion Communications context over raw Drive-only links for submitted authority communications.
+
+Actions:
+
+- Added `skills/rb-send-elster-message/SKILL.md` and interface metadata.
+- Removed active `skills/rb-finanzamt-payroll-evidence/SKILL.md` and replaced the skills-index entry with `rb-send-elster-message`.
+- Updated `skills/rb-finanzamt-response/SKILL.md` so ELSTER messages, supporting-document uploads, objections/AdV, deadline extensions, and payment-proof responses delegate to the general message skill.
+- Updated AGL tax status and response-plan notes so canonical Notion Communications records are the primary sent-message context while Drive remains evidence/source-packet storage.
+
+Unresolved:
+
+- PR closeout pending. `quick_validate.py` could not run because the local Python runtime lacks PyYAML; static scaffold scan, `git diff --check`, `git diff --cached --check`, and `npm run typecheck` passed.
