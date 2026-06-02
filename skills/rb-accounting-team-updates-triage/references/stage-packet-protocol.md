@@ -1,13 +1,15 @@
 # Accounting Team Updates Stage Packet Protocol
 
 Status: provisional.
-Source: user instruction to make Accounting Team Updates triage packet-based, modelled on `rb-common-tasks-follow-through`.
+Source: user instruction to make Accounting Team Updates triage packet-based, modelled on `rb-common-tasks-follow-through`; user instruction on 2026-06-02 that packet approval surfaces must be human-readable tables, with machine logs kept later or in a handover/log file.
 Imported: 2026-05-26.
 Review: Validate on the next weekday Accounting Team Updates run.
 
 ## Purpose
 
 Packets make Accounting Team Updates triage reviewable and recoverable after context compaction. The packet on disk is run memory; the packet printed in chat is the approval surface.
+
+The approval surface must be written for a human reviewer first. Machine-complete logs, schema payloads, and continuation details may be kept later in the packet or in a linked handover/log file, but they must not be the first thing the operator sees.
 
 This workflow remains separate from `rb-common-tasks-follow-through`.
 
@@ -41,6 +43,8 @@ Each packet must include:
 - next stage.
 
 Print the packet content in chat after writing it. Then stop for approval unless the stage is explicitly auto-approved below.
+
+For stages with long machine logs, print only the human approval surface unless the operator explicitly asks to see the log. The disk packet must link any hidden or later log that Stage 4 or a resumed runner needs.
 
 ## Stage Execution Contract
 
@@ -127,12 +131,22 @@ Execution:
 2. Apply that routing skill to the Stage 2 Source Context packet.
 3. Split source rows into atomic routing items where one line contains multiple actions.
 4. Fetch linked Notion tasks/pages, responsible Company records, client project relations, task-capable operational rows, and target schemas needed to decide ownership, dedupe, project, reviewer, status, due date, and write payloads.
-5. Produce a routing table with one decision per atomic blocker/action-point item.
+5. Produce a human-readable routing approval table with one decision per atomic blocker/action-point item.
 6. For unclear ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
 7. Do not leave a row unresolved only because no existing task or operational row was found. If owner, responsible company/project, source action, and Tasks schema are clear, propose a new task. Every unresolved row must explain why creating a new task is unsafe.
-8. Write and print `stage-03-routing-plan.md`, then stop for approval.
+8. Preserve the machine-complete routing fields after the human approval surface or in `stage-03-routing-log.md` / a handover file referenced from `stage-03-routing-plan.md`.
+9. Write `stage-03-routing-plan.md`, print only the human approval surface, then stop for approval.
 
-Required packet fields for every blocker/action point:
+Human approval surface:
+
+- Start with `## Decision Summary`.
+- Group rows under `Creates`, `Updates / comments`, `Skips / no action`, and `Unresolved / needs decision`.
+- Use a compact table, not one bullet per machine field.
+- Required columns: `Source row`, `Source line`, `Decision`, `Target`, `Owner`, `Due`, `Exact action`, `Team Updates write-back`, and `Blocker / approval needed`.
+- Keep raw Notion JSON, exact schema property names, dedupe search notes, Slack user IDs, and long source excerpts out of the visible table unless they are needed for approval.
+- Link the log/handover file when details are preserved outside the packet.
+
+Machine routing log fields required for every blocker/action point:
 
 - source section and exact line text;
 - source row ID and atomic routing item ID;
@@ -155,8 +169,9 @@ An unresolved decision must include a create-task safety analysis. If the only g
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
 The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing`.
-The routing table columns must match that skill's `Output Table` contract.
-No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit or the row is marked `unresolved` with a concrete create-task unsafe reason.
+The visible routing table must match that skill's `Human Approval Surface` contract. The later or separate machine log must preserve that skill's `Machine Routing Log` contract.
+No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit in the machine log or the row is marked `unresolved` with a concrete create-task unsafe reason.
+If the human table and machine log disagree, Stage 4 must stop and return to Stage 3 correction; the operator-approved human table controls the intended action.
 
 ## Stage 4 - Notion Write Results
 
