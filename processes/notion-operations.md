@@ -19,7 +19,8 @@ Do not create client-specific Notion pages when the company relation or target d
 
 ## Page And Database Rules
 
-- Fetch schemas before creating or updating pages.
+- Default to the Notion MCP connector for schemas, known page/data-source fetches, readbacks, ordinary supported page updates, and candidate discovery.
+- Use the Notion REST API, not MCP search, for complete table inventory that must prove all matching rows were considered.
 - Keep page/database titles plain.
 - Use icon metadata where supported.
 - `Notes` fields describe the record itself, not connector/debug history.
@@ -42,13 +43,15 @@ The connector does not expose native `Turn into Tasks`. If native task visibilit
 
 ## Tasks Database
 
-Use the existing Notion Tasks database for Richmond Blackwood action items.
+Use the owning task-capable RB Client Databases row first for Richmond Blackwood action items. Use the existing central Notion Tasks database for extra action work or when the owning operational row cannot represent the action.
 
 - Tasks data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
 - Create follow-up tasks with `Name`, `Status`, `Assigned To`, and `Project`.
-- Link each task to the relevant company project. For this repository, use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) unless a more specific RB project is clearly required.
-- Use explicit user instructions, project owner/inherited owner, established process rules, or `internal/people-roles.md` to choose the assignee. If none is clear, ask before creating the task.
-- Communication records, client notes, and repo files can be source context, but they are not substitutes for a Tasks database row when RB action is required.
+- Link client tasks to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work.
+- Use explicit user instructions, existing row owner, owner of the project linked on the responsible Company record, established process rules, or `internal/people-roles.md` to choose the assignee. If none is clear, ask before creating the task.
+- Keep `Assigned To` for the person doing the work. Treat approvals as review: when Ioana or another team member needs to approve, check, or sign off, add that person to `Review By` on the owning operational or recurring task instead of assigning them the work.
+- Do not create a standalone approval task when the approval belongs inside an existing operational task. For invoice/payment approvals, prefer the existing invoice-payables/payables task and add a page comment with the specific payment/invoice context.
+- Communication records, client notes, and repo files can be source context, but they are not substitutes for updating the owning task-capable row when RB action is required.
 
 ## Known Connector Limits
 
@@ -56,3 +59,89 @@ Use the existing Notion Tasks database for Richmond Blackwood action items.
 - Page-property groups may require manual Notion UI work.
 - Native task conversion is a UI handoff.
 - Some file display names may need verification after URL-based attachment.
+- MCP search is not a reliable exhaustive list of all accessible rows.
+- Notion-hosted file downloads and Notion-native file/image uploads require the Notion REST API or an approved connector path with a Notion API credential stored outside git.
+
+## MCP Default And API Exceptions
+
+Status: provisional.
+Source: Notion developer documentation for data sources, file/media APIs, and request limits; user instruction and live Codex tests on 2026-06-01.
+Imported: 2026-06-01.
+Review: Keep provisional until the RB Notion API connection is confirmed shared with every target database/page needed for production runs.
+
+- Default to MCP for normal Notion work: schema fetches, known page/data-source readback, ordinary connector-supported updates, and search-based candidate discovery.
+- Use the REST API for these tested exceptions:
+  - exhaustive table/data-source queries and filters that may need pagination;
+  - downloading Notion-hosted files/images from a `files` property or media block;
+  - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
+- Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
+- Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
+- Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.
+
+### Data Source Query
+
+- Use `POST /v1/data_sources/{data_source_id}/query` with cursor pagination. `page_size` is at most `100`; there is no one-call all-rows endpoint.
+- Put URL query parameters such as `filter_properties[]` on the request URL. Put filters, sorts, and `page_size` in the JSON body.
+- First run the plain request and save page 1. If page 1 has `has_more: false`, the query is complete.
+- If page 1 has `has_more: true`, continue with the exact same URL and JSON body plus only `start_cursor` from the previous response.
+- Stop only when `has_more` is false. Keep the results from every page together, and dedupe by page ID/URL during analysis if the table may have changed during the run.
+
+Example first-page request:
+
+```sh
+curl -sS -X POST \
+  "https://api.notion.com/v1/data_sources/<data-source-id>/query?filter_properties[]=Title&filter_properties[]=Status" \
+  -H "Authorization: Bearer $NOTION_ACCESS_TOKEN" \
+  -H "Notion-Version: 2026-03-11" \
+  -H "Content-Type: application/json" \
+  --data @/private/tmp/<run-id>/query-body.json \
+  > /private/tmp/<run-id>/page-1.json
+```
+
+Example body:
+
+```json
+{
+  "page_size": 100,
+  "filter": {
+    "property": "Status",
+    "status": {
+      "does_not_equal": "Logged"
+    }
+  },
+  "sorts": [
+    {
+      "timestamp": "created_time",
+      "direction": "ascending"
+    }
+  ]
+}
+```
+
+Example later page body adds only `start_cursor`:
+
+```json
+{
+  "page_size": 100,
+  "filter": {
+    "property": "Status",
+    "status": {
+      "does_not_equal": "Logged"
+    }
+  },
+  "sorts": [
+    {
+      "timestamp": "created_time",
+      "direction": "ascending"
+    }
+  ],
+  "start_cursor": "<previous next_cursor>"
+}
+```
+
+### Notion-Hosted File Transfer
+
+- Downloads: retrieve the page or block through the REST API and download the returned `file.url` or `external.url`. Notion-hosted URLs are temporary, so re-fetch immediately before downloading.
+- Uploads: use the File Upload API. Single-part upload is for files up to 20 MiB; larger files use multi-part upload. Attach the resulting `file_upload` ID to a `files` property, media block, icon, or cover before it expires.
+- Prefer Drive-backed evidence for client documents unless the operational target explicitly requires a Notion file property, image block, icon, or cover.
+- Keep REST API calls paced for Notion's API limits. Do not switch to browser automation for missing credentials or connector gaps.

@@ -51,7 +51,7 @@ Consequence:
 
 - The Gmail helper fails closed if any other sender is requested.
 - If Gmail stores a draft with another sender, the draft must be deleted or marked unsafe.
-- Gmail email drafting actions that touch Gmail must always use the repo-local gcloud-managed Gmail API helper path. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions.
+- Gmail email drafting actions that touch Gmail must use the repo-local Gmail API helper path. Do not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts for those actions. The 2026-05-25 shared global Google persona auth decision supersedes the earlier gcloud-only auth mechanism.
 
 Source: user instruction on 2026-05-05; reinforced by user instruction on 2026-05-06.
 Review: approved as a sender rule by user instruction; confirm whether this applies to every RB communication type or only accounting/client drafts.
@@ -94,11 +94,60 @@ Consequence:
 - Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
 - Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
 - After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
-- After sending, Codex should store the sent communication in RB Communications.
+- After sending, Codex should store the sent communication in canonical Communications.
 - Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
 
 Source: user instruction on 2026-05-06.
 Review: approved as an operating rule by user instruction.
+
+## 2026-05-19 - Common Tasks Follow-Through Replaces Inbound Triage
+
+Decision: Replace the old `rb-inbound-*` phase-skill flow with `rb-common-tasks-follow-through`.
+
+Consequence:
+
+- Canonical Communications is `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
+- Old `RB Communications` at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c` is migration source only; no new RB records should be written there.
+- Every live data source under RB Client Databases is treated as task-capable.
+- Runs must pull latest `main` in Stage 1, inventory open task-capable rows first, then discover/read Gmail and WhatsApp communications, and write/print one Markdown packet per stage. Stages 1, 2, 10, and 11 are standing auto-approved within the normal common-tasks scope; after the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved. Other live writes, sends, file uploads, replies, and non-standard source mutations still require approval of the exact packet.
+- Slack closeout is built after task closeout analysis and approved updates, not immediately after communication logging.
+- Stage 3 WhatsApp discovery must use the common-tasks WhatsApp source roster. Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana were missed in the 2026-05-19 corrective run and must be resolved/read next time before any checkpoint is advanced for those routes.
+- Slack closeouts should sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming items, pending replies, and blockers, and tag actual people with resolved Slack user IDs.
+- Ioana-authored or Ioana-approved templates are final for Slack closeouts. Use the latest available Ioana template exactly; for client follow-through the current known `#rb-client-updates` template uses `New Correspondence`, `Received invoices`, and `Updated tasks`. Stop instead of posting if the template or required links/mentions cannot be resolved.
+- Manual Slack-post fallbacks must not degrade the format: every operational row reference needs a named Slack link (`<url|label>`) and every responsible person needs a resolved Slack mention (`<@USERID>`). If Slack IDs cannot be resolved through Slack MCP or a repo-approved mapping, block the closeout unless the operator explicitly approves a no-notification fallback for the exact person/message.
+
+Source: user instruction and approved redesign on 2026-05-19.
+Review: validate on the next common-tasks run after the 2026-05-20 process corrections.
+
+## 2026-05-24 - Separate Human Operator From Mailbox Identity
+
+Decision: RB Codex uses `RB_CODEX_ACTOR` for the active human operator name, while Gmail source mailbox and Gmail `From` sender remain separate per-job fields.
+
+Consequence:
+
+- Valid actors are human names recorded in `internal/people-roles.md`, not email addresses.
+- Shared mailboxes such as `accounting@richmondblackwood.com` may be source mailboxes or senders, but are not actors.
+- Every Gmail job, packet, or preview must state `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separately.
+- Default client-facing sends remain `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>`.
+- Do not assume all Gmail reads come from accounting; personal/operator mailboxes can be used when explicitly in scope and labelled.
+
+Source: user instruction in Codex chat on 2026-05-24.
+Review: confirm the complete RB operator list and approved work email addresses for each human operator.
+
+## 2026-05-25 - Use Shared Global Google Persona Auth
+
+Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.
+
+Consequence:
+
+- `~/.codex/google-personas/` is shared across this repo, its worktrees, personal-codex, and other local Codex project repositories.
+- Google personas are auth routes only. They do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity.
+- Gmail and Drive helpers default to no-login/no-reauth and try the per-persona OAuth vault before saved ADC/account-token fallback.
+- Interactive Google OAuth reconnect is allowed only after explicit approval for the exact persona/action.
+- Richmond Blackwood sender-context OAuth client files should live under `~/.codex/google-oauth-client.richmondblackwood.json`.
+
+Source: user instruction in Codex chat on 2026-05-25 and personal-codex `origin/main` auth implementation.
+Review: verify which RB-specific persona slugs have approved credentials in the global store.
 
 ## 2026-05-12 - Calling Bot Minimal Startup Context
 

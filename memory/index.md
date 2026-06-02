@@ -10,10 +10,12 @@ Start here when a future Codex session needs RB context.
 - [skill-runs.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/skill-runs.md): append-only repo-local/plugin skill usage register.
 - [notion-database-standards.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/notion-database-standards.md): RB Notion database, view, file property, and task-ready standards.
 - [file-uploads.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/file-uploads.md): Drive/Notion file upload and evidence rules.
+- [google-auth.md](/Users/ioana/.codex/worktrees/5364/richmond-blackwood-codex/memory/google-auth.md): shared global Codex Google auth, OAuth vault, and no-login rules.
+- [google-personas.md](/Users/ioana/.codex/worktrees/5364/richmond-blackwood-codex/memory/google-personas.md): safe Google persona metadata and RB-specific persona slugs.
 - [company-profile.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/company-profile.md): provisional RB company profile.
 - [services-and-positioning.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/services-and-positioning.md): provisional service catalogue and market positioning.
 - [product-offerings.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/internal/product-offerings.md): product/service offerings, historical pricing signals, bundles, and emerging offers.
-- [systems-and-data.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/systems-and-data.md): tools, repos, integrations, and data flows.
+- [systems-and-data.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/systems-and-data.md): tools, repos, integrations, data flows, active-operator identity, and mailbox routing rules.
 - [source-register.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/source-register.md): high-level source map.
 - [open-questions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/open-questions.md): filing, source, and truth questions awaiting review.
 - [decisions.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/memory/decisions.md): approved or rejected operating decisions.

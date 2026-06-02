@@ -38,7 +38,7 @@ When Codex starts or monitors the WhatsApp bridge and a QR code is printed in te
 - The current WhatsApp MCP send action sends a plain message and cannot create a native quoted reply to an earlier WhatsApp message. When replying to a specific earlier item, write the message so the reference is explicit, for example `Regarding your message about X...`, `Thanks for the healthcare certificates...`, or `On the documents you sent this morning...`.
 - Do not store QR state, SQLite databases, downloaded media, voice-note files, transcripts, or private WhatsApp exports in git.
 - Do not copy full private chat history into memory or Notion. Summarize only the business-relevant facts.
-- Store sent WhatsApp communications in RB Communications after sending. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
+- Store sent WhatsApp communications in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`) after sending. If the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
 
 ## Read Workflow
 
@@ -64,7 +64,7 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 6. Confirm files are the intended files and contain no wrong-side or confidential disclosure.
 7. If the send is meant to answer a specific prior WhatsApp message, make the first sentence identify that prior message/topic because the MCP cannot attach a native quoted reply.
 8. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
-9. Store the sent communication in RB Communications.
+9. Store the sent communication in canonical Communications.
 
 ## Chat ID Filing Workflow
 

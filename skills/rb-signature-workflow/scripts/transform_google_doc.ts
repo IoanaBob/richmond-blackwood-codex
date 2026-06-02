@@ -4,9 +4,10 @@ import path from "node:path";
 import { PDFDocument } from "pdf-lib";
 
 import {
+  createDriveAccessTokenProvider,
   DEFAULT_UPLOAD_FIELDS,
   DriveApiClient,
-  GcloudAccessTokenProvider,
+  parseDriveAuthSource,
 } from "../../rb-file-uploads/scripts/drive_common";
 import { parseGcloudLoginMode } from "../../rb-google-auth/scripts/gcloud_auth";
 import { CliArguments, printJson, runCli } from "./signnow_common";
@@ -78,10 +79,18 @@ class GoogleDocTransformCommand {
     const pdfOutput = path.resolve(this.cli.stringOption(options, "pdfOutput", `/private/tmp/${title}.pdf`));
     const pdfTitle = this.cli.stringOption(options, "pdfTitle", `${title}.pdf`);
     const maxPdfPages = this.numberOption(options, "maxPdfPages", 0);
-    const authLogin = parseGcloudLoginMode(this.cli.stringOption(options, "authLogin", "always"));
+    const authLogin = parseGcloudLoginMode(this.cli.stringOption(options, "authLogin", "never"));
+    const authSource = parseDriveAuthSource(this.cli.stringOption(options, "authSource", "auto"));
 
-    const tokenProvider = new GcloudAccessTokenProvider(authLogin);
-    const drive = new DriveApiClient(tokenProvider.getAccessToken(), tokenProvider);
+    const tokenProvider = createDriveAccessTokenProvider({
+      authSource,
+      loginMode: authLogin,
+      adcFile: this.cli.stringOption(options, "adcFile"),
+      accountEmail: this.cli.stringOption(options, "accountEmail"),
+      gcloudConfigDir: this.cli.stringOption(options, "gcloudConfigDir"),
+      personaSlug: this.cli.stringOption(options, "personaSlug"),
+    });
+    const drive = new DriveApiClient(await tokenProvider.getAccessToken(), tokenProvider);
     const generatedDoc = await drive.copyFile({
       sourceFileId: sourceDocumentId,
       parentFolderId: targetFolderId,
@@ -130,7 +139,12 @@ Optional:
   --pdf-output PATH
   --pdf-title TITLE
   --max-pdf-pages N
+  --auth-source auto|vault|adc|account|gcloud|direct-adc
   --auth-login always|auto|never
+  --account-email EMAIL
+  --gcloud-config-dir PATH
+  --persona-slug SLUG
+  --adc-file PATH
 
 Plan JSON shape:
 {

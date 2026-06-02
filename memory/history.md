@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-05-20 - Common Tasks Follow-Through Process Corrections
+
+- User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, require Stage 1 to pull latest `main`, and prepare a new PR.
+- Context read: Common tasks skill, stage packet protocol, common tasks process, communications process, handoff/current-state/decisions memory, WhatsApp route pointers in client files, and the completed Friday-to-Tuesday run packets.
+- Actions taken: Added a WhatsApp source roster reference for mandatory Stage 3 coverage, including unresolved Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana routes; documented that unresolved/missed routes must not have checkpoints advanced until discovered, read, and backed by approved checkpoint storage; added standing auto-approval rules for Stages 1, 2, 10, 11, and for Stages 13/14 after Stage 12 Slack send approval; tightened Slack closeout requirements so messages sound human, omit background source-marker/checkpoint/Codex mechanics, hyperlink incoming/replies/blockers, and tag actual people with Slack IDs; added Stage 1 `git pull origin main`.
+- Decisions made: Preserve packets/scratch files by default at closeout; typed approval of exact rendered Stage 12 Slack text is allowed for this specific workflow when the native approval prompt is unavailable; general communication rules keep stricter approval behavior unless a specific workflow overrides them.
+- Verification: `rg` review checked for the new pull, auto-approval, roster, and Slack quality rules across skill/process/memory; `git diff --check` passed.
+- Limitations or gaps: The newly added missed WhatsApp routes still need live WhatsApp search and checkpoint storage resolution during the next run; their checkpoints were intentionally not advanced in the completed run.
+
+## 2026-05-19 - Common Tasks Follow-Through Redesign
+
+- User request: Replace the failing inbound triage flow with a task-first common tasks follow-through workflow based on the approved redesign.
+- Context read: Existing inbound triage skills/processes, communications/Gmail/WhatsApp rules, active memory, automation prompt, and the Konvi packet-review example supplied by the user.
+- Actions taken: Added `skills/rb-common-tasks-follow-through/`, stage packet protocol, RB Client Databases task registry, and `processes/common-tasks-follow-through.md`; removed the old `rb-inbound-*` phase skill files from the active flow; updated communications, Gmail, WhatsApp, process, memory, and root agent instructions to use canonical Communications and task-capable client data sources.
+- Decisions made: Canonical Communications is `https://www.notion.so/1b5e4130131480ab84f3cca356736807`; old RB Communications is migration source only; every live RB Client Databases data source is task-capable; Slack closeout happens after task closeout and requires approval of the exact rendered message; `W-IdNr` values are not saved.
+- Verification: Static scans found no active old `rb-inbound-*` workflow references in skills/processes/current memory, and `git diff --check` passed during the implementation pass.
+- Limitations or gaps: Live Notion schema changes and historical Communications migration were not performed in this repo-only update; the new skill requires those as packet-approved live run actions.
+
 ## 2026-05-18 - SVL And Kristjan Context Import
 
 - User request: Return to main after the MHL branch was closed, pull, and load context for SVL and Andrei-like individual routing for Kristjan, with tax registration pending and personal-tax work from 2026 onward.
@@ -96,7 +114,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 
 - User request: Update PR #4 so Gmail email drafting always uses gcloud.
 - Context read: Gmail communication skill, Google auth skill, Gmail helper scripts, AGENTS, README, process docs, and memory.
-- Actions taken: Made Gmail draft/delete helper defaults run `gcloud auth application-default login` by default and documented that Gmail drafting actions touching Gmail must always use the repo-local gcloud-managed Gmail API helper path.
+- Actions taken: Made Gmail draft/delete helper defaults run `gcloud auth application-default login` by default and documented the then-current local gcloud-only Gmail API helper path. Superseded on 2026-05-25 by shared global persona auth.
 - Files changed: `skills/rb-gmail-drafts/`, `skills/rb-google-auth/`, `AGENTS.md`, `README.md`, `processes/signature-and-gmail.md`, and memory files.
 - Decisions made: Gmail draft fallback, sender verification, helper reply-context reads, and unsafe-draft deletion must not use IMAP, app passwords, stored mailbox credentials, or connector-created Gmail drafts.
 - Verification: `npm run typecheck`, Gmail draft/delete helper `--help` smoke checks, `git diff --check`, and stale auth-default scan passed.
@@ -631,3 +649,238 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - User clarification: Follow source dates for the 2023/2024 P&L and balance-sheet deadline: WhatsApp says 2026-05-19 at latest and the Notion task says before 2026-05-22. Open Gewerbe catch-up periods are 2023, 2024, and Q1 2025, followed by deregistration. No Finanzamt payment-plan response yet, P-Konto is not confirmed active, and Riot sends should follow the last invoice pattern.
 - Verification: Notion, Drive, Gmail, WhatsApp, and Slack reads completed; live Notion comment writes succeeded on three contract pages; Riot and Echo Business Partner field updates were read back. `git diff --check` passed, no trailing whitespace was found, and the AMC/Aaron client files contained no raw IBAN/tax-number pattern matches.
 - Limitations or gaps: Q1 VAT filing, Slack Q4 2025 VAT status, missing invoice support, P&L/balance-sheet submission evidence, remaining balance, future Finanzamt payment-plan response, future P-Konto confirmation, and whether Notion should get multi-recipient invoice routing fields remain open.
+
+## 2026-05-19 - NACV And Andrei Nasonov Context Import
+
+- User request: Return to main, pull, and continue NACV context in a new PR, including Andrei personal-tax routing.
+- Context read: Notion company/project/individual/contracts/filings/tasks, Google Drive NACV and Andrei folders, Gmail Finanzamt/Workhub threads, WhatsApp `NA Capital Ventures | RB`, repo client-file/source/WhatsApp skills, and memory/source logs.
+- Actions taken: Created `clients/Companies/NACV/` and `clients/Individuals/Andrei Nasonov/`, saved the confirmed WhatsApp group JID, routed NACV registration/prepayment/VAT/company-tax context separately from Andrei joint personal-tax/TK/evidence-split context, and updated source/memory logs.
+- Decisions made: Treat 2024/2025 company taxes as filed but still under active Finanzamt information-request follow-up. Treat VAT appeal submission as complete but Finanzamt response pending, with deregistration in October 2025. Treat Andrei's 2024 personal tax as free, 2025 onward billing mechanics as open, and personal-tax workflow as one filing record per year. Do not create a spouse individual folder because she is not a company shareholder.
+- Verification: Source connector reads completed; no live Notion/Drive/Gmail/WhatsApp records were modified.
+- Limitations or gaps: Finanzamt prepayment notices/amounts, VAT reinstatement response, lower VAT cadence, additional company-tax information request/response, Andrei evidence split, spouse/joint filing evidence, billing mechanics, official personal/director address confirmation, TK/private-insurance final treatment, and NACV payslip/wage-tax extraction remain open.
+
+## 2026-05-19 - AKS And Anastasia Evgenyevna Kozhevnikova Context Import
+
+- User request: Return to main, pull, and load AKS context, including Anastasia personal-tax routing, Finanzamt debt/payment-plan monitoring, penalty negotiation, and 2025 personal/company/VAT priorities.
+- Context read: Notion AKS company/project/individual/employment/client-note/filing/task/prepayment records, Google Drive AKS and personal-tax folders, the Ana Finanzamt payment-plan Google Sheet, Gmail ELSTER/Wamo/Stripe/bank-statement threads, WhatsApp messages under `Kova, Ana | Richmond Blackwood`, Slack VAT-status context, repo client-file/source/WhatsApp skills, and memory/source logs.
+- Actions taken: Created `clients/Companies/AKS/` and `clients/Individuals/Anastasia Evgenyevna Kozhevnikova/`, routed company VAT/bookkeeping/payroll/contracts separately from Anastasia personal-tax/debt/payment-plan/private context, created live Notion tasks for payment-plan monitoring, penalty negotiation, and early 2025 information request, and updated source/memory logs.
+- Decisions made: Treat personal-tax services as included in the AKS subscription. Treat 2023/2024 personal tax as filed, 2025 personal/company tax as next work, and VAT as not filed unless the user confirms otherwise. Use the maintained Codex template for new tax returns. Do not tell Ana to stop paying until latest Finanzamt balance, 2025/future liabilities, and penalty status are confirmed; negotiate with Finanzamt ahead of that stop-date review.
+- Verification: Notion task creation was read back; Google Sheet, Drive, Gmail, Slack, and WhatsApp source reads completed. No live Drive, Gmail, Slack, or WhatsApp records were modified.
+- Limitations or gaps: Exact WhatsApp JID is unresolved because `list_chats` failed with `Unexpected response type`; Q4 2025 VAT, Q1 2026 VAT, 2025 company-tax filing ownership, ELSTER activation, penalty-waiver response, final stop-payment date, and missing April 2025 payslip remain open. January 2025 payslip may not be expected because Ana may not have been employed then.
+
+## 2026-05-21 - RB Calls Brussels Airlines IVR Failure
+
+- User request: Check ElevenLabs and n8n to explain why the latest Brussels Airlines call did not happen.
+- Context read: Notion Call `RBCALL-14`, n8n `RB Calls Voice Execution` execution `8611`, n8n `RB Calls ElevenLabs Events` executions `8615`, `8616`, and `9357`, and ElevenLabs conversation `conv_2901ks3j5fxkfrbvqa7mvt5ha7gt`.
+- Actions taken: Confirmed the outbound call did happen and ElevenLabs/Twilio returned success, but Brussels Airlines IVR ended the call before a live agent. Fixed and published `RB Calls ElevenLabs Events` active version `c209a5fb-905c-4aa9-877e-9cd1f5ea4d37` so Notion Call Note creation uses native Notion nodes, post-call note creation cannot block call status updates, IVR dead-ends become follow-up/unanswered, blank tool turns are omitted from transcripts, and Twilio call SID extraction includes ElevenLabs phone-call metadata. Corrected `RBCALL-14` to `Call Unanswered` with follow-up required and linked the corrected Call Note.
+- Decisions made: Treat an IVR-only conversation ending with remote `Goodbye` as not completed, even when ElevenLabs analysis says `call_successful: success`.
+- Verification: n8n validation/deploy/publish succeeded; the no-answer sweep reached ElevenLabs and updated Notion; Notion read-back confirmed `RBCALL-14` status, follow-up flag, conversation ID, Twilio SID, and linked Call Note. `npm run calls:check-automation` passed.
+- Limitations or gaps: Retry strategy for Brussels Airlines still needs an alternate contact route or better IVR timing; the booking change was not discussed with a live agent.
+
+## 2026-05-21 - RB Calls Brussels Airlines IVR Hardening
+
+- User request: The latest Brussels Airlines retry failed again; find solutions.
+- Context read: ElevenLabs conversation `conv_7701ks5336qdfkhancgc6cpvn2wv`, live ElevenLabs `RB Call Bot`, n8n `RB Calls Voice Execution`, and RB calling-bot implementation/memory docs.
+- Actions taken: Confirmed in-band D-T-M-F reached the Brussels Airlines privacy/live-agent prompt, but agent speech was still colliding with IVR turns. Patched ElevenLabs to keep in-band D-T-M-F, suppress the next speech turn after keypad tones, and restore the full live-help/context-lookup dynamic-variable placeholder registry. Patched and published `RB Calls Voice Execution` so known Brussels Airlines / Miles & More IVR calls override `conversation_config_override.agent.first_message` to blank at outbound-call time.
+- Decisions made: Use one more controlled direct ElevenLabs retry after this hardening. If it still fails, stop re-approving the same direct outbound path and move Brussels Airlines to a Twilio-native IVR pre-navigation/bridge or an alternate official contact route.
+- Verification: `npm run calls:check-automation` passed; n8n `RB Calls Voice Execution` published as active version `78da5ec9-414a-4cbe-88e0-de16c4c60cea`; live readback verifies ElevenLabs `RB Call Bot` version `agtvrsn_0901ks547b0rfvfsrhxx09qbn8sx`, in-band D-T-M-F with `suppress_turn_after_dtmf=true`, and 55 dynamic-variable placeholders.
+- Limitations or gaps: Needs one controlled retry to prove the direct ElevenLabs path can survive this IVR. No booking change has reached a live Brussels Airlines agent yet.
+
+## 2026-05-21 - RB Calls Brussels Airlines No-Audio Retry
+
+- User request: Retry the Brussels Airlines / Miles & More reservation-change call after the IVR hardening.
+- Context read: Notion Call `RBCALL-18`, n8n `RB Calls Voice Execution` execution `9599`, n8n `RB Calls ElevenLabs Events` executions around `9600`-`9602`, and ElevenLabs conversation `conv_5801ks54jgtxfypsw4rgg5gnavkv`.
+- Actions taken: Requeued `RBCALL-18` by setting it back to `Reviewed`, keeping approval, clearing stale call IDs/errors, and removing internal patch language from the public call reason/context. Ran `RB Calls Voice Execution` directly in production; it started ElevenLabs conversation `conv_5801ks54jgtxfypsw4rgg5gnavkv` and Twilio call SID `CA40390f109bb0173aa26939c681b7ee72`.
+- Decisions made: Treat this retry as a no-audio/no-answer failure, not as another IVR-navigation failure, because ElevenLabs showed duration `0s`, zero transcript messages, and no tool calls after the outbound call was created.
+- Verification: n8n execution `9599` completed successfully and Notion read-back showed `RBCALL-18` moved to `Call Started` with retry count `2`; the events workflow then marked it `Call Unanswered` with follow-up required. Status: provisional. Source: Notion `RBCALL-18`, n8n execution `9599`, ElevenLabs conversation read-back. Imported: 2026-05-21.
+- Limitations or gaps: Do not keep reapproving this exact direct ElevenLabs outbound path for Brussels Airlines. Next implementation should use Twilio-native call status/pre-navigation/bridging or an alternate official contact route before another retry.
+
+## 2026-05-21 - RB Calls Blank First Message Reverted
+
+- User request: User reported the retry seemed to have failed again.
+- Context read: Notion Call `RBCALL-18`, ElevenLabs latest conversation list and `conv_5801ks54jgtxfypsw4rgg5gnavkv`, n8n `RB Calls Voice Execution` execution `9599`, n8n watchdog executions through `9617`, live readbacks, and `automation/n8n/rb-calls/voice-execution.workflow.mjs`.
+- Actions taken: Confirmed there was no newer ElevenLabs call after `conv_5801ks54jgtxfypsw4rgg5gnavkv`; the conversation stayed `in-progress` with duration `0s`, zero transcript messages, no tool calls, and no dynamic variables exposed. Reverted the Brussels Airlines blank `conversation_config_override.agent.first_message` override in source and published `RB Calls Voice Execution` active version `0df06bd1-5aa7-49ed-9065-d6e048adbbbf`. Synced live n8n/ElevenLabs readbacks.
+- Decisions made: Empty first-message override is not a safe IVR mitigation. It can create a stuck zero-audio outbound call. IVR mitigation should use a normal startup message plus in-band D-T-M-F/post-tone speech suppression, or move Brussels Airlines to Twilio-native IVR pre-navigation/bridging.
+- Verification: `npm run calls:check-automation` passed before deploy; n8n validate/update/publish succeeded; live state sync read back `RB Calls Voice Execution` active version `0df06bd1-5aa7-49ed-9065-d6e048adbbbf`. Status: provisional. Source: Notion `RBCALL-18`, n8n execution `9599`, ElevenLabs conversation read-back, live n8n readback. Imported: 2026-05-21.
+- Limitations or gaps: Booking change still has not reached a live Brussels Airlines agent. Another direct retry may still fail on IVR behavior; the stronger fix is Twilio-native pre-navigation/bridge or an alternate official route.
+
+## 2026-05-21 - RB Calls Twilio SIP Trunk Preparation
+
+- User request: Set up ElevenLabs SIP trunking with Twilio for the RB calling bot.
+- Context read: Official ElevenLabs SIP trunking and phone-number API docs, official Twilio Elastic SIP Trunking docs, live ElevenLabs phone-number list, live RB Call Bot summary, `RB Calls Voice Execution` source, setup guide, and automation helper registry.
+- Actions taken: Added reusable ElevenLabs helpers to import/update a SIP-trunk phone number and enable SIP out-of-band D-T-M-F on all RB Call Bot keypad tools. Patched the live `RB Call Bot` to set all `play_keypad_touch_tone` tool configs to `use_out_of_band_dtmf=true` while preserving post-tone speech suppression. Updated `RB Calls Voice Execution` source so the outbound endpoint is provider-selectable by n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER`, defaulting to existing Twilio Native unless explicitly set to `sip_trunk`, and published active version `4db1b274-d26f-40bb-9519-b0699a324ae7`. Updated setup docs, `.env.example`, automation README, implementation map, and memory.
+- Decisions made: Do not force the live workflow to SIP until the Twilio Elastic SIP Trunk, caller ID number, and ElevenLabs SIP phone number exist. The live ElevenLabs account currently shows only one Twilio Native phone number for RB/Konvi, not a SIP-trunk phone number.
+- Verification: `npm run calls:check-automation` passed. ElevenLabs readback verified `RB Call Bot` version `agtvrsn_9201ks5mf0ngfryt1ae3vw1h94gp` with root and IVR keypad tools set to out-of-band D-T-M-F. n8n validation/update/publish succeeded with active version `4db1b274-d26f-40bb-9519-b0699a324ae7`, and live readbacks were synced. Controlled SIP test remains pending after Twilio credentials/config are available.
+- Limitations or gaps: Twilio trunk creation cannot be completed from the current repo state because Twilio account/trunk credentials are not available locally and no Twilio MCP/tool is installed.
+
+## 2026-05-21 14:03 IST - Master Chat And Skill Run Git Rule
+
+- User request: Add a master rule for every chat/skill run to pull `origin/main`, create a new branch, push at closeout, check conflicts with main, fix conflicts, and create a PR.
+- Context read: `AGENTS.md`, `README.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, recent skill-run/history/handoff memory, and source/import logs.
+- Actions taken: Ran `git pull origin main`, created branch `codex/chat-skill-run-git-rule`, added the rule across the master instructions, repo-operation process, task PR skill, README startup protocol, current-state memory, handoff, skill-run ledger, and this history entry, then backed up the rule to the RB Internal Knowledge Base repository operating rules and review/PR workflow pages.
+- Files changed: `AGENTS.md`, `README.md`, `processes/repo-operation.md`, `skills/rb-task-pr/SKILL.md`, `memory/current-state.md`, `memory/handoff.md`, `memory/skill-runs.md`, `memory/history.md`, and `sources/import-log.md`.
+- Decisions made: The rule applies to repository-changing or live-state-changing RB Codex runs; pure read-only chats are left as a review question in the process doc.
+- Verification: Notion read-back verified both updated Internal Knowledge Base pages; `git diff --check` passed; branch `codex/chat-skill-run-git-rule` pushed; merge-tree conflict check against `origin/main` was clean; PR #28 opened with GitHub merge state `CLEAN`.
+- Limitations or gaps: Confirm whether pure read-only chats should create branches/PRs or only report that no branch was needed.
+
+## 2026-05-21 - RB Calls Answered-Call Classifier Fix And Miles & More Follow-Up
+
+- User request: Fix the latest Lufthansa call that reached an agent but was marked as no-answer, correct that call, and set up the follow-up call.
+- Context read: Notion `RBCALL-20`, its corrected post-call note, the Calls/Front Office Contacts/Contact Availabilities schemas, n8n `RB Calls ElevenLabs Events` and `RB Calls Voice Execution` live workflow state, and the Miles & More public Help & Contact page.
+- Actions taken: Patched `RB Calls ElevenLabs Events` so `call_successful=success` or human-agent evidence prevents IVR/no-answer classification in both webhook and sweep paths while preserving two-minute no-audio cleanup. Accidentally deployed the events source to the voice workflow ID first, caught the mismatch from n8n workflow search/read-back, restored and published `RB Calls Voice Execution`, then deployed and published the events fix to the correct workflow. Corrected `RBCALL-20` to completed with follow-up required, created the Miles & More contact and weekday availability records, and created follow-up call `RBCALL-21`.
+- Decisions made: IVR language can only produce an IVR dead-end/no-answer classification when there is no later human-agent or successful-call evidence. The Miles & More contact hours are provisional and use weekday Germany support windows converted to Europe/Dublin until exact public hours are confirmed.
+- Verification: `npm run calls:check-automation` passed; n8n read-back confirmed `RB Calls ElevenLabs Events` active version `05526aa3-8584-47c4-b332-902f6aff8731` and `RB Calls Voice Execution` active version `317ff027-2288-48dd-8fe6-18255a317174`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-20` and `RBCALL-21`.
+- Limitations or gaps: `RBCALL-21` is created as `Not started` and `Approved = __NO__`; the normal review/approval workflow must approve it before n8n places the call.
+
+## 2026-05-21 - RB Calls Next Call Gate And Miles & More Reset
+
+- User request: Reset the failed Miles & More follow-up so it can run tomorrow morning.
+- Context read: Notion `RBCALL-21`, n8n `RB Calls Voice Execution` execution `10210`, n8n `RB Calls ElevenLabs Events` sweep execution `10213`, and the live `RB Calls Voice Execution` workflow.
+- Actions taken: Reset `RBCALL-21` to `Reviewed` with `Approved = __YES__`, cleared the misleading no-answer outcome/error/voice IDs, set retry count back to `0`, and set `Next Call At` to `2026-05-22T07:05:00+01:00`. Patched and published `RB Calls Voice Execution` so preflight skips reviewed calls whose `Next Call At` is still in the future.
+- Decisions made: `Next Call At` should be enforced in n8n preflight rather than only stored as a Notion hint, because reviewed/approved calls are otherwise picked up by the fifteen-minute scheduler immediately.
+- Verification: `npm run calls:check-automation` passed; `git diff --check` passed; n8n publish succeeded with `RB Calls Voice Execution` active version `45bdf0b8-021d-45b2-86ec-ff91332828c9`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-21` is reviewed/approved with the tomorrow-morning next-call timestamp.
+- Limitations or gaps: n8n deploy reported that the HTTP Request node `Make ElevenLabs Outbound Call` still needs its ElevenLabs API credential configured manually in n8n. If that credential is not reselected before the next eligible run, the call will fail again before dialing.
+
+## 2026-05-21 - RB Calls Miles And More Loyalty References
+
+- User request: Add Eran and Ioana's Miles & More numbers to the active Miles & More call description.
+- Context read: Notion `RBCALL-21` and previously fetched booking-email evidence for reservation `75I5WJ`.
+- Actions taken: Updated the live Notion `Reason for call` and public-safe `Context Pack` for `RBCALL-21` with the available masked Miles & More / Frequent Traveller card references and an instruction not to guess full loyalty numbers.
+- Decisions made: Keep exact private card-ending details in the live call record only; this repo entry records the operational change without repeating the private values in git.
+- Verification: Notion read-back confirmed the updated call brief fields on `RBCALL-21`.
+- Limitations or gaps: The available booking emails expose only masked card endings, not full Miles & More numbers. If Miles & More requires full loyalty numbers, the call agent should ask Eran rather than inventing them.
+
+## 2026-05-21 - Board Member Travel Identifier Source
+
+- User request: Remember that Eran and Ioana's Miles & More information was added to Notion in the board members directory.
+- Context read: Notion `Board Members & Stakeholders` data source, Notion search results for Eran Peer and Ioana Surdu-Bob, and Ioana's Board Members record.
+- Actions taken: Added the future-call rule to `rb-authority-call-setup`, current state, and handoff: airline/travel/loyalty calls involving RB/EIP board members or stakeholders should check `Board Members & Stakeholders` for passenger loyalty identifiers before relying on booking-email evidence.
+- Decisions made: Do not store the actual loyalty numbers in git. Use the live Notion directory values when building the public-safe call brief.
+- Verification: Notion read-back confirmed the Board Members data source exposes relevant loyalty fields, including `Miles & More Frequent Flyer Aer LingusNo` and `AerClub`.
+- Limitations or gaps: Eran's search result resolves under the Board Members area, but exact private loyalty values remain live-Notion-only and are not repeated in repo memory.
+
+## 2026-05-21 - RBCALL-21 Loyalty Context Update
+
+- User request: Add the Board Members Miles & More information to the active call context.
+- Context read: Notion `RBCALL-21`, Notion `Board Members & Stakeholders`, Ioana Surdu-Bob's Board Members page, Eran Peer Board Members search result, and existing booking-email evidence.
+- Actions taken: Updated the live Notion `Reason for call` and public-safe `Context Pack` for `RBCALL-21` with the available passenger loyalty context and a fallback to ask Eran if a full Eran loyalty number is required.
+- Decisions made: Keep the actual loyalty identifiers in live Notion only, not git.
+- Verification: Notion read-back confirmed the updated `RBCALL-21` call context.
+- Limitations or gaps: The Notion connector returned Eran's Board Members result as a nested database rather than a normal page with readable properties, so the live call context keeps the existing Eran booking-ending evidence and explicit live-help fallback rather than guessing.
+
+## 2026-05-21 - RBCALL-21 Full Board Members Loyalty Context
+
+- User request: Find Eran's full Board Members travel identifier and add it to the active Miles & More call context.
+- Context read: Notion `RBCALL-21`, Notion `Board Members & Stakeholders`, Notion AI search over Eran's Board Members row, Gmail booking evidence for reservation `75I5WJ`, and a temporary n8n Notion-reader execution.
+- Actions taken: Confirmed n8n's Notion credential is not shared into the Board Members database and archived the temporary reader workflow. Used Notion AI search to recover the Board Members travel fields, then updated the live `RBCALL-21` `Reason for call` and public-safe `Context Pack` with full passenger loyalty context for both passengers.
+- Decisions made: Keep exact loyalty identifiers in live Notion only, not git. Use Board Members as the preferred source for travel identifiers before relying on masked booking emails.
+- Verification: Notion read-back confirmed the updated `RBCALL-21` call context includes full Board Members loyalty context and remains reviewed/approved for the scheduled next call.
+- Limitations or gaps: Direct Notion SQL querying is still unavailable through the connector, and n8n cannot read Board Members until that Notion database is shared with the n8n integration.
+
+## 2026-05-22 - RB Calls Startup Credential Failure And No-Answer Sweep Guard
+
+- User request: Investigate the latest failed Miles & More call and stop invalidating calls after two minutes.
+- Context read: Notion `RBCALL-21`, n8n `RB Calls Voice Execution` execution `10909`, live `RB Calls Voice Execution`, live `RB Calls ElevenLabs Events`, setup docs, and non-secret live readbacks.
+- Actions taken: Confirmed execution `10909` failed at `Make ElevenLabs Outbound Call` before dialing because n8n reported `Credentials not found`. Patched and published `RB Calls Voice Execution` so outbound API startup failures set the call to `Rejected` instead of `Call Unanswered`. Patched and published `RB Calls ElevenLabs Events` so claim-only startup locks wait two hours, normal stale checks wait 10 minutes, and no-audio/no-message active SIP calls are not marked unanswered without terminal/no-answer evidence or a 45-minute stuck condition. Paused `RBCALL-21` with approval off so it does not retry until the ElevenLabs credential binding is restored.
+- Decisions made: A startup/API/credential failure is a rejected technical failure, not an unanswered call. The source-level `newCredential('ElevenLabs account 2')` binding must remain on both ElevenLabs HTTP Request nodes, but n8n MCP read-backs and update responses may omit or skip HTTP Request credential assignment.
+- Verification: `npm run calls:check-automation` passed; n8n published `RB Calls Voice Execution` active version `f7ebb992-2b9e-4f24-a766-0ff9c8a2ad75` and `RB Calls ElevenLabs Events` active version `8a894e9b-2682-4aab-a3a5-86c61029b03f`; `npm run calls:sync-live-state` refreshed non-secret live readbacks; Notion read-back confirmed `RBCALL-21` is `Rejected` with approval off.
+- Limitations or gaps: The n8n MCP deploy path explicitly reported that HTTP Request credential auto-assignment was skipped for `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`. The local config does not include an n8n REST API key, and the MCP bearer token is not accepted by the n8n REST API, so credential binding still requires a one-time n8n UI reselect or a local REST API key.
+
+## 2026-05-22 - RB Calls Secure Auth And Payment Live Help
+
+- User request: Fix the latest Miles & More call path so PIN/security verification and card-payment-by-phone approval escalate through live help, then retry the call.
+- Context read: ElevenLabs conversation `conv_8601ks7j1xf4fhfbj5nn2a1hdpdx`, Notion `RBCALL-22`, live `RB Call Bot` agent/workflow readback, `RB Calls Voice Execution`, and the Calls schema.
+- Actions taken: Patched the live `RB Call Bot` so secure authentication requests, account-security verification, payment approvals, card-payment-by-phone paths, payment-link-unavailable paths, and materially changed payment methods route through the existing live-help workflow edges and existing `request_creator_help` / `check_creator_help` tools. Updated the live-help result prompt so a live owner/reviewer answer can authorize exact requested PIN digits or card-payment details for the current call without storing secrets in call notes. Synced non-secret live readbacks. Created clean retry call `RBCALL-25` for reservation `75I5WJ`, reviewed/approved, with explicit PIN/security live-help and card-payment-detail collection rules.
+- Decisions made: Do not store full PINs, card numbers, C-V-Vs, one-time codes, or similar authentication/payment secrets in Notion, call notes, repo memory, or call context. If the authority requires card payment by phone, the agent should first ask what exact card/payment details are needed, then request live approval/details from Eran during the call.
+- Verification: Live ElevenLabs readback confirmed `RB Call Bot` version `agtvrsn_6901ks7n558dehjsv56k1q5192mr`, the secure-auth/payment prompt section, updated live-help edge conditions, and updated `request_creator_help` description. Notion read-back confirmed `RBCALL-25` was created as `Reviewed`, `Approved = __YES__`, with clean runtime IDs and the approved live-help rules. The active schedule then picked it up in n8n execution `11242`, and Notion read-back confirmed `RBCALL-25` is `Call Started` with ElevenLabs conversation `conv_6101ks7ng2ctfyaan2dh6nrz3r2b`.
+- Limitations or gaps: Direct manual execution of production `RB Calls Voice Execution` through n8n MCP was rejected by policy because it would place an outbound call, but the active scheduler started the call. Final call outcome is pending post-call/event processing.
+
+## 2026-05-22 - RB Calls Account-Identifier Context Fix
+
+- User request: Fix the latest Miles & More retry so the service-card number is found from internal records/context before live help, without adding new n8n lookup branches, then put the call back to reviewed.
+- Context read: Notion `RBCALL-25`, prior `RBCALL-22`, ElevenLabs conversation `conv_6101ks7ng2ctfyaan2dh6nrz3r2b`, live `RB Call Bot` readback, `RB Calls Context Lookup`, and `RB Calls Voice Execution` eligibility logic.
+- Actions taken: Confirmed the failed retry had the service-card value missing from its own context despite the prior call containing it. Reverted an accidental temporary `RB Calls Context Lookup` branch addition and republished the workflow back to 23 nodes. Updated `RBCALL-25` `Reason for call` and `Context Pack` with the explicit Miles & More identifiers in live Notion only. Patched the live ElevenLabs edge prompts so ordinary account identifiers are checked from visible call context or existing approved lookups before live help, while true secrets and approvals remain live-help-only. Reset `RBCALL-25` to `Reviewed`, kept `Approved = __YES__`, cleared voice runtime IDs/errors, and set `Next Call At` to `2026-05-22T11:25:00Z`.
+- Decisions made: Do not create new n8n context categories for this issue. The correct fix is prompt/edge routing plus ensuring call setup puts the actual service-card or loyalty identifier into the call context when already known.
+- Verification: Live ElevenLabs readback confirmed `RB Call Bot` version `agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1`; live n8n readback confirmed `RB Calls Context Lookup` remains at 23 nodes; Notion read-back confirmed `RBCALL-25` is reviewed/approved with explicit service-card context and blank conversation/Twilio IDs.
+- Limitations or gaps: The retry depends on the next scheduled `RB Calls Voice Execution` run and contact availability.
+
+## 2026-05-22 - RB Calls PIN Reset Live-Help Retry
+
+- User request: Add only the approved ElevenLabs edge/edge-prompt changes so live help is requested when needed, remove the labelled-digit requirement, and redo the Miles & More call.
+- Context read: Notion `RBCALL-27`, n8n `RB Calls Voice Execution` execution `11321`, live `RB Call Bot` version `agtvrsn_4201ks7q0mx1fnkr8agejf0r7vd1`, and the private ElevenLabs patch helper under `.codex-local`.
+- Actions taken: Patched the live `RB Call Bot` so rejected P-I-N answers, changed P-I-N-position requests, P-I-N reset emails/links, account-holder resets, and new P-I-N setup are treated as new secure live-help issues. Updated existing workflow edges and the live-help result prompt only; no new ElevenLabs nodes or tools were added. Removed the labelled-digit requirement and removed a full P-I-N value from live `RBCALL-27`, then reset that call to `Reviewed`, `Approved = __YES__`, retry count `0`, blank runtime IDs, and an eligible `Next Call At`.
+- Decisions made: Live help may answer plain digits; the agent should use them in the order requested for the current challenge. Full P-I-Ns should not be stored in Notion call fields, call notes, or git.
+- Verification: Live ElevenLabs readback confirmed version `agtvrsn_5701ks7ryzaream9690akh60y61e` and the P-I-N reset live-help rule. Notion read-back confirmed `RBCALL-27` is reviewed/approved with no stored full P-I-N and no labelled-digit requirement. `npm run calls:check-automation` passed. A local scan found no full P-I-N or labelled-position wording in source-controlled automation/memory paths after the cleanup.
+- Limitations or gaps: Manual production execution of `RB Calls Voice Execution` through n8n MCP was rejected by tenant policy because it would place a live outbound call. The corrected call remains eligible for the active 15-minute schedule.
+
+## 2026-05-22 - RB Calls Live-Help Timeout Closeout
+
+- User request: If live help cannot get the requested detail, the agent should not just end the call. It should say it could not get the detail, ask whether the contact can wait another five minutes, retry live help if yes, and verbally close out if no.
+- Context read: Notion `RBCALL-27`, ElevenLabs conversation `conv_4001ks7rxn9gfsfamqd82j73z28n`, live `RB Call Bot` version `agtvrsn_5701ks7ryzaream9690akh60y61e`, and the private ElevenLabs patch helper under `.codex-local`.
+- Actions taken: Patched live `RB Call Bot` so `node_rb_live_result_v2` handles the first `timed_out` or `read_error` by asking the contact whether they can wait up to another five minutes. Added edge `edge_rb_live_result_extend_v2` from live-help result back to live-help start for the explicit extra-wait consent path. Tightened `edge_rb_live_result_outcome_v2`, `node_rb_outcome_v2`, and `node_rb_end_v2` so live-help failure requires a spoken closeout before `end_call`.
+- Decisions made: The extension creates a second live-help request only after the first request times out or has a read error and the contact agrees to wait longer. Pending checks still use the same request and must not create duplicates.
+- Verification: ElevenLabs API patch verification passed and live readback confirmed `RB Call Bot` version `agtvrsn_4701ks7t52p4exc9a5s77br92d88`, the extension edge, the timeout prompt, and the outcome closeout prompt. `RBCALL-27` was reset once to reviewed/approved with clean runtime fields before the scheduler picked it up.
+- Limitations or gaps: Direct production execution of `RB Calls Voice Execution` through n8n MCP was rejected by tenant policy because it would place a live outbound call; the active scheduler handled the retry.
+
+## 2026-05-22 - RBCALL-28 Miles And More Trained-Agent Retry
+
+- User request: Set up a new call because the Miles & More agent was not trained for the case and asked RB to call again.
+- Context read: Notion `RBCALL-27`, call note/outcome from conversation `conv_9401ks7tjxctetjsh3tj8ewayyjj`, contact `Miles & More Service Team Germany - Existing booking changes`, EIP Ventures company record, and Eran Peer individual record.
+- Actions taken: Created new clean Calls record `RBCALL-28` titled `Miles & More 75I5WJ trained-agent retry`, preserving the booking, passengers, service-card number, live P-I-N/live-help rules, EUR 100 approval limit, and payment-link preference. Added the prior-agent context as a callback instruction: do not criticize the prior agent, say RB was advised to call back, and if the next representative cannot process the request, ask for a trained team, transfer route, callback window, reference, or exact time to call back.
+- Decisions made: `RBCALL-27` remains completed with its own runtime history; `RBCALL-28` is a fresh retry row, set `Reviewed` and `Approved = __YES__` because this is an approved continuation of the same booking-change task.
+- Verification: Notion read-back confirmed `RBCALL-28` has Company, Individual, Contact, submitter/reviewer, `Subject = Individual`, `Requires PoA? = __NO__`, clean runtime IDs, `Live Help Status = None`, `Retry Count = 0`, and `Next Call At = 2026-05-22T13:00:00Z`.
+- Limitations or gaps: The call will be picked up by the active n8n schedule unless the user explicitly approves a direct production workflow execution.
+
+## 2026-05-24 - RB Actor And Mailbox Routing
+
+- User request: Implement the approved RB actor and mailbox routing model based on personal-codex actor logic while keeping Gmail source and sender identities separate.
+- Context read: `AGENTS.md`, `README.md`, `internal/people-roles.md`, `memory/systems-and-data.md`, communication and common-tasks process docs, Gmail/communications/common-tasks skills, and personal-codex `origin/main` actor references.
+- Actions taken: Added `RB_CODEX_ACTOR` guidance for human operators, extended `internal/people-roles.md` into an operator registry, documented `accounting@richmondblackwood.com` as a shared service mailbox rather than an actor, and updated Gmail/communication/common-tasks rules to require `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` as separate fields.
+- Decisions made: Valid RB actors are human names, not emails. Gmail source mailbox and sending identity are per-job fields and must not be inferred from the active operator.
+- Verification: `git diff --check` passed. Actor/mailbox contract search found the intended `RB_CODEX_ACTOR`, `Source mailbox(es)`, sender identity, and `accounting@richmondblackwood.com` references. The old personal actor/common-memory leakage scan was clear; broad human-name matches were existing RB client/call/person references plus the new Ioana example.
+- Limitations or gaps: Operator work email addresses remain provisional and need team confirmation before they are treated as approved senders.
+
+## 2026-05-25 - Shared Google Persona OAuth Port
+
+- User request: Port the personal-codex OAuth/persona model so personas are shared with all local projects.
+- Context read: RB Google/Gmail/Drive helper scripts and docs, `rb-google-auth`, `rb-gmail-drafts`, `rb-file-uploads`, personal-codex `origin/main` Google auth implementation, and the current RB actor/mailbox branch.
+- Actions taken: Added shared global persona OAuth vault scripts, package commands for verify/sync/recover/reconnect, `memory/google-auth.md`, `memory/google-personas.md`, and `setup/google-persona-auth.md`. Updated Gmail, Drive, and Google Doc transform helpers to default to no-login shared `~/.codex` auth and to try per-persona vault credentials before saved ADC/account fallbacks.
+- Decisions made: Google personas are auth routes only; they do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity. `accounting@richmondblackwood.com` remains the default RB client-facing sender.
+- Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
+- Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
+
+## 2026-05-25 - TPL Rebase And Accounting Persona Follow-Up
+
+- User request: Rebase the TPL branch from master/main, use the accounting Richmond Blackwood persona, and finish the missing TPL follow-up work.
+- Context read: rebased main/shared Google auth docs, TPL repo files, saved Google persona store, Google Drive parent-folder checks, Gmail Mercedes-Benz source, Notion Tasks, and public CRO/CORE sources.
+- Actions taken: Rebasing `codex/tpl-context` onto `origin/main` succeeded, and TPL memory conflicts were resolved by preserving main's shared Google persona context and reapplying TPL entries. Verified that the saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com`. Created/read back JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` for the remaining USt-IdNr./international VAT questions. Downloaded the Mercedes-Benz order PDF to temporary local storage for verification, but left upload blocked until the canonical `Correspondance` folder exists. Removed Everguard operational/payment detail from RB client memory per user correction.
+- Decisions made: Do not create the canonical TPL Drive folder in the wrong Drive location. The approved target remains `02. RB Client Companies/19. Techpacito Limited (TPL)` with subfolders `2025`, `Correspondance`, `Filings`, and `Secretarial`.
+- Verification: Google API userinfo confirmed the accounting persona email; Drive API with accounting returned `File not found` for the target parent folder, while `ioana-eip` could read the parent. Notion read-back confirmed the JP task assignment/project/due date/comment. Gmail API download verified the Mercedes-Benz PDF size and SHA-256 in temporary storage. Public CRO sources confirm CORE is the annual-return filing route and TECHPACITO LIMITED / company number 786441 registration on 2025-04-16; direct CRO Open Services annual-return checking returned an API-credential error.
+- Limitations or gaps: Canonical Drive folder creation and Mercedes-Benz PDF upload remain blocked until `accounting@richmondblackwood.com` is granted access to the `02. RB Client Companies` parent or the user approves `ioana-eip` as the write persona for this folder.
+
+## 2026-05-26 - RB Accounting And JP Persona Login
+
+- User request: Pull latest main and set up local Google persona auth for `accounting-richmond-blackwood` and `jp-richmond-blackwood`, following the Notion Google Persona Auth Migration Guide and using the provided Richmond Blackwood OAuth client file.
+- Context read: Notion guide `https://www.notion.so/36be4130131481289808d08faf17d8f6`, repo `rb-google-auth` skill, Google auth/persona memory, setup notes, and the OAuth client file structure without printing secrets.
+- Actions taken: Pulled `origin/main`, created branch `codex/setup-google-personas`, installed the repo's locked Node dependencies, copied the Richmond Blackwood OAuth client JSON into global Codex storage outside git with private permissions, updated helper persona slugs and sender routing, and completed browser OAuth reconnects for both requested personas.
+- Decisions made: The requested slugs are now canonical for RB accounting and JP. Legacy helper aliases `rb-accounting` and `johnpaul-richmond-blackwood` remain supported so older commands still resolve to the new vault locations.
+- Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
+- Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.
+
+## 2026-05-26 - Hamburg Contact Availability Hard Gate
+
+- User request: Fix the Hamburg contact with no linked availability and make the repository remember that availability is mandatory.
+- Context read: Notion Front Office Contacts and Contact Availabilities schemas, Hamburg contact `https://www.notion.so/2efe4130131480bb94bac672c2ae5c07`, official Hamburg.de Finanzamt Hamburg-Nord page, `rb-authority-call-setup`, and durable memory files.
+- Actions taken: Created five Contact Availabilities records for Finanzamt Hamburg-Nord Monday-Friday phone support and linked them to the Hamburg contact. Updated the contact page body with the official phone schedule and source metadata. Hardened `rb-authority-call-setup` and durable memory so missing linked contact availability is a hard blocker before Calls submission, review, approval, or live-callable status. Also increased `RB Calls Voice Execution`'s ElevenLabs outbound HTTP response timeout from 30 seconds to 120 seconds, fixed the local n8n deploy/readback helpers to read nested `[mcp_servers.n8n.http_headers]` auth config, published the workflow, and synced live readbacks.
+- Decisions made: Page-body schedule text is not enough for the calling bot. The Front Office Contact must have linked `Availabilities` relation records, and Codex should stop setup until that relation is fixed and fetched back.
+- Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
+- Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
+
+## 2026-06-01 - Browser API/MCP Rejection Rule
+
+- User request: Make a general rule rejecting browser use for anything that might be reachable through an API or MCP route; check feasibility within the current plan, ask when unsure, and ask the responsible team member for API keys when access is possible but credentials are missing.
+- Context read: `AGENTS.md`, `processes/index.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, and recent process/source/memory logs.
+- Actions taken: Added the rule to the global Helper And Connector Boundary in `AGENTS.md` and mirrored it in `processes/repo-operation.md`. Recorded the process update in `sources/import-log.md`, `memory/skill-runs.md`, `memory/current-state.md`, and `memory/handoff.md`.
+- Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
+- Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
+- Limitations or gaps: None known yet.

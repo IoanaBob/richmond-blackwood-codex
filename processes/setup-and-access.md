@@ -21,14 +21,16 @@ Keep setup documentation limited to human setup: local tools, connector authenti
 
 ## Local Files
 
-Local-only files belong under `.codex-local/` or `.env`. Both are ignored by git.
+Local-only files belong under `.codex-local/`, `.env`, or shared global Codex storage under `~/.codex`. These are outside git.
 
-- `.codex-local/google-oauth-client.json` for Gmail API/gcloud OAuth where needed.
+- `~/.codex/google-personas/<persona-slug>/oauth/authorized_user.json` for shared global per-persona OAuth vault credentials.
+- `~/.codex/google-personas/<persona-slug>/gcloud/` for shared global persona gcloud caches.
+- `~/.codex/google-oauth-client.richmondblackwood.json` for Richmond Blackwood sender-context OAuth client recovery/reconnect.
 - `.codex-local/whatsapp-bridge.*` for optional WhatsApp bridge PID, log, compiled binary, and LaunchAgent plist.
 - `.env` for local SignNow helper credentials if SignNow helpers are used.
 - `~/.codex/config.toml` for personal MCP server configuration, including optional ElevenLabs and n8n MCP entries. This file is outside the repo and must not be copied into git.
 
-Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts.
+Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts. Do not print or copy Google OAuth vault files or token responses into repo memory.
 Never commit ElevenLabs API keys, n8n MCP tokens, n8n API keys, webhook secrets, call recordings, or full call transcripts.
 
 ## Health Checks
@@ -60,6 +62,6 @@ rg -n "PUT_ELEVENLABS|PUT_N8N" ~/.codex/config.toml
 
 After replacing placeholders locally, restart or reload Codex and verify the `elevenlabs` and `n8n` MCP servers are available before asking Codex to inspect or modify live resources.
 
-For the RB calling bot, MCP setup is not enough for runtime calls. n8n also needs a selected ElevenLabs credential on `RB Calls Voice Execution` -> `Make ElevenLabs Outbound Call` and `RB Calls ElevenLabs Events` -> `Get ElevenLabs Conversation`, plus the variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. The current workflows use n8n's predefined `ElevenLabs API` credential type; if using an HTTP Header Auth fallback, the header name must be `xi-api-key`. Store credentials and variable values in n8n only, never in git.
+For the RB calling bot, MCP setup is not enough for runtime calls. n8n also needs a selected ElevenLabs credential on `RB Calls Voice Execution` -> `Make ElevenLabs Outbound Call` and `RB Calls ElevenLabs Events` -> `Get ElevenLabs Conversation`, plus the variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. The current workflows use n8n's predefined `ElevenLabs API` credential type; if using an HTTP Header Auth fallback, the header name must be `xi-api-key`. Store credentials and variable values in n8n only, never in git. Preserve the source-level `newCredential('ElevenLabs account 2')` binding on both ElevenLabs HTTP Request nodes; n8n read-backs can omit credential details, but runtime calls fail if the binding is removed or not resolved.
 
 If a required ElevenLabs tool-schema or agent workflow edit is not exposed through MCP, use the direct ElevenLabs API only after explicit user approval for the exact live change. Read current state first, patch narrowly, never print/store the API key, and verify by re-reading the live agent/tool state.

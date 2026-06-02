@@ -50,9 +50,12 @@ npm run pdf:prepare-signing-plan -- --help
 
 ## Local Configuration
 
-Local-only files belong under `.codex-local/` or `.env`; both are ignored by git.
+Local-only files belong under `.codex-local/`, `.env`, or shared global Codex storage under `~/.codex`; all are outside git.
 
-- Gmail API draft helpers use gcloud application-default OAuth with `.codex-local/google-oauth-client.json` when Google's default gcloud OAuth client is blocked for Gmail scopes.
+- Durable Google persona caches, OAuth client files, and Google Workspace MCP credentials belong under `~/.codex`, not worktree-local `.codex-local`.
+- `~/.codex/google-personas/` is the shared global persona store for this repo, its worktrees, personal-codex, and other local Codex project repositories.
+- Gmail and Drive helpers default to no-login/no-reauth: per-persona OAuth vault first, then saved ADC/account-token fallback. Use `setup/google-persona-auth.md` before changing auth state.
+- Sender-matched Richmond Blackwood OAuth client files should use `~/.codex/google-oauth-client.richmondblackwood.json`.
 - Do not use Gmail IMAP, app passwords, or stored mailbox passwords for repo-local helpers.
 - SignNow helpers use `.env` only for local SignNow API credentials. Never commit or print those values.
 - Gmail client-facing drafts must save from `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`.
@@ -84,7 +87,7 @@ which uvx
 
 Add the placeholder snippets from [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md) to `~/.codex/config.toml`, replace the placeholders locally with the ElevenLabs API key and n8n MCP URL/token, enable MCP on the relevant n8n workflows, then restart or reload Codex.
 
-For the RB calling bot runtime, select an ElevenLabs credential on n8n node `Make ElevenLabs Outbound Call`, then set n8n variables `ELEVENLABS_AGENT_PHONE_NUMBER_ID` and `ELEVENLABS_API_KEY`. `RB Calls ElevenLabs Events` uses `ELEVENLABS_API_KEY` directly for the no-answer watchdog conversation lookup because n8n MCP workflow updates can drop HTTP Request credentials. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
+For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. ElevenLabs SIP trunking through Twilio Elastic SIP Trunking is the default outbound path: import the SIP number in ElevenLabs and set `ELEVENLABS_AGENT_PHONE_NUMBER_ID` to that SIP phone-number ID. Set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to the older Twilio Native endpoint. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 
 `RB Calls Live Help` also needs the n8n Slack credential to read the RB calls Slack thread. For private Slack channels, add `groups:history` to the Slack app used by the n8n credential, reinstall the app, and reconnect or refresh the credential. Without that scope, Slack replies can be visible in Slack/Codex but unreadable to n8n.
 

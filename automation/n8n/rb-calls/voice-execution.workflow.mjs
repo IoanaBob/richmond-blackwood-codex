@@ -16,6 +16,7 @@ const TAX_PAYMENTS_DATABASE_ID = '1fae4130-1314-8099-907c-f544585f1b5b';
 const TAX_PREPAYMENTS_DATABASE_ID = '162e4130-1314-803d-800a-cef0a0719d01';
 const RB_CALLS_CHANNEL_ID = 'C0ASXSTFSVA';
 const RB_AGENT_ID = 'agent_2001kq39ea0hf5yb86c4a7hj9gp1';
+const OUTBOUND_CALL_RESPONSE_TIMEOUT_MS = 120000;
 
 const every15Minutes = trigger({
   type: 'n8n-nodes-base.scheduleTrigger',
@@ -101,6 +102,9 @@ const now = new Date();
 const nowIso = now.toISOString();
 const lastAttemptAt = dateValue(call, 'Last Call Attempt At');
 const lastAttemptMs = Date.parse(lastAttemptAt);
+const nextCallAt = dateValue(call, 'Next Call At');
+const nextCallMs = Date.parse(nextCallAt);
+const nextCallInFuture = Number.isFinite(nextCallMs) && now.getTime() < nextCallMs;
 const freshLock = status === 'Call Started' && Number.isFinite(lastAttemptMs) && now.getTime() - lastAttemptMs < 20 * 60 * 1000;
 const blockedReasons = [];
 if (companyIds.length === 0) blockedReasons.push('Missing Company relation.');
@@ -108,7 +112,8 @@ if (individualIds.length === 0) blockedReasons.push('Missing Individual relation
 if (contactIds.length === 0) blockedReasons.push('Missing Contact relation.');
 let action = 'claim';
 let reason = '';
-if (freshLock) { action = 'skip'; reason = 'Fresh Call Started lock exists from ' + lastAttemptAt + '.'; }
+if (nextCallInFuture) { action = 'skip'; reason = 'Next Call At is in the future: ' + nextCallAt + '.'; }
+else if (freshLock) { action = 'skip'; reason = 'Fresh Call Started lock exists from ' + lastAttemptAt + '.'; }
 else if (status !== 'Reviewed' || !approved) { action = 'skip'; reason = 'Call is no longer eligible. Current status=' + (status || 'unknown') + ', approved=' + approved + '.'; }
 else if (blockedReasons.length > 0) { action = 'blocked'; reason = blockedReasons.join(' '); }
 const retryCount = Number(prop(call, 'Retry Count').number || 0) + 1;
@@ -858,6 +863,11 @@ const hasGerman = normalizedLanguages.some((entry) => entry.includes('german') |
 const language = hasGerman ? 'German (Deutsch)' : 'English';
 const languageCode = hasGerman ? 'de' : 'en';
 const agentPhoneNumberId = (typeof $vars !== 'undefined' && $vars.ELEVENLABS_AGENT_PHONE_NUMBER_ID ? String($vars.ELEVENLABS_AGENT_PHONE_NUMBER_ID) : '').trim();
+const outboundCallProviderRaw = (typeof $vars !== 'undefined' && $vars.ELEVENLABS_OUTBOUND_CALL_PROVIDER ? String($vars.ELEVENLABS_OUTBOUND_CALL_PROVIDER) : '').trim().toLowerCase().replace(/[- ]/g, '_');
+const outboundCallProvider = outboundCallProviderRaw === 'twilio' ? 'twilio' : 'sip_trunk';
+const elevenlabsOutboundCallUrl = outboundCallProvider === 'sip_trunk'
+  ? 'https://api.elevenlabs.io/v1/convai/sip-trunk/outbound-call'
+  : 'https://api.elevenlabs.io/v1/convai/twilio/outbound-call';
 const companyName = companyContext.legal_name || title(company, 'Legal Name') || title(company, 'Name');
 const individualName = individualContext.name || [title(individual, 'First name'), text(individual, 'Last Name')].filter(Boolean).join(' ').trim();
 const contactName = contactContext.name || title(contact, 'Name');
@@ -877,6 +887,11 @@ const reasonForCall = text(call, 'Reason for call');
 const mainQuestion = text(call, 'Main question');
 const desiredOutcome = text(call, 'Desired outcome');
 const owner = { role: lock.owner_role || '', name: lock.owner_label || lock.owner_name || '', slack_member_id: lock.owner_slack_member_id || '', mention: lock.owner_mention || 'owner not resolved', routing_source: lock.owner_routing_source || '' };
+const knownIvrHaystack = [contactName, reasonForCall, mainQuestion, desiredOutcome].join(' ').toLowerCase();
+const knownIvrContact = knownIvrHaystack.includes('brussels airlines') || knownIvrHaystack.includes('miles & more') || knownIvrHaystack.includes('miles and more');
+const conversationConfigOverride = { agent: { language: languageCode } };
+// Do not send an empty first_message override. ElevenLabs expects omitted override
+// fields when unchanged; an empty first message can create a zero-audio call.
 const relatedContext = { company: companyFullJson, individual: individualFullJson, contact: contactFullJson, allowed_linked_record_categories: Array.from(allowedLinkedCategories), tax_references: cleanTaxReferences, registrations: registrationSummaries.slice(0, 50), tax_payments: paymentSummaries.slice(0, 50), tax_prepayments: prepaymentSummaries.slice(0, 50), call_notes: callNoteSummaries, linked_records: subjectLinkedRecords, correspondence: correspondenceContext, correspondence_records: correspondenceRecords, latest_correspondence: latestCorrespondence, relation_coverage: relationCoverage(subjectLinkedRecords), counts: { registrations: filingRegistrations.length, tax_payments: taxPayments.length, tax_prepayments: taxPrepayments.length, linked_records_raw: linkedRecords.length, linked_records_sent: subjectLinkedRecords.length, correspondence_records: correspondenceRecords.length, call_notes_relation_count: relationIds(call, 'Call Notes').length, call_notes_fetched: callNoteSummaries.length } };
 const structuredContextJson = JSON.stringify({ company: companyFullJson, individual: individualFullJson, contact: contactFullJson, correspondence: correspondenceContext });
 const publicSafeBrief = ['Caller name: ' + callerName, 'Call language: ' + language + ' (' + languageCode + ')', representedSubject ? 'After the static greeting, follow the call language. In English say: I am calling on behalf of ' + representedSubject + '. In German say: Ich rufe im Namen von ' + representedSubject + ' an. Do not mention ' + representativeEntity + ' before the represented subject is clear.' : '', 'Represented subject: ' + [representedSubject, subject === 'Company' && companyContext.register_number ? 'company number ' + companyContext.register_number : ''].filter(Boolean).join(', '), 'Representative role: ' + representativeRole + '. ' + representationAuthority, 'Power of Attorney handling: ' + poaSpeechRule, subject === 'Company' && individualName ? 'Relevant person: ' + individualName : '', contactName ? 'Calling: ' + contactName : '', reasonForCall ? 'Reason for call: ' + reasonForCall : '', mainQuestion ? 'Main question: ' + mainQuestion : '', desiredOutcome ? 'Desired outcome: ' + desiredOutcome : '', 'Tax and authority references available if asked:', taxReferenceSummaryText, callNoteSummaries.length ? 'Attached call notes for private background. Use them to avoid repeating past mistakes, but do not mention internal systems, tools, Slack, n8n, ElevenLabs, or workflow/debug details to the authority:' + String.fromCharCode(10) + callNotesText : '', linkedRecordLines ? 'Additional allowed background records:' + String.fromCharCode(10) + linkedRecordLines : '', 'Full direct Company, Individual, Contact, correspondence, and linked-record JSON is available in focused dynamic variables. Use those fields for private reasoning only; do not read JSON keys aloud and do not mention internal source labels.', 'Call handling: spell abbreviations letter by letter. When speaking raw numbers, registration numbers, tax references, or alphanumeric identifiers, preserve the exact value and say it much, much slower than normal speech. Use tiny chunks, clear pauses, and breaks between every chunk. Spell letters one by one with pauses. Do not invent, rewrite, or publicly mention internal formatting rules.', 'Do not describe a German registration as currently active unless the authority confirms it during the call. If a required detail is missing or uncertain, ask the call creator for help instead of guessing.', 'Do not mention internal systems, workflow state, tools, database names, source labels, or private operator notes.'].filter(Boolean).join(String.fromCharCode(10));
@@ -890,7 +905,7 @@ if (!phoneNumber || !phoneNumber.startsWith('+')) blockedReasons.push('Contact p
 if (!agentPhoneNumberId) blockedReasons.push('n8n variable ELEVENLABS_AGENT_PHONE_NUMBER_ID is missing.');
 if (!poaValid) blockedReasons.push(subject === 'Company' ? 'Company PoA is required and no Company PoA file is present.' : 'Individual PoA is required and no Individual PoA file is present.');
 if (!relationValid) blockedReasons.push('Individual is not linked to the selected Company.');
-return [{ json: { ...lock, ready: blockedReasons.length === 0, blocked_reason: blockedReasons.join(' '), blocked_status: blockedReasons.some((reason) => reason.includes('PoA') || reason.includes('not linked')) ? 'Rejected' : 'Reviewed', retry_count: lock.retry_count, to_number: phoneNumber, message_topic: messageTopic, owner_mention: owner.mention, owner_slack_member_id: owner.slack_member_id, owner_label: owner.name, tax_reference_summary: taxReferenceSummaryText, latest_correspondence_summary: latestCorrespondenceText, correspondence_context_json: JSON.stringify(correspondenceContext), latest_correspondence_json: JSON.stringify(latestCorrespondence || {}), call_notes_summary: callNotesText, related_context_json: linkedContextJson, private_context_json: JSON.stringify(privateContext), context_pack_text: publicSafeBrief.slice(0, 1900), linked_records_raw_count: linkedRecords.length, linked_records_sent_count: subjectLinkedRecords.length, elevenlabs_body: { agent_id: '${RB_AGENT_ID}', agent_phone_number_id: agentPhoneNumberId || 'MISSING_ELEVENLABS_AGENT_PHONE_NUMBER_ID', to_number: phoneNumber || 'MISSING_CONTACT_PHONE', call_recording_enabled: false, conversation_initiation_client_data: { type: 'conversation_initiation_client_data', conversation_config_override: { agent: { language: languageCode } }, dynamic_variables: { language, language_code: languageCode, caller_name: callerName, representative_entity: representativeEntity, represented_subject: representedSubject, representative_role: representativeRole, representation_authority: representationAuthority, poa_speech_rule: poaSpeechRule, company: companyName, individual: individualName, contact: contactName, reason_for_call: reasonForCall, main_question: mainQuestion, desired_outcome: desiredOutcome, message_topic: messageTopic, owner_name: owner.name, owner_role: owner.role, owner_mention: owner.mention, owner_slack_member_id: owner.slack_member_id, poa_required: poaRequired, poa_validated: poaValid, poa_subject: subject, subject, call_url: call.url, call_id: call.id, call_public_id: callPublicId, live_help_request_id: 'not_started', live_help_slack_thread_ts: 'not_started', live_help_note_page_id: 'not_started', live_help_expires_at: '1970-01-01T00:00:00.000Z', live_help_status: 'not_requested', live_help_answer: 'not_answered', tax_reference_summary: taxReferenceSummaryText, latest_correspondence_summary: latestCorrespondenceText, correspondence_context_json: JSON.stringify(correspondenceContext), latest_correspondence_json: JSON.stringify(latestCorrespondence || {}), call_notes_summary: callNotesText, call_notes_context_json: JSON.stringify(callNoteSummaries), allowed_linked_record_categories: Array.from(allowedLinkedCategories).join(', '), relation_coverage_json: JSON.stringify(relatedContext.relation_coverage), company_context_json: JSON.stringify(companyFullJson), individual_context_json: JSON.stringify(individualFullJson), contact_context_json: JSON.stringify(contactFullJson), company_summary_json: JSON.stringify(companyContext), individual_summary_json: JSON.stringify(individualContext), contact_summary_json: JSON.stringify(contactContext), structured_context_json: structuredContextJson, linked_context_json: linkedContextJson, all_linked_records_json: allLinkedRecordsJson, context_pack: contextPackForVoice, past_call_notes: pastCallNotesForVoice } } } } }];`,
+return [{ json: { ...lock, ready: blockedReasons.length === 0, blocked_reason: blockedReasons.join(' '), blocked_status: blockedReasons.some((reason) => reason.includes('PoA') || reason.includes('not linked')) ? 'Rejected' : 'Reviewed', retry_count: lock.retry_count, to_number: phoneNumber, message_topic: messageTopic, owner_mention: owner.mention, owner_slack_member_id: owner.slack_member_id, owner_label: owner.name, known_ivr_contact: knownIvrContact, elevenlabs_outbound_call_provider: outboundCallProvider, elevenlabs_outbound_call_url: elevenlabsOutboundCallUrl, tax_reference_summary: taxReferenceSummaryText, latest_correspondence_summary: latestCorrespondenceText, correspondence_context_json: JSON.stringify(correspondenceContext), latest_correspondence_json: JSON.stringify(latestCorrespondence || {}), call_notes_summary: callNotesText, related_context_json: linkedContextJson, private_context_json: JSON.stringify(privateContext), context_pack_text: publicSafeBrief.slice(0, 1900), linked_records_raw_count: linkedRecords.length, linked_records_sent_count: subjectLinkedRecords.length, elevenlabs_body: { agent_id: '${RB_AGENT_ID}', agent_phone_number_id: agentPhoneNumberId || 'MISSING_ELEVENLABS_AGENT_PHONE_NUMBER_ID', to_number: phoneNumber || 'MISSING_CONTACT_PHONE', call_recording_enabled: false, conversation_initiation_client_data: { type: 'conversation_initiation_client_data', conversation_config_override: conversationConfigOverride, dynamic_variables: { language, language_code: languageCode, caller_name: callerName, representative_entity: representativeEntity, represented_subject: representedSubject, representative_role: representativeRole, representation_authority: representationAuthority, poa_speech_rule: poaSpeechRule, company: companyName, individual: individualName, contact: contactName, reason_for_call: reasonForCall, main_question: mainQuestion, desired_outcome: desiredOutcome, message_topic: messageTopic, owner_name: owner.name, owner_role: owner.role, owner_mention: owner.mention, owner_slack_member_id: owner.slack_member_id, poa_required: poaRequired, poa_validated: poaValid, poa_subject: subject, subject, call_url: call.url, call_id: call.id, call_public_id: callPublicId, live_help_request_id: 'not_started', live_help_slack_thread_ts: 'not_started', live_help_note_page_id: 'not_started', live_help_expires_at: '1970-01-01T00:00:00.000Z', live_help_status: 'not_requested', live_help_answer: 'not_answered', tax_reference_summary: taxReferenceSummaryText, latest_correspondence_summary: latestCorrespondenceText, correspondence_context_json: JSON.stringify(correspondenceContext), latest_correspondence_json: JSON.stringify(latestCorrespondence || {}), call_notes_summary: callNotesText, call_notes_context_json: JSON.stringify(callNoteSummaries), allowed_linked_record_categories: Array.from(allowedLinkedCategories).join(', '), relation_coverage_json: JSON.stringify(relatedContext.relation_coverage), company_context_json: JSON.stringify(companyFullJson), individual_context_json: JSON.stringify(individualFullJson), contact_context_json: JSON.stringify(contactFullJson), company_summary_json: JSON.stringify(companyContext), individual_summary_json: JSON.stringify(individualContext), contact_summary_json: JSON.stringify(contactContext), structured_context_json: structuredContextJson, linked_context_json: linkedContextJson, all_linked_records_json: allLinkedRecordsJson, context_pack: contextPackForVoice, past_call_notes: pastCallNotesForVoice } } } } }];`,
     },
     output: [{
       ready: true,
@@ -902,6 +917,8 @@ return [{ json: { ...lock, ready: blockedReasons.length === 0, blocked_reason: b
       blocked_reason: '',
       blocked_status: 'Reviewed',
       latest_correspondence_summary: 'Latest correspondence/background date: 2026-05-01',
+      elevenlabs_outbound_call_provider: 'sip_trunk',
+      elevenlabs_outbound_call_url: 'https://api.elevenlabs.io/v1/convai/sip-trunk/outbound-call',
       elevenlabs_body: { agent_id: RB_AGENT_ID, to_number: '+353000000000' },
     }],
   },
@@ -1058,6 +1075,8 @@ minimal.tax_registration_context_json = JSON.stringify(taxRegistrationContext);
 clientData.dynamic_variables = minimal;
 body.conversation_initiation_client_data = clientData;
 payload.elevenlabs_body = body;
+payload.elevenlabs_outbound_call_provider ||= 'sip_trunk';
+payload.elevenlabs_outbound_call_url ||= 'https://api.elevenlabs.io/v1/convai/sip-trunk/outbound-call';
 payload.context_pack_text = startupBrief.slice(0, 6000);
 payload.startup_context_policy = 'direct_subject_json_with_on_demand_notion_lookup';
 payload.startup_dynamic_variable_names = Object.keys(minimal).sort().join(', ');
@@ -1074,6 +1093,8 @@ return payload;`,
       blocked_reason: '',
       message_topic: 'Call execution',
       owner_mention: '<@U123>',
+      elevenlabs_outbound_call_provider: 'sip_trunk',
+      elevenlabs_outbound_call_url: 'https://api.elevenlabs.io/v1/convai/sip-trunk/outbound-call',
       elevenlabs_body: { agent_id: RB_AGENT_ID, to_number: '+353000000000' },
       startup_context_policy: 'direct_subject_json_with_on_demand_notion_lookup',
       startup_dynamic_variable_count: 46,
@@ -1104,9 +1125,10 @@ const makeOutboundCall = node({
     name: 'Make ElevenLabs Outbound Call',
     position: [5376, -400],
     credentials: { elevenLabsApi: newCredential('ElevenLabs account 2') },
+    onError: 'continueRegularOutput',
     parameters: {
       method: 'POST',
-      url: 'https://api.elevenlabs.io/v1/convai/twilio/outbound-call',
+      url: '={{ $("Limit Startup Context").item.json.elevenlabs_outbound_call_url || "https://api.elevenlabs.io/v1/convai/sip-trunk/outbound-call" }}',
       authentication: 'predefinedCredentialType',
       nodeCredentialType: 'elevenLabsApi',
       sendHeaders: true,
@@ -1114,7 +1136,7 @@ const makeOutboundCall = node({
       sendBody: true,
       specifyBody: 'json',
       jsonBody: '={{ $("Limit Startup Context").item.json.elevenlabs_body }}',
-      options: { response: { response: { fullResponse: true, neverError: true, responseFormat: 'json' } }, timeout: 30000 },
+      options: { response: { response: { fullResponse: true, neverError: true, responseFormat: 'json' } }, timeout: OUTBOUND_CALL_RESPONSE_TIMEOUT_MS },
     },
   },
 });
@@ -1137,11 +1159,14 @@ const statusCode = Number(response.statusCode || response.status || response.res
 const conversationId = firstString([body.conversation_id, body.conversationId, body.conversation?.id, body.data?.conversation_id, body.data?.conversationId]);
 const twilioCallSid = firstString([body.callSid, body.call_sid, body.twilio_call_sid, body.sip_call_id, body.sipCallId, body.data?.callSid, body.data?.call_sid]);
 const httpFailed = statusCode >= 400;
+const responseText = JSON.stringify(body || response || {});
+const nodeError = String(response.error?.message || response.message || body.message || body.error || '').trim();
 const successFlag = body.success === true || body.status === 'success' || body.ok === true;
 const returnedCallReference = Boolean(conversationId || twilioCallSid);
 const callStarted = !httpFailed && (successFlag || returnedCallReference);
-const errorSummary = callStarted ? '' : JSON.stringify({ statusCode: statusCode || 'unknown', body }).slice(0, 1900);
-return { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStarted ? 'Call Started' : 'Call Unanswered', elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: JSON.stringify(body).slice(0, 1900) };`,
+const errorSummary = callStarted ? '' : ('Outbound call API did not start a call. ' + JSON.stringify({ statusCode: statusCode || 'unknown', error: nodeError, body }).slice(0, 1800)).slice(0, 1900);
+const callStatus = callStarted ? 'Call Started' : 'Rejected';
+return { ...payload, elevenlabs_status_code: statusCode || '', elevenlabs_success: callStarted, call_status: callStatus, elevenlabs_conversation_id: conversationId, twilio_call_sid: twilioCallSid, voice_error: errorSummary, response_body_excerpt: responseText.slice(0, 1900) };`,
     },
   },
 });

@@ -1,4 +1,7 @@
 import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 
 export type GcloudAccessTokenCommand = "account" | "application-default";
 export type GcloudLoginCommand = "account" | "application-default";
@@ -8,6 +11,8 @@ export interface GcloudTokenRequest {
   serviceName: string;
   tokenCommand: GcloudAccessTokenCommand;
   loginCommand: GcloudLoginCommand;
+  accountEmail?: string;
+  gcloudConfigDir?: string;
   loginMode?: GcloudLoginMode;
   forceLogin?: boolean;
   enableDriveAccess?: boolean;
@@ -25,7 +30,7 @@ interface CommandResult {
 
 export class GcloudAuthManager {
   public getAccessToken(request: GcloudTokenRequest): string {
-    const loginMode = request.loginMode || "always";
+    const loginMode = request.loginMode || "never";
     if (loginMode === "always") {
       this.ensureLogin(request);
     }
@@ -50,7 +55,7 @@ export class GcloudAuthManager {
   public ensureLogin(request: GcloudTokenRequest): void {
     const args = this.loginArgs(request);
     process.stderr.write(`Ensuring ${request.serviceName} gcloud auth with: gcloud ${args.join(" ")}\n`);
-    const result = spawnSync("gcloud", args, { stdio: "inherit", env: this.gcloudEnv() });
+    const result = spawnSync("gcloud", args, { stdio: "inherit", env: this.gcloudEnv(request) });
     if (result.status !== 0) {
       throw new Error(
         `gcloud auth failed for ${request.serviceName}. The helper attempted:\n` +
@@ -67,7 +72,10 @@ export class GcloudAuthManager {
       request.tokenCommand === "application-default"
         ? ["auth", "application-default", "print-access-token"]
         : ["auth", "print-access-token"];
-    const result = spawnSync("gcloud", args, { encoding: "utf8", env: this.gcloudEnv() });
+    if (request.accountEmail && request.tokenCommand === "account") {
+      args.push(`--account=${request.accountEmail}`);
+    }
+    const result = spawnSync("gcloud", args, { encoding: "utf8", env: this.gcloudEnv(request) });
     return {
       ok: result.status === 0,
       stdout: result.stdout || "",
@@ -91,7 +99,11 @@ export class GcloudAuthManager {
       return args;
     }
 
-    const args = ["auth", "login", "--brief"];
+    const args = ["auth", "login"];
+    if (request.accountEmail) {
+      args.push(request.accountEmail);
+    }
+    args.push("--brief");
     if (request.enableDriveAccess) {
       args.push("--enable-gdrive-access");
     }
@@ -117,15 +129,39 @@ export class GcloudAuthManager {
     );
   }
 
-  private gcloudEnv(): NodeJS.ProcessEnv {
+  private gcloudEnv(request: GcloudTokenRequest): NodeJS.ProcessEnv {
     const env = { ...process.env };
+    const configDir = this.resolveGcloudConfigDir(request);
+    fs.mkdirSync(configDir, { recursive: true, mode: 0o700 });
+    env.CLOUDSDK_CONFIG = configDir;
     delete env.GOOGLE_APPLICATION_CREDENTIALS;
     delete env.CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE;
     return env;
   }
+
+  private resolveGcloudConfigDir(request: GcloudTokenRequest): string {
+    const explicit =
+      request.gcloudConfigDir ||
+      process.env.RB_GCLOUD_CONFIG_DIR ||
+      process.env.CODEX_GCLOUD_CONFIG_DIR ||
+      process.env.PERSONAL_GCLOUD_CONFIG_DIR ||
+      process.env.CLOUDSDK_CONFIG ||
+      path.join(os.homedir(), ".codex");
+    return this.resolveLocalPath(explicit);
+  }
+
+  private resolveLocalPath(input: string): string {
+    if (input === "~") {
+      return os.homedir();
+    }
+    if (input.startsWith("~/")) {
+      return path.join(os.homedir(), input.slice(2));
+    }
+    return path.resolve(input);
+  }
 }
 
-export function parseGcloudLoginMode(value: string, defaultValue: GcloudLoginMode = "always"): GcloudLoginMode {
+export function parseGcloudLoginMode(value: string, defaultValue: GcloudLoginMode = "never"): GcloudLoginMode {
   const normalized = value || defaultValue;
   if (normalized === "auto" || normalized === "always" || normalized === "never") {
     return normalized;

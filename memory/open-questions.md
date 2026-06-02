@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-13.
+Updated: 2026-05-27.
 
 ## Notion Backup Questions
 
@@ -59,7 +59,7 @@ Updated: 2026-05-13.
 - Confirm the authority liaison / POA process owner and current escalation process.
 - For Slack completion notifications, confirm the integration source for the triggering person: Slack user ID/channel/thread from the intake event, Notion requester-to-Slack mapping, or an operator-provided recipient when the trigger comes from Codex.
 - During the next live inbound triage, confirm the exact Business Partners, Contract, and Invoicing field names used for business-partner invoice routing.
-- Confirm Slack user mappings for assignee tags in one-message-per-triage Slack closeouts.
+- Confirm Slack user mappings for assignee tags in one-message-per-triage and common-tasks Slack closeouts. The 2026-05-27 Slack MCP attempt to resolve Ioana returned `401: Reauthentication required`, so Stage 12 must block rather than use bare responsible-person names until Slack IDs are available through MCP or a repo-approved mapping.
 
 ## Selin / CLV Personal Tax Questions
 
@@ -133,6 +133,41 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.
 - Confirm whether the Notion accounting-software email alias should be `accounts+amc` or `account+amc`.
 
+## NACV / Andrei Questions
+
+- Obtain Finanzamt response/notice for NACV 2024 and 2025 tax amounts and go-forward prepayment amounts.
+- Populate the NACV Tax Prepayments database once the amounts and dates are known.
+- Confirm Finanzamt response to the VAT deregistration appeal/reinstatement request; user says there is no response yet.
+- Request or confirm lower German VAT filing cadence after the VAT/compliance position is clear.
+- Confirm the additional information requested by Finanzamt for the filed NACV 2024/2025 company taxes and whether RB's response has been accepted.
+- Complete the split of misrouted 2024 personal-tax documents from Andrei's 2025 folder.
+- Confirm spouse-related evidence completeness for Andrei's joint returns.
+- Confirm billing mechanics for normal-fee treatment from Andrei's 2025 personal-tax filing onward.
+- Confirm Andrei's official personal/director address with him; user says it is not 100 percent clear.
+- Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
+- Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
+
+## AKS / Anastasia Questions
+
+- Resolve the exact WhatsApp JID for `Kova, Ana | Richmond Blackwood`; message search worked but `list_chats` failed with `Unexpected response type`.
+- File or confirm AKS Q4 2025 VAT; user says to assume VAT is not filed unless they say otherwise.
+- File or confirm AKS Q1 2026 VAT after the Q1 bookkeeping review; user says to assume VAT is not filed unless they say otherwise.
+- Confirm which Notion filing/task should represent 2025 company tax beyond the pending annual return.
+- Negotiate with Finanzamt ahead of the AKS payment-plan stop-date review, then confirm latest balance, 2025/future liabilities, and penalty status before telling Ana to stop paying.
+- Confirm whether Finanzamt accepts any penalty reduction or waiver after RB negotiates.
+- Confirm whether the ELSTER activation expiring 2026-05-28 was completed.
+- Confirm whether April 2025 payslip evidence is missing or stored outside the listed Drive payslip folder. January 2025 may not be expected because Ana may not have been employed then.
+
+## TPL / Techpacito Questions
+
+- Submit/answer the remaining international VAT / USt-IdNr. questions and obtain the USt-IdNr.; user confirmed the German tax number acts as local 2025 German tax/VAT registration. JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` is due 2026-05-29.
+- Confirm the outcome of the queued TPL ELSTER/VAT follow-up call and whether further forms or Finanzamt messages are needed.
+- Confirm whether/when Barden can work with German VAT so TPL can move away from the Richmond Blackwood contractor-on-record route; user assumes the USt-IdNr./international VAT number is needed first.
+- Confirm the canonical Drive client folder after creation/verification; user approved creating `19. Techpacito Limited (TPL)` in the current RB client-company format, but the requested `accounting@richmondblackwood.com` persona cannot access the `02. RB Client Companies` parent. Either share the parent with accounting or approve another write persona such as `ioana-eip`.
+- Confirm annual-return status in CORE if needed; user says it is registered and Notion read-back shows `Registered`, public CRO sources confirm CORE is the annual-return filing route, and direct CRO Open Services checking returned an API-credential error.
+- Confirm final electric-car invoice date, delivery date, financing route, and benefit-in-kind/payroll-hour treatment. Gmail shows a Mercedes-Benz VLE 300 electric order source; upload the order PDF to `Correspondance` once the canonical Drive folder exists.
+- Reconcile payroll worked hours against Lexware after Notion gross monthly values were updated to EUR 600 for Pradeep and Sangita.
+
 ## Nathan VAT And Personal Tax Questions
 
 - Confirm full-year 2025 bank-statement coverage for Nathan before finalising the 2025 personal tax analysis; the current workbook extract appears to show detailed rows through January-April 2025 only.
@@ -142,7 +177,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## Calling Bot Questions
 
-- Verify the user-configured ElevenLabs phone number, n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`, the selected n8n ElevenLabs credential on `Make ElevenLabs Outbound Call`, and the selected n8n ElevenLabs credential on `Get ElevenLabs Conversation` through a controlled post-fix retry; do not record the phone number or phone ID in git.
+- Verify the user-configured ElevenLabs phone number, n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`, and the selected n8n ElevenLabs credential on `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation` through a controlled post-fix retry; do not record the phone number or phone ID in git. The 2026-05-22 n8n MCP deploy path preserved the source-level credential names but skipped HTTP Request credential auto-assignment, so either reselect those credentials in the n8n UI or provide a local n8n REST API key for an explicit credential patch before approving `RBCALL-21` again.
 - Confirm ElevenLabs privacy/retention settings before live calls; the inspected agent currently records voice, retains indefinitely, and does not delete transcript/PII or audio.
 - Confirm the updated ElevenLabs live-help behavior in a synthetic call: agent-level dynamic-variable placeholders and the n8n outbound payload must include every required tool variable, `request_creator_help` should run once per issue, and `check_creator_help` should poll without duplicate Slack posts for up to five minutes.
 - Test the active n8n `RB Calls Slack Replies` PoA file-upload branch with a synthetic file before production reliance.

@@ -1,10 +1,21 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 import mime from "mime-types";
 import fetch from "node-fetch";
 
-import { GcloudAuthManager, GcloudLoginMode } from "../../rb-google-auth/scripts/gcloud_auth";
+import {
+  GcloudAccessTokenCommand,
+  GcloudAuthManager,
+  GcloudLoginCommand,
+  GcloudLoginMode,
+} from "../../rb-google-auth/scripts/gcloud_auth";
+import {
+  getPersonaOauthAccessToken,
+  hasPersonaOauthCredentials,
+  personaSlugForOAuth,
+} from "../../rb-google-auth/scripts/persona_oauth_vault";
 
 export const DEFAULT_FILE_FIELDS = "id,name,mimeType,webViewLink,parents";
 export const DEFAULT_UPLOAD_FIELDS = "id,name,mimeType,webViewLink,parents,size,md5Checksum";
@@ -48,10 +59,29 @@ export interface CopyFileOptions {
   fields?: string;
 }
 
+export type DriveAuthSource = "auto" | "vault" | "adc" | "account" | "gcloud" | "direct-adc";
+
 interface RequestOptions {
   method?: string;
   body?: Buffer | Record<string, unknown> | null;
   headers?: Record<string, string>;
+}
+
+export interface DriveAccessTokenProvider {
+  getAccessToken(forceLogin?: boolean): string | Promise<string>;
+}
+
+interface AdcCredentialFile {
+  type?: string;
+  client_id?: string;
+  client_secret?: string;
+  refresh_token?: string;
+}
+
+interface OAuthTokenResponse {
+  access_token?: string;
+  error?: string;
+  error_description?: string;
 }
 
 export class CliArguments {
@@ -94,25 +124,243 @@ export class CliArguments {
   }
 }
 
-export class GcloudAccessTokenProvider {
-  public constructor(private readonly loginMode: GcloudLoginMode = "always") {}
+export class DirectAdcAccessTokenProvider implements DriveAccessTokenProvider {
+  public constructor(private readonly adcFile = "") {}
+
+  public async getAccessToken(): Promise<string> {
+    const credentials = this.readCredentials();
+    const params = new URLSearchParams({
+      client_id: credentials.client_id || "",
+      client_secret: credentials.client_secret || "",
+      refresh_token: credentials.refresh_token || "",
+      grant_type: "refresh_token",
+    });
+    const response = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
+    });
+    const body = (await response.json()) as OAuthTokenResponse;
+    if (!response.ok || !body.access_token) {
+      const details = [body.error, body.error_description].filter(Boolean).join(": ") || response.statusText;
+      throw new Error(`Failed to refresh saved ADC credentials without gcloud: ${details}`);
+    }
+    return body.access_token;
+  }
+
+  private readCredentials(): AdcCredentialFile {
+    const credentialPath = this.resolveAdcFile();
+    const parsed = JSON.parse(fs.readFileSync(credentialPath, "utf8")) as AdcCredentialFile;
+    if (parsed.type !== "authorized_user" || !parsed.client_id || !parsed.client_secret || !parsed.refresh_token) {
+      throw new Error(`Unsupported or incomplete ADC credential file: ${credentialPath}`);
+    }
+    return parsed;
+  }
+
+  private resolveAdcFile(): string {
+    const credentialPath =
+      this.adcFile ||
+      path.join(process.env.CLOUDSDK_CONFIG || path.join(os.homedir(), ".config", "gcloud"), "application_default_credentials.json");
+    if (!fs.existsSync(credentialPath) || !fs.statSync(credentialPath).isFile()) {
+      throw new Error(`Saved ADC credential file is missing: ${credentialPath}`);
+    }
+    return credentialPath;
+  }
+}
+
+export class GcloudAccessTokenProvider implements DriveAccessTokenProvider {
+  public constructor(
+    private readonly loginMode: GcloudLoginMode = "never",
+    private readonly authSource: Exclude<DriveAuthSource, "auto" | "vault" | "direct-adc"> = "adc",
+    private readonly accountEmail = "",
+    private readonly gcloudConfigDir = "",
+  ) {}
 
   public getAccessToken(forceLogin = false): string {
-    return new GcloudAuthManager().getAccessToken({
+    if (forceLogin && this.loginMode === "never") {
+      throw new Error(
+        "Google Drive rejected the cached token, but --auth-login never forbids browser auth. " +
+          "Fix the saved gcloud/ADC execution path or explicitly approve a token refresh before retrying.",
+      );
+    }
+    if (this.authSource === "account" || this.authSource === "gcloud") {
+      return this.getAccountAccessToken(forceLogin);
+    }
+
+    try {
+      return this.getApplicationDefaultAccessToken(forceLogin);
+    } catch (error) {
+      if (!this.accountEmail) {
+        throw error;
+      }
+      const accountError = this.tryAccountAccessToken(forceLogin);
+      if (accountError.ok) {
+        return accountError.token;
+      }
+      throw new Error(
+        "Failed to get a saved Google Drive token from application-default credentials or the account-token fallback.\n\n" +
+          `Application-default error:\n${error instanceof Error ? error.message : String(error)}\n\n` +
+          `Account-token fallback error:\n${accountError.error}`,
+      );
+    }
+  }
+
+  private getApplicationDefaultAccessToken(forceLogin = false): string {
+    const effectiveForceLogin = forceLogin && this.loginMode !== "never";
+    return this.gcloudAccessToken({
       serviceName: "Google Drive",
-      tokenCommand: "account",
-      loginCommand: "account",
-      loginMode: forceLogin ? "always" : this.loginMode,
-      forceLogin,
-      enableDriveAccess: true,
+      tokenCommand: "application-default",
+      loginCommand: "application-default",
+      loginMode: effectiveForceLogin ? "always" : this.loginMode,
+      forceLogin: effectiveForceLogin,
+      gcloudConfigDir: this.gcloudConfigDir,
     });
   }
+
+  private getAccountAccessToken(forceLogin = false): string {
+    const effectiveForceLogin = forceLogin && this.loginMode !== "never";
+    return this.gcloudAccessToken({
+      serviceName: "Google Drive account-token fallback",
+      tokenCommand: "account",
+      loginCommand: "account",
+      accountEmail: this.accountEmail,
+      loginMode: effectiveForceLogin ? "always" : this.loginMode,
+      forceLogin: effectiveForceLogin,
+      enableDriveAccess: true,
+      gcloudConfigDir: this.gcloudConfigDir,
+    });
+  }
+
+  private gcloudAccessToken(request: {
+    serviceName: string;
+    tokenCommand: GcloudAccessTokenCommand;
+    loginCommand: GcloudLoginCommand;
+    accountEmail?: string;
+    loginMode: GcloudLoginMode;
+    forceLogin?: boolean;
+    enableDriveAccess?: boolean;
+    gcloudConfigDir?: string;
+  }): string {
+    return new GcloudAuthManager().getAccessToken(request);
+  }
+
+  private tryAccountAccessToken(forceLogin = false): { ok: true; token: string } | { ok: false; error: string } {
+    try {
+      return { ok: true, token: this.getAccountAccessToken(forceLogin) };
+    } catch (error) {
+      return { ok: false, error: error instanceof Error ? error.message : String(error) };
+    }
+  }
+}
+
+export class PersonaVaultDriveAccessTokenProvider implements DriveAccessTokenProvider {
+  public constructor(
+    private readonly personaSlug = "",
+    private readonly accountEmail = "",
+    private readonly gcloudConfigDir = "",
+  ) {}
+
+  public async getAccessToken(forceLogin = false): Promise<string> {
+    if (forceLogin) {
+      throw new Error(
+        "Google Drive rejected the persona OAuth vault token scope. Refresh-token reload does not add scopes; " +
+          "use a different saved persona connection or explicitly approve a new OAuth consent flow for that persona.",
+      );
+    }
+    return getPersonaOauthAccessToken({
+      serviceName: "Google Drive",
+      personaSlug: this.personaSlug,
+      accountEmail: this.accountEmail,
+      gcloudConfigDir: this.gcloudConfigDir,
+      updateStatus: true,
+    });
+  }
+}
+
+class FallbackDriveAccessTokenProvider implements DriveAccessTokenProvider {
+  public constructor(
+    private readonly primary: DriveAccessTokenProvider,
+    private readonly fallback: DriveAccessTokenProvider,
+    private readonly primaryLabel: string,
+    private readonly fallbackLabel: string,
+  ) {}
+
+  public async getAccessToken(forceLogin = false): Promise<string> {
+    if (forceLogin) {
+      return this.fallback.getAccessToken(false);
+    }
+    try {
+      return await this.primary.getAccessToken(false);
+    } catch (primaryError) {
+      try {
+        return await this.fallback.getAccessToken(false);
+      } catch (fallbackError) {
+        throw new Error(
+          `Failed to get a Google Drive token from ${this.primaryLabel} or ${this.fallbackLabel}.\n\n` +
+            `${this.primaryLabel} error:\n${primaryError instanceof Error ? primaryError.message : String(primaryError)}\n\n` +
+            `${this.fallbackLabel} error:\n${fallbackError instanceof Error ? fallbackError.message : String(fallbackError)}`,
+        );
+      }
+    }
+  }
+}
+
+export function createDriveAccessTokenProvider(options: {
+  authSource?: DriveAuthSource;
+  loginMode?: GcloudLoginMode;
+  adcFile?: string;
+  accountEmail?: string;
+  gcloudConfigDir?: string;
+  personaSlug?: string;
+}): DriveAccessTokenProvider {
+  const authSource = options.authSource || "auto";
+  if (authSource === "direct-adc") {
+    return new DirectAdcAccessTokenProvider(options.adcFile || "");
+  }
+
+  const resolvedPersonaSlug = personaSlugForOAuth(options.accountEmail || "", options.gcloudConfigDir || "", options.personaSlug || "");
+  if (authSource === "vault") {
+    return new PersonaVaultDriveAccessTokenProvider(resolvedPersonaSlug, options.accountEmail || "", options.gcloudConfigDir || "");
+  }
+
+  const gcloudSource: Exclude<DriveAuthSource, "auto" | "vault" | "direct-adc"> =
+    authSource === "account" || authSource === "gcloud" ? authSource : "adc";
+  const gcloudProvider = new GcloudAccessTokenProvider(
+    options.loginMode || "never",
+    gcloudSource,
+    options.accountEmail || "",
+    options.gcloudConfigDir || "",
+  );
+  if (authSource === "auto" && resolvedPersonaSlug && hasPersonaOauthCredentials(resolvedPersonaSlug)) {
+    return new FallbackDriveAccessTokenProvider(
+      new PersonaVaultDriveAccessTokenProvider(resolvedPersonaSlug, options.accountEmail || "", options.gcloudConfigDir || ""),
+      gcloudProvider,
+      `persona OAuth vault ${resolvedPersonaSlug}`,
+      "saved gcloud/ADC fallback",
+    );
+  }
+  return gcloudProvider;
+}
+
+export function parseDriveAuthSource(value: string, defaultValue: DriveAuthSource = "auto"): DriveAuthSource {
+  const normalized = value || defaultValue;
+  if (
+    normalized === "auto" ||
+    normalized === "vault" ||
+    normalized === "adc" ||
+    normalized === "account" ||
+    normalized === "gcloud" ||
+    normalized === "direct-adc"
+  ) {
+    return normalized;
+  }
+  throw new Error("--auth-source must be one of: auto, vault, adc, account, gcloud, direct-adc.");
 }
 
 export class DriveApiClient {
   public constructor(
     private token: string,
-    private readonly tokenProvider?: GcloudAccessTokenProvider,
+    private readonly tokenProvider?: DriveAccessTokenProvider,
   ) {}
 
   public async getFile(fileId: string, fields = DEFAULT_FILE_FIELDS): Promise<DriveFile> {
@@ -270,12 +518,12 @@ export class DriveApiClient {
     if (!response.ok) {
       if (response.status === 403 && responseBody.includes("ACCESS_TOKEN_SCOPE_INSUFFICIENT")) {
         if (this.tokenProvider && !didForceAuth) {
-          this.token = this.tokenProvider.getAccessToken(true);
+          this.token = await this.tokenProvider.getAccessToken(true);
           return this.requestJson<T>(url, options, true);
         }
         throw new Error(
-          "Google Drive rejected the token scope after helper-managed gcloud auth. Retry with the default " +
-            "`--auth-login always` mode so the helper runs `gcloud auth login --enable-gdrive-access`, then retry.\n\n" +
+          "Google Drive rejected the token scope after trying saved persona/global credentials. Retry with the exact " +
+            "persona/account and use interactive auth only after explicit approval for that auth action.\n\n" +
             `Drive API response:\n${responseBody}`,
         );
       }
@@ -309,7 +557,7 @@ export class DriveApiClient {
       const responseBody = await response.text();
       if (response.status === 403 && responseBody.includes("ACCESS_TOKEN_SCOPE_INSUFFICIENT")) {
         if (this.tokenProvider && !didForceAuth) {
-          this.token = this.tokenProvider.getAccessToken(true);
+          this.token = await this.tokenProvider.getAccessToken(true);
           return this.requestBuffer(url, options, true);
         }
       }

@@ -14,18 +14,22 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Prefer app connectors and MCP tools for app-native reads and writes.
 - Do not invent transcripts or communication context.
 - Keep reads narrow and purpose-bound.
+- For Gmail work, keep active human operator, source mailbox, and sending identity separate. `RB_CODEX_ACTOR` is a human name from `internal/people-roles.md`; `accounting@richmondblackwood.com` is a shared service mailbox and must not be treated as an actor.
 - Do not send messages automatically unless the user explicitly asks to send and the tool approval confirms recipient, content, and any attachment.
 - Draft outbound communications in chat with the user. Do not create app/software drafts for the user to manually hit send unless the user explicitly asks for that exception.
 - Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
+- For email, also show the exact source mailbox or mailboxes searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
-- After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the RB Communications database.
+- After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the canonical Communications database.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 - For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
 - The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
+- For operational closeouts, write the Slack body like a human team update rather than an automation trace. Omit background Gmail-label/source-marker/checkpoint/Codex mechanics. Hyperlink incoming items, pending replies, and blockers. When assigning action checks to people, resolve Slack user IDs and use `<@USERID>`; bare responsible-person names are allowed only after the operator explicitly approves a no-notification fallback for the exact person and message.
+- Manual Slack-post fallbacks must still use Slack-native named links (`<url|label>`) and resolved responsible-person mentions (`<@USERID>`). Do not ask the operator to post a degraded bare-URL or bare-name version.
 - Do not report that a Codex approval notification was sent unless the prompt tool call succeeds and returns a user-visible prompt.
 - If the native Codex approval prompt is unavailable and the operator has approved a popup fallback, use a local macOS approval dialog as the fallback. First show the exact Slack message as a rendered, clickable Codex preview. Then request sandbox permission only to run the local dialog command. The dialog itself must ask whether to send the exact Slack message shown in chat to the named Slack destination and must include Send and Do Not Send choices.
 - Treat the sandbox command-permission prompt only as permission to show the local dialog, never as approval to send Slack. Send Slack only if the local dialog command returns the explicit Send choice.
-- If neither a native Codex approval prompt nor an approved local approval-dialog fallback is available, stop and report that blocker instead of asking the user to type approval.
+- If neither a native Codex approval prompt nor an approved local approval-dialog fallback is available, stop and report that blocker instead of asking the user to type approval, unless a more specific workflow such as `rb-common-tasks-follow-through` explicitly permits typed approval of the exact rendered Slack text.
 - After approval, send the approved text directly in Slack; do not create a Slack draft as the default review step unless the user explicitly asks for a Slack draft.
 
 ## Direct Send Preview
@@ -33,6 +37,8 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 Before sending any communication, show:
 
 - Channel.
+- Operator when operator-specific context matters.
+- Source mailbox(es) for email.
 - From, including email address for email.
 - To or destination.
 - Cc/Bcc when relevant.
@@ -41,7 +47,7 @@ Before sending any communication, show:
 - Attachments or files.
 - Message body.
 
-For Slack previews, do not use a code block by default. Use normal Codex-rendered text with clickable named links so the operator can review destinations and records without copying URLs.
+For Slack previews, do not use a code block by default. Use normal Codex-rendered text with clickable named links and visible `<@USERID>` responsible-person mentions so the operator can review destinations, records, and tags without copying URLs.
 
 For Richmond Blackwood accounting/client email, default to:
 
@@ -55,12 +61,12 @@ If another sender is required, stop and confirm it before drafting.
 
 Canonical Notion database:
 
-- RB Communications: `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`
-- Data source: `collection://3b849ad0-96b7-4972-a1ac-1a0203300e7b`
+- Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807`
+- Data source: `collection://1b5e4130-1314-8183-afd8-000b6f4da982`
 
-Do not use the Everguard/research Communications table for Richmond Blackwood records.
+Do not create new Richmond Blackwood records in the old `RB Communications` database at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`; it is migration source only after the 2026-05-19 common-tasks redesign.
 
-After sending, create or update the RB Communications database record with:
+After sending, create or update the canonical Communications database record with:
 
 - Communication time.
 - Channel.
@@ -71,12 +77,13 @@ After sending, create or update the RB Communications database record with:
 - Summary.
 - Full content when safe and useful.
 - Source link, message ID, thread ID, or connector status when available.
-- Related company or individual when known. A communication record should be linked to either a company or an individual, not both.
+- Related company or individual when the communication is client-relevant. Leave company empty for internal, system, spam, or non-client-relevant communications.
 - Follow-up owner, action, deadline, and priority when needed.
+- Letter flag, letter source/originator, letter date, and document links when an email or message contains a letter.
 
-Use the company relation for company/client-operational communications. Use the individual relation for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency communications. If both seem relevant, choose the entity that owns the subject matter and keep a pointer in the other entity's repo file if needed.
+Use the company relation for company/client-operational communications. Use the individual relation for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency communications. A communication record should usually be linked to either a company or an individual, not both. If both seem relevant, choose the entity that owns the subject matter and keep a pointer in the other entity's repo file if needed.
 
-If the RB Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
+If the Communications database is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
 
 ## WhatsApp MCP Rules
 
@@ -138,12 +145,13 @@ Use saved checkpoints only for explicit manual runs. A checkpoint may authorize 
 
 When a communication creates work:
 
-- Create the follow-up as a row in the Notion Tasks database whenever Richmond Blackwood needs to take action.
+- Use the owning task-capable RB Client Databases row first whenever Richmond Blackwood needs to take action.
+- Create a central Notion Tasks row only for additional action work that cannot be represented by the operational row itself.
 - If a Richmond Blackwood team message says or implies that RB will do something, create or update a task for it. Examples include "we will do", "we will look", "we will check", "we will tell/update/send", "I will", and equivalent commitments, unless the surrounding context clearly shows the action is already complete or owned elsewhere.
-- Link the task to the relevant company project. In this repository, use the Richmond Blackwood project unless a more specific RB project is clearly required: `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`).
+- Link client tasks to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work. If the responsible Company has no readable linked client project, record a blocker instead of choosing an arbitrary project.
 - Use the Tasks database fields `Name`, `Status`, `Assigned To`, and `Project`; include due date, description, source communication, and relation fields when useful.
-- Assign the task to the right person from the user request, project owner/inherited owner, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.
-- Keep the RB Communications record as the audit log/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
+- Assign the task to the right person from the user request, existing row owner, owner of the project linked on the responsible Company record, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.
+- Keep the canonical Communications record as the audit log/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
 - Record the follow-up in `memory/tasks.md` only when it is repo/process work that also needs local tracking.
 - Record the follow-up in the relevant client file if it is client-specific and the client `Reference` is known.
 - Use the appropriate Notion database only when the destination is clear and existing.

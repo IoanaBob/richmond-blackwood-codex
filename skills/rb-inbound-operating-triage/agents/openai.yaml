@@ -1,4 +1,0 @@
-interface:
-  display_name: "Inbound Operating Triage"
-  short_description: "Process inbound signals and move active RB work forward."
-  default_prompt: "Use $rb-inbound-operating-triage to process configured inbound channels, match signals to active work, apply safe updates, and batch approval-required actions."

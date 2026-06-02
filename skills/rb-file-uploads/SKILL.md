@@ -21,11 +21,25 @@ Use this skill whenever a local or cloud file should be preserved for Richmond B
 5. If the file is already in Drive or Notion, attach that URL and verify the record.
 6. For generic local files when the connector lacks upload support:
    - Resolve or create the final folder through the Google Drive connector.
-   - Upload with `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"` only when connector upload is insufficient.
+   - Upload with `npm run drive:upload -- <local-file> <folder-id> --title "<filename>"` only when connector upload is insufficient. The helper uses shared global Codex persona auth and defaults to no-login mode.
    - Attach the returned `webViewLink` to Notion and verify by fetching the record.
-7. For native Google Docs that have already been edited through the connector, export/upload PDF with `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`.
-8. Update the relevant repo memory, source register, import log, tasks, and handoff.
+7. For Notion-native image/file handling:
+   - Default to MCP for inspecting the Notion page/record and confirming filenames or schema.
+   - Download existing Notion-hosted files through the REST API by re-fetching the page or block, using the refreshed temporary `file.url`, and saving outside git.
+   - Do not treat MCP `file://...attachment...` references as downloadable URLs.
+   - Upload local images/files to Notion only through the File Upload API or an approved connector path with a Notion API credential outside git.
+   - Prefer Drive-backed evidence for client documents unless the operational target explicitly requires a Notion file property, image block, icon, or cover.
+8. For native Google Docs that have already been edited through the connector, export/upload PDF with `npm run drive:export-google-doc-to-drive -- <google-doc-id> <folder-id> --pdf-title "<filename>.pdf"`.
+9. Update the relevant repo memory, source register, import log, tasks, and handoff.
 
 ## Boundaries
 
-Do not commit live credentials, private keys, certificate bundles, credential exports, or unsafe secret material. Store large raw documents in Drive when they do not need always-on Codex access.
+Do not commit live credentials, private keys, certificate bundles, credential exports, OAuth vault files, token responses, or unsafe secret material. Store large raw documents in Drive when they do not need always-on Codex access.
+
+Google helper auth options:
+
+- `--auth-source auto|vault|adc|account|gcloud|direct-adc`
+- `--auth-login auto|always|never` (defaults to `never`)
+- `--account-email <google-account>`
+- `--persona-slug <slug>`
+- `--gcloud-config-dir ~/.codex/google-personas/<slug>/gcloud`

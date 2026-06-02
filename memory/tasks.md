@@ -25,11 +25,17 @@ Imported: 2026-05-04.
 | Confirm whether RB should enable optional WhatsApp MCP for all operators or only this local Codex setup. | 2026-05-05 |
 | Confirm which WhatsApp account/number should be linked for RB work. | 2026-05-05 |
 | Finalise Nathan 2025 personal tax audit after the missing N26 October 2025 statement, invoice/receipt evidence, Revolut GBP FX review, prepayment amounts, and non-USDC investment cost-basis lots are supplied or confirmed in Drive. | 2026-05-06 |
+| Monitor AKS Finanzamt payment plan and confirm stop date before telling Ana to stop paying: `https://www.notion.so/365e4130131481eb8580f224d0be5adf`. | 2026-05-19 |
+| Negotiate AKS Finanzamt penalty reduction or waiver ahead of the stop-date review: `https://www.notion.so/365e413013148157b952c94c04d72d90`. | 2026-05-19 |
+| Request AKS/Anastasia 2025 tax and VAT information early because Ana replies slowly: `https://www.notion.so/365e41301314818fbf0fe2dc9edf3cba`. | 2026-05-19 |
 
 ## Done
 
 | Task | Created | Completed |
 | --- | --- | --- |
+| Fixed Hamburg Front Office Contact by linking Monday-Friday availability records, hardened RB authority-call setup so missing linked contact availability is a hard blocker, and increased n8n outbound-call startup timeout to 120 seconds. | 2026-05-26 | 2026-05-26 |
+| Added RB active human operator and mailbox routing rules separating `RB_CODEX_ACTOR`, Gmail source mailbox, and Gmail sender identity. | 2026-05-24 | 2026-05-24 |
+| Ported shared global Google persona/OAuth helper model from personal-codex into RB helpers and memory. | 2026-05-25 | 2026-05-25 |
 | Synced live n8n and ElevenLabs RB calling-bot configuration into source-controlled readback snapshots and added the repeatable `calls:sync-live-state` helper. | 2026-05-13 | 2026-05-13 |
 | Created RB Codex repository structure. | 2026-05-04 | 2026-05-04 |
 | Added durable storage rules. | 2026-05-04 | 2026-05-04 |
