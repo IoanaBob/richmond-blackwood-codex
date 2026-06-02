@@ -1,0 +1,7 @@
+interface:
+  display_name: "RB Expenses Submission"
+  short_description: "Submit RB expense evidence into Drive and Notion Expenses."
+  default_prompt: "Submit this expense through the Richmond Blackwood Expenses workflow."
+
+policy:
+  allow_implicit_invocation: true
