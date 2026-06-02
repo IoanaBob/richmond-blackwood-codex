@@ -7,6 +7,8 @@ Review: Annual VAT, payroll-tax returns, the holding Finanzamt message, and the 
 
 ## Source Packet
 
+Submitted authority-message context should point first to canonical Notion Communications records. Drive links below are raw evidence, submitted-copy, or source-packet pointers; they do not replace the Communications record for what was sent and why.
+
 | Source item | Local filename or live source | Working read |
 | --- | --- | --- |
 | KSt / E-Bilanz request | `SD79-26003 AGILE LINCS LIMITED 信件1.pdf` in the user Downloads folder; Drive `https://drive.google.com/file/d/1SOV13brJNpD_JLQwvn72WOS-4ybOOxv0/view?usp=drivesdk` | Finanzamt letter dated 2026-05-19 asks for the 2024 E-Bilanz Datensatz by 2026-06-02. |

@@ -13,6 +13,7 @@ Use this skill for German tax-authority packets where RB must decide what to fil
 - `rb-client-file` for company/individual routing.
 - `rb-file-uploads` for preserving source PDFs and proof in Drive.
 - `rb-communications` for any Finanzamt, accountant, client, Slack, or email text.
+- `rb-send-elster-message` for ELSTER authority messages, supporting-document uploads, objections/AdV, deadline extensions, payment-proof responses, and sent-message logging.
 - `rb-gmail-drafts` only when Gmail thread context or email sending is explicitly in scope.
 - `rb-google-auth` only when Google helper auth is needed.
 
@@ -110,9 +111,11 @@ Use this pattern when a Finanzamt asks for an `E-Bilanz` or `Datensatz` and the 
 
 8. Draft communications for review.
    - Prefer the specific ELSTER form or filing route when one exists. Use generic `Sonstige Nachricht` only when no more specific form fits.
+   - For any ELSTER message, supporting-document upload, formal objection/AdV, deadline extension, payment-proof response, or text-only authority communication, switch to `rb-send-elster-message` for route selection, attachment safety, final-send approval, and sent-message logging.
    - For each preview, state channel, operator, sender/representative, source records, subject/reference, attachments, and exact body.
    - Draft in chat and, when useful, in a client response-plan file. Do not create software drafts unless the user explicitly asks for that exception.
    - If asking for suspension, collection pause, extension, or objection, state the underlying source and what is still pending.
+   - Do not create client-specific message skills for one Finanzamt response. Store the actual generated letter/message in Notion Communications and the relevant client memory/source files, not in the skill text.
 
 9. Save the reusable record.
    - Add or update `clients/Companies/<Reference>/finanzamt-YYYY-MM-response-plan.md` when there is a multi-notice packet, significant authority risk, or drafted response.

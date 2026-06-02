@@ -33,6 +33,12 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
 - Do not write new RB communication logs to the old `RB Communications` database `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
+- Default to the Notion MCP connector for schema fetches, known page/data-source readbacks, ordinary connector-supported updates, and search-based candidate discovery.
+- Do not use MCP search as proof of a complete Stage 2 inventory. For authoritative all-row inventory, page data sources through the Notion REST API with an approved non-browser Notion API credential stored outside git.
+- For REST inventory, first run the plain request and save page 1. If page 1 has `has_more: false`, the query is complete. If `has_more: true`, continue with the exact same query URL, query parameters, filters, sorts, and `page_size`; add only `start_cursor` from the previous response until `has_more` is false.
+- Keep Notion pagination loops run-local under `/private/tmp` unless repeated production use proves a repo helper is needed. Do not add or retain repo-local Notion helper code just for a one-off query.
+- Use the Notion REST API for Notion-hosted file/image downloads and Notion-native file/image uploads. Do not treat MCP `file://...attachment...` references as downloadable URLs.
+- The tested Notion REST credential is `NOTION_ACCESS_TOKEN` in an ignored local env file. Do not put Notion API credentials in tracked files or packet output.
 - At Communication creation/update time, set `Relevance` to exactly one of `Ignore`, `Short Living`, or `Long Living`, and choose one primary client subject: `Company` or `Individual`, not both.
 - Do not use `Assigned To` as a substitute for the communication subject. Use `Assigned To` only for the internal owner of the Communication row itself; action ownership normally belongs on the linked task or operational row.
 - Treat every live data source under `RB Client Databases` as task-capable for inventory and closeout analysis, even if its field names differ.
@@ -51,8 +57,12 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Do not save German `W-IdNr` values. If a communication only provides a `W-IdNr` or asks RB to store it, treat that as a verified no-op unless there is a separate operational action; if action is needed, create the action without storing the number.
 - Do not use raw timestamp ranges as user-facing Slack copy. Use a human window label such as "yesterday's client follow-through" or "the May 18 corrective rerun" and keep exact timestamps inside packets.
 - Never describe an unsent Slack preview as "corrected"; use "corrected" only when replacing or superseding a Slack message that was actually sent.
+- Ioana-authored or Ioana-approved Slack templates are the final source of truth. Do not improvise section labels, message shape, or level of detail when such a template exists.
+- For client follow-through Slack closeouts, use the latest available Ioana-approved `#rb-client-updates` client follow-through template from Notion/canonical Communications unless the operator provides a newer exact template. Current known template shape uses a short first-person completion line followed by `New Correspondence`, `Received invoices`, and `Updated tasks`. Do not replace this with ad hoc sections such as `Completed/recorded`, `Owner updates`, or `Skipped per operator instruction`.
+- If the Ioana template cannot be located, cannot fit the run, or required template fields/links/mentions cannot be resolved, stop with a blocker packet and ask for the exact template or explicit approval of a degraded version. Do not post manually or through Slack MCP until the template issue is resolved.
 - Stage 12 Slack copy must read like a human operator update, not an automation trace. Do not include background source-marker mechanics, Codex/internal process actions, checkpoint details, or no-reply/no-action rows that do not matter to humans. Include only actionable or useful business context, with named Notion links.
-- When addressing people in Slack, resolve Slack user IDs and use `<@USERID>` mentions so assignees are notified. Do not use bare names for addressed action rows unless the Slack ID cannot be resolved; if unresolved, say so in the packet and avoid implying a notification will fire.
+- When addressing people in Slack, resolve Slack user IDs and use `<@USERID>` mentions so assignees are notified. Bare names are not acceptable for responsible-person routing in the final Stage 12 Slack payload. If a required Slack ID cannot be resolved through Slack MCP or a repo-approved mapping, Stage 12 is blocked unless the operator explicitly approves a named, no-notification fallback for that exact person and message.
+- Stage 12 manual-post fallbacks must provide Slack-ready raw text with Slack-native links (`<url|label>`) and resolved Slack mentions (`<@USERID>`), plus a rendered preview when useful. Do not give the operator a degraded manual message with bare URLs or bare responsible-person names.
 
 ## Company And Project Resolution
 
@@ -79,6 +89,8 @@ Set `Relevance` at the same time:
 - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
 - `Short Living`: transactional chats, referral/status/follow-up messages, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination that should not become durable company/individual documentation after closeout.
 - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
+
+Classify `Relevance` by what the Communication row itself represents, not merely by whether the topic sounds durable. A tax, legal, finance, filing, contract, or authority topic can still be `Short Living` when the Communication is only a coordination/status/reply wrapper and the durable state lives on a task, filing row, invoice/expense row, or later evidence-bearing record. Use `Long Living` only when the Communication is or is expected to become the durable evidence container, especially when original files, letters, contracts, notices, receipts, filings, or other source documents are attached or will be attached.
 
 Receipt confirmations without the durable receipt/evidence file are `Short Living`. The receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
 
@@ -238,13 +250,17 @@ Build one `#rb-client-updates` message after task closeout.
 
 Include communications handled, invoices/expenses/contracts updated, tasks closed, tasks advanced, owner action list, replies sent/snoozed, and blockers.
 
+Before drafting the message, locate and apply the Ioana-approved template for the relevant update type. For client follow-through, the current known template sections are `New Correspondence`, `Received invoices`, and `Updated tasks`; include blockers inline only where the template does. If a newer Ioana template exists, use that newer template exactly.
+
 The message must be a readable rendered preview, not a fenced Markdown block and not a raw internal packet. It must sound like it was written by the operator or another human team member.
 
 Slack preview requirements:
 
-- Hyperlink every item in `Incoming handled`.
-- Hyperlink every item in `Replies coming up`.
-- Hyperlink every blocker to the relevant task, Communication, invoice, or operational row.
+- Use the Ioana-approved section labels and ordering exactly.
+- Hyperlink every Communication, task, invoice, expense, filing, contract, blocker, or operational row reference with a named link. For a manual Slack payload, use Slack-native `<url|label>` links.
+- Tag every responsible person on an action/update line with a resolved Slack user mention (`<@USERID>`). Bare responsible-person names are a format failure, not a harmless style issue.
+- Include a mention-resolution table in the Stage 12 packet for every responsible person, showing the source used to resolve the Slack ID.
+- If any required link or responsible-person mention is missing, stop with a blocker packet before asking send approval.
 - Use Slack user IDs for addressed people, for example `<@U123>`, after resolving them through Slack search.
 - Address only actual people with concrete checks; do not address generic process labels such as "Codex/run" or "weekly workflow owner".
 - Do not include background source-marker/checkpoint/Gmail-label mechanics in the Slack body.
