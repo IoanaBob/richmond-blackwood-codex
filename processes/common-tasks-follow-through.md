@@ -95,7 +95,7 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 
 ## Communication Rules
 
-- Log every real communication in canonical Communications.
+- Log every real client/workflow communication in canonical Communications. Do not log individual-directed internal pings, quick questions, reminders, nudges, or coordination notes to Notion.
 - Spam/no-action communications are still logged and marked complete.
 - Set `Relevance` when the Communication is created or updated:
   - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.

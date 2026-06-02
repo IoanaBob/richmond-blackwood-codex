@@ -94,11 +94,25 @@ Consequence:
 - Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
 - Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
 - After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
-- After sending, Codex should store the sent communication in canonical Communications.
+- After sending, Codex should store formal client, workflow, or durable business communications in canonical Communications.
 - Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
 
 Source: user instruction on 2026-05-06.
 Review: approved as an operating rule by user instruction.
+
+## 2026-06-02 - Individual Messages Are Not Notion Logs
+
+Decision: Individual-directed internal messages must never be logged to Notion Communications.
+
+Consequence:
+
+- Do not create canonical Communications rows for one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, or coordination notes, even when the message mentions a client or matter.
+- If an individual-directed internal message needs follow-up, use the owning task-capable row or ask the user where to track it.
+- If Codex accidentally creates a Notion Communications row for an individual-directed internal message, remove it from the Communications database and invalidate any remaining standalone page that the connector cannot permanently delete.
+- Formal client, workflow, or durable business communications still use canonical Communications when they are real audit/source records.
+
+Source: user instruction in Codex chat on 2026-06-02 after the erroneous Alex/Sandeep Slack log.
+Review: approved by direct user correction; apply immediately to future outbound messaging.
 
 ## 2026-05-19 - Common Tasks Follow-Through Replaces Inbound Triage
 

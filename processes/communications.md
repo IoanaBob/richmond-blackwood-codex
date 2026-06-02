@@ -1,9 +1,9 @@
 # Communications
 
 Status: provisional.
-Source: neutral WhatsApp MCP and communication-routing decisions ported from local `everguard-research-codex`, adapted to RB storage rules.
+Source: neutral WhatsApp MCP and communication-routing decisions ported from local `everguard-research-codex`, adapted to RB storage rules; user instruction on 2026-06-02 that individual messages should never be logged to Notion.
 Imported: 2026-05-05.
-Review: confirm which WhatsApp account should be connected and which communication types should be mirrored to Notion.
+Review: confirm which WhatsApp account should be connected; individual-directed internal messages are excluded from Notion logging by user instruction.
 
 ## Purpose
 
@@ -20,7 +20,8 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - For email, also show the exact source mailbox or mailboxes searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
-- After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the canonical Communications database.
+- After user approval, send directly through the supported connector or MCP tool. Store only formal client, workflow, or durable business communications in the canonical Communications database.
+- Never log individual-directed internal messages to Notion. This includes one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, or coordination notes, even when the message mentions a client or matter. If such a message needs follow-up, use the owning task-capable row or ask the user where to track it.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 - For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
 - The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
@@ -66,7 +67,9 @@ Canonical Notion database:
 
 Do not create new Richmond Blackwood records in the old `RB Communications` database at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`; it is migration source only after the 2026-05-19 common-tasks redesign.
 
-After sending, create or update the canonical Communications database record with:
+Do not create a Notion Communications row for individual-directed internal messages. Examples include asking a named teammate a quick question in Slack, nudging one person for a status check, or sending a one-off internal coordination note. The Slack/WhatsApp/message-system link is enough unless the message is part of a formal approved workflow closeout or a durable client/source evidence container.
+
+For formal client, workflow, or durable business communications, create or update the canonical Communications database record with:
 
 - Communication time.
 - Channel.

@@ -884,3 +884,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
 - Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
 - Limitations or gaps: None known yet.
+
+## 2026-06-02 - Individual Message Notion Logging Correction
+
+- User request: Delete the erroneous Notion Communications log for the Slack message to Alex and update the skill and memory because individual messages should never be logged to Notion.
+- Context read: `skills/index.md`, `skills/rb-communications/SKILL.md`, `skills/rb-memory-capture/SKILL.md`, Slack outgoing-message rules, Notion connector tool surface, `processes/communications.md`, `processes/common-tasks-follow-through.md`, and durable memory files.
+- Actions taken: Invalidated the erroneous Notion page, attempted the connector trash flag, and moved it out of the canonical Communications database to a blank standalone page because the connector did not expose a permanent page-delete tool. Updated `AGENTS.md`, `rb-communications`, `rb-whatsapp-comms`, common-tasks Slack closeout guidance, communications process docs, current-state memory, decisions, and handoff so individual-directed internal messages are never logged to Notion.
+- Decisions made: One-off internal pings to a named teammate, quick questions, reminders, nudges, and coordination notes are not Communications rows, even when they mention a client or matter. Use the owning task-capable row or ask the user where to track follow-up when needed.
+- Verification: Notion fetch confirmed the erroneous page no longer has a Communications database parent and is blank. Repo verification runs are recorded in the final closeout for this branch.
+- Limitations or gaps: The Notion connector did not expose a permanent page-delete tool; the strongest available cleanup was removing the record from the Communications database and blanking/invalidating the remaining standalone page.

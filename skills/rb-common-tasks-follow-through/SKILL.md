@@ -274,7 +274,7 @@ Stop for explicit send approval.
 
 ### 13. Slack Send And Log Results
 
-Send only the approved exact Slack message. Log the sent Slack message into canonical Communications.
+Send only the approved exact Slack message. Log formal workflow closeouts into canonical Communications. Do not log ad hoc individual-directed internal Slack pings, quick questions, reminders, nudges, or coordination notes.
 
 Packet lists Slack URL, Communications log URL, failed sends, and skipped sends.
 
