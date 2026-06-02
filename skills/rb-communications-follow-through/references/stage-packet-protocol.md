@@ -94,15 +94,17 @@ Goal: choose Communications rows in scope.
 
 Default inclusion:
 
-- `Status` is not `Logged`;
+- `Status` is not a complete status;
 - the user supplied a specific row URL;
 - the row appears in a user-supplied Notion view/query scope.
 
 Default exclusion:
 
-- `Status` is `Logged`, even when `Due Date` is today or overdue.
-- A stale due date on a logged Communication is cleanup metadata, not follow-through selection.
-- If RB is waiting for a reply or follow-through, the Communication should be `In Progress`.
+- `Status` is `Done` or `Archived`, even when `Due Date` is today or overdue.
+- A stale due date on a complete Communication is cleanup metadata, not follow-through selection.
+- If RB is waiting for a reply or follow-through, the Communication should be `Follow-Up`.
+- If RB owes the next reply, the Communication should be `Needs Reply`.
+- If evidence, upload, translation, or source-link work is incomplete, the Communication should be `Drafting`.
 
 Use the canonical data source:
 
@@ -178,10 +180,10 @@ Packet columns:
 Queue requirements:
 
 - For complete-scope runs, write a full selected queue CSV before Stage 3 starts.
-- Also write a skipped CSV for `Logged` rows and a batch manifest.
+- Also write a skipped CSV for complete rows and a batch manifest.
 - Sort the selected queue by deadline first and urgency second:
   - `Due Date` ascending, with missing due dates last;
-  - `In Progress` before `Not started` before other non-`Logged` statuses;
+  - `Needs Reply`, then `Follow-Up`, then `Drafting`, then `Needs Triage`, then `Captured`, then other non-complete statuses;
   - `Long Living`, then `Short Living`, then `Ignore`;
   - `Sent/Received On`, `Created At`, and title as stable tie-breakers.
 - The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns.
@@ -253,7 +255,14 @@ Each row proposal must include:
 - linked task/operational-row updates;
 - reply/send decision;
 - owner and due date;
+- `Snooze Until` date for outgoing Communications and follow-ups;
 - verification expected after execution.
+
+Outgoing snooze rule:
+
+- For an outgoing Communication, propose `Snooze Until = Created At + 7 days` unless the row already has a more specific approved follow-up date.
+- For any sent follow-up, propose `Snooze Until = sent date + 7 days` by default unless the operator approves another follow-up interval.
+- Do not mark an outgoing Communication `Done` merely because it was sent when RB still needs to monitor for a reply; keep it `Follow-Up` with the snooze date.
 
 For replies, include the full outbound preview:
 
@@ -316,6 +325,7 @@ Required readbacks:
 
 - fetch every updated Communication row;
 - verify `Status`, `Relevance`, `Company`, `Individual`, `Tasks`, `Assigned To`, `Document(s)`, `Translated Doc(s)`, and `Notes` changes that were approved;
+- verify approved `Snooze Until` changes for outgoing Communications and sent follow-ups;
 - fetch every updated linked task or operational row;
 - verify sent email/Slack/WhatsApp IDs where the tool returns them;
 - confirm blockers still have an owner or next unblock action.

@@ -41,6 +41,7 @@ Use only current live fields in v1:
 - `Relevance`
 - `Sent/Received On`
 - `Due Date`
+- `Snooze Until`
 - `Company`
 - `Individual`
 - `Tasks`
@@ -50,6 +51,14 @@ Use only current live fields in v1:
 - `Notes`
 
 Do not change the Notion schema in this skill. If source URL, source message ID, reply status, letter metadata, or another useful field is missing, record it as a schema blocker in the packet. Use `Notes` as a temporary approved fallback only when needed for safe operation.
+
+Current Communications status values are:
+
+- To do: `Captured`
+- In progress: `Needs Triage`, `Drafting`, `Follow-Up`, `Needs Reply`
+- Complete: `Done`, `Archived`
+
+If the live schema changes, use the status options returned by the Stage 2 schema fetch and record the mapping in the packet before any write.
 
 Do not write new RB records to the old `RB Communications` database at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
 
@@ -76,27 +85,28 @@ For complete-scope follow-through runs, Stage 2 must materialize the selected ro
 
 Default follow-through selection:
 
-- Include `Status != Logged`.
-- Exclude `Status = Logged`, even when `Due Date` is today or overdue.
-- Treat `Due Date` as priority/sort metadata inside the non-`Logged` queue, not as a reason to reopen logged Communications.
-- If RB is waiting for a reply or follow-through, the Communication should remain `In Progress`.
-- Reopen or inspect `Logged` rows only when the operator explicitly asks for logged-row cleanup or supplies specific row URLs.
+- Include rows whose `Status` is not a complete status.
+- Exclude `Status = Done` and `Status = Archived`, even when `Due Date` is today or overdue.
+- Treat `Due Date` as priority/sort metadata inside the open queue, not as a reason to reopen complete Communications.
+- If RB is waiting for a reply or follow-through, the Communication should remain `Follow-Up`.
+- Use `Needs Reply` when RB owes a reply, `Drafting` while evidence/translation/file handling is incomplete, and `Needs Triage` only while ownership/routing is unresolved.
+- Reopen or inspect complete rows only when the operator explicitly asks for complete-row cleanup or supplies specific row URLs.
 
 Write:
 
 - a full selected queue CSV with one physical line per Communication row;
-- a skipped CSV for `Logged` rows;
+- a skipped CSV for complete rows;
 - a manifest with selected count, skipped count, batch size, batch count, and per-batch file paths;
 - batch CSVs that are contiguous slices of the selected queue.
 
 Sort the selected queue before slicing batches:
 
 1. deadline: `Due Date` ascending, missing due dates last;
-2. urgency: `In Progress` before `Not started` before other non-`Logged` statuses;
+2. urgency: `Needs Reply`, then `Follow-Up`, then `Drafting`, then `Needs Triage`, then `Captured`, then other non-complete statuses;
 3. relevance: `Long Living`, then `Short Living`, then `Ignore`;
 4. stable tie-breakers: `Sent/Received On`, `Created At`, then title.
 
-Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns. Do not create ad hoc Stage 3 batches by urgency, due date, owner, or `In Progress` status unless the packet labels that pass as diagnostic or priority-only and does not use it as the queue batch number.
+Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns. Do not create ad hoc Stage 3 batches by urgency, due date, owner, or status unless the packet labels that pass as diagnostic or priority-only and does not use it as the queue batch number.
 
 ## Core Rules
 
@@ -108,9 +118,10 @@ Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_p
 - Use `Company` for company operations and durable company evidence. Use `Individual` for personal tax, insurance, individual evidence, or individual-specific authority/client matters. Leave both empty for internal, system, spam, no-scope, or non-client-relevant logs.
 - Use `Assigned To` only when the Communication row itself has an internal owner. Action ownership normally belongs on the linked task or operational row.
 - Set `Relevance` when creating or updating the row: `Ignore`, `Short Living`, or `Long Living`.
-- Set `Status` to `Logged` only when the communication logging work is complete. For document communications, this means original evidence is attached in `Document(s)`, required translation output is attached in `Translated Doc(s)`, and `Notes` contains a useful summary.
-- Keep `Status` as `In Progress` when routing, evidence, translation, reply, or source-link capture is not complete.
-- Keep `Status` as `In Progress` when RB is waiting for a reply or follow-through. Do not treat a stale due date on a `Logged` row as open follow-through without explicit operator approval.
+- Set `Status` to `Done` only when the communication logging work is complete. For document communications, this means original evidence is attached in `Document(s)`, required translation output is attached in `Translated Doc(s)`, and `Notes` contains a useful summary.
+- Keep `Status` as `Drafting` when routing, evidence, translation, reply, or source-link capture is not complete.
+- Keep `Status` as `Follow-Up` when RB is waiting for a reply or follow-through. Use `Needs Reply` when RB owes the next reply. Do not treat a stale due date on a complete row as open follow-through without explicit operator approval.
+- For outgoing Communications, set `Snooze Until` to one week after the row `Created At` date unless a more specific follow-up date is approved. After any follow-up is sent, reset `Snooze Until` to one week after the follow-up send date by default. This keeps sent items visible for reply monitoring without treating them as complete.
 - Do not save credentials, tokens, live SignNow action links, raw WhatsApp transcripts, raw private email bodies, ELSTER certificates, bank secrets, or unsafe sensitive data in git or Notion notes.
 
 ## Stage Flow
