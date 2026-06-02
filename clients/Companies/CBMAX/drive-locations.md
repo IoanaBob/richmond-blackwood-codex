@@ -47,6 +47,18 @@ Selected files/sheets:
 | CBMAX FY24 SFS Final.xlsx | `https://docs.google.com/spreadsheets/d/1ucEjFxWgxITN-jaFdn75bxYbeGGhY4lG/edit?usp=drivesdk&ouid=117807479741277327905&rtpof=true&sd=true` |
 | CBMAX Forgemate Ventures - incarico - signed.pdf | `https://drive.google.com/file/d/173c4OD6K2XXEQPxuPGnghPwb96QQ7Up2/view?usp=drivesdk` |
 
+## Hamburg Annual VAT Return Evidence
+
+Status: provisional.
+Source: local ELSTER PDFs from `/Users/jp/Downloads/` uploaded to Drive with `jp-richmond-blackwood` persona on 2026-06-02; Drive read-back verified file IDs, names, MIME type, parent folders, and created times.
+Imported: 2026-06-02.
+Review: Evidence is linked from Notion filing row `https://www.notion.so/36fe413013148074906dff68162e653b`; the row's existing Notion `Submission` property attachments for Hamburg nil corporation/trade filings were preserved.
+
+| Evidence | Drive URL | Folder | Size | SHA-256 | Drive MD5 |
+| --- | --- | --- | --- | --- | --- |
+| `CBMAX Hamburg 2024 VAT return.pdf` | `https://drive.google.com/file/d/1HZFYLijGZ7xM6cHDf5d5oMBPZqZKDBXo/view?usp=drivesdk` | `2024` | 207,959 bytes | `61247a0bb944703b76d2a6dc3f2fdbebb4dd57ef9147f3cf767de05baef45b00` | `d1df21c9584191943e865fbd656af0c4` |
+| `CBMAX Hamburg 2025 VAT return.pdf` | `https://drive.google.com/file/d/17laVIdkPu0eIWZc2ZghCWNG-bGo7gaOg/view?usp=drivesdk` | `2025` | 205,826 bytes | `4f3039312efbeb04af23e4bca9bb194f71e76fca43c7e3fe544417f0e723c5cd` | `6e1b254144df346e6ae1df4b211938ba` |
+
 ## Correspondence Folder
 
 Correspondence root:
