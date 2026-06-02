@@ -76,6 +76,14 @@ Record enough detail to reconstruct the business action without dumping unnecess
 - Communication time.
 - Channel.
 - Direction.
+- Status, using the current Communications status values:
+  - `Captured`: newly captured item that still needs classification.
+  - `Drafting`: outbound communication being drafted but not sent.
+  - `Needs Triage`: routing, evidence, translation, description, or ownership is incomplete.
+  - `Needs Reply`: a reply is required and not yet sent or explicitly snoozed.
+  - `Follow-Up`: the Communication row itself is the active follow-up item.
+  - `Done`: communication logging is complete, even if a linked task or operational row remains open.
+  - `Archived`: historical, duplicate, superseded, or inactive record retained for audit.
 - From.
 - To / participants.
 - Subject or short title.
