@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-13.
+Updated: 2026-05-27.
 
 ## Notion Backup Questions
 
@@ -59,7 +59,7 @@ Updated: 2026-05-13.
 - Confirm the authority liaison / POA process owner and current escalation process.
 - For Slack completion notifications, confirm the integration source for the triggering person: Slack user ID/channel/thread from the intake event, Notion requester-to-Slack mapping, or an operator-provided recipient when the trigger comes from Codex.
 - During the next live inbound triage, confirm the exact Business Partners, Contract, and Invoicing field names used for business-partner invoice routing.
-- Confirm Slack user mappings for assignee tags in one-message-per-triage Slack closeouts.
+- Confirm Slack user mappings for assignee tags in one-message-per-triage and common-tasks Slack closeouts. The 2026-05-27 Slack MCP attempt to resolve Ioana returned `401: Reauthentication required`, so Stage 12 must block rather than use bare responsible-person names until Slack IDs are available through MCP or a repo-approved mapping.
 
 ## Selin / CLV Personal Tax Questions
 
@@ -157,6 +157,16 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm whether Finanzamt accepts any penalty reduction or waiver after RB negotiates.
 - Confirm whether the ELSTER activation expiring 2026-05-28 was completed.
 - Confirm whether April 2025 payslip evidence is missing or stored outside the listed Drive payslip folder. January 2025 may not be expected because Ana may not have been employed then.
+
+## TPL / Techpacito Questions
+
+- Submit/answer the remaining international VAT / USt-IdNr. questions and obtain the USt-IdNr.; user confirmed the German tax number acts as local 2025 German tax/VAT registration. JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` is due 2026-05-29.
+- Confirm the outcome of the queued TPL ELSTER/VAT follow-up call and whether further forms or Finanzamt messages are needed.
+- Confirm whether/when Barden can work with German VAT so TPL can move away from the Richmond Blackwood contractor-on-record route; user assumes the USt-IdNr./international VAT number is needed first.
+- Confirm the canonical Drive client folder after creation/verification; user approved creating `19. Techpacito Limited (TPL)` in the current RB client-company format, but the requested `accounting@richmondblackwood.com` persona cannot access the `02. RB Client Companies` parent. Either share the parent with accounting or approve another write persona such as `ioana-eip`.
+- Confirm annual-return status in CORE if needed; user says it is registered and Notion read-back shows `Registered`, public CRO sources confirm CORE is the annual-return filing route, and direct CRO Open Services checking returned an API-credential error.
+- Confirm final electric-car invoice date, delivery date, financing route, and benefit-in-kind/payroll-hour treatment. Gmail shows a Mercedes-Benz VLE 300 electric order source; upload the order PDF to `Correspondance` once the canonical Drive folder exists.
+- Reconcile payroll worked hours against Lexware after Notion gross monthly values were updated to EUR 600 for Pradeep and Sangita.
 
 ## Nathan VAT And Personal Tax Questions
 

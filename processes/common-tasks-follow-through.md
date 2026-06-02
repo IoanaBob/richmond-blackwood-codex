@@ -153,11 +153,17 @@ Slack closeout is prepared only after task closeout analysis and approved task/r
 
 Slack closeout text must be a rendered, readable preview with named links and `None` for empty human-facing sections. Keep exact timestamps in packets; use human window wording in Slack. Do not call an unsent preview "corrected". Request explicit send approval for the exact Slack text before sending.
 
+Manual-post fallbacks must still be final-quality Slack payloads. Use Slack-native named links (`<url|label>`) and resolved Slack user mentions (`<@USERID>`) in the copy supplied to the operator. Do not provide bare URLs or bare responsible-person names as a workaround for connector failure.
+
 Slack closeout quality rules:
 
+- Ioana-authored or Ioana-approved Slack templates are the source of truth and override improvised formatting. For client follow-through, use the latest available Ioana-approved `#rb-client-updates` client follow-through template from Notion/canonical Communications unless the operator provides a newer exact template.
+- The current known client follow-through template shape is a short first-person completion line followed by `New Correspondence`, `Received invoices`, and `Updated tasks`. Do not substitute ad hoc sections such as `Completed/recorded`, `Owner updates`, or `Skipped per operator instruction`.
+- If the template cannot be located, cannot fit the run, or required links/mentions cannot be resolved, stop and ask for the exact template or explicit approval of a degraded version before posting.
 - Write like the operator or a human team member, not like an automation report.
 - Do not include background Gmail label, source-marker, checkpoint, packet, or Codex-process mechanics in the Slack body.
-- Hyperlink all items in `Incoming handled`, `Replies coming up`, and `Blocked`.
-- Address concrete checks to actual people with resolved Slack IDs, not bare names. If a Slack ID cannot be resolved, do not imply the person will be notified.
+- Hyperlink every Communication, task, invoice, expense, filing, contract, blocker, or operational row reference with a named link; manual Slack payloads must use Slack-native `<url|label>` links.
+- Address every responsible-person action/update line to actual people with resolved Slack IDs, not bare names. If a Slack ID cannot be resolved through Slack MCP or a repo-approved mapping, Stage 12 is blocked unless the operator explicitly approves a named, no-notification fallback for that exact person and message.
+- Include a Stage 12 mention/link checklist before send approval: Ioana template used, all row references named-linked, every responsible person tagged, mention-resolution table included, no bare responsible-person names, and no source-marker/checkpoint mechanics in the Slack body.
 - Do not address generic owners such as `Codex/run` or `workflow owner`; either assign to a resolved person or keep the item in packet memory.
 - Do not list no-reply/no-action items under replies. Only list replies that are actually coming up or were sent.

@@ -849,14 +849,56 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: `npm run typecheck`, Gmail/Drive/Google-auth helper `--help` smoke checks, `git diff --check`, old personal actor/common-memory leakage scan, current auth-language scan, and intended RB contract search passed.
 - Limitations or gaps: RB-specific persona credentials were not live-verified by this documentation/code port; the helper registry marks some account emails provisional.
 
+## 2026-05-25 - TPL Rebase And Accounting Persona Follow-Up
+
+- User request: Rebase the TPL branch from master/main, use the accounting Richmond Blackwood persona, and finish the missing TPL follow-up work.
+- Context read: rebased main/shared Google auth docs, TPL repo files, saved Google persona store, Google Drive parent-folder checks, Gmail Mercedes-Benz source, Notion Tasks, and public CRO/CORE sources.
+- Actions taken: Rebasing `codex/tpl-context` onto `origin/main` succeeded, and TPL memory conflicts were resolved by preserving main's shared Google persona context and reapplying TPL entries. Verified that the saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com`. Created/read back JP-owned Notion task `https://www.notion.so/36be413013148127893fcb3fc99958c8` for the remaining USt-IdNr./international VAT questions. Downloaded the Mercedes-Benz order PDF to temporary local storage for verification, but left upload blocked until the canonical `Correspondance` folder exists. Removed Everguard operational/payment detail from RB client memory per user correction.
+- Decisions made: Do not create the canonical TPL Drive folder in the wrong Drive location. The approved target remains `02. RB Client Companies/19. Techpacito Limited (TPL)` with subfolders `2025`, `Correspondance`, `Filings`, and `Secretarial`.
+- Verification: Google API userinfo confirmed the accounting persona email; Drive API with accounting returned `File not found` for the target parent folder, while `ioana-eip` could read the parent. Notion read-back confirmed the JP task assignment/project/due date/comment. Gmail API download verified the Mercedes-Benz PDF size and SHA-256 in temporary storage. Public CRO sources confirm CORE is the annual-return filing route and TECHPACITO LIMITED / company number 786441 registration on 2025-04-16; direct CRO Open Services annual-return checking returned an API-credential error.
+- Limitations or gaps: Canonical Drive folder creation and Mercedes-Benz PDF upload remain blocked until `accounting@richmondblackwood.com` is granted access to the `02. RB Client Companies` parent or the user approves `ioana-eip` as the write persona for this folder.
+
+## 2026-05-26 - RB Accounting And JP Persona Login
+
+- User request: Pull latest main and set up local Google persona auth for `accounting-richmond-blackwood` and `jp-richmond-blackwood`, following the Notion Google Persona Auth Migration Guide and using the provided Richmond Blackwood OAuth client file.
+- Context read: Notion guide `https://www.notion.so/36be4130131481289808d08faf17d8f6`, repo `rb-google-auth` skill, Google auth/persona memory, setup notes, and the OAuth client file structure without printing secrets.
+- Actions taken: Pulled `origin/main`, created branch `codex/setup-google-personas`, installed the repo's locked Node dependencies, copied the Richmond Blackwood OAuth client JSON into global Codex storage outside git with private permissions, updated helper persona slugs and sender routing, and completed browser OAuth reconnects for both requested personas.
+- Decisions made: The requested slugs are now canonical for RB accounting and JP. Legacy helper aliases `rb-accounting` and `johnpaul-richmond-blackwood` remain supported so older commands still resolve to the new vault locations.
+- Verification: `npm run typecheck` passed. `google-auth:verify-oauth-vault` passed for both requested personas with refresh, identity, Gmail, Drive, and Calendar checks ok. Gmail sender verify-only checks passed for `accounting@richmondblackwood.com` and `johnpaul.okolie@richmondblackwood.com`, with no drafts created.
+- Limitations or gaps: Full `google-auth:verify-personas` remains false because unrelated configured Eran personas and private MCP storage are still missing. Johnpaul's email remains provisional in `internal/people-roles.md` until approved as a sender.
+
+## 2026-05-26 - Hamburg Contact Availability Hard Gate
+
+- User request: Fix the Hamburg contact with no linked availability and make the repository remember that availability is mandatory.
+- Context read: Notion Front Office Contacts and Contact Availabilities schemas, Hamburg contact `https://www.notion.so/2efe4130131480bb94bac672c2ae5c07`, official Hamburg.de Finanzamt Hamburg-Nord page, `rb-authority-call-setup`, and durable memory files.
+- Actions taken: Created five Contact Availabilities records for Finanzamt Hamburg-Nord Monday-Friday phone support and linked them to the Hamburg contact. Updated the contact page body with the official phone schedule and source metadata. Hardened `rb-authority-call-setup` and durable memory so missing linked contact availability is a hard blocker before Calls submission, review, approval, or live-callable status. Also increased `RB Calls Voice Execution`'s ElevenLabs outbound HTTP response timeout from 30 seconds to 120 seconds, fixed the local n8n deploy/readback helpers to read nested `[mcp_servers.n8n.http_headers]` auth config, published the workflow, and synced live readbacks.
+- Decisions made: Page-body schedule text is not enough for the calling bot. The Front Office Contact must have linked `Availabilities` relation records, and Codex should stop setup until that relation is fixed and fetched back.
+- Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
+- Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
+
+## 2026-06-01 - Browser API/MCP Rejection Rule
+
+- User request: Make a general rule rejecting browser use for anything that might be reachable through an API or MCP route; check feasibility within the current plan, ask when unsure, and ask the responsible team member for API keys when access is possible but credentials are missing.
+- Context read: `AGENTS.md`, `processes/index.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, and recent process/source/memory logs.
+- Actions taken: Added the rule to the global Helper And Connector Boundary in `AGENTS.md` and mirrored it in `processes/repo-operation.md`. Recorded the process update in `sources/import-log.md`, `memory/skill-runs.md`, `memory/current-state.md`, and `memory/handoff.md`.
+- Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
+- Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
+- Limitations or gaps: None known yet.
+
 ## 2026-05-25 - AGL Board Minutes Signed Evidence
 
 - User request: Upload the signed copy of AGL's Q1 2026 board minutes, update memory/skillset, and restate the repeatable process.
-- Context read: AGL 25.05.2026 Board Meeting Drive folder, the editable final minutes Google Doc, the signed local PDF `AGL MINUTE BOD Q1 26.pdf`, and the BOD document workflow.
-- Actions taken: Refreshed Google Drive auth with user approval, uploaded the signed PDF to the AGL `25.05.2026` Board Meeting folder, verified the folder listing, added the `rb-client-board-docs` repo-local skill, and recorded Drive/source pointers in the AGL company files and memory.
-- Decisions made: Signed board minutes should be uploaded to the same dated board folder as the agenda and editable minutes, then verified by a folder listing before closeout.
-- Verification: Drive listing verified the folder contains `25/05/2026 BOD Agenda`, `25/05/2026 BOD Minute final`, and `25/05/2026 BOD Minute - signed.pdf`; signed PDF URL is `https://drive.google.com/file/d/1g5me-4hNR6rgJr3b4LoGc3DjrMXRDpzu/view?usp=drivesdk`.
-- Limitations or gaps: None for the signed PDF upload; future local helper use depends on Google auth being current.
-- Follow-up clarification: User clarified that Codex should create the dated Board Meetings subfolder itself next time when asked to organise a BOD meeting; today's AGL folder was user-created. The `rb-client-board-docs` skill was updated accordingly.
-- Follow-up clarification: User clarified that future BOD organisation must confirm the meeting schedule from Calendar or the agenda, create a follow-up for one hour after the scheduled end, check Notion for the transcript, draft minutes automatically if found, and message Ioana plus the requesting user for the transcript if it is missing at that point.
-- Follow-up clarification: User clarified that draft minutes must be sent to the user for review before execution. Only after the user confirms the minutes are okay should Codex ship the final copy to the confirmed director(s) for signature, then upload the signed PDF to the same Drive meeting folder after return.
+- Context read: AGL 25.05.2026 Board Meeting Drive folder, editable final minutes Google Doc, signed local PDF `AGL MINUTE BOD Q1 26.pdf`, and board-document workflow requirements.
+- Actions taken: Uploaded the signed PDF to the AGL `25.05.2026` Board Meeting folder, verified the folder listing, added `rb-client-board-docs`, and recorded AGL board evidence pointers in client files and memory.
+- Decisions made: Signed board minutes should be stored in the same dated board folder as agenda/editable minutes, then verified by Drive listing before closeout.
+- Verification: Drive listing verified `25/05/2026 BOD Agenda`, `25/05/2026 BOD Minute final`, and `25/05/2026 BOD Minute - signed.pdf`; signed PDF URL is `https://drive.google.com/file/d/1g5me-4hNR6rgJr3b4LoGc3DjrMXRDpzu/view?usp=drivesdk`.
+- Limitations or gaps: Future live runs should validate the board-doc workflow on another client and keep Drive/auth tooling under review.
+
+## 2026-06-02 - PR #47 Board Docs Packet Refactor
+
+- User request: Resolve Ioana's PR #47 requested changes for `rb-client-board-docs`.
+- Context read: PR #47 review request, existing `rb-client-board-docs`, AGL board evidence records, `skills/index.md`, source ledgers, and skill-creator guidance.
+- Actions taken: Rewrote `rb-client-board-docs` into a packet-gated workflow and added seven external packet templates for setup, setup results, minutes review, signature execution, signature results, signed-copy intake/storage, and final storage/closeout.
+- Decisions made: Board meeting setup must gather destination, Calendar, agenda, board-pack, and follow-up context before live work. Missing/incomplete Calendar state should produce proposed Calendar create/update fields rather than default chairperson outreach. Signature execution and signed-copy filing are separate stages, and the signed-copy storage stage starts only after a signed file exists.
+- Verification: `git diff --check`, `git diff --cached --check`, `npm run typecheck`, and scaffold-TODO scan passed. `quick_validate.py` was blocked by missing PyYAML in the local Python runtime.
+- Limitations or gaps: No live Drive, Calendar, Notion, or signature writes were performed by this review-fix step.

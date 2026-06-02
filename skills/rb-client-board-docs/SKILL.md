@@ -1,6 +1,6 @@
 ---
 name: rb-client-board-docs
-description: Prepare Richmond Blackwood client board-of-directors documents and evidence packs. Use when a user asks for a client BOD/board meeting folder, agenda, minutes, board pack, Word/PDF minutes, director signature copy, signed minutes upload, or repeatable client board-document workflow in Google Drive.
+description: Prepare Richmond Blackwood client board-of-directors folders, agendas, minutes, signature packets, signed-copy storage, and evidence closeout through packet-gated Drive/Calendar/Notion workflows. Use when a user asks for a client BOD or board meeting setup, agenda, minutes, board pack, signing copy, signed minutes upload, or repeatable client board-document workflow.
 ---
 
 # RB Client Board Docs
@@ -10,86 +10,59 @@ Source: Codex BOD document runs for AGL and Drive patterns for AGL/CBMAX.
 Imported: 2026-05-25.
 Review: Keep live Drive and Notion behavior under review as connector upload/move tools change.
 
-Use this for client board-document work before and after a board meeting.
+Use this for client board-document work before, during, and after a board meeting. The workflow is packet-gated: prepare the relevant packet, get approval when the packet proposes a live write/send, execute only the approved payload, then produce the matching results packet.
 
-## Core Rule
+## Packet Templates
 
-When the user asks to organise a client BOD meeting, create the dated meeting folder inside the client's existing Google Drive `Board Meetings` folder before drafting documents. If a matching folder already exists, use it rather than creating a duplicate. Confirm the scheduled meeting time from Google Calendar first, or from the initial agenda if Calendar is unavailable. Keep the agenda, editable minutes, PDF/signing copy, signed copy, attendance evidence, and supporting board-pack files together in that same meeting folder.
+Load only the packet template needed for the current stage:
 
-## Before The Meeting
+- Board Meeting Setup Packet: `references/board-meeting-setup-packet.md`
+- Board Meeting Setup Results Packet: `references/board-meeting-setup-results-packet.md`
+- Minutes Review Packet: `references/minutes-review-packet.md`
+- Signature Execution Packet: `references/signature-execution-packet.md`
+- Signature Results Packet: `references/signature-results-packet.md`
+- Signed Copy Intake And Storage Packet: `references/signed-copy-intake-and-storage-packet.md`
+- Final Storage And Closeout Packet: `references/final-storage-and-closeout-packet.md`
 
-1. Resolve the client destination.
-   - Use the exact Notion Companies `Reference` and the existing client Drive folder.
-   - Prefer the Board Meetings folder already recorded in `clients/Companies/<reference>/drive-locations.md`.
-   - If the Board Meetings folder or client Drive destination is unclear, stop and ask; do not create a replacement structure.
-2. Create the meeting subfolder.
-   - Create the folder yourself in Drive when it does not already exist; do not wait for the user to create it.
-   - Check for an existing matching folder first to avoid duplicates.
-   - Mirror the client's existing naming style.
-   - AGL examples use date folders such as `25.05.2026`.
-   - CBMAX examples use `BOD Meeting ...` folders such as `BOD Meeting 21/04/2026`.
-3. Draft the agenda in that meeting folder.
-   - Use a clean meeting-facing agenda, not a source register.
-   - Include only board-worthy items: attendance/quorum, previous minutes, tax residence/governance, filings, payroll/tax compliance, solvency, material contracts, banking/investment approvals, records/evidence, action owners, and next meeting.
-   - Keep operational housekeeping out unless it needs a board note, decision, or formal evidence.
-   - Do not include provisional/source metadata in the circulated agenda; keep source notes in chat, repo memory, or internal prep notes.
-4. Add board-pack support where relevant.
-   - Prior minutes for approval.
-   - Filing, VAT, payroll, tax-office, contract, finance, bank, or investment support needed for decisions.
-   - Attendance or location evidence when useful for Irish central-management-and-control records.
-5. Set the transcript follow-up.
-   - Confirm the meeting end time from Google Calendar, or from the agenda if Calendar is unavailable.
-   - Create the appropriate Codex follow-up/automation for one hour after the scheduled end time.
-   - The follow-up should check Notion for the meeting transcript and then proceed to minutes drafting if the transcript is available.
-   - If the transcript is still missing one hour after the scheduled end time, message Ioana and the requesting user for the transcript. If the exact recipient/channel is unclear, stop and ask rather than guessing.
+## Non-Negotiables
 
-## After The Meeting
+- Use the exact Notion Companies `Reference` and the existing client Drive folder. Do not invent a client slug or replacement Drive structure.
+- Do not create or modify Drive folders/files, Calendar events, Notion records, signature packets, or outbound messages until the matching packet has been approved, unless the user explicitly approved that exact action in the current request.
+- Confirm the scheduled meeting time from Google Calendar before relying on agenda timing. If the Calendar event is missing or incomplete, propose the Calendar create/update in the setup packet instead of using chairperson outreach as the default path.
+- Keep setup/execution separate from signed-copy storage. Sending a document for signature is not the same as receiving and filing the signed copy.
+- Do not draft final minutes from agenda proposals alone. Use transcript/extract evidence for actual attendance, decisions, resolutions, and action owners.
+- Use Drive for raw board packs, signed copies, attendance evidence, and support files. Repo files keep pointers and status only.
+- If signer identity, routing, Board Meetings folder, Calendar state, transcript source, signed-file source, or upload tooling is unclear, record the blocker in the packet and ask for review.
 
-1. Locate the transcript.
-   - Check Notion for the meeting transcript at the scheduled follow-up time.
-   - Use the Calendar-confirmed meeting time, or the agenda time if Calendar was unavailable, as the timing source.
-   - If the transcript is present, use it as the main meeting extract source and proceed without waiting for a separate user prompt.
-   - If it is absent one hour after the scheduled end time, message Ioana and the requesting user for the transcript, then wait for the transcript before drafting final minutes.
-2. Draft minutes from meeting extracts.
-   - Use actual attendance, decisions, resolutions, and action owners from the meeting.
-   - Do not convert proposed agenda resolutions into approved minutes unless the meeting extracts confirm approval.
-   - Record remote attendance clearly and flag any Irish tax-residence evidence issue.
-3. Produce the editable minutes document.
-   - Prefer the same format used in the client's prior board folders.
-   - If a polished local `.docx` is needed, use the Documents skill to create, render, and verify it.
-   - If the working copy is Google Docs, keep the native Google Doc in the meeting folder.
-4. Produce the signing copy for review.
-   - Export the Word/Google Docs minutes to PDF.
-   - If LibreOffice is unavailable for DOCX rendering, generate the PDF from the same minutes content, visually inspect the PDF pages, and report the fallback.
-   - If using a local helper, use the Drive export/upload path and verify the uploaded PDF by Drive metadata or folder listing.
-5. Ask the user to review.
-   - Share the editable minutes and/or review PDF with the requesting user.
-   - Do not ship the minutes to director(s) for signature until the user explicitly confirms the minutes are okay.
-   - If the user requests changes, apply them, refresh the signing copy, and ask for review again.
-6. Ship the approved final copy for signature.
-   - After user approval, send the final signing copy to the confirmed director(s) for signature.
-   - Confirm signer identities and routing from the company record, meeting agenda, prior board templates, or explicit user instruction before sending.
-   - If SignNow or an e-signature flow is requested, use `rb-signature-workflow`; the user's approval of the reviewed minutes is the approval gate for sending, but unclear signers or routing still require clarification.
-7. Store the signed copy.
-   - Upload the signed PDF back into the same meeting folder.
-   - Keep the editable minutes and unsigned PDF unless the user explicitly asks to remove them.
-   - Verify the folder contains the expected agenda, editable minutes, signing PDF or signed PDF, and supporting evidence.
+## Stage Flow
 
-## Drive Upload Notes
+1. Setup planning.
+   - Load the Board Meeting Setup Packet.
+   - Resolve client, Board Meetings parent folder, meeting date/time, Calendar event state, proposed folder name, agenda items, board-pack support, transcript follow-up, and any proposed Calendar updates.
+   - Wait for approval before creating folders, documents, Calendar events, or follow-ups.
 
-- Prefer native Google Drive connector tools for discovery, reads, imports, and folder listing.
-- When the Drive connector cannot place an uploaded local file into a specific folder, use the repo Drive upload helper or a reviewed Drive API upload fallback after user-approved Google auth.
-- If Google auth is expired, use `rb-google-auth` / `gcloud auth login --enable-gdrive-access` only with user approval. Never store tokens or credentials in git.
-- For signed minutes, use a clear folder title such as `<date> BOD Minute - signed.pdf`, upload to the meeting folder, and verify by listing the folder.
+2. Setup execution.
+   - Execute only the approved setup payload.
+   - Produce the Board Meeting Setup Results Packet with Drive/Calendar links, read-backs, and blockers.
 
-## Records And Closeout
+3. Minutes review.
+   - After the meeting, use the setup packet as the source of truth for folder/time expectations.
+   - Confirm transcript/extract source and Calendar attendance/timing. If transcript evidence is missing at the scheduled follow-up point, prepare the request-for-transcript communication for approval rather than drafting final minutes.
+   - Produce the Minutes Review Packet with editable minutes and review/signing-copy references.
 
-- Update the relevant client `drive-locations.md`, `source-register.md`, or domain file with the board-folder URL and important evidence pointers when the repo needs durable access.
-- Use Drive for raw board packs and signed copies; do not store signed documents or raw evidence in git.
-- Update Notion filing/task/status records only when the meeting creates or changes operational state, and verify live read-back.
-- Report any blockers plainly: missing Board Meetings folder, unclear Drive destination, missing extracts, unconfirmed signers, unavailable export/upload tooling, or unsigned minutes still awaiting return.
+4. Signature execution.
+   - After user approval of the minutes, load the Signature Execution Packet.
+   - Confirm signer identities, signing route, document version, recipient details, and approval text.
+   - Execute only the approved signature send/print/e-sign route and produce the Signature Results Packet.
 
-## Example Patterns
+5. Signed copy storage.
+   - Start this stage only after a signed file exists or a signature platform status proves completion and exposes the signed copy.
+   - Load the Signed Copy Intake And Storage Packet, then upload/store only the approved signed file in the approved meeting folder.
+   - Produce the Final Storage And Closeout Packet with folder listing/read-back and repo/Notion updates.
 
-- AGL Board Meetings folder: date subfolders containing agenda, editable minutes, and signed/minutes PDF.
-- CBMAX Board Meetings folder: `BOD Meeting ...` subfolders containing agenda, editable minutes, signed PDF, and supporting filing documents.
+## Tooling Notes
+
+- Prefer Google Calendar and Google Drive connectors for Calendar reads/proposals, Drive discovery, folder listing, Docs imports, and file metadata read-back.
+- Use `rb-file-uploads` for folder-aware Drive upload/export gaps and `rb-google-auth` only when a helper auth route needs explicit user-approved recovery.
+- Use `documents:documents` when a polished local `.docx`/PDF artifact needs render-and-verify.
+- Use `rb-signature-workflow` for SignNow/e-sign mechanics and `rb-signature-status-sync` for status checks. These tools are generic; this skill still owns the packet gates and client board-document context.
