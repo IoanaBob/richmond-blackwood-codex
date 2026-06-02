@@ -44,6 +44,14 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Gmail `19de0a3b4e502b27` | RB-issued Stripe receipt/invoice; not an inbound payable invoice. |
 | Gmail `19df98fd8c531bae` and `19e000ffa7d36cba` | Lexware subscription invoice/reminder context. |
 | Gmail `19e1c14874c798b2` | TK insurance-status follow-up; route individual insurance detail to Kristjan folder. |
+| Gmail `19e466661c8d01c8` | Outgoing TK insurance-duty review bundle for SOLINOVA/Kristjan employment context. Source PDFs are in Drive; translation and raw OCR pointers are recorded in `drive-locations.md`. |
+
+## OCR / Translation Cleanup
+
+| Source | Date imported | Detail |
+| --- | --- | --- |
+| Drive OCR cleanup | 2026-05-22 | Google Drive connector text fetch returned empty for the image-only `TK POA.pdf`, so Drive API OCR working copies were used to produce a separate raw OCR export and a separate English translation/review file. |
+| Notion Communication C5 | 2026-05-22 | `https://www.notion.so/367e4130131481ec97ddded1fda701a3` moved to `Logged` after the English translation/review file was attached to `Translated Doc(s)`. Raw OCR export remains a separate Drive audit file. |
 
 ## WhatsApp
 
