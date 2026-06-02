@@ -22,6 +22,12 @@ Notion company record lists `Monthly fee to RB` as `10000`; keep the field as so
 | Herzenssache car insurance payment | EUR 12,540.99 | Gmail `19e220457959b6ec`; Slack `#rb-operations`; task `https://www.notion.so/360e4130131481eb8b1fc2b2ec2bda2f`; WhatsApp `Grey Desk Restructuring` | Wamo processed payment; WhatsApp says proof was shared with Sandra and car should be cleared once insurer/dealer completes their side. |
 | MHL liquidity top-up for car insurance and buffer | Gabriel wired EUR 20,000; WhatsApp says there was EUR 25,000 after the wire | WhatsApp `Grey Desk Restructuring`, 2026-05-12 | RB advised personal funding for immediate transaction; Grey Desk funding can be explored later but creates cross-border linkage. |
 
+## Held Expense Intake
+
+| Item | Source | Status / notes |
+| --- | --- | --- |
+| Pichler Finke Michelsburg notary invoice `RE26/00334` | User-provided local PDF `RE26_00334.pdf`, 2026-06-02 | Do not submit this PDF. User said it was issued to the wrong company and will provide an amended invoice for submission to the correct company. |
+
 ## Grey Desk / MHL Funding Rule
 
 For near-term MHL transactions, current private Slack/WhatsApp context points toward Gabriel-to-MHL personal funding rather than Grey Desk-to-MHL funding unless reviewed:
