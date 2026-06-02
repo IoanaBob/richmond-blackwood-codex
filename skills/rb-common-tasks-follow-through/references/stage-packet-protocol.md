@@ -30,6 +30,7 @@ Each packet must include:
 - run ID;
 - stage number and name;
 - exact source/query/window used;
+- CSV source files and row counts used to generate the packet;
 - rows considered;
 - proposed or completed action;
 - owner, company, individual, and project fields when relevant;
@@ -52,6 +53,23 @@ The operator approved these standing exceptions on 2026-05-20, with bounded Stag
 - Stage 15 - Post-Closeout Media Evidence Cleanup: after Stage 14, automatically recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, update owning Communications, write and print the plan/results/readback packet, and update memory, but only for blockers listed in Stage 14 and only when no new business judgment or destination choice is required.
 
 Auto-approval does not waive mutation safety outside the named stage scope. If a packet introduces a new Notion write, source mutation, reply send, file upload, Slack destination, broad mention, or data source not already covered by the stage contract, stop for operator approval.
+
+## CSV Snapshot Contract
+
+Common tasks follow-through packets must be generated from run-local CSV snapshots rather than repeated third-party queries.
+
+Required CSV behavior:
+
+- Stage 1 initializes `csv-manifest.csv` and empty draft/result CSVs in the run folder.
+- Stage 2 writes `tasks-open.csv` for open/non-terminal RB Client Databases rows and Central Tasks. Team Updates, daily standup pages, and meeting transcripts are not source tables for this workflow.
+- Stage 3 writes `source-messages.csv` and `source-attachments.csv` for in-window Gmail, WhatsApp, and explicitly in-scope Slack messages/files.
+- Stages 4, 5, 8, and 10 update draft CSVs before writing approval packets.
+- Stages 6, 9, 11, and 13 execute approved rows from draft CSVs, perform targeted readback of changed live objects, and update `live-write-results.csv` plus relevant source/draft CSV rows.
+- Stage 12 Slack closeout is built from CSVs and approved write results, not by requerying task, communication, Gmail, WhatsApp, Slack, or Team Updates sources.
+
+If a needed field is absent from the CSVs, write a bounded snapshot-refresh addendum, fetch only the missing approved data, update the CSV, and regenerate the packet. Do not perform broad repeated discovery to answer planning questions already covered by Stage 2/3 snapshots.
+
+Skipped/no-scope sources can be listed with `skipped=true` in `source-messages.csv`, but they must not flow into draft writes, labels, checkpoints, or Slack copy.
 
 ## Mutation Rule
 
