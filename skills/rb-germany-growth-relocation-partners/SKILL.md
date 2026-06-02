@@ -80,6 +80,7 @@ Shared gates:
 
 6. Pitch Draft Packet
    - Draft outreach in chat, personalized to the partner type and active audience.
+   - Before each draft, show the initial partner topic/source, what the partner does, why they match the audience/channel, the source URL/contact route, and the specific reason this first message is warranted.
    - Show sender identity as Ioana and the required account/session verification.
    - Include today's first-time email target, sent count, remaining count, queued Business Partners, Business Partner URL, website, contact route, commercial assumptions, and next follow-up date.
    - Label first-time email drafts separately from reply drafts and follow-up drafts.
@@ -95,6 +96,7 @@ Shared gates:
 
 8. Reply Drafting And Negotiation Packet
    - Route replies into Growth Messages and summarize what the partner actually said.
+   - Before each reply draft, show the initial partner/topic context, prior Ioana/RB message, latest partner reply, commercial/approval state, and the exact issue being answered.
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the partner's service, audience, commercial model, or open question.
    - Do not introduce pricing, commission, payments, contract terms, or pilot commitments without explicit user approval.
@@ -103,6 +105,7 @@ Shared gates:
 
 9. Follow-Up Drafting Packet
    - Inspect due follow-ups for sent pitches, partner replies, commercial approvals, blockers, and negotiation items.
+   - Before each follow-up draft, show the initial partner/topic context, prior interaction, latest status, and the specific reason a follow-up adds value now.
    - Draft follow-up text in chat only when there is a specific reason and source context.
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
 

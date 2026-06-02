@@ -108,6 +108,7 @@ Shared gates:
 6. Draft Packet
    - Prepare exact outbound message previews in chat.
    - Show sender identity as Ioana and the channel/account context.
+   - Every draft preview must include a short source-context block before the text: initial question/topic, relevant source context, why this draft is being proposed, and the target/thread/person/company URL. If the source context is missing or unclear, block the draft instead of guessing.
    - Create/update Growth Messages only as operating log and follow-up state, not as software drafts.
    - Include target URL, Business Partner URL or Growth Target URL, audience, channel, proposed next action, and follow-up date.
    - Label each preview as first message, reply draft, follow-up draft, post/comment draft, admin ask, or partner pitch.

@@ -123,6 +123,7 @@ Shared gates:
 
 8. Accepted-Connection Message Packet
    - Draft the first message only after acceptance is verified.
+   - Before each draft, show the initial topic/source context: who the person is, what public signal triggered the message, the exact company/product/post/project detail being referenced, and why it is relevant to Ioana.
    - Use a helpful, low-pressure opener tailored to who the person is and what they do.
    - Cite at least one concrete public signal: company/product name, specific feature, market, article, launch, role scope, technical area, or founder decision.
    - Block the draft if it could be sent unchanged to many people in the batch.
@@ -133,6 +134,7 @@ Shared gates:
 
 9. Reply Drafting Packet
    - Inspect new replies and summarize what the person actually said.
+   - Before each reply draft, show the initial topic/source context and the latest reply context so the user can see what the draft is responding to.
    - Draft a reply in chat that responds to their topic, not a preset sales path.
    - Keep the reply founder/operator-to-founder/operator when relevant.
    - Do not pitch, mention services, ask for a call, or steer toward a sales path. If the person explicitly asks for help, draft a neutral human reply for user review rather than converting the thread into an offer.
@@ -140,6 +142,7 @@ Shared gates:
 
 10. Follow-Up Drafting Packet
    - Inspect due follow-ups for accepted connections, first messages, replies, and blockers.
+   - Before each follow-up draft, show the initial topic/source context, previous message context, and the specific reason a follow-up adds value now.
    - Draft follow-ups only when there is a reason beyond "checking in": their work, product, founder context, relocation context, or a previous thread detail.
    - Keep follow-ups short and human; no pressure, no call ask, no sales framing.
    - If no useful context exists, advance the follow-up date or close the thread instead of drafting filler.

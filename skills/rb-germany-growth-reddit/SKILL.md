@@ -73,6 +73,7 @@ Shared gates:
 
 5. Helpful Participation Packet
    - Draft helpful, non-promotional comments or posts in chat when rules allow.
+   - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
    - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.
@@ -99,6 +100,7 @@ Shared gates:
 8. Reply And DM Drafting Packet
    - Track replies, removals, bans/warnings, helpful engagements, and link clicks if available.
    - Track inbound Reddit DMs and people who engage with our public post/comment.
+   - Before each reply or reactive DM draft, show the initial Reddit question/topic, the public engagement or inbound-DM trigger, the latest message/comment being answered, and why a reply or DM is justified.
    - Draft Reddit replies and allowed reactive DMs in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - Keep DMs tied to the exact public engagement or inbound DM context; do not generate DMs from subreddit member lists, profile searches, or cold prospecting.
@@ -107,6 +109,7 @@ Shared gates:
 
 9. Follow-Up Drafting Packet
    - Inspect due follow-ups for posts, comments, replies, DMs, removals, warnings, and recurring threads.
+   - Before each follow-up draft, show the initial thread/topic context, prior RB/Ioana interaction, latest thread state, and the specific reason a follow-up adds value.
    - Draft follow-up comments/replies/DMs only when there is a real thread or DM reason to add value.
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Growth Messages follow-up dates for later checks.

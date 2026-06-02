@@ -68,6 +68,7 @@ Shared gates:
 
 5. Sponsorship/Admin Ask Packet
    - Draft the admin or sponsorship ask in chat.
+   - Before each draft, show the initial group/admin/sponsorship topic, source context, group audience/rules context, why this ask is relevant, and the exact group/admin/business URL.
    - Show sender identity as Ioana and the Facebook account/session verification requirement.
    - Include group URL, Business Partner URL, proposed commercial model, disclosure needs, approval basis, and next follow-up date.
    - Keep the ask concise and specific to the group/audience.
@@ -81,12 +82,14 @@ Shared gates:
 
 7. Reply Drafting Packet
    - Inspect Facebook admin/partner replies and summarize what changed.
+   - Before each reply draft, show the initial ask/topic, prior context, the latest admin/partner reply, and the specific issue being answered.
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the group/admin context, approval basis, sponsorship terms, or posting rules actually discussed.
    - Do not introduce new commercial terms, claims, commitments, or payment approval without explicit user approval.
 
 8. Follow-Up Drafting Packet
    - Inspect due follow-ups for unanswered admin asks, sponsorship approvals, payment/promotion logistics, and replies.
+   - Before each follow-up draft, show the initial ask/topic, prior interaction, latest status, and the specific reason a follow-up adds value now.
    - Draft follow-up text in chat only when there is a specific next reason to follow up.
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked rather than drafting filler.
 

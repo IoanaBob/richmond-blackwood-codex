@@ -67,6 +67,7 @@ Shared gates:
 
 5. Helpful Posting Packet
    - Draft useful, non-promotional group posts or comments in chat when rules allow.
+   - Before each draft, show the initial group question/topic, relevant post/thread context, group rule/admin basis, and why this response is useful for that specific group/thread. If the source context is missing, block the draft.
    - Keep content valuable without relying on RB promotion.
    - Avoid unapproved claims, service pitches, savings claims, and generic "book a call" paths.
    - Show sender identity as Ioana, Facebook account/session verification requirement, group URL, rule basis, and follow-up date.
@@ -87,12 +88,14 @@ Shared gates:
 
 8. Reply Drafting Packet
    - Inspect post/comment replies, removals, warnings, and useful engagements.
+   - Before each reply draft, show the initial group post/topic, the latest reply/comment being answered, and why a reply adds value.
    - Draft exact reply text in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - Do not pitch, move to DMs, introduce RB services, or make new claims unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
 
 9. Follow-Up Drafting Packet
    - Inspect due follow-ups for live posts, comments, replies, removals, warnings, and recurring threads.
+   - Before each follow-up draft, show the initial thread/topic context, prior RB/Ioana interaction, latest group/thread state, and the specific reason a follow-up adds value.
    - Draft follow-up posts/comments/replies only when there is a real thread reason to add value.
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Growth Messages follow-up dates for later checks.
