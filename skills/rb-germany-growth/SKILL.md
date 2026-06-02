@@ -39,6 +39,14 @@ Use this skill for the master Germany growth daily run or any coordinated German
 
 For live daily runs, use packet stages like the other RB multi-stage skills. Use `/private/tmp/rb-germany-growth/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and one `stage-XX-<short-name>.md` packet per stage. Print each packet in chat before moving to the next stage.
 
+Parent/child handoff rule:
+
+- When this master skill invokes a channel skill, the channel result is not complete until the matching master packet is written or updated.
+- After any channel sub-skill Stage 7, Stage 8, Stage 9, send, post, comment, reply, DM, follow-up, blocker, or material Notion state change, immediately return to the master run and update the matching master Stage 7, Stage 8, Stage 9, and `RUN_STATE.md` cursor before closeout.
+- A final answer after channel work must name both the child channel stage completed and the master stage updated.
+- If child packets exist but the parent master packets or cursor are stale, the run is incomplete; do not report closeout until the parent state is reconciled.
+- Use this checklist after every sub-skill action: child packet completed; child sends/logs done if approved; master Stage 7 updated when applicable; master Stage 8 updated when applicable; master Stage 9 updated when applicable; `RUN_STATE.md` cursor updated; master packet printed.
+
 Shared gates:
 
 - No outbound send happens before Stage 7 exact-message approval.
@@ -98,6 +106,7 @@ Shared gates:
    - For LinkedIn, distinguish intra-day mode output: invite batch, acceptance check, first-message packet, reply triage, follow-up sweep, or reporting-only.
    - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
    - For Reddit, include the 10/day top-level comment target state and any sourcing/drafting gap needed to keep the daily target achievable.
+   - After every channel packet, update the master packet or explicitly mark the child result as pending parent reconciliation.
 
 5. Compliance And Ioana Gate
    - Verify platform rules, approved claims, commercial approval needs, and sender-session status as an in-run checklist, not as database rows.
@@ -128,11 +137,13 @@ Shared gates:
    - Send directly through the supported connector/MCP/browser route after approval.
    - Log the result, URL/message ID, status, and next follow-up in Growth Messages.
    - If the result makes the thread a lead/client/business communication, create or update the canonical Communications handoff record and link it through `Promoted Communication`.
+   - If a channel sub-skill performed the send/post/comment/DM, reconcile the result into this master Stage 7 packet and update `RUN_STATE.md` before continuing.
 
 8. Follow-Up Advancement
    - Move due dates, statuses, and blockers forward in Growth Messages and Tasks.
    - Update Business Partner `Growth Stage` only when the communication result justifies it.
    - Do not move a partner to `Contacted by Ioana`, `Negotiating`, or `Pilot Active` without supporting Growth Messages evidence.
+   - If a channel sub-skill performed reply, DM, or follow-up inspection, reconcile the child result into this master Stage 8 packet and update `RUN_STATE.md` before continuing.
 
 9. Reporting And Closeout
    - Do not create or update summary reporting rows.
@@ -142,6 +153,7 @@ Shared gates:
    - For Reddit, report top-level comments posted from Growth Messages `Message Kind = Comment` or `Post/Comment` plus `Growth Event At`, daily 10/day target met or missed, safe drafts, high-risk/provisional drafts, remaining comment gap, replies/DMs excluded from the count, and blockers.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
+   - Confirm every material child channel packet has a matching master packet update before final answer. If any child result is not reconciled into the master packet/cursor, report the run as incomplete and reconcile it first.
 
 ## Closeout Checklist
 
