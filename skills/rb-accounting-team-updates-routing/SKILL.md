@@ -53,9 +53,40 @@ Decision rules:
 14. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
 15. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task. For every `unresolved` row, explicitly state why creating a new task is unsafe.
 
-## Output Table
+## Human Approval Surface
 
-Stage 3 must include a routing table with these columns:
+Stage 3 must start with a human-readable approval surface. This is the part printed in chat for operator approval.
+
+Group the visible rows under these headings:
+
+- `Creates`
+- `Updates / comments`
+- `Skips / no action`
+- `Unresolved / needs decision`
+
+Use one compact table per group. The visible table columns must be:
+
+- `Source row`
+- `Source line`
+- `Decision`
+- `Target`
+- `Owner`
+- `Due`
+- `Exact action`
+- `Team Updates write-back`
+- `Blocker / approval needed`
+
+Human-table rules:
+
+- Put the business decision first: what will be created, updated, skipped, or blocked.
+- Use readable names and links for targets, not raw Notion payloads.
+- Keep each row short enough to scan. Move schema details, dedupe notes, and exact payloads to the machine log.
+- For `unresolved` rows, state the missing decision in plain language and explain why a new task would be unsafe.
+- If the packet contains a separate machine log or handover file, link it near the top and label it as a continuation/execution log, not the approval surface.
+
+## Machine Routing Log
+
+Stage 3 must preserve a machine-complete routing log with these fields, either later in `stage-03-routing-plan.md` under `## Machine Routing Log (not approval surface)` or in a linked `stage-03-routing-log.md` / handover file:
 
 - `source_row_id`
 - `routing_item_id`
@@ -110,4 +141,4 @@ For `create_task`, `update_task`, or `comment_existing` rows:
 
 ## Stage Boundary
 
-The output of this skill is the Stage 3 Routing Plan packet. Stage 4 executes only the approved rows from that packet and then proves read-back.
+The output of this skill is the Stage 3 Routing Plan packet plus any linked machine log. Stage 4 executes only the approved rows from the human approval surface, using the machine log for exact payload details, and then proves read-back. If the approved human table and machine log disagree, return to Stage 3 correction before writing.
