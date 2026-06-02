@@ -71,6 +71,7 @@ Shared gates:
    - Keep content valuable without relying on RB promotion.
    - Avoid unapproved claims, service pitches, savings claims, and generic "book a call" framing.
    - Avoid the word "path" in outbound copy, slash-heavy phrasing, long enumerations unless the group style supports them, and mechanical contrast sentences that read like a template.
+   - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Show sender identity as Ioana, Facebook account/session verification requirement, group URL, rule basis, and follow-up date.
 
 6. Posting Readiness

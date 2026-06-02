@@ -164,6 +164,7 @@ Copy style:
 - Avoid slash-heavy phrasing.
 - Avoid long enumerations unless the visible source makes a list feel natural.
 - Avoid mechanical contrast sentences that read like a template.
+- Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
 
 Rules:
 

@@ -193,7 +193,7 @@ Operational gates:
 - Reddit draft previews must include a DM-help assessment. If Ioana or RB can seriously help with the specific issue, include a specific, low-pressure DM-help line only when it fits naturally; do not use generic CTAs, booking language, service names, or broad filler.
 - Reddit US-like compensation drafts should use the narrow baseline: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add other options such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic AI-like market-summary lines unless explicitly approved for that thread.
 - Reddit copy should avoid the word "path," slash-heavy phrasing, long enumerations unless the local style supports them, and mechanical contrast sentences that read like a template.
-- All growth outreach copy should follow the same style rule: avoid the word "path," slash-heavy phrasing, long enumerations unless the source style supports them, and mechanical contrast sentences that read like a template.
+- All growth outreach copy should follow the same style rule. Keep sentences short. Avoid comma-chain lists; outbound sentences should normally have at most two commas and never more than three.
 - Canonical Communications is used only when a growth thread becomes a lead/client/business communication or when a Growth Messages record is intentionally promoted and linked through `Promoted Communication`.
 - Growth Messages records should set `Audience Target`, `Growth Channel`, `Sender Identity`, `Message Kind`, `Status`, and relevant timestamps when available.
 - Prospect PII and channel state belong in Notion, not git.
