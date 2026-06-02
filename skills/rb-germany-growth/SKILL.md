@@ -103,13 +103,14 @@ Shared gates:
    - Record blockers in Growth Messages and, only when extra action is needed, Tasks.
    - Promotional posts or sponsorship asks block without a rules basis, admin/moderator approval, or explicit user approval.
    - Facebook posting work that requires admin sponsorship, payment, or commercial placement must be routed to the Facebook partnerships skill, not handled inside the posting skill.
-   - For Reddit, overt promotional, moderator, sponsorship, paid-post, cold/proactive DM, modmail, and commercial-counterparty routes are disabled for now and become blockers. A narrow soft DM-offer line may be previewed only for directly relevant US/Germany tech-comp, remote-work, or Germany-compliant setup threads, must be labelled as a promotion-rule risk, and needs exact approval. Reactive DMs may proceed only after public engagement with our post/comment or an inbound DM, with exact approval and immediate Ioana Reddit-session verification.
+   - For Reddit, overt promotional, moderator, sponsorship, paid-post, cold/proactive DM, modmail, and commercial-counterparty routes are disabled for now and become blockers. When Ioana/RB can seriously help with the specific thread problem, a narrow soft DM-help line should be proposed by default, labelled as a promotion-rule risk, and removed if rules or thread style make it unsafe. Reactive DMs may proceed only after public engagement with our post/comment or an inbound DM, with exact approval and immediate Ioana Reddit-session verification.
 
 6. Draft Packet
    - Prepare exact outbound message previews in chat.
    - Show sender identity as Ioana and the channel/account context.
    - Every draft preview must include a short source-context block before the text: initial question/topic, relevant source context, why this draft is being proposed, and the target/thread/person/company URL. If the source context is missing or unclear, block the draft instead of guessing.
    - For public community channels such as Reddit and Facebook groups, include a style-basis block from recent posts/comments in that same community before drafting. Match the local style unless doing so would violate RB gates, platform rules, professionalism, or accuracy.
+   - For Reddit, include a DM-help assessment before the draft text. If Ioana/RB can seriously help with the specific problem, propose a specific, low-pressure DM-help line by default; do not use generic CTAs, booking language, or service names.
    - For Reddit US-like compensation drafts, keep the suggested path narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra career paths or generic AI-like market summaries unless the user explicitly asks.
    - Create/update Growth Messages only as operating log and follow-up state, not as software drafts.
    - Include target URL, Business Partner URL or Growth Target URL, audience, channel, proposed next action, and follow-up date.

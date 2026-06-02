@@ -12,7 +12,7 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - Sender persona is always Ioana.
 - Any Reddit post, comment, reply, or DM blocks unless the active Reddit account/session is verified as Ioana immediately before sending.
 - No overt promotional posts, cold/proactive DMs, moderator outreach, modmail, sponsorship asks, paid posts, or commercial-counterparty work in the Reddit channel for now.
-- A soft public "can help in DM if useful" line may be previewed only for directly relevant US/Germany tech-comp, remote-work, or Germany-compliant setup threads, when the user has approved that exact angle. Label it as a promotion-rule risk in the packet, keep it narrow, and remove it if subreddit rules or thread style make it unsafe.
+- For any public Reddit draft where Ioana/RB can seriously help with the specific problem, propose a narrow soft DM-help line by default. Label it as a promotion-rule risk in the packet, keep it tied to the exact issue, and remove it if subreddit rules or thread style make it unsafe.
 - Reactive DMs are allowed only when the person engaged with our public Reddit post/comment or sent an inbound DM first.
 - Public Reddit engagement must be recent. Prioritize posts/comments with meaningful activity in the last 72 hours; block direct public engagement when the target thread has no meaningful activity in the last 14 days.
 - Threads older than 14 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or have meaningful new comments in the last 14 days.
@@ -40,7 +40,7 @@ When invoked by `rb-germany-growth`, return a channel work packet instead of per
 Shared gates:
 
 - No post, comment, reply, or DM is sent before exact text approval.
-- No overt promotional post, cold/proactive DM, moderator outreach, modmail, sponsorship ask, paid post, or commercial-counterparty ask is drafted or routed from this skill. Narrow soft DM-offer lines are allowed only under the hard gate above.
+- No overt promotional post, cold/proactive DM, moderator outreach, modmail, sponsorship ask, paid post, or commercial-counterparty ask is drafted or routed from this skill. Narrow soft DM-help lines are allowed only under the hard gate above.
 - Stop if Ioana is not the verified active Reddit session at a send-ready step.
 
 ## Stages
@@ -77,6 +77,8 @@ Shared gates:
    - Draft helpful, non-promotional comments or posts in chat when rules allow.
    - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
    - Include a subreddit style-basis before each draft: recent posts/comments read, observed tone, typical specificity/length, terms users use, and any style to avoid. Drafts must match the local style without becoming rude, promotional, generic, or inaccurate.
+   - Include a `DM help assessment` before each draft: whether Ioana/RB can seriously help with the thread's specific problem. If yes, include a soft DM-help line by default. If no, say why no DM line is included. If rules or style make the line unsafe, show the line as removed/blocked rather than silently omitting the assessment.
+   - DM-help lines must be specific and low-pressure, for example "Can help with both in DM if useful" or "DM me if you want a second pair of eyes on the setup." Do not use generic CTAs, booking language, service names, or broad "happy to help" filler.
    - For US-like compensation threads, keep the baseline narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra paths such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic market commentary unless the user explicitly approves them for that thread.
    - Block AI-sounding summary sentences that restate generic market conclusions or over-explain the obvious. In particular, do not use lines like "140k L4 in Munich is already a strong local anchor" or "the next jump is usually company selection, seniority, or jurisdiction."
    - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
