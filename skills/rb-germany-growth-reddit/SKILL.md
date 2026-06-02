@@ -13,6 +13,7 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - Any Reddit post, comment, reply, or DM blocks unless the active Reddit account/session is verified as Ioana immediately before sending.
 - No overt promotional posts, cold/proactive DMs, moderator outreach, modmail, sponsorship asks, paid posts, or commercial-counterparty work in the Reddit channel for now.
 - For any public Reddit draft where Ioana or RB can seriously help with the specific problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful and does not feel forced. Label it as a promotion-rule risk in the packet and remove it if subreddit rules or thread style make it unsafe.
+- Never copy, lightly paraphrase, or structurally mirror another Reddit user's comment. Existing comments are style/context input only; drafts must be original to the post facts and Ioana's specific view.
 - Reactive DMs are allowed only when the person engaged with our public Reddit post/comment or sent an inbound DM first.
 - Public Reddit engagement must be recent. Prioritize posts/comments with meaningful activity in the last 72 hours; block direct public engagement when the target thread has no meaningful activity in the last 14 days.
 - Threads older than 14 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or have meaningful new comments in the last 14 days.
@@ -72,6 +73,7 @@ Shared gates:
 4. Rule And Compliance Review
    - Read subreddit rules, wiki/sidebar, pinned posts, and recent visible moderator guidance when available.
    - Read recent posts and visible comments from the same subreddit, and when possible the target thread, to understand local style, level of directness, typical comment length, terminology, and how users frame helpful answers.
+   - Treat existing comments as context only. Capture style and thread facts, not wording, ordering, examples, or reasoning structure from another user's comment.
    - Classify allowed actions for community-first engagement: helpful comments, helpful non-promotional posts, replies to replies, recurring-thread participation, reactive DMs after a valid trigger, or blocked.
    - If rules require modmail, moderator approval, sponsorship, payment, or commercial permission before participation, mark the item blocked for now.
    - Treat rule, approved-claim, and Ioana-session checks as in-run gates. Store rule evidence on the Growth Target and blockers/follow-ups in Growth Messages or Tasks, not in a compliance-check database.
@@ -84,6 +86,7 @@ Shared gates:
    - DM-help lines must be specific and low-pressure, for example "Can help with both in DM if useful" or "DM me if you want a second pair of eyes on the setup." Do not use generic CTAs, booking language, service names, or broad filler.
    - For US-like compensation threads, keep the baseline narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra options such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic market commentary unless the user explicitly approves them for that thread.
    - Block AI-sounding copy. Avoid the word "path" in outbound copy, slash-heavy phrasing, long enumerations unless the subreddit style clearly supports them, and mechanical contrast sentences that read like a template.
+   - Block copied-looking copy. Before approval, compare the draft against visible thread comments and rewrite if it uses the same opening, sequence of points, examples, phrasing, or conclusion as another user.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
    - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
    - Avoid unapproved claims and sales language.
@@ -97,6 +100,7 @@ Shared gates:
    - For DMs, confirm the trigger is recent: inbound DM or engagement with our content within the last 14 days. Older triggers block by default unless the user explicitly approves the exact exception.
    - Confirm public post/comment/reply targets have meaningful activity within the last 14 days, or are current recurring/pinned threads.
    - Confirm the content is useful on its own without relying on RB promotion.
+   - Confirm the content is original and not a close paraphrase of an existing Reddit comment in the thread.
    - Confirm there is no request for moderator approval, commercial placement, sponsorship, paid posting, cold DM, or modmail.
    - If any commercial or moderator route is needed, block the item and record that Reddit commercial/moderator routing is disabled.
 
