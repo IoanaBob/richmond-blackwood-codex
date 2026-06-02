@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-01.
+Updated: 2026-06-02.
 Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`, Notion connector create/read-back on 2026-06-01, LinkedIn Help pages fetched on 2026-06-01.
 
 ## Growth Context
@@ -188,6 +188,7 @@ Operational gates:
 - Any send-ready action must block if the active connector or browser session is not verified as Ioana.
 - Drafts, sends, posts, comments, DMs, replies, blockers, approvals, and follow-ups for pre-lead growth use Growth Messages.
 - Every growth draft preview must show the source context before the draft text: initial question/topic, relevant source context, why the response is being proposed, and the target/thread/person/company URL. If that context is missing or unclear, block the draft until the source is read rather than guessing.
+- Reddit draft previews must also show a style basis from recent posts/comments in the same subreddit, and preferably the target thread: observed tone, typical length/specificity, terminology, and what style to avoid. Match the local subreddit style without violating RB gates, platform rules, professionalism, or accuracy.
 - Canonical Communications is used only when a growth thread becomes a lead/client/business communication or when a Growth Messages record is intentionally promoted and linked through `Promoted Communication`.
 - Growth Messages records should set `Audience Target`, `Growth Channel`, `Sender Identity`, `Message Kind`, `Status`, and relevant timestamps when available.
 - Prospect PII and channel state belong in Notion, not git.

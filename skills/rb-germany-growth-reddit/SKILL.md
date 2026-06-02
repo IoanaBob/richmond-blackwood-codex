@@ -67,6 +67,7 @@ Shared gates:
 
 4. Rule And Compliance Review
    - Read subreddit rules, wiki/sidebar, pinned posts, and recent visible moderator guidance when available.
+   - Read recent posts and visible comments from the same subreddit, and when possible the target thread, to understand local style, level of directness, typical comment length, terminology, and how users frame helpful answers.
    - Classify allowed actions for community-first engagement: helpful comments, helpful non-promotional posts, replies to replies, recurring-thread participation, reactive DMs after a valid trigger, or blocked.
    - If rules require modmail, moderator approval, sponsorship, payment, or commercial permission before participation, mark the item blocked for now.
    - Treat rule, approved-claim, and Ioana-session checks as in-run gates. Store rule evidence on the Growth Target and blockers/follow-ups in Growth Messages or Tasks, not in a compliance-check database.
@@ -74,6 +75,7 @@ Shared gates:
 5. Helpful Participation Packet
    - Draft helpful, non-promotional comments or posts in chat when rules allow.
    - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
+   - Include a subreddit style-basis before each draft: recent posts/comments read, observed tone, typical specificity/length, terms users use, and any style to avoid. Drafts must match the local style without becoming rude, promotional, generic, or inaccurate.
    - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.
@@ -101,6 +103,7 @@ Shared gates:
    - Track replies, removals, bans/warnings, helpful engagements, and link clicks if available.
    - Track inbound Reddit DMs and people who engage with our public post/comment.
    - Before each reply or reactive DM draft, show the initial Reddit question/topic, the public engagement or inbound-DM trigger, the latest message/comment being answered, and why a reply or DM is justified.
+   - Include the subreddit/thread style basis before each reply or reactive DM draft, especially whether local replies are blunt, checklist-oriented, anecdotal, source-heavy, short, or conversational.
    - Draft Reddit replies and allowed reactive DMs in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - Keep DMs tied to the exact public engagement or inbound DM context; do not generate DMs from subreddit member lists, profile searches, or cold prospecting.
@@ -110,6 +113,7 @@ Shared gates:
 9. Follow-Up Drafting Packet
    - Inspect due follow-ups for posts, comments, replies, DMs, removals, warnings, and recurring threads.
    - Before each follow-up draft, show the initial thread/topic context, prior RB/Ioana interaction, latest thread state, and the specific reason a follow-up adds value.
+   - Re-check the subreddit/thread style basis before follow-up drafting if more than 48 hours passed or the thread tone changed.
    - Draft follow-up comments/replies/DMs only when there is a real thread or DM reason to add value.
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Growth Messages follow-up dates for later checks.
