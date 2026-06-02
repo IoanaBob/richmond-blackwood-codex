@@ -1,9 +1,9 @@
 # Communications
 
 Status: provisional.
-Source: neutral WhatsApp MCP and communication-routing decisions ported from local `everguard-research-codex`, adapted to RB storage rules; user instruction on 2026-06-02 that individual messages should never be logged to Notion.
+Source: neutral WhatsApp MCP and communication-routing decisions ported from local `everguard-research-codex`, adapted to RB storage rules; user instructions on 2026-06-02 that individual messages should never be logged to Notion and that recording should be asked every time.
 Imported: 2026-05-05.
-Review: confirm which WhatsApp account should be connected; individual-directed internal messages are excluded from Notion logging by user instruction.
+Review: confirm which WhatsApp account should be connected; outbound recording is ask-first and limited to necessary third-party sent messages by user instruction.
 
 ## Purpose
 
@@ -20,8 +20,9 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - For email, also show the exact source mailbox or mailboxes searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
-- After user approval, send directly through the supported connector or MCP tool. Store only formal client, workflow, or durable business communications in the canonical Communications database.
-- Never log individual-directed internal messages to Notion. This includes one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, or coordination notes, even when the message mentions a client or matter. If such a message needs follow-up, use the owning task-capable row or ask the user where to track it.
+- After user approval, send directly through the supported connector or MCP tool.
+- Always ask the user whether the sent outbound message should be recorded. Do not create a Notion Communications record unless the user explicitly says to record that exact message.
+- Only record third-party outbound messages, and only when recording is necessary as a durable audit/source record. Never log internal messages to Notion. This includes one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, workflow closeouts, or coordination notes, even when the message mentions a client or matter. If such a message needs follow-up, use the owning task-capable row or ask the user where to track it.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 - For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
 - The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
@@ -47,6 +48,7 @@ Before sending any communication, show:
 - Source/reply thread, always for email when thread context exists.
 - Attachments or files.
 - Message body.
+- Recording decision: ask whether the user wants this exact sent message recorded in Notion Communications.
 
 For Slack previews, do not use a code block by default. Use normal Codex-rendered text with clickable named links and visible `<@USERID>` responsible-person mentions so the operator can review destinations, records, and tags without copying URLs.
 
@@ -67,9 +69,9 @@ Canonical Notion database:
 
 Do not create new Richmond Blackwood records in the old `RB Communications` database at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`; it is migration source only after the 2026-05-19 common-tasks redesign.
 
-Do not create a Notion Communications row for individual-directed internal messages. Examples include asking a named teammate a quick question in Slack, nudging one person for a status check, or sending a one-off internal coordination note. The Slack/WhatsApp/message-system link is enough unless the message is part of a formal approved workflow closeout or a durable client/source evidence container.
+Do not create a Notion Communications row unless the user explicitly approves recording that exact sent message. Recording is only for third-party outbound messages where a durable audit/source record is necessary. Do not record internal messages, including individual-directed internal messages, workflow closeouts, quick questions, reminders, nudges, or coordination notes. The Slack/WhatsApp/message-system link is enough for those.
 
-For formal client, workflow, or durable business communications, create or update the canonical Communications database record with:
+When the user approves recording a qualifying third-party outbound message, create or update the canonical Communications database record with:
 
 - Communication time.
 - Channel.
@@ -154,7 +156,7 @@ When a communication creates work:
 - Link client tasks to the client project stored on the responsible Company record's project relation/attribute. Use `Richmond Blackwood Backlog` (`https://www.notion.so/25de4130131481769758f5f2d465a141`) only for truly RB-internal work. If the responsible Company has no readable linked client project, record a blocker instead of choosing an arbitrary project.
 - Use the Tasks database fields `Name`, `Status`, `Assigned To`, and `Project`; include due date, description, source communication, and relation fields when useful.
 - Assign the task to the right person from the user request, existing row owner, owner of the project linked on the responsible Company record, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.
-- Keep the canonical Communications record as the audit log/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
+- When a user-approved qualifying Communications record exists, keep it as the audit/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
 - Record the follow-up in `memory/tasks.md` only when it is repo/process work that also needs local tracking.
 - Record the follow-up in the relevant client file if it is client-specific and the client `Reference` is known.
 - Use the appropriate Notion database only when the destination is clear and existing.
@@ -166,7 +168,7 @@ For workflow-triggered analysis tasks, such as German personal tax analysis setu
 - Capture the triggering Slack user ID, channel ID, and thread/message URL at intake when the request starts in Slack.
 - If the request starts outside Slack and no Slack identity is available, ask the operator for the recipient before sending.
 - Draft the Slack text in Codex chat first, including the workbook/source URL, completed scope, and remaining review flags.
-- After the user approves the exact text, send it directly through Slack and log the sent notification in the relevant Notion task/comment or client source register. Use the Codex approval prompt/notification for Slack send approval when available and especially when the operator asks for notification-based approval; in Default mode, use the approved local approval-dialog fallback when the operator wants a popup.
+- After the user approves the exact text, send it directly through Slack. Ask whether the sent notification should be recorded; do not record it unless the user explicitly approves recording and the recipient is a third party with a necessary audit/source reason. Use the Codex approval prompt/notification for Slack send approval when available and especially when the operator asks for notification-based approval; in Default mode, use the approved local approval-dialog fallback when the operator wants a popup.
 - Do not create a Slack draft by default. Use a draft only when the user explicitly asks for one.
 
 When a personal-tax analysis or operator-review pass unblocks a `Filing Task`, post the unblock update to `#rb-client-updates` after approval:

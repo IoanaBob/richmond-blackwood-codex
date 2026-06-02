@@ -68,7 +68,7 @@ Standing auto-approval exceptions:
 
 - Stages 1 and 2 are auto-approved after their packets are written and printed.
 - Stages 10 and 11 are auto-approved for Gmail labels and WhatsApp checkpoints that are within the approved workflow.
-- Once the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved: send/log the exact Slack message, write the results packet, write the final closeout packet, and release the lock.
+- Once the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved for send and closeout only: send the exact Slack message, write the results packet, write the final closeout packet, and release the lock. Recording is not auto-approved.
 - Stage 15 is auto-approved only for bounded post-closeout media/evidence cleanup of blockers already listed in Stage 14. It may recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, and update owning Communications to `Logged` when the recovered source confirms the route. It must stop for approval before any reply/send, source marker/checkpoint, new task, new operational record, new destination, disputed route, or business-judgment decision.
 
 Stop despite auto-approval if a packet introduces an unexpected mutation, a new destination, a broad Slack mention, an unresolved data-source mismatch that makes routing unsafe, or a source/checkpoint action outside this process.
@@ -95,8 +95,9 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 
 ## Communication Rules
 
-- Log every real client/workflow communication in canonical Communications. Do not log individual-directed internal pings, quick questions, reminders, nudges, or coordination notes to Notion.
-- Spam/no-action communications are still logged and marked complete.
+- Do not automatically log sent outbound messages. Ask the user whether to record each sent message, and only record qualifying third-party outbound messages when the user explicitly says yes and recording is necessary as a durable audit/source record.
+- Do not log internal pings, workflow closeouts, quick questions, reminders, nudges, or coordination notes to Notion.
+- Spam/no-action inbound communications are logged only when the approved run scope explicitly treats them as source records.
 - Set `Relevance` when the Communication is created or updated:
   - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
   - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination.

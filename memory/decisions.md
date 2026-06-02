@@ -94,24 +94,25 @@ Consequence:
 - Email previews must show the exact `From` name, email address, `Subject`, and source/reply thread when thread context exists.
 - Email should reply in the existing thread whenever email context exists; new threads are for cases with no relevant thread or explicit user instruction.
 - After the user approves or explicitly asks to send, Codex should send directly through the supported connector or MCP tool.
-- After sending, Codex should store formal client, workflow, or durable business communications in canonical Communications.
+- After sending, Codex should ask whether the exact sent outbound message should be recorded. Codex should create a canonical Communications row only when the user explicitly says yes and the message is a necessary third-party outbound audit/source record.
 - Gmail, Slack, WhatsApp, Notion, or other software drafts should be created only when the user explicitly asks for that exception.
 
 Source: user instruction on 2026-05-06.
 Review: approved as an operating rule by user instruction.
 
-## 2026-06-02 - Individual Messages Are Not Notion Logs
+## 2026-06-02 - Outbound Recording Is Ask-First
 
-Decision: Individual-directed internal messages must never be logged to Notion Communications.
+Decision: Sent outbound messages are not automatically logged to Notion Communications. Codex must ask whether the exact sent message should be recorded.
 
 Consequence:
 
-- Do not create canonical Communications rows for one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, or coordination notes, even when the message mentions a client or matter.
-- If an individual-directed internal message needs follow-up, use the owning task-capable row or ask the user where to track it.
-- If Codex accidentally creates a Notion Communications row for an individual-directed internal message, remove it from the Communications database and invalidate any remaining standalone page that the connector cannot permanently delete.
-- Formal client, workflow, or durable business communications still use canonical Communications when they are real audit/source records.
+- Do not create canonical Communications rows unless the user explicitly says to record the exact sent message.
+- Recording is limited to messages sent to third parties, and only where recording is necessary as a durable audit/source record.
+- Do not record internal Slack/WhatsApp/DM/channel pings, quick questions, reminders, nudges, workflow closeouts, or coordination notes, even when they mention a client or matter.
+- If an internal message needs follow-up, use the owning task-capable row or ask the user where to track it.
+- If Codex accidentally creates a Notion Communications row for a non-qualifying message, remove it from the Communications database and invalidate any remaining standalone page that the connector cannot permanently delete.
 
-Source: user instruction in Codex chat on 2026-06-02 after the erroneous Alex/Sandeep Slack log.
+Source: user instructions in Codex chat on 2026-06-02 after the erroneous Alex/Sandeep Slack log.
 Review: approved by direct user correction; apply immediately to future outbound messaging.
 
 ## 2026-05-19 - Common Tasks Follow-Through Replaces Inbound Triage

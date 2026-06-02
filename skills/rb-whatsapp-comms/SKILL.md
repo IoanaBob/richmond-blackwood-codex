@@ -38,7 +38,7 @@ When Codex starts or monitors the WhatsApp bridge and a QR code is printed in te
 - The current WhatsApp MCP send action sends a plain message and cannot create a native quoted reply to an earlier WhatsApp message. When replying to a specific earlier item, write the message so the reference is explicit, for example `Regarding your message about X...`, `Thanks for the healthcare certificates...`, or `On the documents you sent this morning...`.
 - Do not store QR state, SQLite databases, downloaded media, voice-note files, transcripts, or private WhatsApp exports in git.
 - Do not copy full private chat history into memory or Notion. Summarize only the business-relevant facts.
-- Store formal client, workflow, or durable business WhatsApp communications in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`) after sending. Do not log individual-directed internal WhatsApp messages, quick questions, reminders, nudges, or coordination notes to Notion. If the database or schema is required and unavailable, report the blocker and record it in `memory/open-questions.md`.
+- Always ask whether a sent WhatsApp message should be recorded. Do not create a Notion Communications record unless the user explicitly says to record that exact message. Only record third-party outbound WhatsApp messages when recording is necessary as a durable audit/source record. Do not log internal WhatsApp messages, quick questions, reminders, nudges, workflow closeouts, or coordination notes to Notion. If a user-approved required log cannot be created because the database or schema is unavailable, report the blocker and record it in `memory/open-questions.md`.
 
 ## Read Workflow
 
@@ -64,7 +64,7 @@ If Codex sees `Unexpected response type` from contact search, inspect `third_par
 6. Confirm files are the intended files and contain no wrong-side or confidential disclosure.
 7. If the send is meant to answer a specific prior WhatsApp message, make the first sentence identify that prior message/topic because the MCP cannot attach a native quoted reply.
 8. Send through the WhatsApp MCP tools only after explicit send instruction and tool approval. Use the bridge REST API only for local bridge diagnostics or when the MCP server is unavailable and the user explicitly approves that fallback.
-9. Store the sent communication in canonical Communications only when it is a formal client, workflow, or durable business communication. Skip Notion logging for individual-directed internal messages.
+9. Ask whether to record the exact sent message unless the user already made that decision in the send approval. Create a Communications record only when the user says yes, the recipient is a third party, and recording is necessary as a durable audit/source record.
 
 ## Chat ID Filing Workflow
 

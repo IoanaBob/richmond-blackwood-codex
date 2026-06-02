@@ -16,8 +16,8 @@ Use this skill for any Richmond Blackwood outbound communication.
 - For email, also show the exact source mailbox or mailboxes that were searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new email thread only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
-- After sending, store only formal client, workflow, or durable business communications in the canonical Communications database.
-- Never log individual-directed internal messages to Notion. This includes one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, or coordination notes, even when the message mentions a client or matter. If such a message needs follow-up, use the owning task-capable row or ask the user where to track it.
+- Always ask the user whether the sent outbound message should be recorded. Do not create a Notion Communications record unless the user explicitly says to record that exact message.
+- Only record third-party outbound messages, and only when recording is necessary as a durable audit/source record. Never log internal messages to Notion. This includes one-off Slack/WhatsApp/DM/channel pings to a named teammate, quick questions, reminders, nudges, workflow closeouts, or coordination notes, even when the message mentions a client or matter. If such a message needs follow-up, use the owning task-capable row or ask the user where to track it.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
 - For Slack closeouts or other Slack messages that need user review, use the Codex approval prompt/notification when the runtime exposes it. The prompt must identify the exact destination and exact message already shown in chat, and must offer a clear approve/send choice and a do-not-send choice.
 - The Slack message shown in chat for approval must be a rendered, readable Codex preview, not a fenced raw Markdown/code block. Use normal text, headings or labels where useful, Slack mention syntax, and named Markdown links so the operator can click each link in Codex before approving. Keep the raw Slack payload internal unless the operator explicitly asks to inspect it.
@@ -42,6 +42,7 @@ Before sending, show:
 - Source/reply thread: always for email when thread context exists.
 - Attachments/files: if any.
 - Message body.
+- Recording decision: ask whether the user wants this exact sent message recorded in Notion Communications.
 
 For Slack messages, the message body preview should be readable directly in Codex, with clickable named links and visible Slack mention syntax for every responsible person. Do not put the approval preview inside a code block unless the operator specifically asks for raw Slack text.
 
@@ -60,8 +61,9 @@ If a different email sender is needed, stop and confirm it before drafting.
 3. Ask for approval unless the user already supplied exact final text and explicitly asked to send it. For Slack closeouts that require review, prefer the native Codex approval prompt over typed chat approval; when that prompt is unavailable and the operator wants a popup, use the local approval-dialog fallback described above. If a specific workflow allows typed approval of exact rendered text, follow that workflow's narrower approval rule.
 4. Send directly through the supported connector or MCP tool.
 5. Verify the send result when the connector returns a message link, ID, timestamp, or status.
-6. If the sent item is a formal client, workflow, or durable business communication, store it in the canonical Communications database. Skip Notion logging for individual-directed internal messages.
-7. If the Communications database is required and unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
+6. Ask the user whether to record the exact sent message in Notion Communications if that decision was not already explicitly included in the send approval.
+7. If the user says to record it, create a Communications record only when the recipient is a third party and the record is necessary as a durable audit/source record. If the message is internal or not necessary to record, do not create a Communications row and say why.
+8. If a user-approved required Communications database log is unavailable or its schema is unclear, report the blocker and record it in `memory/open-questions.md`.
 
 ## Communications Database Logging
 
@@ -72,9 +74,9 @@ Canonical Notion database:
 
 Do not create new Richmond Blackwood records in the old `RB Communications` database at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`; it is migration source only after the 2026-05-19 common-tasks redesign.
 
-Do not create a Notion Communications row for individual-directed internal messages. Examples include asking a named teammate a quick question in Slack, nudging one person for a status check, or sending a one-off internal coordination note. The Slack/WhatsApp/message-system link is enough unless the message is part of a formal approved workflow closeout or a durable client/source evidence container.
+Do not create a Notion Communications row unless the user explicitly approves recording that exact sent message. Recording is only for third-party outbound messages where a durable audit/source record is necessary. Do not record internal messages, including individual-directed internal messages, workflow closeouts, quick questions, reminders, nudges, or coordination notes. The Slack/WhatsApp/message-system link is enough for those.
 
-Record enough detail to reconstruct the business action without dumping unnecessary private history:
+When the user approves recording a qualifying third-party outbound message, record enough detail to reconstruct the business action without dumping unnecessary private history:
 
 - Communication time.
 - Channel.

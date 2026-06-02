@@ -21,7 +21,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
    - WhatsApp reads/sends: `skills/rb-whatsapp-comms/SKILL.md`.
    - File upload/export/attachment: `skills/rb-file-uploads/SKILL.md`.
    - Form/questionnaire completion support: `skills/rb-form-fill-assist/SKILL.md`.
-   - Outbound approval/send/logging: `skills/rb-communications/SKILL.md`.
+   - Outbound approval/send/recording decision: `skills/rb-communications/SKILL.md`.
    - Owner routing: `internal/people-roles.md`.
 
 ## Core Rules
@@ -140,9 +140,9 @@ If an email includes a letter, identify the letter source as the actual originat
 
 ### 4. Communication Ledger Plan
 
-Propose create/update of Communications rows for every real communication.
+Propose only necessary Communications rows. For any sent outbound message, include an explicit recording decision and do not create a row unless the user approves recording that exact message.
 
-Spam and no-action communications still get logged and marked complete. Company stays empty unless the communication is a relevant incoming/outgoing client letter or client-operational communication.
+Spam and no-action communications are logged only when the approved run scope explicitly treats them as source records. Company stays empty unless the communication is a relevant incoming/outgoing client letter or client-operational communication.
 
 Every proposed Communication row must include:
 
@@ -274,11 +274,11 @@ Stop for explicit send approval.
 
 ### 13. Slack Send And Log Results
 
-Send only the approved exact Slack message. Log formal workflow closeouts into canonical Communications. Do not log ad hoc individual-directed internal Slack pings, quick questions, reminders, nudges, or coordination notes.
+Send only the approved exact Slack message. Do not log internal Slack closeouts into canonical Communications. Ask the user whether any sent third-party outbound message should be recorded, and only record it when the user explicitly says yes and recording is necessary as a durable audit/source record.
 
-Packet lists Slack URL, Communications log URL, failed sends, and skipped sends.
+Packet lists Slack URL, recording decision, Communications log URL only when explicitly approved and created, failed sends, and skipped sends.
 
-Auto-approved after Stage 12 send approval: once the operator approves the exact Slack message for sending, send it, log it, write and print the packet, and continue directly to Stage 14 unless the send or log fails.
+Auto-approved after Stage 12 send approval: once the operator approves the exact Slack message for sending, send it, write and print the packet, and continue directly to Stage 14 unless the send fails. Recording is not auto-approved; ask separately unless the user already approved recording in the exact Stage 12 packet.
 
 ### 14. Run Closeout
 

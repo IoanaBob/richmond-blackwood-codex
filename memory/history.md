@@ -893,3 +893,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: One-off internal pings to a named teammate, quick questions, reminders, nudges, and coordination notes are not Communications rows, even when they mention a client or matter. Use the owning task-capable row or ask the user where to track follow-up when needed.
 - Verification: Notion fetch confirmed the erroneous page no longer has a Communications database parent and is blank. Repo verification runs are recorded in the final closeout for this branch.
 - Limitations or gaps: The Notion connector did not expose a permanent page-delete tool; the strongest available cleanup was removing the record from the Communications database and blanking/invalidating the remaining standalone page.
+
+## 2026-06-02 - Ask-First Third-Party Recording Rule
+
+- User request: Further correct the communication logging rule so only messages sent to third parties are recorded where necessary, and Codex always asks whether a sent message should be recorded.
+- Context read: Updated `AGENTS.md`, `skills/rb-communications/SKILL.md`, `processes/communications.md`, `skills/rb-common-tasks-follow-through/SKILL.md`, `processes/common-tasks-follow-through.md`, Gmail/WhatsApp communication skills, stage packet protocol, and durable memory.
+- Actions taken: Replaced automatic Communications logging language with an explicit recording-decision gate across root instructions, communication skills, Gmail/WhatsApp rules, common-tasks stage text, process docs, current-state memory, decisions, and handoff.
+- Decisions made: Recording is not automatic. Codex must ask whether the exact sent outbound message should be recorded; a Notion Communications row is allowed only when the user explicitly says yes and the message is a necessary third-party outbound audit/source record. Internal messages and workflow closeouts are not logged.
+- Verification: Repo verification runs are recorded in the final closeout for this branch.
+- Limitations or gaps: None known yet.

@@ -47,7 +47,7 @@ The operator approved these standing exceptions on 2026-05-20, with bounded Stag
 - Stage 2 - Open Task Inventory: write and print the packet, then continue automatically. If inventory is degraded, the packet must say so, but the run may proceed with degraded inventory unless the degradation blocks safe routing.
 - Stage 10 - Source Marker Plan: write and print the packet, then proceed to Stage 11 automatically when proposed markers are limited to Gmail labels and WhatsApp checkpoints covered by the approved workflow.
 - Stage 11 - Source Marker Results: apply the Stage 10 source markers, write and print the packet, then proceed to Stage 12 automatically unless marking fails or a checkpoint blocker needs operator review.
-- Stage 13 - Slack Send And Log Results: once the operator approves the exact Stage 12 Slack message for sending, Stage 13 is approved. Send the exact message, log it, write and print the packet.
+- Stage 13 - Slack Send And Recording Results: once the operator approves the exact Stage 12 Slack message for sending, Stage 13 is approved for send only. Send the exact message, write and print the packet, and include the recording decision. Recording is not auto-approved; ask separately unless the user already approved recording in the exact Stage 12 packet, and record only necessary third-party outbound messages.
 - Stage 14 - Run Closeout: after successful Stage 13, write and print the closeout packet, release the lock, and preserve scratch packets by default.
 - Stage 15 - Post-Closeout Media Evidence Cleanup: after Stage 14, automatically recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, update owning Communications, write and print the plan/results/readback packet, and update memory, but only for blockers listed in Stage 14 and only when no new business judgment or destination choice is required.
 
@@ -57,7 +57,7 @@ Auto-approval does not waive mutation safety outside the named stage scope. If a
 
 No live write, send, label, checkpoint, file upload, status change, or Slack post happens merely because a packet exists.
 
-The operator must approve the exact next action packet unless the stage is covered by the auto-approval exceptions. Approval for Stage 12 Slack send text approves Stage 13 send/log and Stage 14 closeout only for that exact Slack message and normal closeout actions.
+The operator must approve the exact next action packet unless the stage is covered by the auto-approval exceptions. Approval for Stage 12 Slack send text approves Stage 13 send and Stage 14 closeout only for that exact Slack message and normal closeout actions. Recording is a separate decision unless the packet explicitly asks and the user explicitly approves recording.
 
 Stage 15 does not need separate approval when limited to already-identified Stage 14 evidence/media blockers and already-resolved destinations. Stage 15 must stop for approval before any reply/send, source marker/checkpoint, new task, new Expense/Invoicing/Communication row, new Drive destination, disputed task relation, unresolved client subject mapping, or business-judgment decision.
 
