@@ -1,7 +1,7 @@
 # Accounting Team Updates Stage Packet Protocol
 
 Status: provisional.
-Source: user instruction to make Accounting Team Updates triage packet-based, modelled on `rb-common-tasks-follow-through`; user instruction on 2026-06-02 that packet approval surfaces must be human-readable tables, with machine logs kept later or in a handover/log file.
+Source: user instruction to make Accounting Team Updates triage packet-based, modelled on `rb-common-tasks-follow-through`; user instruction on 2026-06-02 that packet approval surfaces must be human-readable tables, with machine logs kept later or in a handover/log file; user instruction on 2026-06-02 to check whether a meeting transcript exists, read it when found, and continue when none is found.
 Imported: 2026-05-26.
 Review: Validate on the next weekday Accounting Team Updates run.
 
@@ -104,13 +104,17 @@ Execution:
 1. Read the current-day Accounting Team Updates page and verify `Team`, `Date`, and company context.
 2. Split rows by section.
 3. Count `New client inbounds` as observed / out of scope.
-4. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
-5. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
-6. Write and print `stage-02-source-context.md`.
+4. Check whether a current-day Accounting Team Updates meeting transcript or approved meeting notes exist in the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
+5. If transcript/notes are found, read them and preserve the task-relevant context in `stage-02-source-context.md` or a linked transcript-context appendix in the run folder.
+6. If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Missing transcript/notes alone is not a blocker.
+7. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
+8. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
+9. Write and print `stage-02-source-context.md`.
 
 Required packet fields:
 
 - Team Updates page URL, properties, and section rows;
+- transcript/approved-notes existence check result: found/read with source link and saved context path, or `none found`;
 - exact Notion and per-channel Slack query bounds, including timezone and preflight timestamp;
 - `New client inbounds observed / out of scope` count and a short note that inbound routing belongs to `rb-common-tasks-follow-through`;
 - relevant human-authored Slack messages and new thread context by channel;

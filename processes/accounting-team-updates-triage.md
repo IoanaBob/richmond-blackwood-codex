@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -28,6 +28,12 @@ Team Updates:
 - Filter: `Team = Accounting`; prefer `Company = Richmond Blackwood` when present.
 
 If a data source query tool is available, query by `Team = Accounting` and `Date = current working day`. If not, use Notion search/fetch on the Accounting view/current-date candidates and verify properties after fetch.
+
+Meeting transcript / notes:
+
+- During Stage 2, check whether a current-working-day Accounting Team Updates meeting transcript or approved meeting notes exist in the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
+- If transcript/notes are found, read them and save task-relevant context in the Stage 2 packet or a linked transcript-context appendix/handover file in the run folder. Stage 3 task descriptions and contextual comments should use that saved context.
+- If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Absence alone is not a blocker.
 
 Slack context channels:
 
@@ -136,7 +142,7 @@ This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-acc
 Required packet files:
 
 1. **Run Preflight**: current date/window, clean/dirty/conflicted git status, `git pull origin main` result, Notion/Slack connector availability, Team Updates query, Slack channel IDs, and ChatGPT/Codex exclusion rule.
-2. **Source Context**: Team Updates page, section rows, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
+2. **Source Context**: Team Updates page, section rows, transcript/approved-notes existence check result, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
 3. **Routing Plan**: human-readable approval tables grouped as Creates, Updates / comments, Skips / no action, and Unresolved / needs decision. The visible tables must show source row, source line, decision, target, owner, due date, exact action, Team Updates write-back, and blocker/approval need. Exact schema/property write payloads, verified assignee Slack mentions, dedupe evidence, and other execution details must be preserved in a later machine log or linked handover file.
 4. **Notion Write Results**: task/operational-row create/update/comment links, owner/status/project/reviewer/due-date read-back, exact payload executed, Team Updates write-back read-back, and unresolved rows.
 5. **Slack Closeout Plan**: exact standard Slack notice with Team Updates link, created and updated/commented task links, verified assigned-person mentions, Slack mention resolution table, and any short unresolved-item phrase.

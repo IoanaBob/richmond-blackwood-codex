@@ -55,6 +55,7 @@ Auto-approval:
 Source reads:
 
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
+- Check whether a current-working-day Accounting Team Updates meeting transcript or approved meeting notes exist in the Team Updates page, linked Notion pages, approved Slack threads, or other approved source location named by the run context. If found, read it and save the relevant task-context excerpts or summary in the Stage 2 packet or a linked transcript-context appendix in the run folder. If no transcript or notes are found after the check, record `Transcript check: none found` and continue; absence alone is not a blocker.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
 Section rules:
@@ -74,7 +75,7 @@ Slack read rules:
 
 Auto-approval:
 
-- Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet.
+- Stage 2 may continue automatically after reads if no routing decisions or live writes are made yet and the transcript/notes existence check is recorded as found/read or none found.
 
 ### Stage 3 - Routing Plan
 
