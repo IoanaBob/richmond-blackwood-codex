@@ -25,5 +25,6 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
 - `rb-de-vbg-accident-insurance`: prepare, submit, and log German VBG accident-insurance / Unternehmensnummer registrations for RB company clients.
+- `rb-ebilanz-online`: prepare/review German E-Bilanz filings in eBilanz-Online from Drive/Notion sources, including platform-readable import workbooks, structure-preserving mapping corrections, validation, proof handling, Notion closeout, and no-submission-without-approval controls.
 - `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
 - `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.
