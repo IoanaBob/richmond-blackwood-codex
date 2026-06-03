@@ -64,6 +64,10 @@ User clarified on 2026-05-18 to follow the source dates rather than the earlier 
 
 Relevant task: `Prepare P&L and Balance Sheet for Aaron` at `https://www.notion.so/353e413013148070ad92d56880997fb6`.
 
+Follow-up on 2026-06-03: the Finanzamt Lichtenberg letter dated 2026-05-20 asks for electronic E-Bilanzen for 2023 and 2024 by 2026-06-10 and says the Excel tables are not sufficient. The eBilanz-Online draft packet is in `ebilanz-online.md`. User explicitly said not to submit/transmit without approval.
+
+Follow-up on 2026-06-03: Aaron's 2023 and 2024 eBilanz-Online drafts were created and populated from the Drive FS workbooks. 2023 draft period ID `625302` and 2024 draft period ID `625318` are prepared but not transmitted. Final transfer still requires explicit user approval, ELSTER certificate/PIN/voucher/payment, and review of the 2024 opening/previous-year business assets value noted in `ebilanz-online.md`.
+
 ## 2025 Joint Filing
 
 Status: provisional.
@@ -86,3 +90,4 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 | Finanzamt questionnaire workbook | `https://docs.google.com/spreadsheets/d/1NcGhQVn-H1EDvg5Dbn4ZRytXqCjq4SAA/edit` | Questionnaire and payment-plan support. |
 | 2023 FS workbook | `https://docs.google.com/spreadsheets/d/1OnLp0uM1SN2fVyltPrDOqv2p_Th3YzTA/edit` | Review latest version before use. |
 | 2024 FS workbook | `https://docs.google.com/spreadsheets/d/1KmyvtL-HW4Qc-r6Fi4mxWy1MM0UYAkj1/edit` | Review latest version before use. |
+| Finanzamt Lichtenberg E-Bilanz request | `https://drive.google.com/file/d/1CicvmfDj5xMfO1lJ7EDA4BjTeQo6E7Rn/view` | Requires electronic E-Bilanzen for 2023 and 2024 by 2026-06-10. |

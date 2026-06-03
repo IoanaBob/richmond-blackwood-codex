@@ -13,6 +13,8 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-18 | Codex thread | Previous accountant did not file 2023/2024; RB filed both and discovered prior Gewerbe registration with trade tax and VAT filings also not filed. User clarified the open periods are 2023, 2024, and Q1 2025; after Q1 2025 Aaron was deregistered. |
 | 2026-05-18 | Codex thread | Finanzamt requested P&L/balance-sheet support. User clarified to follow source dates: WhatsApp 2026-05-19 at latest and Notion before 2026-05-22. |
 | 2026-05-18 | Codex thread | Finanzamt has not yet responded to the payment-plan proposal, and P-Konto is not confirmed active. |
+| 2026-06-03 | Codex thread | User asked to use eBilanz-Online to prepare Aaron's 2023 and 2024 electronic balance sheets from the Drive FS workbooks, using Notion personal details as needed, and explicitly forbade submission without approval. |
+| 2026-06-03 | Codex thread / in-app browser | Created and populated eBilanz-Online drafts for 2023 and 2024. Draft IDs: 2023 `625302`, 2024 `625318`. No transmission, ELSTER authentication, PIN entry, or voucher/payment was performed. |
 
 ## Notion
 
@@ -28,6 +30,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Start Aaron + wife 2025 joint personal tax filing | `https://www.notion.so/360e4130131481b881aad86ffaf1b958` | 2025 onward joint filing task. |
 | Remaining balance with Finanzamt | `https://www.notion.so/35ae41301314807da439eee8bc3e5642` | Remaining balance after garnishment transfer. |
 | Prepare P&L and Balance Sheet for Aaron | `https://www.notion.so/353e413013148070ad92d56880997fb6` | 2023/2024 P&L and balance-sheet support. |
+| Aaron eBilanz-Online urgent pricing and import call | `https://www.notion.so/36fe4130131481a888afd7a1b671f940` | Prior support-call attempt; support team unavailable, email/callback route advised. |
 
 ## Google Drive
 
@@ -38,6 +41,21 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 folder | `https://drive.google.com/drive/folders/113VYWkpgHbXIqUtUtwJzyH2jhrxbJZp1` | 2025 evidence. |
 | Previous Accountant Extracts | `https://drive.google.com/drive/folders/1aG4QRXDaIUNXSGi59fsPTWStfleDmdPg` | Prior accountant material. |
 | 2023/2024 FS workbooks | See `drive-locations.md` | P&L/balance-sheet source support. |
+| Finanzamt Lichtenberg E-Bilanz request, 2026-05-20 | `https://drive.google.com/file/d/1CicvmfDj5xMfO1lJ7EDA4BjTeQo6E7Rn/view` | Letter asks for electronic E-Bilanzen for 2023 and 2024 by 2026-06-10; Excel tables are not sufficient. |
+| eBilanz-Online draft packet | `ebilanz-online.md` | Local source-backed draft plan, public platform notes, and FS summary figures. |
+| 2023 eBilanz import workbook | `/Users/jp/Downloads/Aaron_Chamberlain_eBilanz_2023_import_legacy.xls` | Local import artifact uploaded by the user to eBilanz-Online draft `625302`; Drive FS workbook remains source of truth. |
+| 2024 eBilanz import workbook | `/Users/jp/Downloads/Aaron_Chamberlain_eBilanz_2024_import_legacy.xls` | Local import artifact uploaded by the user to eBilanz-Online draft `625318`; Drive FS workbook remains source of truth. |
+
+## Public / Platform Sources
+
+| Source | URL | Scope |
+| --- | --- | --- |
+| eBilanz-Online public site | `https://www.ebilanzonline.de/` | Login state and public platform entry point. |
+| eBilanz-Online mapping/data-entry FAQ | `https://www.ebilanzonline.de/wissen/faq/mapping-und-datenerfassung/` | Excel import, mapping, taxonomy support, and DATEV SKR03/SKR04 standard mapping notes. |
+| eBilanz-Online DATEV import FAQ | `https://www.ebilanzonline.de/wissen/faq/importmoeglichkeiten/datev-mittelstand-faktura-mit-rechnungswesen/` | Public workflow for importing a Summen- und Saldenliste into `Kontensalden fuer Zuordnung`. |
+| eBilanz-Online technical requirements | `https://www.ebilanzonline.de/wissen/faq/technische-voraussetzungen/` | ElsterBasis certificate requirement for final transfer and Excel import requirements. |
+| eBilanz-Online 13-digit tax number guide | `https://www.ebilanzonline.de/wissen/13-stellige-steuernummer/` | Public Berlin conversion rule for the 13-digit ELSTER tax number. |
+| eBilanz-Online live account | `https://www.ebilanzonline.de/ebo/` | Draft 2023 period `625302` and draft 2024 period `625318` were populated in the logged-in account on 2026-06-03. |
 
 ## Gmail
 
