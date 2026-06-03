@@ -86,6 +86,7 @@ Shared gates:
    - DM-help lines must be specific and low-pressure, for example "Can help with both in DM if useful" or "DM me if you want a second pair of eyes on the setup." Do not use generic CTAs, booking language, service names, or broad filler.
    - For US-like compensation threads, keep the baseline narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra options such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic market commentary unless the user explicitly approves them for that thread.
    - Block AI-sounding copy. Avoid the word "path" in outbound copy, slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
+   - Avoid unnatural analysis phrases such as "the line I'd watch is..." in outward-facing Reddit copy. Use plain wording like "What matters is..." or just say the actual point.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Block copied-looking copy. Before approval, compare the draft against visible thread comments and rewrite if it uses the same opening, sequence of points, examples, phrasing, or conclusion as another user.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.

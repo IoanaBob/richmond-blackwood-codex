@@ -144,6 +144,7 @@ Shared gates:
    - For Reddit, include a DM-help assessment before the draft text. If Ioana or RB can seriously help with the specific problem, include a specific, low-pressure DM-help line only when it fits naturally; do not use generic CTAs, booking language, or service names.
    - For Reddit US-like compensation drafts, keep the suggested answer narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra career options or generic AI-like market summaries unless the user explicitly asks.
    - For outbound growth copy, avoid the word "path," slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
+   - Avoid unnatural analysis phrases such as "the line I'd watch is..." in outward-facing copy. Use plain wording like "What matters is..." or say the actual point directly.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
    - Use natural paragraphing for the channel. For Reddit, do not split every short point into its own paragraph; prefer one compact paragraph or two medium paragraphs when that reads more human.
