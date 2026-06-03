@@ -253,6 +253,17 @@ TPL / Techpacito Limited context import:
 - Drive folder status: target canonical folder is `02. RB Client Companies/19. Techpacito Limited (TPL)`. The saved `accounting-richmond-blackwood` persona authenticates as `accounting@richmondblackwood.com` but cannot access the parent folder; `ioana-eip` can access it but needs explicit approval before being used for folder creation.
 - High-signal open items: JP USt-IdNr. follow-up, deciding whether Barden can work with German VAT after the USt-IdNr./international VAT number is available, canonical Drive folder creation/verification after write-persona access is resolved, Mercedes-Benz order PDF upload to `Correspondance`, car invoice/delivery/financing and BIK/payroll treatment, and payroll worked-hour support.
 
+KONVI / KONVI LIMITED context import:
+
+- Company folder: `clients/Companies/KONVI/`.
+- Notion company: `https://www.notion.so/b91261a784104aedb4a97494cd325bbb`; `Reference` is `KONVI`.
+- Notion client project: `https://www.notion.so/32fe4130131480de8777e97adf079bae`.
+- No WhatsApp route is recorded because user instruction on 2026-05-26 says Konvi is internal and there is no WhatsApp with this company. User corrected the communication route to Slack; the Notion Companies schema was extended with `Slack`, and KONVI/KHL were updated to use Slack.
+- Current company state from Notion: Irish incorporated and tax resident, Xero accounting software, internal group managed services, Medium risk, RB monthly fee EUR 9,500. Previous names recorded are KONVI FIVE YEAR WATCH HOLDINGS 001 LTD and KONVI CROWDFUNDING LTD.
+- High-signal active issues: April books/Irish VAT/ROS demand, Revenue VAT refund support, VIES overdue row, `luigi@konvi.app` mailbox/send-as repair, LuxTrust order pack, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, XVault/MiCA/CASP risk review, Konvi tax-support landing page, and shareholder-query review.
+- Corrected source-of-truth fields on 2026-05-26: KONVI registered office is `Workhub, 77 Lower Camden Street, Dublin, D02 XE80, Ireland` from CRO Open Data; KHL registered/correspondence address is `6b Upper Water Street, Newry, Down, BT34 1DJ` from Companies House; KHL placeholder email fields were cleared; the Konvi business partner now records VAT registered in IE and UK, with German VAT deregistered.
+- Remaining data-quality issues: future VAT filing title/date mismatch, 2026 annual-return row not confirmed in this first pass, and UK VAT automation tasks misnamed as IE VAT.
+
 Communication workflow update:
 
 - Browser/API/MCP boundary from 2026-06-01 user instruction: reject browser use for live workspace or business-system workflows when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before using browser automation, check whether the current plan can use one of those routes; if unclear, ask the responsible RB team member whether an API/MCP path exists. If possible access is blocked by missing credentials, stop and ask the responsible team member to provision the right keys or credentials through approved secret storage. Do not use browser as a workaround for missing API/MCP access.

@@ -12,7 +12,7 @@ This file records company-specific calling-bot context for `KONVI LIMITED`. Gene
 - Call: `RBCALL-11` / `Konvi test call - simulated Finanzamt`.
 - Subject: Company.
 - Represented company: `KONVI LIMITED`.
-- Company Reference: `Konvi`.
+- Company Reference: `KONVI`.
 - Linked individual: Eran Peer, director/UBO context for Konvi.
 - Test contact: `Test Finanzamt - Eran Peer`.
 - Purpose: controlled English test call where the called person acts as a Finanzamt contact.

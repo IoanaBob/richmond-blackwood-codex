@@ -134,9 +134,15 @@ AKS/Anastasia WhatsApp evidence reviewed on 2026-05-19 is registered in `clients
 
 TPL/Techpacito WhatsApp evidence reviewed on 2026-05-22 is registered in `clients/Companies/TPL/source-register.md`. Route: `Gupta, Pradeep | Richmond Blackwood` / `120363399422225301@g.us`. The repo stores only source pointers and summaries, not raw transcripts, media, bank details, tax identifiers, or passwords.
 
+KONVI has no WhatsApp client route in the 2026-05-26 import because the user confirmed it is internal. User corrected the communication route to Slack, and live Notion company records were updated accordingly. Konvi company sources are routed to `clients/Companies/KONVI/source-register.md`.
+
 ## TPL / Techpacito Sources
 
 TPL company sources are routed to `clients/Companies/TPL/source-register.md`. The 2026-05-22 load used the Notion company record `https://www.notion.so/1afe41301314801ba185cabd85971769`, project `https://www.notion.so/32fe413013148053858de308234f56e9`, Pradeep and Sangita linked individual records, employment records, Barden/RB/Techpacito and office-rental contracts, filing registrations, VAT/direct Barden communication, TPL ELSTER/VAT follow-up call task, Gmail Barden/ELSTER/Lexware/logo threads, and WhatsApp `Gupta, Pradeep | Richmond Blackwood`. The 2026-05-24/25 update added user review answers, live Notion corrections for local VAT registration and payroll amounts, new JP task `https://www.notion.so/36be413013148127893fcb3fc99958c8`, Gmail car source `19dbf3b04574dbd8` for the Mercedes-Benz VLE 300 electric order, CORE/CRO public-check results, and the Drive-folder access blocker. No personal-tax folders were created because the user confirmed TPL is company-only.
+
+## KONVI Sources
+
+Konvi company sources are routed to `clients/Companies/KONVI/source-register.md`. The 2026-05-26 import used the Notion company record `https://www.notion.so/b91261a784104aedb4a97494cd325bbb`, client project `https://www.notion.so/32fe4130131480de8777e97adf079bae`, parent project/team view, linked Eran and KHL records, business partner, contracts, filing registrations, filing rows, active task records, archived/done task records, and internal Notion documents. User confirmed Konvi is internal and has no WhatsApp client chat. User review corrections used CRO Open Data for KONVI registered office, Companies House for KHL registered office, and live Notion readbacks for Slack routing and Konvi business-partner VAT metadata.
 
 ## AKS / Anastasia Sources
 

@@ -876,6 +876,17 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Verification: Notion read-back confirmed the Hamburg contact has five linked availability URLs and the schedule text. The Tuesday availability read-back confirmed the source metadata and UTC window. n8n published `RB Calls Voice Execution` active version `89bba696-83ad-4401-bf74-4e2b48c343cd`; live read-back confirmed `Make ElevenLabs Outbound Call` timeout `120000`. `npm run calls:check-automation`, `npm run typecheck`, and `git diff --check` passed.
 - Limitations or gaps: Hamburg's public phone hours are provisional and should be rechecked against Hamburg.de if the official page changes.
 
+## 2026-05-26 - KONVI Company Context Import
+
+- User request: Return to main, pull latest, create a Konvi client-memory branch, pull information from Notion, and report issues found. User confirmed Konvi is internal and has no WhatsApp client chat.
+- Context read: Notion company `KONVI LIMITED`, Konvi internal project and parent project, linked contracts, filing registrations, filing rows, business partner, KHL shareholder company, Eran role pointer, internal Notion documents, and high-signal active/archived task records.
+- Actions taken: Created branch `codex/konvi-context`, corrected the tracked client folder casing from legacy `Konvi` to canonical `KONVI`, preserved the prior controlled calling-bot context, populated the first-pass company memory files, and updated durable memory/source logs.
+- Issues found: April books/Irish VAT/ROS demand, Revenue VAT refund support, VIES overdue row, `luigi@konvi.app` mailbox/send-as repair, LuxTrust order pack, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, XVault/MiCA/CASP risk review, Konvi tax-support landing page, shareholder-query review, blank registered office, stale business-partner VAT flag, KHL placeholders, future VAT title/date mismatch, unconfirmed 2026 annual-return row, and misnamed UK VAT automation tasks.
+- Decisions made: Do not record a WhatsApp JID for Konvi. User corrected Konvi routing to Slack.
+- Follow-up corrections: Extended the Notion Companies communication-preference options with `Slack`, updated KONVI/KHL to Slack, set KONVI registered office from CRO Open Data, set KHL registered/correspondence address from Companies House, cleared KHL placeholder email fields, and updated the Konvi business partner to show IE/UK VAT registration with German VAT deregistered.
+- Verification: Pending final branch closeout.
+- Limitations or gaps: Broad Notion Tasks database search timed out, so the import used targeted searches/fetches and is a first-pass issue map rather than exhaustive Notion inventory.
+
 ## 2026-06-01 - Browser API/MCP Rejection Rule
 
 - User request: Make a general rule rejecting browser use for anything that might be reachable through an API or MCP route; check feasibility within the current plan, ask when unsure, and ask the responsible team member for API keys when access is possible but credentials are missing.
