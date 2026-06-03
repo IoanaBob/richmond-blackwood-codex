@@ -23,7 +23,7 @@ Review: confirm which RB Google accounts are actually credentialed in the global
 
 ## Identity Boundaries
 
-- `RB_CODEX_ACTOR` is a human operator name from `internal/people-roles.md`.
+- `RB_WORKSPACE_ACTOR` is a human workspace actor name from `internal/people-roles.md`; `RB_CODEX_ACTOR` is a legacy compatibility alias for the same value.
 - A Google persona is an auth route for Gmail, Drive, and Calendar helpers.
 - A Gmail source mailbox is the mailbox searched/read for a job.
 - A Gmail `From` sender is the exact send-as identity used for a draft/send/reply.

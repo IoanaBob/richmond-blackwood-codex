@@ -81,7 +81,7 @@ Packet fields:
 
 - branch and git status;
 - pull result;
-- operator from `RB_CODEX_ACTOR` when needed, or `not required`;
+- workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when needed, an explicit actor supplied in the current run/chat if both env keys are missing, or `not required`;
 - Communications database URL and data source ID;
 - live Communications fields available;
 - missing expected fields, if any;
@@ -96,7 +96,7 @@ Goal: choose Communications rows in scope.
 
 Default inclusion:
 
-- `Assigned To` contains the active operator's Notion user ID resolved from `RB_CODEX_ACTOR`;
+- `Assigned To` contains the active workspace actor's Notion user ID resolved from `RB_WORKSPACE_ACTOR`, legacy `RB_CODEX_ACTOR`, or an explicit actor supplied in the current run/chat;
 - `Status` is not a complete status;
 - `Snooze Until` is blank or is on/before the run date in the Codex timezone;
 - the user supplied a specific row URL, labelled as an `operator_supplied_override` if it does not match the default assignment or snooze filter;
@@ -120,10 +120,12 @@ collection://1b5e4130-1314-8183-afd8-000b6f4da982
 
 Preferred method:
 
-- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, fetch/query the full data source or a verified view with an authoritative pagination method.
-- SQL mode: use the canonical data source as the table name, request deterministic columns, and page with `LIMIT 100 OFFSET <n>` until a query returns fewer than 100 rows. Record every query, offset, returned row count, and final total in the packet.
-- View mode: query the supplied/approved view URL with `page_size: 100`; follow `next_cursor` until `has_more` is false. Record every cursor, returned row count, and final total in the packet.
-- For operator assignment scopes, resolve the active human operator from `RB_CODEX_ACTOR` and `internal/people-roles.md`, then filter by the Notion user ID stored in `Assigned To`.
+- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, follow `processes/notion-operations.md`: use Notion REST API data-source pagination, a full approved export/CSV, or a currently working MCP SQL/view pagination path. Do not use MCP search as the inventory source.
+- REST API mode: use `POST /v1/data_sources/<data-source-id>/query` with `page_size: 100`; follow `next_cursor` with `start_cursor` until `has_more` is false. Record every cursor, returned row count, and final total in the packet. Keep token handling outside git and never print the token.
+- SQL mode: if the MCP backend currently exposes data-source query, use the canonical data source as the table name, request deterministic columns, and page with `LIMIT 100 OFFSET <n>` until a query returns fewer than 100 rows. Record every query, offset, returned row count, and final total in the packet.
+- View mode: if the MCP backend currently exposes view pagination, query the supplied/approved view URL with `page_size: 100`; follow `next_cursor` until `has_more` is false. Record every cursor, returned row count, and final total in the packet.
+- For operator assignment scopes, resolve the active human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` and `internal/people-roles.md`, or from an explicit actor supplied in the current run/chat if both env keys are missing, then filter by the Notion user ID stored in `Assigned To`.
+- Google personas are auth routes only. Do not use a Google persona, Gmail mailbox, or sender identity as the active human workspace actor.
 - If using a user-provided CSV/export, record the file path, export timestamp if known, source view/database URL, row count, and exact filter/sort that produced it.
 
 Example SQL for Ioana-assigned rows:
@@ -162,9 +164,9 @@ Use parameter:
 
 Fallback method:
 
-- Do not rely on historical connector behavior alone. Each run must do a live `fetch` probe and a live non-mutating SQL/view query probe before deciding whether complete inventory is available.
-- If SQL/view query returns an error such as `Tool notion-query-data-sources not found`, treat that as a connector backend blocker, not as an empty result.
-- If SQL/view query is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables a direct Notion API/export helper path, or explicitly approves a degraded candidate-only run.
+- Do not rely on historical connector behavior alone. Each run must do a live `fetch` probe, check whether the REST API/export path is available, and run live non-mutating SQL/view query probes when those connector paths are callable before deciding whether complete inventory is available.
+- If SQL/view query returns an error such as `Tool notion-query-data-sources not found`, treat that as a connector backend blocker only. Continue to the REST API/export availability check before declaring the run blocked.
+- If every authoritative inventory path is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables a direct Notion API/export helper path, or explicitly approves a degraded candidate-only run.
 - Notion search may be used only for candidate discovery. It has a 25-result cap, semantic ranking, and can return false positives where linked tasks or page content mention the operator while the Communication row has no `Assigned To` value.
 - Any search-based packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
 

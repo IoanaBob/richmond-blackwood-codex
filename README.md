@@ -18,21 +18,22 @@ This repo intentionally keeps unsanitised operational context. Live secrets, cre
 8. Check [sources/import-log.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/sources/import-log.md) before importing a source twice.
 9. For company client work, first read the company `Reference` in Notion, then read the relevant folder under `clients/Companies/<client-reference>/`. For individual work, use the Notion legal name and `clients/Individuals/<legal-name>/`.
 
-## Active Operator And Mailboxes
+## Workspace Actor And Mailboxes
 
-Set the active local human operator in ignored `.env.local` when a run needs operator-specific approval, authorship, source-access attribution, or closeout context:
+Set the active local workspace actor in ignored `.env.local` when a run needs operator-specific approval, authorship, source-access attribution, Notion assignment, Slack/WhatsApp routing attribution, or closeout context:
 
 ```text
+RB_WORKSPACE_ACTOR="Ioana Surdu-Bob"
 RB_CODEX_ACTOR="Ioana Surdu-Bob"
 ```
 
-Valid actor names are recorded in [internal/people-roles.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/internal/people-roles.md). The actor is a human name, not an email address. Shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or sending identities, never actors.
+`RB_WORKSPACE_ACTOR` is the preferred name. `RB_CODEX_ACTOR` remains a compatibility alias for older instructions and scratch scripts. Valid actor names are recorded in [internal/people-roles.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/internal/people-roles.md). The actor is a human name, not an email address. Shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or sending identities, never actors.
 
 Google auth personas are separate again: they are credential routes under the shared global Codex store `~/.codex/google-personas/`, not actors, source mailboxes, or senders by themselves. See [memory/google-auth.md](/Users/ioana/.codex/worktrees/5364/richmond-blackwood-codex/memory/google-auth.md) and [setup/google-persona-auth.md](/Users/ioana/.codex/worktrees/5364/richmond-blackwood-codex/setup/google-persona-auth.md).
 
 For Gmail work, record these separately in packets and previews:
 
-- `Operator`: human actor from `RB_CODEX_ACTOR`.
+- `Operator`: human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR`.
 - `Source mailbox(es)`: exact mailbox(es) searched/read.
 - `From`: exact sender for drafts, sends, and replies.
 - `Thread/source`: Gmail thread/message ID or source summary.

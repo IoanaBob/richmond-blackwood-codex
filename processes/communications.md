@@ -14,7 +14,7 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Prefer app connectors and MCP tools for app-native reads and writes.
 - Do not invent transcripts or communication context.
 - Keep reads narrow and purpose-bound.
-- For Gmail work, keep active human operator, source mailbox, and sending identity separate. `RB_CODEX_ACTOR` is a human name from `internal/people-roles.md`; `accounting@richmondblackwood.com` is a shared service mailbox and must not be treated as an actor.
+- For Gmail work, keep active human workspace actor, source mailbox, and sending identity separate. `RB_WORKSPACE_ACTOR` is a human name from `internal/people-roles.md`, with `RB_CODEX_ACTOR` as a legacy alias; `accounting@richmondblackwood.com` is a shared service mailbox and must not be treated as an actor.
 - Do not send messages automatically unless the user explicitly asks to send and the tool approval confirms recipient, content, and any attachment.
 - Draft outbound communications in chat with the user. Do not create app/software drafts for the user to manually hit send unless the user explicitly asks for that exception.
 - Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.

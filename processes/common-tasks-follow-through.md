@@ -55,7 +55,7 @@ Every stage must:
 
 Every packet involving Gmail must keep these fields separate:
 
-- `Operator`: human `RB_CODEX_ACTOR` when operator-specific context matters, or `not required`.
+- `Operator`: human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when operator-specific context matters, or `not required`.
 - `Source mailbox(es)`: exact Gmail mailbox(es) searched/read.
 - `From`: exact sender for drafts, sends, or replies.
 - `Thread/source`: Gmail thread/message ID, link, or source summary.

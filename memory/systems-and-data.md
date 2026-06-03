@@ -37,14 +37,14 @@ Provisional tools and systems observed:
 - Google Drive for source documents and finance/accounting folders.
 - Optional local WhatsApp MCP for user-controlled WhatsApp reads/sends/media once explicitly enabled.
 
-## Active Operator And Mailbox Routing
+## Workspace Actor And Mailbox Routing
 
 Status: provisional.
 Source: user instruction in Codex chat and current RB communication-helper rules.
 Imported: 2026-05-24.
 Review: confirm valid RB operator names, approved operator work email addresses, and any non-accounting sender identities.
 
-`RB_CODEX_ACTOR` identifies the active human operator for a Codex run. The value is a human name from `internal/people-roles.md`, for example `Ioana Surdu-Bob`. It is used only when operator-specific approval, authorship, source-access attribution, or closeout context matters.
+`RB_WORKSPACE_ACTOR` identifies the active human workspace actor for a Codex run. The value is a human name from `internal/people-roles.md`, for example `Ioana Surdu-Bob`. It is used when operator-specific approval, authorship, source-access attribution, Notion assignment, Slack/WhatsApp routing attribution, or closeout context matters. `RB_CODEX_ACTOR` is a legacy compatibility alias for the same value.
 
 Shared service mailboxes are not actors. `accounting@richmondblackwood.com` is the shared RB accounting/client-facing service mailbox and default client-facing sender:
 
@@ -54,7 +54,7 @@ Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>
 
 Gmail source mailbox and Gmail sending identity are per-job fields, not actor fields. Every Gmail job, packet, or preview should record:
 
-- `Operator`: human actor from `RB_CODEX_ACTOR` when operator-specific context is needed.
+- `Operator`: human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when operator-specific context is needed.
 - `Source mailbox(es)`: exact mailbox(es) searched/read, such as `accounting@richmondblackwood.com` or a named operator mailbox.
 - `From`: exact sender for drafts, sends, and replies.
 - `Thread/source`: Gmail thread/message ID, Gmail link, or source summary.
@@ -70,7 +70,7 @@ Review: confirm which RB-specific persona slugs are credentialed and approved.
 
 Google personas are credential routes for helper access to Gmail, Drive, and Calendar. They are separate from:
 
-- `RB_CODEX_ACTOR`: active human operator.
+- `RB_WORKSPACE_ACTOR`: active human workspace actor, with `RB_CODEX_ACTOR` as a legacy alias.
 - `Source mailbox(es)`: Gmail mailbox searched/read.
 - `From`: exact Gmail send-as identity.
 

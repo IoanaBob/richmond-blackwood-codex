@@ -11,7 +11,7 @@ This skill carries the email-specific rules. Use it together with `rb-communicat
 
 ## Rules
 
-- Keep the human operator, Gmail source mailbox, and Gmail sender separate. The active operator is `RB_CODEX_ACTOR` from ignored `.env.local` when operator context matters; it must be a human name from `internal/people-roles.md`, never a mailbox.
+- Keep the human workspace actor, Gmail source mailbox, and Gmail sender separate. The active actor is `RB_WORKSPACE_ACTOR` from ignored `.env.local` when operator context matters, with `RB_CODEX_ACTOR` as a legacy alias; it must be a human name from `internal/people-roles.md`, never a mailbox or Google auth persona.
 - Every Gmail job, packet, or preview must state `Operator`, `Source mailbox(es)`, `From`, and `Thread/source`. If no operator-specific behavior is needed, say `Operator: not required for this Gmail action`.
 - Do not assume all Gmail reads come from `accounting@richmondblackwood.com`. Read personal/operator mailboxes only when the job scope explicitly requires them, and label each source mailbox in the packet.
 - Do not infer the `From` sender from the active operator. Confirm the sender or use the workflow default.
@@ -21,7 +21,7 @@ This skill carries the email-specific rules. Use it together with `rb-communicat
 - Client-facing email must use `From: Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender.
 - If this helper is used as an exception, the saved Gmail draft must also show `accounting@richmondblackwood.com` in the stored `From` header. If Gmail stores another sender, delete or mark the draft unsafe and stop.
 - Use repo-local Gmail API helpers with shared global Codex auth storage for Gmail email drafting actions, including verified Gmail draft fallback, sender verification, reply-thread context reads performed by the helper, and unsafe-draft deletion. Do not use IMAP, app passwords, mailbox password storage, or non-helper Gmail draft creation paths.
-- A Google auth persona is not the active operator, source mailbox, or sender. It is only the credential route used by the helper.
+- A Google auth persona is not the active workspace actor, source mailbox, or sender. It is only the credential route used by the helper.
 - Sign off as:
 
 ```text
@@ -39,7 +39,7 @@ Richmond Blackwood Accounting Team
 Before sending email, show:
 
 - Channel: Gmail.
-- Operator: active human operator from `RB_CODEX_ACTOR`, or `not required for this Gmail action`.
+- Operator: active human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR`, or `not required for this Gmail action`.
 - Source mailbox(es): exact mailbox(es) searched/read.
 - From: exact display name and email address.
 - To.
