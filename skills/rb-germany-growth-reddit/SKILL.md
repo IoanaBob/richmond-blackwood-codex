@@ -89,6 +89,7 @@ Shared gates:
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Block copied-looking copy. Before approval, compare the draft against visible thread comments and rewrite if it uses the same opening, sequence of points, examples, phrasing, or conclusion as another user.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
+   - Use natural Reddit paragraphing. Do not split every short point into its own paragraph; prefer one compact paragraph or two medium paragraphs when that reads more human. Use a separate paragraph only for a real topic shift or a low-pressure DM line.
    - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.

@@ -146,6 +146,7 @@ Shared gates:
    - For outbound growth copy, avoid the word "path," slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
+   - Use natural paragraphing for the channel. For Reddit, do not split every short point into its own paragraph; prefer one compact paragraph or two medium paragraphs when that reads more human.
    - Create/update Growth Messages only as operating log and follow-up state, not as software drafts.
    - Include target URL, Business Partner URL or Growth Target URL, audience, channel, proposed next action, and follow-up date.
    - Label each preview as first message, reply draft, follow-up draft, post/comment draft, admin ask, or partner pitch.
