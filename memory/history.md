@@ -948,3 +948,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: `ioana-richmond-blackwood` and `ioana-eip` are helper auth routes only; they do not change the active RB actor, source mailbox, or sender unless a future task scopes them explicitly.
 - Verification: `google-auth:verify-oauth-vault` verified both Ioana personas for refresh, identity, Gmail, Drive, and Calendar. The same run reported `accounting-richmond-blackwood` and `jp-richmond-blackwood` missing from this local global store.
 - Limitations or gaps: No Gmail/Drive/Calendar business action was performed. Future sends and Drive writes still require task-specific approval and destination/sender confirmation.
+
+## 2026-06-03 - Default Rebase Before Push
+
+- User request: Add a command list for rebasing with master/main before pushing to a branch by default, assuming conflicts may need resolution; later clarified that this should be a default before-push rule rather than a conflict-only shortcut and should be compacted into the existing closeout lines.
+- Context read: `skills/index.md`, `skills/rb-task-pr/SKILL.md`, `skills/rb-process-maintenance/SKILL.md`, `processes/index.md`, `processes/repo-operation.md`, and recent memory/source logs.
+- Actions taken: Updated `AGENTS.md`, `rb-task-pr`, and `processes/repo-operation.md` so every task branch push rebases onto latest `origin/main` by default before pushing. The compact command covers `git fetch origin main`, `git rebase origin/main`, validation, and `git push --force-with-lease --set-upstream origin HEAD`; the conflict loop and dirty task-owned checkpoint command remain as sub-cases.
+- Decisions made: For this repo, the master/main base is `origin/main`. A dirty worktree is not a reason to skip reconciliation when all dirty files are task-owned and the user has authorized closeout; unrelated/user-owned files must not be staged.
+- Verification: Notion read-back verified the compacted master closeout line on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-03`; `git diff --check` passed.
+- Limitations or gaps: PR closeout pending.
+
+## 2026-06-03 - Germany Growth Outbound Copy Style
+
+- User request: Remove list-style stacked wording from growth outbound copy unless absolutely necessary.
+- Context read: `skills/index.md`, skill-creator guidance, Germany growth master/channel skills, current-state memory, handoff, and import log.
+- Actions taken: Tightened `rb-germany-growth`, LinkedIn, Reddit, Facebook posting, Facebook partnerships, and relocation partner skills so outward-facing drafts do not stack examples, alternatives, caveats, or issue lists. Added the same rule to current-state memory, handoff, import log, and skill-run ledger.
+- Decisions made: Structured packets may still use internal metadata, but outbound text should use one concrete point, or two only when the message truly needs both.
+- Verification: Repo verification is recorded in the branch closeout.
+- Limitations or gaps: No live Notion records, posts, messages, comments, DMs, or emails were changed.

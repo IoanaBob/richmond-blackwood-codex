@@ -72,7 +72,8 @@ Shared gates:
    - Before each draft, show the initial group question/topic, relevant post/thread context, group rule/admin basis, and why this response is useful for that specific group/thread. If the source context is missing, block the draft.
    - Keep content valuable without relying on RB promotion.
    - Avoid unapproved claims, service pitches, savings claims, and generic "book a call" framing.
-   - Avoid the word "path" in outbound copy, slash-heavy phrasing, long enumerations unless the group style supports them, and mechanical contrast sentences that read like a template.
+   - Avoid the word "path" in outbound copy, slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
+   - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Show sender identity as Ioana, Facebook account/session verification requirement, group URL, rule basis, and follow-up date.
 

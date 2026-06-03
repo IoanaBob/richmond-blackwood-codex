@@ -74,6 +74,7 @@ Shared gates:
    - Show sender identity as Ioana and the Facebook account/session verification requirement.
    - Include group URL, Business Partner URL, proposed commercial model, disclosure needs, approval basis, and next follow-up date.
    - Keep the ask concise and specific to the group/audience.
+   - Avoid list-style outbound copy. Do not stack examples, alternatives, caveats, or issue lists in outward-facing text; use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
 
 6. Approved Admin/Sponsor Send
@@ -88,6 +89,7 @@ Shared gates:
    - Before each reply draft, show the initial ask/topic, prior context, the latest admin/partner reply, and the specific issue being answered.
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the group/admin context, approval basis, sponsorship terms, or posting rules actually discussed.
+   - Avoid list-style outbound copy. Do not stack examples, alternatives, caveats, or issue lists in outward-facing text; use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Do not introduce new commercial terms, claims, commitments, or payment approval without explicit user approval.
 
@@ -95,6 +97,7 @@ Shared gates:
    - Inspect due follow-ups for unanswered admin asks, sponsorship approvals, payment/promotion logistics, and replies.
    - Before each follow-up draft, show the initial ask/topic, prior interaction, latest status, and the specific reason a follow-up adds value now.
    - Draft follow-up text in chat only when there is a specific next reason to follow up.
+   - Avoid list-style outbound copy. Do not stack examples, alternatives, caveats, or issue lists in outward-facing text; use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked.
 

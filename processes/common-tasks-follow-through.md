@@ -69,7 +69,7 @@ Standing auto-approval exceptions:
 - Stages 1 and 2 are auto-approved after their packets are written and printed.
 - Stages 10 and 11 are auto-approved for Gmail labels and WhatsApp checkpoints that are within the approved workflow.
 - Once the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved: send/log the exact Slack message, write the results packet, write the final closeout packet, and release the lock.
-- Stage 15 is auto-approved only for bounded post-closeout media/evidence cleanup of blockers already listed in Stage 14. It may recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, and update owning Communications to `Logged` when the recovered source confirms the route. It must stop for approval before any reply/send, source marker/checkpoint, new task, new operational record, new destination, disputed route, or business-judgment decision.
+- Stage 15 is auto-approved only for bounded post-closeout media/evidence cleanup of blockers already listed in Stage 14. It may recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, and update owning Communications to `Done` when the recovered source confirms the route. It must stop for approval before any reply/send, source marker/checkpoint, new task, new operational record, new destination, disputed route, or business-judgment decision.
 
 Stop despite auto-approval if a packet introduces an unexpected mutation, a new destination, a broad Slack mention, an unresolved data-source mismatch that makes routing unsafe, or a source/checkpoint action outside this process.
 
@@ -131,7 +131,8 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
   - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
 - A receipt confirmation without the underlying durable receipt/evidence file is `Short Living`; the receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
 - ELSTER activation expiry reminders are `Short Living`; the durable work item is the linked activation task, and the reminder loses value once activation is complete.
-- Mark a Communication `Logged` when communication logging is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is in `Document(s)`, any non-English attachment has a Markdown translation in `Translated Doc(s)`, and `Notes` has a useful description/summary. Keep the Communication `In Progress` only while evidence, translation, description, or routing is incomplete.
+- Set a Communication to `Done` when communication logging is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is in `Document(s)`, any non-English attachment has a Markdown translation in `Translated Doc(s)`, and `Notes` has a useful description/summary.
+- Use `Needs Triage` while evidence, translation, description, ownership, or routing is incomplete.
 - Assign `Company` only for relevant incoming/outgoing client letters or client-operational communications.
 - Leave `Company` empty for internal, system, spam, or non-client-relevant communications.
 - Choose one primary client subject on each Communication: `Company` or `Individual`, not both. Use `Company` for company-operational evidence and `Individual` for personal tax, insurance, or individual-specific evidence. Leave both empty for internal/system/no-scope items.

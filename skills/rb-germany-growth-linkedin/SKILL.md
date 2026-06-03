@@ -162,7 +162,8 @@ Copy style:
 
 - Avoid the word "path" in outbound copy.
 - Avoid slash-heavy phrasing.
-- Avoid long enumerations unless the visible source makes a list feel natural.
+- Avoid list-style copy.
+- Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
 - Avoid mechanical contrast sentences that read like a template.
 - Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
 

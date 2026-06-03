@@ -83,6 +83,7 @@ Shared gates:
    - Before each draft, show the initial partner topic/source, what the partner does, why they match the audience/channel, the source URL/contact route, and the specific reason this first message is warranted.
    - Show sender identity as Ioana and the required account/session verification.
    - Include today's first-time email target, sent count, remaining count, queued Business Partners, Business Partner URL, website, contact route, commercial assumptions, and next follow-up date.
+   - Avoid list-style outbound copy. Do not stack examples, alternatives, caveats, or issue lists in outward-facing text; use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Label first-time email drafts separately from reply drafts and follow-up drafts.
 
@@ -100,6 +101,7 @@ Shared gates:
    - Before each reply draft, show the initial partner/topic context, prior Ioana or RB message, latest partner reply, commercial and approval state, and the exact issue being answered.
    - Draft exact reply text in chat before any send.
    - Keep replies tied to the partner's service, audience, commercial model, or open question.
+   - Avoid list-style outbound copy. Do not stack examples, alternatives, caveats, or issue lists in outward-facing text; use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Do not introduce pricing, commission, payments, contract terms, or pilot commitments without explicit user approval.
    - Update Business Partner `Last Reply At` for replies and update `Growth Stage` to `Contacted by Ioana`, `Negotiating`, `Pilot Active`, `Blocked`, or `Closed` only when evidence supports it. Set the matching timestamp field with every stage move.
@@ -109,6 +111,7 @@ Shared gates:
    - Inspect due follow-ups for sent pitches, partner replies, commercial approvals, blockers, and negotiation items.
    - Before each follow-up draft, show the initial partner/topic context, prior interaction, latest status, and the specific reason a follow-up adds value now.
    - Draft follow-up text in chat only when there is a specific reason and source context.
+   - Avoid list-style outbound copy. Do not stack examples, alternatives, caveats, or issue lists in outward-facing text; use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - If no useful follow-up context exists, advance the due date, close the item, or mark it blocked.
 
