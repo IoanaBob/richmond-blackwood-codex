@@ -53,7 +53,12 @@ Use this for one company at a time when RB needs the German accident-insurance r
    - If RB is applying under another authority route, stop and confirm the correct role before proceeding.
 10. Complete the VBG steps, saving the field-evidence log after each page before advancing.
 11. On the VBG overview page, reconcile every displayed value against the field-evidence log. Any mismatch becomes a blocker until corrected or approved.
-12. Before submitting, give the operator a final review table with every selected/entered field, value, reasoning, exact source location, and confidence. Stop here for operator review.
+12. Before submitting, give the operator the final review output in the required format:
+    - State that `Absenden` has not been clicked.
+    - Include a `Source Links` block with hyperlinks for the VBG guide, task, company, individual/legal representative, employment records, filing registration, and field-evidence log.
+    - Include a field-by-field review table covering every displayed/entered value on the overview page.
+    - Put embedded hyperlinks in each table row's source/reasoning cell; do not rely only on the separate source list.
+    - Stop here for operator review.
 13. Submit only after action-time approval of the final overview table and the visible VBG overview page.
 14. After submission, capture the displayed application/reference/company number and a screenshot.
 15. Add the reference and screenshot/proof link to:
@@ -117,9 +122,38 @@ Step 5 `Weitere Informationen`:
 
 Use this at the overview page before `Absenden`:
 
-| VBG step | Field shown on overview | Value shown on overview | Reasoning | Exact source location | Confidence | Operator decision |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 Allgemein |  |  |  |  |  | Approve / change |
+```md
+Still stopped on the VBG overview page. `Absenden` has not been clicked.
+
+**Source Links**
+- [VBG guide](<guide URL>)
+- [Task](<task URL>)
+- [Company record](<company URL>)
+- [Legal representative / individual record](<individual URL>)
+- [Employment record(s)](<employment URL>)
+- [Filing registration](<filing registration URL>)
+- [Field evidence log](<absolute local field-evidence path>)
+
+| VBG step | Field shown on overview | Value shown on overview | Reason / embedded source | Confidence | Operator decision |
+| --- | --- | --- | --- | --- | --- |
+| 1 Allgemein | Unternehmen besteht seit |  | Company registered/incorporated date. Source: [Company record](<company URL>), property `Registered on`. | Ready / Needs review / Unknown | Approve / change |
+```
+
+The review table must include at least these overview values when present:
+
+- applicant role;
+- `Unternehmen besteht seit`;
+- employee/planned employee answer and employee since date;
+- unpaid reportable-person answer;
+- `Unternehmensgegenstand`;
+- `Anzahl Beschäftigte`;
+- `Unternehmensschwerpunkt`;
+- legal form;
+- German register-entry answer;
+- company name, address, country, email, phone, website, PO box, and legal-seat-differs answer;
+- legal representative academic title, name, birth date, address, and country;
+- applicant name, phone, and email;
+- branch, acquisition, public-ownership, nonprofit, and SEPA mandate answers.
 
 The operator must review this final table before submission. If the visible VBG overview and the final table differ, correct the form or update the evidence log before asking for approval.
 
