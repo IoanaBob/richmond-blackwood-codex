@@ -67,7 +67,7 @@ Use this for one company at a time when RB needs the German accident-insurance r
     - the company Filing Registration record for accident insurance / Unternehmensnummer.
 17. If VBG does not immediately assign an Unternehmensnummer, keep the task open/in progress, add a waiting label/status where available, and state that VBG will respond in the coming days.
 18. Set the accident-insurance Filing Registration to the in-progress/submitted status option exposed by its database, for example `Submitted` when that is the available in-progress status. Do not mark it `Registered` until the actual Unternehmensnummer and PIN are received and logged.
-19. Notify the owner through the company's preferred communication channel that the VBG accident-insurance application was submitted, that this supports the German payroll setup while the tax number is still pending, that they should expect letters from VBG by post, and that RB needs the letters shared when they arrive to finish payroll setup.
+19. Notify the owner through the company's preferred communication channel that the VBG accident-insurance application was submitted, that RB submitted it before the tax number arrives because the VBG process can take weeks to fully process, that they should expect letters from VBG by post, and that RB needs the letters shared when they arrive to finish payroll setup.
 20. For outbound owner notification, use `rb-communications` plus the channel-specific skill:
     - Resolve the recipient and channel from the Company and Individual records, saved communication pointers, and preferred communication setting.
     - Use plain client-facing wording that explains what VBG is and why the application was made. Avoid German administrative terms such as `Unternehmensnummer`, `Betriebsnummer`, and `Lohnnachweis Digital` unless the operator explicitly asks to include them.
@@ -189,7 +189,7 @@ Use this as the default client-facing message after submission, adapting the gre
 ```text
 Hi <owner first name>, quick update: we have submitted the VBG accident-insurance application for <company legal name>.
 
-VBG is the accident-insurance body we need to register with as part of setting up German payroll. We submitted this now to keep the payroll setup moving while the tax number is still pending.
+VBG is the accident-insurance body we need to register with as part of setting up German payroll. We submitted the application before the tax number arrives because the VBG process can take weeks to fully process.
 
 VBG confirmed that the application was received. They said they will respond in the coming days and send the required letters by post to the submitted company address.
 
