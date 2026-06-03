@@ -73,11 +73,13 @@ Shared gates:
 
 2. Audience Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
-   - Current LinkedIn priority segment: people living in Germany who work in tech for an employer abroad, ideally a US-headquartered or US-market employer, with a visible US background.
-   - Treat the user's "below 40" preference as a career-stage preference only. Do not infer, estimate, store, or mention age. Prefer public profile signals for early-to-mid-career operators, founders, ICs, managers, and recent movers over late-career, retired, or locally settled profiles.
-   - Target people with strong Germany, foreign-employer, US-background, and tech signals:
+   - Current LinkedIn priority segment uses hard gates: currently Germany-based, clearly came from abroad, currently employed by or founding a company abroad while residing in Germany, and technology/operator relevance.
+   - Prefer US-headquartered, US-market, or otherwise foreign-company current roles where the Germany residence signal is visible.
+   - Under-40 is a useful positive signal, not a hard gate. Use it only when explicit public evidence or user-provided confirmation exists. Do not infer, estimate, store, or mention guessed age from photos, graduation years, seniority, or career length. Unknown age does not block a target that otherwise passes the hard gates.
+   - Target people with strong Germany, came-from-abroad, current-foreign-employer, and tech signals:
      - Current Germany location or clear current Germany residence.
-     - Current employer outside Germany, remote/distributed role for a foreign company, international transfer, or US-headquartered company operating into Europe.
+     - Current employer outside Germany, remote/distributed role for a foreign company, international transfer, or US-headquartered company operating into Germany.
+     - Came-from-abroad evidence such as prior non-Germany work, non-Germany study, relocation writing, international-transfer context, or user-confirmed abroad origin.
      - Past US work experience.
      - Past US university/study experience.
      - US nationality/residency signals combined with current Germany location.
@@ -86,8 +88,8 @@ Shared gates:
      - Software engineering, product, data, cloud, cybersecurity, AI, fintech, startup, platform, devops, design, or technical leadership roles.
      - Remote-work, founder, startup, VC-backed, US-employer, foreign-employer, or international-transfer context.
      - Berlin, Munich, Hamburg, Frankfurt, Cologne, Dusseldorf, and other visible Germany tech-hub signals.
-   - Block profiles where the Germany, foreign-employer, US-background, or technology signal is too weak to justify the request.
-   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, broad job seeking, student-only status, or a guessed age fit.
+   - Block profiles where the Germany, came-from-abroad, current-foreign-employer, or technology signal is too weak to justify the request.
+   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, broad job seeking, student-only status, an old foreign-employer role with no current foreign-company role, or a guessed age fit.
    - Keep the criteria reusable for future Germany growth audiences.
 
 3. Discovery And Dedupe
@@ -102,15 +104,15 @@ Shared gates:
    - Classify each target as `Research`, `Qualified`, `Blocked`, or not relevant using available Growth Target status fields.
    - Record qualification evidence in Growth Target notes and, when action is needed, Growth Messages or Tasks.
    - When a target becomes qualified, set `Qualified At`; when it becomes blocked, set `Blocked At`.
-   - Block targets where the Germany, foreign-employer, US-background, or tech signal is too weak.
-   - If career-stage preference is part of qualification, record only public career-stage evidence such as role level, visible graduation/work timeline, founder recency, or relocation recency. Never record estimated age.
+   - Block targets where the Germany, came-from-abroad, current-foreign-employer, or tech signal is too weak.
+   - If the under-40 signal is part of qualification, use only explicit public evidence or user-provided confirmation. Never record estimated age. If age evidence is unknown, omit the signal and qualify on the hard gates.
    - Treat LinkedIn rules, approved claims, and Ioana identity as in-run compliance gates. Do not create compliance-check rows.
 
 5. Connection Request Packet
    - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.
    - Show sender identity: Ioana, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
-   - Qualification basis must name the visible Germany residence signal, foreign or US employer signal, US-background signal, tech-role signal, and any career-stage evidence used.
+   - Qualification basis must name the visible Germany residence signal, came-from-abroad signal, current foreign-employer/company-abroad signal, tech-role signal, and explicit under-40 evidence when available.
    - Include current month counts: planned invites, sent blank invites, remaining invite quota, daily send count, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
 
@@ -173,6 +175,10 @@ Copy style:
 - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
 - Avoid mechanical contrast sentences that read like a template.
 - Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
+- Do not over-polish first messages into corporate prose. Ioana's LinkedIn copy can use casual punctuation, sentence fragments, lowercase emphasis, and a small `lol` when it makes the line sound human.
+- If the user asks for imperfect human copy, allow light typos or rough punctuation, but do not create ambiguity, disrespect the person, or make Ioana sound careless.
+- Do not use hyphen separators in outbound LinkedIn copy. Write like a chat message, using short sentences or commas instead.
+- Avoid formulaic lines like `Germany probably makes...`; use a normal aside such as `Germany plus health data must be a lot lol` or `admin and taxes here are enough of a headache lol`.
 
 Rules:
 
@@ -180,6 +186,9 @@ Rules:
 - Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, named project, shipped system, technical decision, or founder decision.
 - Ioana can reference operator/founder context only in natural wording. Avoid labels like "as a fellow tech founder" or "I am a tech founder too."
 - The message must prove real attention. It should contain a detail that came from the person's profile, company site, post, article, or other approved source.
+- A profile detail alone is not enough. The draft must identify a real operational tension, product tradeoff, technical constraint, or market contradiction in the person's work, then ask about that exact tension.
+- Block drafts that simply restate the profile, company tagline, funding news, job title, or a public feature and then add a generic question.
+- Prefer questions that are easy for the recipient to answer because they sit inside their daily work: what had to be hidden, constrained, sequenced, localized, simplified, made more conservative, or explained to a user/customer/doctor/buyer.
 - Generic founder or professional language is blocked. Do not say "saw the founder angle", "saw your work", "what are you focused on", "specific thing", or any phrasing that sounds templated.
 - "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that Ioana can honestly point to.
 - Bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, then add one second difference tied to the person's actual topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption.
@@ -193,7 +202,7 @@ Rules:
 Good message shape:
 
 ```text
-Thanks for connecting, [Name]. Saw you founded [Company] - I am a big fan of [specific product/feature/positioning], especially the way you are handling [specific customer/problem/technical tradeoff].
+Thanks for connecting, [Name]. I was looking at [Company] and got curious about [specific product/feature/positioning], especially [specific customer/problem/technical tradeoff].
 
 Admin and taxes I'm sure were much easier in the States. On [specific topic], did [Germany-specific constraint] push you toward [specific product/market decision] instead of [specific alternative]?
 ```
@@ -203,7 +212,7 @@ Germany move opener:
 ```text
 Thanks for connecting, [Name]. Admin and taxes I'm sure were much easier in the States.
 
-Also saw you founded [Company] and are building [specific product] for [specific audience]. I liked [specific feature/positioning] - are German [customers/developers/buyers] pushing harder on [specific requirement] than US ones?
+Also saw you founded [Company] and are building [specific product] for [specific audience]. I liked [specific feature/positioning]. are German [customers/developers/buyers] pushing harder on [specific requirement] than US ones?
 ```
 
 Founder/operator variant:
@@ -217,7 +226,7 @@ Admin and taxes I'm sure were much easier in the States, but the part that seems
 Technical-role variant:
 
 ```text
-Thanks for connecting, [Name]. The [specific project/system/post/launch] at [Company] caught my eye - especially [specific technical or market detail].
+Thanks for connecting, [Name]. The [specific project/system/post/launch] at [Company] caught my eye, especially [specific technical or market detail].
 
 Admin and taxes I'm sure were much easier in the States. For [technical/product area], did [privacy/procurement/infrastructure/customer-behavior difference] force a different [architecture/roadmap/sales motion] for [specific thing]?
 ```
@@ -225,7 +234,7 @@ Admin and taxes I'm sure were much easier in the States. For [technical/product 
 Follow-up after no reply:
 
 ```text
-No pressure on this, [Name] - I asked because [specific product/feature/post/company move] stood out to me.
+No pressure on this, [Name]. I asked because [specific product/feature/post/company move] stood out to me.
 
 Still curious whether [specific constraint] made you choose [specific decision] over [specific alternative].
 ```

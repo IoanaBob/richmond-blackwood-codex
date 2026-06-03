@@ -89,8 +89,9 @@ Shared gates:
 2. Audience Selection
    - Load the active Audience Target.
    - Default first audience: `American tech workers in Germany / relocating to Germany`.
-   - For LinkedIn inside the first audience, prioritize Germany-based tech workers employed by foreign companies, ideally US-headquartered or US-market employers, with visible US background.
-   - Treat age preference as public career-stage targeting only; do not infer, estimate, store, or mention age.
+   - For LinkedIn inside the first audience, use hard gates: currently Germany-based, clearly came from abroad, currently employed by or founding a company abroad while residing in Germany, and technology/operator relevance.
+   - Prefer US-headquartered, US-market, or otherwise foreign-company current roles where the Germany residence signal is visible.
+   - Under-40 is a useful positive signal, not a hard gate. Use it only when explicit public evidence or user-provided confirmation exists. Do not infer, estimate, store, or mention guessed age from photos, graduation years, seniority, or career length. Unknown age does not block a target that otherwise passes the hard gates.
    - Load active channel rows linked to that audience.
    - Treat the system as Germany growth overall, not an Americans-only system.
 
