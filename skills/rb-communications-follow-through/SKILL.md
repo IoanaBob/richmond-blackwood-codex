@@ -64,22 +64,11 @@ Do not write new RB records to the old `RB Communications` database at `https://
 
 ## Inventory Pull Contract
 
-For any scope that says "all", "since inception", "every assigned row", or otherwise requires complete coverage, Stage 2 must use an authoritative row pull, not Notion search.
-
-Follow `processes/notion-operations.md`: default to the Notion MCP connector for schemas, known page/data-source fetches, readbacks, ordinary supported updates, and candidate discovery; use Notion REST API data-source pagination or a full approved export for complete table inventory when MCP data-source pagination is unavailable.
-
-Do a live capability check before deciding the inventory path. Prior failures are useful context, not proof of the current connector state. At the start of Stage 2, fetch the canonical Communications database, check whether a direct Notion API/export path is available, and run one non-mutating SQL probe such as `SELECT COUNT(*)` when the connector exposes that callable path. Where a view URL is relevant, also probe view-mode pagination if available. Record the exact tool names, inputs, and errors/successes in the packet/run state.
-
-Authoritative row pulls are:
-
-- A direct Notion REST API/export path that can prove it read the full table, including total row count or unambiguous cursor completion. Use `POST /v1/data_sources/{data_source_id}/query` with `page_size: 100` and `start_cursor` pagination when a Notion API token is available outside git. Do not use the browser for Communications inventory unless the operator explicitly overrides that boundary for the run.
-- A user-provided/exported CSV or other full table export from the canonical Communications database/view.
-- Notion connector data-source SQL query against `collection://1b5e4130-1314-8183-afd8-000b6f4da982`, paged with `LIMIT` / `OFFSET` until a page returns fewer rows than requested, only when the MCP backend actually exposes the query tool in the current run.
-- Notion connector view query against a supplied or approved view URL, paged with `page_size: 100` and `next_cursor` until `has_more` is false, only when the MCP backend actually exposes view pagination in the current run.
+For any scope that says "all", "since inception", "every assigned row", or otherwise requires complete coverage, Stage 2 must follow `processes/notion-operations.md` for the authoritative row pull/export path. Do not duplicate Notion connector tool names, backend-error recommendations, or pagination recipes in this skill.
 
 For rows assigned to the active workspace actor, resolve the active human from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` through `internal/people-roles.md`, then filter on the Notion user ID in `Assigned To`. Google personas are auth routes only; do not use a Google persona, Gmail mailbox, or sender identity as the active actor default. If both env keys are missing, use an explicit actor supplied in the current run/chat or stop and ask. For Ioana Surdu-Bob the current provisional Notion user ID is `3a46f87a-9bc2-408f-baff-b4c23326e0f2`.
 
-Notion search is not inventory. Search has a 25-result page cap, semantic ranking, and can match related page content or linked tasks without the Communication row itself being assigned. Use search only for candidate discovery, source lookup, or recovery after a complete inventory has already defined the row set. If the MCP SQL/view query fails with an error such as `Tool notion-query-data-sources not found`, record that as a connector backend limit and continue to the REST API/export availability check. Stop with a coverage blocker only when no authoritative REST/API, export/CSV, or currently working paginated connector path is available; do not present search results as "all records".
+Notion search is not inventory. Search has a 25-result page cap, semantic ranking, and can match related page content or linked tasks without the Communication row itself being assigned. Use search only for candidate discovery, source lookup, or recovery after a complete inventory has already defined the row set. If no authoritative inventory path from `processes/notion-operations.md` is available, stop with a coverage blocker; do not present search results as "all records".
 
 ## Queue And Batch Contract
 

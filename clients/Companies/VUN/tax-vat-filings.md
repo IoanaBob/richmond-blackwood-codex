@@ -52,7 +52,7 @@ Fetched database schemas and searched the relevant Notion data sources on 2026-0
 | Tax Payments | No VUN or VANDY records surfaced by workspace/data-source search. | Record Drive evidence pointers here or in the linked individual tax payment file when found. |
 | Tax Prepayments | No VUN or VANDY records surfaced by workspace/data-source search. | Record Drive evidence pointers here or in the linked individual tax prepayment file when found. |
 
-Review: The Notion SQL/query endpoint is unavailable in this session (`notion-query-data-sources not found`), so this is search-backed evidence only. A filtered table export by Company relation should still be run when Notion query/export access works.
+Review: A complete Notion export was not available in this session, so this is search-backed evidence only. A filtered table export by Company relation should still be run when an authoritative Notion inventory/export path is available.
 
 ## VAT Search Note
 

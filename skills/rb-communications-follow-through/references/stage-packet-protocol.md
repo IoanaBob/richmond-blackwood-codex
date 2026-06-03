@@ -118,55 +118,17 @@ Use the canonical data source:
 collection://1b5e4130-1314-8183-afd8-000b6f4da982
 ```
 
-Preferred method:
+Inventory method:
 
-- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, follow `processes/notion-operations.md`: use Notion REST API data-source pagination, a full approved export/CSV, or a currently working MCP SQL/view pagination path. Do not use MCP search as the inventory source.
-- REST API mode: use `POST /v1/data_sources/<data-source-id>/query` with `page_size: 100`; follow `next_cursor` with `start_cursor` until `has_more` is false. Record every cursor, returned row count, and final total in the packet. Keep token handling outside git and never print the token.
-- SQL mode: if the MCP backend currently exposes data-source query, use the canonical data source as the table name, request deterministic columns, and page with `LIMIT 100 OFFSET <n>` until a query returns fewer than 100 rows. Record every query, offset, returned row count, and final total in the packet.
-- View mode: if the MCP backend currently exposes view pagination, query the supplied/approved view URL with `page_size: 100`; follow `next_cursor` until `has_more` is false. Record every cursor, returned row count, and final total in the packet.
+- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, follow `processes/notion-operations.md`. Keep up-to-date Notion inventory/query/export rules there, not in this communications protocol.
 - For operator assignment scopes, resolve the active human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` and `internal/people-roles.md`, or from an explicit actor supplied in the current run/chat if both env keys are missing, then filter by the Notion user ID stored in `Assigned To`.
 - Google personas are auth routes only. Do not use a Google persona, Gmail mailbox, or sender identity as the active human workspace actor.
 - If using a user-provided CSV/export, record the file path, export timestamp if known, source view/database URL, row count, and exact filter/sort that produced it.
 
-Example SQL for Ioana-assigned rows:
-
-```sql
-SELECT
-  url,
-  "Title",
-  "Status",
-  "Type",
-  "Relevance",
-  "date:Sent/Received On:start",
-  "date:Due Date:start",
-  "date:Snooze Until:start",
-  "Company",
-  "Individual",
-  "Tasks",
-  "Assigned To",
-  "Document(s)",
-  "Translated Doc(s)",
-  "Notes"
-FROM "collection://1b5e4130-1314-8183-afd8-000b6f4da982"
-WHERE "Assigned To" LIKE ?
-  AND COALESCE("Status", '') NOT IN ('Done', 'Archived')
-  AND ("date:Snooze Until:start" IS NULL OR "date:Snooze Until:start" <= ?)
-ORDER BY COALESCE("date:Due Date:start", "date:Sent/Received On:start", "Created At", createdTime) ASC
-LIMIT 100 OFFSET 0;
-```
-
-Use parameter:
-
-```text
-%3a46f87a-9bc2-408f-baff-b4c23326e0f2%
-<run-date YYYY-MM-DD>
-```
-
 Fallback method:
 
-- Do not rely on historical connector behavior alone. Each run must do a live `fetch` probe, check whether the REST API/export path is available, and run live non-mutating SQL/view query probes when those connector paths are callable before deciding whether complete inventory is available.
-- If SQL/view query returns an error such as `Tool notion-query-data-sources not found`, treat that as a connector backend blocker only. Continue to the REST API/export availability check before declaring the run blocked.
-- If every authoritative inventory path is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables a direct Notion API/export helper path, or explicitly approves a degraded candidate-only run.
+- Do not rely on historical connector behavior alone. Use the current authoritative Notion inventory guidance in `processes/notion-operations.md`.
+- If every authoritative inventory path is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables an approved Notion API/export path, or explicitly approves a degraded candidate-only run.
 - Notion search may be used only for candidate discovery. It has a 25-result cap, semantic ranking, and can return false positives where linked tasks or page content mention the operator while the Communication row has no `Assigned To` value.
 - Any search-based packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
 

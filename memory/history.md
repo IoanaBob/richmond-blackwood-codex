@@ -477,7 +477,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Context read: `AGENTS.md`, storage/current-state/handoff memory, skill index, `rb-source-research`, `rb-client-file`, `rb-memory-capture`, Notion research skill, Gmail skill, existing VUN/CLV/RBL client folders, Notion Companies schema, CBMAX company/project/filing/contract/employment/correspondence/task records, Drive folder/search results, and Gmail CBMAX search results.
 - Actions taken: Created `clients/Companies/CBMAX/` using the exact Notion `Reference`, added company history, linked individuals, tax/VAT, contracts, payroll/accounting, communications, invoices/payments, project, Drive, Notion backup, source register, backup locations, open questions, and no-op client process/skill placeholder files.
 - Decisions made: Treat Simon as Semen based on the user's clarification; keep personal identifiers out of the company folder until individual folders are created; treat old `clients/cbmax/` Notion backup wording as superseded by the reference-based folder.
-- Verification: Notion, Drive, and Gmail reads succeeded; Notion SQL query tool was unavailable, so relation-filtered exports remain pending; `git diff --check` passed before the CBMAX context commit.
+- Verification: Notion, Drive, and Gmail reads succeeded; an authoritative Notion inventory/export path was unavailable, so relation-filtered exports remain pending; `git diff --check` passed before the CBMAX context commit.
 - Limitations or gaps: No Notion writes or Slack closeout were sent; outbound Slack closeout would need user approval. Full invoice/expense/task backfill still needs direct relation-filtered export or targeted fetches.
 
 ## 2026-05-13 - CBMAX WhatsApp Tax Residence Refresh And Correction
@@ -775,7 +775,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Confirmed n8n's Notion credential is not shared into the Board Members database and archived the temporary reader workflow. Used Notion AI search to recover the Board Members travel fields, then updated the live `RBCALL-21` `Reason for call` and public-safe `Context Pack` with full passenger loyalty context for both passengers.
 - Decisions made: Keep exact loyalty identifiers in live Notion only, not git. Use Board Members as the preferred source for travel identifiers before relying on masked booking emails.
 - Verification: Notion read-back confirmed the updated `RBCALL-21` call context includes full Board Members loyalty context and remains reviewed/approved for the scheduled next call.
-- Limitations or gaps: Direct Notion SQL querying is still unavailable through the connector, and n8n cannot read Board Members until that Notion database is shared with the n8n integration.
+- Limitations or gaps: The direct Notion inventory path used in that pass was unavailable, and n8n cannot read Board Members until that Notion database is shared with the n8n integration.
 
 ## 2026-05-22 - RB Calls Startup Credential Failure And No-Answer Sweep Guard
 

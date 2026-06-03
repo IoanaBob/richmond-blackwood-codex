@@ -89,4 +89,4 @@ File-level Drive pointers are in `drive-locations.md`.
 - Confirm ROS's final response on the Irish VAT backdate request from January 2025 and the status of the seven pending filings.
 - Decide whether `DE451021099` and/or `DE455085802` should be retained as historical German VAT identifiers, written back to Notion, or left out of the active company field.
 - Confirm the Hamburg tax number `17/070/40128` and whether it belongs to CBMAX.
-- Backfill filing records line-by-line if Notion data-source SQL export becomes available; the SQL query tool errored in this session.
+- Backfill filing records line-by-line when an authoritative Notion inventory/export path is available.
