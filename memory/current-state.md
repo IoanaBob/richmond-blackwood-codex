@@ -81,6 +81,8 @@ As of the 2026-05-22 readback, the live `RB Call Bot` is version `agtvrsn_4701ks
 
 Notion is connected.
 
+2026-06-03 Johnpaul client/tax status pass: Notion Tasks and Personal Tax Filings were updated through the connector, not browser automation. Nathan 2025 Personal Tax Filing `https://www.notion.so/342e4130131480849114fe02636b759a` now reads `Filed`; Andrei/NACV TK follow-through `https://www.notion.so/35fe41301314810a8d28eb74a1d96c21` now reads `Blocked` with 2026-06-11 follow-up for TK response/final treatment; internal Slack MCP support `https://www.notion.so/36de41301314815ea9bae55f6db88cb9` now reads `Done`. Search/fetch-based comments clarified Aaron/Byron filed-task status, consolidated RB Clients VAT ownership, CVA corp-tax ambiguity, and CBMAX May-letter review state. This pass was not an authoritative all-row inventory because the Notion SQL connector path failed and no local `NOTION_ACCESS_TOKEN` was available.
+
 Fetched and confirmed:
 
 - RB Internal Knowledge Base database.
