@@ -86,12 +86,15 @@ Shared gates:
 
 2. Audience Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
-   - Current LinkedIn priority segment uses hard gates: currently Germany-based, clearly came from abroad, currently employed by or founding a company abroad while residing in Germany, and technology/operator relevance.
-   - Prefer US-headquartered, US-market, or otherwise foreign-company current roles where the Germany residence signal is visible.
+   - Current LinkedIn priority segment uses hard gates: currently Germany-based, clearly came from abroad, currently employed by, freelancing for, consulting for, or founding a company abroad while residing in Germany, and technology/operator relevance.
+   - Highest-priority current-role signal: a foreign employer/client/company with no visible office in Germany or in the person's German city, making the person likely a remote employee, freelancer, contractor, consultant, EOR/payroll case, or self-employed operator.
+   - Prefer explicit remote, freelance, contractor, consultant, fractional, self-employed, founder, or independent operator language when it appears alongside Germany residence and foreign-company/client signals.
+   - Prefer US-headquartered, US-market, UK, Canadian, Swiss, Dutch, or otherwise foreign-company current roles where the Germany residence signal is visible and the company does not obviously operate a local German office for that city.
    - Under-40 is a useful positive signal, not a hard gate. Use it only when explicit public evidence or user-provided confirmation exists. Do not infer, estimate, store, or mention guessed age from photos, graduation years, seniority, or career length. Unknown age does not block a target that otherwise passes the hard gates.
    - Target people with strong Germany, came-from-abroad, current-foreign-employer, and tech signals:
      - Current Germany location or clear current Germany residence.
-     - Current employer outside Germany, remote/distributed role for a foreign company, international transfer, or US-headquartered company operating into Germany.
+     - Current employer, client, or founded company outside Germany, especially where no German office or local-city office is visible.
+     - Remote/distributed role for a foreign company, freelancing/contracting for foreign clients, international transfer, EOR-style work, or self-employed operator status.
      - Came-from-abroad evidence such as prior non-Germany work, non-Germany study, relocation writing, international-transfer context, or user-confirmed abroad origin.
      - Past US work experience.
      - Past US university/study experience.
@@ -102,7 +105,7 @@ Shared gates:
      - Remote-work, founder, startup, VC-backed, US-employer, foreign-employer, or international-transfer context.
      - Berlin, Munich, Hamburg, Frankfurt, Cologne, Dusseldorf, and other visible Germany tech-hub signals.
    - Block profiles where the Germany, came-from-abroad, current-foreign-employer, or technology signal is too weak to justify the request.
-   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, broad job seeking, student-only status, an old foreign-employer role with no current foreign-company role, or a guessed age fit.
+   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, a foreign employer with a clear local German office in the same city and no remote/freelance signal, broad job seeking, student-only status, an old foreign-employer role with no current foreign-company role, or a guessed age fit.
    - Keep the criteria reusable for future Germany growth audiences.
 
 3. Discovery And Dedupe
@@ -125,7 +128,7 @@ Shared gates:
    - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.
    - Show sender identity: Ioana, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
-   - Qualification basis must name the visible Germany residence signal, came-from-abroad signal, current foreign-employer/company-abroad signal, tech-role signal, and explicit under-40 evidence when available.
+   - Qualification basis must name the visible Germany residence signal, came-from-abroad signal, current foreign-employer/company-abroad signal, whether the company appears to lack a German or same-city office or whether the person is explicitly freelance/remote/contracting, tech-role signal, and explicit under-40 evidence when available.
    - Include current month counts: planned invites, sent blank invites, remaining invite quota, Daily Invite Gate daily count, excluded prior/next-day invite rows, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
    - If the declared quota-day count is below 15, show the exact invite gap and prepare enough qualified targets to reach at least 15 unless the user explicitly pauses the daily LinkedIn invite target.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
