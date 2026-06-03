@@ -24,10 +24,8 @@ End of run:
 
 1. Run verification appropriate to the change.
 2. Commit only task-owned changes.
-3. Push the branch.
-4. Fetch or otherwise check the branch against `origin/main`.
-5. Fix conflicts on the task branch, rerun verification, and push the corrected branch.
-6. Create or update the PR, then communicate the branch, PR URL when available, conflict status, verification, and blockers.
+3. If the branch/worktree is dirty only with task-owned files before the rebase and closeout is authorized, checkpoint those exact files; then rebase before pushing with `git fetch origin main; git rebase origin/main`; if conflicts appear, resolve them, continue with `git status --short; git diff --name-only --diff-filter=U; git add -- <resolved-path> [<resolved-path> ...]; git rebase --continue`, rerun verification, and push with `git push --force-with-lease --set-upstream origin HEAD`.
+4. Create or update the PR, then communicate the branch, PR URL when available, conflict status, verification, and blockers. Do not stage unrelated/user-owned files.
 
 ## Start A Task
 

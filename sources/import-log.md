@@ -1824,3 +1824,23 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-06-03 - Default Rebase Before Push
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-02 requesting a command list that assumes merge conflicts while rebasing with master/main and pushing back to the branch.
+- User clarification in Codex chat on 2026-06-02 that the skill entry should be compact like the startup command and use semicolons for shell execution.
+- User clarification in Codex chat on 2026-06-02 that the actual intended rule is to always rebase by default before pushing to a branch, not a conflict-only shortcut.
+- User diff comments in Codex chat on 2026-06-03 asking to compact the extra paragraph/section into the existing closeout lines.
+
+Actions:
+
+- Updated `AGENTS.md` and `skills/rb-task-pr/SKILL.md` so rebase-before-push is the normal publish path, with compact semicolon-delimited commands.
+- Mirrored the default rebase-before-push rule in `processes/repo-operation.md`.
+- Recorded the update in `memory/skill-runs.md`, `memory/history.md`, and `memory/handoff.md`.
+- Backed up the rule to Internal Knowledge Base page `https://www.notion.so/356e41301314811383fff7212a56a0cd` (`RB Codex Repository Operating Rules`) and verified `Last updated = 2026-06-03`.
+
+Unresolved:
+
+- PR closeout pending.
