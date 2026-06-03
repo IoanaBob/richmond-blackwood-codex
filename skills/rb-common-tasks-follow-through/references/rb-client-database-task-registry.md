@@ -46,6 +46,7 @@ Default terminal states: done, archived, complete, paid, booked, rejected, cance
 
 Communications must support:
 
+- `Status`: current values are `Captured`, `Drafting`, `Needs Triage`, `Follow-Up`, `Needs Reply`, `Archived`, and `Done`
 - `Source Channel`
 - `Source Message ID`
 - `Source Thread ID`
@@ -86,7 +87,7 @@ Communication relation rules:
 | Business Partners | `https://www.notion.so/834796d901db48adb6273fb7db89eaf7` / `collection://f52ad152-d91f-4663-86f1-e63a18edd90a` | Ancillary to Contracts. Fill only when a dependent contract/invoice item receives information about the other party. Do not use as a primary communication triage destination. |
 | Payable/Receivable Contracts | `https://www.notion.so/9cd962ea82d24c2d9573cfc30f22eb27` / `collection://5d9b4220-fdcf-4a56-bc9c-fd9f9ea91828` | Discussion/client-driven dependent table. Search before invoice routing. If a client requests an invoice and no contract can be found, create/propose the contract row and always link a primary task. |
 | Invoicing | `https://www.notion.so/eb96e3e897df446c86624067efe9788d` / `collection://0f071f27-2ff1-4be4-9558-48f1641e77d0` | Primary triage destination for invoice items. Invoice rows may be created by automation, so create/update them only when a communication affects an invoice or a matching row exists. Attach communications/evidence here when contract-backed. |
-| Expenses | `https://www.notion.so/3a4d858161af4519b42340242cb70351` / `collection://4648c99e-0e6e-4d17-a408-88a08017e5b0` | Primary triage destination for receipt/expense items. Use when no active contract/invoice route applies. |
+| Expenses | `https://www.notion.so/3a4d858161af4519b42340242cb70351` / `collection://4648c99e-0e6e-4d17-a408-88a08017e5b0` | Primary triage destination for receipt/expense/payment-notification items. Use when no active contract/invoice route applies. If business scope is supported but final bookkeeping classification is unclear, create/update the Expense with review-required status rather than creating a Central Task. |
 | Employment | `https://www.notion.so/e1af3f4dc3fe430d83fe913d45bd7ca9` / `collection://8d5109d2-9e83-4bad-8ad2-58d92a2b1b73` | Discussion/client-driven dependent table. Create draft/update when communication indicates employment setup/change, and always link a primary task. |
 | Filing Registrations | `https://www.notion.so/ecaf96a4cf77409ab481aaf317442b74` / `collection://dbe90a0f-23a0-418c-988f-cdb80ccd5e5f` | Automation-backed table. Use only as a byproduct when a communication affects registration state, authority setup, or blockers. |
 | Filings | `https://www.notion.so/f9af3b86b2a3430d8c48c8b0567091e7` / `collection://ee7ef5c8-6a29-43dd-b2aa-63eddaa98971` | Automation-backed table. Use only as a byproduct when a communication affects filing status, evidence, or closeout. |

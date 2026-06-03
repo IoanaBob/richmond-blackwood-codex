@@ -22,7 +22,7 @@ For every Richmond Blackwood Codex chat or skill run that can change repository 
 2. Run `git pull origin main` before starting substantive work.
 3. If the worktree is clean, create or switch to a new `codex/<task-slug>` branch before editing files or changing live state.
 4. If the worktree is dirty, the pull cannot apply cleanly, or conflicts appear, classify changes by task ownership. Do not discard user work. Split task-owned changes into relevant commits, push scoped branch(es), open PRs when GitHub tooling is available, and communicate PR URLs or blockers before continuing from a clean updated base.
-5. At closeout, run the required verification, commit task-owned changes, push the branch, check the branch against `origin/main`, fix any conflicts on the task branch, rerun verification, and create or update the PR.
+5. At closeout, run the required verification, commit task-owned changes, fetch and rebase the task branch onto latest `origin/main` by default before pushing, fix any conflicts on the task branch, rerun verification, push the rebased branch, and create or update the PR.
 6. Final responses for repository-changing runs must include the branch, PR URL when available, conflict status, verification run, and any unavailable tooling.
 
 ## Fact Standard
@@ -119,6 +119,9 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 
 ## Helper And Connector Boundary
 
+- Reject browser use for any live workspace or business-system workflow when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before choosing browser automation, check whether the current plan can use one of those routes; if unsure, ask the responsible RB team member whether an API/MCP path exists.
+- If API/MCP access is possible but unavailable because credentials are missing, stop and ask the responsible RB team member to provision the correct API keys or credentials through approved secret storage. Do not use the browser as a workaround for missing API/MCP access, and never store keys, tokens, credential dumps, or pasted secrets in git.
+- Browser use is limited to visual QA, local UI verification, public/manual-only pages, or explicitly approved human-only steps after the no-API/MCP reason is clear.
 - Prefer app connectors for app-native workspace state: Notion records/pages, Drive/Docs reads and edits, Gmail search/read/thread context, Slack reads/drafts/sends, and SignNow supported sends/status/document operations.
 - Use repo-local `npm` helpers only for connector gaps and mechanical actions: Drive local upload/export/organize, Gmail drafts that must save from `accounting@richmondblackwood.com`, generic SignNow local-file upload/field/review/status work, explicit PDF/Google Doc transforms, and Google persona auth recovery/verification.
 - Helper output is support material, not final business state. A task is complete only when the relevant live source of truth is updated, verified, and recorded.

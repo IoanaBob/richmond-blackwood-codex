@@ -27,10 +27,9 @@ Use this skill for repository work that should be isolated and published as a pu
 3. Ask the user to review the diff and wait for explicit commit approval unless the current user instruction already authorizes push-and-PR closeout.
 4. Stage only task-owned files.
 5. Commit with a concise message.
-6. Push with upstream.
-7. Fetch or otherwise check the branch against `origin/main`.
-8. Resolve any conflicts on the task branch, rerun focused validation, and push the corrected branch.
-9. Open or update a PR when GitHub tooling is available, then communicate the branch, PR URL, conflict status, validation, and blockers.
+6. If the branch/worktree is dirty only with task-owned files before the rebase and closeout is authorized, checkpoint first with `git status --short --branch; git diff --name-only; git add -- <task-owned-path> [<task-owned-path> ...]; git commit -m "<scope>: checkpoint before rebase"`; then rebase before pushing with `git fetch origin main; git rebase origin/main`; if conflicts appear, resolve them, repeat `git status --short; git diff --name-only --diff-filter=U; git add -- <resolved-path> [<resolved-path> ...]; git rebase --continue` until complete, then rerun focused validation.
+7. Push with `git push --force-with-lease --set-upstream origin HEAD`.
+8. Open or update a PR when GitHub tooling is available, then communicate the branch, PR URL, conflict status, validation, and blockers. Do not stage unrelated/user-owned files.
 
 ## Helper Script
 

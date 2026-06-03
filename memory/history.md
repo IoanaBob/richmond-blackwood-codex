@@ -886,3 +886,21 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Follow-up corrections: Extended the Notion Companies communication-preference options with `Slack`, updated KONVI/KHL to Slack, set KONVI registered office from CRO Open Data, set KHL registered/correspondence address from Companies House, cleared KHL placeholder email fields, and updated the Konvi business partner to show IE/UK VAT registration with German VAT deregistered.
 - Verification: Pending final branch closeout.
 - Limitations or gaps: Broad Notion Tasks database search timed out, so the import used targeted searches/fetches and is a first-pass issue map rather than exhaustive Notion inventory.
+
+## 2026-06-01 - Browser API/MCP Rejection Rule
+
+- User request: Make a general rule rejecting browser use for anything that might be reachable through an API or MCP route; check feasibility within the current plan, ask when unsure, and ask the responsible team member for API keys when access is possible but credentials are missing.
+- Context read: `AGENTS.md`, `processes/index.md`, `processes/repo-operation.md`, `skills/index.md`, `skills/rb-process-maintenance/SKILL.md`, `skills/rb-task-pr/SKILL.md`, and recent process/source/memory logs.
+- Actions taken: Added the rule to the global Helper And Connector Boundary in `AGENTS.md` and mirrored it in `processes/repo-operation.md`. Recorded the process update in `sources/import-log.md`, `memory/skill-runs.md`, `memory/current-state.md`, and `memory/handoff.md`.
+- Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
+- Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
+- Limitations or gaps: None known yet.
+
+## 2026-06-03 - Default Rebase Before Push
+
+- User request: Add a command list for rebasing with master/main before pushing to a branch by default, assuming conflicts may need resolution; later clarified that this should be a default before-push rule rather than a conflict-only shortcut and should be compacted into the existing closeout lines.
+- Context read: `skills/index.md`, `skills/rb-task-pr/SKILL.md`, `skills/rb-process-maintenance/SKILL.md`, `processes/index.md`, `processes/repo-operation.md`, and recent memory/source logs.
+- Actions taken: Updated `AGENTS.md`, `rb-task-pr`, and `processes/repo-operation.md` so every task branch push rebases onto latest `origin/main` by default before pushing. The compact command covers `git fetch origin main`, `git rebase origin/main`, validation, and `git push --force-with-lease --set-upstream origin HEAD`; the conflict loop and dirty task-owned checkpoint command remain as sub-cases.
+- Decisions made: For this repo, the master/main base is `origin/main`. A dirty worktree is not a reason to skip reconciliation when all dirty files are task-owned and the user has authorized closeout; unrelated/user-owned files must not be staged.
+- Verification: Notion read-back verified the compacted master closeout line on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-03`; `git diff --check` passed.
+- Limitations or gaps: PR closeout pending.

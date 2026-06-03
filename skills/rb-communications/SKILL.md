@@ -20,6 +20,8 @@ Use this skill for any Richmond Blackwood outbound communication.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
 - For Slack closeouts or other Slack messages that need user review, use the Codex approval prompt/notification when the runtime exposes it. The prompt must identify the exact destination and exact message already shown in chat, and must offer a clear approve/send choice and a do-not-send choice.
 - The Slack message shown in chat for approval must be a rendered, readable Codex preview, not a fenced raw Markdown/code block. Use normal text, headings or labels where useful, Slack mention syntax, and named Markdown links so the operator can click each link in Codex before approving. Keep the raw Slack payload internal unless the operator explicitly asks to inspect it.
+- When a Slack message assigns, routes, or updates work owned by a person, the final Slack payload must use resolved Slack mentions (`<@USERID>`) for those responsible people. Bare names are acceptable only when the operator explicitly approves a no-notification fallback for the exact person and message.
+- Manual Slack-post fallbacks must preserve final formatting: Slack-native named links (`<url|label>`) for record references and resolved `<@USERID>` mentions for responsible people. Do not ask the operator to post a degraded bare-name or bare-URL version.
 - Do not claim that a Codex approval notification was sent unless the prompt tool call succeeds and returns a prompt for the user.
 - If the native Codex approval prompt is unavailable and the operator has approved a popup fallback, use a local macOS approval dialog as the fallback. First show the exact Slack message as a rendered, clickable Codex preview. Then request sandbox permission only to run the local dialog command. The dialog itself must ask whether to send the exact Slack message shown in chat to the named Slack destination and must include Send and Do Not Send choices.
 - Treat the sandbox command-permission prompt only as permission to show the local dialog, never as approval to send Slack. Send Slack only if the local dialog command returns the explicit Send choice.
@@ -40,7 +42,7 @@ Before sending, show:
 - Attachments/files: if any.
 - Message body.
 
-For Slack messages, the message body preview should be readable directly in Codex, with clickable named links. Do not put the approval preview inside a code block unless the operator specifically asks for raw Slack text.
+For Slack messages, the message body preview should be readable directly in Codex, with clickable named links and visible Slack mention syntax for every responsible person. Do not put the approval preview inside a code block unless the operator specifically asks for raw Slack text.
 
 For email, the default sender is:
 

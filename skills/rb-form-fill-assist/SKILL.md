@@ -45,6 +45,6 @@ Packet columns:
 
 ## Closeout Rules
 
-- Communication status can move to `Logged` after the original form is uploaded, translation is attached when required, and Notes contain a useful description.
+- Communication status can move to `Done` after the original form is uploaded, translation is attached when required, and Notes contain a useful description.
 - The linked task remains open until the filled-form plan is approved, missing facts are resolved, and any required submission/reply is completed.
 - If the form cannot be read or the source file is unavailable, create a source-reconstruction blocker instead of assigning a generic human follow-up.

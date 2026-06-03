@@ -30,6 +30,7 @@ Each packet must include:
 - run ID;
 - stage number and name;
 - exact source/query/window used;
+- CSV source files and row counts used to generate the packet;
 - rows considered;
 - proposed or completed action;
 - owner, company, individual, and project fields when relevant;
@@ -53,6 +54,23 @@ The operator approved these standing exceptions on 2026-05-20, with bounded Stag
 
 Auto-approval does not waive mutation safety outside the named stage scope. If a packet introduces a new Notion write, source mutation, reply send, file upload, Slack destination, broad mention, or data source not already covered by the stage contract, stop for operator approval.
 
+## CSV Snapshot Contract
+
+Common tasks follow-through packets must be generated from run-local CSV snapshots rather than repeated third-party queries.
+
+Required CSV behavior:
+
+- Stage 1 initializes `csv-manifest.csv` and empty draft/result CSVs in the run folder.
+- Stage 2 writes `tasks-open.csv` for open/non-terminal RB Client Databases rows and Central Tasks. Team Updates, daily standup pages, and meeting transcripts are not source tables for this workflow.
+- Stage 3 writes `source-messages.csv` and `source-attachments.csv` for in-window Gmail, WhatsApp, and explicitly in-scope Slack messages/files.
+- Stages 4, 5, 8, and 10 update draft CSVs before writing approval packets.
+- Stages 6, 9, 11, and 13 execute approved rows from draft CSVs, perform targeted readback of changed live objects, and update `live-write-results.csv` plus relevant source/draft CSV rows.
+- Stage 12 Slack closeout is built from CSVs and approved write results, not by requerying task, communication, Gmail, WhatsApp, Slack, or Team Updates sources.
+
+If a needed field is absent from the CSVs, write a bounded snapshot-refresh addendum, fetch only the missing approved data, update the CSV, and regenerate the packet. Do not perform broad repeated discovery to answer planning questions already covered by Stage 2/3 snapshots.
+
+Skipped/no-scope sources can be listed with `skipped=true` in `source-messages.csv`, but they must not flow into draft writes, labels, checkpoints, or Slack copy.
+
 ## Mutation Rule
 
 No live write, send, label, checkpoint, file upload, status change, or Slack post happens merely because a packet exists.
@@ -60,6 +78,19 @@ No live write, send, label, checkpoint, file upload, status change, or Slack pos
 The operator must approve the exact next action packet unless the stage is covered by the auto-approval exceptions. Approval for Stage 12 Slack send text approves Stage 13 send/log and Stage 14 closeout only for that exact Slack message and normal closeout actions.
 
 Stage 15 does not need separate approval when limited to already-identified Stage 14 evidence/media blockers and already-resolved destinations. Stage 15 must stop for approval before any reply/send, source marker/checkpoint, new task, new Expense/Invoicing/Communication row, new Drive destination, disputed task relation, unresolved client subject mapping, or business-judgment decision.
+
+## Stage 12 Slack Format Gate
+
+Before Stage 12 can request send approval, the packet must include a Slack-format checklist:
+
+- Ioana-approved template source, section labels, and ordering used without improvisation.
+- Every Communication, task, invoice, expense, filing, contract, blocker, or operational row reference is a named link; manual-post payloads use Slack-native `<url|label>` links.
+- Every responsible person on an action/update line has a resolved Slack mention (`<@USERID>`).
+- Mention-resolution table lists every responsible person, Slack ID, and resolution source.
+- No bare responsible-person names remain in the final Slack payload unless the operator explicitly approved a no-notification fallback for that exact person and message.
+- No background Gmail label, source-marker, checkpoint, packet, or Codex-process mechanics appear in the Slack body.
+
+If any required link or mention cannot be resolved, write and print a blocker packet instead of asking for send approval.
 
 ## Compaction Recovery
 
@@ -87,7 +118,7 @@ Ask for approval with the exact next stage name and action. Do not ask broad app
 
 Before approving the workflow as stable, run a dry packet-only pass that covers:
 
-- spam/no-action communication logged complete with no company relation;
+- spam/no-action communication skipped with no Communication row;
 - client letter in email with `Contains Letter`, `Letter Source`, document, and company relation;
 - forwarded letter where `Letter Source` differs from the email forwarder;
 - contract-backed invoice routed to Invoicing rather than Expenses;

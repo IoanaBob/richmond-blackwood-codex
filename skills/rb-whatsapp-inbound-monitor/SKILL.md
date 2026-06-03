@@ -54,6 +54,7 @@ Use canonical Communications data source `collection://1b5e4130-1314-8183-afd8-0
 Set:
 
 - `Source Channel = WhatsApp`
+- `Status = Needs Triage` until routing, originals, translations, and Notes are complete; then `Done`
 - `Direction = Incoming`
 - `Communication Time` to the WhatsApp received date
 - `Source Message ID`, `Source Thread ID`, and `Source URL` when available

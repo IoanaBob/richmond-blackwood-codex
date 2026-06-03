@@ -1716,3 +1716,155 @@ Actions:
 Unresolved:
 
 - Recheck Hamburg.de if public phone hours change.
+
+## 2026-05-26 - Accounting Task Review Routing Correction
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 that routine tasks should not be assigned to Ioana as managing director.
+- User instruction that approval should be treated as review by adding the reviewer to `Review By` on the owning task.
+- User instruction that Accounting Team Updates Slack completion notices should list created and updated task hyperlinks and tag the assigned person for each task.
+- Notion task corrections for Teamdash, EIP Circle / Mono contractor payment approval, weekly invoice payables, and Stripe invite.
+
+Actions:
+
+- Updated `processes/notion-operations.md`, `processes/accounting-team-updates-triage.md`, `skills/rb-accounting-team-updates-triage/SKILL.md`, `internal/people-roles.md`, `memory/skill-runs.md`, and `memory/handoff.md`.
+- Backed up the Accounting Team Updates triage rule change to the existing RB Internal Knowledge Base page `https://www.notion.so/367e413013148175b709e35f31d37821`.
+- Edited the 2026-05-26 Slack closeout message `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1779800761798929` to include task hyperlinks and assigned-person Slack tags, then added Notion source/log comments.
+
+Unresolved:
+
+- Confirm whether broader non-accounting workflows should receive the same explicit `Review By` wording beyond the central Notion task rules.
+
+## 2026-05-26 - Accounting Slack Context And Packet Plan
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 to add bounded Slack channel reads to the Accounting Team Updates skill.
+- Slack channel search results for `#rb-client-updates`, `#rb-operations`, `#rb-structuring`, and `#all-richmond-blackwood`.
+- User instruction to plan a packet-based upgrade similar to the daily common tasks run-through.
+
+Actions:
+
+- Resolved channel IDs: `#rb-client-updates` `C0B1UTJJDLJ`, `#rb-operations` `C0AMJHHHAKY`, `#rb-structuring` `C0AMDDTNSFL`, and `#all-richmond-blackwood` `C0ALBMSLL5A`.
+- Updated `skills/rb-accounting-team-updates-triage/SKILL.md` and `processes/accounting-team-updates-triage.md` so future runs read current-window human Slack messages and new thread context while excluding ChatGPT/Codex/OpenAI/bot-authored messages.
+- Added a six-packet upgrade plan covering preflight, source context, routing plan, Notion write results, Slack closeout plan, and send/closeout results.
+- Backed up the updated process to RB Internal Knowledge Base page `https://www.notion.so/367e413013148175b709e35f31d37821` and verified it by read-back.
+
+Unresolved:
+
+- Validate the Slack-context filter on the next weekday Accounting Team Updates run.
+
+## 2026-05-26 - Accounting Packet Workflow Implementation
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 to implement the packet-based Accounting Team Updates triage plan.
+- User instruction to make Stage 1 auto-approved and clarify that `New client inbounds` are observed / out of scope rather than skipped.
+- GitHub PR state for #53 and #56.
+
+Actions:
+
+- Reordered PR #56 history so #53's 2026-05-26 Accounting Team Updates run-log row is the first accounting-skill commit.
+- Made packet mode mandatory in `skills/rb-accounting-team-updates-triage/SKILL.md` and `processes/accounting-team-updates-triage.md`.
+- Added `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md` with six packet stages, Stage 1 auto-approval, Stage 2 read-only continuation, mutation safety rules, and compaction recovery.
+- Replaced ambiguous `skipped New client inbounds` wording in the active process/skill path with `New client inbounds observed / out of scope`.
+- Backed up the packet workflow to RB Internal Knowledge Base page `https://www.notion.so/367e413013148175b709e35f31d37821` and verified it by read-back.
+
+Unresolved:
+
+- Validate the packet protocol on the next live weekday Accounting Team Updates run.
+
+## 2026-05-26 - Accounting Packet Routing Skill
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 that unclear ownership, project, or source meaning should be proposed in the Stage 3 packet rather than immediately written to Team Updates.
+- User instruction that the packet workflow needs explicit per-stage execution detail so the machine knows what to do.
+- User suggestion to place detailed task-routing strategy in a new skill and have the packet stage apply that skill.
+
+Actions:
+
+- Added planning-only skill `skills/rb-accounting-team-updates-routing/SKILL.md` with deterministic Stage 3 decisions: `create_task`, `update_task`, `comment_existing`, `skip_already_handled`, and `unresolved`.
+- Updated `skills/rb-accounting-team-updates-triage/SKILL.md` and `processes/accounting-team-updates-triage.md` so Stage 3 applies the routing skill and unresolved rows stay in the packet until Stage 4 approved write-back.
+- Expanded `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md` with a stage execution contract and concrete execution steps for Stages 1-6.
+- Updated durable memory to replace stale `skip New client inbounds` and no-task-detail Slack wording with the packet-gated closeout rule.
+
+Unresolved:
+
+- Validate the Stage 3 routing table output and unresolved-row guard on the next live weekday Accounting Team Updates run.
+
+## 2026-05-26 - Accounting Packet Gap Hardening
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-26 to fix all gaps from the critical review of the Accounting Team Updates skill.
+
+Actions:
+
+- Tightened Stage 1 so auto-continuation only applies to clean/no-conflict git state.
+- Required exact Notion and Slack query bounds in Stage 2 packets.
+- Updated Stage 3 routing to split multi-action source rows into atomic routing items, resolve owning operational rows and client projects before Central Tasks/RB Backlog, verify target schema/property names, and include exact write payloads, due dates, write-back methods, and Slack mention status.
+- Updated Stage 4 to execute only the approved write payloads and read back owner/status/project/reviewer/due-date fields.
+- Updated Stage 5 Slack closeout to include updated/commented tasks and to block on unresolved assignee Slack mentions unless the operator approves a plain-name no-notification fallback.
+- Updated durable memory with the hardened packet rules.
+
+Unresolved:
+
+- Validate the hardened packet contract on the next live weekday Accounting Team Updates run, especially client-project routing, comment-only closeouts, and Slack mention blocking.
+
+## 2026-05-27 - Accounting Routing Source Entity URL Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-27 that when telling people something is being routed, the message must include the URL of the entity it is being routed from.
+- User correction in Codex chat on 2026-05-27 that Accounting Team Updates routing should find or create tasks instead of leaving clear action rows unresolved.
+
+Actions:
+
+- Updated the Accounting Team Updates process, triage skill, routing subskill, and stage-packet protocol so task comments, operational-row updates, Team Updates write-backs, Slack closeouts, and packet text that say an item was routed must include the source entity URL.
+- Set the default source entity URL for Accounting Team Updates to the Team Updates page URL, with block/row URLs preferred when available and source section/exact line included when no block-level URL exists.
+- Tightened the routing rule so unresolved rows must explain why creating a task is unsafe; if owner, project, action, and Tasks schema are clear, Stage 3 must propose `create_task` when no existing owner task is found.
+- Added a Stage 4 packet gate that rejects unresolved rows before writing when they lack a concrete create-task unsafe reason or only say no existing task was found.
+- Updated the active 2026-05-27 Stage 3 packet examples so proposed Team Updates write-backs and task comments include the source Team Updates page URL.
+
+Unresolved:
+
+- Internal Knowledge Base mirror is pending because the Notion connector returned `Auth required` for page `https://www.notion.so/367e413013148175b709e35f31d37821`.
+
+## 2026-06-01 - Browser API/MCP Rejection Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-01 to reject browser use when an API or MCP route might be possible, check API/MCP feasibility within the current plan, and ask the responsible team member for the right API keys when access is possible but credentials are missing.
+
+Actions:
+
+- Added the rule to `AGENTS.md` under Helper And Connector Boundary.
+- Mirrored the rule in `processes/repo-operation.md` under Connector And Helper Boundary.
+- Updated skill-run, current-state, history, and handoff memory with the new operating rule.
+- Backed up the rule to Internal Knowledge Base page `https://www.notion.so/356e41301314811383fff7212a56a0cd` (`RB Codex Repository Operating Rules`).
+
+Unresolved:
+
+- PR closeout pending.
+
+## 2026-06-03 - Default Rebase Before Push
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-02 requesting a command list that assumes merge conflicts while rebasing with master/main and pushing back to the branch.
+- User clarification in Codex chat on 2026-06-02 that the skill entry should be compact like the startup command and use semicolons for shell execution.
+- User clarification in Codex chat on 2026-06-02 that the actual intended rule is to always rebase by default before pushing to a branch, not a conflict-only shortcut.
+- User diff comments in Codex chat on 2026-06-03 asking to compact the extra paragraph/section into the existing closeout lines.
+
+Actions:
+
+- Updated `AGENTS.md` and `skills/rb-task-pr/SKILL.md` so rebase-before-push is the normal publish path, with compact semicolon-delimited commands.
+- Mirrored the default rebase-before-push rule in `processes/repo-operation.md`.
+- Recorded the update in `memory/skill-runs.md`, `memory/history.md`, and `memory/handoff.md`.
+- Backed up the rule to Internal Knowledge Base page `https://www.notion.so/356e41301314811383fff7212a56a0cd` (`RB Codex Repository Operating Rules`) and verified `Last updated = 2026-06-03`.
+
+Unresolved:
+
+- PR closeout pending.

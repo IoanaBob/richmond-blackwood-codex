@@ -24,10 +24,8 @@ End of run:
 
 1. Run verification appropriate to the change.
 2. Commit only task-owned changes.
-3. Push the branch.
-4. Fetch or otherwise check the branch against `origin/main`.
-5. Fix conflicts on the task branch, rerun verification, and push the corrected branch.
-6. Create or update the PR, then communicate the branch, PR URL when available, conflict status, verification, and blockers.
+3. If the branch/worktree is dirty only with task-owned files before the rebase and closeout is authorized, checkpoint those exact files; then rebase before pushing with `git fetch origin main; git rebase origin/main`; if conflicts appear, resolve them, continue with `git status --short; git diff --name-only --diff-filter=U; git add -- <resolved-path> [<resolved-path> ...]; git rebase --continue`, rerun verification, and push with `git push --force-with-lease --set-upstream origin HEAD`.
+4. Create or update the PR, then communicate the branch, PR URL when available, conflict status, verification, and blockers. Do not stage unrelated/user-owned files.
 
 ## Start A Task
 
@@ -59,6 +57,17 @@ Record skill use in `memory/skill-runs.md` when Codex uses a repo-local skill as
 Do not record secrets, credentials, bearer-token links, or confidential document contents.
 
 ## Connector And Helper Boundary
+
+Reject browser use for any live workspace or business-system workflow when an API, app connector, MCP tool, or repo-approved helper could support the current plan.
+
+Before choosing browser automation:
+
+1. Check whether the current plan can use an app connector, MCP tool, public/private API, or repo-approved helper.
+2. If the route is unclear, ask the responsible RB team member whether an API/MCP path exists.
+3. If API/MCP access is possible but blocked by missing credentials, stop and ask the responsible RB team member to provision the right API keys or credentials through approved secret storage.
+4. Do not use browser automation as a workaround for missing API/MCP access, and do not store keys, tokens, credential dumps, or pasted secrets in git.
+
+Browser use is limited to visual QA, local UI verification, public/manual-only pages, or explicitly approved human-only steps after the no-API/MCP reason is clear.
 
 Prefer connectors for app-native workspace state:
 

@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-26.
+Updated: 2026-05-27.
 
 ## Notion Backup Questions
 
@@ -59,7 +59,7 @@ Updated: 2026-05-26.
 - Confirm the authority liaison / POA process owner and current escalation process.
 - For Slack completion notifications, confirm the integration source for the triggering person: Slack user ID/channel/thread from the intake event, Notion requester-to-Slack mapping, or an operator-provided recipient when the trigger comes from Codex.
 - During the next live inbound triage, confirm the exact Business Partners, Contract, and Invoicing field names used for business-partner invoice routing.
-- Confirm Slack user mappings for assignee tags in one-message-per-triage Slack closeouts.
+- Confirm Slack user mappings for assignee tags in one-message-per-triage and common-tasks Slack closeouts. The 2026-05-27 Slack MCP attempt to resolve Ioana returned `401: Reauthentication required`, so Stage 12 must block rather than use bare responsible-person names until Slack IDs are available through MCP or a repo-approved mapping.
 
 ## Selin / CLV Personal Tax Questions
 

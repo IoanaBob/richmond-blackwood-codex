@@ -21,7 +21,7 @@ This process supersedes the older inbound operating triage process.
 - Old RB Communications database `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c` is migration source only. Do not create new records there.
 - Central Tasks data source: `collection://25de4130-1314-8158-af69-000b6c9fb49e`; use it for additional action work, not as a replacement for the owning operational row.
 - Existing recurring workflow tasks, such as weekly invoice generation, weekly invoice payables/expenses, payroll, bookkeeping, and tax filing cadence tasks, should receive related Communications/evidence instead of duplicate one-off Central Tasks.
-- Team Updates are excluded from this process and must run through their own workflow/automation.
+- Team Updates are excluded from this process and must run through their own workflow/automation. Do not query RB Daily Team Updates, daily standup pages, meeting transcripts, or Team Updates-derived assignment audits inside common tasks follow-through. If the separate Team Updates skill has already created or updated a task, that task appears through the ordinary task inventory and is enough context for this workflow.
 - SteuerGo communications belong to Richmond Blackwood/RBL, not the underlying client company. Treat SteuerGo receipt confirmations as `Short Living`; the uploaded receipt/evidence file is the durable `Long Living` record.
 - Old RB Communications is a migration source. Any historical merge into canonical Communications must be proposed as a packet-approved migration action before live writes.
 
@@ -69,15 +69,40 @@ Standing auto-approval exceptions:
 - Stages 1 and 2 are auto-approved after their packets are written and printed.
 - Stages 10 and 11 are auto-approved for Gmail labels and WhatsApp checkpoints that are within the approved workflow.
 - Once the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved: send/log the exact Slack message, write the results packet, write the final closeout packet, and release the lock.
-- Stage 15 is auto-approved only for bounded post-closeout media/evidence cleanup of blockers already listed in Stage 14. It may recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, and update owning Communications to `Logged` when the recovered source confirms the route. It must stop for approval before any reply/send, source marker/checkpoint, new task, new operational record, new destination, disputed route, or business-judgment decision.
+- Stage 15 is auto-approved only for bounded post-closeout media/evidence cleanup of blockers already listed in Stage 14. It may recover/read already-identified media, upload to already-resolved Drive destinations, attach evidence, and update owning Communications to `Done` when the recovered source confirms the route. It must stop for approval before any reply/send, source marker/checkpoint, new task, new operational record, new destination, disputed route, or business-judgment decision.
 
 Stop despite auto-approval if a packet introduces an unexpected mutation, a new destination, a broad Slack mention, an unresolved data-source mismatch that makes routing unsafe, or a source/checkpoint action outside this process.
 
+## Run-Local CSV Snapshots
+
+Stages 2 and 3 must create the run-local data snapshots used by the rest of the workflow. Later stages should plan from these CSVs instead of querying third-party systems again and again.
+
+Minimum CSV files in `/private/tmp/rb-common-tasks-follow-through/<run-id>/`:
+
+- `csv-manifest.csv`: every CSV artifact, stage created/updated, row count, source query/window, status, and notes.
+- `tasks-open.csv`: open/non-terminal rows from every task-capable RB Client Databases source and Central Tasks, excluding Team Updates.
+- `source-messages.csv`: in-window Gmail, WhatsApp, and explicitly in-scope Slack messages, including skipped-message flags and source-marker eligibility.
+- `source-attachments.csv`: source files/attachments and their local path, extraction status, proposed destination, upload status, and live file URL after commit.
+- `draft-communications.csv`, `draft-operational-rows.csv`, `draft-tasks.csv`, `draft-replies.csv`, and `draft-source-markers.csv`: proposed creates, updates, comments, replies, labels, and checkpoints before packets are printed for approval.
+- `live-write-results.csv`: approved live writes/sends/uploads/labels/checkpoints, readbacks, failed writes, and skipped duplicates.
+- `blockers.csv`: unresolved permissions, schema gaps, unsafe routing decisions, missing source fields, and open blockers.
+
+Workflow rule:
+
+1. Snapshot first: Stage 2 writes `tasks-open.csv`; Stage 3 writes `source-messages.csv` and `source-attachments.csv`.
+2. Draft in CSV first: before Stage 4/5/8/10 packets propose changes, the corresponding draft CSV is updated.
+3. Packet from CSV: packets are generated from the CSVs and cite row counts/source files.
+4. Approval then push: after approval, apply live writes from the approved draft CSV rows.
+5. Targeted readback only: after live writes, read back only changed rows/files/messages and update `live-write-results.csv` plus the relevant source/draft CSV.
+6. Snapshot refresh only when needed: if later planning needs data absent from the CSVs, write a bounded snapshot-refresh addendum, fetch only the missing approved data, update the CSV, then regenerate the packet. Do not run broad repeated Notion/Gmail/WhatsApp/Slack discovery to answer planning questions already covered by the initial snapshots.
+
+Sensitive identifiers remain source-safe in CSVs as well as packets. Do not copy exact tax, registration, payment-profile, or account identifiers into CSVs unless the operator explicitly approves storing that exact value.
+
 ## Stage Flow
 
-1. Run Preflight, including `git pull origin main` from the active repo/worktree before the run folder/lock is created.
-2. Open Task Inventory.
-3. Communication Discovery And Read.
+1. Run Preflight, including `git pull origin main` from the active repo/worktree before the run folder/lock is created, and initialize `csv-manifest.csv` / draft tables.
+2. Open Task Inventory and write `tasks-open.csv`.
+3. Communication Discovery And Read and write `source-messages.csv` / `source-attachments.csv`.
 4. Communication Ledger Plan.
 5. Finance / Operational Routing Plan.
 6. Ledger And Record Commit Results.
@@ -95,15 +120,19 @@ The definitive stage contract lives in `skills/rb-common-tasks-follow-through/SK
 
 ## Communication Rules
 
-- Log every real communication in canonical Communications.
-- Spam/no-action communications are still logged and marked complete.
+- Log only actionable or durable communications in canonical Communications.
+- Do not log ignored, no-scope, spam, marketing, system-only, or no-action messages. List them as skipped in packets when useful for audit, but do not create Communication rows for them.
+- `Ignore` is a legacy/readback value only. New Communication rows should be `Short Living` or `Long Living`; if an item would be `Ignore`, skip it instead.
+- Do not process or log Wamo payment, cashback, account-notification, or marketing emails in this workflow unless the operator explicitly identifies a separate source document or business action outside the Wamo email itself.
+- Do not process or log WeWork newsletters or other marketing/newsletter emails.
+- Do not process or log automated broker/investment portal availability notices, including IBKR daily/monthly activity statement or trade-confirmation availability emails, when the actual statement/document is not retrieved and the email contains no separate action request. Treat these as marketing/no-scope for this workflow: no Communication row, task, label/source marker, Slack line, or portal retrieval task unless the operator explicitly approves retrieving the statement or identifies a separate business action.
 - Set `Relevance` when the Communication is created or updated:
-  - `Ignore`: spam, no-scope, churned-client no-action, or system/error notices retained only for audit.
-  - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, automated broker/bank notifications that cannot be acted on directly, or short-lived coordination.
+  - `Short Living`: transactional chats, referrals, status updates, follow-ups, ELSTER activation expiry reminders, or short-lived coordination.
   - `Long Living`: durable documentation or evidence about a company or individual, including letters, filings, contracts, invoices, receipts, tax/insurance evidence, usable bank/broker exports, and authority correspondence.
 - A receipt confirmation without the underlying durable receipt/evidence file is `Short Living`; the receipt, invoice, export, or source document itself is `Long Living` once uploaded/linked.
 - ELSTER activation expiry reminders are `Short Living`; the durable work item is the linked activation task, and the reminder loses value once activation is complete.
-- Mark a Communication `Logged` when communication logging is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is in `Document(s)`, any non-English attachment has a Markdown translation in `Translated Doc(s)`, and `Notes` has a useful description/summary. Keep the Communication `In Progress` only while evidence, translation, description, or routing is incomplete.
+- Set a Communication to `Done` when communication logging is complete, even if a linked task remains open. For attachment/document communications, logging is complete only when the original attachment is in `Document(s)`, any non-English attachment has a Markdown translation in `Translated Doc(s)`, and `Notes` has a useful description/summary.
+- Use `Needs Triage` while evidence, translation, description, ownership, or routing is incomplete.
 - Assign `Company` only for relevant incoming/outgoing client letters or client-operational communications.
 - Leave `Company` empty for internal, system, spam, or non-client-relevant communications.
 - Choose one primary client subject on each Communication: `Company` or `Individual`, not both. Use `Company` for company-operational evidence and `Individual` for personal tax, insurance, or individual-specific evidence. Leave both empty for internal/system/no-scope items.
@@ -132,6 +161,7 @@ These routes were resolved during the `2026-05-21-1006-daily-0800-window` correc
 - First classify each inbound into Communications, Invoicing, Expenses, or Central Tasks.
 - Contract-backed payables/receivables belong on the matching Invoicing row when a matching invoice/contract route exists.
 - Non-contract receipts/finance items belong on Expenses.
+- Payment notifications, payment receipts, invoice receipts, cashback notices, card/account notifications, and similar finance-source messages must not create standalone Central Tasks just to decide ownership/routing. If a finance-source item is business-scoped and no contract/Invoicing match exists, create or update an Expense row with a review-required status. If the source does not support business scope, skip/no-scope it.
 - Operational work that is not an invoice or expense belongs on Communications plus a Central Task when action is needed.
 - Dependent tables are filled opportunistically after the primary route is chosen, when the inbound affects that specific entity.
 - Create central Tasks for action work, especially when a dependent table receives a draft/update.
@@ -153,11 +183,17 @@ Slack closeout is prepared only after task closeout analysis and approved task/r
 
 Slack closeout text must be a rendered, readable preview with named links and `None` for empty human-facing sections. Keep exact timestamps in packets; use human window wording in Slack. Do not call an unsent preview "corrected". Request explicit send approval for the exact Slack text before sending.
 
+Manual-post fallbacks must still be final-quality Slack payloads. Use Slack-native named links (`<url|label>`) and resolved Slack user mentions (`<@USERID>`) in the copy supplied to the operator. Do not provide bare URLs or bare responsible-person names as a workaround for connector failure.
+
 Slack closeout quality rules:
 
+- Ioana-authored or Ioana-approved Slack templates are the source of truth and override improvised formatting. For client follow-through, use the latest available Ioana-approved `#rb-client-updates` client follow-through template from Notion/canonical Communications unless the operator provides a newer exact template.
+- The current known client follow-through template shape is a short first-person completion line followed by `New Correspondence`, `Received invoices`, and `Updated tasks`. Do not substitute ad hoc sections such as `Completed/recorded`, `Owner updates`, or `Skipped per operator instruction`.
+- If the template cannot be located, cannot fit the run, or required links/mentions cannot be resolved, stop and ask for the exact template or explicit approval of a degraded version before posting.
 - Write like the operator or a human team member, not like an automation report.
 - Do not include background Gmail label, source-marker, checkpoint, packet, or Codex-process mechanics in the Slack body.
-- Hyperlink all items in `Incoming handled`, `Replies coming up`, and `Blocked`.
-- Address concrete checks to actual people with resolved Slack IDs, not bare names. If a Slack ID cannot be resolved, do not imply the person will be notified.
+- Hyperlink every Communication, task, invoice, expense, filing, contract, blocker, or operational row reference with a named link; manual Slack payloads must use Slack-native `<url|label>` links.
+- Address every responsible-person action/update line to actual people with resolved Slack IDs, not bare names. If a Slack ID cannot be resolved through Slack MCP or a repo-approved mapping, Stage 12 is blocked unless the operator explicitly approves a named, no-notification fallback for that exact person and message.
+- Include a Stage 12 mention/link checklist before send approval: Ioana template used, all row references named-linked, every responsible person tagged, mention-resolution table included, no bare responsible-person names, and no source-marker/checkpoint mechanics in the Slack body.
 - Do not address generic owners such as `Codex/run` or `workflow owner`; either assign to a resolved person or keep the item in packet memory.
 - Do not list no-reply/no-action items under replies. Only list replies that are actually coming up or were sent.
