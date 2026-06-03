@@ -29,27 +29,37 @@ Use this for one company at a time when RB needs the German accident-insurance r
 - Do not translate the live VBG form in-browser. Use a separate translation tab or offline translation for comprehension only.
 - Do not enter real client data into the VBG form or submit until the operator has approved an exact form-fill packet for the target company.
 - Do not store credentials, full private identifiers, raw identity documents, certificate files, or form screenshots in git.
-- Keep source evidence and screenshots in Notion/Drive; git stores only pointers and process notes.
+- Keep source evidence and screenshots in Notion/Drive or run-local private storage; git stores only pointers and process notes.
+- Maintain a running field-evidence log while filling the form. Do not rely on browser state or memory as the only record of why a field was chosen.
 
 ## Workflow
 
 1. Fetch the task, comments, linked project, company, filing registration, employment, contract, and primary individual records.
 2. Confirm the target company from the Client Databases Companies record, not only the project-management relation.
-3. Build a form-fill packet with field, proposed value, source, confidence, and review note.
+3. Build a form-fill packet with field, proposed value, reasoning, exact source location, confidence, and review note.
 4. Ask for approval of the exact packet before typing real client data into VBG or submitting.
-5. Open `https://service.vbg.de/unternehmen-anmelden`.
-6. Do not use browser translation.
-7. Select applicant role before the numbered steps:
+5. Create a run-local field-evidence log before browser data entry, for example `/private/tmp/rb-de-vbg-accident-insurance/YYYY-MM-DD-<client-ref>/field-evidence.md`.
+6. After each initial/numbered VBG page, save the fields entered on that page to the field-evidence log with:
+   - VBG page/step and field label.
+   - Value entered or selected.
+   - Reasoning for that value.
+   - Exact source location: Notion page URL plus property name, repo file path plus heading/row, Drive URL, Gmail/Slack/WhatsApp source pointer, or explicit user instruction.
+   - Confidence: `Ready`, `Needs review`, or `Unknown`.
+   - Whether operator review is required before continuing.
+7. Open `https://service.vbg.de/unternehmen-anmelden`.
+8. Do not use browser translation.
+9. Select applicant role before the numbered steps:
    - Prefer `Gesetzl. Vertreterin/gesetzl. Vertreter` when the director/legal representative is the applicant and their details will be entered.
    - If RB is applying under another authority route, stop and confirm the correct role before proceeding.
-8. Complete the VBG steps.
-9. On the overview page, review every value against the approved packet before submitting.
-10. Submit only after action-time approval if the current prompt did not already approve the exact data and destination.
-11. After submission, capture the displayed application/reference/company number and a screenshot.
-12. Add the reference and screenshot/proof link to:
+10. Complete the VBG steps, saving the field-evidence log after each page before advancing.
+11. On the VBG overview page, reconcile every displayed value against the field-evidence log. Any mismatch becomes a blocker until corrected or approved.
+12. Before submitting, give the operator a final review table with every selected/entered field, value, reasoning, exact source location, and confidence. Stop here for operator review.
+13. Submit only after action-time approval of the final overview table and the visible VBG overview page.
+14. After submission, capture the displayed application/reference/company number and a screenshot.
+15. Add the reference and screenshot/proof link to:
     - the source task comments;
     - the company Filing Registration record for accident insurance / Unternehmensnummer.
-13. Read back the task and filing registration updates. Only then mark the task done.
+16. Read back the task and filing registration updates. Only then mark the task done.
 
 ## Current VBG Field Map
 
@@ -99,9 +109,19 @@ Step 5 `Weitere Informationen`:
 
 ## Packet Template
 
-| VBG field | Proposed value | Source | Confidence | Review |
-| --- | --- | --- | --- | --- |
-| Anmeldung erfolgt durch |  |  | Ready / Needs review / Unknown |  |
+| VBG step | VBG field | Proposed value | Reasoning | Exact source location | Confidence | Review |
+| --- | --- | --- | --- | --- | --- | --- |
+| Initial | Anmeldung erfolgt durch |  |  |  | Ready / Needs review / Unknown |  |
+
+## Final Review Template
+
+Use this at the overview page before `Absenden`:
+
+| VBG step | Field shown on overview | Value shown on overview | Reasoning | Exact source location | Confidence | Operator decision |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 Allgemein |  |  |  |  |  | Approve / change |
+
+The operator must review this final table before submission. If the visible VBG overview and the final table differ, correct the form or update the evidence log before asking for approval.
 
 ## Completion Comment Template
 
