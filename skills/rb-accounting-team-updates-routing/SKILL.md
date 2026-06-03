@@ -35,6 +35,8 @@ For each atomic routing item, produce exactly one decision:
 - `skip_already_handled`: source is checked, completed, duplicated, superseded, or purely informational.
 - `unresolved`: owner, project, source meaning, owning operational record, target schema, or write-back method is unclear.
 
+General team-health and prerequisite lines are not task targets. Treat lines such as `Accountants filings are up to date`, `Bookkeeping status spreadsheet is up to date`, `Accountants have a pipeline to work on`, and `To check unfinished communications` as operating indicators only. Do not create, update, or comment central tasks for those lines; client-specific bookkeeping, filing, payment, and communication follow-through belongs on each client's owning task-capable row or existing client task.
+
 Decision rules:
 
 1. Fetch linked Notion mentions before deciding.

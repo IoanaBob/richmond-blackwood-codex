@@ -65,6 +65,7 @@ Rules:
 - Process `Any blockers?`.
 - Process `What are the action points today?` / `Action points`.
 - Treat checked items as likely already handled from the previous day. Do not create new tasks from checked items unless the linked record or text still says the item is open.
+- Treat general team-health or prerequisite lines as operating indicators, not task targets. Do not create, update, or comment central tasks for lines such as `Accountants filings are up to date`, `Bookkeeping status spreadsheet is up to date`, `Accountants have a pipeline to work on`, or `To check unfinished communications`; route only the underlying client-specific bookkeeping, filing, payment, or communication work to each client's owning task-capable row or existing client task.
 
 ## Task Handling
 
