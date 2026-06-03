@@ -884,3 +884,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
 - Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
 - Limitations or gaps: None known yet.
+
+## 2026-06-03 - Default Rebase Before Push
+
+- User request: Add a command list for rebasing with master/main before pushing to a branch by default, assuming conflicts may need resolution; later clarified that this should be a default before-push rule rather than a conflict-only shortcut and should be compacted into the existing closeout lines.
+- Context read: `skills/index.md`, `skills/rb-task-pr/SKILL.md`, `skills/rb-process-maintenance/SKILL.md`, `processes/index.md`, `processes/repo-operation.md`, and recent memory/source logs.
+- Actions taken: Updated `AGENTS.md`, `rb-task-pr`, and `processes/repo-operation.md` so every task branch push rebases onto latest `origin/main` by default before pushing. The compact command covers `git fetch origin main`, `git rebase origin/main`, validation, and `git push --force-with-lease --set-upstream origin HEAD`; the conflict loop and dirty task-owned checkpoint command remain as sub-cases.
+- Decisions made: For this repo, the master/main base is `origin/main`. A dirty worktree is not a reason to skip reconciliation when all dirty files are task-owned and the user has authorized closeout; unrelated/user-owned files must not be staged.
+- Verification: Notion read-back verified the compacted master closeout line on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-03`; `git diff --check` passed.
+- Limitations or gaps: PR closeout pending.

@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-01.
+Updated: 2026-06-03.
 
 ## Repo State
 
@@ -13,7 +13,8 @@ Current implementation includes:
 - Durable storage rules.
 - RB process map and SOP mirror.
 - Source register and import log.
-- Master chat/skill run git rule: repository-changing or live-state-changing RB Codex runs inspect status, run `git pull origin main`, create a new `codex/<task-slug>` branch from a clean updated base, split dirty/conflicting starts into scoped commits and PRs, then push the task branch, check it against `origin/main`, fix conflicts, and open or update the PR at closeout.
+- Master chat/skill run git rule: repository-changing or live-state-changing RB Codex runs inspect status, run `git pull origin main`, create a new `codex/<task-slug>` branch from a clean updated base, split dirty/conflicting starts into scoped commits and PRs, then fetch/rebase the task branch onto latest `origin/main` before pushing, fix conflicts, and open or update the PR at closeout.
+- Default rebase before push: `skills/rb-task-pr/SKILL.md` Finish And Publish step 6 fetches/rebases onto `origin/main` before any task-branch push, validates, and pushes with `--force-with-lease`; dirty task-owned files may be checkpointed first when closeout is authorized.
 - Root npm/TypeScript helper layer with Drive, Gmail, generic SignNow, Google Doc transform, PDF signing-plan, and task PR helper scripts.
 - Company profile, service positioning, systems context, and internal history.
 - Product offerings, pricing signals, historical bundles, and emerging offer catalogue at `internal/product-offerings.md`.
