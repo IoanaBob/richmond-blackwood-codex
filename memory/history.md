@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-03 - RBL Company Context Refresh
+
+- User request: Continue the client-memory process for RBL/Richmond Blackwood after the previous branch was merged.
+- Context read: RBL Notion company record, RBL project, linked filing registrations, selected filing/payment rows, active finance tasks, Client Notes/Document records, CRO Open Data, existing RBL Workhub memory, and internal RB product/role/process memory.
+- Actions taken: Created the normal RBL company-memory surface under `clients/Companies/RBL/`, preserving the existing Workhub invoice-validation rule and adding company overview, authority, tax/filings, accounting/payroll, communications, project, Drive, Notion backup, linked-individuals, open-questions, history, and source-register context.
+- Decisions made: Treat RBL as both internal operating company and service-provider/counterparty across client contracts; keep client-specific pricing, contract performance, and private client facts in the relevant client folders/live rows; do not store bank-account numbers, card details, credentials, or raw private-channel material in git.
+- Verification: Notion context was reviewed through targeted fetches from the prior run state; CRO Open Data was queried directly for company number 735818. No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this pass.
+- Limitations or gaps: Confirm whether to write the CRO registered office back to Notion, whether April 2026 PAYE payment is paid, whether Payroll/VIES/Corporation Tax `Overdue` statuses are stale, the RBL canonical Drive folder, and the current Sage/Xero migration decision.
+
 ## 2026-05-20 - Common Tasks Follow-Through Process Corrections
 
 - User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, require Stage 1 to pull latest `main`, and prepare a new PR.

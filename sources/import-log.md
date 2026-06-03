@@ -24,6 +24,30 @@ Unresolved:
 
 - SVL-specific submission remains pending operator approval of the exact form-fill packet and the business-purpose classification/description.
 
+## 2026-06-03 - RBL / Richmond Blackwood Company Context Refresh
+
+Applied:
+
+- Refreshed `clients/Companies/RBL/` from the Notion Companies `Reference` value and populated the normal company-memory surface for RICHMOND BLACKWOOD LIMITED.
+- Preserved the existing RBL Workhub invoice-validation rule and added current finance follow-ups from Notion.
+- Captured RBL's internal-company and service-provider boundary: RBL facts belong in RBL, while client-specific contract/pricing/private facts belong in the owning client folders and live client database rows.
+- Captured corporate identity, regulatory registrations, tax/VAT/filing registrations, payroll/payment state, accounting setup, communications rules, project routing, source pointers, and open questions.
+- Checked CRO Open Data for company number 735818 because the Notion company record had blank `Registered Office Address`; CRO returned the Workhub/Camden Street address, normal LTD status, NARD 2026-08-28, and last accounts date 2024-12-31.
+- Recorded that the RBL-specific annual VAT task is archived/superseded and the consolidated affected-client VAT checklist does not include RBL.
+
+Verification:
+
+- Notion source context was reviewed through targeted fetches captured in the run state.
+- CRO Open Data was queried directly through the official data API.
+- No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- Confirm whether to update the RBL Notion registered-office field from CRO Open Data.
+- Confirm whether the April 2026 PAYE payment was paid after the Notion row showed `Due` on 2026-06-02.
+- Check whether Payroll/VIES/Corporation Tax `Overdue` registration statuses are stale/formula-derived or real blockers.
+- Confirm RBL canonical Drive folder and current Sage/Xero migration decision.
+
 ## 2026-05-26 - KONVI Company Context Import
 
 Applied:

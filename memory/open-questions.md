@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-05-27.
+Updated: 2026-06-03.
 
 ## Notion Backup Questions
 
@@ -132,6 +132,17 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Decide whether Notion should get multi-recipient invoice-routing fields so Riot-style routes do not need to keep secondary To recipients in notes.
 - Reconcile Slack's Q4 2025 VAT filing concern through the separate VAT skill/review.
 - Confirm whether the Notion accounting-software email alias should be `accounts+amc` or `account+amc`.
+
+## RBL Questions
+
+- Confirm whether to update the RBL Notion company `Registered Office Address` from blank to the CRO Open Data Workhub/Camden Street address.
+- Confirm whether the April 2026 PAYE payment was paid after the Notion tax-payment row showed `Due` with due date 2026-06-02.
+- Confirm whether RBL Payroll Tax, VIES, and Corporation Tax registration statuses are genuinely overdue or stale/formula-derived, since future filing rows exist.
+- Correct or confirm the future VAT filing title/date mismatch on `RBL - VAT - 19 Apr 2027`, whose due-date property is 2027-05-19.
+- Confirm the canonical RBL Drive folder and approved Drive routing category before uploading raw RBL evidence.
+- Confirm the current decision on Sage migration versus Xero and existing Germany/UK/Ireland tooling.
+- Confirm whether the linked RBL shareholder company row should be fetched and named in repo memory.
+- Confirm Workhub VAT treatment and whether any additional companies have upgraded Workhub plans beyond CBMAX, PCL, NACV, and Konvi.
 
 ## KONVI Questions
 

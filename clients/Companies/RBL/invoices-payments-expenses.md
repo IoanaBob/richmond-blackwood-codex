@@ -8,6 +8,20 @@ review: Confirm whether the Workhub plan amounts are VAT-exclusive and whether a
 
 # RBL Invoices, Payments, And Expenses
 
+## Current Finance Follow-Ups
+
+- Status: provisional.
+- Source: Notion tax-payment, filing, and task records reviewed on 2026-06-03.
+- Imported: 2026-06-03.
+- Review: Confirm live payment/billing status before escalating, paying, or closing any row.
+
+| Item | Status | Source | Notes |
+| --- | --- | --- | --- |
+| RBL PAYE payroll tax Apr 2026 payment | Tax payment row `Due`; due date 2026-06-02; amount EUR 3,115.26 | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | Current date is 2026-06-03. Confirm whether paid outside Notion before escalation. |
+| April 2026 payroll filing | Filed | `https://www.notion.so/365e41301314802084b2c53c321ff1bb` | Filing row is filed, but linked payment remains a separate check. |
+| Connect RBL debit card for SimplePay payroll billing | To Do; due 2026-05-28 | `https://www.notion.so/36ee4130131481028f58f198b235e43c` | Do not store card/security details. Confirm SimplePay billing route and outstanding amount before action. |
+| Ask Wamo about RBL payment approval | To Do; due 2026-06-01 | `https://www.notion.so/36fe413013148181baf9dd56021d3d97` | Task explicitly says not to send until sender, recipient, and body are approved. |
+
 ## Workhub Invoice Validation
 
 - Status: provisional.
