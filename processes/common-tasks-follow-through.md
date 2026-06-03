@@ -158,6 +158,8 @@ These routes were resolved during the `2026-05-21-1006-daily-0800-window` correc
 ## Finance And Operational Routing
 
 - First classify each inbound into Communications, Invoicing, Expenses, or Central Tasks.
+- For every invoice, receipt, or expense document, read the addressee/billed-party from the document itself before selecting the Notion `Company` or form company. Use the invoice-issued-to company in the form; do not substitute a related client, source mailbox, Drive folder, or likely commercial context when the document names a different company.
+- If an invoice or receipt appears to be issued to the wrong company for the intended submission, stop before upload or Expense/Invoicing creation, record the blocker, and wait for a corrected document.
 - Contract-backed payables/receivables belong on the matching Invoicing row when a matching invoice/contract route exists.
 - Non-contract receipts/finance items belong on Expenses.
 - Payment notifications, payment receipts, invoice receipts, cashback notices, card/account notifications, and similar finance-source messages must not create standalone Central Tasks just to decide ownership/routing. If a finance-source item is business-scoped and no contract/Invoicing match exists, create or update an Expense row with a review-required status. If the source does not support business scope, skip/no-scope it.

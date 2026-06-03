@@ -134,6 +134,19 @@ Consequence:
 Source: user instruction in Codex chat on 2026-05-24.
 Review: confirm the complete RB operator list and approved work email addresses for each human operator.
 
+## 2026-06-02 - Expense Forms Use Invoice Addressee
+
+Decision: Expense and invoice submission forms must use the company named as addressee or billed party on the source invoice/receipt.
+
+Consequence:
+
+- Read the source document before choosing the Notion `Company` or form company.
+- Do not substitute a related client, project, mailbox alias, Drive folder, or commercial assumption when the document names a different company.
+- If the source document appears issued to the wrong company for the intended submission, stop before Drive upload or live Expense/Invoicing creation and wait for a corrected document, unless the operator explicitly approves a documented exception.
+
+Source: user instruction in Codex chat on 2026-06-02 after reviewing Pichler Finke Michelsburg invoice `RE26/00334`.
+Review: approved as an operating rule by user instruction; future amended invoices should be submitted using their actual issued-to company.
+
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 
 Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.

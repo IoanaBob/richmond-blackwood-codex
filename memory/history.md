@@ -884,3 +884,11 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Browser automation is not an acceptable workaround for missing API/MCP credentials. Missing credentials should trigger a request to the responsible RB team member to provision the correct keys or credentials through approved secret storage.
 - Verification: Notion read-back verified the new `Browser/API/MCP Boundary` section on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-01`; `git diff --check` passed.
 - Limitations or gaps: None known yet.
+
+## 2026-06-02 - Expense Invoice Addressee Rule
+
+- User request: Hold the submitted Pichler Finke Michelsburg invoice `RE26/00334` because it was issued to the wrong company, and remember that expense forms must use the company named on the invoice rather than an inferred related company.
+- Context read: Local PDF `/Users/jp/Downloads/RE26_00334.pdf`, MHL client files, Notion MHL company/project/Expenses schema through the connector, and the RB common-tasks/file-upload process rules.
+- Actions taken: Stopped before any Drive upload or Notion Expense creation. Updated the common-tasks process and skill so invoice, receipt, and expense submissions must read the document addressee/billed party and use that issued-to company in the form; if it is wrong for the intended submission, the run must stop and wait for a corrected document.
+- Decisions made: Document addressee is binding for the finance form unless the operator explicitly approves a documented exception. The held `RE26_00334.pdf` should not be submitted from the current PDF.
+- Verification: No live Drive, Notion, Gmail, WhatsApp, or Slack writes were performed for the held invoice.

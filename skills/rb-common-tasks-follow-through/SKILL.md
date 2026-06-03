@@ -109,6 +109,8 @@ Resolve company from the strongest available evidence, in this order:
 5. Sender/contact mapping.
 6. Repo client files.
 
+For invoice, receipt, and expense submissions, the document addressee or billed party is not just a hint. Read it from the source document and use that issued-to company in the Expense/Invoicing form. Do not override it with a related client, project, mailbox alias, Drive folder, repo context, or commercial assumption. If the document appears issued to the wrong company for the requested submission, stop before upload or live record creation, record the blocker, and wait for a corrected invoice/receipt.
+
 Never assign a company just to fill a field. If the communication is internal, system-only, spam, or not client-relevant, leave `Company` empty so it does not appear in company correspondence views.
 
 For Communications, choose the more relevant primary subject relation:
@@ -217,6 +219,7 @@ Update `draft-operational-rows.csv`, `draft-tasks.csv`, `draft-replies.csv`, and
 
 For finance items:
 
+- First read the invoice/receipt addressee or billed party and use that company in the Expense/Invoicing form. If that issued-to company conflicts with the intended client or seems wrong, do not create or update the finance row until a corrected document is supplied or the operator explicitly approves a documented exception.
 - If an active payable/receivable contract or matching Invoicing row exists, attach/link the communication and evidence to the invoice task row.
 - If no active contract applies, create/update the Expense row. Do not create a Central Task just to decide ownership/routing for a payment notification or receipt.
 - If the item is a receipt paid by Richmond Blackwood, upload/link the receipt to the correct evidence/expense record. Do not create a Central Task unless there is an unresolved human decision or inaccessible source.

@@ -1824,3 +1824,18 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-06-02 - Expense Invoice Addressee Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-02 that expense submissions must check which company the invoice was issued to and use that company in the form; the submitted Pichler Finke Michelsburg invoice `RE26/00334` was issued to the wrong company and should be held until an amended invoice is supplied.
+
+Actions:
+
+- Updated `processes/common-tasks-follow-through.md` and `skills/rb-common-tasks-follow-through/SKILL.md` so invoice, receipt, and expense forms must use the source document addressee/billed party and stop before upload/live record creation when the document is issued to the wrong company.
+- Recorded the held invoice in `memory/history.md` and `memory/handoff.md`.
+
+Unresolved:
+
+- Wait for the amended invoice before submitting the expense.
