@@ -89,6 +89,8 @@ Shared gates:
 2. Audience Selection
    - Load the active Audience Target.
    - Default first audience: `American tech workers in Germany / relocating to Germany`.
+   - For LinkedIn inside the first audience, prioritize Germany-based tech workers employed by foreign companies, ideally US-headquartered or US-market employers, with visible US background.
+   - Treat age preference as public career-stage targeting only; do not infer, estimate, store, or mention age.
    - Load active channel rows linked to that audience.
    - Treat the system as Germany growth overall, not an Americans-only system.
 

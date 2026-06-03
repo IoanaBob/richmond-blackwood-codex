@@ -73,16 +73,21 @@ Shared gates:
 
 2. Audience Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
-   - Target people with a plausible US signal and Germany signal:
+   - Current LinkedIn priority segment: people living in Germany who work in tech for an employer abroad, ideally a US-headquartered or US-market employer, with a visible US background.
+   - Treat the user's "below 40" preference as a career-stage preference only. Do not infer, estimate, store, or mention age. Prefer public profile signals for early-to-mid-career operators, founders, ICs, managers, and recent movers over late-career, retired, or locally settled profiles.
+   - Target people with strong Germany, foreign-employer, US-background, and tech signals:
+     - Current Germany location or clear current Germany residence.
+     - Current employer outside Germany, remote/distributed role for a foreign company, international transfer, or US-headquartered company operating into Europe.
      - Past US work experience.
      - Past US university/study experience.
      - US nationality/residency signals combined with current Germany location.
      - Current relocation-to-Germany signal.
-   - Prioritize technology workers and founders:
+   - Prioritize technology workers and founders with budget-qualified profiles:
      - Software engineering, product, data, cloud, cybersecurity, AI, fintech, startup, platform, devops, design, or technical leadership roles.
-     - Remote-work, founder, startup, VC-backed, or international-transfer context.
+     - Remote-work, founder, startup, VC-backed, US-employer, foreign-employer, or international-transfer context.
      - Berlin, Munich, Hamburg, Frankfurt, Cologne, Dusseldorf, and other visible Germany tech-hub signals.
-   - Block profiles where the US, Germany, or technology signal is too weak to justify the request.
+   - Block profiles where the Germany, foreign-employer, US-background, or technology signal is too weak to justify the request.
+   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, broad job seeking, student-only status, or a guessed age fit.
    - Keep the criteria reusable for future Germany growth audiences.
 
 3. Discovery And Dedupe
@@ -97,13 +102,15 @@ Shared gates:
    - Classify each target as `Research`, `Qualified`, `Blocked`, or not relevant using available Growth Target status fields.
    - Record qualification evidence in Growth Target notes and, when action is needed, Growth Messages or Tasks.
    - When a target becomes qualified, set `Qualified At`; when it becomes blocked, set `Blocked At`.
-   - Block targets where the US/Germany signal is too weak.
+   - Block targets where the Germany, foreign-employer, US-background, or tech signal is too weak.
+   - If career-stage preference is part of qualification, record only public career-stage evidence such as role level, visible graduation/work timeline, founder recency, or relocation recency. Never record estimated age.
    - Treat LinkedIn rules, approved claims, and Ioana identity as in-run compliance gates. Do not create compliance-check rows.
 
 5. Connection Request Packet
    - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.
    - Show sender identity: Ioana, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
+   - Qualification basis must name the visible Germany residence signal, foreign or US employer signal, US-background signal, tech-role signal, and any career-stage evidence used.
    - Include current month counts: planned invites, sent blank invites, remaining invite quota, daily send count, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
 
