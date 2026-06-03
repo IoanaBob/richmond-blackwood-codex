@@ -19,6 +19,8 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Daily automation advances queues, blockers, tasks, and timestamped state. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
 - LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
+- Daily target math must declare an exact quota date and timezone before counting any daily sends. Do not treat prior run packets, channel notes, browser-visible pending state, or rows outside the declared quota-day window as today's activity. If the quota date is ambiguous because the run crosses midnight or user/operator/browser timezones differ, block the count and ask for the quota date before deciding whether the daily target is met.
+- LinkedIn daily invite closeout is blocked until the packet shows a Daily Invite Gate with quota date, timezone, current time, included blank connection-request rows, excluded prior/next-day rows, remaining count to the 15-request minimum, and remaining capacity to the 20-request normal cap.
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
 - Relocation partner planning uses a daily target of at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Daily automation may prepare the packet and queue, but first-time emails still require exact approval and immediate Ioana email-session verification.
 - Reddit planning uses a daily target of 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and second comments on the same post do not count. Daily automation may source and draft the packet, but posting still requires exact approval and immediate Ioana Reddit-session verification.
@@ -58,6 +60,7 @@ Next-stage prompting rule:
 Shared gates:
 
 - No outbound send happens before Stage 7 exact-message approval.
+- No daily channel target may be reported as met from stale rows. Any stale-row or timezone correction must reopen the relevant channel work packet before closeout.
 - No schema migration or database replacement happens from this skill; schema changes require a separate explicit instruction.
 - No channel skill may be run in send mode from the daily automation.
 - Stop if the worktree becomes conflicted, the legacy partnership source appears active, a new destination is introduced, Ioana identity cannot be verified for a send-ready item, or connector access is degraded in a way that would make state tracking unsafe.
@@ -85,6 +88,7 @@ Shared gates:
    - Read `skills/index.md`, `skills/rb-communications/SKILL.md`, this skill, channel skill files, and `internal/growth-sales-marketing.md`.
    - Fetch Notion schemas for Audiences, Channels, Growth Targets, Business Partners, Growth Messages, Communications, and Tasks.
    - Check that the legacy growth partnership data source is deleted/trashed or unavailable. Block if it is active after migration should be complete.
+   - Declare the quota date and timezone for daily target math. Use the user's current operating date when the user says `today`, `yesterday`, or similar; if that conflicts with local shell/browser/Notion timestamps, show the conflicting dates and block until the quota date is explicit.
 
 2. Audience Selection
    - Load the active Audience Target.
@@ -100,6 +104,8 @@ Shared gates:
    - Pull due Tasks linked to `RB Germany Growth System`.
    - Pull Business Partners matching the active `Audience Target` and active `Growth Stage`.
    - Pull Growth Targets for non-partner LinkedIn, Reddit, and direct research targets.
+   - For LinkedIn, count only `Message Kind = Connection Request` rows whose `Sent/Posted At` or `Growth Event At` falls inside the declared quota-date window in the declared timezone. Exclude and list rows from the previous or next quota day even if they were created in the current run folder or are still pending.
+   - If LinkedIn daily blank invites counted for the declared quota day are below 15, Stage 4 must include an invite-batch packet to cover the gap before reporting/closeout. Acceptance checks, first messages, replies, and follow-ups do not count toward the blank-invite daily target.
    - Count relocation-partner first-time email conversations opened today, approved-send queue, draft-ready queue, blockers, and remaining count against the 5/business-day target.
    - Count Reddit top-level comments posted today, safe top-level comment drafts, high-risk/provisional comment drafts, and remaining count against the 10/day top-level comment target. Do not count replies, DMs, follow-ups, or second comments on the same post.
    - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
@@ -162,7 +168,8 @@ Shared gates:
 9. Reporting And Closeout
    - Do not create or update summary reporting rows.
    - Reconstruct daily/weekly/monthly counts by querying timestamped records by audience and channel.
-   - For LinkedIn, report monthly invite quota state from Growth Messages `Message Kind`/`Growth Event At`, Growth Target stage timestamps, and current pending/blocker state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available.
+   - For LinkedIn, report monthly invite quota state from Growth Messages `Message Kind`/`Growth Event At`, Growth Target stage timestamps, and current pending/blocker state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available. Include the Daily Invite Gate table before saying the daily target is met or skipped.
+   - If the LinkedIn daily invite minimum is not met for the declared quota date, closeout must not say the channel is complete. Prompt the next stage as LinkedIn invite-batch sourcing or approval, and state the exact remaining invite gap.
    - For relocation partners, report first-time email conversations opened from Growth Messages `Message Kind = First Message` or `Partner Pitch`, Business Partner `First Contacted At`, daily 5/day target met or missed, remaining approved-send queue, replies, follow-ups drafted, and blockers.
    - For Reddit, report top-level comments posted from Growth Messages `Message Kind = Comment` or `Post/Comment` plus `Growth Event At`, daily 10/day target met or missed, safe drafts, high-risk/provisional drafts, remaining comment gap, replies/DMs excluded from the count, and blockers.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.

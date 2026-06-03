@@ -17,6 +17,9 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Log every pre-lead request, first message, reply, blocker, and follow-up in Growth Messages.
 - Default invite operating quota for the active first audience is 320 blank connection requests/month, calculated as a 16-request planning baseline across a 20-business-day month.
 - Daily send range is 15-20 blank connection requests/business day after explicit approval and immediate Ioana-session verification.
+- Daily invite counts are valid only for an explicitly declared quota date and timezone. Before deciding whether an invite batch is needed, build a Daily Invite Gate that shows the quota window, the current time, included connection-request sends, excluded previous/next-day sends, remaining count to 15, and remaining capacity to 20.
+- Do not count accepted connections, first messages, replies, follow-ups, pending invite state, channel notes, or prior run packet summaries toward the daily blank-invite target.
+- If the quota date is ambiguous because user, shell, browser, LinkedIn, or Notion timestamps fall on different calendar dates, block the invite count and ask for the quota date before reporting the target as met.
 - Treat LinkedIn platform limits as dynamic. Do not exceed the internal quota or 20/day without explicit user approval, current LinkedIn guidance review, and read-back of recent warnings, acceptance rate, pending-invite state, and meeting conversion.
 - Do not add personalized connection-request notes by default. If the user requests an exception, require separate approval and respect the current LinkedIn personalized-note limit for Ioana's account.
 - Stop immediately if LinkedIn shows a warning, temporary restriction, or unusual checkpoint. Log the blocker; do not work around it.
@@ -40,6 +43,14 @@ Suggested operating rhythm:
 - End of day: reporting-only closeout and next-day queue preparation.
 
 Do not duplicate sends across intra-day runs. Every run must read current Growth Messages and Growth Targets before proposing a send.
+
+Date-boundary rule:
+
+- Use `Sent/Posted At` first, then `Growth Event At`, to classify a connection request into the quota day.
+- The quota window is `[quota date 00:00, next date 00:00)` in the declared timezone.
+- A row created just after midnight in one timezone but still yesterday in the declared quota timezone is yesterday, not today.
+- If the daily count is below 15, an `acceptance-check`, `first-message`, `reply-triage`, or `follow-up-sweep` run must still prompt the next invite-batch gap unless the user explicitly pauses LinkedIn invites for that quota date.
+- Never say today's invite target is met from a prior-day batch. If that happens, write a correction packet and reopen the invite-batch stage.
 
 ## Data Routing
 
@@ -68,7 +79,9 @@ Shared gates:
    - Read `rb-germany-growth` and `rb-communications`.
    - Load active Audience Target, Growth Targets schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
    - Choose run mode(s): `invite-batch`, `acceptance-check`, `first-message`, `follow-up-sweep`, `reply-triage`, or `reporting-only`.
-   - Load current-day sent counts, monthly sent counts, pending requests, accepted connections awaiting first message, due follow-ups, and open blockers before proposing any send.
+   - Declare quota date and timezone before loading daily counts. If the user says `today` or `yesterday`, resolve it to an exact date in the user's operating timezone and print the exact date.
+   - Load current-day sent counts for the declared quota window, monthly sent counts, pending requests, accepted connections awaiting first message, due follow-ups, and open blockers before proposing any send.
+   - Print a Daily Invite Gate in every LinkedIn run, even when the selected mode is acceptance-check, first-message, follow-up-sweep, reply-triage, or reporting-only.
    - Verify LinkedIn account identity only when approaching a send-ready step.
 
 2. Audience Criteria
@@ -113,14 +126,16 @@ Shared gates:
    - Show sender identity: Ioana, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
    - Qualification basis must name the visible Germany residence signal, came-from-abroad signal, current foreign-employer/company-abroad signal, tech-role signal, and explicit under-40 evidence when available.
-   - Include current month counts: planned invites, sent blank invites, remaining invite quota, daily send count, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
+   - Include current month counts: planned invites, sent blank invites, remaining invite quota, Daily Invite Gate daily count, excluded prior/next-day invite rows, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
+   - If the declared quota-day count is below 15, show the exact invite gap and prepare enough qualified targets to reach at least 15 unless the user explicitly pauses the daily LinkedIn invite target.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
 
 6. Approved Connection Send
    - Run only after explicit approval.
    - Re-check LinkedIn session is Ioana.
    - If not Ioana, write a blocker in Growth Messages and stop.
-   - If monthly quota is exhausted, daily count would exceed 20, or LinkedIn displays any warning/restriction, write a blocker in Growth Messages and stop.
+   - Recompute the Daily Invite Gate immediately before the first send. If the declared quota-day count changed, update the remaining gap and stop for re-approval unless the approved target count is still inside the remaining 15-20/day window.
+   - If monthly quota is exhausted, daily count would exceed 20, the quota date is ambiguous, or LinkedIn displays any warning/restriction, write a blocker in Growth Messages and stop.
    - Send the approved blank request directly and log result in Growth Messages with `Message Kind = Connection Request`, `Status = Sent/Posted`, `Growth Event At`, `Sent/Posted At`, and next follow-up.
    - Move the Growth Target to `Outreach Active` only with `Outreach Active At`, `Stage Updated At`, and `Last Activity At`.
 
@@ -162,6 +177,7 @@ Shared gates:
    - Log send URL/message ID if available, response state, `Message Kind`, `Status`, `Growth Event At`, `Sent/Posted At` or `Received At`, and next follow-up in Growth Messages.
    - Promote/link to canonical Communications only if the thread becomes a lead/client/business communication.
    - Do not write a summary reporting row. Reconstruct invite quota, blank connection requests, acceptances, accepted-connection messages, replies, blockers, meetings, and invite-to-meeting conversion by querying Growth Messages and Growth Target timestamps.
+   - If this run sends first messages or replies but the Daily Invite Gate shows the quota-day blank-invite minimum is still unmet, the next prompt must be a LinkedIn invite-batch packet, not closeout.
 
 ## First-Time Message Guidance
 
