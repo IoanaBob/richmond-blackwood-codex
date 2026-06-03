@@ -193,7 +193,7 @@ VBG is the accident-insurance body we need to register with as part of setting u
 
 VBG confirmed that the application was received. They said they will respond in the coming days and send the required letters by post to the submitted company address.
 
-Please watch for any letters from VBG. When they arrive, please share them with us, because we will need the details in those letters to finish the payroll registration.
+As with all letters, if you get anything, please share them with us. We will need the details in those letters to finish the payroll registration.
 
 Proof of submission: <Drive proof link, if appropriate to share>
 ```
