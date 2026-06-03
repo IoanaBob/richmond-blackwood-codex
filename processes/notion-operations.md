@@ -106,7 +106,7 @@ Example body:
   "filter": {
     "property": "Status",
     "status": {
-      "does_not_equal": "Logged"
+      "does_not_equal": "Done"
     }
   },
   "sorts": [
@@ -126,7 +126,7 @@ Example later page body adds only `start_cursor`:
   "filter": {
     "property": "Status",
     "status": {
-      "does_not_equal": "Logged"
+      "does_not_equal": "Done"
     }
   },
   "sorts": [

@@ -46,6 +46,7 @@ Default terminal states: done, archived, complete, paid, booked, rejected, cance
 
 Communications must support:
 
+- `Status`: current values are `Captured`, `Drafting`, `Needs Triage`, `Follow-Up`, `Needs Reply`, `Archived`, and `Done`
 - `Source Channel`
 - `Source Message ID`
 - `Source Thread ID`

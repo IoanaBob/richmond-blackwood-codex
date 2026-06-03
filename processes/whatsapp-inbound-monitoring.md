@@ -65,6 +65,7 @@ Use canonical Communications:
 Set:
 
 - `Title`: concise title from the sender, date, and subject/request.
+- `Status`: `Needs Triage` until routing, originals, translations, and Notes are complete; then `Done`.
 - `Source Channel`: `WhatsApp`
 - `Direction`: `Incoming`
 - `Communication Time`: WhatsApp received date.

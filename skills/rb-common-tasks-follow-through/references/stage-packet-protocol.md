@@ -118,7 +118,7 @@ Ask for approval with the exact next stage name and action. Do not ask broad app
 
 Before approving the workflow as stable, run a dry packet-only pass that covers:
 
-- spam/no-action communication logged complete with no company relation;
+- spam/no-action communication skipped with no Communication row;
 - client letter in email with `Contains Letter`, `Letter Source`, document, and company relation;
 - forwarded letter where `Letter Source` differs from the email forwarder;
 - contract-backed invoice routed to Invoicing rather than Expenses;
