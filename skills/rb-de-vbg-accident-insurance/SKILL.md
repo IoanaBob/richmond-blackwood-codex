@@ -60,11 +60,20 @@ Use this for one company at a time when RB needs the German accident-insurance r
     - Put embedded hyperlinks in each table row's source/reasoning cell; do not rely only on the separate source list.
     - Stop here for operator review.
 13. Submit only after action-time approval of the final overview table and the visible VBG overview page.
-14. After submission, capture the displayed application/reference/company number and a screenshot.
-15. Add the reference and screenshot/proof link to:
+14. After submission, capture the displayed application/reference/company number if one is shown, the confirmation text, the VBG PDF copy/download if available, and a screenshot.
+15. Upload the VBG PDF copy and screenshot to the existing company Drive folder or approved registration/payroll evidence folder. If connector upload is unavailable, use the repo-approved `rb-file-uploads` helper path. Record file title, URL, size, MD5 if returned, and SHA-256 in the run-local field-evidence log.
+16. Add the reference, current waiting status, and proof links to:
     - the source task comments;
     - the company Filing Registration record for accident insurance / Unternehmensnummer.
-16. Read back the task and filing registration updates. Only then mark the task done.
+17. If VBG does not immediately assign an Unternehmensnummer, keep the task open/in progress, add a waiting label/status where available, and state that VBG will respond in the coming days.
+18. Set the accident-insurance Filing Registration to the in-progress/submitted status option exposed by its database, for example `Submitted` when that is the available in-progress status. Do not mark it `Registered` until the actual Unternehmensnummer and PIN are received and logged.
+19. Notify the owner through the company's preferred communication channel that the VBG application was submitted, that they should expect VBG post, and that RB needs the Unternehmensnummer/code and PIN letters to finalise payroll/Betriebsnummer registration.
+20. For outbound owner notification, use `rb-communications` plus the channel-specific skill:
+    - Resolve the recipient and channel from the Company and Individual records, saved communication pointers, and preferred communication setting.
+    - Draft the message in chat and show the destination, sender/channel, attachments, and body unless the user supplied exact final text and explicitly asked to send it.
+    - Send only after the required approval for the exact recipient and content.
+    - Log the sent message in canonical Communications after successful send.
+21. Read back the task, filing registration, proof files, and communication log updates. Only then mark any source task done.
 
 ## Current VBG Field Map
 
@@ -164,8 +173,24 @@ Use this shape for task and filing-registration comments after a verified submis
 ```text
 VBG accident-insurance / Unternehmensnummer application submitted on YYYY-MM-DD.
 Company: <legal name> (<reference>)
-Application/reference/company number shown by VBG: <reference>
-Proof: <Notion/Drive screenshot URL>
+Application/reference/company number shown by VBG: <reference, or "not shown immediately">
+VBG status: <e.g. successful submission; immediate Unternehmensnummer assignment not possible; response expected in coming days>
+Proof PDF: <Drive URL>
+Confirmation screenshot: <Drive URL>
 Source task: <task URL>
-Review: <remaining follow-up, e.g. wait 3-5 days or use reference if calling VBG>
+Review: waiting for Unternehmensnummer/code and PIN by post; both are needed to finalise payroll/Betriebsnummer registration.
+```
+
+## Owner Notification Template
+
+Use this as the default message after submission, adapting the greeting, entity name, and proof links. Send through the company's preferred communication channel after the exact-message approval required by `rb-communications`:
+
+```text
+Hi <owner first name>, quick update: we have submitted the VBG accident-insurance / Unternehmensnummer application for <company legal name>.
+
+VBG confirmed that the application was received, but they did not issue the Unternehmensnummer immediately. They said they will respond in the coming days and send the required documents by post to the submitted company address.
+
+Please watch for any VBG letters. We will need the Unternehmensnummer/code and the PIN letter when they arrive so we can finalise the payroll/Betriebsnummer registration.
+
+Proof of submission: <Drive proof link, if appropriate to share>
 ```
