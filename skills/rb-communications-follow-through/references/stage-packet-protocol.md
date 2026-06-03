@@ -94,13 +94,17 @@ Goal: choose Communications rows in scope.
 
 Default inclusion:
 
+- `Assigned To` contains the active operator's Notion user ID resolved from `RB_CODEX_ACTOR`;
 - `Status` is not a complete status;
-- the user supplied a specific row URL;
-- the row appears in a user-supplied Notion view/query scope.
+- `Snooze Until` is blank or is on/before the run date in the Codex timezone;
+- the user supplied a specific row URL, labelled as an `operator_supplied_override` if it does not match the default assignment or snooze filter;
+- the row appears in a user-supplied Notion view/query scope, with the view filter recorded exactly.
 
 Default exclusion:
 
 - `Status` is `Done` or `Archived`, even when `Due Date` is today or overdue.
+- Rows assigned to someone else, unless explicitly supplied by URL/view for review.
+- Rows with future `Snooze Until`; write them to skipped/deferred CSV with `deferred_until` and `defer_reason=future_snooze`.
 - A stale due date on a complete Communication is cleanup metadata, not follow-through selection.
 - If RB is waiting for a reply or follow-through, the Communication should be `Follow-Up`.
 - If RB owes the next reply, the Communication should be `Needs Reply`.
@@ -131,6 +135,7 @@ SELECT
   "Relevance",
   "date:Sent/Received On:start",
   "date:Due Date:start",
+  "date:Snooze Until:start",
   "Company",
   "Individual",
   "Tasks",
@@ -140,6 +145,8 @@ SELECT
   "Notes"
 FROM "collection://1b5e4130-1314-8183-afd8-000b6f4da982"
 WHERE "Assigned To" LIKE ?
+  AND COALESCE("Status", '') NOT IN ('Done', 'Archived')
+  AND ("date:Snooze Until:start" IS NULL OR "date:Snooze Until:start" <= ?)
 ORDER BY COALESCE("date:Due Date:start", "date:Sent/Received On:start", "Created At", createdTime) ASC
 LIMIT 100 OFFSET 0;
 ```
@@ -148,6 +155,7 @@ Use parameter:
 
 ```text
 %3a46f87a-9bc2-408f-baff-b4c23326e0f2%
+<run-date YYYY-MM-DD>
 ```
 
 Fallback method:
@@ -167,10 +175,13 @@ Packet columns:
 - relevance;
 - sent/received date;
 - due date;
+- snooze until;
 - company;
 - individual;
 - tasks;
 - assigned-to;
+- assigned-to-operator match;
+- snooze eligibility or deferred reason;
 - document state;
 - translated-document state;
 - notes summary;
@@ -180,13 +191,14 @@ Packet columns:
 Queue requirements:
 
 - For complete-scope runs, write a full selected queue CSV before Stage 3 starts.
-- Also write a skipped CSV for complete rows and a batch manifest.
+- Also write a skipped/deferred CSV for complete rows, non-operator rows, future-snoozed rows, and any other excluded rows from the authoritative pull; include the exact exclusion/defer reason.
+- Filter the selected queue before sorting and slicing batches.
 - Sort the selected queue by deadline first and urgency second:
   - `Due Date` ascending, with missing due dates last;
   - `Needs Reply`, then `Follow-Up`, then `Drafting`, then `Needs Triage`, then `Captured`, then other non-complete statuses;
   - `Long Living`, then `Short Living`, then `Ignore`;
   - `Sent/Received On`, `Created At`, and title as stable tie-breakers.
-- The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns.
+- The selected queue CSV must be loop-safe: one physical line per Communication row, no embedded newlines in fields, and stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, `urgency_label`, `assigned_to_operator`, `snooze_until`, and `snooze_eligibility` columns.
 - Default batch size is 25.
 - Batch CSVs must be contiguous slices from the selected queue, for example rows 1-25, 26-50, and so on.
 - Do not define batches by due date, owner, status subgroup, or urgency unless the packet labels that pass as diagnostic/priority-only and not as the queue batch number.
@@ -203,6 +215,8 @@ Stage 2 cannot advance to Stage 3 for complete-scope runs until the packet has e
 ## Stage 3 - Context Read
 
 Goal: read only the context needed to move the selected Communications rows.
+
+Stage 3 is read-only and never means a row or batch is done. Mark only `context_read_status`, `context_read_at`, and any blocker/missing-source state in the run CSV/packet. Keep every row active for Stage 4/5 unless Stage 4 later proposes, and Stage 5/6 verifies, a closing action, a future snooze, a blocker, or an explicit carry-forward.
 
 Allowed reads:
 
@@ -223,6 +237,9 @@ Disallowed reads:
 Packet columns:
 
 - Communication URL;
+- queue index and batch position;
+- context read status;
+- context read timestamp;
 - row context read;
 - source context read and exact IDs;
 - company/individual subject confidence;
@@ -234,7 +251,9 @@ Packet columns:
 
 ## Stage 4 - Action Packet
 
-Goal: propose exact row movement before writes.
+Goal: propose the exact next Communication action and row movement before writes.
+
+For every Communication, decide who needs to be answered or chased, through which channel/thread, what should happen next, and how the linked task or operational row should reflect the progress. If no outbound message is needed, state why and what non-message action or closeout is appropriate.
 
 Classify each Communication as exactly one primary action:
 
@@ -253,10 +272,20 @@ Each row proposal must include:
 - exact relation changes;
 - evidence files to attach or translate;
 - linked task/operational-row updates;
-- reply/send decision;
+- next communication target, or `none`;
+- channel and destination/thread for the next communication, or `none`;
+- reply/send/comment/no-send decision and reason;
+- next message/action summary;
+- linked task note/comment/status update, or an explicit `no linked task update needed` reason;
 - owner and due date;
 - `Snooze Until` date for outgoing Communications and follow-ups;
+- resulting Communication state: `Done`, `Archived`, `Drafting`, `Follow-Up`, `Needs Reply`, `Needs Triage`, `blocked`, `future_snoozed`, or `carry_forward`;
 - verification expected after execution.
+
+Task update rule:
+
+- If a linked task exists, propose a task comment or status/property update whenever the Communication is waiting on someone, RB owes a reply, evidence is missing, ownership changes, the row is snoozed, or the row is blocked.
+- Do not mark the linked task done while evidence/translation/source attachment is missing, RB is waiting for a reply, or the next communication is still open. Keep or return the task to an in-progress status when the Communication remains active.
 
 Outgoing snooze rule:
 
@@ -334,6 +363,7 @@ Closeout packet must include:
 
 - rows logged;
 - rows left in progress;
+- queue rows closed, future-snoozed, blocked, or carried forward;
 - replies sent, snoozed, skipped, or blocked;
 - evidence attached or blocked;
 - task/operational updates;

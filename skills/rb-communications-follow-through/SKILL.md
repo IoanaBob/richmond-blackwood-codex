@@ -85,8 +85,12 @@ For complete-scope follow-through runs, Stage 2 must materialize the selected ro
 
 Default follow-through selection:
 
-- Include rows whose `Status` is not a complete status.
+- Resolve the active operator from `RB_CODEX_ACTOR` and `internal/people-roles.md`, then include only rows whose `Assigned To` contains that operator's Notion user ID.
+- Include only rows whose `Status` is not a complete status and whose `Snooze Until` is blank or is on/before the run date in the Codex timezone.
+- Include user-supplied row URLs only when the operator explicitly supplies them; label those rows as `operator_supplied_override` if they do not match the default assignment or snooze filter.
 - Exclude `Status = Done` and `Status = Archived`, even when `Due Date` is today or overdue.
+- Exclude rows assigned to someone else unless the operator explicitly supplied the row URL or view scope.
+- Defer rows with future `Snooze Until` to the skipped/deferred CSV with `deferred_until` and `defer_reason=future_snooze`; do not batch-select them.
 - Treat `Due Date` as priority/sort metadata inside the open queue, not as a reason to reopen complete Communications.
 - If RB is waiting for a reply or follow-through, the Communication should remain `Follow-Up`.
 - Use `Needs Reply` when RB owes a reply, `Drafting` while evidence/translation/file handling is incomplete, and `Needs Triage` only while ownership/routing is unresolved.
@@ -95,18 +99,20 @@ Default follow-through selection:
 Write:
 
 - a full selected queue CSV with one physical line per Communication row;
-- a skipped CSV for complete rows;
+- a skipped/deferred CSV for complete rows, rows assigned to other owners, future-snoozed rows, and any other out-of-scope rows from the authoritative pull;
 - a manifest with selected count, skipped count, batch size, batch count, and per-batch file paths;
 - batch CSVs that are contiguous slices of the selected queue.
 
-Sort the selected queue before slicing batches:
+Filter the selected queue before sorting and slicing batches:
 
 1. deadline: `Due Date` ascending, missing due dates last;
 2. urgency: `Needs Reply`, then `Follow-Up`, then `Drafting`, then `Needs Triage`, then `Captured`, then other non-complete statuses;
 3. relevance: `Long Living`, then `Short Living`, then `Ignore`;
 4. stable tie-breakers: `Sent/Received On`, `Created At`, then title.
 
-Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, and `urgency_label` columns. Do not create ad hoc Stage 3 batches by urgency, due date, owner, or status unless the packet labels that pass as diagnostic or priority-only and does not use it as the queue batch number.
+Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_position`, `deadline_sort_key`, `urgency_rank`, `urgency_label`, `assigned_to_operator`, `snooze_until`, and `snooze_eligibility` columns. Do not create ad hoc Stage 3 batches by urgency, due date, owner, or status unless the packet labels that pass as diagnostic or priority-only and does not use it as the queue batch number.
+
+Stage 3 context-read status is not completion. A batch is only "context read" after Stage 3; its rows stay in the active run state until Stage 5/6 verifies an approved action that closes the row, sets a future `Snooze Until`, records a blocker, or explicitly carries the row forward.
 
 ## Core Rules
 
@@ -122,6 +128,8 @@ Default batch size is 25. Include stable `queue_index`, `batch_number`, `batch_p
 - Keep `Status` as `Drafting` when routing, evidence, translation, reply, or source-link capture is not complete.
 - Keep `Status` as `Follow-Up` when RB is waiting for a reply or follow-through. Use `Needs Reply` when RB owes the next reply. Do not treat a stale due date on a complete row as open follow-through without explicit operator approval.
 - For outgoing Communications, set `Snooze Until` to one week after the row `Created At` date unless a more specific follow-up date is approved. After any follow-up is sent, reset `Snooze Until` to one week after the follow-up send date by default. This keeps sent items visible for reply monitoring without treating them as complete.
+- For every open Communication, Stage 4 must decide who, if anyone, RB needs to answer or chase, which channel/thread to use, what the next message or non-message action is, and what linked task/operational note or status update is required.
+- If a Communication has linked `Tasks`, update or comment on the task in the same approved pass whenever the Communication's reply state, evidence state, owner, blocker, or next follow-up changes. Do not mark a linked task done when required evidence is missing, RB is waiting for a reply, or the next communication still needs follow-through.
 - Do not save credentials, tokens, live SignNow action links, raw WhatsApp transcripts, raw private email bodies, ELSTER certificates, bank secrets, or unsafe sensitive data in git or Notion notes.
 
 ## Stage Flow
