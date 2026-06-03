@@ -1,0 +1,4 @@
+interface:
+  display_name: "RB DE VBG Accident Insurance"
+  short_description: "Prepare and log German VBG registrations."
+  default_prompt: "Use $rb-de-vbg-accident-insurance to prepare, submit, and log one RB German VBG accident-insurance registration."

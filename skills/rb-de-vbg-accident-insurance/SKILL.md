@@ -1,0 +1,117 @@
+---
+name: rb-de-vbg-accident-insurance
+description: Use when applying for, preparing, reviewing, or logging a German VBG accident-insurance / Unfallversicherung / Unternehmensnummer registration for an RB company client, especially where the result is needed for a Betriebsnummer.
+---
+
+# RB DE VBG Accident Insurance
+
+Status: provisional.
+Source: Notion guideline `https://www.notion.so/165e413013148096a9fbf8abc5b41057`, live VBG public form `https://service.vbg.de/unternehmen-anmelden` inspected on 2026-06-03, RB form-fill and client-file rules.
+Imported: 2026-06-03.
+Review: Re-check the live VBG form before each submission because labels and required fields can change.
+
+Use this for one company at a time when RB needs the German accident-insurance registration / Unternehmensnummer from VBG, including when the number blocks a German Betriebsnummer or payroll setup.
+
+## Required Sources
+
+- Linked task or operational row.
+- Notion Companies record, using the exact `Reference` for repo routing.
+- Filing Registration record named or equivalent to `Unternehmensnummer / Accident Insurance`.
+- Linked company project.
+- Linked Employment records and employment contracts.
+- Primary director / legal representative Individual record.
+- Company purpose from the tax-registration/company record.
+- Company correspondence address and company email.
+
+## Guardrails
+
+- Use Notion/app connectors and repo records for source truth. Browser use is only for the public VBG form because this is a manual public-authority form and no RB API/MCP route is available.
+- Do not translate the live VBG form in-browser. Use a separate translation tab or offline translation for comprehension only.
+- Do not enter real client data into the VBG form or submit until the operator has approved an exact form-fill packet for the target company.
+- Do not store credentials, full private identifiers, raw identity documents, certificate files, or form screenshots in git.
+- Keep source evidence and screenshots in Notion/Drive; git stores only pointers and process notes.
+
+## Workflow
+
+1. Fetch the task, comments, linked project, company, filing registration, employment, contract, and primary individual records.
+2. Confirm the target company from the Client Databases Companies record, not only the project-management relation.
+3. Build a form-fill packet with field, proposed value, source, confidence, and review note.
+4. Ask for approval of the exact packet before typing real client data into VBG or submitting.
+5. Open `https://service.vbg.de/unternehmen-anmelden`.
+6. Do not use browser translation.
+7. Select applicant role before the numbered steps:
+   - Prefer `Gesetzl. Vertreterin/gesetzl. Vertreter` when the director/legal representative is the applicant and their details will be entered.
+   - If RB is applying under another authority route, stop and confirm the correct role before proceeding.
+8. Complete the VBG steps.
+9. On the overview page, review every value against the approved packet before submitting.
+10. Submit only after action-time approval if the current prompt did not already approve the exact data and destination.
+11. After submission, capture the displayed application/reference/company number and a screenshot.
+12. Add the reference and screenshot/proof link to:
+    - the source task comments;
+    - the company Filing Registration record for accident insurance / Unternehmensnummer.
+13. Read back the task and filing registration updates. Only then mark the task done.
+
+## Current VBG Field Map
+
+Initial page:
+
+- `Anmeldung erfolgt durch`: usually `Gesetzl. Vertreterin/gesetzl. Vertreter`.
+
+Step 1 `Allgemein`:
+
+- `Unternehmen besteht seit`: use the company's incorporated/registered-on date or documented business start date.
+- `Haben Sie Beschäftigte oder ist die Einstellung von Beschäftigten geplant?`: `Ja` when there is active or planned employment.
+- `Seit/Ab wann haben Sie Beschäftigte?`: use the earliest employment start date/contract date that establishes when the company employed people.
+- Leave unpaid reportable-person checkboxes blank unless source records explicitly show such people.
+
+Step 2 `Unternehmensgegenstand`:
+
+- Enter the company purpose from the tax-registration/company record.
+- If VBG autocomplete shows a clearly matching option, select it; otherwise leave the entered description as free text after confirming the wording.
+- `Anzahl Beschäftigte`: number of employees for that business purpose. Use active Employment records, not shareholders/directors alone unless employed.
+
+Step 3 `Zum Unternehmen`:
+
+- `Rechtsform`: for Irish limited companies, use `ausländische juristische Person (EU-Recht); z.B. NV; BV; S.L.; s.r.l.`.
+- `Ist das Unternehmen in einem deutschen Register eingetragen?`: usually `Nein` for a foreign company with no German register entry.
+- `Firmenname`: full legal name.
+- `Adresse`: use company correspondence address from Notion when available. If manual entry is used, select the manual `Land` option from the dropdown, not just typed text.
+- `E-Mail-Adresse`: company communication email used by RB for that client.
+- `Telefonnummer`: RB company phone unless the operator approves a different client phone.
+- Leave `Internetadresse`, `Postfach`, and `Rechtssitz weicht vom Unternehmenssitz ab` blank/unchecked unless a source record requires them.
+
+Step 4 `Kontaktinformationen`:
+
+- `Gesetzlich vertreten durch`: primary director/legal representative from the Individual record.
+- Enter first name, last name, birth date, and legal representative address.
+- If manual address entry is used, select the manual `Land` option from the dropdown.
+- `Anmelder/-in`: with the legal-representative route, repeat the legal representative details where required.
+- Use the RB phone for applicant phone unless the operator approves otherwise.
+- Add applicant email when RB needs the Unternehmensnummer by email; the form says the number is displayed after submission and additionally emailed when an email is provided.
+
+Step 5 `Weitere Informationen`:
+
+- `Wird eine Zweigniederlassung / unselbstständige Niederlassung im Inland unterhalten?`: `Nein` unless a German branch is recorded.
+- `Wird oder wurde ein Unternehmen übernommen?`: `Nein` unless source records show an acquisition.
+- `Ist die öffentliche Hand zu über 50% an dem Unternehmen beteiligt?`: `Nein` unless source records show public ownership.
+- `Ist das Unternehmen als gemeinnützig anerkannt?`: `Nein` unless source records show nonprofit recognition.
+- `Möchten Sie ein SEPA-Lastschriftmandat erteilen?`: `Nein` unless the operator approves a payment mandate and bank details.
+
+## Packet Template
+
+| VBG field | Proposed value | Source | Confidence | Review |
+| --- | --- | --- | --- | --- |
+| Anmeldung erfolgt durch |  |  | Ready / Needs review / Unknown |  |
+
+## Completion Comment Template
+
+Use this shape for task and filing-registration comments after a verified submission:
+
+```text
+VBG accident-insurance / Unternehmensnummer application submitted on YYYY-MM-DD.
+Company: <legal name> (<reference>)
+Application/reference/company number shown by VBG: <reference>
+Proof: <Notion/Drive screenshot URL>
+Source task: <task URL>
+Review: <remaining follow-up, e.g. wait 3-5 days or use reference if calling VBG>
+```
