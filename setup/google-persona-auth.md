@@ -20,6 +20,7 @@ Safe status metadata can be recorded in `memory/google-personas.md`; tokens, cli
 ## RB-Specific Personas
 
 - `accounting-richmond-blackwood`
+- `compliance-richmond-blackwood`
 - `ioana-richmond-blackwood`
 - `jp-richmond-blackwood`
 - `simoneta-richmond-blackwood`
