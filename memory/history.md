@@ -938,3 +938,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Route the invoice as an MHL company vehicle expense because MHL company memory and Notion assets link car operating costs to MHL/Ferrari work; do not create a Communication row because the source was a local user-provided PDF rather than an email/WhatsApp thread; leave supplier as comment text rather than creating a new Business Partner row.
 - Verification: Drive metadata read-back confirmed PDF ID `12WTfQPUHtMIKGPy856IvXaTeNWWBbzBT`, size 76,821 bytes, in MHL folder `17gpcVLGtX3dhwSaLYelvw6m-dSVCHiQs`. Notion read-back confirmed the Expense row fields and Simoneta assignee after a targeted correction.
 - Limitations or gaps: Final bookkeeping/VAT/payment treatment remains a finance review item on the `Payment Requested` expense row. `RB_CODEX_ACTOR` was not set, so `Submitted by` was not populated.
+
+## 2026-06-03 - Client-Facing Software Abstraction Rule
+
+- User request: Corrected a PCL/Ricardo WhatsApp draft to avoid naming RB's internal software and said this is a general client-communication rule.
+- Context read: `rb-communications`, durable communication decisions, handoff memory, and the current PCL task follow-up context.
+- Actions taken: Updated `AGENTS.md`, `skills/rb-communications/SKILL.md`, `memory/decisions.md`, `memory/handoff.md`, `memory/skill-runs.md`, and `sources/import-log.md` so future client-facing copy abstracts internal software, helper, connector, automation, and back-office vendor names unless the user explicitly approves naming or naming is necessary for the recipient.
+- Decisions made: Internal Notion, Communications, repo, and audit logs can still keep exact software/source names when needed for source context and safe storage.
+- Verification: `git diff --check` passed.
+- Limitations or gaps: The Ricardo WhatsApp message was not sent; the user said WhatsApp is unavailable and they will send it manually.

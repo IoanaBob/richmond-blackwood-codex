@@ -10,10 +10,11 @@ Use this skill for any Richmond Blackwood outbound communication.
 ## Direct-Send Rule
 
 - Draft communication text in chat with the user, not as an app/software draft.
+- For client-facing copy, abstract Richmond Blackwood's internal software, helpers, connectors, automations, and back-office vendor names unless the user explicitly approves naming them, the client already supplied the named system, or the recipient is the named software/vendor and the name is necessary. Prefer wording such as "we applied", "we requested the correction", "we are waiting for feedback", or "we are processing this" over exposing the tool path.
 - For Gmail work, keep the active human workspace actor, source mailbox, and sending identity separate. `RB_WORKSPACE_ACTOR` is a human name from `internal/people-roles.md`, with `RB_CODEX_ACTOR` as a legacy alias; shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or senders, not actors.
 - Always show the sender before the user approves the message.
 - For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
-- For email, also show the exact source mailbox or mailboxes that were searched/read. Do not infer the source mailbox or sender from the active operator.
+- For email, also show the exact source mailbox or mailboxes that were searched/read. Do not infer the source mailbox or sender from the active workspace actor.
 - Prefer replying in the existing email thread when email context exists. Start a new email thread only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
 - After sending, store the sent communication in the canonical Communications database.
