@@ -167,21 +167,9 @@ Default client-facing sender:
 Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>
 ```
 
-After approval, send directly through the RB Gmail helper, using a body file in `/private/tmp` for any non-trivial or sensitive body text:
+After approval, send directly through the supported Gmail connector, MCP, or approved API path. Prefer thread-aware reply support when a Gmail message or thread ID is known. Record returned message/thread IDs in the execution packet and in the Communications row. If no supported direct-send path is callable, stop and record the connector/API blocker; do not introduce a repo-local direct-send helper as the default workaround.
 
-```bash
-npm run gmail:send-email -- --from accounting@richmondblackwood.com --from-name "Richmond Blackwood Accounting Team" --to "client@example.com" --subject "Subject" --body-file /private/tmp/rb-email-body.txt
-```
-
-For replies, preserve the Gmail thread when the Gmail message ID is known:
-
-```bash
-npm run gmail:send-email -- --from accounting@richmondblackwood.com --from-name "Richmond Blackwood Accounting Team" --reply-message-id GMAIL_MESSAGE_ID --to "client@example.com" --subject "Re: Subject" --body-file /private/tmp/rb-email-body.txt
-```
-
-The helper must verify the Gmail send-as alias and verify the sent `From` header. If Gmail sends from another identity, treat the send path as unsafe and stop.
-
-Software drafts are exception-only. If an approved saved draft exists and the user approves sending that exact unchanged draft, use `npm run gmail:send-draft -- --from accounting@richmondblackwood.com DRAFT_ID`.
+Software drafts are exception-only. If direct send is unavailable and the user explicitly approves a draft fallback, create a verified draft through the existing RB draft helper and leave final sending to the approved Gmail connector/MCP/API path or the user's explicit next instruction.
 
 ## Outbound Approval
 

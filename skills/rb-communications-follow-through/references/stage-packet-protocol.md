@@ -9,6 +9,8 @@ Review: Validate on the first supervised packet-only dry run and first approved 
 
 Packets make row-led Communications follow-through reviewable and recoverable. A packet is both the approval surface and the run memory. Do not rely on chat memory to reconstruct already approved work.
 
+This protocol is scoped to `rb-communications-follow-through` runs only. It is not a general rule for every RB workflow or every person; the default queue is the active operator's own due Communications, unless the operator explicitly supplies another row URL or view scope.
+
 ## Run Folder And Lock
 
 Use:
@@ -328,12 +330,11 @@ Allowed actions after approval:
 
 Gmail execution rules:
 
-- Use RB repo helpers, not personal-codex.
-- Use `/private/tmp` or another ignored local path for body files.
-- Prefer `npm run gmail:send-email`.
-- Use `--reply-message-id` when a Gmail message ID is known.
-- Keep `--auth-login never` unless the operator explicitly approves an auth action.
-- Verify returned `message_id`, `thread_id`, and sent `From`.
+- Use the supported Gmail connector, MCP, or approved API path; do not delegate to `personal-codex`.
+- Do not add or require repo-local direct-send scripts as the default execution path.
+- Preserve the existing Gmail thread when a message or thread ID is known and the supported send path can do so.
+- Verify returned `message_id`, `thread_id`, sent `From`, and destination details where the send path exposes them.
+- If direct send is unavailable, stop with a connector/API blocker unless the operator explicitly approves a draft fallback.
 
 Packet columns:
 

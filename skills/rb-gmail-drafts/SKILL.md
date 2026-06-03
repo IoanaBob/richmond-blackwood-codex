@@ -49,28 +49,7 @@ Before sending email, show:
 - Attachments.
 - Body.
 
-After approval, send directly through the supported Gmail connector/API path and log the sent email in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`). The repo-local direct-send helper is available for approved Gmail sends. If direct send is unavailable and the user approves a fallback, create a verified Gmail draft with the draft helper below.
-
-## Direct Send Helper
-
-```bash
-npm run gmail:send-email -- --from accounting@richmondblackwood.com --from-name "Richmond Blackwood Accounting Team" --to "client@example.com" --subject "Subject" --body-file /path/to/body.txt
-```
-
-Useful options:
-
-- `--cc`, `--bcc`
-- `--html`
-- `--attachment /absolute/path/file.pdf`
-- `--oauth-client-file ~/.codex/google-oauth-client.richmondblackwood.json` for explicitly approved reauth overrides
-- `--reply-message-id <gmail-message-id>`
-- `--auth-source auto|vault|adc|gcloud` (defaults to `auto`)
-- `--auth-login auto|always|never` (defaults to `never`; do not start reauth without explicit approval)
-- `--account-email <google-account>` when the API auth account differs from the `From` sender
-- `--persona-slug <slug>` to force a specific `~/.codex/google-personas/<slug>/oauth` vault
-- `--allow-non-accounting-sender` only after the user explicitly approves a non-accounting `From`
-
-The direct-send helper verifies the Gmail send-as alias and verifies the sent message `From` header after Gmail returns the sent message ID. If Gmail sends from another identity, the helper fails closed.
+After approval, send directly through the supported Gmail connector, MCP, or approved API path and log the sent email in canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`). Do not add repo-local direct-send scripts by default; they drift from app/MCP behavior and should exist only after a specific connector gap is approved. If direct send is unavailable and the user approves a fallback, create a verified Gmail draft with the draft helper below.
 
 ## Draft Helper
 
@@ -91,13 +70,5 @@ Useful options:
 - `--account-email <google-account>` when the API auth account differs from the `From` sender
 - `--persona-slug <slug>` to force a specific `~/.codex/google-personas/<slug>/oauth` vault
 - `--allow-non-accounting-sender` only after the user explicitly approves a non-accounting `From`
-
-Send an approved unchanged draft with:
-
-```bash
-npm run gmail:send-draft -- --from accounting@richmondblackwood.com DRAFT_ID
-```
-
-The draft-send helper verifies the saved draft `From` header before sending and verifies the sent message `From` header after sending.
 
 Do not commit tokens, passwords, or downloaded auth artifacts.
