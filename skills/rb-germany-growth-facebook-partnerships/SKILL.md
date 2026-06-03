@@ -49,7 +49,9 @@ Shared gates:
 
 2. Partner Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
-   - Prioritize groups with clear audience fit, active admins, visible partnership/admin route, and rules that permit sponsorship or admin-approved promotion.
+   - Prioritize groups with clear audience fit, active admins, visible partnership/admin route, rules that permit sponsorship or admin-approved promotion, and members likely to have meaningful budget for Germany setup/admin support.
+   - Prefer established expat communities, founder/operator groups, senior tech/professional communities, affluent international clubs, and relocation-adjacent communities.
+   - Do not target broad job-seeker groups as Facebook partnership prospects unless the group is clearly senior, founder/operator, executive, high-income tech, or otherwise budget-qualified. General English-speaking job-search groups are normally excluded.
    - Classify groups as community, relocation, city-specific, professional, tech/professional, startup/founder, student/alumni, tax/admin, or other.
 
 3. Discovery And Business Partner Upsert

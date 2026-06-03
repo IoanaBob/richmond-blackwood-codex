@@ -50,7 +50,9 @@ Shared gates:
 2. Audience And Group Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Search for groups and threads where the audience naturally asks about German setup, relocation, taxes, company setup, employment, tech careers, startup/founder life, or expat administration.
-   - Prioritize groups with visible rules, recent activity, and a natural helpful participation angle.
+   - Prioritize groups with visible rules, recent activity, a natural helpful participation angle, and members likely to have meaningful budget for Germany setup/admin support.
+   - Prefer established expat communities, founder/operator groups, senior tech/professional communities, affluent international clubs, and relocation-adjacent communities.
+   - Exclude broad job-seeker groups unless a specific thread is clearly senior, founder/operator, executive, high-income tech, or otherwise budget-qualified. General English-speaking job-search groups are not a good fit by default.
 
 3. Discovery And Growth Target Upsert
    - Dedupe by Facebook group URL, post URL, thread URL, and group name.
