@@ -36,3 +36,15 @@ Source PDFs reviewed:
 | B22 Apple MacBook invoice | `https://drive.google.com/file/d/1fHn1uWk3fjBavy-z6ZKk-4-ECcqb8uX3/view` |
 | K3 Catalanglish language-learning invoice | `https://drive.google.com/file/d/1OJKbAGnfXkzGkkAe_XFe88AOcPbTA4Ja/view` |
 | E11 postage receipt | `https://drive.google.com/file/d/1Bbtky0e-eIfN0iuXMOnnLnfUFyjKeSxl/view` |
+
+## 2024 Finanzamt ELSTER Follow-Up Evidence
+
+Status: provisional.
+Source: user confirmation in Codex on 2026-06-03 that the ELSTER response was sent; local PDFs supplied by the user.
+Imported: 2026-06-03.
+Review: Native Notion file-property upload was not available in this run; PDFs were uploaded to the 2024 Drive folder and linked in the Notion filing/task pages.
+
+| File | Drive URL | Size | SHA-256 |
+| --- | --- | ---: | --- |
+| Mark message to Finanzamt.pdf | `https://drive.google.com/file/d/1Hb0h_uCM8R07VVzPxfCDorQ0Zz7rbgR8/view?usp=drivesdk` | 79,459 bytes | `e136813bab2046f25bac26f17b2bef7b09dedab4e7c8adc8eefd51863a1e3e64` |
+| mark ELSTER - Sonstige Nachricht an das Finanzamt.pdf | `https://drive.google.com/file/d/1VVDZOkBqu7mmiwZ9QEc6RdXi7uTvZKxs/view?usp=drivesdk` | 76,618 bytes | `ef14860813b6950f38190eb0d813c107fe649d38900921f1abdb1da0ded6565a` |
