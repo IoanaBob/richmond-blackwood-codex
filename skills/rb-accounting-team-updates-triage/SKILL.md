@@ -70,6 +70,7 @@ Section rules:
 - Treat `New client inbounds` as observed / out of scope; count and report the section, but do not route those lines into tasks from this skill.
 - Process only `Any blockers?` and `What are the action points today?` / `Action points`.
 - Treat checked items as likely already handled from the prior day. Do not create new tasks from checked items unless the text or linked Notion record clearly remains open.
+- Do not route general team-health or prerequisite lines into tasks. This includes lines such as `Accountants filings are up to date`, `Bookkeeping status spreadsheet is up to date`, `Accountants have a pipeline to work on`, and `To check unfinished communications`. These are operating indicators only; client-specific bookkeeping, filing, payment, and communication work must stay on each client's owning task-capable row or existing client task.
 - For unchecked blockers/action points, verify linked Notion page/task mentions first.
 
 Slack read rules:

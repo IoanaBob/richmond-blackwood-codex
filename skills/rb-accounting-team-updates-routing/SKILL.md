@@ -35,6 +35,10 @@ For each atomic routing item, produce exactly one decision:
 - `skip_already_handled`: source is checked, completed, duplicated, superseded, or purely informational.
 - `unresolved`: owner, project, source meaning, owning operational record, target schema, or write-back method is unclear.
 
+General team-health and prerequisite lines are not task targets. Treat lines such as `Accountants filings are up to date`, `Bookkeeping status spreadsheet is up to date`, `Accountants have a pipeline to work on`, and `To check unfinished communications` as operating indicators only. Do not create, update, or comment central tasks for those lines; client-specific bookkeeping, filing, payment, and communication follow-through belongs on each client's owning task-capable row or existing client task.
+
+Broad multi-client filing workstreams must consolidate backlog instead of multiplying tasks. If a source row asks for annual VAT, eBilanz/e-balance, or similar filing work across a named client list, route one task per workstream under the `RB Clients` project with a checklist for the affected client references, then propose cleanup comments/status changes for duplicate or superseded per-client tasks.
+
 Decision rules:
 
 1. Fetch linked Notion mentions before deciding.
