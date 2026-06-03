@@ -47,6 +47,14 @@ Parent/child handoff rule:
 - If child packets exist but the parent master packets or cursor are stale, the run is incomplete; do not report closeout until the parent state is reconciled.
 - Use this checklist after every sub-skill action: child packet completed; child sends/logs done if approved; master Stage 7 updated when applicable; master Stage 8 updated when applicable; master Stage 9 updated when applicable; `RUN_STATE.md` cursor updated; master packet printed.
 
+Next-stage prompting rule:
+
+- Every packet print, send result, blocker result, follow-up advancement, and closeout must actively prompt the next stage. Do not wait for the user to ask what comes next.
+- The prompt must state the completed stage, the next stage, why that stage is next, whether it is read/plan, approval, send, follow-up, or blocked, and the default proposed action.
+- If more work remains, end with a plain `Next prompt:` line containing the exact continue/approval question for the user.
+- If the next stage is blocked or due later, name the blocker or exact due date, then propose the next immediately useful channel or packet.
+- Do not end a Germany growth response with only a status summary while unreconciled or available next-stage work remains.
+
 Shared gates:
 
 - No outbound send happens before Stage 7 exact-message approval.
@@ -157,6 +165,7 @@ Shared gates:
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
    - Confirm every material child channel packet has a matching master packet update before final answer. If any child result is not reconciled into the master packet/cursor, report the run as incomplete and reconcile it first.
+   - Closeout must include the current master/child stage and an active `Next prompt:` line whenever the run can continue.
 
 ## Closeout Checklist
 
@@ -168,3 +177,4 @@ Shared gates:
 - Facebook partnership acquisition and Facebook posting are separate repo-local skills and are not mixed in a single workflow.
 - No send happened unless the exact send stage was approved and Ioana was verified.
 - The legacy growth partnership data source remains superseded/deleted.
+- The final response names the completed stage, the next stage, and the exact next prompt instead of making the user ask for continuation.
