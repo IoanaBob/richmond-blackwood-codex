@@ -224,13 +224,13 @@ Copy style:
 - Avoid mechanical contrast sentences that read like a template.
 - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must ask a pointed question, name a concrete source detail, or move the thread forward.
 - Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
-- Do not over-polish first messages into corporate prose. Ioana's LinkedIn copy can use casual punctuation, sentence fragments, lowercase emphasis, and a small `lol` when it makes the line sound human.
+- Do not over-polish first messages into corporate prose. Ioana's LinkedIn copy should usually use normal sentence capitalization, but an occasional uncapitalized sentence, casual punctuation, sentence fragment, or tiny typo is allowed when it makes the message feel like a real DM. Do not force lowercase everywhere.
 - Less is more for first messages. Prefer one short `quick q` style message over a researched opener plus a question.
 - Do not fake enthusiasm or pretend personal fascination. Avoid filler such as `wild combo`, `pretty unusual`, `pretty specific`, `made me think`, `made me wonder`, `I imagine`, `probably`, `cursed`, `real annoyance`, or similar praise/reaction language unless the user explicitly approves that exact line.
 - Do not make the message prove research. Mention only the minimum concrete detail needed to make the question clear.
 - A good first message should feel like a real DM someone would send after meeting online: direct, a little informal, and specific enough that it could not be sent to another person.
-- Use `lol` sparingly. If several drafts in a packet use `lol`, rewrite most of them without it.
-- If the user asks for imperfect human copy, allow light typos or rough punctuation, but do not create ambiguity, disrespect the person, or make Ioana sound careless.
+- Use `lol` sparingly and only where it clearly improves the line, for example when owning a small mix-up. If several drafts in a packet use `lol`, rewrite most of them without it.
+- If the user asks for imperfect human copy, allow light typos or rough punctuation, but never add mistakes mechanically. The copy should still be clear, respectful, and competent.
 - Do not use hyphen separators in outbound LinkedIn copy. Write like a chat message, using short sentences or commas instead.
 - Avoid formulaic lines like `Germany probably makes...`, `admin and taxes here are...`, or any tax/admin aside in first messages.
 - Never use contrast-template copy or questions that only offer generic binary options. This sounds artificial in Ioana's outreach.

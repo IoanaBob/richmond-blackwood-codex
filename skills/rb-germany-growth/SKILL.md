@@ -161,6 +161,7 @@ Shared gates:
    - For outbound growth copy, avoid the word "path," slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
    - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must either answer the person, ask a pointed question, provide a concrete check, or move the thread forward.
    - Avoid analysis-intro phrases that announce the point before saying it. Say the actual point directly.
+   - Keep copy human without turning it into a gimmick. Normal sentence capitalization is fine and should be the default; an occasional uncapitalized sentence, rough punctuation, or tiny typo is allowed only when it makes the message feel more like a real DM. Do not force lowercase, do not add `lol` to every message, and do not add mistakes mechanically.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
    - Use natural paragraphing for the channel. For Reddit, do not split every short point into its own paragraph; prefer one compact paragraph or two medium paragraphs when that reads more human.
