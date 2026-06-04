@@ -86,7 +86,8 @@ Shared gates:
    - DM-help lines must be specific and low-pressure, for example "Can help with both in DM if useful" or "DM me if you want a second pair of eyes on the setup." Do not use generic CTAs, booking language, service names, or broad filler.
    - For US-like compensation threads, keep the baseline narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra options such as HFT, finance, Switzerland, startups, equity-heavy roles, or generic market commentary unless the user explicitly approves them for that thread.
    - Block AI-sounding copy. Avoid the word "path" in outbound copy, slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
-   - Avoid unnatural analysis phrases such as "the line I'd watch is..." in outward-facing Reddit copy. Use plain wording like "What matters is..." or just say the actual point.
+   - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must either answer the post, give a concrete check, ask a useful question, or move the thread forward.
+   - Avoid analysis-intro phrases that announce the point before saying it. Say the actual point directly.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Block copied-looking copy. Before approval, compare the draft against visible thread comments and rewrite if it uses the same opening, sequence of points, examples, phrasing, or conclusion as another user.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
@@ -125,6 +126,7 @@ Shared gates:
    - Draft Reddit replies and allowed reactive DMs in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - Keep DMs tied to the exact public engagement or inbound DM context; do not generate DMs from subreddit member lists, profile searches, or cold prospecting.
+   - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - Do not pitch, ask for mod approval, suggest paid/commercial placement, or introduce RB services unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
    - Update Growth Target status only when evidence supports it.
 
@@ -133,6 +135,7 @@ Shared gates:
    - Before each follow-up draft, show the initial thread/topic context, prior RB/Ioana interaction, latest thread state, and the specific reason a follow-up adds value.
    - Re-check the subreddit/thread style basis before follow-up drafting if more than 48 hours passed or the thread tone changed.
    - Draft follow-up comments/replies/DMs only when there is a real thread or DM reason to add value.
+   - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Growth Messages follow-up dates for later checks.
 

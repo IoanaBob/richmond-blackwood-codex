@@ -194,6 +194,7 @@ Copy style:
 - Avoid list-style copy.
 - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
 - Avoid mechanical contrast sentences that read like a template.
+- Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must ask a pointed question, name a concrete source detail, or move the thread forward.
 - Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
 - Do not over-polish first messages into corporate prose. Ioana's LinkedIn copy can use casual punctuation, sentence fragments, lowercase emphasis, and a small `lol` when it makes the line sound human.
 - Less is more for first messages. Prefer one short `quick q` style message over a researched opener plus a question.
@@ -204,11 +205,11 @@ Copy style:
 - If the user asks for imperfect human copy, allow light typos or rough punctuation, but do not create ambiguity, disrespect the person, or make Ioana sound careless.
 - Do not use hyphen separators in outbound LinkedIn copy. Write like a chat message, using short sentences or commas instead.
 - Avoid formulaic lines like `Germany probably makes...`, `admin and taxes here are...`, or any tax/admin aside in first messages.
-- Never use contrast-template copy: `not X but Y`, `not just X`, `this is not X, it is Y`, `X rather than Y`, `X instead of Y`, `X vs Y`, or a question that only gives two generic options. This sounds artificial in Ioana's outreach.
+- Never use contrast-template copy or questions that only offer generic binary options. This sounds artificial in Ioana's outreach.
 - Do not make the question a binary-choice template unless the person's own post/source explicitly frames that exact tradeoff. Prefer one pointed question about a named workflow, product decision, technical constraint, customer type, or market behavior.
 - Do not use vague anchor phrases like `your X stood out`, `the X stood out`, `X caught my eye`, `I noticed X`, `I was looking at X`, or `I got curious about X`. Name the actual post, product, system, feature, workflow, hiring need, technical decision, or profile note directly.
 - Do not refer back to `the thing` as the message anchor. If the source detail matters, say exactly what it is.
-- Do not ask abstract proximity questions such as `what did you keep close to customers`, `what stayed customer-facing`, or `how did you stay close to users`. These sound specific but say nothing. Ask about a named product decision, workflow, user action, implementation constraint, or market behavior instead.
+- Avoid abstract proximity questions about customer closeness. They sound specific and still say nothing. Ask about a named product decision, workflow, user action, implementation constraint, or market behavior.
 - Do not ask broad support questions such as `what support question kept coming back`, `what did users need help with`, or `what was the main issue`. Name the actual failure surface instead: permissions, queueing, configs, retries, observability, handoffs, approval step, migration step, or hidden infrastructure detail.
 - Do not use infrastructure metaphors that only sound technical, such as `where did Kubernetes leak through`, `what leaked through`, or `where did infra show up`. Say the visible user-facing behavior in plain language: what was removed, what still required platform help, what error the user saw, what config they still had to touch, or what step stayed too technical.
 - Questions must have specific meaning. Block generic objectless prompts such as `what has to stay configurable`, `what needs to stay flexible`, `what changed first`, `what gets weird`, or `where do people get stuck` unless the sentence names the exact object and operation being asked about.

@@ -89,6 +89,7 @@ Shared gates:
    - If a draft tells someone to compare two options, make the comparison in the comment. Explain the practical difference, when each option may fit, and what to check next. Expanded comments are allowed when that is what makes the answer genuinely helpful.
    - Avoid unapproved claims, service pitches, savings claims, and generic "book a call" framing.
    - Avoid the word "path" in outbound copy, slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
+   - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the post, provide a concrete check, or move the thread forward.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Show sender identity as Ioana, Facebook account/session verification requirement, group URL, rule basis, and follow-up date.
@@ -117,12 +118,14 @@ Shared gates:
    - Keep replies useful to the thread and responsive to the other person's comment.
    - For reply drafts, do not stop at generic caution. Add the concrete helpful part: what to ask, what to compare, what setup to consider, or what action to take next.
    - When the helpful part is a comparison, do the comparison instead of naming the options and moving on.
+   - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - Do not pitch, move to DMs, introduce RB services, or make new claims unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
 
 9. Follow-Up Drafting Packet
    - Inspect due follow-ups for live posts, comments, replies, removals, warnings, and recurring threads.
    - Before each follow-up draft, show the initial thread/topic context, prior RB/Ioana interaction, latest group/thread state, and the specific reason a follow-up adds value.
    - Draft follow-up posts/comments/replies only when there is a real thread reason to add value.
+   - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Growth Messages follow-up dates for later checks.
 
