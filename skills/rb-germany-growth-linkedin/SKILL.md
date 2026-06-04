@@ -152,8 +152,9 @@ Shared gates:
    - Draft the first message only after acceptance is verified.
    - Before each draft, show the initial topic/source context: who the person is, what public signal triggered the message, the exact company/product/post/project detail being referenced, and why it is relevant to Ioana.
    - Use a helpful, low-pressure opener tailored to who the person is and what they do.
-   - Cite at least one concrete public signal: company/product name, specific feature, market, article, launch, role scope, technical area, or founder decision.
+   - Cite at least one concrete public signal beyond the top card/headline: company/product name, specific feature, market, article, launch, role scope, technical area, shipped system, hiring post, technical post, conference talk, or founder decision.
    - Block the draft if it could be sent unchanged to many people in the batch.
+   - Block the draft if the available source context is only name, location, company, title, broad headline, generic tech stack, or generic founder/operator status. Gather deeper source context first.
    - Include approved claims only; public claims remain provisional unless approved.
    - Do not mention RB services, tax offerings, sales funnels, or booking a call.
    - Make the message short, highly specific, non-salesy, and designed to start a genuine conversation.
@@ -195,24 +196,50 @@ Copy style:
 - Avoid mechanical contrast sentences that read like a template.
 - Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
 - Do not over-polish first messages into corporate prose. Ioana's LinkedIn copy can use casual punctuation, sentence fragments, lowercase emphasis, and a small `lol` when it makes the line sound human.
+- Less is more for first messages. Prefer one short `quick q` style message over a researched opener plus a question.
+- Do not fake enthusiasm or pretend personal fascination. Avoid filler such as `wild combo`, `pretty unusual`, `pretty specific`, `made me think`, `made me wonder`, `I imagine`, `probably`, `cursed`, `real annoyance`, or similar praise/reaction language unless the user explicitly approves that exact line.
+- Do not make the message prove research. Mention only the minimum concrete detail needed to make the question clear.
+- A good first message should feel like a real DM someone would send after meeting online: direct, a little informal, and specific enough that it could not be sent to another person.
+- Use `lol` sparingly. If several drafts in a packet use `lol`, rewrite most of them without it.
 - If the user asks for imperfect human copy, allow light typos or rough punctuation, but do not create ambiguity, disrespect the person, or make Ioana sound careless.
 - Do not use hyphen separators in outbound LinkedIn copy. Write like a chat message, using short sentences or commas instead.
-- Avoid formulaic lines like `Germany probably makes...`; use a normal aside such as `Germany plus health data must be a lot lol` or `admin and taxes here are enough of a headache lol`.
+- Avoid formulaic lines like `Germany probably makes...`, `admin and taxes here are...`, or any tax/admin aside in first messages.
+- Never use contrast-template copy: `not X but Y`, `not just X`, `this is not X, it is Y`, `X rather than Y`, `X instead of Y`, `X vs Y`, or a question that only gives two generic options. This sounds artificial in Ioana's outreach.
+- Do not make the question a binary-choice template unless the person's own post/source explicitly frames that exact tradeoff. Prefer one pointed question about a named workflow, product decision, technical constraint, customer type, or market behavior.
+- Do not use vague anchor phrases like `your X stood out`, `the X stood out`, `X caught my eye`, `I noticed X`, `I was looking at X`, or `I got curious about X`. Name the actual post, product, system, feature, workflow, hiring need, technical decision, or profile note directly.
+- Do not refer back to `the thing` as the message anchor. If the source detail matters, say exactly what it is.
+- Do not ask abstract proximity questions such as `what did you keep close to customers`, `what stayed customer-facing`, or `how did you stay close to users`. These sound specific but say nothing. Ask about a named product decision, workflow, user action, implementation constraint, or market behavior instead.
+- Do not ask broad support questions such as `what support question kept coming back`, `what did users need help with`, or `what was the main issue`. Name the actual failure surface instead: permissions, queueing, configs, retries, observability, handoffs, approval step, migration step, or hidden infrastructure detail.
+- Do not use infrastructure metaphors that only sound technical, such as `where did Kubernetes leak through`, `what leaked through`, or `where did infra show up`. Say the visible user-facing behavior in plain language: what was removed, what still required platform help, what error the user saw, what config they still had to touch, or what step stayed too technical.
+- Questions must have specific meaning. Block generic objectless prompts such as `what has to stay configurable`, `what needs to stay flexible`, `what changed first`, `what gets weird`, or `where do people get stuck` unless the sentence names the exact object and operation being asked about.
+- A specific question should name a concrete noun and action: employer contributions, pay schedule, DAG permissions, system-test selector, wallet transaction limit, robot-arm command mapping, model false negative, country rule import, or customer-facing approval.
+- If the draft reads like it was optimized for conversion, rewrite it. The first message should feel like a casual technical/operator question, not a sales opener.
+- Avoid sales-coded words unless the person's source uses them: `buyer`, `prospect`, `pipeline`, `conversion`, `trust`, `proof`, `value`, `commercial`, `market motion`, `pain point`, and `product feature`.
+- Avoid over-proving research. One named detail is enough; do not turn the opener into a mini case study.
+- Prefer one compact chat message, usually 15-30 words after `thanks for connecting`. Short and slightly underwritten is better than polished.
+- Do not make every opener start with the same formula such as `I read your profile note`. Use normal chat phrasing.
+- Do not use `sounds like` or `sounds [adjective/reaction]` as the source anchor. It is a hedge and reads like sales/AI copy. Make a pointed claim or ask the pointed question directly.
+- Avoid adjacent hedge frames too: `is basically`, `must be`, `must have been`, and `seems like` should be rare and usually rewritten into a concrete claim or direct question.
+- Do not use definitional or descriptive opener turns such as `[topic] is a...`, `[topic] is the...`, `[topic] is [adjective]`, `[topic] has the...`, or `[topic] feels like...`. Describing what the thing is adds little. Name the source detail and ask the pointed question.
+- Do not bring tax/admin into first-time LinkedIn messages. Even when the source context involves payroll, compliance, banking, or cross-border employment, the first message should ask about the actual product, workflow, customer, or technical problem.
+- Tax/admin can enter later replies only when the recipient has engaged, the thread context makes it natural, or the user explicitly approves the exact exception.
+- If a first-message draft includes tax/admin, block and rewrite it around the source detail instead.
+- Avoid opening every message with `on [topic]`. If several drafts start that way, rewrite them into more natural chat phrasing.
+- Do not start a sentence with `with [topic]`. It is not natural chat phrasing. Use `for`, `inside`, `when`, or a direct question instead.
 
 Rules:
 
-- Keep it to 2-4 short sentences.
+- Keep it to 1-2 short sentences.
 - Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, named project, shipped system, technical decision, or founder decision.
 - Ioana can reference operator/founder context only in natural wording. Avoid labels like "as a fellow tech founder" or "I am a tech founder too."
 - The message must prove real attention. It should contain a detail that came from the person's profile, company site, post, article, or other approved source.
-- A profile detail alone is not enough. The draft must identify a real operational tension, product tradeoff, technical constraint, or market contradiction in the person's work, then ask about that exact tension.
+- A profile detail alone is not enough. The draft must identify a real operational detail in the person's work, then ask about that exact detail in a way that could not be reused for another person in the batch.
 - Block drafts that simply restate the profile, company tagline, funding news, job title, or a public feature and then add a generic question.
 - Prefer questions that are easy for the recipient to answer because they sit inside their daily work: what had to be hidden, constrained, sequenced, localized, simplified, made more conservative, or explained to a user/customer/doctor/buyer.
 - Generic founder or professional language is blocked. Do not say "saw the founder angle", "saw your work", "what are you focused on", "specific thing", or any phrasing that sounds templated.
 - "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that Ioana can honestly point to.
-- Bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, then add one second difference tied to the person's actual topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption.
-- Preferred tax aside: "Admin and taxes I'm sure were much easier in the States."
-- Ask one highly pointed, low-pressure question that is specific to the concrete signal. Good question shapes name a specific decision, tradeoff, audience, market, or technical constraint: "Did X push you toward Y instead of Z?", "Was A the reason you chose B?", "Are German customers reacting differently to C than US customers?", or "Did regulation/privacy/procurement change D?"
+- Bring up US-vs-Germany differences only when relevant to the person's actual source context, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, developer adoption, healthcare admin, payroll, or cross-border employment. For first messages, do not make the difference about tax/admin.
+- Ask one highly pointed, low-pressure question that is specific to the concrete signal. Good question shapes name one specific workflow, decision, audience, market, or technical constraint: "Where does [named constraint] show up first in [named workflow]?", "Was [specific source detail] mainly driven by [specific customer/user need]?", "Are German customers reacting differently to [specific feature] than US customers?", or "Did regulation/privacy/procurement change [specific part of the product]?"
 - Do not ask for a call in the first message.
 - Do not mention RB, services, discounts, savings claims, fear-based tax language, or broad marketing copy.
 - Do not imply RB knows private facts. Use only visible profile/source evidence.
@@ -221,41 +248,27 @@ Rules:
 Good message shape:
 
 ```text
-Thanks for connecting, [Name]. I was looking at [Company] and got curious about [specific product/feature/positioning], especially [specific customer/problem/technical tradeoff].
-
-Admin and taxes I'm sure were much easier in the States. On [specific topic], did [Germany-specific constraint] push you toward [specific product/market decision] instead of [specific alternative]?
-```
-
-Germany move opener:
-
-```text
-Thanks for connecting, [Name]. Admin and taxes I'm sure were much easier in the States.
-
-Also saw you founded [Company] and are building [specific product] for [specific audience]. I liked [specific feature/positioning]. are German [customers/developers/buyers] pushing harder on [specific requirement] than US ones?
+thanks for connecting [Name]. quick q on [specific product/post/system/workflow]: what happens when [pointed workflow/customer/technical constraint]?
 ```
 
 Founder/operator variant:
 
 ```text
-Thanks for connecting, [Name]. Saw you founded [Company]; I have been following [specific launch/product/post] and really liked [specific reason].
-
-Admin and taxes I'm sure were much easier in the States, but the part that seems more relevant to [Company] is [topic-specific difference]. Did that change [specific go-to-market/product/hiring/fundraising decision]?
+thanks for connecting [Name]. quick q on [specific product/launch/customer]: where do people usually get stuck?
 ```
 
 Technical-role variant:
 
 ```text
-Thanks for connecting, [Name]. The [specific project/system/post/launch] at [Company] caught my eye, especially [specific technical or market detail].
-
-Admin and taxes I'm sure were much easier in the States. For [technical/product area], did [privacy/procurement/infrastructure/customer-behavior difference] force a different [architecture/roadmap/sales motion] for [specific thing]?
+thanks for connecting [Name]. quick q on [specific system] at [Company]: where does [specific component/workflow] get annoying?
 ```
 
 Follow-up after no reply:
 
 ```text
-No pressure on this, [Name]. I asked because [specific product/feature/post/company move] stood out to me.
+no worries if this is too in the weeds.
 
-Still curious whether [specific constraint] made you choose [specific decision] over [specific alternative].
+still curious about [specific detail] in [specific workflow/product/customer moment].
 ```
 
 Avoid:
@@ -264,6 +277,20 @@ Avoid:
 - "Book a call now to learn about our offer."
 - "Happy to jump on a quick call."
 - "We help Americans in Germany with taxes/admin."
+- "Where did buyers ask for proof?"
+- "Trust feels like a product feature."
+- "This creates the most friction."
+- "Sounds like."
+- "Sounds [adjective/reaction]."
+- "Is basically."
+- "Must be."
+- "Must have been."
+- "Seems like."
+- "X is a Y."
+- "X is the Y."
+- "X is [adjective]."
+- "X has the Y."
+- "X feels like Y."
 - "Saw the founder angle."
 - "Saw your work."
 - "What are you focused on this quarter?"
@@ -272,6 +299,18 @@ Avoid:
 - "I am a tech founder too..."
 - "How are you thinking about that?"
 - "Curious how you are thinking about this."
+- "Your X stood out."
+- "The X stood out."
+- "X caught my eye."
+- "I noticed X."
+- "I was looking at X."
+- "I got curious about X."
+- "Not X but Y."
+- "Not just X."
+- "X rather than Y."
+- "X instead of Y."
+- "X vs Y."
+- "Is the hard part X or Y?"
 - Long explanations of RB services.
 - Generic compliments unrelated to the profile.
 - More than one question in the same message.
