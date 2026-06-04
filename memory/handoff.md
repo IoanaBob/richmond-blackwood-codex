@@ -101,6 +101,30 @@ CBMAX company context was loaded on 2026-05-13. Company folder: `clients/Compani
 
 Claudio Brivio individual context was loaded on 2026-05-13 and updated from operator review on 2026-05-14. Individual folder: `clients/Individuals/Claudio Brivio/`. Notion individual: `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`. 2024 filing: `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`; 2025 filing: `https://www.notion.so/342e41301314803eb579c68638fb3fb0`. Canonical 2024 Drive folder: `https://drive.google.com/drive/folders/1olQVsG8iAOF5BACqwIYABuwIXCjnxHfe`; uploaded evidence package: `https://drive.google.com/drive/folders/1MK0WqJJ1VOnrO-Gnjax3au_qVjBznYwC`; fresh native analysis spreadsheet: `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`; old Office workbook `https://docs.google.com/spreadsheets/d/1u6pS1K9MfBDn35o96iPgqQ27zxbZ1DG0/edit` is superseded source/history. New Notion tasks are linked in the filing record: preparation `https://www.notion.so/35fe41301314813ea514ed9b61092962`, filing `https://www.notion.so/35fe41301314817b879cc3ab8c4160dc`; existing source/query tasks remain `https://www.notion.so/352e4130131480e0b6f4deb6917c972b` and `https://www.notion.so/358e413013148053bb73e0bc8e7247b3`. Current workbook figures after review: gross employment income EUR 31,666.66, employment work expenses EUR 1,456.86, health/care EUR 5,470.32, other personal deductions EUR 5,506.32, known withholding EUR 4,326.21, and income after deductions before tax-rate calculation EUR 24,703.48. Do not duplicate Claudio personal-tax/private details in the CBMAX company folder.
 
+## Active Pause - eBilanz CLV 2025 - 2026-06-05
+
+Status: provisional.
+Source: live eBilanz-Online period `625447`; user pause instruction in Codex chat on 2026-06-05.
+Imported: 2026-06-05.
+Review: Resume only after the user says `resume eBilanz`. Do not transmit, pay, enter certificate/PIN, buy/use voucher, or click final send without fresh explicit approval.
+
+Current live browser position:
+
+- URL: `https://www.ebilanzonline.de/ebo/index.html#:sections:transmission:index.html?periodeId=625447`
+- Client/period: `COHEN LIBERTAS VISION LIMITED`, 2025/01/01-2025/12/31, eBilanz period ID `625447`.
+- The draft is balanced after the 2026-06-05 custom mapping import.
+- Verified figures: total assets `2,068.22`; total equity and liabilities `2,068.22`; equity `-2,461.00`; liabilities `4,529.22`; P&L net income `1,333.63`.
+- Account values file used: `/Users/jp/Downloads/CLV_eBilanz_2025_corrected_import.xls`, sheet `Import`, account column `A`, description column `B`, value column `D (Source signed balance)`.
+- Mapping file used: `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls`, sheet `Mapping`, taxonomy column `A`, description column `D`, account column `C`, no changing-balance group.
+- The rebuilt `.xlsx` mapping was rejected by eBilanz with `No sheets have been found`; for this mapping screen use a genuine legacy `.xls`.
+
+Next safe step:
+
+1. If the user says `resume eBilanz`, start by confirming whether they want CLV 2025 review/export or to move to another client.
+2. For CLV 2025 review, download/print the transmission-page `Print preview as PDF` and compare it against the source workbook and read-back figures.
+3. For CLV 2025 transmission, stop before any certificate/PIN/voucher/payment/final send step and require fresh explicit approval.
+4. For AGL 2025, do not start from `/Users/jp/Downloads/Agile LinCS Limited FS Abridged Jan 10 2024 - Dec 31 2025.pdf`; text extraction shows that file is 2024 statements. Search Drive/Slack/Lorenzo sources for a final 2025 annual FS/trial balance first.
+
 ## Verification
 
 Last checked 2026-05-04:

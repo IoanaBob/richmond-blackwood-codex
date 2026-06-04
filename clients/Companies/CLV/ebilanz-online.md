@@ -10,14 +10,47 @@ Review: CLV 2024 is populated in eBilanz-Online and balances after the 2026-06-0
 | Period | Local upload file | Source workbook | Source sheet | Rows | Review |
 | --- | --- | --- | --- | ---: | --- |
 | 2024 | `/Users/jp/Downloads/CLV_2024_ebilanz_import_legacy.xls` | `clv_2024_rebuilt_source.xlsx` | `Trial Balance 2024` | 28 | Legacy BIFF8 `.xls` generated for live eBilanz upload after the `.xlsx` upload stalled. |
-| 2025 | `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2/CLV_2025_ebilanz_import.xlsx` | `clv_2025_source.xlsx` | `Trial Balance 2025` | 42 | Ready for platform upload, then mapping/validation review. |
+| 2025 | `/Users/jp/Downloads/CLV_eBilanz_2025_corrected_import.xls` | `clv_2025_source.xlsx` | `Trial Balance 2025` | 28 | Imported live on 2026-06-05 using source-signed value column `D (Source signed balance)`. Closing/P&L account `9258` intentionally excluded from custom mapping to avoid duplicating profit. |
 
 ## Platform Notes
 
 - Workbook shape follows the accepted Aaron import pattern: single `Import` sheet with `Konto`, `Beschriftung`, `Saldo`, and `S/H`; live upload file should be a genuine BIFF8 `.xls`.
 - Validate VAT/tax-liability mapping after upload; do not rely only on a green pre-validation status.
 - For CLV 2024, the account mapping file `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` was accepted by eBilanz-Online on 2026-06-04 using sheet `Mapping`, taxonomy column `A (Taxonomy-ID)`, description column `D (Account description)`, account column `C (Account)`, and no changing-balance group column.
+- For CLV 2025, the same legacy BIFF8 mapping upload file `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` was accepted on 2026-06-05. A rebuilt `.xlsx` mapping file was not parsed by eBilanz (`No sheets have been found`), so use genuine legacy `.xls` for mapping imports too when this screen rejects `.xlsx`.
 - For corporate SKR04 drafts with opening-balance accounts `9000`/`9009`, mapping those accounts to retained earnings/opening equity fixes opening equity only. If the balance sheet remains off by the P&L net result, enter the source-backed amount in `de-gaap-ci_bs.eqLiab.equity.netIncome` / `Net income/net loss for the financial year`, not in a suspense account.
+
+## CLV 2025 In-Platform Status - 2026-06-05
+
+Status: provisional.
+Source: live eBilanz-Online period `625447`; local CLV 2025 import and mapping files; browser read-back on 2026-06-05.
+Imported: 2026-06-05.
+Review: Needs operator/professional review before any transmission. Transmission page requires ELSTER certificate/PIN and voucher/payment handling. No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+
+- Period: `625447`, `COHEN LIBERTAS VISION LIMITED`, 2025/01/01-2025/12/31, taxonomy version 2025.
+- Account values imported from `/Users/jp/Downloads/CLV_eBilanz_2025_corrected_import.xls`.
+- Account-value import assignments used: sheet `Import`, account column `A (Konto)`, description column `B (Beschriftung)`, value column `D (Source signed balance)`, no debit/credit column. Do not use the platform-facing `EBilanz-Wert` column for this live import; it inverted liabilities/revenue incorrectly.
+- Custom mapping imported from `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` using sheet `Mapping`, taxonomy column `A (Taxonomy-ID)`, description column `D (Account description)`, account column `C (Account)`, and no changing-balance group column.
+- Mapping result fixed the standard SKR04 gaps for opening balance/equity accounts `9000`/`9009` and travel-cost account `6673`.
+- Income statement after mapping import: net income/net loss `1,333.63`; earnings after taxes `1,333.63`.
+- Balance sheet after mapping import: total assets `2,068.22`; total equity and liabilities `2,068.22`; equity `-2,461.00`; liabilities `4,529.22`.
+- Dashboard still shows import rows as `No value`; use taxonomy read-back totals as the authoritative review signal.
+- Transmission page was opened for inspection only. It showed certificate/PIN/voucher fields and generic FAQ text; no validation error was acted on and no transmission step was taken.
+
+## Pause Handoff - 2026-06-05 00:30 IST
+
+Status: provisional.
+Source: live eBilanz-Online period `625447`; user instruction to pause on 2026-06-05.
+Imported: 2026-06-05.
+Review: Resume only after the user explicitly asks. Do not transmit, pay, enter certificate/PIN, or click final send without fresh explicit approval naming CLV 2025 and the transmission data.
+
+Current platform position:
+
+- Browser URL at pause: `https://www.ebilanzonline.de/ebo/index.html#:sections:transmission:index.html?periodeId=625447`.
+- CLV 2025 draft is balanced and ready for operator/professional review.
+- No eBilanz PDF print preview was downloaded during this pause point.
+- If resuming for review, first download/print the transmission-page `Print preview as PDF` for CLV 2025 and compare it against the source workbook.
+- If resuming for filing, stop before certificate/PIN/voucher/payment/final send and require fresh explicit approval.
 
 ## CLV 2024 In-Platform Status - 2026-06-04
 

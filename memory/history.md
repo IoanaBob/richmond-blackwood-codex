@@ -940,3 +940,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: For WEW-style sources, do not import duplicate customer/supplier subledger rows alongside control accounts, and do not invert signs unless live read-back proves the import path requires it. Corporate SKR04 may not map sole-proprietor-style accounts such as `2100`/`6673`; source-backed dedicated taxonomy rows are acceptable when a full mapping export cannot be patched cleanly during the live run.
 - Verification: Browser read-back showed balance sheet assets `22,320.67`, equity/liabilities `22,320.67`, and income statement net income `20,995.73`. Transmission page was inspected only and requires certificate/PIN/voucher/payment inputs.
 - Limitations or gaps: No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+
+## 2026-06-05 - CLV eBilanz 2025 Mapping Import And Pause
+
+- User request: Continue CLV 2025 eBilanz-Online after the operator uploaded files, then pause until the user is back in the office.
+- Context read: live eBilanz-Online period `625447`, CLV import and mapping files in Downloads, CLV/AGL eBilanz notes, local AGL 2025 candidate files, and `rb-ebilanz-online`.
+- Actions taken: Imported the CLV 2025 custom mapping from genuine legacy file `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` after the rebuilt `.xlsx` mapping file was rejected with `No sheets have been found`. Verified that the corrected mapping fixed opening equity accounts `9000`/`9009` and travel account `6673`. Opened the transmission page for inspection only. Checked local AGL 2025 candidates and found the 2025-named AGL PDF extracts as 2024 financial statements.
+- Decisions made: For CLV 2025, use account-value column `D (Source signed balance)`, not `EBilanz-Wert`; keep closing/P&L account `9258` unmapped to avoid duplicating profit. Do not start AGL 2025 from VAT protocols or the mislabeled 2024 PDF.
+- Verification: CLV 2025 browser read-back showed income statement net income `1,333.63`, balance sheet assets `2,068.22`, equity/liabilities `2,068.22`, equity `-2,461.00`, and liabilities `4,529.22`. No final transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+- Limitations or gaps: CLV 2025 still needs operator/professional review and print-preview PDF before any filing. AGL 2025 remains blocked pending final annual FS/trial balance from Drive/Slack/Lorenzo or user upload.
