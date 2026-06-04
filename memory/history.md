@@ -929,3 +929,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Live Notion updates/read-backs completed for RBL registered office, April 2026 PAYE payment `Paid`, Payroll/VIES/Corporation Tax registrations `Registered`, and future VAT title `RBL - VAT - 19 May 2027`.
 - Google Drive search/list-folder found candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy` with RBL-specific contents.
 - Updated `clients/Companies/RBL/`, durable memory, and source logs. Remaining RBL gaps are Sage/Xero decision, Workhub VAT/exact upgraded-plan verification, and final confirmation that the found Drive folder is the approved upload destination.
+
+## 2026-06-04 - MHL Car Concierge Expense Submission
+
+- User request: Submit the provided invoice PDF through the expenses/invoice workflow.
+- Context read: Local PDF `Rechnung_RE2277_21.05.2026 2.pdf`, MHL/Gabriel repo memory, Notion MHL company/project/expense schema, existing MHL vehicle-tax expense row, Google Drive MHL root, and RB file-upload/common-follow-through/google-auth skills.
+- Actions taken: Uploaded the PDF to the MHL Drive root as `MHL - Car Concierge Berlin invoice RE2277 - 2026-05-21.pdf` (`https://drive.google.com/file/d/12WTfQPUHtMIKGPy856IvXaTeNWWBbzBT/view?usp=drivesdk`). Created Notion Expense `https://www.notion.so/375e4130131481f5a9befa4219162608` for MHL with amount EUR 1,168.58, `Status = Payment Requested`, `Type = Paid`, company vehicle storage/fuel categorisation, Simoneta assigned, and Drive evidence attached.
+- Decisions made: Route the invoice as an MHL company vehicle expense because MHL company memory and Notion assets link car operating costs to MHL/Ferrari work; do not create a Communication row because the source was a local user-provided PDF rather than an email/WhatsApp thread; leave supplier as comment text rather than creating a new Business Partner row.
+- Verification: Drive metadata read-back confirmed PDF ID `12WTfQPUHtMIKGPy856IvXaTeNWWBbzBT`, size 76,821 bytes, in MHL folder `17gpcVLGtX3dhwSaLYelvw6m-dSVCHiQs`. Notion read-back confirmed the Expense row fields and Simoneta assignee after a targeted correction.
+- Limitations or gaps: Final bookkeeping/VAT/payment treatment remains a finance review item on the `Payment Requested` expense row. `RB_CODEX_ACTOR` was not set, so `Submitted by` was not populated.
