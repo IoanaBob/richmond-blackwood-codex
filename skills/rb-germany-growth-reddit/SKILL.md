@@ -15,6 +15,7 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - For any public Reddit draft where Ioana or RB can seriously help with the specific problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful and does not feel forced. Label it as a promotion-rule risk in the packet and remove it if subreddit rules or thread style make it unsafe.
 - Never copy, lightly paraphrase, or structurally mirror another Reddit user's comment. Existing comments are style/context input only; drafts must be original to the post facts and Ioana's specific view.
 - Reactive DMs are allowed only when the person engaged with our public Reddit post/comment or sent an inbound DM first.
+- Reddit help must be direct advice first. Give the most pertinent high-level answer to the person's actual problem before asking for anything from them. If the issue needs case-specific review, then offer a call or deeper help as the next step.
 - Public Reddit engagement must be very recent. Every candidate must show the post created date and latest meaningful activity date before drafting. Default to posts active in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older threads are research-only unless the user explicitly approves that exact dated exception.
 - Threads older than 7 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or the user explicitly approves the exact dated exception after seeing the dates.
 - Threads older than 14 days are never direct engagement targets by default; use them only for audience research, wording patterns, subreddit fit, and rules/context.
@@ -126,6 +127,7 @@ Shared gates:
    - Draft Reddit replies and allowed reactive DMs in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - Keep DMs tied to the exact public engagement or inbound DM context; do not generate DMs from subreddit member lists, profile searches, or cold prospecting.
+   - For Reddit help DMs, lead with a concise high-level answer that is actually useful without a call. Then ask for only the missing facts needed to diagnose. If the situation is too specific for text, offer to jump on a call after the useful answer, not before it.
    - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - Do not pitch, ask for mod approval, suggest paid/commercial placement, or introduce RB services unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
    - Update Growth Target status only when evidence supports it.
