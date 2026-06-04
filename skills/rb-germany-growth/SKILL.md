@@ -144,6 +144,7 @@ Shared gates:
 6. Draft Packet
    - Prepare exact outbound message previews in chat.
    - Show sender identity as Ioana and the channel/account context.
+   - If any outbound draft is in a language other than English, show an English translation directly under the original text before asking for approval. Do this for every approval packet, even when the user and sender both understand the language.
    - Every draft preview must include a short source-context block before the text: initial question/topic, relevant source context, why this draft is being proposed, and the target/thread/person/company URL. If the source context is missing or unclear, block the draft instead of guessing.
    - For public community channels such as Reddit and Facebook groups, include a style-basis block from recent posts/comments in that same community before drafting. Match the local style unless doing so would violate RB gates, platform rules, professionalism, or accuracy.
    - For public community channels, include the post created date, latest meaningful activity date, and recency basis before every draft. Block drafts when date evidence is missing or stale.
