@@ -2,6 +2,39 @@
 
 Status: active.
 
+## 2026-06-04 - eBilanz Affected-Client Upload Pack
+
+Applied:
+
+- Used the repo-local `rb-ebilanz-online` skill and spreadsheet workflow to rebuild eBilanz account-balance upload files for the affected German-tax-resident client batch.
+- Confirmed from eBilanz-Online's official FAQ that one RB master account can hold unlimited clients/mandants and periods, so the preferred account model is a single RB account with separate mandanten.
+- Generated a v2 local upload pack at `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2`.
+- Added per-client eBilanz notes for AGL, CLV, CBMAX, NACV, PCL, and WEW.
+- Created minimal `clients/Companies/PCL/` routing from the Notion Companies `Reference` value `PCL`.
+
+Prepared files:
+
+- `AGL_2024_ebilanz_import_REVIEW.xlsx`
+- `CLV_2024_ebilanz_import.xlsx`
+- `CLV_2025_ebilanz_import.xlsx`
+- `CBMAX_2024_ebilanz_import.xlsx`
+- `NACV_2024_ebilanz_import.xlsx`
+- `NACV_2025_ebilanz_import.xlsx`
+- `PCL_2024_ebilanz_import.xlsx`
+- `PCL_2025_ebilanz_import.xlsx`
+- `PCL_FY2025_full_sfs_period_ebilanz_import_REVIEW.xlsx`
+- `WEW_2024_ebilanz_import.xlsx`
+
+Verification:
+
+- All ten generated workbooks opened through the spreadsheet runtime and exposed an `Import` sheet with `Konto`, `Beschriftung`, `Saldo`, and `S/H`.
+- `file` identified every workbook as Microsoft Excel 2007+.
+- AGL source trial-balance extraction balanced to zero; AGL remains review-only because the source uses non-SKR account codes and needs manual/custom mapping.
+
+Unresolved:
+
+- eBilanz-Online account creation, mandanten setup, workbook imports, validation, voucher/payment, certificate/PIN handling, and transmission were not performed. Browser control was later retried successfully on the production public site and English login panel, but the RB master account login/registration/billing choices remain unconfirmed and operator-controlled.
+
 ## 2026-06-03 - VBG Accident Insurance Skill
 
 Imported:
