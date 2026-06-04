@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; Drive CLV 2024/2025 financial-statement sources; local batch build.
 Imported: 2026-06-04.
-Review: Upload/import and in-platform validation still require operator action. No final eBilanz transmission was performed by Codex in this run.
+Review: CLV 2024 is populated in eBilanz-Online and balances after the 2026-06-04 mapping/equity correction. Transmission still requires operator review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Uploads
 
@@ -16,6 +16,24 @@ Review: Upload/import and in-platform validation still require operator action. 
 
 - Workbook shape follows the accepted Aaron import pattern: single `Import` sheet with `Konto`, `Beschriftung`, `Saldo`, and `S/H`; live upload file should be a genuine BIFF8 `.xls`.
 - Validate VAT/tax-liability mapping after upload; do not rely only on a green pre-validation status.
+- For CLV 2024, the account mapping file `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` was accepted by eBilanz-Online on 2026-06-04 using sheet `Mapping`, taxonomy column `A (Taxonomy-ID)`, description column `D (Account description)`, account column `C (Account)`, and no changing-balance group column.
+- For corporate SKR04 drafts with opening-balance accounts `9000`/`9009`, mapping those accounts to retained earnings/opening equity fixes opening equity only. If the balance sheet remains off by the P&L net result, enter the source-backed amount in `de-gaap-ci_bs.eqLiab.equity.netIncome` / `Net income/net loss for the financial year`, not in a suspense account.
+
+## CLV 2024 In-Platform Status - 2026-06-04
+
+Status: provisional.
+Source: live eBilanz-Online period `625433`; local CLV import/mapping files; browser read-back on 2026-06-04.
+Imported: 2026-06-04.
+Review: Needs operator/professional review before any transmission. Transmission page showed `Assets: 0`; do not proceed without arranging payment/voucher/certificate/PIN and fresh explicit approval.
+
+- Period: `625433`, `COHEN LIBERTAS VISION LIMITED`, 2024/01/01-2024/12/31.
+- Account values imported from `/Users/jp/Downloads/CLV_2024_ebilanz_import_legacy.xls`.
+- Mapping correction imported from `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls`.
+- Opening equity accounts `9000` and `9009` now populate equity with imported value `-4,266.22`.
+- Manual value entered in balance sheet equity row `de-gaap-ci_bs.eqLiab.equity.netIncome` / `Net income/net loss for the financial year`: `561.23`, matching the P&L net income.
+- Balance sheet after correction: total assets `3,095.79`; total equity and liabilities `3,095.79`; equity `-3,704.99`; liabilities `6,800.78`.
+- Income statement after correction: net income/net loss `561.23`; earnings after taxes `561.23`.
+- No transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
 
 ## Pause Handoff - 2026-06-04 18:30 IST
 

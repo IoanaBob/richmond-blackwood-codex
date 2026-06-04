@@ -68,9 +68,11 @@ Use this skill when preparing German E-Bilanz / electronic balance sheet filings
    - For downloaded mapping files, do not re-save the workbook through Excel libraries such as openpyxl/artifact-tool unless the platform explicitly accepts the result. Preserve the original eBilanz OOXML package and patch only the necessary worksheet cell references.
    - Use `scripts/patch_mapping_xlsx.py <input.xlsx> <output.xlsx> --account <bad-account> --target-account <good-account>` to move one account to the same taxonomy row as a known-good account while preserving the export structure.
    - Example SKR03 VAT check: account `1766` (`Umsatzsteuer nicht fällig 19%`) belongs with VAT/tax liabilities, normally the same taxonomy row as `1776`, `1780`, and `1790`, not under tax provisions. After correction, verify `1766` appears under `Liabilities -> Other liabilities -> Taxes`; provisions should reflect only real provision accounts such as `970`/`977`.
+   - Example SKR04 corporate equity check: opening-balance accounts such as `9000` (`Saldenvorträge, Sachkonten`) and `9009` (`Saldenvorträge, Kreditoren`) may need custom mapping to retained earnings/opening equity. After uploading the mapping, verify that opening equity appears in the balance sheet; if the remaining imbalance equals the P&L net income/loss, populate `de-gaap-ci_bs.eqLiab.equity.netIncome` / `Net income/net loss for the financial year` with the source-backed P&L result rather than changing imported account balances.
 5. Inspect balance sheet and P&L before manual changes:
    - Compare total assets, total equity/liabilities, and net income/loss to the source workbook.
    - Do not overwrite imported account balances just to make the platform balance.
+   - Treat eBilanz transmission-page FAQ text such as numbered `Error message ...` articles as help content unless the page presents it as an active validation result for the draft.
 6. Sole-proprietor equity correction, when source-backed:
    - If the platform mapping leaves equity opening capital or current-year profit empty, add manual values only to the dedicated equity taxonomy fields, not to random suspense accounts.
    - Typical fields are beginning business assets/opening capital and current-year net income/net loss for the private account / sole proprietor equity.
