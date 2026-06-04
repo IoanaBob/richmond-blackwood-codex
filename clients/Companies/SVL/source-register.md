@@ -12,6 +12,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-18 | Codex thread | Load SVL context from main; SVL is the newest client; Kristjan was a freelancer before; tax registration is still pending; RB will do Kristjan personal tax returns from 2026 onward. |
 | 2026-05-18 | Codex thread answers | Still waiting for tax registration; no chase task in this context; registrations are overdue with Finanzamt as blocker; Simoneta owns retroactive payroll-tax filings; Mediainvesting hours/bonus sheet is canonical; Lexware and WAMO costs are RB-side; personal-tax Drive year should be 2026; freelancer deregistration pending through an open task; RB should set up individual/freelancer ELSTER; AI GreenBytes update completed but JP needs to upload evidence; apartment amount around EUR 750k with partner-company-sale hurdle. |
 | 2026-05-18 | Google Drive metadata update/read-back | Renamed Kristjan personal-tax year folder from `2025` to `2026` and verified metadata title `2026`. |
+| 2026-06-03 | Codex thread and VBG public form | VBG accident-insurance / Unternehmensnummer application was submitted for SVL after operator review. VBG confirmed successful submission but did not immediately issue the Unternehmensnummer; VBG will respond in coming days and send required documents including PIN by post. |
 
 ## Notion
 
@@ -30,6 +31,8 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Source | URL | Scope |
 | --- | --- | --- |
 | Canonical SVL folder | `https://drive.google.com/drive/folders/19IHrClZjr58Bt15cx9h0KV9RiVzzAC1G` | Company document/evidence root. |
+| VBG Unternehmensanmeldung copy, 2026-06-03 | `https://drive.google.com/file/d/1O40Y7JtQPVxQHxGLWfGXbCYNOZAx9eji/view?usp=drivesdk` | VBG PDF proof for submitted accident-insurance / Unternehmensnummer application. |
+| VBG submission confirmation screenshot, 2026-06-03 | `https://drive.google.com/file/d/1i9UBcbOeakhmNTpOsByJ4Z-ZnwYPzioH/view?usp=drivesdk` | Screenshot proof for submitted VBG accident-insurance / Unternehmensnummer application. |
 | Personal Taxes folder | `https://drive.google.com/drive/folders/1zwxIVHdi_2ZFPYOV3-OwQmmsU9S30_7t` | Contains Kristjan folder; year folder was renamed to `2026` on 2026-05-18. |
 | Liquidity 2026 Sheet | `https://docs.google.com/spreadsheets/d/1u-Jyv7NDYooJbz8TRkIwDb0AQ1QKciAGT61_AYsJv7I/edit` | Company liquidity support. |
 | Secretarial folder | `https://drive.google.com/drive/folders/1pGnVsGXH6aOZPSujR1KMujT3kmrBB-U3` | Company secretarial evidence. |

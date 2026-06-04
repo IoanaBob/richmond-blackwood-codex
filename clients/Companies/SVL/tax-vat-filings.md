@@ -23,7 +23,7 @@ The Notion company page has credential/certificate-related attachment context. R
 | Trade Tax | DE | Overdue / Pending_TaxNo | Yearly | `https://www.notion.so/2f5e4130131481c9b717da99cef8c469` | Number field empty; Finanzamt/tax registration is the blocker. |
 | VAT | DE | Overdue / Pending_TaxNo | Quarterly | `https://www.notion.so/2f5e413013148117b08fff476d20f04d` | Number field empty; first filing date 2026-05-05; WhatsApp says no VAT number yet as of 2026-05-13. |
 | Payroll Tax | DE | Overdue / Pending_Betriebsnummer | Monthly | `https://www.notion.so/2f5e413013148102b8aad07ceb102597` | Notion comment says monthly payroll tax must be performed retroactively once registered. User confirmed Simoneta should own this. |
-| Unternehmensnummer / Accident Insurance | DE | Overdue / Pending | One-off | `https://www.notion.so/2f5e41301314811db647eedbba972106` | Number and PIN needed for Betriebsnummer application. |
+| Unternehmensnummer / Accident Insurance | DE | Submitted / waiting for VBG response and PIN by post | One-off | `https://www.notion.so/2f5e41301314811db647eedbba972106` | Submitted 2026-06-03. VBG did not issue the Unternehmensnummer immediately; VBG said it will respond in coming days and send required documents including PIN by post. Number/code and PIN are needed for Betriebsnummer/payroll registration. Proof PDF: `https://drive.google.com/file/d/1O40Y7JtQPVxQHxGLWfGXbCYNOZAx9eji/view?usp=drivesdk`; screenshot: `https://drive.google.com/file/d/1i9UBcbOeakhmNTpOsByJ4Z-ZnwYPzioH/view?usp=drivesdk`. |
 | Local Business Registration / Gewerbeanmeldung | DE | Overdue / Pending_Gewerbeanmeldung | One-off | `https://www.notion.so/2f5e413013148114b079d1a253f0acb4` | Comment says certificate should be uploaded when received. |
 
 ## Company Tax Registration Evidence
@@ -33,6 +33,7 @@ The Notion company page has credential/certificate-related attachment context. R
 | ELSTER transmission confirmation | Gmail `19c8ba56699381bb` | Confirms a form transmission in SVL context on 2026-02-23, but not issuance of tax number. |
 | No VAT number yet | WhatsApp group `120363409060100858@g.us`, 2026-05-13 | RB told Kristjan no Solinova VAT number yet. |
 | Missing tax number blocker | Slack Simoneta DM thread 2026-04-27 | Internal context said Kristjan employee setup in Lexware/payroll was blocked by missing tax number. |
+| VBG accident-insurance submitted | VBG confirmation page and Drive proof, 2026-06-03 | Application successful, but immediate Unternehmensnummer assignment was not possible. Await VBG letter/code and PIN by post. |
 
 ## Ownership
 

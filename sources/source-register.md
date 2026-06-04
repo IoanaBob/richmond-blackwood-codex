@@ -23,6 +23,7 @@ Imported: 2026-05-04.
 | Personal Tax Filings | `https://www.notion.so/206e41301314800493d2e00f69621528` | Schema fetched; used for filing `Status`, `Document gathering status`, and `GDrive Docs` sync rules |
 | Tasks | `collection://25de4130-1314-8158-af69-000b6c9fb49e` | Schema fetched; used for personal-tax analysis/filing task-pair rules |
 | `[Annually] Personal Tax Filing` task template | `https://www.notion.so/32ee413013148090a435e5858b918f25` | Template fetched; used for personal-tax analysis task creation when a filing has no preparation task |
+| VBG accident-insurance registration guideline | `https://www.notion.so/165e413013148096a9fbf8abc5b41057` | Used on 2026-06-03 to create `rb-de-vbg-accident-insurance`; provisional pending future live form checks |
 | Claudio Brivio individual and filing records | `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`; `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`; `https://www.notion.so/342e41301314803eb579c68638fb3fb0` | Used for 2026-05-13 individual context routing under `clients/Individuals/Claudio Brivio/` |
 
 ## Slack Sources
@@ -174,6 +175,7 @@ User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pay
 
 | Source | Status |
 | --- | --- |
+| `https://service.vbg.de/unternehmen-anmelden` | Official VBG public registration form inspected on 2026-06-03 for the accident-insurance / Unternehmensnummer workflow; use live form as provisional because required fields can change |
 | `https://www.hamburg.de/politik-und-verwaltung/behoerden/finanzbehoerde/einrichtungen/finanzaemter/nord-207130` | Official Finanzamt Hamburg-Nord contact/phone-hours source imported provisionally on 2026-05-26 for Front Office Contact availability setup |
 | `https://www.richmondblackwood.com/en` | Public website identified; direct extraction limited by JS rendering |
 | Public company/web references | Not yet imported as truth |
