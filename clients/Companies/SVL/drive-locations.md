@@ -23,6 +23,13 @@ Review: Personal-tax year folder was renamed from the mistaken `2025` label to `
 | RB Stripe invoice PDF | `https://drive.google.com/file/d/1XE5PMWf5CVeMnI4p4r08XbQGUaevgYj7/view?usp=drivesdk` | RB-issued invoice; not an inbound payable invoice. |
 | RB Stripe receipt PDF | `https://drive.google.com/file/d/1ErU4zCP-GZLr8v_LlTtJYz_4xjvCqvUW/view?usp=drivesdk` | RB-issued receipt; not an inbound payable invoice. |
 
+## Registration Proofs
+
+| Item | URL | Notes |
+| --- | --- | --- |
+| VBG Unternehmensanmeldung copy, 2026-06-03 | `https://drive.google.com/file/d/1O40Y7JtQPVxQHxGLWfGXbCYNOZAx9eji/view?usp=drivesdk` | VBG PDF copy downloaded from the successful submission page and uploaded to the canonical SVL Drive folder. Status: provisional; source VBG public form, imported 2026-06-03; review: waiting for VBG Unternehmensnummer/code and PIN by post. |
+| VBG submission confirmation screenshot, 2026-06-03 | `https://drive.google.com/file/d/1i9UBcbOeakhmNTpOsByJ4Z-ZnwYPzioH/view?usp=drivesdk` | Screenshot of VBG success page after submission. Status: provisional; source VBG public form, imported 2026-06-03; review: waiting for VBG response by post. |
+
 ## Share-Transfer / Structuring Evidence
 
 | File | URL |

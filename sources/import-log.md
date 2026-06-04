@@ -2,6 +2,28 @@
 
 Status: active.
 
+## 2026-06-03 - VBG Accident Insurance Skill
+
+Imported:
+
+- Notion guideline `Application for Umsatzversicherung Nummer (DE Accident Insurance / VBG) - Required for Betriebsnummer`.
+- Live public VBG registration form `https://service.vbg.de/unternehmen-anmelden`, inspected with placeholder values only.
+
+Actions:
+
+- Added `skills/rb-de-vbg-accident-insurance/SKILL.md` and skill UI metadata.
+- Registered the skill in `skills/index.md`.
+- Captured current live-form corrections: initial applicant-role page, step 3 renamed `Zum Unternehmen`, manual-address country must be selected from the dropdown, and step 4 requires the legal representative address separately.
+
+Verification:
+
+- No real client data was entered into VBG and the form was not submitted.
+- No live Notion filing registration or task was marked complete during this import.
+
+Unresolved:
+
+- SVL-specific submission remains pending operator approval of the exact form-fill packet and the business-purpose classification/description.
+
 ## 2026-05-26 - KONVI Company Context Import
 
 Applied:

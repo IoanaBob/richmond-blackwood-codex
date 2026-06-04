@@ -11,6 +11,8 @@ Packets make row-led Communications follow-through reviewable and recoverable. A
 
 This protocol is scoped to `rb-communications-follow-through` runs only. It is not a general rule for every RB workflow or every person; the default queue is the active operator's own due Communications, unless the operator explicitly supplies another row URL or view scope.
 
+This file is the executable contract the agent follows stage by stage. Keep `SKILL.md` as the short entrypoint and put operational instructions in the stage where they are used. Only protocol-wide safety rules belong before Stage 1; shared app mechanics, such as Notion inventory/API details or Gmail sender rules, should stay in their owning process/skill files and be referenced from the relevant stage.
+
 ## Run Folder And Lock
 
 Use:
@@ -73,7 +75,10 @@ Required actions:
 - Inspect `git status --short --branch`.
 - Run `git pull origin main` from the active RB repo/worktree before substantive live-state work.
 - If the worktree is clean and a new repo edit is needed, use a `codex/<task-slug>` branch.
-- Fetch the canonical Communications database/schema.
+- Fetch the canonical Communications database/schema: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
+- Record the live field list and status options. Current expected fields are `Title`, `Type`, `Status`, `Relevance`, `Sent/Received On`, `Due Date`, `Snooze Until`, `Company`, `Individual`, `Tasks`, `Assigned To`, `Document(s)`, `Translated Doc(s)`, and `Notes`.
+- Treat `Done` and `Archived` as complete statuses unless the live schema read proves otherwise; record any schema/status drift before Stage 2.
+- Confirm this run will not write new RB records to old `RB Communications` at `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
 - Confirm the run scope: user-specified row URLs, view URL, or default open/due inventory.
 - Create the run folder and `LOCK.md`.
 
@@ -84,6 +89,7 @@ Packet fields:
 - workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when needed, an explicit actor supplied in the current run/chat if both env keys are missing, or `not required`;
 - Communications database URL and data source ID;
 - live Communications fields available;
+- live Communications status mapping;
 - missing expected fields, if any;
 - run scope and source coverage limits;
 - blocker list.
