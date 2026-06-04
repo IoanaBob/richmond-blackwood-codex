@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion individual and Personal Tax Filings records, Client Notes & Updates, Gmail, WhatsApp, Drive, and user instruction reviewed on 2026-05-18.
 Imported: 2026-05-18.
-Review: User confirmed no payment-plan response yet and no confirmed active P-Konto; confirm 2025 joint filing scope and final submission evidence for the 2023/2024 P&L/balance-sheet package.
+Review: User confirmed no payment-plan response yet and no confirmed active P-Konto; confirm 2025 joint filing scope. The 2023/2024 eBilanz protocol evidence is recorded locally and should be stored/linked in Drive/Notion if not already done.
 
 ## Linked Person
 
@@ -64,6 +64,8 @@ User clarified on 2026-05-18 to follow the source dates rather than the earlier 
 
 Relevant task: `Prepare P&L and Balance Sheet for Aaron` at `https://www.notion.so/353e413013148070ad92d56880997fb6`.
 
+Follow-up on 2026-06-03 to 2026-06-04: the Finanzamt Lichtenberg letter dated 2026-05-20 asked for electronic E-Bilanzen for 2023 and 2024 by 2026-06-10 and said the Excel tables were not sufficient. Aaron's 2023 and 2024 eBilanz-Online filings were created from the Drive FS workbooks, corrected for the SKR03 account `1766` VAT/tax-liability mapping, and transmitted on 2026-06-04. The eBilanz-Online filing packet and local protocol pointers are in `ebilanz-online.md`; upload/link the protocol PDFs to Drive/Notion if not already done.
+
 ## 2025 Joint Filing
 
 Status: provisional.
@@ -86,3 +88,4 @@ Aaron confirmed on WhatsApp that 2025 onwards would be great.
 | Finanzamt questionnaire workbook | `https://docs.google.com/spreadsheets/d/1NcGhQVn-H1EDvg5Dbn4ZRytXqCjq4SAA/edit` | Questionnaire and payment-plan support. |
 | 2023 FS workbook | `https://docs.google.com/spreadsheets/d/1OnLp0uM1SN2fVyltPrDOqv2p_Th3YzTA/edit` | Review latest version before use. |
 | 2024 FS workbook | `https://docs.google.com/spreadsheets/d/1KmyvtL-HW4Qc-r6Fi4mxWy1MM0UYAkj1/edit` | Review latest version before use. |
+| Finanzamt Lichtenberg E-Bilanz request | `https://drive.google.com/file/d/1CicvmfDj5xMfO1lJ7EDA4BjTeQo6E7Rn/view` | Requires electronic E-Bilanzen for 2023 and 2024 by 2026-06-10. |
