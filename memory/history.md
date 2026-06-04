@@ -931,3 +931,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: For this repo, the master/main base is `origin/main`. A dirty worktree is not a reason to skip reconciliation when all dirty files are task-owned and the user has authorized closeout; unrelated/user-owned files must not be staged.
 - Verification: Notion read-back verified the compacted master closeout line on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-03`; `git diff --check` passed.
 - Limitations or gaps: PR closeout pending.
+
+## 2026-06-04 - WEW eBilanz 2024 Source-Sign Correction
+
+- User request: Continue the WEW 2024 eBilanz-Online draft after upload and avoid repeating the earlier accepted-format mistakes.
+- Context read: live eBilanz-Online period `625444`, WEW source workbook `wew_2024_fs.xlsx`, local WEW/CLV eBilanz notes, and `rb-ebilanz-online`.
+- Actions taken: Rebuilt the WEW live import as a genuine BIFF8 `.xls` with only nonzero GL/control accounts below `10000`, source-signed balances, and no S/H column. Reimported account values, kept standard SKR04 mapping where correct, entered source-backed balance-sheet equity values for current-year profit and withdrawals, and entered the skipped `6673` travel expense in the dedicated income-statement travel-cost row.
+- Decisions made: For WEW-style sources, do not import duplicate customer/supplier subledger rows alongside control accounts, and do not invert signs unless live read-back proves the import path requires it. Corporate SKR04 may not map sole-proprietor-style accounts such as `2100`/`6673`; source-backed dedicated taxonomy rows are acceptable when a full mapping export cannot be patched cleanly during the live run.
+- Verification: Browser read-back showed balance sheet assets `22,320.67`, equity/liabilities `22,320.67`, and income statement net income `20,995.73`. Transmission page was inspected only and requires certificate/PIN/voucher/payment inputs.
+- Limitations or gaps: No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
