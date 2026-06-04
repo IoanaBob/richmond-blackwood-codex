@@ -24,6 +24,7 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
 - Relocation partner planning uses a daily target of at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Daily automation may prepare the packet and queue, but first-time emails still require exact approval and immediate Ioana email-session verification.
 - Reddit planning uses a daily target of 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and second comments on the same post do not count. Daily automation may source and draft the packet, but posting still requires exact approval and immediate Ioana Reddit-session verification.
+- Public community replies/comments across Reddit, Facebook groups, and similar channels must check dates before drafting. Every packet must show post created date and latest meaningful activity date. Default to activity in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older public targets are research-only unless the user explicitly approves that exact dated exception.
 
 ## Operating Sources
 
@@ -61,6 +62,7 @@ Shared gates:
 
 - No outbound send happens before Stage 7 exact-message approval.
 - No daily channel target may be reported as met from stale rows. Any stale-row or timezone correction must reopen the relevant channel work packet before closeout.
+- No public community reply/comment may be drafted or counted toward a daily target without explicit recency evidence. Stale public threads do not fill target gaps.
 - No schema migration or database replacement happens from this skill; schema changes require a separate explicit instruction.
 - No channel skill may be run in send mode from the daily automation.
 - Stop if the worktree becomes conflicted, the legacy partnership source appears active, a new destination is introduced, Ioana identity cannot be verified for a send-ready item, or connector access is degraded in a way that would make state tracking unsafe.
@@ -108,6 +110,7 @@ Shared gates:
    - If LinkedIn daily blank invites counted for the declared quota day are below 15, Stage 4 must include an invite-batch packet to cover the gap before reporting/closeout. Acceptance checks, first messages, replies, and follow-ups do not count toward the blank-invite daily target.
    - Count relocation-partner first-time email conversations opened today, approved-send queue, draft-ready queue, blockers, and remaining count against the 5/business-day target.
    - Count Reddit top-level comments posted today, safe top-level comment drafts, high-risk/provisional comment drafts, and remaining count against the 10/day top-level comment target. Do not count replies, DMs, follow-ups, or second comments on the same post.
+   - For public community channels, exclude stale targets from draft and target counts unless an exact dated exception was explicitly approved.
    - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
 
 4. Channel Work Packets
@@ -141,6 +144,7 @@ Shared gates:
    - Show sender identity as Ioana and the channel/account context.
    - Every draft preview must include a short source-context block before the text: initial question/topic, relevant source context, why this draft is being proposed, and the target/thread/person/company URL. If the source context is missing or unclear, block the draft instead of guessing.
    - For public community channels such as Reddit and Facebook groups, include a style-basis block from recent posts/comments in that same community before drafting. Match the local style unless doing so would violate RB gates, platform rules, professionalism, or accuracy.
+   - For public community channels, include the post created date, latest meaningful activity date, and recency basis before every draft. Block drafts when date evidence is missing or stale.
    - For Reddit, include a DM-help assessment before the draft text. If Ioana or RB can seriously help with the specific problem, include a specific, low-pressure DM-help line only when it fits naturally; do not use generic CTAs, booking language, or service names.
    - For Reddit US-like compensation drafts, keep the suggested answer narrow: remote work through a Germany-compliant setup, or US big tech in DACH through a custom Germany-compliant setup to optimize taxes. Do not add extra career options or generic AI-like market summaries unless the user explicitly asks.
    - For outbound growth copy, avoid the word "path," slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.

@@ -15,9 +15,9 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - For any public Reddit draft where Ioana or RB can seriously help with the specific problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful and does not feel forced. Label it as a promotion-rule risk in the packet and remove it if subreddit rules or thread style make it unsafe.
 - Never copy, lightly paraphrase, or structurally mirror another Reddit user's comment. Existing comments are style/context input only; drafts must be original to the post facts and Ioana's specific view.
 - Reactive DMs are allowed only when the person engaged with our public Reddit post/comment or sent an inbound DM first.
-- Public Reddit engagement must be recent. Prioritize posts/comments with meaningful activity in the last 72 hours; block direct public engagement when the target thread has no meaningful activity in the last 14 days.
-- Threads older than 14 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or have meaningful new comments in the last 14 days.
-- Threads older than 30 days are never direct engagement targets by default; use them only for audience research, wording patterns, subreddit fit, and rules/context.
+- Public Reddit engagement must be very recent. Every candidate must show the post created date and latest meaningful activity date before drafting. Default to posts active in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older threads are research-only unless the user explicitly approves that exact dated exception.
+- Threads older than 7 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or the user explicitly approves the exact dated exception after seeing the dates.
+- Threads older than 14 days are never direct engagement targets by default; use them only for audience research, wording patterns, subreddit fit, and rules/context.
 - Daily Reddit commenting target is 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and engagement with existing RB/Ioana comments do not count toward this target.
 - Source enough recent relevant posts, normally at least 15-20 candidates, to produce 10 safe top-level comment drafts. If fewer than 10 safe recent comment-ready posts are available, report the comment-target gap and do not fill it with stale, weak-fit, or unsafe threads.
 - Do not send/post/comment/DM during daily automation.
@@ -56,7 +56,7 @@ Shared gates:
 2. Audience And Community Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, tech careers, startup/founder setup, remote work, or expat administration.
-   - Target recent Reddit activity, not stale archive threads. For top-level comment opportunities, default to threads created or meaningfully active within the last 14 days, with highest priority for activity in the last 72 hours.
+   - Target very recent Reddit activity, not stale archive threads. For top-level comment opportunities, default to threads created or meaningfully active within the last 72 hours. Threads active 3-7 days ago are allowed only when the topic is strong and visibly still live.
    - Source enough recent relevant posts to prepare at least 10 top-level comment drafts per day for the active audience. Use 15-20 sourced candidates as the normal buffer when the subreddit quality is uneven.
    - Track the daily top-level comment target state in the packet: target 10, safe comment drafts, high-risk/provisional drafts, approved comments posted today, replies/DMs excluded from count, and remaining gap.
    - Keep research reusable for future Germany growth audience targets.
@@ -66,8 +66,8 @@ Shared gates:
    - Create/update Growth Targets for subreddits, relevant posts, recurring threads, and non-commercial research targets.
    - Mark distinct recent posts that could receive a top-level comment as `Top-Level Comment Candidate` when the schema supports it.
    - Record audience fit, post created date, last meaningful activity date, activity recency, rules URL, promotional restrictions, and participation angle.
-   - Mark stale posts older than 14 days as research-only. Do not create them as active engagement targets unless they have meaningful new activity in the last 14 days.
-   - Do not create posts older than 30 days as direct engagement targets by default.
+   - Mark stale posts older than 7 days as research-only. Do not create them as active engagement targets unless they are current recurring/pinned threads or the user explicitly approves the exact dated exception.
+   - Do not create posts older than 14 days as direct engagement targets by default.
    - Set `Stage Updated At`, `Rules Checked At`, and `Last Activity At` when target state or rule state changes.
 
 4. Rule And Compliance Review
@@ -91,7 +91,7 @@ Shared gates:
    - Block copied-looking copy. Before approval, compare the draft against visible thread comments and rewrite if it uses the same opening, sequence of points, examples, phrasing, or conclusion as another user.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
    - Use natural Reddit paragraphing. Do not split every short point into its own paragraph; prefer one compact paragraph or two medium paragraphs when that reads more human. Use a separate paragraph only for a real topic shift or a low-pressure DM line.
-   - Block the packet if the target thread is stale: no meaningful activity in the last 14 days, unless it is a current recurring/pinned thread.
+   - Block the packet if the target thread is stale: no meaningful activity in the last 72 hours by default, or no clear live-thread reason for activity 3-7 days ago. Threads older than 7 days need exact user approval for that dated exception.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.
    - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, follow-up date, and whether the draft counts toward the 10/day top-level comment target.
@@ -101,7 +101,7 @@ Shared gates:
    - For daily target accounting, confirm whether the item is a top-level comment on a distinct post. Replies, DMs, follow-ups, and second comments on the same post do not count toward the 10/day Reddit comment target.
    - For DMs, confirm the exact trigger: the person engaged with our public post/comment, or the person sent an inbound DM first.
    - For DMs, confirm the trigger is recent: inbound DM or engagement with our content within the last 14 days. Older triggers block by default unless the user explicitly approves the exact exception.
-   - Confirm public post/comment/reply targets have meaningful activity within the last 14 days, or are current recurring/pinned threads.
+   - Confirm public post/comment/reply targets have meaningful activity within the last 72 hours by default, or 3-7 days ago with a clear live-thread reason. Older public targets block unless the user explicitly approves the exact dated exception.
    - Confirm the content is useful on its own without relying on RB promotion.
    - Confirm the content is original and not a close paraphrase of an existing Reddit comment in the thread.
    - Confirm there is no request for moderator approval, commercial placement, sponsorship, paid posting, cold DM, or modmail.

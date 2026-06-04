@@ -16,6 +16,7 @@ Use this skill for Facebook group rule review, public post/comment planning, act
 - Preview outbound text in chat. Do not save Facebook drafts.
 - Post/comment/reply only after explicit user approval for the exact text.
 - Log every pre-lead post, comment, reply, blocker, approval basis, and follow-up in Growth Messages.
+- Public reply/comment targets must be very recent. Every candidate must show the post created date and latest meaningful activity date before drafting. Default to posts active in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older threads are research-only unless the user explicitly approves that exact dated exception.
 - A partnership/admin blocker does not automatically block ordinary public participation. If group rules allow helpful non-promotional participation, interact through this posting skill while keeping sponsor/admin asks in the partnership skill.
 
 ## Data Routing
@@ -54,6 +55,7 @@ Shared gates:
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Search for groups and threads where the audience naturally asks about German setup, relocation, taxes, company setup, employment, tech careers, startup/founder life, or expat administration.
    - Prioritize groups with visible rules, recent activity, a natural helpful participation angle, and members likely to have meaningful budget for Germany setup/admin support.
+   - For public comment/reply opportunities, prioritize threads created or meaningfully active in the last 72 hours. Threads active 3-7 days ago are allowed only when the topic is strong and visibly still live.
    - Prefer established expat communities, founder/operator groups, senior tech/professional communities, affluent international clubs, and relocation-adjacent communities.
    - Exclude broad job-seeker groups unless a specific thread is clearly senior, founder/operator, executive, high-income tech, or otherwise budget-qualified. General English-speaking job-search groups are not a good fit by default.
    - For already discovered Facebook partnership rows, separate the route:
@@ -65,6 +67,7 @@ Shared gates:
    - Dedupe by Facebook group URL, post URL, thread URL, and group name.
    - Create/update Growth Targets for groups, relevant posts, recurring threads, and non-commercial posting opportunities.
    - Record audience fit, activity, rules URL, promotional restrictions, posting angle, and any admin approval basis.
+   - For post/thread targets, record post created date, latest meaningful activity date, and recency basis. Mark threads older than 7 days as research-only by default.
    - For group-level interaction, keep one group Growth Target plus separate post/thread Growth Targets when a concrete thread is selected. Do not use only the Business Partner row to track public interaction.
    - Set `Stage Updated At`, `Rules Checked At`, and `Last Activity At` when target state or rule state changes.
 
@@ -78,7 +81,8 @@ Shared gates:
 
 5. Helpful Posting Packet
    - Draft useful, non-promotional group posts or comments in chat when rules allow.
-   - Before each draft, show the initial group question/topic, relevant post/thread context, group rule/admin basis, and why this response is useful for that specific group/thread. If the source context is missing, block the draft.
+   - Before each draft, show the initial group question/topic, post created date, latest meaningful activity date, relevant post/thread context, group rule/admin basis, and why this response is useful for that specific group/thread. If the source context or date evidence is missing, block the draft.
+   - Block drafts for public reply/comment targets older than 7 days unless the user explicitly approves that exact dated exception. Do not fill daily target gaps with stale threads.
    - Read recent posts/comments in the same group first and match the group's normal style. Keep the style human, short, and specific to the original post.
    - Keep content valuable without relying on RB promotion.
    - Every outward-facing comment must be concretely useful. Do not draft a reply that only says to be careful, be mindful, watch out, or speak to a professional. If there is a risk, pair it with a specific next step, decision criterion, setup option, question to ask, document to request, or concrete check the person can act on.
@@ -92,6 +96,7 @@ Shared gates:
 
 6. Posting Readiness
    - Confirm the proposed action is a public group post, comment, or reply.
+   - Confirm the thread is very recent: active in the last 72 hours by default, or active 3-7 days ago with a clear live-thread reason. If older than 7 days, block unless the user has explicitly approved that exact dated exception.
    - Confirm the content is useful on its own and fits the rule basis.
    - Confirm there is no unresolved admin-approval, sponsorship, payment, or commercial-placement requirement.
    - If a commercial/admin route is needed, block posting and route to the partnership skill.
@@ -106,7 +111,8 @@ Shared gates:
 
 8. Reply Drafting Packet
    - Inspect post/comment replies, removals, warnings, and useful engagements.
-   - Before each reply draft, show the initial group post/topic, the latest reply/comment being answered, and why a reply adds value.
+   - Before each reply draft, show the initial group post/topic, post created date, latest meaningful activity date, the latest reply/comment being answered, and why a reply adds value now.
+   - Block reply drafts when the latest meaningful activity is older than 7 days unless the user explicitly approves that exact dated exception.
    - Draft exact reply text in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - For reply drafts, do not stop at generic caution. Add the concrete helpful part: what to ask, what to compare, what setup to consider, or what action to take next.
