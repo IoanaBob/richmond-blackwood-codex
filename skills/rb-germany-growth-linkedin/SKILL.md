@@ -61,7 +61,11 @@ Date-boundary rule:
 - Accepted-connection messages are drafted only after acceptance is verified.
 - First messages, replies, blockers, and follow-ups are Growth Messages records tied to the Growth Target.
 - The prospect's Growth Target page is the source of truth for LinkedIn reply strategy. Use a dedicated strategy property if one exists; otherwise save the strategy in a clearly labeled `LinkedIn Reply Strategy` section in the page content or target notes. Do not store the strategy only in a packet, chat, or Growth Message.
-- A saved reply strategy must include: current thread context, the agreed objective for the next reply, the angle Ioana should take, what must not be mentioned, the proposed next step if the person engages, the approval basis, and a review date. Keep it prospect-specific enough that it would be wrong on another prospect's page.
+- A saved reply strategy is not just the next-message tactic. It must be a prospect-specific 3-4 message conversation arc toward a possible call about the person's actual situation in Germany, only if the thread earns that ask.
+- A saved reply strategy must include: current thread context, the prospect's likely Germany/company/employment setup hypothesis and evidence, useful personal or cultural hooks, the 3-4 message arc, what must not be mentioned, where a Germany-situation question could enter naturally, when a call ask would be justified, the approval basis, and a review date. Keep it prospect-specific enough that it would be wrong on another prospect's page.
+- The first reply in the arc should still answer the person's actual message and keep the topic alive. Do not dump the whole strategy into one reply.
+- A call ask is never automatic. It belongs only near the end of the arc, after the prospect has engaged on their own Germany setup, company structure, remote/freelance work, UG/company administration, or similar lived context, and only after user approval of the exact text.
+- If the prospect shares a real language, nationality, education, or founder/company-structure hook with Ioana, the strategy can use it naturally. Example: if a prospect is Romanian like Ioana, a later or immediate reply may switch to Romanian and mention that Ioana did not initially realize they were Romanian too, as long as this is true from the approved context and the user approves the strategy.
 - Promote/link to canonical Communications only when the thread becomes a lead, client, or business communication that belongs in the main RB communications ledger.
 
 ## Packet Workflow
@@ -167,7 +171,11 @@ Shared gates:
    - Inspect new replies and summarize what the person actually said.
    - Fetch the prospect's Growth Target page and prior Growth Messages before preparing any reply.
    - Before drafting reply text, produce a `Reply Strategy Packet` in chat for that prospect and ask the user to approve or revise the strategy.
-   - The strategy packet must show: prospect URL, Growth Target URL, initial topic/source context, prior Ioana messages, latest reply context, what the person actually appears to care about, the proposed conversation strategy, what to avoid, and the next useful outcome.
+   - The strategy packet must show: prospect URL, Growth Target URL, initial topic/source context, prior Ioana messages, latest reply context, what the person actually appears to care about, the likely Germany setup hypothesis, and a 3-4 message arc toward a possible call about their situation in Germany.
+   - Do not confuse the strategy with the next reply. The packet must make clear what the next message does, what the second/third messages try to learn, and what has to be true before Ioana can ask for a call.
+   - The arc should usually move from their topic, to one pointed bridge into Germany/remote/freelance/company admin only if it fits, to one direct question about their current setup or satisfaction with it, then to a soft call ask if there is real relevance.
+   - For prospects with an entity or setup signal, such as a UG, the strategy may plan a later question about how they manage it and whether they are happy with the setup. Do not ask it before the thread has enough context.
+   - If a shared-language reply would make the exchange more human, include that in the strategy and state which language the next reply should use. Example: Romanian can be used with Romanian prospects when Ioana is the sender and the profile/reply context supports it.
    - Do not draft the reply text until the user explicitly agrees the strategy.
    - After strategy approval, save the agreed strategy to the prospect's Growth Target page and read it back. If save or readback fails, log a blocker and do not draft or send.
    - If a saved strategy already exists, read it back and show whether it still fits the latest reply. If the latest reply changes the direction, propose a strategy update and get approval before drafting.
