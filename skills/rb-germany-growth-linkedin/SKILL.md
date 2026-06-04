@@ -200,6 +200,14 @@ Shared gates:
    - Do not write a summary reporting row. Reconstruct invite quota, blank connection requests, acceptances, accepted-connection messages, replies, blockers, meetings, and invite-to-meeting conversion by querying Growth Messages and Growth Target timestamps.
    - If this run sends first messages or replies but the Daily Invite Gate shows the quota-day blank-invite minimum is still unmet, the next prompt must be a LinkedIn invite-batch packet, not closeout.
 
+## Reusable Reply Strategy Patterns
+
+- Technical-thread bridge: answer the specific technical point first, ask one credible follow-up, then only later bridge into the person's Germany setup if they keep engaging. Do not make the first reply feel like a setup for tax/admin or a call.
+- Shared-language hook: when Ioana genuinely shares language or nationality context with the prospect, the strategy may switch language and mention the shared context casually. It must still respond to the actual thread topic.
+- Entity/setup hook: when the prospect has a UG, company, freelance, contractor, remote-employment, or similar setup signal, the later arc can ask how they manage it in Germany and whether they are happy with it.
+- Call bridge: a call ask belongs near the end of the arc only after the person discusses their Germany setup, friction, or uncertainty. The ask should be framed as comparing their current setup and possible cleaner options, not as an RB pitch in chat.
+- Save every reused pattern as a prospect-specific strategy on the Growth Target before drafting. The reusable pattern is a starting point, not a substitute for the saved strategy.
+
 ## First-Time Message Guidance
 
 Goal: start a real conversation about who they are and what they do. The first message is not a pitch, not a call ask, not a tax/admin services opener, and not a claim-heavy sales message. Any sale should happen later, outside the outreach copy.
