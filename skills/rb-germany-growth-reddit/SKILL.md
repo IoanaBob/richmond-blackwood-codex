@@ -128,6 +128,7 @@ Shared gates:
    - Keep replies useful to the thread and responsive to the other person's comment.
    - Keep DMs tied to the exact public engagement or inbound DM context; do not generate DMs from subreddit member lists, profile searches, or cold prospecting.
    - For Reddit help DMs, lead with a concise high-level answer that is actually useful without a call. Then ask for only the missing facts needed to diagnose. If the situation is too specific for text, offer to jump on a call after the useful answer, not before it.
+   - Do not use unnatural phrasing such as "map the clean version", "map the clean setup", or "clean version". Say the concrete thing instead, for example "work out what address to use", "figure out what to update first", or "look at the bank/state details".
    - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - Do not pitch, ask for mod approval, suggest paid/commercial placement, or introduce RB services unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
    - Update Growth Target status only when evidence supports it.
