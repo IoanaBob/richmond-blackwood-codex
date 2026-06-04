@@ -9,6 +9,7 @@ Applied:
 - Used the repo-local `rb-ebilanz-online` skill and spreadsheet workflow to rebuild eBilanz account-balance upload files for the affected German-tax-resident client batch.
 - Confirmed from eBilanz-Online's official FAQ that one RB master account can hold unlimited clients/mandants and periods, so the preferred account model is a single RB account with separate mandanten.
 - Generated a v2 local upload pack at `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2`.
+- Corrected CLV 2024 live-upload handling after eBilanz stalled on the `.xlsx`: generated `/Users/jp/Downloads/CLV_2024_ebilanz_import_legacy.xls` as a genuine BIFF8/OLE Excel file, matching the Aaron files accepted by the platform.
 - Added per-client eBilanz notes for AGL, CLV, CBMAX, NACV, PCL, and WEW.
 - Created minimal `clients/Companies/PCL/` routing from the Notion Companies `Reference` value `PCL`.
 
@@ -29,6 +30,7 @@ Verification:
 
 - All ten generated workbooks opened through the spreadsheet runtime and exposed an `Import` sheet with `Konto`, `Beschriftung`, `Saldo`, and `S/H`.
 - `file` identified every workbook as Microsoft Excel 2007+.
+- CLV 2024 legacy upload file was verified with `file` as `CDFV2 Microsoft Excel`; use that `.xls` for the live platform upload.
 - AGL source trial-balance extraction balanced to zero; AGL remains review-only because the source uses non-SKR account codes and needs manual/custom mapping.
 
 Unresolved:
