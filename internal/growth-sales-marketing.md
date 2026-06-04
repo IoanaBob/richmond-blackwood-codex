@@ -197,6 +197,7 @@ Operational gates:
 - Reddit copy should avoid the word "path," slash-heavy phrasing, long enumerations unless the local style supports them, and mechanical contrast sentences that read like a template.
 - All growth outreach copy should follow the same style rule. Keep sentences short. Avoid comma-chain lists; outbound sentences should normally have at most two commas and never more than three.
 - Facebook and Reddit public replies must be more useful than generic caution. Do not only say "be careful", "be mindful", "watch out", or "speak to a professional"; each reply should give a concrete next step, decision criterion, setup option, question to ask, document to request, or check the person can act on.
+- If a public reply tells someone to compare two options, the reply must actually compare them. Explain the practical difference, when each option may fit, and what to check next. Expanded comments are fine when the topic needs that detail.
 - Canonical Communications is used only when a growth thread becomes a lead/client/business communication or when a Growth Messages record is intentionally promoted and linked through `Promoted Communication`.
 - Growth Messages records should set `Audience Target`, `Growth Channel`, `Sender Identity`, `Message Kind`, `Status`, and relevant timestamps when available.
 - Prospect PII and channel state belong in Notion, not git.

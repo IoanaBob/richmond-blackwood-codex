@@ -82,6 +82,7 @@ Shared gates:
    - Read recent posts/comments in the same group first and match the group's normal style. Keep the style human, short, and specific to the original post.
    - Keep content valuable without relying on RB promotion.
    - Every outward-facing comment must be concretely useful. Do not draft a reply that only says to be careful, be mindful, watch out, or speak to a professional. If there is a risk, pair it with a specific next step, decision criterion, setup option, question to ask, document to request, or concrete check the person can act on.
+   - If a draft tells someone to compare two options, make the comparison in the comment. Explain the practical difference, when each option may fit, and what to check next. Expanded comments are allowed when that is what makes the answer genuinely helpful.
    - Avoid unapproved claims, service pitches, savings claims, and generic "book a call" framing.
    - Avoid the word "path" in outbound copy, slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
@@ -109,6 +110,7 @@ Shared gates:
    - Draft exact reply text in chat before any send.
    - Keep replies useful to the thread and responsive to the other person's comment.
    - For reply drafts, do not stop at generic caution. Add the concrete helpful part: what to ask, what to compare, what setup to consider, or what action to take next.
+   - When the helpful part is a comparison, do the comparison instead of naming the options and moving on.
    - Do not pitch, move to DMs, introduce RB services, or make new claims unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
 
 9. Follow-Up Drafting Packet
