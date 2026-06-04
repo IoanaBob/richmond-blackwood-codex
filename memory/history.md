@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-04 - Aaron eBilanz Transmission And Workflow Correction
+
+- User request: Update the eBilanz skill/memory after Aaron's filings, keep only the correct workflow, avoid wrong Excel upload formats, and find a way to regain direct site control if possible.
+- Context read: Aaron eBilanz client files, downloaded protocol PDFs, corrected mapping PDFs/workbooks, current `rb-ebilanz-online` skill, and the Codex browser-control failure for `ebilanzonline.de`.
+- Actions taken: Updated the reusable eBilanz skill with the source-signed import workbook rule, platform-readable Excel guidance, structure-preserving mapping patch helper, SKR03 account `1766` VAT/tax-liability correction rule, empty-component validation rule, and protocol proof handling. Updated Aaron's client notes/source register/personal-tax record to show the 2023 and 2024 filings were corrected and transmitted on 2026-06-04.
+- Decisions made: Downloaded eBilanz mapping exports must not be rewritten through openpyxl/artifact-tool because the platform can reject the resulting file structure; patch the original OOXML package instead. Account `1766` belongs with VAT/tax liabilities, not tax provisions, unless a future source chart proves otherwise.
+- Verification: Protocol PDFs read back as `Übertragungsprotokoll` for Finanzamt Lichtenberg with Sendedatum `2026-06-04`; the mapping PDF read-back confirmed `1766` under `Other liabilities -> Taxes`.
+- Limitations or gaps: Codex browser control for `ebilanzonline.de` remains blocked by security policy. Future direct control needs an approved/allowlisted browser route or official platform/API support; otherwise Codex should prepare exact files and guide the human operator.
+
 ## 2026-05-20 - Common Tasks Follow-Through Process Corrections
 
 - User request: Apply issues found in the Slack closeout and process run: keep packets but auto-approve specific stages, add missed WhatsApp chats, prevent premature checkpoint advancement, review comments from the run, require Stage 1 to pull latest `main`, and prepare a new PR.
