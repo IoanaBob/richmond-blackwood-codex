@@ -15,6 +15,7 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Preview outbound text in chat. Do not save LinkedIn drafts.
 - Send only after explicit user approval for the exact request or message.
 - Log every pre-lead request, first message, reply, blocker, and follow-up in Growth Messages.
+- LinkedIn replies block until an overarching reply strategy has been proposed in chat, explicitly agreed by the user, saved on the prospect's Growth Target page, and read back before drafting or sending the reply.
 - Default invite operating quota for the active first audience is 320 blank connection requests/month, calculated as a 16-request planning baseline across a 20-business-day month.
 - Daily send range is 15-20 blank connection requests/business day after explicit approval and immediate Ioana-session verification.
 - Daily invite counts are valid only for an explicitly declared quota date and timezone. Before deciding whether an invite batch is needed, build a Daily Invite Gate that shows the quota window, the current time, included connection-request sends, excluded previous/next-day sends, remaining count to 15, and remaining capacity to 20.
@@ -59,6 +60,8 @@ Date-boundary rule:
 - Connection requests are Growth Messages records tied to the Growth Target.
 - Accepted-connection messages are drafted only after acceptance is verified.
 - First messages, replies, blockers, and follow-ups are Growth Messages records tied to the Growth Target.
+- The prospect's Growth Target page is the source of truth for LinkedIn reply strategy. Use a dedicated strategy property if one exists; otherwise save the strategy in a clearly labeled `LinkedIn Reply Strategy` section in the page content or target notes. Do not store the strategy only in a packet, chat, or Growth Message.
+- A saved reply strategy must include: current thread context, the agreed objective for the next reply, the angle Ioana should take, what must not be mentioned, the proposed next step if the person engages, the approval basis, and a review date. Keep it prospect-specific enough that it would be wrong on another prospect's page.
 - Promote/link to canonical Communications only when the thread becomes a lead, client, or business communication that belongs in the main RB communications ledger.
 
 ## Packet Workflow
@@ -162,11 +165,17 @@ Shared gates:
 
 9. Reply Drafting Packet
    - Inspect new replies and summarize what the person actually said.
-   - Before each reply draft, show the initial topic/source context and the latest reply context so the user can see what the draft is responding to.
-   - Draft a reply in chat that responds to their topic without using a preset sales setup.
+   - Fetch the prospect's Growth Target page and prior Growth Messages before preparing any reply.
+   - Before drafting reply text, produce a `Reply Strategy Packet` in chat for that prospect and ask the user to approve or revise the strategy.
+   - The strategy packet must show: prospect URL, Growth Target URL, initial topic/source context, prior Ioana messages, latest reply context, what the person actually appears to care about, the proposed conversation strategy, what to avoid, and the next useful outcome.
+   - Do not draft the reply text until the user explicitly agrees the strategy.
+   - After strategy approval, save the agreed strategy to the prospect's Growth Target page and read it back. If save or readback fails, log a blocker and do not draft or send.
+   - If a saved strategy already exists, read it back and show whether it still fits the latest reply. If the latest reply changes the direction, propose a strategy update and get approval before drafting.
+   - The saved strategy must be updated before every substantive reply where the intent, tone, topic, or next outcome changes.
+   - Once the strategy is agreed, saved, and read back, draft a reply in chat that follows that strategy and responds to their topic without using a preset sales setup.
    - Keep the reply founder/operator-to-founder/operator when relevant.
    - Do not pitch, mention services, ask for a call, or steer toward a sales setup. If the person explicitly asks for help, draft a neutral human reply for user review.
-   - Preview exact reply text with sender identity, source target, and proposed follow-up date.
+   - Preview exact reply text with sender identity, source target, agreed strategy summary, saved strategy location, and proposed follow-up date.
 
 10. Follow-Up Drafting Packet
    - Inspect due follow-ups for accepted connections, first messages, replies, and blockers.
@@ -322,6 +331,7 @@ Return:
 
 - Growth Targets created/updated.
 - Growth Messages created/updated.
+- LinkedIn reply strategies proposed, approved, saved, read back, or blocked.
 - Blockers and Ioana-gate status.
 - Message previews awaiting approval.
 - Follow-ups and reporting counts to advance.
