@@ -205,6 +205,7 @@ Shared gates:
 ## Reusable Reply Strategy Patterns
 
 - Technical-thread bridge: answer the specific technical point first, ask one credible follow-up, then only later bridge into the person's Germany setup if they keep engaging. Do not make the first reply feel like a setup for tax/admin or a call.
+- Scope-clarification replies must choose a legitimate scope and show a reason for the question. If the prospect asks whether Ioana means architecture, implementation, product fit, or a specific use case, answer that directly and ask a precise question inside that scope. Avoid saying `no current implementation`, `no use case`, or similar unless it is necessary; it can make Ioana sound like she has no context and is wasting the prospect's time.
 - Shared-language hook: when Ioana genuinely shares language or nationality context with the prospect, the strategy may switch language and mention the shared context casually. It must still respond to the actual thread topic.
 - Entity/setup hook: when the prospect has a UG, company, freelance, contractor, remote-employment, or similar setup signal, the later arc can ask how they manage it in Germany and whether they are happy with it.
 - Call bridge: a call ask belongs near the end of the arc only after the person discusses their Germany setup, friction, or uncertainty. The ask should be framed as comparing their current setup and possible cleaner options, not as an RB pitch in chat.
