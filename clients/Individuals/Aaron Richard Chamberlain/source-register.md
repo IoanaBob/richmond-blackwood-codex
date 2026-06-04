@@ -14,7 +14,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-18 | Codex thread | Finanzamt requested P&L/balance-sheet support. User clarified to follow source dates: WhatsApp 2026-05-19 at latest and Notion before 2026-05-22. |
 | 2026-05-18 | Codex thread | Finanzamt has not yet responded to the payment-plan proposal, and P-Konto is not confirmed active. |
 | 2026-06-03 | Codex thread | User asked to use eBilanz-Online to prepare Aaron's 2023 and 2024 electronic balance sheets from the Drive FS workbooks, using Notion personal details as needed, and explicitly forbade submission without approval. |
-| 2026-06-03 | Codex thread / in-app browser | Created and populated eBilanz-Online drafts for 2023 and 2024. Draft IDs: 2023 `625302`, 2024 `625318`. No transmission, ELSTER authentication, PIN entry, or voucher/payment was performed. |
+| 2026-06-03 to 2026-06-04 | Codex thread / in-app browser | Created, populated, corrected, and user-transmitted eBilanz-Online filings for 2023 and 2024. Period IDs: 2023 `625302`, 2024 `625318`. Final protocol PDFs confirm transmission on 2026-06-04. |
 
 ## Notion
 
@@ -45,6 +45,10 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | eBilanz-Online draft packet | `ebilanz-online.md` | Local source-backed draft plan, public platform notes, and FS summary figures. |
 | 2023 eBilanz import workbook | `/Users/jp/Downloads/Aaron_Chamberlain_eBilanz_2023_import_legacy.xls` | Local import artifact uploaded by the user to eBilanz-Online draft `625302`; Drive FS workbook remains source of truth. |
 | 2024 eBilanz import workbook | `/Users/jp/Downloads/Aaron_Chamberlain_eBilanz_2024_import_legacy.xls` | Local import artifact uploaded by the user to eBilanz-Online draft `625318`; Drive FS workbook remains source of truth. |
+| 2023 corrected eBilanz mapping workbook | `/Users/jp/Downloads/Aaron_2023_mapping_1766_VAT_fix_v2.xlsx` | Local working artifact uploaded after moving SKR03 account `1766` from tax provisions to VAT/tax liabilities. |
+| 2024 corrected eBilanz mapping workbook | `/Users/jp/Downloads/Aaron_2024_mapping_1766_VAT_fix.xlsx` | Local working artifact uploaded after applying the same account `1766` VAT/tax-liability mapping correction for 2024. |
+| 2023 eBilanz transmission protocol | `/Users/jp/Downloads/protocol-1780574201263.pdf` | Local protocol PDF for Finanzamt Lichtenberg, year-end `2023-12-31`, Sendedatum `2026-06-04 13:56:08`, transfer identifier `eh1556a327x6986hag8t51say4b9rd5w`; upload/link to Drive/Notion if not already done. |
+| 2024 eBilanz transmission protocol | `/Users/jp/Downloads/protocol-1780574646716.pdf` | Local protocol PDF for Finanzamt Lichtenberg, year-end `2024-12-31`, Sendedatum `2026-06-04 14:03:53`, transfer identifier `eh1552bcc7uhnr5i8ia6pu53772dzw37`; upload/link to Drive/Notion if not already done. |
 
 ## Public / Platform Sources
 
@@ -55,7 +59,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | eBilanz-Online DATEV import FAQ | `https://www.ebilanzonline.de/wissen/faq/importmoeglichkeiten/datev-mittelstand-faktura-mit-rechnungswesen/` | Public workflow for importing a Summen- und Saldenliste into `Kontensalden fuer Zuordnung`. |
 | eBilanz-Online technical requirements | `https://www.ebilanzonline.de/wissen/faq/technische-voraussetzungen/` | ElsterBasis certificate requirement for final transfer and Excel import requirements. |
 | eBilanz-Online 13-digit tax number guide | `https://www.ebilanzonline.de/wissen/13-stellige-steuernummer/` | Public Berlin conversion rule for the 13-digit ELSTER tax number. |
-| eBilanz-Online live account | `https://www.ebilanzonline.de/ebo/` | Draft 2023 period `625302` and draft 2024 period `625318` were populated in the logged-in account on 2026-06-03. |
+| eBilanz-Online live account | `https://www.ebilanzonline.de/ebo/` | Period `625302` for 2023 and period `625318` for 2024 were populated, corrected, and transmitted in the logged-in account by 2026-06-04. |
 
 ## Gmail
 

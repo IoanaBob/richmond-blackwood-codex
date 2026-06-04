@@ -1,9 +1,9 @@
-# eBilanz-Online Draft Packet
+# eBilanz-Online Filing Packet
 
 Status: provisional.
-Source: User instruction on 2026-06-03, Finanzamt Lichtenberg E-Bilanz letter in Drive, Notion task `https://www.notion.so/353e413013148070ad92d56880997fb6`, Aaron individual record, 2023/2024 FS workbooks, and eBilanz-Online public FAQ pages reviewed on 2026-06-03.
+Source: User instruction on 2026-06-03 and 2026-06-04, Finanzamt Lichtenberg E-Bilanz letter in Drive, Notion task `https://www.notion.so/353e413013148070ad92d56880997fb6`, Aaron individual record, 2023/2024 FS workbooks, eBilanz-Online account screens, mapping exports/PDFs, and downloaded transmission protocol PDFs.
 Imported: 2026-06-03.
-Review: Drafts were created and populated in eBilanz-Online on 2026-06-03. Do not submit/transmit without explicit user approval. Final ELSTER certificate/PIN/voucher/payment and any reviewer sign-off remain outstanding.
+Review: 2023 and 2024 filings were corrected and transmitted through eBilanz-Online on 2026-06-04 after user-operated upload/review steps. Store the protocol PDFs in Drive and update live Notion filing/task rows if not already done.
 
 ## Authority Requirement
 
@@ -14,9 +14,9 @@ Source letter: `https://drive.google.com/file/d/1CicvmfDj5xMfO1lJ7EDA4BjTeQo6E7R
 ## Platform Status
 
 Status: provisional.
-Source: eBilanz-Online public pages and in-app browser inspection on 2026-06-03.
+Source: eBilanz-Online public pages, in-app browser inspection, user-operated uploads, mapping PDFs, and protocol PDFs on 2026-06-03 to 2026-06-04.
 Imported: 2026-06-03.
-Review: Final transmission was not attempted. Transmit pages require an ElsterBasis certificate/PIN and a voucher/payment asset before final transfer.
+Review: Final transmission was completed for Aaron 2023 and 2024 on 2026-06-04. Future amendments still require fresh user approval before any certificate/PIN/voucher/payment/final send step.
 
 - Public site: `https://www.ebilanzonline.de/`
 - Login is required; user logged into Aaron's eBilanz-Online account in the in-app browser on 2026-06-03.
@@ -24,7 +24,7 @@ Review: Final transmission was not attempted. Transmit pages require an ElsterBa
 - eBilanz-Online supports manual entry and Excel import. Public docs say data can be entered in the import module, GCD module, and GAAP module, or imported through Excel.
 - Public docs say DATEV SKR03/SKR04 standard mappings are available. Aaron's workbooks use DATEV-style accounts; confirm SKR03 mapping in the app before relying on auto-mapping.
 - A 13-digit ELSTER tax number is needed for E-Bilanz setup. For Berlin, the public converter rule is `11FF0BBBUUUUP`; derive the exact value from Aaron's live Notion/Drive tax number at data-entry time and do not store it here.
-- An ElsterBasis software certificate is required for final transmission. Draft creation/import was possible before transmission. The 2024 transmit page showed certificate/PIN/voucher inputs and no final transfer was made.
+- An ElsterBasis software certificate is required for final transmission. Draft creation/import was possible before transmission. The final 2023 and 2024 transfers were completed by the user/operator on 2026-06-04.
 
 Useful public docs:
 
@@ -44,14 +44,14 @@ Useful public docs:
 6. Validate each draft inside eBilanz-Online. Fix mapping/sign/mandatory-field errors.
 7. Stop before any paid transfer, ELSTER certificate authentication, or final transmission. Show the validation result and ask the user for approval.
 
-## Live Draft Status
+## Final Filing Status
 
 Status: provisional.
-Source: eBilanz-Online account screens, user-uploaded import files, and source FS workbooks on 2026-06-03.
+Source: eBilanz-Online account screens, user-uploaded import files, source FS workbooks, corrected mapping files, mapping PDF read-back, and downloaded protocol PDFs on 2026-06-03 to 2026-06-04.
 Imported: 2026-06-03.
-Review: A tax reviewer should confirm the 2024 beginning/previous-year business assets value before transmission because the 2024 source balance sheet imports `22,054.66`, while the 2023 eBilanz ending equity shown in the prepared 2023 draft is `19,658.45`. No transmission or ELSTER authentication has been performed.
+Review: The known account `1766` VAT mapping issue was corrected before final transmission. If an amended filing is later required, rerun pre-validation, review the full generated print/PDF packet, and download a fresh protocol after transmission.
 
-### 2023 Draft
+### 2023 Filing
 
 - eBilanz period ID: `625302`
 - Period: `2023-01-01` to `2023-12-31`
@@ -76,9 +76,19 @@ Review: A tax reviewer should confirm the 2024 beginning/previous-year business 
 - Determination of taxable income:
   - Taxable profit/loss: `127,209.80`
   - Net income/net loss for the financial year: `127,209.80`
-- Transmission status: not transmitted. Transmit page was inspected only; no certificate/PIN/voucher was entered.
+- Associated-account correction:
+  - Account `1766` (`Umsatzsteuer nicht faellig 19%`) was moved from tax provisions to `Liabilities -> Other liabilities -> Taxes`, matching the VAT/tax-liability mapping used for `1776`, `1780`, and `1790`.
+  - Corrected mapping upload artifact: `/Users/jp/Downloads/Aaron_2023_mapping_1766_VAT_fix_v2.xlsx`
+  - Mapping PDF read-back confirms `Provision for other taxes (except deferred tax liabilities)` excludes `1766`, and `Other liabilities -> Taxes` includes `1766`.
+- Transmission status: transmitted.
+  - Protocol PDF: `/Users/jp/Downloads/protocol-1780574201263.pdf`
+  - Protocol type: `Übertragungsprotokoll`, `ElsterBilanz`
+  - Destination: Finanzamt Lichtenberg
+  - Year-end date: `2023-12-31`
+  - Sendedatum: `2026-06-04 13:56:08`
+  - Transfer identifier: `eh1556a327x6986hag8t51say4b9rd5w`
 
-### 2024 Draft
+### 2024 Filing
 
 - eBilanz period ID: `625318`
 - Period: `2024-01-01` to `2024-12-31`
@@ -95,8 +105,8 @@ Review: A tax reviewer should confirm the 2024 beginning/previous-year business 
   - Beginning balance: `22,054.66`
   - Net income/net loss for the financial year: `171,456.02`
   - Capital withdrawals: `177,897.53`
-  - Provisions: `-2,837.22`
-  - Liabilities: `11,631.02`
+  - Provisions: source-backed provision accounts total `1,570.11` before eBilanz sign presentation, from accounts `970` and `977`
+  - VAT payable / tax liabilities include source account `1766` after mapping correction
 - Determination of taxable income by comparison of business assets:
   - Net profit/net loss: `171,456.02`
   - Business assets at financial year end: `15,613.15`
@@ -106,7 +116,16 @@ Review: A tax reviewer should confirm the 2024 beginning/previous-year business 
 - Determination of taxable income:
   - Taxable profit/loss: `171,456.02`
   - Net income/net loss for the financial year: `171,456.02`
-- Transmission status: not transmitted. Transmit page was inspected only; no certificate/PIN/voucher was entered.
+- Associated-account correction:
+  - Account `1766` (`Umsatzsteuer nicht faellig 19%`) was moved from tax provisions to the same VAT/tax-liability taxonomy row used by `1776`, `1780`, and `1790`.
+  - Corrected mapping upload artifact: `/Users/jp/Downloads/Aaron_2024_mapping_1766_VAT_fix.xlsx`
+- Transmission status: transmitted.
+  - Protocol PDF: `/Users/jp/Downloads/protocol-1780574646716.pdf`
+  - Protocol type: `Übertragungsprotokoll`, `ElsterBilanz`
+  - Destination: Finanzamt Lichtenberg
+  - Year-end date: `2024-12-31`
+  - Sendedatum: `2026-06-04 14:03:53`
+  - Transfer identifier: `eh1552bcc7uhnr5i8ia6pu53772dzw37`
 
 ## Source Workbooks
 
@@ -175,9 +194,8 @@ Balance sheet:
 - VAT payable: -10,363.91
 - Total asset and liability check: 0.00
 
-## Open Review Points
+## Post-Transmission Follow-Up
 
-- Confirm the 2024 previous-year business assets/opening equity value of `22,054.66` against the 2023 prepared draft ending equity of `19,658.45` before final transfer.
-- Confirm whether the final transmission requires Aaron's own ElsterBasis certificate or RB/adviser authorization can be used in the account.
-- Confirm voucher/payment availability in eBilanz-Online before final transfer.
-- Confirm that any platform validation shown after certificate/PIN entry passes before asking for final submission approval.
+- Store the two protocol PDFs in Aaron's Drive filing folder and link them from the relevant Notion filing/task rows if not already done.
+- Keep the corrected mapping upload workbooks as working artifacts only; the source FS workbooks remain the accounting source of truth.
+- If the Finanzamt later asks for amendment/correction, use the corrected mapping rule above and create a new protocol after any fresh transmission.

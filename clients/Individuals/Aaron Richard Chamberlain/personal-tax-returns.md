@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion individual and Personal Tax Filings records, Client Notes & Updates, Gmail, WhatsApp, Drive, and user instruction reviewed on 2026-05-18.
 Imported: 2026-05-18.
-Review: User confirmed no payment-plan response yet and no confirmed active P-Konto; confirm 2025 joint filing scope and final submission evidence for the 2023/2024 P&L/balance-sheet package.
+Review: User confirmed no payment-plan response yet and no confirmed active P-Konto; confirm 2025 joint filing scope. The 2023/2024 eBilanz protocol evidence is recorded locally and should be stored/linked in Drive/Notion if not already done.
 
 ## Linked Person
 
@@ -64,9 +64,7 @@ User clarified on 2026-05-18 to follow the source dates rather than the earlier 
 
 Relevant task: `Prepare P&L and Balance Sheet for Aaron` at `https://www.notion.so/353e413013148070ad92d56880997fb6`.
 
-Follow-up on 2026-06-03: the Finanzamt Lichtenberg letter dated 2026-05-20 asks for electronic E-Bilanzen for 2023 and 2024 by 2026-06-10 and says the Excel tables are not sufficient. The eBilanz-Online draft packet is in `ebilanz-online.md`. User explicitly said not to submit/transmit without approval.
-
-Follow-up on 2026-06-03: Aaron's 2023 and 2024 eBilanz-Online drafts were created and populated from the Drive FS workbooks. 2023 draft period ID `625302` and 2024 draft period ID `625318` are prepared but not transmitted. Final transfer still requires explicit user approval, ELSTER certificate/PIN/voucher/payment, and review of the 2024 opening/previous-year business assets value noted in `ebilanz-online.md`.
+Follow-up on 2026-06-03 to 2026-06-04: the Finanzamt Lichtenberg letter dated 2026-05-20 asked for electronic E-Bilanzen for 2023 and 2024 by 2026-06-10 and said the Excel tables were not sufficient. Aaron's 2023 and 2024 eBilanz-Online filings were created from the Drive FS workbooks, corrected for the SKR03 account `1766` VAT/tax-liability mapping, and transmitted on 2026-06-04. The eBilanz-Online filing packet and local protocol pointers are in `ebilanz-online.md`; upload/link the protocol PDFs to Drive/Notion if not already done.
 
 ## 2025 Joint Filing
 
