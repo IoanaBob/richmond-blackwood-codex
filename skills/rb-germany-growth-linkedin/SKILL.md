@@ -159,6 +159,8 @@ Shared gates:
 
 8. Accepted-Connection Message Packet
    - Draft the first message only after acceptance is verified.
+   - Before drafting or marking a first message send-ready, run a duplicate-send gate: read Growth Messages and the visible LinkedIn thread for that exact prospect and prove no prior first message has already been sent. The packet must show the Growth Messages readback, LinkedIn thread readback, and conclusion.
+   - If a prior first message exists, block the accepted-connection first-message draft and route the prospect to reply, follow-up, or no-action handling based on the latest thread state.
    - Before each draft, show the initial topic/source context: who the person is, what public signal triggered the message, the exact company/product/post/project detail being referenced, and why it is relevant to Ioana.
    - Use a helpful, low-pressure opener tailored to who the person is and what they do.
    - Cite at least one concrete public signal beyond the top card/headline: company/product name, specific feature, market, article, launch, role scope, technical area, shipped system, hiring post, technical post, conference talk, or founder decision.
