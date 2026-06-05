@@ -61,6 +61,10 @@ Shared gates:
 2. Audience And Community Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, tech careers, startup/founder setup, remote work, or expat administration.
+   - Primary sourcing priority is high-intent Germany admin/tax pain, especially posts from people struggling with consulting, freelancing, contractor status, invoicing, VAT, income tax, social security, private/public health insurance, pension contributions, GmbH/UG/company setup, EOR/payroll, or remote work for foreign clients while Germany-based.
+   - Prioritize threads with explicit high-earner or budget-qualified signals: six-figure compensation, high day rates, senior tech consulting, US/foreign clients, US-like compensation, RSUs/equity, company revenue, high taxable income, expensive pension or health-insurance contributions, or a stated desire to reduce/avoid statutory pension contributions. Use only explicit public text from the post or comments; do not infer income, wealth, nationality, age, or tax position from identity, appearance, or seniority alone.
+   - Deprioritize generic relocation, tourism, student, visa-only, language-learning, housing-only, and low-context job-search posts unless they include a concrete freelance, consulting, company, tax, pension, payroll, banking, or high-earner setup problem.
+   - Useful query themes include `Germany freelance tax`, `Freiberufler Germany`, `consultant Germany taxes`, `remote US job Germany`, `US client Germany`, `German pension contributions`, `Rentenversicherung freelancer`, `GmbH vs freelancer`, `UG Germany taxes`, `private health insurance self-employed`, `VAT Germany freelancer`, `EOR Germany`, and `Scheinselbständigkeit`.
    - Target very recent Reddit activity, not stale archive threads. For top-level comment opportunities, default to threads created or meaningfully active within the last 72 hours. Threads active 3-7 days ago are allowed only when the topic is strong and visibly still live.
    - Source enough recent relevant posts to prepare at least 10 top-level comment drafts per day for the active audience. Use 15-20 sourced candidates as the normal buffer when the subreddit quality is uneven.
    - Track the daily top-level comment target state in the packet: target 10, safe comment drafts, high-risk/provisional drafts, approved comments posted today, replies/DMs excluded from count, and remaining gap.
@@ -71,6 +75,9 @@ Shared gates:
    - Create/update Growth Targets for subreddits, relevant posts, recurring threads, and non-commercial research targets.
    - Mark distinct recent posts that could receive a top-level comment as `Top-Level Comment Candidate` when the schema supports it.
    - Record audience fit, post created date, last meaningful activity date, activity recency, rules URL, promotional restrictions, and participation angle.
+   - For each candidate post, record the primary problem category, such as `freelance tax`, `consulting setup`, `pension contribution`, `company structure`, `remote foreign employer`, `EOR/payroll`, `banking/KYC`, `VAT/invoicing`, or `high-comp Germany setup`.
+   - Record the explicit high-earner or budget-qualified signal when present. If no explicit signal exists, mark it `not shown` rather than guessing.
+   - Rank comment candidates by problem fit first, then recency, then subreddit rule safety. A very recent generic post should not outrank a recent concrete Germany freelance/tax/pension/company-setup problem.
    - Mark stale posts older than 7 days as research-only. Do not create them as active engagement targets unless they are current recurring/pinned threads or the user explicitly approves the exact dated exception.
    - Do not create posts older than 14 days as direct engagement targets by default.
    - Set `Stage Updated At`, `Rules Checked At`, and `Last Activity At` when target state or rule state changes.
@@ -86,6 +93,7 @@ Shared gates:
 5. Helpful Participation Packet
    - Draft helpful, non-promotional top-level comments or posts in chat when rules allow. Default Reddit daily output is 10 top-level comment drafts on 10 distinct posts.
    - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
+   - For each draft, show the Germany growth fit: problem category, explicit high-earner/budget signal if any, the concrete tax/admin/company/freelance/pension issue, and the immediate advice Ioana can give without turning the comment into a pitch.
    - Include a subreddit style-basis before each draft: recent posts/comments read, observed tone, typical specificity/length, terms users use, and any style to avoid. Drafts must match the local style without becoming rude, promotional, generic, or inaccurate.
    - Include a `DM help assessment` before each draft: whether Ioana or RB can seriously help with the thread's specific problem, whether a DM line fits naturally, and whether it should be removed for rule or tone reasons.
    - DM-help lines must be specific and low-pressure, for example "Can help with both in DM if useful" or "DM me if you want a second pair of eyes on the setup." Do not use generic CTAs, booking language, service names, or broad filler.
