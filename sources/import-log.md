@@ -2,6 +2,26 @@
 
 Status: active.
 
+## 2026-06-05 - RBL Review Corrections
+
+Applied:
+
+- Applied user review answers for RBL registered office, April 2026 PAYE payment, Payroll/VIES/Corporation Tax registrations, future VAT due-date/title, Workhub upgraded-plan context, and shareholder-relation handling.
+- Updated/read back live Notion records: RBL company `Registered Office Address`, VIES registration, Corporation Tax registration, Payroll Tax registration, April 2026 PAYE payment, and future VAT filing title.
+- Searched Google Drive for RBL/Richmond Blackwood folders and recorded candidate folder `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`.
+- Updated `clients/Companies/RBL/`, `memory/current-state.md`, `memory/handoff.md`, `memory/open-questions.md`, `memory/history.md`, `memory/skill-runs.md`, and `sources/source-register.md`.
+
+Verification:
+
+- Notion read-back confirmed RBL registered office, payment, registration, and VAT-title updates.
+- Drive list-folder read-back confirmed the folder contains RBL-specific finance, filing, and registration material.
+
+Follow-up:
+
+- Confirm whether the found Drive folder is the approved canonical RBL upload destination/category.
+- Confirm Sage/Xero migration decision.
+- Confirm Workhub VAT treatment and exact RBL upgraded-plan amount against source invoices.
+
 ## 2026-06-03 - VBG Accident Insurance Skill
 
 Imported:
@@ -23,6 +43,28 @@ Verification:
 Unresolved:
 
 - SVL-specific submission remains pending operator approval of the exact form-fill packet and the business-purpose classification/description.
+
+## 2026-06-03 - RBL / Richmond Blackwood Company Context Refresh
+
+Applied:
+
+- Refreshed `clients/Companies/RBL/` from the Notion Companies `Reference` value and populated the normal company-memory surface for RICHMOND BLACKWOOD LIMITED.
+- Preserved the existing RBL Workhub invoice-validation rule and added current finance follow-ups from Notion.
+- Captured RBL's internal-company and service-provider boundary: RBL facts belong in RBL, while client-specific contract/pricing/private facts belong in the owning client folders and live client database rows.
+- Captured corporate identity, regulatory registrations, tax/VAT/filing registrations, payroll/payment state, accounting setup, communications rules, project routing, source pointers, and open questions.
+- Checked CRO Open Data for company number 735818 because the Notion company record had blank `Registered Office Address`; CRO returned the Workhub/Camden Street address, normal LTD status, NARD 2026-08-28, and last accounts date 2024-12-31.
+- Recorded that the RBL-specific annual VAT task is archived/superseded and the consolidated affected-client VAT checklist does not include RBL.
+
+Verification:
+
+- Notion source context was reviewed through targeted fetches captured in the run state.
+- CRO Open Data was queried directly through the official data API.
+- No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified during this import.
+
+Follow-up:
+
+- Resolved by 2026-06-05 review/update: Notion registered-office writeback, April 2026 PAYE payment status, Payroll/VIES/Corporation Tax registration statuses, and future VAT title/date mismatch.
+- Remaining after 2026-06-05: confirm found RBL Drive folder as approved canonical upload destination/category, current Sage/Xero migration decision, and Workhub VAT/exact RBL upgraded-plan amount.
 
 ## 2026-05-26 - KONVI Company Context Import
 

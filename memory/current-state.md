@@ -26,6 +26,7 @@ Current implementation includes:
 - Reference-based AMC company client folder under `clients/Companies/AMC/`, loaded on 2026-05-18 from Notion, Drive, Gmail, WhatsApp, Slack, and user clarification.
 - Reference-based AKS company client folder under `clients/Companies/AKS/`, loaded on 2026-05-19 from Notion, Drive, Gmail, WhatsApp, Slack, Google Sheets, and user clarification.
 - Reference-based TPL company client folder under `clients/Companies/TPL/`, loaded on 2026-05-22 from Notion, Drive, Gmail, WhatsApp, and user clarification.
+- Reference-based RBL company folder under `clients/Companies/RBL/`, refreshed on 2026-06-03 from Notion, CRO Open Data, internal RB memory, and user instruction; updated on 2026-06-05 after user review, live Notion status cleanup, and Drive search.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
@@ -263,6 +264,19 @@ KONVI / KONVI LIMITED context import:
 - High-signal active issues: April books/Irish VAT/ROS demand, Revenue VAT refund support, VIES overdue row, `luigi@konvi.app` mailbox/send-as repair, LuxTrust order pack, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, XVault/MiCA/CASP risk review, Konvi tax-support landing page, and shareholder-query review.
 - Corrected source-of-truth fields on 2026-05-26: KONVI registered office is `Workhub, 77 Lower Camden Street, Dublin, D02 XE80, Ireland` from CRO Open Data; KHL registered/correspondence address is `6b Upper Water Street, Newry, Down, BT34 1DJ` from Companies House; KHL placeholder email fields were cleared; the Konvi business partner now records VAT registered in IE and UK, with German VAT deregistered.
 - Remaining data-quality issues: future VAT filing title/date mismatch, 2026 annual-return row not confirmed in this first pass, and UK VAT automation tasks misnamed as IE VAT.
+
+RBL / RICHMOND BLACKWOOD LIMITED context refresh:
+
+- Company folder: `clients/Companies/RBL/`.
+- Notion company: `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`; `Reference` is `RBL`.
+- Notion client project: `https://www.notion.so/32fe4130131480779ce6cb2a311c51e4`.
+- No WhatsApp route is recorded for RBL in this import/update.
+- Current company state from Notion/CRO: Irish incorporated and tax resident, Xero accounting software, internal group managed services, Low risk, company number 735818, registered on 2023-02-28. CRO Open Data returns the registered office as Workhub, 77 Camden Street Lower, Dublin 2, D02 XE80; the Notion company registered-office field was updated and read back on 2026-06-05.
+- Boundary: RBL is both the internal operating company and service-provider/counterparty across client contracts. Client-specific fees, contract performance, and private client facts should remain in the relevant client folders and live contract/invoicing rows.
+- High-signal active checks: SimplePay debit-card billing blocker, Wamo payment-approval support task, Sage/Xero migration decision, and confirming Workhub VAT/exact upgraded-plan treatment for RBL after user said RB likely paid the upgraded amount.
+- Checked/noise item: the RBL-specific annual VAT task is archived/superseded; the consolidated affected-client annual VAT checklist does not include RBL.
+- Resolved on 2026-06-05: Notion registered-office writeback, April 2026 PAYE payment marked/read back as `Paid`, Payroll/VIES/Corporation Tax registrations marked/read back as `Registered`, and future VAT title corrected to `RBL - VAT - 19 May 2027`.
+- Drive search on 2026-06-05 found current folder candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`; confirm this is the approved canonical upload destination before storing new raw evidence there.
 
 Communication workflow update:
 
