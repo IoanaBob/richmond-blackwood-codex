@@ -1,11 +1,20 @@
 # Drive Locations
 
 Status: provisional.
-Source: Notion company/filing/task records and repo Drive-routing rules reviewed on 2026-06-03.
-Imported: 2026-06-03.
-Review: Confirm the canonical RBL Drive folder and whether RBL should be routed as internal group or another approved Drive category before storing new raw evidence.
+Source: Notion company/filing/task records, repo Drive-routing rules, and Google Drive search/list-folder read-back on 2026-06-05.
+Imported: 2026-06-03; updated 2026-06-05.
+Review: Confirm whether the found `06. Richmond Blackwood Limited` folder is the approved canonical RBL folder/category for new raw evidence.
 
-No canonical RBL Drive folder was confirmed in this pass.
+Current RBL Drive folder candidate found by connector search:
+
+`06. Richmond Blackwood Limited` - `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`.
+
+Search evidence on 2026-06-05:
+
+- Google Drive folder search for `Richmond Blackwood` and `RICHMOND` returned `06. Richmond Blackwood Limited`.
+- Google Drive folder search for `RBL` returned no results.
+- Folder metadata read-back: folder id `1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`, parent id `1Qwjwz9ZdRGm9z-gRHTkCgldhwXUBMI55`.
+- Folder listing included RBL-specific finance, filing, and registration material including `Client Companies Bookkeeping & Filing Status`, year folders `2024`, `2025`, `2026`, `RB - AR 2025`, `Client subscription expenses through RB`, `CRO Filings`, `TAIN Registration`, `RB TCSP LICENSE.pdf`, and `RB VAT REGISTRATION QUERY.pdf`.
 
 Raw evidence, signed documents, payroll submissions, card/bank setup evidence, filing attachments, TCSP licence files, and large exports should be stored in Drive or the owning live source, not in git. This repo should keep only Drive URLs, source filenames, and routing notes once the canonical folder is confirmed.
 

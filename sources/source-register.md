@@ -147,7 +147,7 @@ Konvi company sources are routed to `clients/Companies/KONVI/source-register.md`
 
 ## RBL Sources
 
-RBL company sources are routed to `clients/Companies/RBL/source-register.md`. The 2026-06-03 refresh used the Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, project `https://www.notion.so/32fe4130131480779ce6cb2a311c51e4`, parent project, filing registrations, selected filing/payment rows, finance tasks, Client Notes/Document records, internal RB memory, and CRO Open Data for company number 735818. No WhatsApp route was used or stored for RBL. No live Notion, Drive, Gmail, Slack, or WhatsApp records were modified.
+RBL company sources are routed to `clients/Companies/RBL/source-register.md`. The 2026-06-03 refresh used the Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, project `https://www.notion.so/32fe4130131480779ce6cb2a311c51e4`, parent project, filing registrations, selected filing/payment rows, finance tasks, Client Notes/Document records, internal RB memory, and CRO Open Data for company number 735818. The 2026-06-05 user-review update used live Notion property updates/read-backs for registered office, PAYE payment, Payroll/VIES/Corporation Tax registrations, and future VAT title; it also used Google Drive search/list-folder read-back to find folder candidate `06. Richmond Blackwood Limited` (`https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`). No WhatsApp route was used or stored for RBL. No Gmail, Slack, WhatsApp, or Drive writes were made.
 
 ## AKS / Anastasia Sources
 

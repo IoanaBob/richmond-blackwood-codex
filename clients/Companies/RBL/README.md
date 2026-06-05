@@ -1,9 +1,9 @@
 # RICHMOND BLACKWOOD LIMITED
 
 Status: provisional.
-Source: Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, linked Notion records, CRO Open Data, internal RB memory, and user instruction on 2026-06-03.
-Imported: 2026-06-03.
-Review: Confirm live Notion filing/payment statuses before treating any due, overdue, filed, or registered state as settled.
+Source: Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, linked Notion records, CRO Open Data, Google Drive search, internal RB memory, user instruction on 2026-06-03, and user review on 2026-06-05.
+Imported: 2026-06-03; updated 2026-06-05.
+Review: Confirm Sage migration decision and exact Workhub plan/VAT treatment before changing accounting-system or recurring supplier-validation rules.
 
 Company reference for routing: RBL.
 Legal name: RICHMOND BLACKWOOD LIMITED.
@@ -13,8 +13,8 @@ Registered on: 2023-02-28.
 Tax residence in Notion: Ireland.
 Accounting software: Xero.
 Company email in Notion: `invoices@richmondblackwood.com`.
-Correspondence address in Notion: Workhub, 77 Camden Street Lower, Dublin, Dublin 2, D02 XE80, Ireland.
-Registered office address in Notion: blank in the fetched company record.
+Correspondence address in Notion: 77 Camden Street Lower, Dublin, Dublin 2, D02 XE80, Ireland.
+Registered office address in Notion: Workhub, 77 Camden Street Lower, Dublin 2, D02 XE80, Ireland.
 Registered office per CRO Open Data: Workhub, 77 Camden Street Lower, Dublin 2, D02 XE80.
 Service in Notion: Internal Group Managed Services.
 Onboarding status in Notion: Active and Onboarded.
@@ -26,13 +26,20 @@ RBL is the internal Richmond Blackwood operating company and service-provider en
 
 RBL also appears as the counterparty/service provider across many client contracts and invoicing workflows. Do not duplicate every client contract into this folder. For client-specific fees, invoicing rules, and private client context, use the relevant `clients/Companies/<client-reference>/` folder and the live Richmond Blackwood Contracts / Invoicing records.
 
-High-signal current issues found in Notion during this pass:
+High-signal current issues after 2026-06-05 user review and Notion read-back:
 
-- April 2026 PAYE/payroll filing is filed, but the linked PAYE payment row still showed `Due` on 2026-06-02.
 - SimplePay billing needs an RBL debit-card route or reissued/outstanding billing solution.
 - A Wamo payment-approval support follow-up is open.
-- Filing registration statuses for payroll, VIES, and corporation tax show possible stale or formula-driven `Overdue` states despite future filing rows existing. Verify before escalation.
+- Sage migration versus Xero remains an open strategy question; Notion company still says Xero.
+- Workhub plan validation now treats RBL as probably on the upgraded amount, per user review, but the exact invoice/VAT basis should be confirmed before automated rejection or approval.
 - The RBL-specific annual VAT duplicate task was archived/superseded by the consolidated RB-client VAT task, whose final checklist does not include RBL.
+
+Resolved in live Notion on 2026-06-05:
+
+- Company `Registered Office Address` was updated to the CRO-confirmed Workhub/Camden Street address and read back.
+- RBL VIES, Corporation Tax, and Payroll Tax registration rows were marked `Registered` and read back.
+- April 2026 PAYE payment was marked `Paid` and read back.
+- Future VAT filing title was corrected from `RBL - VAT - 19 Apr 2027` to `RBL - VAT - 19 May 2027` because the due-date property is 2027-05-19.
 
 ## Record Routing
 

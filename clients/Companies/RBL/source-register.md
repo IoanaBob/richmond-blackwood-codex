@@ -1,13 +1,16 @@
 # RBL Source Register
 
 Status: provisional.
-Source: Notion Company `RICHMOND BLACKWOOD LIMITED`, linked client database records, CRO Open Data, internal Notion documents, and user instruction on 2026-06-03.
-Imported: 2026-05-08; updated 2026-06-03.
+Source: Notion Company `RICHMOND BLACKWOOD LIMITED`, linked client database records, CRO Open Data, Google Drive search, internal Notion documents, user instruction on 2026-06-03, and user review on 2026-06-05.
+Imported: 2026-05-08; updated 2026-06-05.
 Review: Keep this file to source pointers and route IDs only; do not paste credentials, bank details, document access links, personal identifiers, raw private-channel transcripts, card details, or payment credentials.
 
 | Source | Date imported | Detail |
 | --- | --- | --- |
 | User instruction in Codex chat | 2026-06-03 | Continue client-memory population for RBL using existing Notion context for Richmond Blackwood. |
+| User review in Codex chat | 2026-06-05 | Confirmed registered-office writeback, April 2026 PAYE paid, RBL Payroll/VIES/Corporation Tax registrations are not overdue, the VAT due date 2027-05-19 is correct, RB likely paid the upgraded Workhub amount for RBL, and the shareholder-company relation pointer is not a current active question. |
+| Live Notion property updates and read-backs | 2026-06-05 | Updated/read back RBL company registered office, VIES/Corporation Tax/Payroll Tax registration statuses, April 2026 PAYE payment status, and future VAT filing title. |
+| Google Drive search/list-folder read-back | 2026-06-05 | Found folder candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`; listed RBL-specific contents. |
 | Notion company `RICHMOND BLACKWOOD LIMITED` | 2026-06-03 | `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`; canonical `Reference` is `RBL`. |
 | CRO Open Data company records | 2026-06-03 | Official CRO Open Data dataset `https://opendata.cro.ie/dataset/companies`; company number 735818 returned RICHMOND BLACKWOOD LIMITED, normal LTD status, registered 2023-02-28, Workhub/Camden Street registered address, NARD 2026-08-28, and last accounts date 2024-12-31. |
 | Notion client project | 2026-06-03 | `https://www.notion.so/32fe4130131480779ce6cb2a311c51e4`; task-only project for RBL work. |
@@ -28,5 +31,5 @@ Review: Keep this file to source pointers and route IDs only; do not paste crede
 ## Boundary Notes
 
 - RBL has linked bank-account rows in Notion, but bank numbers and credentials were not copied into git.
-- No WhatsApp client route was used or stored in this RBL import.
+- No WhatsApp client route was used or stored in this RBL import/update.
 - Use client folders and live contract/invoicing rows for client-specific Richmond Blackwood contract details.

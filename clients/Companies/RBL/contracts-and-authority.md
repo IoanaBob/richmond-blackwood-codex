@@ -1,9 +1,9 @@
 # Contracts And Authority
 
 Status: provisional.
-Source: Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, linked filing registrations, CRO Open Data, internal product-offering memory, and Notion document `RB Porting to Sage Exploration`.
-Imported: 2026-06-03.
-Review: Confirm official public title wording for RBL principals and verify live regulatory records before external statements.
+Source: Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, linked filing registrations, CRO Open Data, internal product-offering memory, Notion document `RB Porting to Sage Exploration`, and user review/live Notion read-back on 2026-06-05.
+Imported: 2026-06-03; updated 2026-06-05.
+Review: Verify live regulatory records before external statements.
 
 ## Corporate Identity
 
@@ -19,9 +19,10 @@ Review: Confirm official public title wording for RBL principals and verify live
 | CRO NARD | 2026-08-28 | CRO Open Data |
 | Last accounts date in CRO Open Data | 2024-12-31 | CRO Open Data |
 | Registered office per CRO Open Data | Workhub, 77 Camden Street Lower, Dublin 2, D02 XE80 | CRO Open Data |
+| Registered office in Notion | Workhub, 77 Camden Street Lower, Dublin 2, D02 XE80, Ireland | Notion company; updated/read back 2026-06-05 |
 | Correspondence address in Notion | 77 Camden Street Lower, Dublin, Dublin 2, D02 XE80, Ireland | Notion company |
 
-The fetched Notion company record had `Registered Office Address` blank. CRO Open Data returned the Workhub/Camden Street address. Treat this as a Notion data-quality cleanup item until written back and read back in Notion.
+The Notion company `Registered Office Address` was blank in the 2026-06-03 import. It was updated on 2026-06-05 to the CRO-confirmed Workhub/Camden Street address and read back successfully.
 
 ## Authority And Roles
 
@@ -30,7 +31,7 @@ The fetched Notion company record had `Registered Office Address` blank. CRO Ope
 | Directors | Eran Peer; Ioana Surdu-Bob | Notion company relation | Company authority context only in this import. |
 | UBOs | Ioana Surdu-Bob; Eran Peer | Notion company relation | Do not copy personal identifiers or private asset/tax records into this company folder. |
 | Individual shareholder relation | Ioana Surdu-Bob | Notion company relation | Relationship was observed but not expanded in this pass. |
-| Company shareholder relation | Linked company row exists | Notion company relation | Fetch the linked row before naming it or relying on it. |
+| Company shareholder relation | Linked company row exists | Notion company relation | Keep as a relation pointer only unless ownership/corporate-structure work requires fetching and naming it. |
 | Employees relation | Linked employment/employee rows exist | Notion company relation | Fetch employment rows before recording employee-level details. |
 
 ## Regulatory And Practice Context

@@ -135,14 +135,10 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## RBL Questions
 
-- Confirm whether to update the RBL Notion company `Registered Office Address` from blank to the CRO Open Data Workhub/Camden Street address.
-- Confirm whether the April 2026 PAYE payment was paid after the Notion tax-payment row showed `Due` with due date 2026-06-02.
-- Confirm whether RBL Payroll Tax, VIES, and Corporation Tax registration statuses are genuinely overdue or stale/formula-derived, since future filing rows exist.
-- Correct or confirm the future VAT filing title/date mismatch on `RBL - VAT - 19 Apr 2027`, whose due-date property is 2027-05-19.
-- Confirm the canonical RBL Drive folder and approved Drive routing category before uploading raw RBL evidence.
+- Confirm whether Drive folder `06. Richmond Blackwood Limited` (`https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`) is the approved canonical RBL upload destination/category before storing new raw RBL evidence there. Drive search/list-folder on 2026-06-05 found RBL-specific contents.
 - Confirm the current decision on Sage migration versus Xero and existing Germany/UK/Ireland tooling.
-- Confirm whether the linked RBL shareholder company row should be fetched and named in repo memory.
-- Confirm Workhub VAT treatment and whether any additional companies have upgraded Workhub plans beyond CBMAX, PCL, NACV, and Konvi.
+- Confirm Workhub VAT treatment and exact upgraded-plan allocation for RBL. User said on 2026-06-05 that RB likely paid the upgraded amount for Richmond Blackwood; verify against the actual Workhub/RBL invoice before automated approval/rejection.
+- Resolved 2026-06-05: Notion registered-office writeback, April 2026 PAYE payment status, Payroll/VIES/Corporation Tax registration statuses, and the future VAT title/date mismatch.
 
 ## KONVI Questions
 

@@ -1,9 +1,9 @@
 # Accounting, Bookkeeping, And Payroll
 
 Status: provisional.
-Source: Notion company record, filing registrations, payroll filing/payment rows, internal tasks, and `RB Porting to Sage Exploration`.
-Imported: 2026-06-03.
-Review: Confirm live Xero/SimplePay/Wamo/payment status before acting on overdue or due rows.
+Source: Notion company record, filing registrations, payroll filing/payment rows, internal tasks, `RB Porting to Sage Exploration`, and user review/live Notion read-back on 2026-06-05.
+Imported: 2026-06-03; updated 2026-06-05.
+Review: Confirm live Xero/SimplePay/Wamo status before acting on billing or payment-support rows.
 
 ## Accounting Setup
 
@@ -24,9 +24,9 @@ The document says the critical decision point is Germany; a full move is attract
 
 | Area | Status | Source | Notes |
 | --- | --- | --- | --- |
-| Payroll Tax registration | Overdue on registration row | `https://www.notion.so/344e41301314800cb03dd1e3c72261c0` | Future filing row exists; verify live cause of overdue status. |
+| Payroll Tax registration | Registered | `https://www.notion.so/344e41301314800cb03dd1e3c72261c0` | Updated from `Overdue` to `Registered` on 2026-06-05 after user review; read back in Notion. |
 | April 2026 payroll filing | Filed | `https://www.notion.so/365e41301314802084b2c53c321ff1bb` | Filed on 2026-05-19 after due date 2026-05-14. |
-| April 2026 PAYE payment | Due | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | Payment row due 2026-06-02, amount EUR 3,115.26. Confirm paid status before escalation. |
+| April 2026 PAYE payment | Paid | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | User confirmed paid on 2026-06-05; Notion row was updated and read back as `Paid`. |
 | Future August 2026 payroll tax filing | Pending | `https://www.notion.so/372e41301314812392bff3e2d79934f4` | Due 2026-09-14. |
 | Auto enrolment | Registered | `https://www.notion.so/2c6e4130131480358c05fc19f4d98f07` | Comments say RB is now enrolled with Auto enrolment. |
 

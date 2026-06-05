@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-05 - RBL Review Corrections And Drive Search
+
+- User request: Apply the RBL review answers, including live Notion corrections for registered office, PAYE payment, registration statuses, the future VAT filing title, and Drive folder discovery.
+- Context read: User review answers, RBL Notion company/payment/registration/filing readbacks, Google Drive search/list-folder results, and existing RBL repo memory.
+- Actions taken: Updated and read back live Notion records for the RBL registered office, April 2026 PAYE payment, Payroll/VIES/Corporation Tax registrations, and the future VAT filing title; searched Drive and recorded folder candidate `06. Richmond Blackwood Limited`; updated RBL company memory and durable source/open-question logs.
+- Decisions made: Treat the April 2026 PAYE payment as paid; treat Payroll Tax, VIES, and Corporation Tax registrations as registered; keep the VAT due date as authoritative and correct the filing title to `RBL - VAT - 19 May 2027`; treat the Workhub RBL upgraded-plan amount as provisional pending invoice/VAT verification.
+- Verification: Notion read-back confirmed the updated values. Drive search and folder listing confirmed RBL-specific contents in the folder candidate. Repo verification is tracked in the PR closeout.
+- Limitations or gaps: Confirm whether the found Drive folder is the approved canonical upload destination/category, the current Sage/Xero migration decision, and Workhub VAT/exact RBL upgraded-plan amount.
+
 ## 2026-06-03 - RBL Company Context Refresh
 
 - User request: Continue the client-memory process for RBL/Richmond Blackwood after the previous branch was merged.
@@ -913,3 +922,10 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: For this repo, the master/main base is `origin/main`. A dirty worktree is not a reason to skip reconciliation when all dirty files are task-owned and the user has authorized closeout; unrelated/user-owned files must not be staged.
 - Verification: Notion read-back verified the compacted master closeout line on `RB Codex Repository Operating Rules` and `Last updated = 2026-06-03`; `git diff --check` passed.
 - Limitations or gaps: PR closeout pending.
+
+## 2026-06-05 - RBL Review Corrections And Drive Search
+
+- User answered RBL open questions: registered-office writeback approved, April 2026 PAYE paid, Payroll/VIES/Corporation Tax registrations not overdue, the 2027-05-19 VAT due date is correct, and RBL likely paid the upgraded Workhub amount.
+- Live Notion updates/read-backs completed for RBL registered office, April 2026 PAYE payment `Paid`, Payroll/VIES/Corporation Tax registrations `Registered`, and future VAT title `RBL - VAT - 19 May 2027`.
+- Google Drive search/list-folder found candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy` with RBL-specific contents.
+- Updated `clients/Companies/RBL/`, durable memory, and source logs. Remaining RBL gaps are Sage/Xero decision, Workhub VAT/exact upgraded-plan verification, and final confirmation that the found Drive folder is the approved upload destination.

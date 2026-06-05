@@ -1,8 +1,8 @@
 # Tax, VAT, And Filings
 
 Status: provisional.
-Source: Notion company, filing-registration, filing, tax-payment, and task records reviewed on 2026-06-03.
-Imported: 2026-06-03.
+Source: Notion company, filing-registration, filing, tax-payment, and task records reviewed on 2026-06-03 and updated/read back on 2026-06-05.
+Imported: 2026-06-03; updated 2026-06-05.
 Review: Verify live ROS/CRO/Notion status before treating any due, overdue, payment, or filed position as settled.
 
 ## Filing Registrations
@@ -11,26 +11,26 @@ Review: Verify live ROS/CRO/Notion status before treating any due, overdue, paym
 | --- | --- | --- | --- |
 | Irish tax residence | Ireland on company record | `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804` | Company record has TAIN and GoAML fields populated. |
 | Irish VAT | Registered | `https://www.notion.so/175e413013148046a0d1cae8d5287c8c` | Bi-monthly cadence; tax/filing number shown as `IE4222296CH`. |
-| VIES | Overdue on registration row | `https://www.notion.so/175e41301314806c89a3f73d57d407e6` | Future VIES filing row exists; verify whether registration status is stale/formula-driven. |
+| VIES | Registered | `https://www.notion.so/175e41301314806c89a3f73d57d407e6` | Updated from `Overdue` to `Registered` on 2026-06-05 after user review; read back in Notion. |
 | RTD | Registered | `https://www.notion.so/175e4130131480ea958fcafa1bb89332` | Yearly cadence. |
-| Corporation Tax | Overdue on registration row | `https://www.notion.so/175e4130131480c09fa4c52cbef80c04` | Future corporation-tax filing row exists; verify whether registration status is stale/formula-driven. |
+| Corporation Tax | Registered | `https://www.notion.so/175e4130131480c09fa4c52cbef80c04` | Updated from `Overdue` to `Registered` on 2026-06-05 after user review; read back in Notion. |
 | Annual Tax Filing | Registered | `https://www.notion.so/175e413013148060a89cc7735778a798` | Yearly cadence. |
 | Annual Returns | Registered | `https://www.notion.so/175e413013148003b532ce53fc152fe3` | Notion due date 2025-08-28; CRO Open Data NARD 2026-08-28 and last annual-return date 2025-08-28. |
-| Payroll Tax | Overdue on registration row | `https://www.notion.so/344e41301314800cb03dd1e3c72261c0` | Future payroll-tax filing row exists, but April PAYE payment still showed due in Notion. |
+| Payroll Tax | Registered | `https://www.notion.so/344e41301314800cb03dd1e3c72261c0` | Updated from `Overdue` to `Registered` on 2026-06-05 after user review; read back in Notion. |
 | RBO | Registered | `https://www.notion.so/175e4130131480b89a31cac64d759c25` | One-off registration. |
 | TCSP License | Registered | `https://www.notion.so/177e4130131480c5b014ed7909610ef0` | Due 2027-09-20. |
 | Auto Enrolment | Registered | `https://www.notion.so/2c6e4130131480358c05fc19f4d98f07` | Comments say RB is enrolled. |
 
-## Current Filing And Payment Issues
+## Current Filing And Payment Status
 
-| Issue | Status in Notion | Source | Review needed |
+| Item | Status in Notion | Source | Notes |
 | --- | --- | --- | --- |
-| RBL PAYE payroll tax Apr 2026 payment | Tax payment row `Due`; due date 2026-06-02; amount EUR 3,115.26 | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | Current date is 2026-06-03. Confirm whether payment was made outside Notion before escalation. |
-| April 2026 payroll filing | Filing row `Filed`; filed on 2026-05-19; due 2026-05-14 | `https://www.notion.so/365e41301314802084b2c53c321ff1bb` | Filing is filed, but the linked payment remains the separate live check. |
-| Payroll registration marked overdue | Registration row `Overdue`, but future filing row exists | Registration `https://www.notion.so/344e41301314800cb03dd1e3c72261c0`; future filing `https://www.notion.so/372e41301314812392bff3e2d79934f4` | Determine whether the registration status is stale, formula-derived, or tied to the due PAYE payment. |
-| VIES registration marked overdue | Registration row `Overdue`, but future filing row exists | Registration `https://www.notion.so/175e41301314806c89a3f73d57d407e6`; future filing `https://www.notion.so/34fe41301314817b8075c91b78d645ab` | Verify live VIES status before opening a duplicate task. |
-| Corporation-tax registration marked overdue | Registration row `Overdue`, but future corporation-tax row exists | Registration `https://www.notion.so/175e4130131480c09fa4c52cbef80c04`; future filing `https://www.notion.so/311e41301314811f99b2f65845eb9bd7` | Verify whether the status is stale/formula-driven. |
-| Future VAT filing title/date mismatch | Filing title says `RBL - VAT - 19 Apr 2027`, due-date property says 2027-05-19 | `https://www.notion.so/350e41301314813c9fb5eb835a322d45` | Correct title or confirm due-date logic before relying on calendar/title searches. |
+| RBL PAYE payroll tax Apr 2026 payment | `Paid`; due date 2026-06-02; amount EUR 3,115.26 | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | User confirmed paid on 2026-06-05; Notion status was updated and read back as `Paid`. |
+| April 2026 payroll filing | `Filed`; filed on 2026-05-19; due 2026-05-14 | `https://www.notion.so/365e41301314802084b2c53c321ff1bb` | Filing remains filed; linked payment is now read back as paid. |
+| Payroll registration | `Registered` | Registration `https://www.notion.so/344e41301314800cb03dd1e3c72261c0`; future filing `https://www.notion.so/372e41301314812392bff3e2d79934f4` | Updated and read back on 2026-06-05. |
+| VIES registration | `Registered` | Registration `https://www.notion.so/175e41301314806c89a3f73d57d407e6`; future filing `https://www.notion.so/34fe41301314817b8075c91b78d645ab` | Updated and read back on 2026-06-05. |
+| Corporation-tax registration | `Registered` | Registration `https://www.notion.so/175e4130131480c09fa4c52cbef80c04`; future filing `https://www.notion.so/311e41301314811f99b2f65845eb9bd7` | Updated and read back on 2026-06-05. |
+| Future VAT filing title/date | Title `RBL - VAT - 19 May 2027`; due-date property 2027-05-19 | `https://www.notion.so/350e41301314813c9fb5eb835a322d45` | User confirmed the due date is correct; title was corrected and read back on 2026-06-05. |
 
 ## Annual VAT Cleanup Context
 

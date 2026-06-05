@@ -2,6 +2,26 @@
 
 Status: active.
 
+## 2026-06-05 - RBL Review Corrections
+
+Applied:
+
+- Applied user review answers for RBL registered office, April 2026 PAYE payment, Payroll/VIES/Corporation Tax registrations, future VAT due-date/title, Workhub upgraded-plan context, and shareholder-relation handling.
+- Updated/read back live Notion records: RBL company `Registered Office Address`, VIES registration, Corporation Tax registration, Payroll Tax registration, April 2026 PAYE payment, and future VAT filing title.
+- Searched Google Drive for RBL/Richmond Blackwood folders and recorded candidate folder `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`.
+- Updated `clients/Companies/RBL/`, `memory/current-state.md`, `memory/handoff.md`, `memory/open-questions.md`, `memory/history.md`, `memory/skill-runs.md`, and `sources/source-register.md`.
+
+Verification:
+
+- Notion read-back confirmed RBL registered office, payment, registration, and VAT-title updates.
+- Drive list-folder read-back confirmed the folder contains RBL-specific finance, filing, and registration material.
+
+Follow-up:
+
+- Confirm whether the found Drive folder is the approved canonical RBL upload destination/category.
+- Confirm Sage/Xero migration decision.
+- Confirm Workhub VAT treatment and exact RBL upgraded-plan amount against source invoices.
+
 ## 2026-06-03 - VBG Accident Insurance Skill
 
 Imported:
@@ -43,10 +63,8 @@ Verification:
 
 Follow-up:
 
-- Confirm whether to update the RBL Notion registered-office field from CRO Open Data.
-- Confirm whether the April 2026 PAYE payment was paid after the Notion row showed `Due` on 2026-06-02.
-- Check whether Payroll/VIES/Corporation Tax `Overdue` registration statuses are stale/formula-derived or real blockers.
-- Confirm RBL canonical Drive folder and current Sage/Xero migration decision.
+- Resolved by 2026-06-05 review/update: Notion registered-office writeback, April 2026 PAYE payment status, Payroll/VIES/Corporation Tax registration statuses, and future VAT title/date mismatch.
+- Remaining after 2026-06-05: confirm found RBL Drive folder as approved canonical upload destination/category, current Sage/Xero migration decision, and Workhub VAT/exact RBL upgraded-plan amount.
 
 ## 2026-05-26 - KONVI Company Context Import
 

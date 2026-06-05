@@ -1,8 +1,8 @@
 # Client Project And Active Issues
 
 Status: provisional.
-Source: RBL client project, parent project, linked task records, filing/payment records, and internal Notion documents reviewed on 2026-06-03.
-Imported: 2026-06-03.
+Source: RBL client project, parent project, linked task records, filing/payment records, internal Notion documents, and user review/live read-back on 2026-06-05.
+Imported: 2026-06-03; updated 2026-06-05.
 Review: Confirm active statuses in Notion before closing, escalating, or creating duplicate tasks.
 
 ## Project Routing
@@ -20,10 +20,8 @@ Parent project: `https://www.notion.so/327e4130131480ceb3f9d757a8286559`.
 
 | Issue | Status | Source | Review needed |
 | --- | --- | --- | --- |
-| RBL PAYE payroll tax Apr 2026 payment | Tax payment row `Due`, due 2026-06-02 | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | Confirm whether paid outside Notion before escalation. |
 | Connect RBL debit card for SimplePay payroll billing | To Do, due 2026-05-28 | `https://www.notion.so/36ee4130131481028f58f198b235e43c` | Decide whether SimplePay can reissue/bill outstanding payroll cost to RBL and connect approved RBL debit-card route without storing card details. |
 | Ask Wamo about RBL payment approval | To Do, due 2026-06-01 | `https://www.notion.so/36fe413013148181baf9dd56021d3d97` | Source says not to send until sender/recipient/body are approved. |
-| Payroll/VIES/Corporation Tax registration status cleanup | Registration rows show possible `Overdue` states | Payroll `https://www.notion.so/344e41301314800cb03dd1e3c72261c0`; VIES `https://www.notion.so/175e41301314806c89a3f73d57d407e6`; CT `https://www.notion.so/175e4130131480c09fa4c52cbef80c04` | Future filing rows exist; determine whether statuses are stale/formula-driven or real blockers. |
 | Sage migration exploration | Research document, no final decision captured | `https://www.notion.so/33de41301314805ca8c5c4b429df2858` | Keep Xero as current Notion setup unless migration is approved. |
 
 ## Closed / Noise Items Checked
@@ -32,6 +30,9 @@ Parent project: `https://www.notion.so/327e4130131480ceb3f9d757a8286559`.
 | --- | --- | --- | --- |
 | RBL duplicate annual VAT task | Archived | `https://www.notion.so/373e4130131481f39f77db12e6c43916` | Superseded by consolidated RB-client annual VAT task. |
 | Consolidated annual VAT task | To Do | `https://www.notion.so/373e4130131481e495f1e2d22008e4ed` | Final checklist includes NACV, CLV, AGL, CBMAX, WEW, and PCL, not RBL. |
+| RBL PAYE payroll tax Apr 2026 payment | Paid | `https://www.notion.so/365e413013148122813cd9da7e6530c4` | User confirmed paid on 2026-06-05; Notion row updated/read back as `Paid`. |
+| Payroll/VIES/Corporation Tax registration status cleanup | Registered | Payroll `https://www.notion.so/344e41301314800cb03dd1e3c72261c0`; VIES `https://www.notion.so/175e41301314806c89a3f73d57d407e6`; CT `https://www.notion.so/175e4130131480c09fa4c52cbef80c04` | Updated/read back on 2026-06-05 after user review. |
+| Future VAT filing title/date mismatch | Corrected | `https://www.notion.so/350e41301314813c9fb5eb835a322d45` | Due date 2027-05-19 is correct; title now reads `RBL - VAT - 19 May 2027`. |
 
 ## Client Notes / Documents Read
 
