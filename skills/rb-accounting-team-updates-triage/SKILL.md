@@ -1,6 +1,6 @@
 ---
 name: rb-accounting-team-updates-triage
-description: "Use for the separate packet-gated Richmond Blackwood weekday 11:00 Accounting Team Updates run that reads the current working day's Team Updates page plus bounded human Slack context, treats New client inbounds as observed/out of scope, creates or updates Notion tasks from blockers and action points, and posts the standard Slack completion notice."
+description: "Use for the separate packet-gated Richmond Blackwood weekday 11:00 Accounting Team Updates run that reads current and prior Team Updates context plus meeting transcript and bounded human Slack context, treats New client inbounds as observed/out of scope, creates or updates Notion tasks from blockers and action points, proposes carryover/context fill text, and posts the standard Slack completion notice."
 ---
 
 # RB Accounting Team Updates Triage
@@ -13,7 +13,7 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 2. Read `processes/notion-operations.md` for Notion task and comment rules.
 3. Read `internal/people-roles.md` before assigning tasks.
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
-5. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
+5. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan, including prior-action carryover, meeting transcript action review, and task-context append proposals. That skill is planning-only and must not perform live writes.
 6. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
 7. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
 8. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
@@ -61,8 +61,10 @@ Auto-approval:
 Source reads:
 
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
+- Fetch the previous working day's Accounting Team Updates page for the same Richmond Blackwood Accounting scope when available. Capture its `Action points` section separately as the carryover baseline, and do not use checked rows from its `What was achieved yesterday?` section as today's achievement source.
 - Check the Meetings database for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on current working day, RB/Accounting/Operations/Daily naming, Teams/Companies relations when present, and proximity to the Team Updates run. Fetch the selected meeting with transcript included when the connector supports it. Save the relevant task-context excerpts or summary in the Stage 2 packet or a linked meeting-context appendix in the run folder.
 - If no relevant Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or other approved source location named by the run context for transcript/approved notes. If no transcript or notes are found after these checks, record `Transcript check: none found` and continue; absence alone is not a blocker.
+- Pull active Tasks assigned to RB team users from `internal/people-roles.md` before Stage 3 matching. Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e`, statuses `To Do`, `In Progress`, `In Review`, and `Blocked`, and include task URL, title, status, assignee, project, labels, due date, last edited time, and enough task/page/comment context for transcript-context matching. If the connector cannot return the full inventory, record the exact degradation and Stage 3 must not claim exhaustive matching.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
 Section rules:
@@ -91,6 +93,8 @@ Task routing:
 Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` only for extra action work or when the owning task-capable operational row cannot represent the action. Use Richmond Blackwood Backlog `https://www.notion.so/25de4130131481769758f5f2d465a141` only for truly RB-internal work. Client-related actions must resolve the responsible Company record and its linked client project; if that project is not readable, Stage 3 must mark the item `unresolved`.
 
 Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
+
+The Stage 3 packet must include a Team Updates fill/context plan before the routing tables. The plan must classify previous-day action points as handled or carried forward, propose today's achievement/action-point fill text, compare meeting transcript actions against today's rows, and propose task comments only when saved meeting context materially helps an existing active task from the Stage 2 inventory. If the task inventory is incomplete, mark matching as incomplete and avoid unsafe meeting-context creates/appends.
 
 ### Stage 4 - Notion Write Results
 
@@ -152,6 +156,7 @@ Output:
 Return a concise run report with:
 
 - Team Updates page processed;
+- previous Team Updates page and meeting transcript/notes source checked;
 - `New client inbounds` observed / out-of-scope count;
 - blockers/action points reviewed;
 - tasks created, updated, or skipped as already handled;

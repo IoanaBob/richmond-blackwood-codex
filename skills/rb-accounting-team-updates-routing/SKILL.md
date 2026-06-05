@@ -19,13 +19,28 @@ Read:
 4. `internal/people-roles.md`;
 5. linked Notion task/page records needed to understand source rows;
 6. responsible Company records, client project relations, and owning operational rows when a source row is client-related;
-7. target Notion data source schemas before proposing writes.
+7. previous working day's Accounting Team Updates `Action points` baseline, when Stage 2 found it;
+8. selected meeting transcript/notes/action context, when Stage 2 found it;
+9. active RB team task inventory from Stage 2, including any stated inventory degradation;
+10. target Notion data source schemas before proposing writes.
 
-Route only `Any blockers?` and `What are the action points today?` / `Action points`. Treat `New client inbounds` as observed / out of scope.
+Route live task decisions from `Any blockers?`, `What are the action points today?` / `Action points`, approved prior-action carryover, and task-relevant meeting context saved in the Stage 2 packet. Treat `New client inbounds` as observed / out of scope.
 
 ## Routing Strategy
 
 First split source rows into atomic routing items. A single Team Updates line may contain multiple companies, tasks, approvals, or next actions. Preserve the original source row ID, but produce one routing item and one decision per atomic action.
+
+Before the routing table, produce a `Team Updates Fill / Context Plan`:
+
+- use the previous working day's `Action points` section as the carryover baseline;
+- classify each prior action point as handled/completed or still open using task status/read-back, Team Updates write-back, meeting transcript, or Slack context;
+- propose today's `What was achieved yesterday?` bullets only for prior action points with completion or handling evidence;
+- carry still-open prior action points into today's `Action points`, preserving known task links;
+- do not copy checked rows from the previous page's `What was achieved yesterday?` into today's achievements;
+- compare meeting transcript action items against today's Team Updates rows and mark supported, stale/completed, missing, or unresolved;
+- propose missing transcript action points only when owner, action, source, and project/task route are clear enough for the normal routing table.
+
+Use saved meeting context snippets for task-context matching. Match them against the active RB team task inventory from Stage 2. If a snippet materially helps an existing active task, choose `comment_existing` with a concise context append and the meeting source URL. If no safe active-task match exists, mark the snippet `unresolved` or out of scope rather than creating a duplicate task. If Stage 2 says the active task inventory is incomplete, do not claim exhaustive matching and do not create or comment from meeting-only context when missing inventory would make dedupe unsafe.
 
 For each atomic routing item, produce exactly one decision:
 
@@ -83,6 +98,7 @@ Human-table rules:
 - Keep each row short enough to scan. Move schema details, dedupe notes, and exact payloads to the machine log.
 - For `unresolved` rows, state the missing decision in plain language and explain why a new task would be unsafe.
 - If the packet contains a separate machine log or handover file, link it near the top and label it as a continuation/execution log, not the approval surface.
+- Put the `Team Updates Fill / Context Plan` above the routing groups with proposed text, source basis, and any incomplete-inventory blocker.
 
 ## Machine Routing Log
 
@@ -92,6 +108,7 @@ Stage 3 must preserve a machine-complete routing log with these fields, either l
 - `routing_item_id`
 - `source_section`
 - `source_text`
+- `source_origin` (`today_team_updates`, `prior_action_carryover`, `meeting_transcript`, `meeting_context`, or `slack_context`)
 - `checkbox_state`
 - `source_links`
 - `source_entity_url`
@@ -113,6 +130,9 @@ Stage 3 must preserve a machine-complete routing log with these fields, either l
 - `slack_assignee_mention`
 - `slack_mention_status`
 - `dedupe_evidence`
+- `prior_action_point_status`
+- `meeting_context_match_status`
+- `matched_active_task_candidates`
 - `create_task_safety_analysis`
 - `notion_schema_verified`
 - `proposed_notion_write_payload`

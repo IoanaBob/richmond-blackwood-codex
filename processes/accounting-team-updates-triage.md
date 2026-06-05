@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02; Meetings database source instruction from user on 2026-06-02
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02; Meetings database source instruction from user on 2026-06-02; carryover and task-context matching instruction from user on 2026-06-05
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -38,6 +38,13 @@ Meeting transcript / notes:
 - If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
 - If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Absence alone is not a blocker.
 
+Prior Team Updates and active task context:
+
+- Stage 2 must also fetch the previous working day's Accounting Team Updates page for the same Richmond Blackwood Accounting scope when available.
+- Capture the previous working day's `Action points` section separately as the carryover baseline. Do not use checked rows from the previous page's `What was achieved yesterday?` section to populate today's achievements.
+- Pull the active Tasks inventory assigned to RB team users from `internal/people-roles.md` before Stage 3 matching. Include active statuses `To Do`, `In Progress`, `In Review`, and `Blocked`, plus task URL, title, status, assignee, project, labels, due date, last edited time, and enough task/page/comment context to support matching.
+- If the active inventory cannot be pulled completely, record the exact degradation. Stage 3 must then mark transcript/task matching as incomplete and avoid unsafe creates or context appends that depend on exhaustive dedupe.
+
 Slack context channels:
 
 - `#rb-client-updates` (`C0B1UTJJDLJ`, private)
@@ -60,11 +67,25 @@ The page may include:
 
 Rules:
 
-- Ignore `What was achieved yesterday?` unless it links to an open blocker that is also repeated in the blockers/action-points sections.
+- On the current-day page, ignore `What was achieved yesterday?` for routing unless it links to an open blocker that is also repeated in the blockers/action-points sections.
 - Treat `New client inbounds` as observed / out of scope; count and report it, but do not route it from this skill because `rb-common-tasks-follow-through` owns client inbound reading and routing.
 - Process `Any blockers?`.
 - Process `What are the action points today?` / `Action points`.
 - Treat checked items as likely already handled from the previous day. Do not create new tasks from checked items unless the linked record or text still says the item is open.
+
+## Team Updates Fill And Context Plan
+
+Stage 3 must include a read-only fill/context plan before live writes:
+
+- classify each previous-working-day `Action points` row as handled/completed or still open;
+- propose today's `What was achieved yesterday?` bullets only from prior action points with completion or handling evidence from tasks, Team Updates write-back, meeting transcript, or Slack context;
+- carry incomplete prior action points into today's `Action points`, preserving existing task links where known;
+- compare today's blocker/action-point rows with the meeting transcript and mark supported, stale/completed, missing, or unresolved;
+- propose missing transcript action points only when owner, action, source, and project/task route are clear enough for Stage 3 routing;
+- match task-relevant meeting context snippets against the Stage 2 active RB task inventory and propose concise comments on existing active tasks when the context materially helps the task;
+- mark meeting context unresolved or out of scope rather than creating duplicate tasks when no safe active-task match exists.
+
+Do not update Team Updates, create tasks, or append task comments from this plan until Stage 4 executes an approved packet.
 
 ## Task Handling
 
@@ -145,8 +166,8 @@ This skill is packet-gated. Each run must write a packet to `/private/tmp/rb-acc
 Required packet files:
 
 1. **Run Preflight**: current date/window, clean/dirty/conflicted git status, `git pull origin main` result, Notion/Slack connector availability, Team Updates query, Slack channel IDs, and ChatGPT/Codex exclusion rule.
-2. **Source Context**: Team Updates page, section rows, transcript/approved-notes existence check result, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
-3. **Routing Plan**: human-readable approval tables grouped as Creates, Updates / comments, Skips / no action, and Unresolved / needs decision. The visible tables must show source row, source line, decision, target, owner, due date, exact action, Team Updates write-back, and blocker/approval need. Exact schema/property write payloads, verified assignee Slack mentions, dedupe evidence, and other execution details must be preserved in a later machine log or linked handover file.
+2. **Source Context**: today's Team Updates page, previous working day's Team Updates action-point baseline, section rows, transcript/approved-notes existence check result, active RB task inventory status, exact Notion/Slack query bounds, `New client inbounds` observed / out-of-scope count, relevant human Slack messages/threads grouped by channel, source links, and any degraded reads.
+3. **Routing Plan**: Team Updates fill/context plan plus human-readable approval tables grouped as Creates, Updates / comments, Skips / no action, and Unresolved / needs decision. The visible tables must show source row, source line, decision, target, owner, due date, exact action, Team Updates write-back, and blocker/approval need. Exact schema/property write payloads, verified assignee Slack mentions, dedupe evidence, transcript/task matching evidence, and other execution details must be preserved in a later machine log or linked handover file.
 4. **Notion Write Results**: task/operational-row create/update/comment links, owner/status/project/reviewer/due-date read-back, exact payload executed, Team Updates write-back read-back, and unresolved rows.
 5. **Slack Closeout Plan**: exact standard Slack notice with Team Updates link, created and updated/commented task links, verified assigned-person mentions, Slack mention resolution table, and any short unresolved-item phrase.
 6. **Slack Send And Run Closeout**: Slack message link, communication/log backlinks when used, verification summary, preserved scratch path, and final blocker list.
@@ -166,6 +187,7 @@ Read back every task, Team Updates write-back, and Slack send result before repo
 Final report:
 
 - page processed and date;
+- previous Team Updates page and meeting note/transcript source checked;
 - count of `New client inbounds` observed / out-of-scope items;
 - blockers/action points reviewed;
 - tasks created;

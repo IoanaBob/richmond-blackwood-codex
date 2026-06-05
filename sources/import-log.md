@@ -1948,3 +1948,19 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-05 - Accounting Team Updates Carryover And Context Matching
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-05 to rebase PR #67, keep only non-overlapping additions, and avoid adding a dedicated `rb-meeting-notes-action-points` skill.
+
+Actions:
+
+- Rebasing the PR branch onto current `origin/main` dropped the original three PR commits because the Meetings database/transcript check had already been merged through PR #82 and the remaining commits depended on a separate meeting-notes skill.
+- Reapplied only the carryover and context-matching behavior inside `skills/rb-accounting-team-updates-triage/SKILL.md`, `skills/rb-accounting-team-updates-routing/SKILL.md`, `skills/rb-accounting-team-updates-triage/references/stage-packet-protocol.md`, and `processes/accounting-team-updates-triage.md`.
+- Stage 2 now records the previous working day's Team Updates action-point baseline and active RB task inventory; Stage 3 now produces the Team Updates fill/context plan inside the existing routing subskill.
+
+Unresolved:
+
+- Validate the carryover/context matching behavior on the next live Accounting Team Updates run with a real previous-day page, meeting transcript, and complete active-task inventory.
