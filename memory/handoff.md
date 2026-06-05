@@ -108,6 +108,8 @@ Source: live eBilanz-Online period `625447`; user pause instruction in Codex cha
 Imported: 2026-06-05.
 Review: Resume only after the user says `resume eBilanz`. Do not transmit, pay, enter certificate/PIN, buy/use voucher, or click final send without fresh explicit approval.
 
+Resume update 2026-06-05: After the user said `resume eBilanz`, Codex in-app Browser control of the authenticated eBilanz app URL was blocked by browser URL policy. Continue from this handoff by guiding the human operator through review/export and reading uploaded/downloaded PDFs locally; do not attempt alternate browser-control workarounds.
+
 Current live browser position:
 
 - URL: `https://www.ebilanzonline.de/ebo/index.html#:sections:transmission:index.html?periodeId=625447`

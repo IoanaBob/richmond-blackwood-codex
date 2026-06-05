@@ -24,6 +24,7 @@ Use this skill when preparing German E-Bilanz / electronic balance sheet filings
 ## Browser Access Notes
 
 - Status on 2026-06-04: Codex in-app Browser control can attach to the production site at `https://www.ebilanzonline.de/`, switch to English at `/en/`, and open the login panel. A direct unauthenticated app URL redirects back to the public homepage, so ask the human operator to log in before trying to create clients, periods, imports, validation, or review exports.
+- Status on 2026-06-05: Codex in-app Browser control was blocked by the browser URL policy when attaching to the authenticated eBilanz app URL. When this happens, do not bypass it through alternate browser-control routes. Continue by preparing accepted upload files, reading local/provided downloads, and giving exact operator steps.
 - If registration is required, prefer the production registration path `https://www.ebilanzonline.de/ebo/register.html`. Avoid the public English hero link when it targets `https://beta.ebilanzonline.de/ebo/register.html`, because that beta host timed out during the 2026-06-04 retry.
 - Do not enter or store RB account credentials. Let the operator type credentials/registration secrets, then continue after login.
 

@@ -44,6 +44,8 @@ Source: live eBilanz-Online period `625447`; user instruction to pause on 2026-0
 Imported: 2026-06-05.
 Review: Resume only after the user explicitly asks. Do not transmit, pay, enter certificate/PIN, or click final send without fresh explicit approval naming CLV 2025 and the transmission data.
 
+Resume note 2026-06-05: Codex attempted to resume from the live browser tab after the user said `resume eBilanz`, but authenticated eBilanz app access was blocked by the browser URL policy. Continue with human-operator page actions and local file review rather than alternate browser-control workarounds.
+
 Current platform position:
 
 - Browser URL at pause: `https://www.ebilanzonline.de/ebo/index.html#:sections:transmission:index.html?periodeId=625447`.
