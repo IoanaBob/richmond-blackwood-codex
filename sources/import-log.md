@@ -1932,3 +1932,19 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-06-03 - Client-Facing Software Abstraction Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-03 that the Ricardo message should be sent via WhatsApp manually, should not name RB's internal software, and that all client-facing messages should abstract RB's software/tooling.
+
+Actions:
+
+- Updated `AGENTS.md` and `skills/rb-communications/SKILL.md` with the client-facing abstraction rule.
+- Recorded the durable decision in `memory/decisions.md`.
+- Added the rule to `memory/handoff.md`, `memory/skill-runs.md`, and `memory/history.md`.
+
+Unresolved:
+
+- No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.

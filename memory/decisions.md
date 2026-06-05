@@ -147,6 +147,19 @@ Consequence:
 Source: user instruction in Codex chat on 2026-06-03.
 Review: validate that future skills read `RB_WORKSPACE_ACTOR` before falling back to `RB_CODEX_ACTOR`.
 
+## 2026-06-03 - Abstract Internal Software In Client-Facing Copy
+
+Decision: Client-facing Richmond Blackwood messages must not expose internal software, helper, connector, automation, or back-office vendor names when a generic status description is enough.
+
+Consequence:
+
+- Use client-safe wording such as "we applied", "we requested the correction", "we are waiting for feedback", or "we are processing this" instead of naming the internal tool path.
+- Name a software system or vendor in client-facing copy only when the user explicitly approves it, the client already supplied that named system, or the recipient is the named software/vendor and the name is necessary.
+- Internal Notion, Communications, repo, and audit logs may retain exact software/source names when they are needed to preserve source context and are safe to store.
+
+Source: user instruction in Codex chat on 2026-06-03.
+Review: approved as a general client communication rule; refine exceptions if future edge cases require it.
+
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 
 Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.

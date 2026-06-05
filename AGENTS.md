@@ -134,6 +134,7 @@ Use Drive for raw documents or evidence that does not need always-on Codex acces
 ## Outbound Communications
 
 - Draft all outbound communications in chat with the user, not as software drafts for manual send.
+- Client-facing copy must abstract Richmond Blackwood's internal software, helpers, connectors, automations, and back-office vendor names unless the user explicitly approves naming them, the client already supplied the named system, or the recipient is the named software/vendor and the name is necessary.
 - Every communication preview must show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - Do not infer Gmail source mailbox or sending identity from the active operator. A run may read `accounting@richmondblackwood.com` and one or more personal/operator mailboxes in the same day only when each source mailbox is explicitly scoped and labelled.
 - Prefer replying in the existing email thread whenever email context exists. Start a new email only when there is no relevant thread or the user explicitly asks for a new thread.
