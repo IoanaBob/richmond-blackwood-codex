@@ -25,6 +25,7 @@ Imported: 2026-05-04.
 | `[Annually] Personal Tax Filing` task template | `https://www.notion.so/32ee413013148090a435e5858b918f25` | Template fetched; used for personal-tax analysis task creation when a filing has no preparation task |
 | VBG accident-insurance registration guideline | `https://www.notion.so/165e413013148096a9fbf8abc5b41057` | Used on 2026-06-03 to create `rb-de-vbg-accident-insurance`; provisional pending future live form checks |
 | Claudio Brivio individual and filing records | `https://www.notion.so/2242215d7fdc4efe9f3a33693601fe7b`; `https://www.notion.so/2cae413013148064bf7ae889ec16af5c`; `https://www.notion.so/342e41301314803eb579c68638fb3fb0` | Used for 2026-05-13 individual context routing under `clients/Individuals/Claudio Brivio/` |
+| eBilanz affected-client task | `https://app.notion.com/p/36ee413013148170b032fe9f451df367` | Used on 2026-06-04 to prepare local eBilanz upload workbooks for AGL, CLV, CBMAX, NACV, PCL, and WEW; no transmission was performed |
 
 ## Slack Sources
 
@@ -112,6 +113,8 @@ Personal-tax filing-task unblock Slack rule added on 2026-05-14 from user instru
 SVL company Drive sources are routed to `clients/Companies/SVL/source-register.md`; Kristjan personal-tax Drive sources are routed to `clients/Individuals/KRISTJAN MAR OLAFSSON/source-register.md`. Canonical company folder: `https://drive.google.com/drive/folders/19IHrClZjr58Bt15cx9h0KV9RiVzzAC1G`. Personal-tax folder: `https://drive.google.com/drive/folders/1zwxIVHdi_2ZFPYOV3-OwQmmsU9S30_7t`, with Kristjan folder `https://drive.google.com/drive/folders/1WL5xpq3-yGHX6b8YWomfpQcLuofUyyqf` and year folder `https://drive.google.com/drive/folders/1kFFLOyVHNAyM6suLQmGO6C4GOio_WHGQ`; user confirmed on 2026-05-18 that the year should be 2026, and the folder was renamed/verified.
 
 NACV company Drive sources are routed to `clients/Companies/NACV/source-register.md`; Andrei personal-tax Drive sources are routed to `clients/Individuals/Andrei Nasonov/source-register.md`. Canonical company folder: `https://drive.google.com/drive/folders/1z36VoEjY6jkbqAjxGyRBZD7b323rMd_c`. Andrei personal-tax parent folder: `https://drive.google.com/drive/folders/1wAXb-4HYg8QjOXUWTAGHN6pYu-lcc3Ir`, with 2024 folder `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_`, 2025 folder `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`, current 2024 workbook `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0`, and NACV payslips folder `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn`.
+
+AGL, CLV, CBMAX, NACV, PCL, and WEW eBilanz batch upload files prepared on 2026-06-04 are routed to each company's `ebilanz-online.md`. Local operator upload folder: `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2`. The source-backed files are account-balance import workbooks only; eBilanz platform import, mapping validation, certificate/PIN/payment handling, and final transmission were not performed by Codex.
 
 ## WhatsApp Sources
 

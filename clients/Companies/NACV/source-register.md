@@ -14,6 +14,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2026-05-19 | Codex thread | NACV was VAT-deregistered in October 2025; RB submitted the fix/appeal but has no response yet. |
 | 2026-05-19 | Codex thread | User says 2024 and 2025 company taxes were filed, but Finanzamt asked for more information and RB is handling it. Personal taxes are still pending for 2024, but RB wants to coordinate 2024 and 2025 together while keeping one filing record per year. |
 | 2026-05-19 | Codex thread | User confirmed the WhatsApp chat is `NA Capital Ventures`. |
+| 2026-06-05 | Codex thread and live eBilanz-Online | User instructed Codex to create/import NACV after CBMAX and PCL. NACV 2024 eBilanz period `625488` was imported from a GL-only legacy `.xls`, corrected in taxonomy schedules, and pre-validated cleanly. No transmission was performed. |
 
 ## Notion
 

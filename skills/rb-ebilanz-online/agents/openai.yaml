@@ -1,0 +1,7 @@
+interface:
+  display_name: "RB eBilanz-Online"
+  short_description: "Prepare German E-Bilanz drafts, mappings, and proof safely."
+  default_prompt: "Use $rb-ebilanz-online to prepare or review a German E-Bilanz draft in eBilanz-Online from Drive/Notion sources, including import files, mapping checks, validation, and proof handling without unapproved submission."
+
+policy:
+  allow_implicit_invocation: true
