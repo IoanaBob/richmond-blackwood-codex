@@ -94,25 +94,29 @@ Packet fields:
 - run scope and source coverage limits;
 - blocker list.
 
-Stage 1 is read-only except creating the scratch run folder and lock.
+Stage 1 may perform the required repo sync plus scratch run-folder writes. It must not make live Notion, Gmail, Slack, WhatsApp, Drive, or other business-system writes. If repo sync changes files, fails, or creates conflicts, record the state in the packet and resolve the repo blocker before any live workspace work.
 
 ## Stage 2 - Communications Inventory
 
 Goal: choose Communications rows in scope.
 
-Default inclusion:
+Default queue filter, all required:
 
 - `Assigned To` contains the active workspace actor's Notion user ID resolved from `RB_WORKSPACE_ACTOR`, legacy `RB_CODEX_ACTOR`, or an explicit actor supplied in the current run/chat;
 - `Status` is not a complete status;
-- `Snooze Until` is blank or is on/before the run date in the Codex timezone;
-- the user supplied a specific row URL, labelled as an `operator_supplied_override` if it does not match the default assignment or snooze filter;
-- the row appears in a user-supplied Notion view/query scope, with the view filter recorded exactly.
+- `Snooze Until` is blank or is on/before the run date in the Codex timezone.
+
+Explicit override inclusion:
+
+- A user-supplied row URL or view/query scope may be reviewed even when it fails the default assignment or snooze filter, but label the row `operator_supplied_override` and record which default filter it bypasses.
+- Record the user-supplied view/query filter exactly.
+- Do not include `Done` or `Archived` rows in an execution batch unless the operator explicitly asked for complete-row cleanup or supplied that exact row/view for review.
 
 Default exclusion:
 
-- `Status` is `Done` or `Archived`, even when `Due Date` is today or overdue.
+- `Status` is `Done` or `Archived`, even when `Due Date` is today or overdue, unless covered by an explicit complete-row cleanup override.
 - Rows assigned to someone else, unless explicitly supplied by URL/view for review.
-- Rows with future `Snooze Until`; write them to skipped/deferred CSV with `deferred_until` and `defer_reason=future_snooze`.
+- Rows with future `Snooze Until`, unless explicitly supplied by URL/view for review; write deferred default-queue rows to skipped/deferred CSV with `deferred_until` and `defer_reason=future_snooze`.
 - A stale due date on a complete Communication is cleanup metadata, not follow-through selection.
 - If RB is waiting for a reply or follow-through, the Communication should be `Follow-Up`.
 - If RB owes the next reply, the Communication should be `Needs Reply`.
@@ -131,12 +135,11 @@ Inventory method:
 - Google personas are auth routes only. Do not use a Google persona, Gmail mailbox, or sender identity as the active human workspace actor.
 - If using a user-provided CSV/export, record the file path, export timestamp if known, source view/database URL, row count, and exact filter/sort that produced it.
 
-Fallback method:
+Inventory fallback:
 
-- Do not rely on historical connector behavior alone. Use the current authoritative Notion inventory guidance in `processes/notion-operations.md`.
-- If every authoritative inventory path is unavailable for a complete-scope run, do not substitute Notion search as inventory. Stop with a coverage blocker unless the operator provides a full export, enables an approved Notion API/export path, or explicitly approves a degraded candidate-only run.
-- Notion search may be used only for candidate discovery. It has a 25-result cap, semantic ranking, and can return false positives where linked tasks or page content mention the operator while the Communication row has no `Assigned To` value.
-- Any search-based packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
+- Do not rely on historical connector behavior alone. Follow `processes/notion-operations.md` for current authoritative inventory, connector-limit, file-transfer, and degraded-candidate rules.
+- If every authoritative inventory path is unavailable for a complete-scope run, stop with a coverage blocker unless the operator provides a full export, enables an approved inventory path, or explicitly approves a degraded candidate-only run.
+- Any degraded candidate-only packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
 
 Packet columns:
 
@@ -251,7 +254,8 @@ Each row proposal must include:
 - linked task note/comment/status update, or an explicit `no linked task update needed` reason;
 - owner and due date;
 - `Snooze Until` date for outgoing Communications and follow-ups;
-- resulting Communication state: `Done`, `Archived`, `Drafting`, `Follow-Up`, `Needs Reply`, `Needs Triage`, `blocked`, `future_snoozed`, or `carry_forward`;
+- resulting live Communication `Status`, chosen only from the live status mapping recorded in Stage 1;
+- run disposition: `closed`, `archived`, `future_snoozed`, `blocked`, or `carry_forward`, recorded in the packet/run CSV only unless an approved live field exists for it;
 - verification expected after execution.
 
 Task update rule:
