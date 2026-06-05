@@ -240,6 +240,7 @@ Copy style:
 - Avoid formulaic lines like `Germany probably makes...`, `admin and taxes here are...`, or any tax/admin aside in first messages.
 - Never use contrast-template copy or questions that only offer generic binary options. This sounds artificial in Ioana's outreach.
 - Do not make the question a binary-choice template unless the person's own post/source explicitly frames that exact tradeoff. Prefer one pointed question about a named workflow, product decision, technical constraint, customer type, or market behavior.
+- Avoid polished product-growth filler such as `different beast from an MVP`, broad `outcomes` questions, and generic launch-scale comparisons. Ask about a concrete behavior, workflow, constraint, user decision, or product tradeoff from the source context.
 - Do not use vague anchor phrases like `your X stood out`, `the X stood out`, `X caught my eye`, `I noticed X`, `I was looking at X`, or `I got curious about X`. Name the actual post, product, system, feature, workflow, hiring need, technical decision, or profile note directly.
 - Do not refer back to `the thing` as the message anchor. If the source detail matters, say exactly what it is.
 - Avoid abstract proximity questions about customer closeness. They sound specific and still say nothing. Ask about a named product decision, workflow, user action, implementation constraint, or market behavior.
