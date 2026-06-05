@@ -91,6 +91,15 @@ export const GOOGLE_PERSONAS: GooglePersonaDefinition[] = [
     services: ["gmail", "drive", "calendar"],
   },
   {
+    slug: "compliance-richmond-blackwood",
+    aliases: ["rb-compliance"],
+    label: "RB Compliance shared mailbox",
+    expectedEmail: "compliance@richmondblackwood.com",
+    accountEmail: "compliance@richmondblackwood.com",
+    configured: true,
+    services: ["gmail", "drive", "calendar"],
+  },
+  {
     slug: "ioana-richmond-blackwood",
     label: "Ioana Richmond Blackwood",
     configured: false,
