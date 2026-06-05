@@ -1913,6 +1913,24 @@ Unresolved:
 
 - PR closeout pending.
 
+## 2026-06-05 - EIP Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-05 that EIP is the holding company of the venture-builder companies and that EIP context should be pulled from Notion.
+- Notion company `EIP VENTURES LIMITED` (`https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`) with canonical `Reference` `EIP`.
+- EIP client project, parent project, linked individuals, direct subsidiary/company relation records, contract rows, filing registrations, filing/payment rows, internal tax-status document, BOI lending/debt-register tasks, intercompany tool-charge task, and BOI communication record.
+
+Actions:
+
+- Created `clients/Companies/EIP/` and populated company overview, linked individuals, group structure, contracts/authority, tax/filings, accounting/payroll, invoicing/payments/expenses, financing/assets, communications, project, Drive, Notion backup, open questions, source register, and history.
+- Updated durable source, history, current-state, handoff, skill-run, and open-question memory.
+- Kept subsidiary operating context as pointers only and excluded personal identifiers, bank details, VBG PINs, payroll credential material, raw attachments, and private-channel transcripts from git.
+
+Unresolved:
+
+- Confirm broader EIP holding structure beyond direct MONO/EVG/RBL relations, EIP communication route, stale filing/payment statuses, payroll registration identifier mismatch, and BOI/debt-register readiness.
+
 ## 2026-06-03 - Default Rebase Before Push
 
 Imported:

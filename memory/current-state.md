@@ -278,6 +278,16 @@ RBL / RICHMOND BLACKWOOD LIMITED context refresh:
 - Resolved on 2026-06-05: Notion registered-office writeback, April 2026 PAYE payment marked/read back as `Paid`, Payroll/VIES/Corporation Tax registrations marked/read back as `Registered`, and future VAT title corrected to `RBL - VAT - 19 May 2027`.
 - Drive search on 2026-06-05 found current folder candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`; confirm this is the approved canonical upload destination before storing new raw evidence there.
 
+EIP / EIP VENTURES LIMITED context import:
+
+- Company folder: `clients/Companies/EIP/`.
+- Notion company: `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`; `Reference` is `EIP`.
+- Notion client project: `https://www.notion.so/32fe41301314804a8e09c51b11350b46`.
+- No WhatsApp route is recorded for EIP in this import.
+- User describes EIP as the venture-builder holding company. Direct Notion subsidiary/shareholder-of relations fetched on 2026-06-05 show MONO, EVG, and RBL; confirm broader direct/indirect/portfolio structure before expanding.
+- High-signal current checks: BOI lending facility and debt-register template, intercompany tool-charge task, active intercompany contracts to Konvi/RBL/Mono, historical DE/IE tax cleanup, annual-return status mismatch, RTD/VIES overdue rows, Irish payroll-registration identifier mismatch, VAT3 Jan/Feb 2026 overdue payment row, April 2026 PAYE due row, AIB BYD Seal hire purchase, and mortgage/debt contract.
+- Boundary: keep subsidiary operating detail in each subsidiary folder/live Notion record. Do not copy individual identifiers, bank details, VBG PINs, payroll credential material, raw attachments, or private-channel transcripts into git.
+
 Communication workflow update:
 
 - Browser/API/MCP boundary from 2026-06-01 user instruction: reject browser use for live workspace or business-system workflows when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before using browser automation, check whether the current plan can use one of those routes; if unclear, ask the responsible RB team member whether an API/MCP path exists. If possible access is blocked by missing credentials, stop and ask the responsible team member to provision the right keys or credentials through approved secret storage. Do not use browser as a workaround for missing API/MCP access.

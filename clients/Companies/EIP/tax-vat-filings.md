@@ -1,0 +1,47 @@
+# Tax, VAT, And Filings
+
+Status: provisional.
+Source: Notion company, filing-registration, filing, tax-payment, task, and internal tax-status records fetched on 2026-06-05; local repo process note `processes/ie-ros-filing-logging.md`.
+Imported: 2026-06-05.
+Review: Verify live ROS/CRO/German authority status before treating any due, overdue, payment, deregistration, or filed position as settled.
+
+## Tax-Residence Context
+
+| Period | Source position | Source | Notes |
+| --- | --- | --- | --- |
+| Current company record | Ireland | `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d` | Company `Tax Residence` property reads Ireland. |
+| 2021 | Germany | `Internal Companies Tax Statuses` `https://www.notion.so/19fe4130131480a4ad14f6e5496107f2` | Internal matrix says EIP was German tax resident in 2021. |
+| 2022 | Germany | `Internal Companies Tax Statuses` | Internal note says EIP needs a nil German return for 2022. |
+| 2023 | Germany/Ireland | `Internal Companies Tax Statuses` | Internal note says 2023 should be filed with taxes only from June 2023, after the German-residence period ended around May 2023. |
+| 2024 and 2025 | Ireland | `Internal Companies Tax Statuses` | Aligns with current Notion company tax-residence property. |
+
+The internal tax-status document also says EIP corporation tax returns for 2022, 2023, and 2024 were due or under cleanup, and it records Irish VAT interest amounts for Sep-Oct and July-Aug periods. Treat this as an active cleanup pointer, not as final authority status.
+
+## Filing Registrations
+
+| Area | Current Notion status | Source | Notes |
+| --- | --- | --- | --- |
+| RBO | Registered | `https://www.notion.so/175e41301314805cb30bf4c933ddbf34` | One-off registration. |
+| Annual Returns | Overdue | `https://www.notion.so/175e4130131480c5a89df4004ea93754` | Registration row status conflicts with a 2026 annual-return filing row comment saying the court extension was granted and filing uploaded. |
+| Irish VAT | Registered | `https://www.notion.so/175e41301314808d9926e5689763d9c9` | Bi-monthly filing/payment cadence; Notion payment reference shown as `3740939BH`. |
+| Irish Corporation Tax | Registered | `https://www.notion.so/175e4130131480f3b12dea715b3e85e2` | Yearly cadence; active prepayments yes; prepayment cadence quarterly; linked tax-prepayment schedule exists in Notion. |
+| RTD / annual VAT | Overdue | `https://www.notion.so/175e41301314803bac0ff7ed6903da20` | Yearly cadence; verify exact RTD backlog before creating duplicate tasks. |
+| VIES | Overdue | `https://www.notion.so/175e41301314802cb871f931d53e4d3a` | Title says `VEIS`; likely typo. Quarterly cadence. |
+| German all-tax registration | Deregistered | `https://www.notion.so/176e41301314800d9508da97f8309f9b` | German corporation-tax/all-tax route, one filing linked. |
+| Irish Payroll Tax | Overdue | `https://www.notion.so/176e4130131480d3b618e7707b545ce2` | Row title says payroll tax, jurisdiction IE, but the number/comments show `Betriebsnummer: 152500094`. Local process memory says ROS used PREM/payment reference `3740939BH`, so this identifier mismatch needs review. |
+| German VAT | Deregistered | `https://www.notion.so/cbe65719166a45fb95975204fcb74fdb` | Quarterly cadence while active. |
+| VBG accident insurance | Registered | `https://www.notion.so/18ae413013148071beddd12c62835a8f` | Source row contains registration details. Credential-like PIN data was deliberately excluded from git. |
+| My Future Fund / Auto Enrolment | Registered | `https://www.notion.so/2c6e41301314801e87e6ceb8d9a350f8` | Irish auto-enrolment registration. |
+
+## Current Filing And Payment Status
+
+| Item | Status in Notion | Source | Notes |
+| --- | --- | --- | --- |
+| EIP 2024 annual returns row | Pending; due 2026-08-06; period 2024-01-01 to 2024-12-31 | `https://www.notion.so/310e4130131480feb593fbcfee338e4a` | Comments say court extension was granted, the filing was completed, and all files uploaded. Status still reads Pending. |
+| EIP VAT3 Jan/Feb 2026 tax payment | Overdue; due 2026-03-23; amount EUR 5,415 | `https://www.notion.so/2f1e41301314809a8a9fe1680128c297` | Verify whether paid outside Notion or genuinely overdue. |
+| EIP PAYE payroll tax Apr 2026 payment | Due; due 2026-06-02; amount EUR 6,002.59 | `https://www.notion.so/365e41301314815da024f803b1fa5014` | Current date of this import is 2026-06-05, so this needs payment/status confirmation. |
+| Bi-monthly EIP VAT filing task | To Do | `https://www.notion.so/331e413013148190b039c79561c6f606` | Task requires Xero bookkeeping review, expense review in Notion, filing evidence upload, and proof before completion. |
+
+## Process Notes
+
+`processes/ie-ros-filing-logging.md` records a prior ROS filing/logging observation: EIP payroll in ROS used PREM/payment reference `3740939BH`; the linked Notion payroll registration showed `Betriebsnummer: 152500094`, which was not a ROS PREM option. Keep both visible until reconciled.

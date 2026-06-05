@@ -930,6 +930,14 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Google Drive search/list-folder found candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy` with RBL-specific contents.
 - Updated `clients/Companies/RBL/`, durable memory, and source logs. Remaining RBL gaps are Sage/Xero decision, Workhub VAT/exact upgraded-plan verification, and final confirmation that the found Drive folder is the approved upload destination.
 
+## 2026-06-05 - EIP Company Context Import
+
+- User asked to continue with EIP, described it as the holding company of the venture-builder companies, and said the context should be in Notion.
+- Created `clients/Companies/EIP/` from the Notion company `EIP VENTURES LIMITED` / `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`, canonical reference `EIP`.
+- Imported source-backed EIP overview, linked individuals, direct group-structure pointers, active/inactive contracts, tax/filing registrations, accounting/payroll route, intercompany invoicing context, BOI lending/debt-register context, communications pointers, project route, open questions, and source register.
+- Direct Notion subsidiary relations currently show MONO, EVG, and RBL; broader venture-builder holding scope remains open for confirmation.
+- No WhatsApp route, Drive search/write, Gmail write, Slack write, or live Notion write was performed. Sensitive individual identifiers, bank details, VBG PINs, payroll credential details, raw attachments, and private-channel transcripts were excluded from git.
+
 ## 2026-06-04 - MHL Car Concierge Expense Submission
 
 - User request: Submit the provided invoice PDF through the expenses/invoice workflow.

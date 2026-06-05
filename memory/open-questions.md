@@ -140,6 +140,20 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm Workhub VAT treatment and exact upgraded-plan allocation for RBL. User said on 2026-06-05 that RB likely paid the upgraded amount for Richmond Blackwood; verify against the actual Workhub/RBL invoice before automated approval/rejection.
 - Resolved 2026-06-05: Notion registered-office writeback, April 2026 PAYE payment status, Payroll/VIES/Corporation Tax registration statuses, and the future VAT title/date mismatch.
 
+## EIP Questions
+
+- Confirm whether EIP's holding-company role includes direct ownership of venture-builder companies beyond MONO, EVG, and RBL, or whether other entities are indirect subsidiaries, portfolio companies, or separately owned.
+- Confirm whether EIP's Notion communication preference should remain WhatsApp or be changed to Slack/email/internal Notion because EIP is internal. No WhatsApp route was used or stored in the 2026-06-05 import.
+- Reconcile the EIP company/project relation mismatch: the company points to the EIP client project, but the project `Companies` relation displayed a different company page during fetch.
+- Confirm whether the EIP 2024 annual return is filed or pending. Registration says Overdue and the filing row says Pending, but comments say the court extension was granted and filing/files uploaded.
+- Confirm whether EIP VAT3 Jan/Feb 2026 and April 2026 PAYE tax-payment rows are paid, stale, or genuinely overdue.
+- Reconcile EIP payroll registration metadata: Notion Irish payroll row shows a German-style `Betriebsnummer`, while local ROS logging memory says EIP payroll in ROS used `3740939BH`.
+- Confirm the accepted historical DE/IE tax cleanup for EIP 2021-2024, including nil German 2022, partial 2023, and 2024 Irish position.
+- Review whether EIP RTD and VIES registration rows should remain Overdue, and whether the VIES title typo `VEIS` should be corrected.
+- Confirm the active Konvi intercompany contract amount and component-line split because the amount field and extra invoice details do not appear to reconcile.
+- Confirm BOI lending package/debt-register readiness and approval route before any external bank submission or upload.
+- Confirm canonical EIP Drive folder before uploading or claiming raw evidence is stored in Drive.
+
 ## KONVI Questions
 
 - Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.
