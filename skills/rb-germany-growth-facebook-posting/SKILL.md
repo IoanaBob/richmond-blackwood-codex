@@ -118,6 +118,7 @@ Shared gates:
    - Keep replies useful to the thread and responsive to the other person's comment.
    - For reply drafts, do not stop at generic caution. Add the concrete helpful part: what to ask, what to compare, what setup to consider, or what action to take next.
    - When the helpful part is a comparison, do the comparison instead of naming the options and moving on.
+   - For reply threads after roughly three substantive messages, assess whether a natural bridge into Germany admin, tax, company, freelance, or remote-work setup would help. Use it only when it follows from the actual group post or reply. If it would be forced, record the missing fact and keep answering the thread.
    - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must answer the thread, provide a concrete check, or move the thread forward.
    - Do not pitch, move to DMs, introduce RB services, or make new claims unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
 
