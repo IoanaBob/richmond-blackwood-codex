@@ -108,24 +108,43 @@ Source: live eBilanz-Online period `625447`; user pause instruction in Codex cha
 Imported: 2026-06-05.
 Review: Resume only after the user says `resume eBilanz`. Do not transmit, pay, enter certificate/PIN, buy/use voucher, or click final send without fresh explicit approval.
 
-Resume update 2026-06-05: After the user said `resume eBilanz`, Codex in-app Browser control of the authenticated eBilanz app URL was blocked by browser URL policy. Continue from this handoff by guiding the human operator through review/export and reading uploaded/downloaded PDFs locally; do not attempt alternate browser-control workarounds.
+Resume update 2026-06-05: After the user said `resume eBilanz`, initial browser control of the authenticated eBilanz app URL was blocked by browser URL policy, but a later authenticated in-app browser session was controllable again. Codex opened CLV 2025 period `625447`, downloaded/read the print-preview ZIP, and did not transmit, pay, enter certificate/PIN, buy/use voucher, or click final send.
 
 Current live browser position:
 
 - URL: `https://www.ebilanzonline.de/ebo/index.html#:sections:transmission:index.html?periodeId=625447`
 - Client/period: `COHEN LIBERTAS VISION LIMITED`, 2025/01/01-2025/12/31, eBilanz period ID `625447`.
-- The draft is balanced after the 2026-06-05 custom mapping import.
+- The draft is balanced after the 2026-06-05 custom mapping import, but it is not clean for transmission until the `89.64` prior-year continuity difference is explained or approved.
 - Verified figures: total assets `2,068.22`; total equity and liabilities `2,068.22`; equity `-2,461.00`; liabilities `4,529.22`; P&L net income `1,333.63`.
 - Account values file used: `/Users/jp/Downloads/CLV_eBilanz_2025_corrected_import.xls`, sheet `Import`, account column `A`, description column `B`, value column `D (Source signed balance)`.
 - Mapping file used: `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls`, sheet `Mapping`, taxonomy column `A`, description column `D`, account column `C`, no changing-balance group.
 - The rebuilt `.xlsx` mapping was rejected by eBilanz with `No sheets have been found`; for this mapping screen use a genuine legacy `.xls`.
+- Print-preview ZIP: `/Users/jp/Downloads/COHEN_LIBERTAS_VISION_LIMITED_2025_01_01_-_2025_12_31_2025.zip`.
+- Review flag: CLV 2025 balance sheet shows retained loss brought forward `-3,794.63`, while CLV 2024 closing equity was `-3,704.99`, a difference of `89.64`. The 2025 source trial balance itself carries `9000 = -2,409.11` and `9009 = 6,203.74`, so this is source-driven rather than an import-file sign error.
+- Review flag: CLV 2025 GCD includes `Determination of taxable income for special cases`, but that PDF says there are no data to print. Confirm whether to keep or remove that component before final review.
 
 Next safe step:
 
-1. If the user says `resume eBilanz`, start by confirming whether they want CLV 2025 review/export or to move to another client.
-2. For CLV 2025 review, download/print the transmission-page `Print preview as PDF` and compare it against the source workbook and read-back figures.
+1. If the user says `resume eBilanz`, start by stating that CLV 2025 is balanced but has the two review flags above.
+2. For CLV 2025 review, do not regenerate/re-upload unless a reviewer asks for a correction. Use the saved print-preview ZIP and source workbook comparison.
 3. For CLV 2025 transmission, stop before any certificate/PIN/voucher/payment/final send step and require fresh explicit approval.
 4. For AGL 2025, do not start from `/Users/jp/Downloads/Agile LinCS Limited FS Abridged Jan 10 2024 - Dec 31 2025.pdf`; text extraction shows that file is 2024 statements. Search Drive/Slack/Lorenzo sources for a final 2025 annual FS/trial balance first.
+
+Resume update 2026-06-05 after authenticated browser access returned:
+
+- WEW 2024 period `625444`: removed editable empty components `Appropriation of profits`, `Notes`, and `Statement of changes in fixed assets (gross)`. Read-back selected components are `Balance sheet`, `Income statement`, `Detailed information / Account details`, and platform-forced `Determination of taxable income in special cases`. Last saved displayed `05.06.2026, 11:37`.
+- AGL 2024 period `625445`: removed editable empty `Detailed information / Account details`. Read-back selected components are `Balance sheet`, `Income statement`, and platform-forced `Determination of taxable income in special cases`. Last saved displayed `05.06.2026, 11:37`.
+- For both WEW and AGL, eBilanz showed `Determination of taxable income in special cases` as checked and disabled; treat it as a reviewer confirmation item, not a missed manual checkbox.
+- No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+
+NACV 2024 update 2026-06-05:
+
+- Period `625488` for `NA CAPITAL VENTURES LIMITED`, 2024/01/01-2024/12/31, was imported using `/Users/jp/Downloads/NACV_2024_ebilanz_GL_only_import.xls`.
+- Source-backed manual corrections: income-statement travel accounts `6670`/`6673`/`6674` total `3,426.95`; balance-sheet net income `33,594.80`; withdrawal/deficit line `2,000.00`.
+- Business-assets determination final values: closing business assets `31,594.80`, prior-year business assets `0.00`, capital adjustments `0.00`, withdrawals/distributions `2,000.00`, contributions `0.00`, calculated profit `33,594.80`.
+- The eBilanz assistant initially imported prior-year business assets as `-2,000.00`; correct this to source opening business assets, not the assistant value, if the schedule is ever rebuilt.
+- Pre-validation page read-back says `No errors or warnings present`.
+- No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
 
 ## Verification
 

@@ -949,3 +949,39 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: For CLV 2025, use account-value column `D (Source signed balance)`, not `EBilanz-Wert`; keep closing/P&L account `9258` unmapped to avoid duplicating profit. Do not start AGL 2025 from VAT protocols or the mislabeled 2024 PDF.
 - Verification: CLV 2025 browser read-back showed income statement net income `1,333.63`, balance sheet assets `2,068.22`, equity/liabilities `2,068.22`, equity `-2,461.00`, and liabilities `4,529.22`. No final transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
 - Limitations or gaps: CLV 2025 still needs operator/professional review and print-preview PDF before any filing. AGL 2025 remains blocked pending final annual FS/trial balance from Drive/Slack/Lorenzo or user upload. On resume later the same day, in-app Browser control of the authenticated eBilanz app URL was blocked by browser URL policy, so CLV 2025 review/export must be human-operator guided unless a supported app/API path becomes available.
+
+## 2026-06-05 - CLV eBilanz 2025 PDF Review
+
+- User request: Resume eBilanz after the user confirmed the authenticated browser session was open.
+- Context read: live eBilanz-Online period `625447`, CLV 2025 and 2024 print-preview ZIPs, extracted PDFs, CLV source workbooks, `rb-ebilanz-online`, Browser, and Spreadsheets workflow notes.
+- Actions taken: Reattached to the live eBilanz dashboard, confirmed CLV 2025 period `625447` and `Assets: 0`, reviewed `/Users/jp/Downloads/COHEN_LIBERTAS_VISION_LIMITED_2025_01_01_-_2025_12_31_2025.zip`, compared it to the 2024 print-preview package and 2025 source trial balance, and recorded the current review flags in CLV and handoff notes.
+- Decisions made: CLV 2025 is balanced but should not be transmitted until reviewer confirmation explains the `89.64` prior-year continuity difference and confirms whether the empty `Determination of taxable income in special cases` component should remain selected.
+- Verification: CLV 2025 PDFs show assets/equity-liabilities `2,068.22`, net income `1,333.63`, retained loss brought forward `-3,794.63`, and liabilities `4,529.22`; CLV 2024 PDF shows closing equity `-3,704.99`. The difference is source-driven because 2025 source accounts `9000` and `9009` net to `-3,794.63`. No eBilanz values were changed and no final transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+- Limitations or gaps: Lorenzo/operator/professional review is needed before CLV 2025 transmission. AGL 2025 remains blocked pending a final 2025 annual FS/trial balance source.
+
+## 2026-06-05 - WEW And AGL eBilanz Print-Preview Review
+
+- User request: Continue the eBilanz batch after authenticated browser access resumed.
+- Context read: WEW and AGL eBilanz print-preview ZIPs, extracted PDFs, client eBilanz notes, and `rb-ebilanz-online`.
+- Actions taken: Extracted `/Users/jp/Downloads/WEWRITE_CREATIVE_LIMITED_2024_05_13_-_2024_12_31_2024.zip` and `/Users/jp/Downloads/AGILE_LINCS_LIMITED_2024_01_10_-_2024_12_31_2024.zip`, reviewed balance-sheet/income-statement totals and empty enabled components, and updated WEW/AGL client notes/source registers.
+- Decisions made: Balanced eBilanz totals are not enough for transmission; empty selected report components need to be removed or explicitly approved before reviewer signoff.
+- Verification: WEW 2024 PDFs show assets/equity-liabilities `22,320.67` and net income `20,995.73`; AGL 2024 PDFs show assets/equity-liabilities `24,697.31` and net loss `-14,447.12`. WEW empty selected components are Appropriation of profits, Notes, Statement of changes in fixed assets, and special-cases taxable income. AGL empty selected components are Detailed information and special-cases taxable income. No live eBilanz values were changed and no final transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+- Limitations or gaps: Component cleanup/reviewer approval remains pending for WEW 2024 and AGL 2024. AGL 2025 remains blocked pending a final 2025 annual FS/trial balance source.
+
+## 2026-06-05 - WEW And AGL eBilanz Component Cleanup
+
+- User request: Resume the authenticated eBilanz-Online batch after the user confirmed Codex was in the site.
+- Context read: live eBilanz-Online period details for WEW `625444` and AGL `625445`, prior print-preview findings, client eBilanz notes, `rb-ebilanz-online`, and Browser workflow notes.
+- Actions taken: Removed editable empty report components from WEW 2024 period administration (`Appropriation of profits`, `Notes`, and `Statement of changes in fixed assets (gross)`) and removed AGL 2024 `Detailed information / Account details`. Saved both period setups and read back the selected components.
+- Decisions made: The `Determination of taxable income in special cases` component was checked and disabled for both WEW and AGL, so it remains selected as a platform-forced component rather than a manually removable empty component.
+- Verification: WEW period details now show `Balance sheet`, `Income statement`, `Detailed information / Account details`, and `Determination of taxable income in special cases`; AGL period details now show `Balance sheet`, `Income statement`, and `Determination of taxable income in special cases`. Both saves showed no transmission step. No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+- Limitations or gaps: CLV 2025 still needs continuity review; AGL 2025 remains blocked pending final 2025 annual FS/trial balance; WEW/AGL still need professional review of the platform-forced special-cases component before transmission.
+
+## 2026-06-05 - NACV eBilanz 2024 Pre-Validation
+
+- User request: Continue the eBilanz batch for CBMAX, PCL, and NACV; after the user uploaded NACV 2024 import files, finish the NACV draft without transmitting.
+- Context read: live eBilanz-Online period `625488`, NACV GL-only import workbook, `clients/Companies/NACV/ebilanz-online.md`, and `rb-ebilanz-online`.
+- Actions taken: Imported NACV 2024 account balances from the GL-only legacy `.xls`, applied standard SKR04 mapping, added source-backed manual taxonomy values for skipped travel accounts and sole-proprietor-style withdrawal/equity presentation, filled the business-assets determination schedule, and reran pre-validation.
+- Decisions made: The platform assistant's imported prior-year business-assets value of `-2,000.00` was not accepted because it came from the withdrawal/deficit presentation rather than source opening business assets. It was corrected to `0.00`, yielding net profit `33,594.80`.
+- Verification: Pre-validation read-back showed `No errors or warnings present`. No eBilanz final transmission, certificate/PIN entry, voucher/payment action, or final send was performed.
+- Limitations or gaps: NACV 2024 remains pending reviewer/operator approval before any transmission.

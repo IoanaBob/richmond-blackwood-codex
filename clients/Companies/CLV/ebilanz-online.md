@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; Drive CLV 2024/2025 financial-statement sources; local batch build.
 Imported: 2026-06-04.
-Review: CLV 2024 is populated in eBilanz-Online and balances after the 2026-06-04 mapping/equity correction. Transmission still requires operator review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
+Review: CLV 2024 and CLV 2025 are populated in eBilanz-Online and balance after mapping/equity corrections. CLV 2025 has a prior-year continuity review flag: 2025 retained loss brought forward is `-3,794.63`, while the 2024 eBilanz closing equity is `-3,704.99`, a difference of `89.64`. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Uploads
 
@@ -37,6 +37,22 @@ Review: Needs operator/professional review before any transmission. Transmission
 - Dashboard still shows import rows as `No value`; use taxonomy read-back totals as the authoritative review signal.
 - Transmission page was opened for inspection only. It showed certificate/PIN/voucher fields and generic FAQ text; no validation error was acted on and no transmission step was taken.
 
+## CLV 2025 PDF Review - 2026-06-05
+
+Status: provisional.
+Source: eBilanz-Online print preview ZIP `/Users/jp/Downloads/COHEN_LIBERTAS_VISION_LIMITED_2025_01_01_-_2025_12_31_2025.zip`; extracted PDFs under `/private/tmp/rb-ebilanz-clv-review-2026-06-05/clv-2025`; source workbook `/private/tmp/rb-ebalanz-batch-2026-06-04/sources/clv_2025_source.xlsx`; 2024 comparison ZIP `/Users/jp/Downloads/COHEN_LIBERTAS_VISION_LIMITED_2024_01_01_-_2024_12_31_2024.zip`.
+Imported: 2026-06-05.
+Review: Do not transmit CLV 2025 until Lorenzo/operator/professional reviewer explains or approves the `89.64` prior-year continuity difference and the empty selected taxable-income special-cases report.
+
+- Print preview ZIP downloaded successfully and contains five PDFs: Global Common Document, Balance sheet, Income statement, Detailed information, and Determination of taxable income.
+- Balance sheet PDF: total assets `2,068.22`; total equity and liabilities `2,068.22`; equity `-2,461.00`; retained profits/accumulated loss brought forward `-3,794.63`; current-year net income `1,333.63`; liabilities `4,529.22`.
+- Income statement PDF: net income/net loss for the financial year `1,333.63`; earnings after taxes `1,333.63`; gross revenue `40,886.81`.
+- Detailed information PDF confirms retained-loss carry-forward from accounts `9000` and `9009` and current-year result from `9258`.
+- GCD PDF lists report elements as balance sheet, income statement, account balances, and determination of taxable income for special cases.
+- Determination of taxable income PDF says there are no data to be printed for the selected special-cases report. This may be acceptable only if that component is intentionally required for this client; otherwise remove the empty component before final review/transmission.
+- Continuity check: CLV 2024 balance sheet PDF shows closing equity `-3,704.99` (`-4,266.22` retained loss plus `561.23` current-year profit). CLV 2025 source opening equity is `-3,794.63` from accounts `9000 + 9009`, so 2025 opens `89.64` lower than the 2024 eBilanz closing equity.
+- Source check: the `89.64` difference is source-driven, not an import-file sign error. The 2025 trial balance has `9000 = -2,409.11` and `9009 = 6,203.74`, which the eBilanz balance sheet presents net as retained loss `-3,794.63`.
+
 ## Pause Handoff - 2026-06-05 00:30 IST
 
 Status: provisional.
@@ -44,14 +60,14 @@ Source: live eBilanz-Online period `625447`; user instruction to pause on 2026-0
 Imported: 2026-06-05.
 Review: Resume only after the user explicitly asks. Do not transmit, pay, enter certificate/PIN, or click final send without fresh explicit approval naming CLV 2025 and the transmission data.
 
-Resume note 2026-06-05: Codex attempted to resume from the live browser tab after the user said `resume eBilanz`, but authenticated eBilanz app access was blocked by the browser URL policy. Continue with human-operator page actions and local file review rather than alternate browser-control workarounds.
+Resume note 2026-06-05: Initial browser-control resume was blocked by a URL policy, but a later authenticated in-app browser session was controllable again. Codex opened CLV period `625447`, downloaded/read the print-preview ZIP, and found the `89.64` prior-year continuity review flag recorded above.
 
 Current platform position:
 
 - Browser URL at pause: `https://www.ebilanzonline.de/ebo/index.html#:sections:transmission:index.html?periodeId=625447`.
-- CLV 2025 draft is balanced and ready for operator/professional review.
-- No eBilanz PDF print preview was downloaded during this pause point.
-- If resuming for review, first download/print the transmission-page `Print preview as PDF` for CLV 2025 and compare it against the source workbook.
+- CLV 2025 draft is balanced but not clean for transmission review until the `89.64` continuity difference is explained or approved.
+- eBilanz PDF print preview ZIP is saved at `/Users/jp/Downloads/COHEN_LIBERTAS_VISION_LIMITED_2025_01_01_-_2025_12_31_2025.zip`.
+- If resuming for review, do not regenerate or re-upload anything unless the reviewer instructs a correction. Start with the continuity question and empty special-cases taxable-income component.
 - If resuming for filing, stop before certificate/PIN/voucher/payment/final send and require fresh explicit approval.
 
 ## CLV 2024 In-Platform Status - 2026-06-04

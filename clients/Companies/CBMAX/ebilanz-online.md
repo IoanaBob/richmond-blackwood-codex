@@ -3,13 +3,15 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; CBMAX 2024 SFS source workbook; local batch build.
 Imported: 2026-06-04.
-Review: Upload/import and in-platform validation still require operator action. No eBilanz import or transmission was performed by Codex in this run.
+Review: Upload/import and in-platform validation still require operator action. Use the verified legacy `.xls` upload file for live eBilanz uploads; the `.xlsx` build artifact is not the preferred live-upload file. No eBilanz import or transmission was performed by Codex in this run.
 
 ## Prepared Upload
 
 | Period | Local upload file | Source workbook | Source sheet | Rows | Review |
 | --- | --- | --- | --- | ---: | --- |
-| 2024 | `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2/CBMAX_2024_ebilanz_import.xlsx` | `cbmax_2024_sfs_final.xlsx` | `TB 2024` | 35 | Ready for platform upload, then mapping/validation review. |
+| 2024 | `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2/CBMAX_2024_ebilanz_import_legacy.xls` | `cbmax_2024_sfs_final.xlsx` | `TB 2024` | 35 | Ready for platform upload, then mapping/validation review. Verified as genuine BIFF8/OLE Excel with `file` on 2026-06-05. |
+
+Build artifact retained for audit only: `/Users/jp/Downloads/eBilanz_uploads_2026-06-04_v2/CBMAX_2024_ebilanz_import.xlsx`.
 
 ## Platform Notes
 

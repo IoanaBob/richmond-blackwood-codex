@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; WEW Drive financial-statement source; local batch build.
 Imported: 2026-06-04.
-Review: WEW 2024 is populated in eBilanz-Online and ties to the source after account-value and manual taxonomy corrections. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
+Review: WEW 2024 is populated in eBilanz-Online and ties to the source after account-value and manual taxonomy corrections. Empty editable report components were removed live on 2026-06-05; the special-cases taxable-income component remains selected because eBilanz displayed it as disabled/forced for this period setup. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Upload
 
@@ -34,3 +34,28 @@ Review: Needs operator/professional review before any transmission. Transmission
 - Balance sheet after correction: total assets `22,320.67`; total equity and liabilities `22,320.67`; equity `20,955.73`; liabilities `1,364.94`.
 - Income statement after correction: net income/net loss `20,995.73`; earnings after taxes `20,995.73`.
 - Transmission page was inspected only. No certificate/PIN entry, payment, voucher purchase, transmission, or final send was performed.
+
+## WEW 2024 PDF Review - 2026-06-05
+
+Status: provisional.
+Source: eBilanz-Online print-preview ZIP `/Users/jp/Downloads/WEWRITE_CREATIVE_LIMITED_2024_05_13_-_2024_12_31_2024.zip`; extracted PDFs under `/private/tmp/rb-ebilanz-company-review-2026-06-05/wew-2024`.
+Imported: 2026-06-05.
+Review: Editable empty report components were removed live on 2026-06-05. The remaining empty `Determination of taxable income in special cases` component is platform-forced/disabled in period setup and should be accepted or escalated by the reviewer before transmission.
+
+- Print preview ZIP contains Global Common Document, Balance sheet, Income statement, Appropriation of profits, Notes, Statement of changes in fixed assets, Detailed information, and Determination of taxable income.
+- Balance sheet PDF: total assets `22,320.67`; total equity and liabilities `22,320.67`; equity `20,955.73`; current-year net income `20,995.73`; liabilities `1,364.94`.
+- Income statement PDF: net income/net loss `20,995.73`; earnings after taxes `20,995.73`; gross profit `50,610.29`; gross revenue `86,285.40`.
+- Empty selected components: Appropriation of profits, Notes, Statement of changes in fixed assets, and Determination of taxable income in special cases all say there are no data to print. These empty enabled components can block validation and should be removed unless a reviewer says they are required for WEW.
+
+## WEW 2024 Period Component Cleanup - 2026-06-05
+
+Status: provisional.
+Source: live eBilanz-Online period `625444`; browser read-back on 2026-06-05.
+Imported: 2026-06-05.
+Review: Reviewer should confirm that the platform-forced special-cases taxable-income component is acceptable even though the earlier print-preview PDF had no data to print.
+
+- Removed editable empty report components in period administration: `Appropriation of profits`, `Notes`, and `Statement of changes in fixed assets (gross)`.
+- eBilanz displayed `Determination of taxable income in special cases` as checked and disabled, so it could not be removed without changing another period/legal-form setting.
+- Period details read-back after save shows selected components: `Balance sheet`, `Income statement`, `Detailed information / Account details`, and `Determination of taxable income in special cases`.
+- Platform displayed last saved timestamp: `05.06.2026, 11:37`.
+- No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.

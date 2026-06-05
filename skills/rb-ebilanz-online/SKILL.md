@@ -84,6 +84,7 @@ Use this skill when preparing German E-Bilanz / electronic balance sheet filings
    - If the current year's opening equity does not match the prior year's prepared closing equity, stop and flag it for reviewer confirmation rather than forcing continuity.
 7. Populate tax-income schedules:
    - For `Determination of taxable income by comparison of business assets`, use the platform assistant/import-from-balance-sheet option when available, then verify year-end business assets, prior-year business assets, withdrawals, contributions, and resulting profit/loss.
+   - If the business-assets assistant imports an odd prior-year amount from a deficit/withdrawal line, do not accept it automatically. Correct prior-year business assets to the source-backed opening business assets and verify that the calculated net profit/loss ties to both the balance sheet and P&L.
    - For `Determination of taxable income`, use the platform assistant/import-from-P&L option when available, then verify taxable profit/loss equals the expected source result unless there are documented tax adjustments.
 8. Period components and validation:
    - Remove unused empty report components, especially `Notes`/`Anhang`, instead of adding dummy values. Empty enabled components can block pre-validation.

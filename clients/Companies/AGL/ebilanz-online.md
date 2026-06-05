@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; AGL Drive workbook copied locally as `agl_2024_final_review_pack.xlsx`; local batch build.
 Imported: 2026-06-04.
-Review: AGL source uses non-SKR account codes and is marked review-only. Import only with manual/custom eBilanz mapping and reviewer approval. No eBilanz import or transmission was performed by Codex in this run.
+Review: AGL source uses non-SKR account codes and is marked review-only. AGL 2024 is populated and balances in eBilanz-Online; the optional empty detailed-information component was removed live on 2026-06-05, while the special-cases taxable-income component remains selected because eBilanz displayed it as disabled/forced. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Upload
 
@@ -32,6 +32,31 @@ Review: Needs operator/professional review before any transmission. No final eBi
 - Balance sheet after correction: total assets `24,697.31`; total equity and liabilities `24,697.31`; equity `-14,355.60`; liabilities `39,052.91`.
 - Income statement after correction: net income/net loss `-14,447.12`; earnings after taxes `-14,447.12`.
 - Transmission page was inspected only.
+
+## AGL 2024 PDF Review - 2026-06-05
+
+Status: provisional.
+Source: eBilanz-Online print-preview ZIP `/Users/jp/Downloads/AGILE_LINCS_LIMITED_2024_01_10_-_2024_12_31_2024.zip`; extracted PDFs under `/private/tmp/rb-ebilanz-company-review-2026-06-05/agl-2024`.
+Imported: 2026-06-05.
+Review: Optional empty detailed information was removed live on 2026-06-05. The remaining empty `Determination of taxable income in special cases` component is platform-forced/disabled in period setup and should be accepted or escalated by the reviewer before transmission. AGL remains review-sensitive because the source uses non-SKR account codes and manual/custom mapping.
+
+- Print preview ZIP contains Global Common Document, Balance sheet, Income statement, Detailed information, and Determination of taxable income.
+- Balance sheet PDF: total assets `24,697.31`; total equity and liabilities `24,697.31`; equity `-14,355.60`; current-year net income/loss `-14,447.12`; liabilities `39,052.91`, shown as liabilities to banks.
+- Income statement PDF: net income/net loss `-14,447.12`; earnings after taxes `-14,447.12`; gross profit `157,525.50`; gross revenue `157,525.50`.
+- Empty selected components: Detailed information and Determination of taxable income in special cases both say there are no data to print. Remove or justify these before final validation/transmission review.
+
+## AGL 2024 Period Component Cleanup - 2026-06-05
+
+Status: provisional.
+Source: live eBilanz-Online period `625445`; browser read-back on 2026-06-05.
+Imported: 2026-06-05.
+Review: Reviewer should confirm that the platform-forced special-cases taxable-income component is acceptable even though the earlier print-preview PDF had no data to print. AGL still needs professional review due the non-SKR source mapping.
+
+- Removed editable empty report component `Detailed information / Account details`.
+- eBilanz displayed `Determination of taxable income in special cases` as checked and disabled, so it could not be removed without changing another period/legal-form setting.
+- Period details read-back after save shows selected components: `Balance sheet`, `Income statement`, and `Determination of taxable income in special cases`.
+- Platform displayed last saved timestamp: `05.06.2026, 11:37`.
+- No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
 
 ## AGL 2025 Source Check - 2026-06-05
 
