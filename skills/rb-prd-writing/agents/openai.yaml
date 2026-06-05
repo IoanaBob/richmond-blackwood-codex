@@ -1,0 +1,3 @@
+display_name: RB PRD Writing
+short_description: Write narrative-first RB PRDs and implementation handoff specs that are concrete enough for developers.
+default_prompt: Rewrite or create an RB PRD from the available discovery context, preserving the user's concrete workflow details, using narrative-first sections, and validating that requirements are testable and not just a bullet dump.
