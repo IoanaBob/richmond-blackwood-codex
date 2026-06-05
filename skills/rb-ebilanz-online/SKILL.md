@@ -54,7 +54,9 @@ Use this skill when preparing German E-Bilanz / electronic balance sheet filings
 
 1. Select or create the correct client in eBilanz-Online.
 2. Create/select the period for the filing year:
-   - Use the correct financial year start/end dates.
+   - Use the correct financial year start/end dates from the filed German tax/accounting period, not from an arbitrary support workbook.
+   - Default to `01.01`-`31.12` for normal calendar-year clients after incorporation/commencement. First years can be short from incorporation/commencement to `31.12`; final years can be short on cessation/liquidation. Use a deviating fiscal year only when the source accounts, filed returns, or reviewer/tax-office basis explicitly support it.
+   - Treat full SFS/statutory-accounts workbooks spanning more than one German tax year, such as a first long accounts period, as support/review material unless the filed German tax period explicitly uses those dates.
    - Choose the correct legal form, e.g. sole proprietor / `Einzelunternehmen` for freelancers.
    - Choose the correct report type, generally tax-basis E-Bilanz / tax balance sheet unless the source filing requires another basis.
    - Select the taxonomy version matching the year/platform recommendation.
@@ -100,6 +102,7 @@ Before closeout, verify and state:
 
 - Balance sheet assets equal equity/liabilities.
 - P&L net income/loss matches the source workbook.
+- Filed German tax-return figures can use pre-tax profit or rounded/add-back values. Reconcile before treating a difference as an error: for example, source/eBilanz net income after tax plus corporation-tax expense can tie to filed KSt/GewSt pre-tax profit, and KSt can then add back non-deductible tax expense to taxable income.
 - Taxable profit/loss matches source profit/loss unless documented adjustments exist.
 - Business-assets determination ties to source opening and closing equity/business assets.
 - Prior-year opening/closing continuity is checked; any mismatch is flagged with exact years and amounts.

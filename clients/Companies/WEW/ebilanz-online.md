@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; WEW Drive financial-statement source; local batch build.
 Imported: 2026-06-04.
-Review: WEW 2024 is populated in eBilanz-Online and ties to the source after account-value and manual taxonomy corrections. Empty editable report components were removed live on 2026-06-05; the special-cases taxable-income component remains selected because eBilanz displayed it as disabled/forced for this period setup. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
+Review: WEW 2024 is populated in eBilanz-Online and ties to the source after account-value and manual taxonomy corrections. The 2024 period-start review is resolved: Notion company data records 2024-05-13 as the registration/start date, matching the eBilanz period start. Empty editable report components were removed live on 2026-06-05; the special-cases taxable-income component remains selected because eBilanz displayed it as disabled/forced for this period setup. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Upload
 
@@ -59,3 +59,13 @@ Review: Reviewer should confirm that the platform-forced special-cases taxable-i
 - Period details read-back after save shows selected components: `Balance sheet`, `Income statement`, `Detailed information / Account details`, and `Determination of taxable income in special cases`.
 - Platform displayed last saved timestamp: `05.06.2026, 11:37`.
 - No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+
+## WEW 2024 Period Tie-Out - 2026-06-05
+
+Status: provisional.
+Source: Notion WEW company record; live eBilanz-Online period `625444`.
+Imported: 2026-06-05.
+Review: Period start is resolved for transmission review, subject to the normal final no-submission approval gate.
+
+- eBilanz period `625444` starts on `2024-05-13`.
+- Notion company data records WEW registration/start date as `2024-05-13`, so the short first-year eBilanz period is consistent with the company record.

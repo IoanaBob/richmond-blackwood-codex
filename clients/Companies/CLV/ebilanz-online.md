@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; Drive CLV 2024/2025 financial-statement sources; local batch build.
 Imported: 2026-06-04.
-Review: CLV 2024 and CLV 2025 are populated in eBilanz-Online and balance after mapping/equity corrections. CLV 2025 has a prior-year continuity review flag: 2025 retained loss brought forward is `-3,794.63`, while the 2024 eBilanz closing equity is `-3,704.99`, a difference of `89.64`. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
+Review: CLV 2024 and CLV 2025 are populated in eBilanz-Online and balance after mapping/equity corrections. The CLV 2024 result mismatch raised on review is resolved: the current Drive sheet updated on 2026-06-04 and the filed KSt PDF support the eBilanz result. CLV 2025 source and filed-return figures reconcile once the filed pre-tax/rounded/add-back presentation is distinguished from the eBilanz net income after tax. CLV 2025 still has a prior-year continuity review flag: 2025 retained loss brought forward is `-3,794.63`, while the 2024 eBilanz closing equity is `-3,704.99`, a difference of `89.64`. Transmission still requires operator/professional review, paid assets/voucher/certificate/PIN handling, and explicit approval. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Uploads
 
@@ -19,6 +19,17 @@ Review: CLV 2024 and CLV 2025 are populated in eBilanz-Online and balance after 
 - For CLV 2024, the account mapping file `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` was accepted by eBilanz-Online on 2026-06-04 using sheet `Mapping`, taxonomy column `A (Taxonomy-ID)`, description column `D (Account description)`, account column `C (Account)`, and no changing-balance group column.
 - For CLV 2025, the same legacy BIFF8 mapping upload file `/Users/jp/Downloads/CLV_eBilanz_custom_mapping_v2.xls` was accepted on 2026-06-05. A rebuilt `.xlsx` mapping file was not parsed by eBilanz (`No sheets have been found`), so use genuine legacy `.xls` for mapping imports too when this screen rejects `.xlsx`.
 - For corporate SKR04 drafts with opening-balance accounts `9000`/`9009`, mapping those accounts to retained earnings/opening equity fixes opening equity only. If the balance sheet remains off by the P&L net result, enter the source-backed amount in `de-gaap-ci_bs.eqLiab.equity.netIncome` / `Net income/net loss for the financial year`, not in a suspense account.
+
+## Reviewer Tie-Out - 2026-06-05
+
+Status: provisional.
+Source: Google Drive sheets `CLV 2024-01-01_to_2024-12-31` and `CLV 2025-01-01_to_2025-12-31`; local filed KSt/GewSt PDFs in Downloads; live eBilanz-Online read-back for CLV periods `625433` and `625447`.
+Imported: 2026-06-05.
+Review: Result tie-outs are resolved for CLV 2024 and CLV 2025. Do not transmit until the open CLV 2025 continuity and empty-component review items are accepted or corrected.
+
+- CLV 2024: the current Drive sheet updated on 2026-06-04 shows net income/loss `561.23`, matching eBilanz period `625433`. The filed 2024 KSt PDF shows the same result rounded to `561`. The older Drive financial statement showing `2,617.90` is superseded for this filing unless Lorenzo or the reviewer says it is the final version.
+- CLV 2025: the current Drive sheet and eBilanz period `625447` show net income after tax `1,333.63`. The filed KSt/GewSt PDFs show rounded pre-tax/business profit `1,432`; this reconciles because `1,333.63 + 98.40 = 1,432.03`, rounded to `1,432`. The KSt return then adds back rounded corporation-tax expense `98` to reach taxable income `1,530`.
+- Remaining CLV 2025 review items are the `89.64` retained-loss/opening-equity continuity difference and the empty selected taxable-income special-cases component.
 
 ## CLV 2025 In-Platform Status - 2026-06-05
 

@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User request on 2026-06-04; Notion eBilanz task `https://app.notion.com/p/36ee413013148170b032fe9f451df367`; AGL Drive workbook copied locally as `agl_2024_final_review_pack.xlsx`; local batch build.
 Imported: 2026-06-04.
-Review: AGL source uses non-SKR account codes and is marked review-only. AGL 2024 is populated and balances in eBilanz-Online; the optional empty detailed-information component was removed live on 2026-06-05, while the special-cases taxable-income component remains selected because eBilanz displayed it as disabled/forced. No final eBilanz transmission was performed by Codex in this run.
+Review: AGL 2024 is populated, balanced, and queued as OK for transmission review after the 2026-06-05 reviewer tie-out. The source uses non-SKR account codes, so the mapping remains review-sensitive but no result inconsistency is currently open. The optional empty detailed-information component was removed live on 2026-06-05, while the special-cases taxable-income component remains selected because eBilanz displayed it as disabled/forced. No final eBilanz transmission was performed by Codex in this run.
 
 ## Prepared Upload
 
@@ -57,6 +57,16 @@ Review: Reviewer should confirm that the platform-forced special-cases taxable-i
 - Period details read-back after save shows selected components: `Balance sheet`, `Income statement`, and `Determination of taxable income in special cases`.
 - Platform displayed last saved timestamp: `05.06.2026, 11:37`.
 - No final eBilanz transmission, certificate/PIN entry, payment, voucher purchase, or final send was performed.
+
+## AGL 2024 Reviewer Tie-Out - 2026-06-05
+
+Status: provisional.
+Source: user-provided review comments on 2026-06-05; live eBilanz-Online period `625445`; Notion registration/filing context.
+Imported: 2026-06-05.
+Review: OK to queue for transmission review, subject to the normal final no-submission approval gate and payment/certificate handling.
+
+- Reviewer confirmed the uploaded E-Bilanz is internally consistent: net loss `14,447.12` and balanced assets/equity-liabilities `24,697.31`.
+- Reviewer confirmed Notion registration/filing context supports the German tax and VAT registration facts for AGL 2024.
 
 ## AGL 2025 Source Check - 2026-06-05
 
