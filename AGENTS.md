@@ -11,8 +11,8 @@ These instructions apply to every Codex session in this repository.
 - Preserve unsanitised context, but never store live credentials, tokens, private keys, certificate bundles, or credential dumps in git.
 - Use existing RB Notion and Drive structures. Do not create replacement structures unless the user approves.
 - When the destination is unclear, stop, record the uncertainty, and ask for review.
-- Local active human operator identity is read from ignored `.env.local` as `RB_CODEX_ACTOR="<human name>"`, with valid names recorded in `internal/people-roles.md`. Read only that key when operator-specific approval, authorship, source-access attribution, or per-operator closeout matters; never print or dump full env files.
-- `RB_CODEX_ACTOR` is not a mailbox. Shared mailboxes such as `accounting@richmondblackwood.com` may be source mailboxes or sending identities, but must not be used as the active human actor.
+- Local workspace actor identity is read from ignored `.env.local` as `RB_WORKSPACE_ACTOR="<human name>"`, with legacy `RB_CODEX_ACTOR` accepted only as a compatibility alias. Valid names are recorded in `internal/people-roles.md`. Read only those keys when operator-specific approval, authorship, source-access attribution, Notion assignment, Slack/WhatsApp routing attribution, or per-operator closeout matters; never print or dump full env files.
+- The workspace actor is not a mailbox or auth persona. Shared mailboxes such as `accounting@richmondblackwood.com` may be source mailboxes or sending identities, and Google personas may be credential routes, but neither replaces the active human workspace actor.
 
 ## Master Chat And Skill Run Git Rule
 

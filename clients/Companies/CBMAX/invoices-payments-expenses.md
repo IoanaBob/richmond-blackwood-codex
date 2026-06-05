@@ -7,7 +7,7 @@ Review: Fetch invoice records directly before claiming current receivable status
 
 ## Invoice Relations
 
-The company record links many invoice and expense records in Notion. This pass did not backfill every line item because the Notion SQL query endpoint errored and the relation list is large.
+The company record links many invoice and expense records in Notion. This pass did not backfill every line item because a complete authoritative Notion export was not available and the relation list is large.
 
 Use this file for high-signal invoice and payment context until a relation-filtered export is available.
 

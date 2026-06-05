@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion client project `https://www.notion.so/32fe413013148034830cf9a1281b2f10`; targeted Notion task fetches.
 Imported: 2026-05-13.
-Review: The project has a large task relation list. This file records high-signal fetched tasks only; run a relation-filtered task export when Notion SQL/query works.
+Review: The project has a large task relation list. This file records high-signal fetched tasks only; run a relation-filtered task export when an authoritative Notion inventory/export path is available.
 
 ## Project
 

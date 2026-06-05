@@ -14,13 +14,15 @@ Use this process for material Richmond Blackwood communications across Gmail, Sl
 - Prefer app connectors and MCP tools for app-native reads and writes.
 - Do not invent transcripts or communication context.
 - Keep reads narrow and purpose-bound.
-- For Gmail work, keep active human operator, source mailbox, and sending identity separate. `RB_CODEX_ACTOR` is a human name from `internal/people-roles.md`; `accounting@richmondblackwood.com` is a shared service mailbox and must not be treated as an actor.
+- For Gmail work, keep active human workspace actor, source mailbox, and sending identity separate. `RB_WORKSPACE_ACTOR` is a human name from `internal/people-roles.md`, with `RB_CODEX_ACTOR` as a legacy alias; `accounting@richmondblackwood.com` is a shared service mailbox and must not be treated as an actor.
 - Do not send messages automatically unless the user explicitly asks to send and the tool approval confirms recipient, content, and any attachment.
 - Draft outbound communications in chat with the user. Do not create app/software drafts for the user to manually hit send unless the user explicitly asks for that exception.
 - Always show the sending identity before approval. For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - For email, also show the exact source mailbox or mailboxes searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - After user approval, send directly through the supported connector or MCP tool and then store the sent communication in the canonical Communications database.
+- For outgoing Communications, set `Snooze Until` to one week after the row `Created At` date unless a more specific follow-up date is approved. After any follow-up is sent, reset `Snooze Until` to one week after the follow-up send date by default.
+- For operator follow-up sweeps, select canonical Communications assigned to the active operator where `Status` is not `Done`/`Archived` and `Snooze Until` is blank or on/before the run date. Future-snoozed rows are deferred, not selected into the active batch.
 - Do not create replacement Notion or Drive structures for communication logs unless the user approves.
 - For Slack messages that need user review, put the proposed message text in the Codex chat first. When the Codex runtime exposes an approval prompt/notification, use it for the send approval instead of typed chat approval. The prompt must identify the destination and exact message, and must offer a clear approve/send choice and a do-not-send choice.
 - The proposed Slack message in Codex chat must be a rendered, readable preview rather than a fenced raw Markdown/code block. Use named links that render as clickable links in Codex, keep Slack mentions visible, and keep the raw Slack payload internal unless the operator asks to inspect it.
@@ -79,6 +81,7 @@ After sending, create or update the canonical Communications database record wit
 - Source link, message ID, thread ID, or connector status when available.
 - Related company or individual when the communication is client-relevant. Leave company empty for internal, system, spam, or non-client-relevant communications.
 - Follow-up owner, action, deadline, and priority when needed.
+- `Snooze Until` for outgoing messages and follow-ups that need reply monitoring.
 - Letter flag, letter source/originator, letter date, and document links when an email or message contains a letter.
 
 Use the company relation for company/client-operational communications. Use the individual relation for personal tax, personal KYC, personal identity, individual assets, individual expenses, individual bank accounts, or personal insolvency/solvency communications. A communication record should usually be linked to either a company or an individual, not both. If both seem relevant, choose the entity that owns the subject matter and keep a pointer in the other entity's repo file if needed.
@@ -152,6 +155,8 @@ When a communication creates work:
 - Use the Tasks database fields `Name`, `Status`, `Assigned To`, and `Project`; include due date, description, source communication, and relation fields when useful.
 - Assign the task to the right person from the user request, existing row owner, owner of the project linked on the responsible Company record, established process rule, or `internal/people-roles.md`. If the assignee is unclear, ask before creating the task.
 - Keep the canonical Communications record as the audit log/source record. Do not use `Follow-Up Action` as the only place where actionable work lives.
+- A context-read batch is not completion. A Communication remains active until an approved, verified action marks it `Done`/`Archived`, sets a future `Snooze Until`, records a blocker, or explicitly carries it forward.
+- When a Communication has linked `Tasks`, update or comment on the task in the same approved pass when the Communication's reply state, evidence state, owner, blocker, snooze date, or next follow-up changes. If evidence is missing or RB is waiting for a reply, keep or return the linked task to an in-progress status rather than marking it done.
 - Record the follow-up in `memory/tasks.md` only when it is repo/process work that also needs local tracking.
 - Record the follow-up in the relevant client file if it is client-specific and the client `Reference` is known.
 - Use the appropriate Notion database only when the destination is clear and existing.

@@ -121,7 +121,7 @@ Review: validate on the next common-tasks run after the 2026-05-20 process corre
 
 ## 2026-05-24 - Separate Human Operator From Mailbox Identity
 
-Decision: RB Codex uses `RB_CODEX_ACTOR` for the active human operator name, while Gmail source mailbox and Gmail `From` sender remain separate per-job fields.
+Decision: RB Codex used `RB_CODEX_ACTOR` for the active human operator name, while Gmail source mailbox and Gmail `From` sender remain separate per-job fields. Superseded in naming on 2026-06-03 by preferred `RB_WORKSPACE_ACTOR`; the separation rule remains active.
 
 Consequence:
 
@@ -134,6 +134,19 @@ Consequence:
 Source: user instruction in Codex chat on 2026-05-24.
 Review: confirm the complete RB operator list and approved work email addresses for each human operator.
 
+## 2026-06-03 - Rename Active Human Operator To Workspace Actor
+
+Decision: Use `RB_WORKSPACE_ACTOR` as the preferred local env key for the active human workspace actor, with `RB_CODEX_ACTOR` retained as a legacy compatibility alias.
+
+Consequence:
+
+- The workspace actor is a human name from `internal/people-roles.md`, not an email, shared mailbox, or Google auth persona.
+- The workspace actor can be used for Notion assignment, Slack/WhatsApp routing attribution, approvals, authorship, Gmail operator labels, and closeout context.
+- Gmail source mailbox, Gmail `From` sender, and Google auth persona remain separate per-job fields.
+
+Source: user instruction in Codex chat on 2026-06-03.
+Review: validate that future skills read `RB_WORKSPACE_ACTOR` before falling back to `RB_CODEX_ACTOR`.
+
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 
 Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.
@@ -141,7 +154,7 @@ Decision: RB Google helper auth uses the shared global Codex persona/OAuth model
 Consequence:
 
 - `~/.codex/google-personas/` is shared across this repo, its worktrees, personal-codex, and other local Codex project repositories.
-- Google personas are auth routes only. They do not replace `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity.
+- Google personas are auth routes only. They do not replace `RB_WORKSPACE_ACTOR`, legacy `RB_CODEX_ACTOR`, Gmail source mailbox labels, or exact Gmail `From` sender identity.
 - Gmail and Drive helpers default to no-login/no-reauth and try the per-persona OAuth vault before saved ADC/account-token fallback.
 - Interactive Google OAuth reconnect is allowed only after explicit approval for the exact persona/action.
 - Richmond Blackwood sender-context OAuth client files should live under `~/.codex/google-oauth-client.richmondblackwood.json`.

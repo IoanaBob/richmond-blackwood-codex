@@ -27,7 +27,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 ## Core Rules
 
 - Every stage writes a Markdown packet, prints the same packet in chat, and stops for approval or modifications.
-- Every packet that includes Gmail work must list `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separately. `Operator` is the human `RB_CODEX_ACTOR` when operator-specific context matters; `accounting@richmondblackwood.com` and personal/operator mailboxes are source or sender identities, not actors.
+- Every packet that includes Gmail work must list `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separately. `Operator` is the human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when operator-specific context matters; `accounting@richmondblackwood.com` and personal/operator mailboxes are source or sender identities, not actors.
 - Auto-approval exceptions: Stages 1, 2, 10, and 11 still write and print packets, but continue without waiting for operator approval unless the packet contains an unexpected blocker or proposed action outside this skill. After the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved and should run immediately. Stage 15 is also auto-approved only for bounded media/evidence cleanup of blockers already listed in Stage 14, using already-read sources or already-resolved destinations, and must stop if it would introduce a new destination, new task, reply/send, source marker, checkpoint, or unresolved routing decision.
 - For all other stages, do not continue to the next stage until the operator approves the exact printed packet.
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
@@ -142,7 +142,7 @@ Assign owners from explicit instruction, existing row owner, owner of the projec
 Before creating the run folder, pull latest `main` in the active repo/worktree:
 
 - run `git pull origin main` from the repo root;
-- read only `RB_CODEX_ACTOR` from ignored local env when operator identity is needed, without printing any env file;
+- read only `RB_WORKSPACE_ACTOR` and legacy `RB_CODEX_ACTOR` from ignored local env when workspace actor identity is needed, without printing any env file;
 - include the branch, pull result, and any conflict/blocker in the packet;
 - include the human operator value or state that no operator-specific identity was required;
 - stop immediately if the pull fails or introduces conflicts.

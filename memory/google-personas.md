@@ -33,7 +33,7 @@ The helper-facing OAuth vault is:
 | Persona slug | Expected account | Role | Config status | Notes |
 | --- | --- | --- | --- | --- |
 | `accounting-richmond-blackwood` | `accounting@richmondblackwood.com` | Shared RB service mailbox and default client-facing sender/auth route when available | configured and verified 2026-05-26 | This is not an actor. Use only as source/sender/auth route when explicitly scoped. Legacy helper alias: `rb-accounting`. |
-| `ioana-richmond-blackwood` | Needs confirmation | Human operator RB Google route | not configured | Do not infer this from `RB_CODEX_ACTOR`; confirm source/sender/auth separately. |
+| `ioana-richmond-blackwood` | Needs confirmation | Human operator RB Google route | not configured | Do not infer this from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR`; confirm source/sender/auth separately. |
 | `jp-richmond-blackwood` | `johnpaul.okolie@richmondblackwood.com` | Human operator RB Google route | configured and verified 2026-05-26 | Email is provisional in `internal/people-roles.md`. Legacy helper alias: `johnpaul-richmond-blackwood`. Confirm before treating as approved sender. |
 | `simoneta-richmond-blackwood` | Needs confirmation | Human operator RB Google route | not configured | Confirm email before use. |
 

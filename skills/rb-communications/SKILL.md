@@ -10,13 +10,14 @@ Use this skill for any Richmond Blackwood outbound communication.
 ## Direct-Send Rule
 
 - Draft communication text in chat with the user, not as an app/software draft.
-- For Gmail work, keep the active human operator, source mailbox, and sending identity separate. `RB_CODEX_ACTOR` is a human name from `internal/people-roles.md`; shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or senders, not actors.
+- For Gmail work, keep the active human workspace actor, source mailbox, and sending identity separate. `RB_WORKSPACE_ACTOR` is a human name from `internal/people-roles.md`, with `RB_CODEX_ACTOR` as a legacy alias; shared mailboxes such as `accounting@richmondblackwood.com` are source mailboxes or senders, not actors.
 - Always show the sender before the user approves the message.
 - For email, always show the exact `From` name, email address, `Subject`, and source/reply thread.
 - For email, also show the exact source mailbox or mailboxes that were searched/read. Do not infer the source mailbox or sender from the active operator.
 - Prefer replying in the existing email thread when email context exists. Start a new email thread only when there is no relevant thread or the user explicitly asks for a new thread.
 - After the user approves or explicitly says to send, send directly through the supported connector or MCP tool.
 - After sending, store the sent communication in the canonical Communications database.
+- For outgoing Communications, set `Snooze Until` to one week after the row `Created At` date unless a more specific follow-up date is approved. After any follow-up is sent, reset `Snooze Until` to one week after the follow-up send date by default.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
 - For Slack closeouts or other Slack messages that need user review, use the Codex approval prompt/notification when the runtime exposes it. The prompt must identify the exact destination and exact message already shown in chat, and must offer a clear approve/send choice and a do-not-send choice.
 - The Slack message shown in chat for approval must be a rendered, readable Codex preview, not a fenced raw Markdown/code block. Use normal text, headings or labels where useful, Slack mention syntax, and named Markdown links so the operator can click each link in Codex before approving. Keep the raw Slack payload internal unless the operator explicitly asks to inspect it.
@@ -32,7 +33,7 @@ Use this skill for any Richmond Blackwood outbound communication.
 Before sending, show:
 
 - Channel: Gmail, Slack, WhatsApp, Notion, or other.
-- Operator: active human operator from `RB_CODEX_ACTOR` when operator-specific context matters, or `not required`.
+- Operator: active human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when operator-specific context matters, or `not required`.
 - Source mailbox(es): exact mailbox(es) searched/read for email.
 - From: exact sender identity, including email address for email.
 - To: recipients or destination.
@@ -84,6 +85,7 @@ Record enough detail to reconstruct the business action without dumping unnecess
 - Source link, message ID, or thread ID when available.
 - Related company or individual when the communication is client-relevant. Leave company empty for internal, system, spam, or non-client-relevant communications.
 - Follow-up owner, action, deadline, and priority when needed.
+- `Snooze Until` for outgoing messages and follow-ups that need reply monitoring.
 - For letters attached to or forwarded inside an email, record that the communication contains a letter, save/link the letter document, and record the actual letter source/originator separately from the email forwarder.
 
 Client-specific communication facts must still follow the `clients/<client-reference>/` routing rule when repo storage is needed.
