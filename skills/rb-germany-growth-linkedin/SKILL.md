@@ -14,6 +14,7 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Do not send during daily automation.
 - Preview outbound text in chat. Do not save LinkedIn drafts.
 - Send only after explicit user approval for the exact request or message.
+- A quota reminder, `continue`, `do it`, `approved`, or a general instruction to run the channel is not enough to send a LinkedIn invite batch. The user must approve the exact printed target list for the current stage, or name the exact targets to send. If that exact-list approval is missing or ambiguous, stop at the packet and ask for review.
 - Log every pre-lead request, first message, reply, blocker, and follow-up in Growth Messages.
 - LinkedIn replies block until an overarching reply strategy has been proposed in chat, explicitly agreed by the user, saved on the prospect's Growth Target page, and read back before drafting or sending the reply.
 - Default invite operating quota for the active first audience is 320 blank connection requests/month, calculated as a 16-request planning baseline across a 20-business-day month.
@@ -24,6 +25,7 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Treat LinkedIn platform limits as dynamic. Do not exceed the internal quota or 20/day without explicit user approval, current LinkedIn guidance review, and read-back of recent warnings, acceptance rate, pending-invite state, and meeting conversion.
 - Do not add personalized connection-request notes by default. If the user requests an exception, require separate approval and respect the current LinkedIn personalized-note limit for Ioana's account.
 - Stop immediately if LinkedIn shows a warning, temporary restriction, or unusual checkpoint. Log the blocker; do not work around it.
+- If a sent batch later proves materially off-target, do not defend the batch or continue sending. Write a correction packet, mark the bad targeting reason in run state, and rebuild the next packet under stricter criteria.
 
 ## Run Cadence And Modes
 
@@ -95,26 +97,29 @@ Shared gates:
 
 2. Audience Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
-   - Current LinkedIn priority segment uses hard gates: currently Germany-based, clearly came from abroad, currently employed by, freelancing for, consulting for, or founding a company abroad while residing in Germany, and technology/operator relevance.
-   - Highest-priority current-role signal: a foreign employer/client/company with no visible office in Germany or in the person's German city, making the person likely a remote employee, freelancer, contractor, consultant, EOR/payroll case, or self-employed operator.
-   - Prefer explicit remote, freelance, contractor, consultant, fractional, self-employed, founder, or independent operator language when it appears alongside Germany residence and foreign-company/client signals.
-   - Prefer US-headquartered, US-market, UK, Canadian, Swiss, Dutch, or otherwise foreign-company current roles where the Germany residence signal is visible and the company does not obviously operate a local German office for that city.
+   - Current LinkedIn priority segment uses hard gates: currently Germany-based, clearly came from abroad or has a US/foreign-background signal, explicit freelance/contractor/self-employed status or a current foreign employer/client with zero offices in Germany, and technology/operator relevance.
+   - Highest-priority current-role signal: explicit freelancer, contractor, self-employed, independent consultant, or fractional tech operator living in Germany and working with foreign clients.
+   - Second-priority current-role signal: current employee or contractor for a foreign company that has zero offices in Germany. `No office in the person's city` is not enough. If the company has any Germany office, block unless the profile explicitly says freelance/contractor and the user approves the exception.
+   - Prefer American or US-background profiles: US nationality/residency signals, past US work, past US study, US company/client base, US-market role, or user-confirmed American background. Do not infer nationality from name, language, or appearance.
+   - Prefer explicit remote, freelance, contractor, consultant, fractional, self-employed, or independent operator language when it appears alongside Germany residence and foreign-company/client signals.
+   - Founders are excluded for now. Do not qualify founder/founding-company profiles unless the profile clearly frames the current work as freelance/contractor work and the user explicitly re-allows founders.
+   - Prefer US-headquartered, US-market, UK, Canadian, Swiss, Dutch, or otherwise foreign-company current roles where the Germany residence signal is visible and the company has no German office at all.
    - Under-40 is a useful positive signal, not a hard gate. Use it only when explicit public evidence or user-provided confirmation exists. Do not infer, estimate, store, or mention guessed age from photos, graduation years, seniority, or career length. Unknown age does not block a target that otherwise passes the hard gates.
    - Target people with strong Germany, came-from-abroad, current-foreign-employer, and tech signals:
      - Current Germany location or clear current Germany residence.
-     - Current employer, client, or founded company outside Germany, especially where no German office or local-city office is visible.
+     - Current employer or client outside Germany, with proof that the company has zero offices in Germany, or explicit freelance/contractor/self-employed status.
      - Remote/distributed role for a foreign company, freelancing/contracting for foreign clients, international transfer, EOR-style work, or self-employed operator status.
      - Came-from-abroad evidence such as prior non-Germany work, non-Germany study, relocation writing, international-transfer context, or user-confirmed abroad origin.
      - Past US work experience.
      - Past US university/study experience.
      - US nationality/residency signals combined with current Germany location.
      - Current relocation-to-Germany signal.
-   - Prioritize technology workers and founders with budget-qualified profiles:
+   - Prioritize technology workers, freelancers, contractors, and remote employees with budget-qualified profiles:
      - Software engineering, product, data, cloud, cybersecurity, AI, fintech, startup, platform, devops, design, or technical leadership roles.
-     - Remote-work, founder, startup, VC-backed, US-employer, foreign-employer, or international-transfer context.
+     - Freelance, contractor, self-employed, remote-work, US-employer, foreign-employer, or international-transfer context.
      - Berlin, Munich, Hamburg, Frankfurt, Cologne, Dusseldorf, and other visible Germany tech-hub signals.
    - Block profiles where the Germany, came-from-abroad, current-foreign-employer, or technology signal is too weak to justify the request.
-   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, a foreign employer with a clear local German office in the same city and no remote/freelance signal, broad job seeking, student-only status, an old foreign-employer role with no current foreign-company role, or a guessed age fit.
+   - Block profiles where the only match is generic tech employment in Germany, a German-only local employer, a founder profile, a foreign employer with any Germany office and no explicit remote/freelance/contractor signal, broad job seeking, student-only status, an old foreign-employer role with no current foreign-company role, unverified company office status, or a guessed age fit.
    - Keep the criteria reusable for future Germany growth audiences.
 
 3. Discovery And Dedupe
@@ -137,13 +142,16 @@ Shared gates:
    - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.
    - Show sender identity: Ioana, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
-   - Qualification basis must name the visible Germany residence signal, came-from-abroad signal, current foreign-employer/company-abroad signal, whether the company appears to lack a German or same-city office or whether the person is explicitly freelance/remote/contracting, tech-role signal, and explicit under-40 evidence when available.
+   - Qualification basis must name the visible Germany residence signal, US/abroad-background signal, current freelance/contractor/self-employed signal or current foreign employer/client signal, proof that the company has zero offices in Germany when relying on employer/client fit, tech-role signal, and explicit under-40 evidence when available.
+   - Include an `Office/Freelance Gate` field for every proposed invite with one of these allowed values: `Explicit freelancer/contractor`, `Explicit self-employed`, `Foreign company, zero Germany offices verified`, or `American/US-background plus zero-Germany-office employer`. Anything else belongs in exclusions, not the invite list.
+   - Include a `Founders excluded check` for every proposed invite. If the person is a founder, cofounder, or primarily promoting their own startup, exclude unless the user explicitly re-allows that exact profile.
    - Include current month counts: planned invites, sent blank invites, remaining invite quota, Daily Invite Gate daily count, excluded prior/next-day invite rows, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
    - If the declared quota-day count is below 15, show the exact invite gap and prepare enough qualified targets to reach at least 15 unless the user explicitly pauses the daily LinkedIn invite target.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
 
 6. Approved Connection Send
-   - Run only after explicit approval.
+   - Run only after explicit approval of the exact current-stage target list. A generic continuation, quota reminder, broad approval, or approval from another stage does not authorize sends.
+   - Before sending, restate the approved target count and first/last target names from the approved packet. If approval does not clearly apply to that exact packet, stop and ask for review.
    - Re-check LinkedIn session is Ioana.
    - If not Ioana, write a blocker in Growth Messages and stop.
    - Recompute the Daily Invite Gate immediately before the first send. If the declared quota-day count changed, update the remaining gap and stop for re-approval unless the approved target count is still inside the remaining 15-20/day window.
