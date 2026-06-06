@@ -86,10 +86,21 @@ Open Notion task:
 Status: provisional.
 Source: live Notion annual VAT setup run on 2026-06-06; consolidated task `File annual VAT for affected RB clients`.
 Imported: 2026-06-06.
-Review: Keep the annual VAT placeholders pending until due dates, submission proof, and payment/refund handling are verified.
+Review: Keep the annual VAT placeholders pending until submission proof and payment/refund handling are verified.
 
 Annual German VAT tracking now has its own yearly VAT Filing Registration row:
 
 - Annual VAT registration: `https://www.notion.so/377e41301314819998b7d3cbcf661186`
-- 2024 annual VAT placeholder filing: `https://www.notion.so/377e41301314815483fcefcc3866ce35`
-- 2025 annual VAT placeholder filing: `https://www.notion.so/377e41301314818c9688e0d22059c0a9`
+- 2024 annual VAT placeholder filing: `https://www.notion.so/377e41301314815483fcefcc3866ce35`; due 2026-04-30.
+- 2025 annual VAT placeholder filing: `https://www.notion.so/377e41301314818c9688e0d22059c0a9`; due 2027-03-01.
+
+## Payroll And ZM/VIES Audit Pass 2026-06-06
+
+Status: provisional.
+Source: live Notion company/business-partner review and repo memory on 2026-06-06.
+Imported: 2026-06-06.
+Review: Recheck invoice-level customer VAT data if NACV has VAT-numbered EU business customers for any filing period.
+
+Payroll Tax: no payroll-tax filing rows were created in this pass because the records reviewed did not support an active German payroll-tax obligation for NACV.
+
+ZM/VIES: no German ZM/VIES rows were created. The Monochromatic business-partner evidence reviewed in this pass points to Ireland but was not marked VAT registered and had no VAT number in the fetched record, so it does not support a German ZM row.

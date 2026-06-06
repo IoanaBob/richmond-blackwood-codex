@@ -81,8 +81,30 @@ On 2026-06-06, separate yearly DE VAT Filing Registration rows were created so a
 
 | Context | Annual VAT registration | Linked annual filing rows | Review |
 | --- | --- | --- | --- |
-| Berlin VAT context | `https://www.notion.so/377e41301314815aac81fd737284ee94` | 2024 `https://www.notion.so/376e4130131480ecb451ee54602205b2`; 2025 `https://www.notion.so/376e4130131480b99ee1c59d5b205559` | Use for annual VAT filings tied to the confirmed Berlin VAT context. |
-| Hamburg nil/demand context | `https://www.notion.so/377e4130131481968f3bd257337afc70` | 2024 `https://www.notion.so/373e4130131480d7bf63c26c49836e30`; 2025 `https://www.notion.so/373e4130131480f59b9ed58a3f33fd92` | Keep provisional until the Hamburg number/status is confirmed. |
+| Berlin VAT context | `https://www.notion.so/377e41301314815aac81fd737284ee94` | 2024 `https://www.notion.so/376e4130131480ecb451ee54602205b2` due 2026-04-30; 2025 `https://www.notion.so/376e4130131480b99ee1c59d5b205559` due 2027-03-01 | Use for annual VAT filings tied to the confirmed Berlin VAT context. |
+| Hamburg nil/demand context | `https://www.notion.so/377e4130131481968f3bd257337afc70` | 2024 `https://www.notion.so/373e4130131480d7bf63c26c49836e30` due 2026-04-30; 2025 `https://www.notion.so/373e4130131480f59b9ed58a3f33fd92` due 2027-03-01 | Keep provisional until the Hamburg number/status is confirmed. |
+
+## German ZM / VIES Review Setup
+
+Status: provisional.
+Source: live Notion filing review on 2026-06-06; CBMAX German VAT context plus EU client evidence for Job Guardian OU and Webuild S.p.A.; existing unresolved Irish VAT backdate context.
+Imported: 2026-06-06.
+Review: Confirm whether each 2024/2025 EU-client invoice belongs in German ZM or Irish VIES before filing. Keep rows `Pending` until the IE-vs-DE VAT position is resolved.
+
+On 2026-06-06, a German ZM/VIES review registration was created because CBMAX has German VAT context and EU customer evidence, but the 2025 Irish VAT backdate and German historical treatment remain unresolved.
+
+- ZM/VIES review registration: `https://www.notion.so/377e41301314817290aaf57cd4305c5a`
+
+| Filing | Status | Filing period | Due date | Source |
+| --- | --- | --- | --- | --- |
+| CBMAX - ZM/VIES DE - 2024 Q3 | Pending | 2024-07-01 to 2024-09-30 | 2024-10-25 | `https://www.notion.so/377e4130131481d3bebff8c8d5fca894` |
+| CBMAX - ZM/VIES DE - 2024 Q4 | Pending | 2024-10-01 to 2024-12-31 | 2025-01-27 | `https://www.notion.so/377e41301314814492acf5f9bc0ec6f2` |
+| CBMAX - ZM/VIES DE - 2025 Q1 | Pending | 2025-01-01 to 2025-03-31 | 2025-04-25 | `https://www.notion.so/377e413013148113a0a8c0d5ca02b75d` |
+| CBMAX - ZM/VIES DE - 2025 Q2 | Pending | 2025-04-01 to 2025-06-30 | 2025-07-25 | `https://www.notion.so/377e41301314815fb3bde0eea27b4484` |
+| CBMAX - ZM/VIES DE - 2025 Q3 | Pending | 2025-07-01 to 2025-09-30 | 2025-10-27 | `https://www.notion.so/377e4130131481749150de262719e09c` |
+| CBMAX - ZM/VIES DE - 2025 Q4 | Pending | 2025-10-01 to 2025-12-31 | 2026-01-26 | `https://www.notion.so/377e41301314818187bcd613665a893b` |
+
+Payroll Tax review: the existing CBMAX Payroll Tax registration remains the payroll tracking route. This 2026-06-06 pass did not create extra payroll rows because the current request focused on annual VAT, missing payroll equivalents, and ZM/VIES placeholders for the audit list.
 
 ## Filing Evidence In Drive
 

@@ -39,10 +39,21 @@ Review: Confirm live filing status through the separate VAT review.
 | AMC VAT filing extension | `https://www.notion.so/330e4130131481b2b798e9b97f8111d5` | To Do as of Notion read; intended to extend German VAT filing by one month. |
 | Historical quarterly extension task | `https://www.notion.so/330e413013148176adbffbc0b20c20b2` | Marked Done in Notion on 2026-03-27. |
 | VAT Q3 2025 filing | `https://www.notion.so/1c7e41301314803ea89be0b4e624c565` | Filed in Notion; review exact payment details in Notion only. |
-| Annual German VAT registration | `https://www.notion.so/377e413013148169b64bf17b8f3206e3` | Created on 2026-06-06 as the yearly DE VAT registration layer for annual VAT filing rows. |
-| AMC - 2025 Annual VAT return | `https://www.notion.so/376e4130131480c7bfd8f3b4b1e4e926` | Existing manual annual VAT row renamed from generic title and linked to the annual German VAT registration on 2026-06-06. |
+| Annual German VAT registration | `https://www.notion.so/377e413013148169b64bf17b8f3206e3` | Created on 2026-06-06 as the yearly DE VAT registration layer for annual VAT filing rows; due / first filing 2027-03-01 for 2025 annual period. |
+| AMC - 2025 Annual VAT return | `https://www.notion.so/376e4130131480c7bfd8f3b4b1e4e926` | Existing manual annual VAT row renamed from generic title and linked to the annual German VAT registration on 2026-06-06; due 2027-03-01. |
 | VAT prepayments due in 2026 | `https://www.notion.so/330e4130131481919f34c9b4b684ed8a` | Marked Done in Notion; comments say related payments were paid. |
 | 2025 unpaid VAT letter task | `https://www.notion.so/330e4130131481b5be0adcb98a8d5b80` | In Progress in Notion; use the live record for exact balances. |
+
+## Payroll And ZM/VIES Audit Pass 2026-06-06
+
+Status: provisional.
+Source: live Notion payroll registration and filings read on 2026-06-06; current AMC contract/customer records.
+Imported: 2026-06-06.
+Review: Recheck invoice-level customer VAT data if AMC has EU VAT-numbered business customers outside Germany.
+
+Payroll Tax: no new payroll rows were created. The AMC Payroll Tax registration already has linked equivalent payroll filing rows from February 2025 onward.
+
+ZM/VIES: no German ZM/VIES rows were created from the current evidence. The reviewed customer context was German or non-EU, including Riot Games Services GmbH and Echo/UVS LLC, so it does not support a German ZM row from this pass.
 
 ## Personal / Gewerbe Spillover
 

@@ -20,6 +20,15 @@ Status: active.
 - Verification: Notion read-backs confirmed the live updates/task; Drive list-folder confirmed EIP-specific contents in the folder candidate. Repo verification is tracked in PR closeout.
 - Limitations or gaps: Confirm annual-return filing-row status, VAT/PAYE direct-debit evidence, RTD/VIES backlog, BOI missing support, project/company relation mismatch, and whether the Drive candidate is approved for writes.
 
+## 2026-06-06 - German Filing Deadlines, Payroll, And ZM/VIES Rows
+
+- User request: Add due dates to the annual VAT registrations/filings, check business activity and client locations, identify missing payroll-tax equivalents, and create needed CM/ZM filing rows with deadlines.
+- Context read: Live Notion annual VAT, payroll-tax, ZM/VIES, Companies, Employment, Contracts, and Business Partner records; repo client folders and process memory; official German deadline sources.
+- Actions taken: Updated annual VAT registration/filing due dates in Notion, created WEW 2025 payroll-tax and VUN monthly payroll-tax Filings rows, created VUN ZM/VIES rows and CBMAX pending ZM/VIES review rows, and added the result to the consolidated Notion task. Updated repo process/client/source memory and created the PCL folder after confirming the Notion `Reference`.
+- Decisions made: Treat "CM" as German ZM/VIES in this filing-audit context; create ZM rows only where supported by EU VAT-numbered B2B or reverse-charge evidence; do not duplicate payroll rows where equivalent linked Filings rows already exist.
+- Verification: Notion read-backs confirmed representative relation/date writes; repo closeout verification is tracked in the PR closeout.
+- Limitations or gaps: Complete Notion inventory remains targeted/search-backed because the complete data-source query route was unavailable and no local Notion REST token was present. Filing values, submissions, and payment/refund handling still need evidence before completion.
+
 ## 2026-06-06 - German Annual VAT Filing Registration Layer
 
 - User request: Create Notion annual VAT registration/filing structure for German-tax-resident clients so annual VAT returns can be attached like quarterly VAT returns, and store the pattern in the repo for future use.
@@ -27,7 +36,7 @@ Status: active.
 - Actions taken: Created yearly German VAT Filing Registration rows, linked existing manual annual VAT filing rows to the annual registrations, created pending placeholder annual VAT filings where missing, and added a Notion task comment summarizing created/updated rows and blockers. Added the reusable process `processes/de-annual-vat-filing-setup.md` and updated repo memory/source logs.
 - Decisions made: Annual German VAT returns should use a separate `VAT` / `DE` / `Yearly` Filing Registration, not the periodic VAT registration or corporation-tax registration. Existing manual rows should be preserved and relinked rather than recreated when they already hold submission/payment context.
 - Verification: Notion read-backs confirmed annual registration relations for representative AGL, NACV, CLV, PCL, and CBMAX rows; final repo verification is tracked in the PR closeout.
-- Limitations or gaps: Notion SQL data-source query and local REST pagination were unavailable in this session, so the live inventory is targeted/search-backed rather than exhaustive. Placeholder annual filings still need due dates, submission/payment evidence, and filed-status review.
+- Limitations or gaps: Notion SQL data-source query and local REST pagination were unavailable in this session, so the live inventory is targeted/search-backed rather than exhaustive. Later 2026-06-06 follow-up added due dates; placeholder annual filings still need submission/payment evidence and filed-status review.
 
 ## 2026-06-05 - RBL Review Corrections And Drive Search
 

@@ -43,6 +43,28 @@ Follow-up:
 - Organize BOI debt data and identify missing support before external bank submission.
 - Confirm whether `04. EIP Ventures Limited` is the approved canonical upload destination before Drive writes.
 
+## 2026-06-06 - German Filing Deadlines, Payroll, And ZM/VIES Audit
+
+Applied:
+
+- Added due dates to the annual German VAT Filing Registrations and annual VAT Filings created or relinked in the earlier 2026-06-06 Notion run.
+- Added the German deadline rule to the reusable annual VAT process: 2023 due 2025-06-02, 2024 due 2026-04-30, and 2025 due 2027-03-01 unless a live notice gives a more specific date.
+- Checked payroll-tax registrations against equivalent Filings rows. Existing equivalent payroll rows were found for AGL, AMC, CLV, and PCL. WEW received a dedicated 2025 payroll-tax Filing row, and VUN received monthly payroll-tax rows for July 2025 through March 2026.
+- Interpreted the user's "CM" filing request as German ZM/VIES for this audit. Created German ZM/VIES rows for VUN and pending review rows for CBMAX. No ZM rows were created for AGL, NACV, WEW, PCL, AMC, or CLV from the current evidence.
+- Confirmed PCL's Notion Companies `Reference` as `PCL` and created a minimal local PCL company folder with filing pointers.
+- Updated the consolidated Notion task `File annual VAT for affected RB clients` with the deadline/payroll/ZM results.
+
+Verification:
+
+- Live Notion read-backs confirmed representative annual VAT, WEW/VUN payroll-tax, and VUN/CBMAX ZM/VIES relation/date writes.
+- Official deadline sources were checked for annual tax-advised return dates, payroll-tax filing deadlines, and ZM/VIES filing deadlines.
+
+Follow-up:
+
+- Confirm filing values, submission proof, and payment/refund handling before marking placeholder rows filed or complete.
+- Recheck ZM/VIES if invoice-level evidence later shows VAT-numbered EU B2B customers for companies where no row was created.
+- Re-run an authoritative Notion inventory when data-source export/query or REST pagination is available; this run used targeted search/fetch/read-back.
+
 ## 2026-06-06 - German Annual VAT Filing Setup
 
 Applied:
@@ -60,9 +82,9 @@ Verification:
 
 Follow-up:
 
-- Confirm due dates, payment/refund handling, and final filing status for the placeholder annual VAT rows.
+- Later 2026-06-06 follow-up added due dates. Still confirm payment/refund handling and final filing status for the placeholder annual VAT rows.
 - Resolve CBMAX Hamburg tax-number ownership/status before treating the Hamburg nil annual VAT registration as confirmed.
-- Confirm PCL's Notion Companies `Reference` before creating a local client folder for the PCL annual VAT pointers; no existing PCL folder was present in this repo.
+- PCL's Notion Companies `Reference` was later confirmed as `PCL`; a local PCL client folder was created during the 2026-06-06 deadline/payroll/ZM pass.
 - Re-run an authoritative Notion inventory when data-source SQL/query or REST pagination is available; this run used targeted search/fetch because those complete-inventory routes were unavailable.
 
 ## 2026-06-05 - RBL Review Corrections
