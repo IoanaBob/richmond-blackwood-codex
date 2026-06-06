@@ -18,8 +18,8 @@ Review: Keep placeholders pending until submission proof and payment/refund hand
 
 Annual German VAT tracking now has its own yearly VAT Filing Registration row:
 
-- Annual VAT registration: `https://www.notion.so/377e413013148190bd1cec52080e1a8d`; due / first filing 2026-04-30 for 2024 annual period.
-- 2024 annual VAT placeholder filing: `https://www.notion.so/376e4130131480dd9018e136acd5a9ad`; due 2026-04-30.
+- Annual VAT registration: `https://www.notion.so/377e413013148190bd1cec52080e1a8d`; due / first filing 2026-04-30 for first annual period 2024-05-09 to 2024-12-31.
+- 2024 annual VAT placeholder filing: `https://www.notion.so/376e4130131480dd9018e136acd5a9ad`; period 2024-05-09 to 2024-12-31; due 2026-04-30.
 - 2025 annual VAT placeholder filing: `https://www.notion.so/376e4130131480de9b32ed3fdd4e203b`; due 2027-03-01.
 
 ## Payroll And ZM/VIES Audit Pass 2026-06-06

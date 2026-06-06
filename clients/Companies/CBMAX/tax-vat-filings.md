@@ -81,8 +81,8 @@ On 2026-06-06, separate yearly DE VAT Filing Registration rows were created so a
 
 | Context | Annual VAT registration | Linked annual filing rows | Review |
 | --- | --- | --- | --- |
-| Berlin VAT context | `https://www.notion.so/377e41301314815aac81fd737284ee94` | 2024 `https://www.notion.so/376e4130131480ecb451ee54602205b2` due 2026-04-30; 2025 `https://www.notion.so/376e4130131480b99ee1c59d5b205559` due 2027-03-01 | Use for annual VAT filings tied to the confirmed Berlin VAT context. |
-| Hamburg nil/demand context | `https://www.notion.so/377e4130131481968f3bd257337afc70` | 2024 `https://www.notion.so/373e4130131480d7bf63c26c49836e30` due 2026-04-30; 2025 `https://www.notion.so/373e4130131480f59b9ed58a3f33fd92` due 2027-03-01 | Keep provisional until the Hamburg number/status is confirmed. |
+| Berlin VAT context | `https://www.notion.so/377e41301314815aac81fd737284ee94` | 2024 `https://www.notion.so/376e4130131480ecb451ee54602205b2` period 2024-01-04 to 2024-12-31, due 2026-04-30; 2025 `https://www.notion.so/376e4130131480b99ee1c59d5b205559` due 2027-03-01 | Use for annual VAT filings tied to the confirmed Berlin VAT context. |
+| Hamburg nil/demand context | `https://www.notion.so/377e4130131481968f3bd257337afc70` | 2024 `https://www.notion.so/373e4130131480d7bf63c26c49836e30` period 2024-01-04 to 2024-12-31, due 2026-04-30; 2025 `https://www.notion.so/373e4130131480f59b9ed58a3f33fd92` due 2027-03-01 | Keep provisional until the Hamburg number/status is confirmed. |
 
 ## German ZM / VIES Review Setup
 

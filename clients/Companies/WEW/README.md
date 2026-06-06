@@ -7,6 +7,7 @@ Review: This minimal folder was created only to preserve the structural link for
 
 Company reference used for local routing: `WEW`.
 Notion company: `https://www.notion.so/26774b3bf39c4874af7a938d462278bf`.
+Registered on: 2024-05-13.
 
 Linked individuals: `linked-individuals.md`.
 

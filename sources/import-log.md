@@ -43,11 +43,39 @@ Follow-up:
 - Organize BOI debt data and identify missing support before external bank submission.
 - Confirm whether `04. EIP Ventures Limited` is the approved canonical upload destination before Drive writes.
 
+## 2026-06-06 - German Filing Incorporation-Date Correction
+
+Applied:
+
+- Added the user correction that company filing rows must be screened against the company incorporation / `Registered on` date before creation or relinking.
+- Corrected VUN live Notion records because VANDY UN LIMITED was registered on 2025-03-21:
+  - Created a VUN 2025 annual VAT row for 2025-03-21 to 2025-12-31.
+  - Updated the VUN annual VAT registration to start with 2025 only.
+  - Detached the 2023 and 2024 VAT rows from the VUN company and annual VAT registration, preserving them as Nathan/pre-incorporation review rows.
+  - Updated VUN ZM/VIES to keep only Q4 2025 linked to VUN and detached the 2023/2024 ZM rows as Nathan/pre-incorporation review rows.
+- Corrected first-year annual VAT periods in live Notion for companies incorporated during the first filing year:
+  - CBMAX 2024 annual periods now start 2024-01-04.
+  - WEW 2024 annual period now starts 2024-05-13.
+  - PCL 2024 annual period now starts 2024-05-09.
+  - AMC 2025 annual period now starts 2025-02-11.
+- Added incorporation-date gate rules to the German annual VAT and German payroll/ZM setup processes.
+- Added a correction note to the consolidated Notion task `File annual VAT for affected RB clients`.
+
+Verification:
+
+- Notion read-back confirmed VUN annual VAT registration now links only the 2025 annual row and VUN ZM/VIES now links only Q4 2025.
+- Notion read-back confirmed the detached 2023 VAT row no longer has VUN company or annual VAT registration relation.
+
+Follow-up:
+
+- Treat 2023/2024 VUN VAT/ZM rows only as Nathan/pre-incorporation review artifacts unless a filer confirms a predecessor-business route.
+- For future filing setup, block row creation when incorporation date is unavailable or contradicts the requested period.
+
 ## 2026-06-06 - German Filing Deadlines, Payroll, And ZM/VIES Audit
 
 Applied:
 
-- Added due dates to the annual German VAT Filing Registrations and annual VAT Filings created or relinked in the earlier 2026-06-06 Notion run.
+- Added due dates to the annual German VAT Filing Registrations and annual VAT Filings created or relinked in the earlier 2026-06-06 Notion run. Later same-day correction screened rows against incorporation dates.
 - Added the German deadline rule to the reusable annual VAT process: 2023 due 2025-06-02, 2024 due 2026-04-30, and 2025 due 2027-03-01 unless a live notice gives a more specific date.
 - Checked payroll-tax registrations against equivalent Filings rows. Existing equivalent payroll rows were found for AGL, AMC, CLV, and PCL. WEW received a dedicated 2025 payroll-tax Filing row, and VUN received monthly payroll-tax rows for July 2025 through March 2026.
 - Interpreted the user's "CM" filing request as German ZM/VIES for this audit. Created German ZM/VIES rows for VUN and pending review rows for CBMAX. No ZM rows were created for AGL, NACV, WEW, PCL, AMC, or CLV from the current evidence.

@@ -32,6 +32,20 @@ Required Notion fields:
 
 Keep separate annual registrations for separate German authority contexts. For example, if a Berlin VAT context and a Hamburg estimated-demand context both exist and the Hamburg number is not confirmed, create a distinct Hamburg annual VAT registration and mark the uncertainty in comments instead of merging it into the Berlin registration.
 
+## Incorporation Date Gate
+
+Status: provisional.
+Source: user correction in Codex chat on 2026-06-06 and live Notion company records.
+Imported: 2026-06-06.
+Review: Confirm edge cases where a filing belongs to an individual, predecessor business, branch, or pre-incorporation trade rather than the company.
+
+Before creating or relinking annual VAT rows, fetch or otherwise confirm the company's `Registered on` / incorporation date.
+
+- Do not create company annual VAT rows for full years before the company existed.
+- For the first relevant year, set `Filing Period` / `First Filing Period` to start on the incorporation date, not on January 1, unless a live authority source explicitly requires a different company period.
+- If an existing manual row predates incorporation, preserve it as evidence but do not link it to the company annual VAT registration. Rename or comment it as a pre-incorporation / individual / predecessor-business review row so it is not mistaken for a company filing.
+- Only create rows relevant to that company and supported period. If the date source is missing or contradictory, record the blocker instead of guessing.
+
 ## Filing Row Pattern
 
 Create or update one Filings row per annual VAT period.
@@ -42,7 +56,7 @@ Required Notion fields:
 | --- | --- |
 | `Company` | Link the same company. |
 | `Filing Registration` | Link the annual VAT registration, not the periodic VAT row. |
-| `Filing Period` | Use the exact annual period only when supported. Use a full calendar year only where source context supports a calendar-year annual VAT return. |
+| `Filing Period` | Use the exact annual period only when supported. Use a full calendar year only where source context supports a calendar-year annual VAT return and the company existed for the full year. |
 | `Status` | Keep `Pending` until there is filing proof, submission proof, or a verified live status. |
 | `Submission` | Attach the annual VAT return or proof here when available. |
 | `Payment Due` / tax-payment handling | Populate only from evidence or live payment rows. |

@@ -10,10 +10,10 @@ Review: Complete a broader WEW company tax/VAT import only when company filing r
 Annual German VAT tracking now has its own yearly VAT Filing Registration row:
 
 - Annual VAT registration: `https://www.notion.so/377e4130131481cfb9a0c3a6116af0eb`
-- 2024 annual VAT placeholder filing: `https://www.notion.so/377e4130131481f9b727e8496a6bc1dc`; due 2026-04-30.
+- 2024 annual VAT placeholder filing: `https://www.notion.so/377e4130131481f9b727e8496a6bc1dc`; period 2024-05-13 to 2024-12-31; due 2026-04-30.
 - 2025 annual VAT placeholder filing: `https://www.notion.so/377e4130131481c89b35f948d3b5ac8c`; due 2027-03-01.
 
-Related existing Drive/export evidence includes WEW periodic VAT registration and filing files in `drive-locations.md`; those were not reclassified by this setup.
+Related existing Drive/export evidence includes WEW periodic VAT registration and filing files in `drive-locations.md`; those were not reclassified by this setup. The 2024 first-year annual VAT period was corrected on 2026-06-06 to start on WEW's incorporation date, 2024-05-13.
 
 ## Payroll Tax Row Created 2026-06-06
 

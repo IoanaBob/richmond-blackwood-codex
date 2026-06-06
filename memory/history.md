@@ -20,6 +20,15 @@ Status: active.
 - Verification: Notion read-backs confirmed the live updates/task; Drive list-folder confirmed EIP-specific contents in the folder candidate. Repo verification is tracked in PR closeout.
 - Limitations or gaps: Confirm annual-return filing-row status, VAT/PAYE direct-debit evidence, RTD/VIES backlog, BOI missing support, project/company relation mismatch, and whether the Drive candidate is approved for writes.
 
+## 2026-06-06 - German Filing Incorporation-Date Correction
+
+- User request: Future filing setup should add only company-relevant rows and check the company's incorporation date first; a company incorporated in 2025 should not receive 2023 or 2024 company filing rows.
+- Context read: Live Notion company records and repo client files for VUN, WEW, PCL, CBMAX, AMC, AGL, NACV, and CLV; live Notion annual VAT and ZM/VIES rows.
+- Actions taken: Corrected VUN live Notion annual VAT/ZM records to start in 2025 only, created VUN 2025 annual VAT row, detached VUN 2023/2024 VAT and ZM rows as Nathan/pre-incorporation review artifacts, corrected first-year annual VAT period starts for CBMAX, WEW, PCL, and AMC, and added incorporation-date gate rules to the German filing processes.
+- Decisions made: Filing rows must be screened against `Registered on` / incorporation date before creation or relinking. First-year company periods start on incorporation date unless an authority source requires otherwise. Pre-incorporation rows should be preserved as review artifacts but not linked to the company registration.
+- Verification: Notion read-back confirmed VUN annual VAT now links only the 2025 row and VUN ZM/VIES now links only Q4 2025; repo verification is tracked in PR closeout.
+- Limitations or gaps: 2023/2024 VUN VAT/ZM rows may still matter to Nathan or a predecessor business and need separate filer review before deletion or personal routing.
+
 ## 2026-06-06 - German Filing Deadlines, Payroll, And ZM/VIES Rows
 
 - User request: Add due dates to the annual VAT registrations/filings, check business activity and client locations, identify missing payroll-tax equivalents, and create needed CM/ZM filing rows with deadlines.
@@ -27,7 +36,7 @@ Status: active.
 - Actions taken: Updated annual VAT registration/filing due dates in Notion, created WEW 2025 payroll-tax and VUN monthly payroll-tax Filings rows, created VUN ZM/VIES rows and CBMAX pending ZM/VIES review rows, and added the result to the consolidated Notion task. Updated repo process/client/source memory and created the PCL folder after confirming the Notion `Reference`.
 - Decisions made: Treat "CM" as German ZM/VIES in this filing-audit context; create ZM rows only where supported by EU VAT-numbered B2B or reverse-charge evidence; do not duplicate payroll rows where equivalent linked Filings rows already exist.
 - Verification: Notion read-backs confirmed representative relation/date writes; repo closeout verification is tracked in the PR closeout.
-- Limitations or gaps: Complete Notion inventory remains targeted/search-backed because the complete data-source query route was unavailable and no local Notion REST token was present. Filing values, submissions, and payment/refund handling still need evidence before completion.
+- Limitations or gaps: Complete Notion inventory remains targeted/search-backed because the complete data-source query route was unavailable and no local Notion REST token was present. Later same-day correction added incorporation-date screening; filing values, submissions, and payment/refund handling still need evidence before completion.
 
 ## 2026-06-06 - German Annual VAT Filing Registration Layer
 

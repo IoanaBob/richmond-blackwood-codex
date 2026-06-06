@@ -7,6 +7,20 @@ Review: Confirm company-by-company filing exposure with the responsible filer be
 
 Use this process when auditing German-tax-resident or German-registered RB clients for missing payroll-tax or ZM/VIES filing rows in Notion.
 
+## Incorporation Date Gate
+
+Status: provisional.
+Source: user correction in Codex chat on 2026-06-06 and live Notion company records.
+Imported: 2026-06-06.
+Review: Confirm edge cases where filings belong to an individual, predecessor business, branch, or pre-incorporation trade rather than the company.
+
+Before creating payroll-tax or ZM/VIES company filing rows, fetch or otherwise confirm the company's `Registered on` / incorporation date.
+
+- Do not create company filing rows for periods before the company existed.
+- For first-year rows, start the filing period on the later of the statutory period start and the incorporation date unless a live authority source requires a different company period.
+- Existing rows predating incorporation should be preserved only as review artifacts and detached from the company registration if they do not belong to the company.
+- If the incorporation date is missing or contradictory, record the blocker instead of creating speculative rows.
+
 ## Payroll Tax
 
 Check whether the company has active German payroll evidence before creating rows:
@@ -68,6 +82,6 @@ Payroll rows:
 
 ZM/VIES rows:
 
-- VUN had supported intra-EU reverse-charge evidence and German VAT context. A German ZM/VIES registration and quarterly rows were created for supported quarters.
+- VUN had supported intra-EU reverse-charge evidence and German VAT context. A German ZM/VIES registration was corrected after incorporation-date review to keep only the supported post-incorporation Q4 2025 row linked to VUN; 2023/2024 rows were detached as pre-incorporation/Nathan review artifacts.
 - CBMAX had German VAT context plus EU client evidence, but the 2025 IE-vs-DE VAT position is unresolved. A German ZM/VIES registration and review rows were created as `Pending`.
 - No ZM rows were created for AGL, NACV, WEW, PCL, AMC, or CLV from the current evidence. The records reviewed showed German/non-EU clients, EU counterparties not marked VAT registered, or insufficient invoice-level EU VAT evidence.
