@@ -19,7 +19,7 @@ Use this skill for Richmond Blackwood pitch decks, Figma Slides decks, slide pac
 1. Gather the product, buyer, objective, claims, proof, legal wording, and open questions before writing slides.
 2. If the user provides reference decks, inspect them visually. If a connector is blocked, record the blocker and continue only from the references that were actually inspected.
 3. Draft each slide as:
-   - Eyebrow: max 3 words.
+   - Eyebrow: common deck/navigation label, max 3 words.
    - Headline: a complete, understandable selling claim.
    - Body: 0-2 short sentences, used only to set up the visual.
    - Visual structure: cards, proof numbers, icons, chips, timeline, process, mockup, table, or chart.
@@ -31,6 +31,7 @@ Use this skill for Richmond Blackwood pitch decks, Figma Slides decks, slide pac
 
 - Use 16:9 slides unless the user specifies otherwise.
 - Put an eyebrow or section label at top left and the slide number at top right.
+- Eyebrows are for orientation, not selling. Use common deck labels by default, such as `Problem`, `Why Us`, `How It Works`, `Use Cases`, `Case Studies`, `Packages`, `Deliverable`, and `Next Steps`.
 - Make the title do real work. Avoid empty labels such as "Trust, judgment, and authorization" when the title can state the commercial point.
 - Use concise body copy. If a slide needs evidence, assumptions, or calculations, place them in that slide's appendix.
 - Spread meaning across the slide. Use proof cards, labels, process steps, chips, callouts, mockups, and small captions instead of one large subtitle block.
@@ -43,6 +44,7 @@ Use this skill for Richmond Blackwood pitch decks, Figma Slides decks, slide pac
 ## Writing Rules
 
 - Headlines should be specific and different from subtitles, body copy, and labels. Do not repeat the same key phrase across those fields.
+- Treat the eyebrow and headline as separate jobs: eyebrow names the slide type, headline sells the point.
 - Avoid contrast constructions such as "not X; it is Y" or "not X, but Y" in pitch copy. State the positive claim directly.
 - Avoid customer-negative words as product promises. For example, do not sell a "blocker"; sell the reviewed outcome, next action, escalation path, or answer.
 - Prefer "our team" when explaining managed service delivery, especially when repeating the product name would sound impersonal.
@@ -79,7 +81,7 @@ Use these as adjacent examples, not rigid templates:
 
 Before sharing a draft, check every slide:
 
-- Eyebrow is 3 words or fewer.
+- Eyebrow is a common deck/navigation label and 3 words or fewer.
 - Headline is a clear claim, not a topic label.
 - Body is 0-2 sentences.
 - The slide does not rely on a huge subtitle to carry the message.
