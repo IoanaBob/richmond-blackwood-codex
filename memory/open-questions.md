@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-06-03.
+Updated: 2026-06-06.
 
 ## Notion Backup Questions
 
@@ -10,6 +10,7 @@ Updated: 2026-06-03.
 - Backfill those VUN/Nathan backup pages from all available sources after the repo records are reviewed.
 - Confirm whether VUN-linked personal insolvency and personal tax task/correspondence summaries should remain in the VUN company folder as pointers or be fully routed only under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Redo non-VUN client imports directly from Notion Companies `Reference` records; earlier non-VUN backup references were incorrect and have been removed.
+- Confirm the Notion Companies `Reference` for PCL before creating a local `clients/Companies/` folder or routing the 2026-06-06 annual German VAT registration/filing pointers there. Live Notion annual VAT rows were created/linked, but no existing PCL folder was present in this repo.
 
 ## Drive Filing Questions
 

@@ -26,6 +26,7 @@ Fetched 2026-05-05 from linked Notion filing-registration records.
 | VUN - 014/247/51521 - Trade Tax | Trade Tax | DE | Registered | Yearly | `014 247 51521`; requires tax payments marked NO. | Due 2025-04-21; first filing 2027-02-12; first period 2025-03-21 to 2026-01-20. | `https://www.notion.so/1bde413013148190b0e3fd664d6edee1` |
 | VUN - PENDING_Betriebsnummer - Payroll | Payroll Tax | DE | Overdue | Monthly | Betriebsnummer pending; requires tax payments marked NO. | Due 2026-01-01; first filing 2027-02-26; first period 2027-02-01 to 2027-02-28. | `https://www.notion.so/1c8e41301314808a8d2fd10a9ea2ee47` |
 | VUN - DE460151151 - VAT Tax | VAT | DE | Registered | Quarterly | `DE460151151`; requires tax payments marked NO. | Due 2025-04-21; first filing 2027-02-12; first period 2025-03-21 to 2026-01-20. | `https://www.notion.so/1c8e4130131480dab1adca091b7dca3b` |
+| VUN annual German VAT registration | VAT | DE | Registered | Yearly | Annual VAT Filing Registration layer created 2026-06-06. | Use live Notion row for period details. | `https://www.notion.so/377e4130131481a59a98c7e31e2eee56` |
 | VUN - Pending_Gewerbeanmeldung - Business Registration (Gewerbeanmeldung) | Local Business Registration | DE | Overdue | One-off | Must upload certificate when received. | Due 2025-03-11. | `https://www.notion.so/1e9e41301314816cafccceedcf3c56af` |
 | VUN - 704423150999001 - Unternehmensnummer | Accident Insurance | DE | Registered | One-off | Accident insurance number / Unternehmensnummer VBG `704423150999001`; PIN `16253`. Both number and PIN are needed for Betriebsnummer application. | Due 2025-05-11. | `https://www.notion.so/1e9e413013148191aa6ff0a21033f23b` |
 
@@ -38,6 +39,8 @@ Fetched 2026-05-05 from linked Notion filing records.
 | VUN - 2025-09-21 - First Annual Returns | Annual Returns | Filed | 2025-09-21 | Filed 2025-10-31; submission attachment handle `VUN_First_return.pdf`. | `https://www.notion.so/1c8e413013148040be83caa52f87b5ae` |
 | VUN - Annual Returns -21 Sep 2026 | Annual Returns | Overdue | 2026-09-21 | Period 2025-03-21 to 2026-03-31. | `https://www.notion.so/311e4130131481d281f5eb8c92de503c` |
 | VUN - Annual Returns -21 Sep 2027 | Annual Returns | Overdue | 2027-09-21 | Period 2026-03-21 to 2027-03-31. | `https://www.notion.so/311e4130131481c0b087d943fd1d7184` |
+| VUN - 2023 Annual VAT return | Annual VAT | Existing Notion row | n/a | Relinked on 2026-06-06 to annual German VAT registration. | `https://www.notion.so/373e4130131481a1b7ebd1a9b9e5cae9` |
+| VUN - 2024 Annual VAT return | Annual VAT | Existing Notion row | n/a | Relinked on 2026-06-06 to annual German VAT registration. | `https://www.notion.so/373e4130131481d6982bd278d33d3d83` |
 | VUN - PENDING_Betriebsnummer - Payroll-2027-02-12 | Payroll Tax | Pending | 2027-02-12 | Notion page is deleted. | `https://www.notion.so/348e4130131481a9a165ef9f96e0b978` |
 | -2027-02-26 - | Payroll Tax | Pending | 2027-02-26 | Period 2025-03-21 to 2026-01-20; Notion page is deleted. | `https://www.notion.so/348e4130131481fb8305dfbcc879e8ab` |
 | VUN -2027-02-26 - Payroll Tax | Payroll Tax | Pending | 2027-02-26 | Period 2027-02-01 to 2027-02-28; Notion page is deleted. | `https://www.notion.so/348e4130131481f9b53bd0c7a862181c` |

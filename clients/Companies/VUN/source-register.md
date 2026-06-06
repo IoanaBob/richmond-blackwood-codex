@@ -21,6 +21,7 @@ Notion backup: `notion-backup.md`.
 | Client export backup pass | 2026-05-05 | Superseded. Evidence files should be stored in Drive and referenced from repo files; the mistaken git-held export package was removed from the PR branch history. |
 | Notion Companies attachment handles | 2026-05-05 | Company document and signed contract attachment handles still need direct resolution, upload/location in Drive, and repo pointer updates. |
 | Notion backfill search | 2026-05-05 | Fetched/routed filing registrations, filings, and key VUN task records into `tax-vat-filings.md`, `accounting-bookkeeping-payroll.md`, and `client-project.md`. |
+| Codex annual VAT setup run | 2026-06-06 | Created VUN yearly DE VAT Filing Registration row `https://www.notion.so/377e4130131481a59a98c7e31e2eee56` and linked existing 2023/2024 annual VAT filing rows. |
 | Notion Assets / Tax Payments / Tax Prepayments searches | 2026-05-05 | Fetched table schemas and searched for VUN/VANDY/Nathan matches. No records surfaced by search. A complete relation-filtered export was not available in that pass, so relation-filtered export still needs a future pass. |
 | Gmail books/payroll backfill | 2026-05-05 | Read/routed Stripe, Wamo, Lexware, Workhub, DappRadar, and Schultze & Braun messages. Downloaded additional Gmail attachments into the VUN export. |
 | WhatsApp MCP contact search / user instruction | 2026-05-05 | User selected the second Eran Peer WhatsApp contact and asked to save the chat ID under VUN; recorded pointer in `communications.md`. |

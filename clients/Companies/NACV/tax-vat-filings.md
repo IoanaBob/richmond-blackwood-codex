@@ -80,3 +80,16 @@ NACV was asked to file German VAT monthly last year because of lack of responses
 Open Notion task:
 
 - `NACV - Request lower German VAT filing cadence`: `https://www.notion.so/35fe413013148134a46ae7e1bab9b897`
+
+## Annual German VAT Filing Setup
+
+Status: provisional.
+Source: live Notion annual VAT setup run on 2026-06-06; consolidated task `File annual VAT for affected RB clients`.
+Imported: 2026-06-06.
+Review: Keep the annual VAT placeholders pending until due dates, submission proof, and payment/refund handling are verified.
+
+Annual German VAT tracking now has its own yearly VAT Filing Registration row:
+
+- Annual VAT registration: `https://www.notion.so/377e41301314819998b7d3cbcf661186`
+- 2024 annual VAT placeholder filing: `https://www.notion.so/377e41301314815483fcefcc3866ce35`
+- 2025 annual VAT placeholder filing: `https://www.notion.so/377e41301314818c9688e0d22059c0a9`

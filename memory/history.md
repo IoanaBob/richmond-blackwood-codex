@@ -20,6 +20,15 @@ Status: active.
 - Verification: Notion read-backs confirmed the live updates/task; Drive list-folder confirmed EIP-specific contents in the folder candidate. Repo verification is tracked in PR closeout.
 - Limitations or gaps: Confirm annual-return filing-row status, VAT/PAYE direct-debit evidence, RTD/VIES backlog, BOI missing support, project/company relation mismatch, and whether the Drive candidate is approved for writes.
 
+## 2026-06-06 - German Annual VAT Filing Registration Layer
+
+- User request: Create Notion annual VAT registration/filing structure for German-tax-resident clients so annual VAT returns can be attached like quarterly VAT returns, and store the pattern in the repo for future use.
+- Context read: Live Notion schemas for Filing Registrations, Filings, Companies, and the consolidated task `File annual VAT for affected RB clients`; existing manual annual VAT filing rows; repo process/memory standards.
+- Actions taken: Created yearly German VAT Filing Registration rows, linked existing manual annual VAT filing rows to the annual registrations, created pending placeholder annual VAT filings where missing, and added a Notion task comment summarizing created/updated rows and blockers. Added the reusable process `processes/de-annual-vat-filing-setup.md` and updated repo memory/source logs.
+- Decisions made: Annual German VAT returns should use a separate `VAT` / `DE` / `Yearly` Filing Registration, not the periodic VAT registration or corporation-tax registration. Existing manual rows should be preserved and relinked rather than recreated when they already hold submission/payment context.
+- Verification: Notion read-backs confirmed annual registration relations for representative AGL, NACV, CLV, PCL, and CBMAX rows; final repo verification is tracked in the PR closeout.
+- Limitations or gaps: Notion SQL data-source query and local REST pagination were unavailable in this session, so the live inventory is targeted/search-backed rather than exhaustive. Placeholder annual filings still need due dates, submission/payment evidence, and filed-status review.
+
 ## 2026-06-05 - RBL Review Corrections And Drive Search
 
 - User request: Apply the RBL review answers, including live Notion corrections for registered office, PAYE payment, registration statuses, the future VAT filing title, and Drive folder discovery.

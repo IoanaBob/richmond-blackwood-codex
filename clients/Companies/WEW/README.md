@@ -9,3 +9,5 @@ Company reference used for local routing: `WEW`.
 Notion company: `https://www.notion.so/26774b3bf39c4874af7a938d462278bf`.
 
 Linked individuals: `linked-individuals.md`.
+
+Company tax/VAT pointers: `tax-vat-filings.md`.

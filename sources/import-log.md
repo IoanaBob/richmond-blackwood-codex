@@ -43,6 +43,28 @@ Follow-up:
 - Organize BOI debt data and identify missing support before external bank submission.
 - Confirm whether `04. EIP Ventures Limited` is the approved canonical upload destination before Drive writes.
 
+## 2026-06-06 - German Annual VAT Filing Setup
+
+Applied:
+
+- Created a reusable repo process for German annual VAT tracking: annual VAT returns get their own `VAT` / `DE` / `Yearly` Filing Registration and annual Filings rows link to that registration.
+- In live Notion, created yearly annual VAT Filing Registration rows for the checklist companies where supported by the consolidated task, and for existing manual annual VAT rows discovered during targeted search.
+- Relinked existing manual annual VAT Filing rows away from periodic VAT or corporation-tax registrations where applicable, preserving existing submissions, filed dates, payment values, and comments.
+- Created pending annual VAT placeholder Filing rows for missing annual periods on the consolidated task checklist where the company/period context was clear.
+- Added a page comment to the consolidated task `File annual VAT for affected RB clients` summarizing created registrations, linked filings, placeholder filings, and unresolved blockers.
+
+Verification:
+
+- Notion read-backs confirmed representative annual Filing Registration relations and filing relations after the writes.
+- The connector exposed the direct `Filing Registration` relation on read-back even where some rollup fields remained omitted immediately after update.
+
+Follow-up:
+
+- Confirm due dates, payment/refund handling, and final filing status for the placeholder annual VAT rows.
+- Resolve CBMAX Hamburg tax-number ownership/status before treating the Hamburg nil annual VAT registration as confirmed.
+- Confirm PCL's Notion Companies `Reference` before creating a local client folder for the PCL annual VAT pointers; no existing PCL folder was present in this repo.
+- Re-run an authoritative Notion inventory when data-source SQL/query or REST pagination is available; this run used targeted search/fetch because those complete-inventory routes were unavailable.
+
 ## 2026-06-05 - RBL Review Corrections
 
 Applied:

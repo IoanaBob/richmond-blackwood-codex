@@ -15,6 +15,7 @@ This directory is the source-controlled process and SOP mirror for Richmond Blac
 - `personal-tax-return-prompt.md` - reusable prompt for future German personal-tax analysis requests.
 - `ie-ros-filing-logging.md` - one-filing Irish ROS proof, filing status, payment/refund, and Tax payments logging workflow.
 - `ie-core-annual-return-logging.md` - one-filing Irish CRO/CORE annual-return proof, filing status, payment handling, and next annual-return cross-check workflow.
+- `de-annual-vat-filing-setup.md` - German annual VAT Filing Registration and annual Filing row setup pattern.
 - `notion-operations.md` - Notion database, view, relation, file-property, and task-ready standards.
 - `setup-and-access.md` - human setup and health checks.
 - `signature-and-gmail.md` - generic approvals, signing, Gmail draft, and communication rules.

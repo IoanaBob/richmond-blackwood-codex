@@ -70,6 +70,20 @@ Fetched representative linked Notion filing-registration records on 2026-05-13.
 | CBMAX - DE455085802 - USt-IdNr. VAT DE | VAT | DE | Registered | Quarterly | USt-IdNr. `DE455085802`. | Dates not set in fetched page. | `https://www.notion.so/232e413013148097b4e8d0f5265c7614` |
 | CBMAX - 72878688 - Payroll | Payroll Tax | DE | Registered | Monthly | Betriebsnummer `72878688`; details in `accounting-bookkeeping-payroll.md`. | Due 2025-01-31; first filing 2024-06-26. | `https://www.notion.so/d1b69930f1cb4280a2d946c5d6a46b12` |
 
+## Annual German VAT Filing Setup
+
+Status: provisional.
+Source: live Notion annual VAT setup run on 2026-06-06; existing CBMAX Hamburg/Berlin VAT task context.
+Imported: 2026-06-06.
+Review: Confirm whether Hamburg tax number `17/070/40128` belongs to CBMAX before treating the Hamburg annual VAT registration as confirmed.
+
+On 2026-06-06, separate yearly DE VAT Filing Registration rows were created so annual VAT filings do not remain linked to the quarterly VAT row or corporation-tax row.
+
+| Context | Annual VAT registration | Linked annual filing rows | Review |
+| --- | --- | --- | --- |
+| Berlin VAT context | `https://www.notion.so/377e41301314815aac81fd737284ee94` | 2024 `https://www.notion.so/376e4130131480ecb451ee54602205b2`; 2025 `https://www.notion.so/376e4130131480b99ee1c59d5b205559` | Use for annual VAT filings tied to the confirmed Berlin VAT context. |
+| Hamburg nil/demand context | `https://www.notion.so/377e4130131481968f3bd257337afc70` | 2024 `https://www.notion.so/373e4130131480d7bf63c26c49836e30`; 2025 `https://www.notion.so/373e4130131480f59b9ed58a3f33fd92` | Keep provisional until the Hamburg number/status is confirmed. |
+
 ## Filing Evidence In Drive
 
 Drive search found several likely tax/accounting files, including:
