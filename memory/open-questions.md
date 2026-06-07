@@ -153,6 +153,16 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Confirm BOI lending package/debt-register readiness and approval route before any external bank submission or upload. User says data exists but needs organizing and missing-data review.
 - Confirm whether Drive folder `04. EIP Ventures Limited` (`https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`) is the approved canonical EIP upload destination. Drive search/list-folder found EIP-specific year, CRO, German tax, finance, loan, contract, and employment contents.
 
+## MONO / Monochromatic Questions
+
+- Reconcile MONO VAT, VIES, RTD, and Annual Returns registration statuses before treating them as filed or overdue. VAT, VIES, RTD, and Annual Returns registration rows are marked Overdue, while the 2024 annual-return filing row is Filed on 2026-01-26.
+- Confirm whether the MONO VIES registration title should be corrected from `VEIS` to `VIES` and whether the overdue status is real.
+- Confirm whether MONO still needs annual VAT filing rows. The MONO-specific task was archived as superseded, but the consolidated annual VAT task checklist omits MONO.
+- Confirm whether Drive folder `01. Monochromatic Limited (MONO)` (`https://drive.google.com/drive/folders/11LwHCgff0Cb-yDpQnC07WYQGGmINBXPY`) should remain under `02. RB Client Companies` / external-client root despite MONO's group/internal context.
+- Reconcile the MONO client project's `Companies` relation, which points to a Project Management `Richmond Blackwood` page instead of the Client Databases MONO company record.
+- Decide whether the old Client Notes page `https://app.notion.com/p/356e4130131481ae908df5ad201b9082` should be updated to the canonical `clients/Companies/MONO/` path.
+- Confirm current business-partner/contract invoice-recipient fields before future external MONO invoice sends to Motley/Yann, Dalton/FirstMate, or other counterparties.
+
 ## KONVI Questions
 
 - Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.
