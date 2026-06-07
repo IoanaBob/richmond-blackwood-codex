@@ -10,6 +10,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-memory-capture`: write durable memory with provisional/approved status.
 - `rb-client-file`: route unsanitised client detail to the right client folder.
 - `rb-process-maintenance`: update process maps and SOP mirrors.
+- `rb-presentation-drafting`: draft and revise RB pitch decks in the house style, with claim-led headlines, compact body copy, visual text surfaces, and slide-local appendices.
 - `rb-handoff`: prepare next-session handoff.
 - `rb-google-auth`: authenticate Drive/Gmail helper access through the shared global Codex persona/OAuth store without committing credentials.
 - `rb-file-uploads`: upload, export, attach, and catalog Drive/Notion-backed files.

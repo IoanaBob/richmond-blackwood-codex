@@ -1,0 +1,7 @@
+interface:
+  display_name: "RB Presentation Drafting"
+  short_description: "Draft RB decks in the house style."
+  default_prompt: "Use $rb-presentation-drafting to draft or revise a Richmond Blackwood pitch deck with claim-led slide titles, compact body copy, visual text surfaces, and slide-local appendices."
+
+policy:
+  allow_implicit_invocation: true
