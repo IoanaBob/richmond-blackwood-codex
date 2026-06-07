@@ -18,10 +18,14 @@ It should tell a product, engineering, design, operations, or GTM stakeholder wh
 - Start sections with concise prose that explains the situation and why the requirement exists.
 - Use bullets only where they improve precision: field lists, explicit rules, status values, test cases, assumptions, non-goals, and open decisions.
 - Do not make the whole PRD a bullet list or table. If most lines start with `-`, rewrite into narrative.
+- Use bullets deliberately for scope lists, actor lists, state lists, data-field lists, integration lists, and acceptance tests. Those are cases where bullets make the PRD clearer than prose.
+- Use bold labels inside dense technical sections when they improve readability, for example `**Backend:**`, `**Frontend:**`, `**Human review UI:**`, `**Source:**`, `**Destination:**`, or `**Blocked state:**`.
 - Preserve the user's concrete language and examples where they clarify behavior.
 - Prefer exact workflow titles over abstract labels. Example: `When a filing accounting period ends, create linked preparation and filing tasks and notify the owner`, not `Detect period ended`.
 - Avoid vague implementation verbs such as `sync`, `build model`, `handle`, or `support` unless followed by the exact source, destination, fields, and success behavior.
 - Explain branch behavior explicitly: what happens when data is complete, missing, ambiguous, approved, rejected, paid, unpaid, or blocked.
+- If a requirement mentions human review, approval, exception handling, queues, dashboards, packets, or reviewer decisions, describe the UI or operator surface that makes that review possible. Do not hide required UI inside backend workflow prose.
+- If a project involves software implementation, include the expected high-level architecture and platform boundaries when they are known or requested: backend, frontend, data store, integrations, scheduled jobs, queues, and external systems. Keep this high-level unless the source context provides lower-level technical decisions.
 - Do not over-structure. Main template headings are a guideline; add subheadings only when they make the PRD easier to use.
 - Keep subheadings under a main heading to 3-5 maximum when they are needed.
 - Do not put subheadings under `TL;DR`.
@@ -38,6 +42,8 @@ Every PRD must answer:
 - Why now?
 - What is explicitly in scope and out of scope?
 - What workflow, user journey, or system behavior should exist?
+- What UI, operational surface, or review experience is needed, if any?
+- What high-level technical architecture or platform boundary is expected, if the project is implemented in software?
 - What constraints, review gates, edge cases, and failure states matter?
 - How will product success, implementation completion, and guardrails be measured?
 - What assumptions, dependencies, risks, and open decisions remain?
@@ -82,6 +88,8 @@ Write the end-to-end workflow in prose so the developer understands the business
 For developer handoff PRDs, include or explicitly cover these topics. They do not all need to be literal headings:
 - scope and non-goals;
 - user journey or operational workflow;
+- product surfaces, UI requirements, and human-review experience where applicable;
+- high-level architecture and platform boundaries where applicable;
 - source systems and destination systems;
 - data model, fields, API contracts, or payloads where known;
 - triggers and entry conditions;
@@ -94,6 +102,12 @@ For developer handoff PRDs, include or explicitly cover these topics. They do no
 - test plan;
 - assumptions and open decisions.
 
+### Diagrams and Readability
+
+For complex workflows, include a simple diagram when it will make the handoff easier to understand. Prefer Mermaid for text-native PRDs when supported. A useful diagram usually shows the trigger, major system steps, human review points, external systems, and terminal states.
+
+Do not use diagrams as decoration. Use them when prose alone would force the reader to mentally reconstruct the flow, architecture, or state machine.
+
 ## Implementation Detail Boundary
 
 Include implementation constraints when they are business requirements, for example:
@@ -101,6 +115,9 @@ Include implementation constraints when they are business requirements, for exam
 - Human submission is mandatory.
 - Open banking may request approval but must not execute payment without the required approval path.
 - Payslips go to the client-visible field, while payment lists stay internal.
+- A backend must live in a specified product or service.
+- A frontend must live in a specified app, monorepo, or design system.
+- A calculation or decision must happen in code rather than through manual review or spreadsheet logic.
 
 Include concrete technical contracts when the source context supports them or when they are clearly marked as proposed. Good PRDs can include fields, functions, event payloads, API behavior, state machines, and test cases when those details reduce ambiguity.
 
@@ -119,6 +136,8 @@ For internal or implementation PRDs, include a short `Source Basis`, `Assumption
 
 If the user corrected a phrase, use the corrected behavior, not the earlier compressed version.
 
+When the PRD says a workflow is out of scope because another project owns it, link to the owning project if a page, ticket, roadmap item, or approved project name is available. If the owning project is not yet created or not identifiable, state that as an open decision instead of leaving an unlinked reference.
+
 ## Quality Gate
 
 Before writing live content, run this checklist:
@@ -128,6 +147,11 @@ Before writing live content, run this checklist:
 - The intended user or business outcome is explicit.
 - Scope and non-goals are explicit.
 - The PRD includes concrete product surfaces, source/destination systems, or integrations where relevant.
+- Human review, approval, exception, or queue behavior includes the UI/operator surface required to perform it.
+- Software implementation PRDs include high-level architecture and known platform boundaries.
+- Complex workflows include a diagram unless the flow is simple enough that prose is clearer.
+- Dense technical sections use readable structure: short paragraphs, bullets for lists, and bold labels where helpful.
+- Out-of-scope workflows link to the owning project or explicitly name the missing link as an open decision.
 - The workflow has triggers, branches, and terminal states.
 - Missing, ambiguous, or blocked states are described.
 - Human review gates are explicit.
