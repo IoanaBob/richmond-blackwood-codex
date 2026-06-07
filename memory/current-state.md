@@ -278,6 +278,18 @@ RBL / RICHMOND BLACKWOOD LIMITED context refresh:
 - Resolved on 2026-06-05: Notion registered-office writeback, April 2026 PAYE payment marked/read back as `Paid`, Payroll/VIES/Corporation Tax registrations marked/read back as `Registered`, and future VAT title corrected to `RBL - VAT - 19 May 2027`.
 - Drive search on 2026-06-05 found current folder candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`; confirm this is the approved canonical upload destination before storing new raw evidence there.
 
+EIP / EIP VENTURES LIMITED context import:
+
+- Company folder: `clients/Companies/EIP/`.
+- Notion company: `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`; `Reference` is `EIP`.
+- Notion client project: `https://www.notion.so/32fe41301314804a8e09c51b11350b46`.
+- No WhatsApp route is recorded for EIP. User confirmed EIP is internal on 2026-06-07, and the live Notion company communication preference was updated/read back as Slack.
+- User describes EIP as the venture-builder holding company. Direct Notion subsidiary/shareholder-of relations fetched on 2026-06-05 show MONO, EVG, and RBL; user confirmed this direct treatment for the current pass on 2026-06-07. Live task `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0` tracks the fuller group-structure diagram and direct/indirect/portfolio/separately owned classification.
+- High-signal current checks: BOI lending facility and debt-register template, intercompany tool-charge task, active intercompany contracts to Konvi/RBL/Mono, historical DE/IE tax cleanup, annual-return filing-row status, RTD/VIES overdue rows, Irish payroll-registration identifier mismatch, VAT3 Jan/Feb 2026 direct-debit/payment evidence, April 2026 PAYE direct-debit/payment evidence, AIB BYD Seal hire purchase, and mortgage/debt contract.
+- User clarified on 2026-06-07 that 2023 was Ireland for the tax year, while EIP still traded in Germany for less than 180 days. Annual Returns registration was updated/read back as Registered; the linked annual-return filing row is due 2026-08-06 and still needs filing-status review. VIES title was corrected/read back from `VEIS` to `VIES`, with status still Overdue.
+- Drive search on 2026-06-07 found strongest folder candidate `04. EIP Ventures Limited` / `https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`; confirm before new uploads or reorganization.
+- Boundary: keep subsidiary operating detail in each subsidiary folder/live Notion record. Do not copy individual identifiers, bank details, VBG PINs, payroll credential material, raw attachments, or private-channel transcripts into git.
+
 Communication workflow update:
 
 - Browser/API/MCP boundary from 2026-06-01 user instruction: reject browser use for live workspace or business-system workflows when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before using browser automation, check whether the current plan can use one of those routes; if unclear, ask the responsible RB team member whether an API/MCP path exists. If possible access is blocked by missing credentials, stop and ask the responsible team member to provision the right keys or credentials through approved secret storage. Do not use browser as a workaround for missing API/MCP access.

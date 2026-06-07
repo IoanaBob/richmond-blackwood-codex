@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-07 - EIP Review Corrections And Live Notion Updates
+
+- User request: Apply EIP review answers after the initial EIP context import, including internal communication routing, annual-return registration cleanup, VIES typo correction, Drive search assumptions, BOI data handling, and a group-structure diagram task.
+- Context read: User review answers from 2026-06-07, EIP repo memory files, live Notion company/registration/task read-backs, the active EIP/Konvi contract page, Google Drive search/list-folder results, and current branch history.
+- Actions taken: Updated/read back live Notion company `Communication preference` as Slack, Annual Returns registration as Registered, VIES title as `VIES`, and created/read back task `Create EIP group structure diagram`. Recorded Drive candidate `04. EIP Ventures Limited` and made the EIP/Konvi contract mismatch concrete in company memory.
+- Decisions made: Treat EIP as internal with Slack routing and no WhatsApp JID; treat 2023 as Ireland for the tax year with German trading under 180 days; treat VAT/PAYE payments as unknown with direct-debit assumption pending evidence; keep BOI data under organize/missing-data review before external submission.
+- Verification: Notion read-backs confirmed the live updates/task; Drive list-folder confirmed EIP-specific contents in the folder candidate. Repo verification is tracked in PR closeout.
+- Limitations or gaps: Confirm annual-return filing-row status, VAT/PAYE direct-debit evidence, RTD/VIES backlog, BOI missing support, project/company relation mismatch, and whether the Drive candidate is approved for writes.
+
 ## 2026-06-05 - RBL Review Corrections And Drive Search
 
 - User request: Apply the RBL review answers, including live Notion corrections for registered office, PAYE payment, registration statuses, the future VAT filing title, and Drive folder discovery.
@@ -929,6 +938,14 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Live Notion updates/read-backs completed for RBL registered office, April 2026 PAYE payment `Paid`, Payroll/VIES/Corporation Tax registrations `Registered`, and future VAT title `RBL - VAT - 19 May 2027`.
 - Google Drive search/list-folder found candidate `06. Richmond Blackwood Limited` / `https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy` with RBL-specific contents.
 - Updated `clients/Companies/RBL/`, durable memory, and source logs. Remaining RBL gaps are Sage/Xero decision, Workhub VAT/exact upgraded-plan verification, and final confirmation that the found Drive folder is the approved upload destination.
+
+## 2026-06-05 - EIP Company Context Import
+
+- User asked to continue with EIP, described it as the holding company of the venture-builder companies, and said the context should be in Notion.
+- Created `clients/Companies/EIP/` from the Notion company `EIP VENTURES LIMITED` / `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`, canonical reference `EIP`.
+- Imported source-backed EIP overview, linked individuals, direct group-structure pointers, active/inactive contracts, tax/filing registrations, accounting/payroll route, intercompany invoicing context, BOI lending/debt-register context, communications pointers, project route, open questions, and source register.
+- Direct Notion subsidiary relations currently show MONO, EVG, and RBL; broader venture-builder holding scope remains open for confirmation.
+- No WhatsApp route, Drive search/write, Gmail write, Slack write, or live Notion write was performed. Sensitive individual identifiers, bank details, VBG PINs, payroll credential details, raw attachments, and private-channel transcripts were excluded from git.
 
 ## 2026-06-04 - MHL Car Concierge Expense Submission
 

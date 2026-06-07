@@ -2,6 +2,29 @@
 
 Status: active.
 
+## 2026-06-07 - EIP Review Corrections
+
+Applied:
+
+- Applied user review answers for EIP internal communication route, 2023 IE/DE tax nuance, payment direct-debit assumption, Annual Returns registration status, VIES typo, BOI data state, Drive folder assumption, and group-structure diagram need.
+- Updated/read back live Notion records: EIP company `Communication preference` to Slack, Annual Returns registration to Registered, and VIES title from `VEIS` to `VIES`.
+- Created/read back live Notion task `Create EIP group structure diagram` at `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0`.
+- Searched Google Drive and recorded candidate folder `04. EIP Ventures Limited` / `https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`.
+- Updated `clients/Companies/EIP/`, `memory/current-state.md`, `memory/handoff.md`, `memory/open-questions.md`, `memory/history.md`, `memory/skill-runs.md`, and `sources/source-register.md`.
+
+Verification:
+
+- Notion read-backs confirmed communication preference, Annual Returns registration, VIES title, and the created task.
+- Drive list-folder read-back confirmed EIP-specific contents in the folder candidate.
+
+Follow-up:
+
+- Confirm annual-return filing-row status for `EIP-28/07/2026- Annual Returns`, due 2026-08-06.
+- Verify VAT/PAYE direct-debit payment evidence before changing payment statuses.
+- Review RTD/VIES filing backlog before status updates.
+- Organize BOI debt data and identify missing support before external bank submission.
+- Confirm whether `04. EIP Ventures Limited` is the approved canonical upload destination before Drive writes.
+
 ## 2026-06-05 - RBL Review Corrections
 
 Applied:
@@ -1912,6 +1935,24 @@ Actions:
 Unresolved:
 
 - PR closeout pending.
+
+## 2026-06-05 - EIP Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-05 that EIP is the holding company of the venture-builder companies and that EIP context should be pulled from Notion.
+- Notion company `EIP VENTURES LIMITED` (`https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`) with canonical `Reference` `EIP`.
+- EIP client project, parent project, linked individuals, direct subsidiary/company relation records, contract rows, filing registrations, filing/payment rows, internal tax-status document, BOI lending/debt-register tasks, intercompany tool-charge task, and BOI communication record.
+
+Actions:
+
+- Created `clients/Companies/EIP/` and populated company overview, linked individuals, group structure, contracts/authority, tax/filings, accounting/payroll, invoicing/payments/expenses, financing/assets, communications, project, Drive, Notion backup, open questions, source register, and history.
+- Updated durable source, history, current-state, handoff, skill-run, and open-question memory.
+- Kept subsidiary operating context as pointers only and excluded personal identifiers, bank details, VBG PINs, payroll credential material, raw attachments, and private-channel transcripts from git.
+
+Unresolved:
+
+- Confirm broader EIP holding structure beyond direct MONO/EVG/RBL relations, EIP communication route, stale filing/payment statuses, payroll registration identifier mismatch, and BOI/debt-register readiness.
 
 ## 2026-06-03 - Default Rebase Before Push
 
