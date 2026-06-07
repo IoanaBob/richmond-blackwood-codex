@@ -11,7 +11,7 @@ Active EIP intercompany contracts exist for Konvi, Richmond Blackwood, and Mono.
 
 | Contract | Amount in Notion | Source | Notes |
 | --- | --- | --- | --- |
-| EIP Ventures - Konvi Limited | EUR 17,525 monthly fixed | `https://www.notion.so/2d2e4130131480128b5bce484c42c388` | Component lines in Notion do not appear to reconcile to the amount field; review before relying on the split. |
+| EIP Ventures - Konvi Limited | EUR 17,525 monthly fixed | `https://www.notion.so/2d2e4130131480128b5bce484c42c388` | Extra invoice details list Company tools EUR 650, Employee tools & perks EUR 9,504, Contractors EUR 11,050, and Management fees EUR 15,000. Those lines total EUR 36,204, not the EUR 17,525 contract amount, so confirm which value should drive invoices and whether the component lines are stale, partial, or non-additive. |
 | EIP - Richmond Blackwood | EUR 10,446 monthly fixed | `https://www.notion.so/2d2e413013148061b181dfb2b0ff3bfe` | Component lines reconcile to the amount field. |
 | EIP - Mono | EUR 2,653 monthly fixed | `https://www.notion.so/2d2e41301314809f8c81e2d75992906f` | Component lines reconcile to the amount field. |
 

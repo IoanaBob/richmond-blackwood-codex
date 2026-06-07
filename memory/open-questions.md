@@ -142,17 +142,16 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## EIP Questions
 
-- Confirm whether EIP's holding-company role includes direct ownership of venture-builder companies beyond MONO, EVG, and RBL, or whether other entities are indirect subsidiaries, portfolio companies, or separately owned.
-- Confirm whether EIP's Notion communication preference should remain WhatsApp or be changed to Slack/email/internal Notion because EIP is internal. No WhatsApp route was used or stored in the 2026-06-05 import.
+- Complete EIP group-structure diagram and classify direct, indirect, portfolio, and separately owned entities. User confirmed on 2026-06-07 that current direct MONO/EVG/RBL treatment is correct for this pass; live task `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0` tracks the fuller diagram.
 - Reconcile the EIP company/project relation mismatch: the company points to the EIP client project, but the project `Companies` relation displayed a different company page during fetch.
-- Confirm whether the EIP 2024 annual return is filed or pending. Registration says Overdue and the filing row says Pending, but comments say the court extension was granted and filing/files uploaded.
-- Confirm whether EIP VAT3 Jan/Feb 2026 and April 2026 PAYE tax-payment rows are paid, stale, or genuinely overdue.
+- Confirm whether the EIP 2024 annual-return filing row is filed or still pending. Annual Returns registration was corrected/read back as Registered on 2026-06-07; linked filing row `EIP-28/07/2026- Annual Returns` is due 2026-08-06 and still reads Pending despite comments saying filed/files uploaded.
+- Confirm whether EIP VAT3 Jan/Feb 2026 and April 2026 PAYE tax-payment rows were paid by direct debit, are stale, or are genuinely overdue. User does not know and assumes direct debit; verify bank/ROS evidence before status updates.
 - Reconcile EIP payroll registration metadata: Notion Irish payroll row shows a German-style `Betriebsnummer`, while local ROS logging memory says EIP payroll in ROS used `3740939BH`.
-- Confirm the accepted historical DE/IE tax cleanup for EIP 2021-2024, including nil German 2022, partial 2023, and 2024 Irish position.
-- Review whether EIP RTD and VIES registration rows should remain Overdue, and whether the VIES title typo `VEIS` should be corrected.
-- Confirm the active Konvi intercompany contract amount and component-line split because the amount field and extra invoice details do not appear to reconcile.
-- Confirm BOI lending package/debt-register readiness and approval route before any external bank submission or upload.
-- Confirm canonical EIP Drive folder before uploading or claiming raw evidence is stored in Drive.
+- Confirm the accepted historical DE/IE tax cleanup for EIP 2021-2024, including nil German 2022 and 2024 Irish position. User clarified on 2026-06-07 that 2023 was Ireland for the tax year, with German trading under 180 days.
+- Review whether EIP RTD and VIES registration rows should remain Overdue. VIES title typo `VEIS` was corrected/read back as `VIES` on 2026-06-07; status remains Overdue pending live filing review.
+- Confirm the active Konvi intercompany contract amount and component-line split. Notion amount field is EUR 17,525, while extra invoice details list EUR 650 + EUR 9,504 + EUR 11,050 + EUR 15,000 = EUR 36,204; confirm whether lines are stale, partial, or non-additive.
+- Confirm BOI lending package/debt-register readiness and approval route before any external bank submission or upload. User says data exists but needs organizing and missing-data review.
+- Confirm whether Drive folder `04. EIP Ventures Limited` (`https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`) is the approved canonical EIP upload destination. Drive search/list-folder found EIP-specific year, CRO, German tax, finance, loan, contract, and employment contents.
 
 ## KONVI Questions
 

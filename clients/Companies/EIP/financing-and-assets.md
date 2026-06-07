@@ -1,8 +1,8 @@
 # Financing And Assets
 
 Status: provisional.
-Source: Notion contracts, tasks, and communication records fetched on 2026-06-05.
-Imported: 2026-06-05.
+Source: Notion contracts, tasks, and communication records fetched on 2026-06-05; user instruction on 2026-06-07.
+Imported: 2026-06-05; updated 2026-06-07.
 Review: Confirm live bank/application status, debt-register template approval, and asset/debt records before external submission or management reporting.
 
 ## Bank Of Ireland Lending Facility
@@ -23,7 +23,7 @@ Open task `Debt register for EIP Ventures` is To Do and is linked to the EIP pro
 
 Source: `https://www.notion.so/331e41301314814982c3cf7ba7c12407`.
 
-The task requires building a machine-readable template first, getting Ioana approval, and only then having Ioana fill the actual debt data. Source notes mention director loans and money owed by Richmond Blackwood and Everguard, but no debt figures should be treated as final until the template and supporting records are reviewed.
+The task requires building a machine-readable template first, getting Ioana approval, and only then having Ioana fill the actual debt data. Source notes mention director loans and money owed by Richmond Blackwood and Everguard. User review on 2026-06-07 says the data exists, but it needs to be organized and checked for missing support. No debt figures should be treated as final until the template and supporting records are reviewed.
 
 ## Active Finance / Asset Contracts
 

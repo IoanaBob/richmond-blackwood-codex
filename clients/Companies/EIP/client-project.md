@@ -1,8 +1,8 @@
 # Client Project And Active Issues
 
 Status: provisional.
-Source: Notion project, company, task, filing, tax-payment, communication, and document records fetched on 2026-06-05.
-Imported: 2026-06-05.
+Source: Notion project, company, task, filing, tax-payment, communication, and document records fetched on 2026-06-05; user instruction and live Notion task creation/read-back on 2026-06-07.
+Imported: 2026-06-05; updated 2026-06-07.
 Review: Confirm active statuses in Notion before closing, escalating, or creating duplicate tasks.
 
 ## Project Routing
@@ -23,11 +23,12 @@ Data-quality note: the EIP company record points to this client project, but the
 | --- | --- | --- | --- |
 | Bank of Ireland loan EIP Ventures | In Progress, priority High, due 2026-06-05 | `https://www.notion.so/368e4130131480e0b920dd3b1b4545d9` | Prepare BOI application support, 24-month projection, and debt-register template; stop before external submission until reviewed. |
 | Debt register for EIP Ventures | To Do | `https://www.notion.so/331e41301314814982c3cf7ba7c12407` | Build machine-readable template, get Ioana approval, then populate actual debt data. |
+| Create EIP group structure diagram | To Do, priority Medium, effort Medium | `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0` | Created/read back on 2026-06-07 after user instruction. Start from direct EIP relations MONO, EVG, and RBL, then distinguish direct, indirect, portfolio, and separately owned entities without inference. |
 | EIP to charge subsidiaries for tools offered to the group | To Do, priority High, due 2026-05-26 | `https://www.notion.so/331e4130131481559e4ef88d5e247918` | Simoneta-routed intercompany invoice/tool allocation work. Verify source expenses before booking or invoicing. |
 | Bi-monthly EIP VAT filing | To Do | `https://www.notion.so/331e413013148190b039c79561c6f606` | Review Xero bookkeeping, Notion expenses, filing evidence, and proof before completion. |
-| EIP VAT3 Jan/Feb 2026 payment | Overdue | `https://www.notion.so/2f1e41301314809a8a9fe1680128c297` | Confirm paid/stale status. |
-| EIP PAYE payroll tax Apr 2026 payment | Due, due 2026-06-02 | `https://www.notion.so/365e41301314815da024f803b1fa5014` | Confirm paid/stale status because import date is 2026-06-05. |
-| EIP annual returns registration and 2024 annual-return row | Registration Overdue; filing row Pending with comment saying filed | Registration `https://www.notion.so/175e4130131480c5a89df4004ea93754`; filing `https://www.notion.so/310e4130131480feb593fbcfee338e4a` | Reconcile status before treating annual returns as done or overdue. |
+| EIP VAT3 Jan/Feb 2026 payment | Overdue | `https://www.notion.so/2f1e41301314809a8a9fe1680128c297` | User assumes possible direct debit, but status was not changed. Verify bank/ROS/direct-debit evidence before escalation. |
+| EIP PAYE payroll tax Apr 2026 payment | Due, due 2026-06-02 | `https://www.notion.so/365e41301314815da024f803b1fa5014` | User assumes possible direct debit, but status was not changed. Verify bank/ROS/direct-debit evidence before escalation. |
+| EIP annual returns registration and 2024 annual-return row | Registration Registered; filing row Pending with comment saying filed | Registration `https://www.notion.so/175e4130131480c5a89df4004ea93754`; filing `https://www.notion.so/310e4130131480feb593fbcfee338e4a` | Registration was updated/read back as Registered on 2026-06-07. Filing row `EIP-28/07/2026- Annual Returns` is due 2026-08-06 and still needs status review before treating the filing itself as done. |
 
 ## Adjacent / Non-Canonical Project
 

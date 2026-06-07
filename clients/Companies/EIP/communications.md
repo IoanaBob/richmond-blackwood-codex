@@ -1,17 +1,17 @@
 # Communications
 
 Status: provisional.
-Source: Notion company and Communications records fetched on 2026-06-05.
-Imported: 2026-06-05.
-Review: Confirm EIP's internal communication route before changing the Notion company communication preference or storing a chat route.
+Source: Notion company and Communications records fetched on 2026-06-05; user instruction and live Notion update/read-back on 2026-06-07.
+Imported: 2026-06-05; updated 2026-06-07.
+Review: No WhatsApp route is expected for EIP internal company work unless a later source explicitly creates one.
 
 ## Communication Preference
 
-The Notion company record currently lists `Communication preference` as WhatsApp.
+The Notion company record now lists `Communication preference` as Slack.
 
 Source: `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`.
 
-No WhatsApp chat was used, fetched, or stored in this EIP import. The user described EIP as the venture-builder holding company and said everything should be in Notion. Because EIP is internal, confirm whether the company communication preference should remain WhatsApp or be changed to Slack/email/internal Notion before making a live Notion update.
+No WhatsApp chat was used, fetched, or stored in this EIP import. User review on 2026-06-07 confirmed EIP is internal, and the live company record was updated/read back from WhatsApp to Slack on 2026-06-07.
 
 ## Company Email
 
