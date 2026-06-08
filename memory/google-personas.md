@@ -34,7 +34,7 @@ The helper-facing OAuth vault is:
 | --- | --- | --- | --- | --- |
 | `accounting-richmond-blackwood` | `accounting@richmondblackwood.com` | Shared RB service mailbox and default client-facing sender/auth route when available | configured and verified 2026-05-26 | This is not an actor. Use only as source/sender/auth route when explicitly scoped. Legacy helper alias: `rb-accounting`. |
 | `compliance-richmond-blackwood` | `compliance@richmondblackwood.com` | Shared RB compliance mailbox and compliance-source/sender/auth route when explicitly scoped | configured and verified 2026-06-03 | This is not an actor. Use only as source/sender/auth route when explicitly scoped. Legacy helper alias: `rb-compliance`. |
-| `ioana-richmond-blackwood` | `ioana@richmondblackwood.com` | Human operator RB Google route | configured and verified 2026-06-02 | User approved the exact account and OAuth reconnect on 2026-06-02. Do not infer source/sender/auth from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR`; scope it explicitly. |
+| `ioana-richmond-blackwood` | `ioana@richmondblackwood.com` | Human operator RB Google route | configured and verified 2026-06-02 | User approved the exact account and OAuth reconnect on 2026-06-02. Do not infer source/sender/auth from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR`; scope it explicitly. When this exact sender is approved, use saved Gmail signature `ioana general`. |
 | `jp-richmond-blackwood` | `johnpaul.okolie@richmondblackwood.com` | Human operator RB Google route | configured and verified 2026-05-26 | Email is provisional in `internal/people-roles.md`. Legacy helper alias: `johnpaul-richmond-blackwood`. Confirm before treating as approved sender. |
 | `simoneta-richmond-blackwood` | Needs confirmation | Human operator RB Google route | not configured | Confirm email before use. |
 
@@ -57,6 +57,15 @@ Review: accounting and JP vaults were missing from this local global store durin
 
 - `ioana-richmond-blackwood`: OAuth vault created under global Codex storage, backed by `ioana@richmondblackwood.com`, using the Richmond Blackwood OAuth client context. Refresh, identity, Gmail, Drive, and Calendar checks passed on 2026-06-02.
 - `ioana-eip`: OAuth vault created under global Codex storage, backed by `ioana@eip.ventures`, using the EIP OAuth client context. Refresh, identity, Gmail, Drive, and Calendar checks passed on 2026-06-02.
+
+## 2026-06-10 Ioana RB Signature Readback
+
+Status: approved.
+Source: user instruction in Codex chat and Gmail settings read-back for `ioana@richmondblackwood.com`.
+Imported: 2026-06-10.
+Review: re-read Gmail settings if the user says the saved signature changed.
+
+- `ioana-richmond-blackwood`: Gmail settings read-back showed saved signature `ioana general`. Use it for approved outbound email bodies from `ioana@richmondblackwood.com` instead of a manual `Best, Ioana` or typed-name-only signoff. Plain-text equivalent for review: Ioana Surdu-Bob / Partner / Richmond Blackwood Limited / Office 2, 12a Lower Main Street, Lucan Co Dublin, K78 X5P8, Ireland / +353 1 230 8051 / `ioana@richmondblackwood.com` / `www.richmondblackwood.com`.
 
 ## Shared Global Personas
 

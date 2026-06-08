@@ -1,11 +1,11 @@
 ---
 name: rb-gmail-drafts
-description: Use for Richmond Blackwood email communications from accounting@richmondblackwood.com, including sender identity, signoff, thread handling, direct-send previews, and verified Gmail draft fallback behavior.
+description: Use for Richmond Blackwood email communications, including sender identity, signature/signoff handling, thread handling, direct-send previews, and verified Gmail draft fallback behavior.
 ---
 
 # RB Gmail Communications And Drafts
 
-Use this skill for Richmond Blackwood email communications, especially when email must come from `accounting@richmondblackwood.com`.
+Use this skill for Richmond Blackwood email communications, especially when email must come from `accounting@richmondblackwood.com` or an explicitly approved non-accounting RB sender such as `ioana@richmondblackwood.com`.
 
 This skill carries the email-specific rules. Use it together with `rb-communications`: draft in chat, show the exact sender, send directly after approval, and log to Communications.
 
@@ -19,10 +19,11 @@ This skill carries the email-specific rules. Use it together with `rb-communicat
 - Always show the exact `From` name, email address, `Subject`, and source/reply thread when presenting an email draft in chat.
 - Prefer replying in the existing Gmail thread when email context exists. Start a new thread only when no relevant thread exists or the user explicitly asks for a new thread.
 - Client-facing email must use `From: Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly confirms another sender.
+- When the exact approved sender is `ioana@richmondblackwood.com`, end the email with Ioana's saved Gmail signature `ioana general`. Do not replace it with a manual `Best, Ioana` or typed-name-only signoff. For chat previews, show `[ioana general signature]` and, when useful for review, the plain-text equivalent: Ioana Surdu-Bob / Partner / Richmond Blackwood Limited / Office 2, 12a Lower Main Street, Lucan Co Dublin, K78 X5P8, Ireland / +353 1 230 8051 / `ioana@richmondblackwood.com` / `www.richmondblackwood.com`.
 - If this helper is used as an exception, the saved Gmail draft must also show `accounting@richmondblackwood.com` in the stored `From` header. If Gmail stores another sender, delete or mark the draft unsafe and stop.
 - Use repo-local Gmail API helpers with shared global Codex auth storage for Gmail email drafting actions, including verified Gmail draft fallback, sender verification, reply-thread context reads performed by the helper, and unsafe-draft deletion. Do not use IMAP, app passwords, mailbox password storage, or non-helper Gmail draft creation paths.
 - A Google auth persona is not the active workspace actor, source mailbox, or sender. It is only the credential route used by the helper.
-- Sign off as:
+- For the default accounting sender, sign off as:
 
 ```text
 Richmond Blackwood Accounting Team
