@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-06-08 - German Filing Period Backfill
+
+Applied:
+
+- Filled the Notion Filings `Filing Period` property on the current annual VAT, payroll-tax, and ZM/VIES rows created or relinked during the German filing setup.
+- Used the already established company-relevant filing periods, including incorporation-date starts for first-year rows: CBMAX 2024-01-04, PCL 2024-05-09, WEW 2024-05-13, AMC 2025-02-11, and VUN 2025-03-21.
+- Added a correction comment to consolidated task `File annual VAT for affected RB clients`: `https://www.notion.so/373e4130131481e495f1e2d22008e4ed`.
+- Updated the German annual VAT and payroll/ZM process docs so closeout must read back `Filing Period` on every created or relinked Filings row.
+
+Verification:
+
+- Notion read-backs confirmed `Filing Period` on representative rows: AGL 2025 annual VAT, PCL 2024 annual VAT, WEW 2025 payroll tax, CBMAX Q3 2024 ZM/VIES, and VUN 2025 annual VAT.
+
+Follow-up:
+
+- Continue treating filing values, submission proof, and payment/refund handling as separate evidence checks before marking placeholder rows filed or complete.
+- Treat detached 2023/2024 VUN VAT/ZM rows as Nathan/pre-incorporation review artifacts unless a filer confirms a separate route.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:

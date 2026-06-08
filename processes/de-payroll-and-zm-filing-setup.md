@@ -31,6 +31,8 @@ Check whether the company has active German payroll evidence before creating row
 
 Do not duplicate existing payroll filings. If the payroll registration already has equivalent monthly or annual Filings rows linked, leave it and record the read-back evidence. If active payroll evidence exists but there are no equivalent Filings rows, create rows on the Payroll Tax registration so filing evidence can be attached later.
 
+Every created payroll Filings row must have a `Filing Period` range before closeout. Monthly rows use the exact calendar month. Yearly placeholders use the supported payroll-active period, not a blanket full year when payroll started later.
+
 Deadline rule:
 
 - Monthly payroll-tax filings are due on the 10th day after the filing period, shifted to the next working day where needed.
@@ -55,7 +57,7 @@ Notion implementation:
 - Filing Registration `Type`: use `VIES`, because the live Filing Registrations data source exposes `VIES` but not a separate `ZM` type.
 - Filing Registration `Jurisdiction`: `DE`.
 - Filing Registration `Filing Cadence`: usually `Quarterly` unless live filing history or statutory threshold evidence supports monthly.
-- Filings rows: one row per active reporting quarter, with `Status` set to `Pending` or `Overdue` depending on the due date and confidence.
+- Filings rows: one row per active reporting quarter, with `Filing Period` set to the exact reporting quarter and `Status` set to `Pending` or `Overdue` depending on the due date and confidence.
 - Comments: state the evidence and whether invoice-level values still need review before filing.
 
 Deadline rule:
@@ -85,3 +87,5 @@ ZM/VIES rows:
 - VUN had supported intra-EU reverse-charge evidence and German VAT context. A German ZM/VIES registration was corrected after incorporation-date review to keep only the supported post-incorporation Q4 2025 row linked to VUN; 2023/2024 rows were detached as pre-incorporation/Nathan review artifacts.
 - CBMAX had German VAT context plus EU client evidence, but the 2025 IE-vs-DE VAT position is unresolved. A German ZM/VIES registration and review rows were created as `Pending`.
 - No ZM rows were created for AGL, NACV, WEW, PCL, AMC, or CLV from the current evidence. The records reviewed showed German/non-EU clients, EU counterparties not marked VAT registered, or insufficient invoice-level EU VAT evidence.
+
+Closeout requirement: read back every created payroll-tax and ZM/VIES Filings row for `Filing Period`. Do not rely on title text, due date, or comments as a substitute for the date property.

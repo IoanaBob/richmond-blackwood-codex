@@ -64,6 +64,8 @@ Required Notion fields:
 
 For existing manual annual VAT Filing rows, preserve all proof, submission files, filed dates, payment values, and comments. Only correct the `Filing Registration` relation so the row points to the annual VAT registration.
 
+Do not close the setup after only setting due dates. Every created or relinked annual VAT Filings row must have `Filing Period` populated and read back. Record the exact period in the owning task comment or client filing file, especially where the first year starts on the incorporation date.
+
 ## Deadline Rule
 
 Status: provisional.
@@ -88,7 +90,7 @@ Public source pointers:
 
 After setup:
 
-- Read back at least one registration relation and one filing relation.
+- Read back every created or relinked Filings row for `Filing Period` and at least one representative registration relation. Due dates are not a substitute for filing-period read-back.
 - Add a comment to the owning task listing created registrations, linked existing filings, created placeholder filings, and blockers.
 - Do not mark the task complete while placeholder rows still need submissions, payment/refund review, or authority confirmation.
 - Record the reusable process in this repo and route client-specific caveats to the relevant `clients/Companies/<Reference>/` folder when that folder exists.

@@ -21,7 +21,7 @@ Imported: 2026-05-04.
 | Client Notes & Updates | `https://www.notion.so/5147c93c526f48e9848cb7a2b49e526b` | Schema fetched |
 | Companies | `https://www.notion.so/39b8a3066e0b481c99087d7a0fd9e1b2` | Schema fetched |
 | Filing Registrations | `collection://dbe90a0f-23a0-418c-988f-cdb80ccd5e5f` | Schema fetched and used on 2026-06-06 for German annual VAT setup, deadline updates, payroll-tax row checks, and ZM/VIES setup |
-| Filings | `collection://ee7ef5c8-6a29-43dd-b2aa-63eddaa98971` | Schema fetched and used on 2026-06-06 for German annual VAT setup, deadline updates, payroll-tax row checks, and ZM/VIES setup |
+| Filings | `collection://ee7ef5c8-6a29-43dd-b2aa-63eddaa98971` | Schema fetched and used on 2026-06-06 for German annual VAT setup, deadline updates, payroll-tax row checks, and ZM/VIES setup; used again on 2026-06-08 for `Filing Period` backfill/read-back |
 | Personal Tax Filings | `https://www.notion.so/206e41301314800493d2e00f69621528` | Schema fetched; used for filing `Status`, `Document gathering status`, and `GDrive Docs` sync rules |
 | Tasks | `collection://25de4130-1314-8158-af69-000b6c9fb49e` | Schema fetched; used for personal-tax analysis/filing task-pair rules |
 | `[Annually] Personal Tax Filing` task template | `https://www.notion.so/32ee413013148090a435e5858b918f25` | Template fetched; used for personal-tax analysis task creation when a filing has no preparation task |
@@ -54,6 +54,7 @@ Searches found accounting and invoice operation threads for RB and client aliase
 
 | Source | Scope | Status |
 | --- | --- | --- |
+| Codex thread correction, 2026-06-08 | Created/relinked German filing rows must have the Notion `Filing Period` property populated with the relevant company filing period | Routed to live Notion Filings updates, consolidated task comment, German filing process docs, memory, and import logs |
 | Codex thread instruction, 2026-06-06 | Create Notion annual VAT Filing Registrations and linked annual VAT Filings for German-tax-resident clients, matching the quarterly VAT attachment workflow; store the pattern in the repo for future use | Routed to live Notion Filing Registrations/Filings, the consolidated annual VAT task comment, `processes/de-annual-vat-filing-setup.md`, memory, and import logs |
 | Codex thread follow-up, 2026-06-06 | Add due dates to annual VAT registrations/filings, check business/client-location evidence, create missing payroll-tax filing equivalents, and create CM/ZM filing rows where supported | Routed to live Notion Filing Registrations/Filings, the consolidated annual VAT task comment, `processes/de-annual-vat-filing-setup.md`, `processes/de-payroll-and-zm-filing-setup.md`, client company folders, memory, and import logs |
 | Codex thread correction, 2026-06-06 | Filing rows must be relevant to the company and screened against incorporation date; do not create company rows for periods before incorporation | Routed to live Notion corrections for VUN, CBMAX, WEW, PCL, and AMC; consolidated task comment; German filing process docs; client files; memory and import logs |
