@@ -1,14 +1,15 @@
 # EIP Source Register
 
 Status: provisional.
-Source: Notion company record, linked client database records, internal Notion documents, local repo process memory, user instructions on 2026-06-05 and 2026-06-07, live Notion read-backs, and Google Drive search/list-folder.
-Imported: 2026-06-05; updated 2026-06-07.
+Source: Notion company record, linked client database records, internal Notion documents, local repo process memory, user instructions on 2026-06-05, 2026-06-07, and 2026-06-08, live Notion read-backs, public HardSoft contact sources, and Google Drive search/list-folder.
+Imported: 2026-06-05; updated 2026-06-08.
 Review: Keep this file to source pointers and route IDs only; do not paste credentials, bank details, document access links, personal identifiers, raw private-channel transcripts, card details, VBG PINs, or payment credentials.
 
 | Source | Date imported | Detail |
 | --- | --- | --- |
 | User instruction in Codex chat | 2026-06-05 | User requested EIP context import after RBL merge and described EIP as the holding company of the venture-builder companies, with context expected in Notion. |
 | User review answers in Codex chat | 2026-06-07 | User confirmed EIP is internal, approved Slack communication preference, clarified 2023 was Ireland for the tax year with German trading under 180 days, said payment rows may be direct debit but unknown, confirmed Annual Returns registration is Registered, approved correcting `VEIS` typo, said BOI debt data exists but needs organizing/missing-data review, and requested a group-structure diagram task. |
+| User instruction in Codex chat | 2026-06-08 | User requested the HardSoft follow-up call be set up through the Richmond Blackwood Codex repo call skill and added directly in Notion. |
 | Notion company `EIP VENTURES LIMITED` | 2026-06-05 | `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`; canonical `Reference` is `EIP`. |
 | Notion company `EIP VENTURES LIMITED` live update/read-back | 2026-06-07 | `Communication preference` changed/read back as Slack because EIP is internal. |
 | Notion client project | 2026-06-05 | `https://www.notion.so/32fe41301314804a8e09c51b11350b46`; `EIP - EIP Ventures - Client Project`; Project ID `PROJ-202`. |
@@ -25,6 +26,10 @@ Review: Keep this file to source pointers and route IDs only; do not paste crede
 | Notion task `Create EIP group structure diagram` | 2026-06-07 | `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0`; live task created/read back for direct/indirect/portfolio/separately owned group-structure diagram. |
 | Notion task `EIP to charge subsidiaries for tools offered to the group` | 2026-06-05 | `https://www.notion.so/331e4130131481559e4ef88d5e247918`; intercompany tool-charge / invoice allocation work. |
 | Notion Communication `EIP - Bank of Ireland lending facility discussion - 2026-05-26` | 2026-06-05 | `https://www.notion.so/36fe4130131481829b44f00cd0473fce`; source channel Gmail; linked to BOI loan task. |
+| Notion Calls row `RBCALL-43` | 2026-06-08 | `https://app.notion.com/p/379e4130131481abab9df3def6a54d4d`; HardSoft Mac quote/order follow-up, `Call Status = Not started`, `Approved = no`, first call date 2026-06-09. |
+| Notion Front Office Contact `HardSoft Ireland sales` | 2026-06-08 | `https://app.notion.com/p/379e4130131481c4b377d961dded94d3`; phone and email sourced from HardSoft official contact page, with five linked weekday availability rows. |
+| HardSoft official contact page | 2026-06-08 | `https://www.hardsoft.ie/contact`; confirms phone 01 485 3026 and `sales@hardsoft.ie`; official page did not publish opening hours. |
+| HardSoft third-party hours source | 2026-06-08 | `https://www.bizireland.com/hardsoft-01-485-3026`; used only as provisional contact-availability routing source for 10:00-18:00 Europe/Dublin. |
 | Notion task `EIP Return of allotments rejected` | 2026-06-05 | `https://www.notion.so/335e41301314815aacaec1f4bb5a4a80`; Done historical corporate-secretarial task. |
 | Local process memory | 2026-06-05 | `processes/ie-ros-filing-logging.md`; flags EIP ROS payroll/payment-reference mismatch with Notion payroll registration metadata. |
 | Google Drive search/list-folder | 2026-06-07 | Strongest folder candidate is `04. EIP Ventures Limited` / `https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`; contains EIP-specific year folders, CRO filings, German Taxes, Finance, Loans, and contract/employment files. |

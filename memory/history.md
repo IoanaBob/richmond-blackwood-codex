@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-08 - HardSoft EIP Mac Order Call Setup
+
+- User request: Set up the HardSoft follow-up call through the Richmond Blackwood Codex repo skill so it is added directly in Notion, rather than placing the call directly from the chat.
+- Context read: `rb-authority-call-setup`, RB calling-bot memory, EIP company and Eran individual Notion records, HardSoft official contact page, HardSoft third-party hours sources, and existing Calls/Front Office Contacts/Contact Availabilities schemas.
+- Actions taken: Created five HardSoft Ireland weekday Contact Availabilities, created Front Office Contact `HardSoft Ireland sales`, verified its linked availability relation, then created Notion Calls record `RBCALL-43` (`https://app.notion.com/p/379e4130131481abab9df3def6a54d4d`) for the custom iMac/MacBook Pro quote/order follow-up.
+- Decisions made: Use `Subject = Contact`, `Requires PoA? = no`, EIP as the company relation, Eran as the individual relation, and Eran as submitter/reviewer because the clean RB worktree had no configured workspace actor and the request/order context is Eran/EIP. Leave `Approved = no` and `Call Status = Not started` so the normal RB review path remains in control.
+- Verification: Notion read-back confirmed `RBCALL-43` required fields, EIP/Eran/HardSoft relations, first call date `2026-06-09`, `Approved = no`, `Call Status = Not started`, and the HardSoft contact's five linked availability rows. No live phone call was placed.
+- Limitations or gaps: HardSoft's official page confirms phone/email but not opening hours; the availability rows use third-party 10:00-18:00 Europe/Dublin directory hours as routing windows and should be confirmed during the call.
+
 ## 2026-06-07 - MONO Company Context Import
 
 - User request: Populate Monochromatic/MONO company memory and treat it as part of the group because it is partly owned by EIP Ventures.

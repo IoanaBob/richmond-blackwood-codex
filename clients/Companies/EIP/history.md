@@ -5,6 +5,10 @@ Source: Notion company, linked records, internal Notion documents, local repo pr
 Imported: 2026-06-05.
 Review: Keep history entries factual and source-routed; update when user approves or Notion live statuses are corrected.
 
+## 2026-06-08 - HardSoft Mac Quote Call Setup
+
+Created and verified Notion Calls record `RBCALL-43` (`https://app.notion.com/p/379e4130131481abab9df3def6a54d4d`) for the HardSoft follow-up on the EIP Mac order. The call links EIP, Eran, and Front Office Contact `HardSoft Ireland sales` (`https://app.notion.com/p/379e4130131481c4b377d961dded94d3`), with first call date 2026-06-09, `Call Status = Not started`, and `Approved = no`. The HardSoft contact has five linked weekday availability rows. No live phone call was placed in the setup step.
+
 ## 2026-06-07 - User Review Corrections And Live Notion Updates
 
 Updated after user review:
