@@ -15,6 +15,21 @@ Annual German VAT tracking now has its own yearly VAT Filing Registration row:
 
 Related existing Drive/export evidence includes WEW periodic VAT registration and filing files in `drive-locations.md`; those were not reclassified by this setup. The 2024 first-year annual VAT period was corrected on 2026-06-06 to start on WEW's incorporation date, 2024-05-13.
 
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: live Notion eBilanz setup run on 2026-06-08; consolidated task `Transmit eBilanz for affected RB clients`; WEW 2024 German tax returns context `https://www.notion.so/1c7e41301314809cbd27e6db2621f578`.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker to each filing row when processed. Confirm whether Notion should add a dedicated eBilanz registration `Type`; current schema uses `Annual Tax Filing`.
+
+Annual German eBilanz tracking now has its own yearly Filing Registration row:
+
+- eBilanz registration: `https://www.notion.so/379e4130131481f1966cc5ac49703640`
+- 2024 eBilanz placeholder filing: `https://www.notion.so/379e41301314811aaec3f31505477c79`; period 2024-05-13 to 2024-12-31; due 2026-04-30; status Overdue.
+- 2025 eBilanz placeholder filing: `https://www.notion.so/379e4130131481cfab07c208514bf66e`; period 2025-01-01 to 2025-12-31; due 2027-03-01; status Pending.
+
+The 2024 first-year eBilanz period starts on WEW's incorporation date, 2024-05-13.
+
 ## Payroll Tax Row Created 2026-06-06
 
 Status: provisional.

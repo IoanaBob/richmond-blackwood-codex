@@ -61,6 +61,12 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | --- | --- | --- |
 | NA Capital Ventures \| RB | `120363399321589278@g.us` | Selected client group route confirmed by user. Used for NACV operations, Finanzamt/address topics, Andrei personal-tax evidence, payroll/TK/VBG follow-up. Raw transcript/media not copied. |
 
+## Notion Filing Setup Runs
+
+| Source | Scope |
+| --- | --- |
+| Codex eBilanz setup run on 2026-06-08 | Created NACV yearly DE eBilanz Filing Registration row `https://www.notion.so/379e41301314816596f7f9face52a010` and 2024/2025 eBilanz filing rows with Filing Period populated. |
+
 ## Boundary
 
 Credential/certificate attachments, identity documents, raw WhatsApp transcripts/media, Gmail attachment identifiers, ELSTER material, bank-account details, exact tax identifiers, and tax-payment bank details were not copied into git.

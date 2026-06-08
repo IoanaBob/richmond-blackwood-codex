@@ -84,6 +84,21 @@ On 2026-06-06, separate yearly DE VAT Filing Registration rows were created so a
 | Berlin VAT context | `https://www.notion.so/377e41301314815aac81fd737284ee94` | 2024 `https://www.notion.so/376e4130131480ecb451ee54602205b2` period 2024-01-04 to 2024-12-31, due 2026-04-30; 2025 `https://www.notion.so/376e4130131480b99ee1c59d5b205559` due 2027-03-01 | Use for annual VAT filings tied to the confirmed Berlin VAT context. |
 | Hamburg nil/demand context | `https://www.notion.so/377e4130131481968f3bd257337afc70` | 2024 `https://www.notion.so/373e4130131480d7bf63c26c49836e30` period 2024-01-04 to 2024-12-31, due 2026-04-30; 2025 `https://www.notion.so/373e4130131480f59b9ed58a3f33fd92` due 2027-03-01 | Keep provisional until the Hamburg number/status is confirmed. |
 
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: live Notion eBilanz setup run on 2026-06-08; consolidated task `Transmit eBilanz for affected RB clients`; existing German corporation-tax registration `https://www.notion.so/f86dd8be7ba8446ea186cb9877c4183e`.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker to each filing row when processed. CBMAX 2025 remains review-context because the IE-vs-DE tax position is unresolved in the company file.
+
+Annual German eBilanz tracking now has its own yearly Filing Registration row:
+
+- eBilanz registration: `https://www.notion.so/379e413013148115ae0fd3a398fcb17c`
+- 2024 eBilanz placeholder filing: `https://www.notion.so/379e4130131481809a28f8e248c444e2`; period 2024-01-04 to 2024-12-31; due 2026-04-30; status Overdue.
+- 2025 eBilanz review placeholder filing: `https://www.notion.so/379e4130131481dd877affb650e63005`; period 2025-01-01 to 2025-12-31; due 2027-03-01; status Pending.
+
+The 2024 first-year eBilanz period starts on CBMAX's incorporation date, 2024-01-04. The 2025 row is an attachment/review location until the final German-vs-Irish filing position is confirmed.
+
 ## German ZM / VIES Review Setup
 
 Status: provisional.

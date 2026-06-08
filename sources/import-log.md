@@ -2097,3 +2097,25 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-08 - German eBilanz Filing Registration Setup
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-08 to create missing e-balance sheet / eBilanz Filing Registrations and Filings for affected clients, starting from relevant years beginning 2024, respecting incorporation dates and not missing `Filing Period`.
+- Live Notion company records for NACV, CLV, AGL, CBMAX, WEW, and PCL, including registration/incorporation dates.
+- Live Notion Filing Registrations and Filings schemas and read-backs.
+- Consolidated eBilanz task `https://www.notion.so/36ee413013148170b032fe9f451df367` and client-specific eBilanz context tasks/filings.
+
+Actions:
+
+- Created or clarified eBilanz Filing Registrations for NACV, CLV, AGL, CBMAX, WEW, and PCL using `Type = Annual Tax Filing` because the live schema has no dedicated eBilanz type.
+- Created 2024 and 2025 eBilanz Filings rows for each affected company with `Filing Period`, `Due Date`, status, company relation, filing-registration relation, and consolidated eBilanz task relation populated.
+- Applied the incorporation-date gate: NACV and CLV 2024 start 2024-01-01; CBMAX starts 2024-01-04; AGL starts 2024-01-10; PCL starts 2024-05-09; WEW starts 2024-05-13.
+- Added the reusable German eBilanz filing setup process and updated NACV, CLV, AGL, CBMAX, WEW, and PCL company source/filing records.
+- Backed up the reusable process to Internal Knowledge Base page `https://www.notion.so/379e4130131481a386c3c335252d6384`.
+
+Unresolved:
+
+- eBilanz transmission proof/protocols or blockers still need to be attached to the created filing rows when processed.
+- Consider adding a dedicated eBilanz `Type` option to the Filing Registrations schema instead of using `Annual Tax Filing`.

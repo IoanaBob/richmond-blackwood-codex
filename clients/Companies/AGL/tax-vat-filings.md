@@ -34,6 +34,7 @@ Superseded/stale source note: Notion task `https://www.notion.so/332e41301314818
 | AGL - 4402367BH - Corporation Tax IE | Corporation Tax | IE | Registered | Yearly | `4402367BH` | `https://www.notion.so/8934976d691f4b54bbfc45d5cbd518d4` |
 | AGL - DE451021099 - VAT DE | VAT | DE | Registered | Quarterly | German VAT No `DE451021099` | `https://www.notion.so/1c7e4130131480df8f38ff9ce3e4e03a` |
 | AGL annual German VAT registration | VAT | DE | Registered | Yearly | Annual VAT Filing Registration layer created 2026-06-06; due / first filing 2027-03-01 for 2025 annual period. | `https://www.notion.so/377e4130131481389e4de3823063fad1` |
+| AGL eBilanz registration | Annual Tax Filing | DE | Registered | Yearly | E-balance sheet / eBilanz Filing Registration layer created 2026-06-08; current schema has no dedicated eBilanz `Type`, so title carries the specific obligation. | `https://www.notion.so/379e4130131481c9a076f675c44a100a` |
 | AGL - 73070183 - Payroll Tax | Payroll Tax | DE | Registered | Monthly | Steuernummer `29/628/00250`; Betriebsnummer `73070183`; customer number `A962D08219` | `https://www.notion.so/175e413013148084b982d3bb2a66d745` |
 
 ## Company Filings
@@ -44,6 +45,8 @@ Superseded/stale source note: Notion task `https://www.notion.so/332e41301314818
 | German KSt 2024 | Submitted | n/a | ELSTER confirmations sent 2026-04-29 at 18:22 and 19:21 Berlin time | Gmail thread/message IDs `19dda0cf317f8c0d`, `19dda43686394fc3` | User says 2024 was filed with 80/20 IE/DE PE attribution; no Finanzamt feedback yet as of 2026-05-13, so leave open. |
 | German GewSt 2024 | Submitted | n/a | ELSTER confirmations sent 2026-04-29 at 18:22 and 19:29 Berlin time | Gmail thread/message IDs `19dda0cee0aed620`, `19dda49d67703a47` | No Finanzamt feedback yet as of 2026-05-13. |
 | German Belegnachreichung | Submitted | n/a | ELSTER confirmations sent 2026-04-30 at 16:10 and 16:17 Berlin time | Gmail message IDs `19ddeba3f078d6bd`, `19ddec11fa6527a5` | Supporting-document submissions for AGL ELSTER account `agl`. |
+| AGL - 2024 E-Balance Sheet / eBilanz DE | Overdue | 2026-04-30 | 2024-01-10 to 2024-12-31 | `https://www.notion.so/379e4130131481938443d155cffa40a5` | Created 2026-06-08 and linked to eBilanz registration. First period starts on AGL incorporation/registration date. |
+| AGL - 2025 E-Balance Sheet / eBilanz DE | Pending | 2027-03-01 | 2025-01-01 to 2025-12-31 | `https://www.notion.so/379e4130131481b6976dce045e015835` | Created 2026-06-08 for future evidence attachment. |
 | AGL - 2025 Annual VAT return | Existing Notion row | 2027-03-01 | Period 2025-01-01 to 2025-12-31 | `https://www.notion.so/373e41301314807fa5a3ee59788a11ab` | Relinked on 2026-06-06 to the annual German VAT registration. |
 | AGL - Corporation Tax -23 Sep 2026 | Open in Notion | 2026-09-23 | 2025-01-10 to 2025-12-31 | `https://www.notion.so/311e41301314810782b1c9d3c06727f1` | Notion status fetched as Overdue even though due date is 2026-09-23; likely needs Notion status review. |
 

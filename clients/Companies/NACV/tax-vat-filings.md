@@ -94,6 +94,21 @@ Annual German VAT tracking now has its own yearly VAT Filing Registration row:
 - 2024 annual VAT placeholder filing: `https://www.notion.so/377e41301314815483fcefcc3866ce35`; due 2026-04-30.
 - 2025 annual VAT placeholder filing: `https://www.notion.so/377e41301314818c9688e0d22059c0a9`; due 2027-03-01.
 
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: live Notion eBilanz setup run on 2026-06-08; consolidated task `Transmit eBilanz for affected RB clients`.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker to each filing row when processed. Confirm whether Notion should add a dedicated eBilanz registration `Type`; current schema uses `Annual Tax Filing`.
+
+Annual German eBilanz tracking now has its own yearly Filing Registration row:
+
+- eBilanz registration: `https://www.notion.so/379e41301314816596f7f9face52a010`
+- 2024 eBilanz placeholder filing: `https://www.notion.so/379e4130131481eba5d3e73ba239dce7`; period 2024-01-01 to 2024-12-31; due 2026-04-30; status Overdue.
+- 2025 eBilanz placeholder filing: `https://www.notion.so/379e4130131481499e19d52ac8cbfa16`; period 2025-01-01 to 2025-12-31; due 2027-03-01; status Pending.
+
+NACV was registered before 2024, so the first eBilanz filing period uses the full 2024 calendar year.
+
 ## Payroll And ZM/VIES Audit Pass 2026-06-06
 
 Status: provisional.

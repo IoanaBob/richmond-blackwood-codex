@@ -1009,3 +1009,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Internal Notion, Communications, repo, and audit logs can still keep exact software/source names when needed for source context and safe storage.
 - Verification: `git diff --check` passed.
 - Limitations or gaps: The Ricardo WhatsApp message was not sent; the user said WhatsApp is unavailable and they will send it manually.
+
+## 2026-06-08 - German eBilanz Filing Registration Setup
+
+- User request: Create missing e-balance sheet / eBilanz Filing Registrations and linked Filings for affected clients, starting from relevant years beginning 2024, respecting incorporation dates and ensuring `Filing Period` is populated.
+- Context read: Notion Filing Registrations and Filings schemas, NACV/CLV/AGL/CBMAX/WEW/PCL company records, existing annual VAT and German tax-return rows, consolidated eBilanz task `https://www.notion.so/36ee413013148170b032fe9f451df367`, client-specific eBilanz task context, and BMF AO/AEAO deadline sources.
+- Actions taken: Created or clarified eBilanz Filing Registrations and created 2024/2025 Filings rows for NACV, CLV, AGL, CBMAX, WEW, and PCL. The 2024 first-year periods are NACV and CLV full 2024, CBMAX 2024-01-04 to 2024-12-31, AGL 2024-01-10 to 2024-12-31, PCL 2024-05-09 to 2024-12-31, and WEW 2024-05-13 to 2024-12-31. The 2025 periods are full calendar year. Added `processes/de-ebalance-sheet-filing-setup.md`, backed it up to Internal Knowledge Base page `https://www.notion.so/379e4130131481a386c3c335252d6384`, and updated company records/source registers.
+- Decisions made: Use `Type = Annual Tax Filing` for eBilanz registrations because the live Notion schema has no dedicated eBilanz option. Titles and comments explicitly identify the obligation as e-balance sheet / eBilanz.
+- Verification: Notion read-backs confirmed each created Filings row has `Filing Period`, due date, company relation, registration relation, and filing-task relation populated; registration read-backs confirmed linked filings for all six companies.
+- Limitations or gaps: eBilanz proof/protocols or blockers still need to be attached when the filings are actually processed. Schema review is needed if RB wants a dedicated eBilanz type.

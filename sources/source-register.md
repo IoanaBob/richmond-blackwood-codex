@@ -195,6 +195,7 @@ User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pay
 
 | Source | Status |
 | --- | --- |
+| `https://ao.bundesfinanzministerium.de/ao/2025/Abgabenordnung/Dritter-Teil/Erster-Abschnitt/Vierter-Unterabschnitt/Paragraf-108/inhalt.html` | Official BMF AO section 108 source used on 2026-06-08 for weekend/holiday deadline shift context |
 | `https://ao.bundesfinanzministerium.de/ao/2025/Abgabenordnung/Vierter-Teil/Zweiter-Abschnitt/Zweiter-Unterabschnitt/Paragraf-149/inhalt.html` | Official BMF AO section 149 source used on 2026-06-06 for annual German tax-advised return deadline context |
 | `https://lsth.bundesfinanzministerium.de/ao/2024/Abgabenordnung/Vierter-Teil/Zweiter-Abschnitt/Zweiter-Unterabschnitt/Paragraf-149/ae-149.html` | Official BMF AEAO section 149 source used on 2026-06-06 for 2024 annual-return deadline context |
 | `https://www.gesetze-im-internet.de/estg/__41a.html` | Official EStG section 41a source used on 2026-06-06 for payroll-tax filing deadline context |
