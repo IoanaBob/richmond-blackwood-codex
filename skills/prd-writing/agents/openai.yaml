@@ -1,3 +1,3 @@
 display_name: PRD Writing
-short_description: Write narrative-first PRDs and implementation handoff specs for any project or company.
-default_prompt: Rewrite or create a PRD from the available discovery context, preserving concrete workflow details, using the template as a flexible guideline, and validating that product outcomes, scope, requirements, risks, and acceptance criteria are clear.
+short_description: Write, review, and fix narrative-first PRDs and implementation handoff specs.
+default_prompt: Create, review, or revise a PRD from the available discovery context and live feedback, preserving concrete workflow details, using the template as a flexible guideline, and validating that outcomes, scope, UI surfaces, architecture, diagrams, related-project links, risks, tests, and acceptance criteria are clear.

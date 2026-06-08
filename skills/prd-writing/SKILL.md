@@ -1,11 +1,11 @@
 ---
 name: prd-writing
-description: Write or revise PRDs, Notion project descriptions, product specs, developer handoff documents, and implementation-plan sections for any project or company from discovery context, examples, and approved scope.
+description: Write, revise, review, critique, or fix PRDs, Notion project descriptions, product specs, developer handoff documents, implementation-plan sections, and PRD review comments for any project or company from discovery context, examples, approved scope, and live feedback threads.
 ---
 
 # PRD Writing
 
-Use this skill when writing or fixing PRDs, Notion project descriptions, product requirements, implementation plans, or developer handoff specs for any project or company.
+Use this skill when writing, reviewing, critiquing, or fixing PRDs, Notion project descriptions, product requirements, implementation plans, developer handoff specs, or PRD review comments for any project or company.
 
 ## Core Standard
 
@@ -108,6 +108,18 @@ For complex workflows, include a simple diagram when it will make the handoff ea
 
 Do not use diagrams as decoration. Use them when prose alone would force the reader to mentally reconstruct the flow, architecture, or state machine.
 
+Before adding a diagram, check what the destination can render. If the destination supports Mermaid, use Mermaid. If it does not, use the destination's supported diagram block, a simple linked FigJam/Figma diagram, or a clearly formatted text flow. Do not ship a code block as the only diagram when the reader expects a visual diagram.
+
+## Revising Existing PRDs
+
+When revising an existing live PRD, first read the current page and any available unresolved comments, review threads, discussion markers, or inline feedback. Treat those comments as direct source material.
+
+If a comment is attached to one section, inspect the surrounding section and adjacent sections before editing. The right fix may require changing the TL;DR, problem framing, architecture, workflow, success criteria, test plan, and source basis, not just the commented sentence.
+
+If feedback on one PRD exposes a structural gap that likely applies to sibling PRDs or related project pages, audit those related PRDs before finishing. Apply the pattern across the set when the same issue is present; otherwise state why the issue is local to one PRD.
+
+After fixing a comment-driven PRD issue, verify by readback that the corrected requirement appears in the live page. If the tool supports resolving or replying to comments, close the loop in the source system according to the user's workflow; if it does not, state the limitation in the handoff.
+
 ## Implementation Detail Boundary
 
 Include implementation constraints when they are business requirements, for example:
@@ -129,6 +141,7 @@ Before finalizing, verify every meaningful requirement comes from a clear source
 - user instruction in the current conversation;
 - pasted discovery transcript;
 - existing Notion page/task;
+- unresolved comments, review threads, inline discussions, or explicit feedback on the PRD;
 - approved company process rule;
 - explicit external source cited in the answer.
 
@@ -150,8 +163,11 @@ Before writing live content, run this checklist:
 - Human review, approval, exception, or queue behavior includes the UI/operator surface required to perform it.
 - Software implementation PRDs include high-level architecture and known platform boundaries.
 - Complex workflows include a diagram unless the flow is simple enough that prose is clearer.
+- Diagrams use a format the destination can render, or the limitation is explicitly handled.
 - Dense technical sections use readable structure: short paragraphs, bullets for lists, and bold labels where helpful.
 - Out-of-scope workflows link to the owning project or explicitly name the missing link as an open decision.
+- Existing PRD comments/review threads have been read and incorporated, or their absence is known.
+- Feedback that could apply across sibling PRDs has been audited across the related set.
 - The workflow has triggers, branches, and terminal states.
 - Missing, ambiguous, or blocked states are described.
 - Human review gates are explicit.
