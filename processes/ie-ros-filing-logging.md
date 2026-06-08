@@ -3,7 +3,7 @@
 Status: provisional.
 Source: user instruction in Codex chat on 2026-05-18 and live Notion Filings/Tax payments schema fetched 2026-05-18.
 Imported: 2026-05-18.
-Review: pilot one completed filing, confirm the `Payment Due` sign convention mismatch, and approve before processing the wider IE backlog.
+Review: monitor `Payment Due` sign convention in live schema readbacks and keep this process aligned with operator-approved convention.
 
 ## Purpose
 
@@ -50,7 +50,7 @@ Use this process for a single filing in the Filings database. Backlog work is a 
 
 ## Review Notes
 
-- The current Filings `Payment Due` property description says positive means payable and negative means refund. The 2026-05-18 operator instruction for this workflow says payable should be negative and refund should be positive. The pilot must surface this mismatch before the wider backlog is processed.
+- The current Filings `Payment Due` property description, read on 2026-06-08, says negative means the client has to pay and positive means the client needs a refund. This matches the ROS workflow rule: payable to Revenue is negative, refund/repayment due back is positive.
 - The current schema has no boolean `Filed on`; `Filed on` is a date. Completion is represented by setting `Status` to `Filed` after the proof and payment handling are verified.
 - ROS credentials, certificates, and credential exports must never be stored in git.
 - 2026-05-18 pilot note: EIP payroll in ROS used PREM `3740939BH`; Notion's linked payroll registration showed `Betriebsnummer: 152500094`, which did not appear as a ROS PREM option. Keep such mismatches visible in the filing comment and review notes.

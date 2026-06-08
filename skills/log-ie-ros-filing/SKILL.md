@@ -66,7 +66,7 @@ If the filing is not present in ROS or matching is uncertain, do not update Noti
 
 ## Guardrails
 
-- Current schema note: the Filings `Payment Due` property description says positive means payable and negative means refund, but the 2026-05-18 operator instruction for this ROS workflow says the opposite. Follow the operator instruction for this workflow and surface the schema mismatch in review.
+- Current schema note: the Filings `Payment Due` property description, read on 2026-06-08, says negative means the client has to pay and positive means the client needs a refund. This matches the ROS workflow rule: payable to Revenue is negative, refund/repayment due back is positive. If a future schema description diverges, follow explicit operator instruction and surface the mismatch in review.
 - The current Filings schema has `Filed on` as a date and `Status` as the filed/completion marker. Treat "mark filed on as true" as: set `Filed on` to the logging date and set `Status` to `Filed`.
 - Do not mark `Status` as `Filed` from tax-clearance inference alone; use ROS proof or explicit operator approval.
 - Do not create duplicate Tax payments rows. Search/fetch existing relations first when the filing already has a `Tax Payment` relation or an obvious matching payment row.
