@@ -14,7 +14,7 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 3. Read `internal/people-roles.md` before assigning tasks.
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
 5. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
-6. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
+6. Use the Slack connector to read only the bounded approved Slack source locations below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
 7. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
 8. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
 
@@ -51,6 +51,7 @@ Slack context:
 - `#rb-operations` (`C0AMJHHHAKY`)
 - `#rb-structuring` (`C0AMDDTNSFL`)
 - `#all-richmond-blackwood` (`C0ALBMSLL5A`)
+- Operator-approved internal DMs/group DMs: only when the operator explicitly names a Richmond Blackwood team member or says they messaged that person about a current Team Updates/meeting topic. Resolve the named DM/MPIM through targeted Slack search/read inside the bounded source window; do not broadly scan unrelated private conversations.
 
 Auto-approval:
 
@@ -63,7 +64,7 @@ Source reads:
 - If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
 - Check the Meetings database for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on current working day, RB/Accounting/Operations/Daily naming, Teams/Companies relations when present, and proximity to the Team Updates run. Fetch the selected meeting with transcript included when the connector supports it. Save the relevant task-context excerpts or summary in the Stage 2 packet or a linked meeting-context appendix in the run folder.
 - If no relevant Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or other approved source location named by the run context for transcript/approved notes. If no transcript or notes are found after these checks, record `Transcript check: none found` and continue; absence alone is not a blocker.
-- Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
+- Read current-working-day messages in the approved Slack source locations for the same source window as the Team Updates run, using the actual Stage 2 Slack-read timestamp as the end bound unless the operator supplied a narrower end time. Also read new message threads in those locations when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
 
 Section rules:
 
@@ -79,6 +80,8 @@ Slack read rules:
 - Do not process `New client inbounds` from Slack in this skill. Client inbound reading remains owned by `rb-common-tasks-follow-through`.
 - Exclude messages sent by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Analyze only human-authored source messages.
 - Preserve Slack message or thread links in the local ledger when a Slack message affects a task decision.
+- Record Slack coverage explicitly: each channel/DM/MPIM searched or read, IDs, query bounds, targeted keyword or participant searches used to find operator-referenced context, and approved source locations not read because of connector degradation.
+- Approved Slack messages may add routing items only when they materially elaborate a current Team Updates/meeting blocker or action point and the owner, project/source entity, and target are clear. Otherwise keep the message as context or add an unresolved Stage 3 row.
 
 Auto-approval:
 
