@@ -2,6 +2,25 @@
 
 Status: active.
 
+## 2026-06-08 - EVG Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-08 to populate Everguard, described as the newest company, from Notion.
+- Notion company `EVERGUARD RESEARCH LIMITED` (`https://www.notion.so/15fe4130131480079a95fd029aef3511`) with canonical `Reference` `EVG`.
+- EVG primary project, operational project, linked Ioana/Eran role records, EIP group relation, active EVG/Luiza loan contract and invoices, filing registrations, annual-return/RBO/company-change filing rows, bank/name-change communications and tasks, EVG process pages, Techpacito bond subscription/cashflow rows, M&A Arts active prospect row, Phillips payable task, and Drive folder candidates.
+
+Actions:
+
+- Created `clients/Companies/EVG/` and populated company overview, linked individuals, group structure, contracts/authority, accounting/bookkeeping/payroll, tax/VAT/filings, invoices/payments/cashflows, communications, client project, Drive, Notion backup, open questions, source register, history, and financial-instruments/operations.
+- Updated the EIP subsidiary pointer to link to `../EVG/`.
+- Updated durable source, history, current-state, handoff, skill-run, and open-question memory.
+- Kept signing-system IDs/action links, private DocSend links, bank details, payment proof details, Gmail attachment IDs, raw transcripts, Notion attachment URLs, and personal identifiers out of git.
+
+Unresolved:
+
+- Reconcile EVG business-purpose/name/email mismatch, project/company relation mismatch, stale tax registration statuses, VIES typo, May EVG loan invoice company relation pointing to KONVI, BOI name-change verification, Drive duplicate cleanup, M&A Arts unreviewed submissions, Techpacito register/coupon/referral schedule review, Everguard offering research, and Phillips payable/payment verification.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:

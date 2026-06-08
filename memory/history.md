@@ -973,3 +973,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Internal Notion, Communications, repo, and audit logs can still keep exact software/source names when needed for source context and safe storage.
 - Verification: `git diff --check` passed.
 - Limitations or gaps: The Ricardo WhatsApp message was not sent; the user said WhatsApp is unavailable and they will send it manually.
+
+## 2026-06-08 - EVG Company Context Import
+
+- User request: Return to main/latest base and populate Everguard from Notion as the newest company.
+- Context read: Notion company `EVERGUARD RESEARCH LIMITED`, EVG primary and operational projects, EIP group relation, linked Ioana/Eran role records, active EVG/Luiza loan contract and invoices, filing registrations/filing rows, bank/name-change communications and tasks, EVG process pages, Techpacito bond product/subscription/cashflow rows, M&A Arts and Phillips active issue rows, Drive folder search/list-folder results, and existing EIP/TPL repo memory.
+- Actions taken: Created canonical `clients/Companies/EVG/`, populated source-backed company, group, authority, tax, accounting, cashflow, communication, Drive, project, open-question, and EVG operations context, updated the EIP subsidiary pointer, and updated durable source/history/handoff/open-question logs.
+- Decisions made: No WhatsApp route was used or stored for EVG. EVG remains part of the EIP/internal group context, with likely canonical Drive storage under internal companies.
+- Verification: Pending branch closeout.
+- Limitations or gaps: Notion SQL/data-source query tool returned unavailable, so the import used Notion search and direct page fetches rather than an all-row data-source query. No live Notion, Drive, Gmail, Slack, or WhatsApp writes were made.

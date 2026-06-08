@@ -163,6 +163,21 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Decide whether the old Client Notes page `https://app.notion.com/p/356e4130131481ae908df5ad201b9082` should be updated to the canonical `clients/Companies/MONO/` path.
 - Confirm current business-partner/contract invoice-recipient fields before future external MONO invoice sends to Motley/Yann, Dalton/FirstMate, or other counterparties.
 
+## EVG / Everguard Questions
+
+- Confirm whether EVG's Companies `Business Purpose in Detail` should be changed from property/rental activity to Everguard Research's current bond, physical-asset research, auction representation, and liquidity-support operations.
+- Confirm whether EVG's company email should remain `contact+everguardproperties@eip.ventures` or be updated to a research/desk route.
+- Reconcile EVG primary project `Companies` relation, which points to a Project Management Richmond Blackwood page instead of the Client Databases EVG company record.
+- Reconcile EVG filing-registration statuses: CT, Annual Tax, RTD, VIES, and Annual Returns are marked overdue/pending, while some linked filing rows are filed or future-dated.
+- Correct EVG VIES title typo `Pending - VEIS` if still present.
+- Reconcile the May 2026 EVG/Luiza loan invoice where the fetched `Company` relation points to KONVI despite the EVG contract link.
+- Confirm whether the BOI name-change package fully updated the bank account and Business On Line profile, or only sent the request.
+- Confirm canonical EVG Drive folder and cleanup/role of duplicate Everguard folders; strongest candidate is `08. Everguard Research` under internal companies.
+- Complete deeper M&A Arts submission analysis before any external statement that Everguard reviewed the candidates.
+- Complete Techpacito EVG subscription downstream register/coupon/referral schedule review after settlement was marked complete.
+- Complete Everguard offering research and confirm regulatory/distribution constraints before treating the bond exemption analysis as final.
+- Verify Phillips invoice payment status before booking payable/asset records.
+
 ## KONVI Questions
 
 - Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.
