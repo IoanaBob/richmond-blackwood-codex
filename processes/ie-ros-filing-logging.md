@@ -33,18 +33,19 @@ Use this process for a single filing in the Filings database. Backlog work is a 
 4. Search ROS for the matching filing by company, registration, tax type, period, due date, or evidence number.
 5. If ROS does not show a matching submitted filing, do not mark the Notion row as filed; record the blocker and move to review.
 6. If ROS shows a matching submitted filing, download or preserve the filing proof and evidence number. If ROS has no download, a cropped period-summary proof is acceptable when it shows company, registration, period, status/counts, and totals while excluding unnecessary employee identifiers.
-7. Attach the proof to the Filings `Submission` property. If a local Notion upload path is unavailable, upload the proof to the verified client Drive folder and set the Notion file property with the Drive URL string.
+7. Attach proof to the correct Filings file property. Filing/submission proof goes in `Submission`; payment, balance, refund, nil-balance, or ROS Charges & Payments evidence goes in `Proof of Payment`. If the operator is repairing a missing `Payment Due` or payment-proof field, do not overwrite an existing `Submission` proof; add the new evidence to `Proof of Payment`.
+   - If a local Notion upload path is unavailable, upload the proof to the verified client Drive folder and set the Notion file property with the Drive URL string.
    - The 2026-05-18 pilot found that the Notion connector accepts URL-backed file properties but does not expose direct local-file upload for this workflow.
-   - Store Drive-backed filing proof under `[year] / [filing type folder] / Filing evidence`; for example `2024 / Payroll / Filing evidence`.
+   - Store Drive-backed filing or payment proof under `[year] / [filing type folder] / Filing evidence`; for example `2024 / Payroll / Filing evidence`.
 8. Read the ROS payment/refund result:
    - Payable to Revenue: enter a negative `Payment Due` value on the Filings row and create a related Tax payments row with a positive `Payment` amount.
    - Refund/repayment: enter a positive `Payment Due` value on the Filings row and create no Tax payments row unless separately instructed.
    - Nil payment: enter `0` only when ROS explicitly confirms nil/no payment.
 9. For payable amounts, create a Tax payments row due two weeks after the logging date, assigned to Simoneta, related to the filing, company, and registration. Set `Status (Do not touch!)` to `Due` when the deadline is today or later, and `Overdue` when the deadline has passed. Do not override paid/reconciled status on existing rows.
 10. When proof and payment handling are complete, set Filings `Filed on` to the logging date and `Status` to `Filed`.
-11. Add a filing page comment with the ROS path, registration used, period, totals, proof file, payment calculation, and Tax payment row.
+11. Add a filing page comment with the ROS path, registration used, period, totals, `Submission` proof, `Proof of Payment` evidence when applicable, payment calculation, and Tax payment row.
 12. Fetch the updated filing and any created Tax payments row to verify all written fields.
-13. Report the Notion filing row URL, proof URL or attachment location, filed status/date, payment amount or explicit payment uncertainty, and any Tax payment row URL for every processed filing. Do not close out a backlog pass with only Drive proof links.
+13. Report the Notion filing row URL, `Submission` proof URL when changed, `Proof of Payment` URL when changed, filed status/date, payment amount or explicit payment uncertainty, and any Tax payment row URL for every processed filing. Do not close out a backlog pass with only Drive proof links.
 14. Stop after the first pilot filing for operator review before continuing through the backlog.
 
 ## Review Notes
