@@ -40,6 +40,17 @@ Gmail sequence on 2026-05-14 to 2026-05-15 created/activated Zoll access, then r
 
 The source rejection says branches cannot be stored as business customers because they are not legally/economically independent; only MHL's Dublin/Irish HQ is eligible. The attempted registration data was deleted. User instruction on 2026-05-15 confirmed this remains an open task.
 
+## VAT Application Follow-Up Calls
+
+Status: provisional.
+Source: Notion Calls read-back and user instruction on 2026-06-08.
+Imported: 2026-06-08.
+Review: Update after the call outcome is written back to Notion.
+
+| Date | Call | Status | Purpose |
+| --- | --- | --- | --- |
+| 2026-06-08 | `https://www.notion.so/379e4130131481c9b5f7d9cd05e6b09e` (`RBCALL-42`) | Queued / Reviewed / Approved | Follow up with Finanzamt fuer Koerperschaften III ZENA on whether the 2026-05-29 ELSTER response about Unternehmereigenschaft / Umsatzsteuersignal / USt-ID was received and processed, what is still missing, and when the VAT signal or VAT ID can be issued. |
+
 ## SteuerGo / Personal Tax Signal
 
 SteuerGo emails to `accounts+mhl@richmondblackwood.com` show access/payment and data-retrieval activity for Gabriel. Company folder stores only routing pointers; Gabriel personal-tax filing detail lives in `../../Individuals/GABRIEL LOUIS MANUEL MULLER/personal-tax-returns.md`.
