@@ -315,7 +315,7 @@ Packet columns:
 - approved action;
 - command/tool used, summarized without secrets;
 - write/send result;
-- returned Notion page/comment/file URL as a Markdown link, message ID, thread ID, Slack timestamp, or WhatsApp message ID;
+- returned Notion page/comment/file URL as a Markdown link whose link text is the actual Notion page/file name, or for comments the actual target page name prefixed by the comment purpose, plus message ID, thread ID, Slack timestamp, or WhatsApp message ID;
 - skipped actions and reasons;
 - failed actions and retry/blocker decision.
 
@@ -342,13 +342,13 @@ Closeout packet must include:
 - replies sent, snoozed, skipped, or blocked;
 - evidence attached or blocked;
 - task/operational updates;
-- linked Notion records table with Markdown links for every updated Communication, task, operational row, comment, evidence file, and source row where a URL is available;
+- linked Notion records table with Markdown links for every updated Communication, task, operational row, comment, evidence file, and source row where a URL is available; link text must be the actual Notion page/file name, or for comments the actual target page name prefixed by the comment purpose;
 - durable memory updates, if any;
 - remaining blockers;
 - run folder path;
 - lock release result.
 
-Do not leave updated Notion pages, comments, or files as bare IDs in Stage 5 or Stage 6 result packets when a URL is available. Include the actual Notion links in the result table so the operator can click through from the packet without reconstructing URLs.
+Do not leave updated Notion pages, comments, or files as bare IDs or generic labels such as `Communication page`, `linked task`, or `comment` in Stage 5 or Stage 6 result packets when a URL is available. Include the actual Notion links with human-readable page/file names in the result table so the operator can see what each link points to without reconstructing context.
 
 Release `LOCK.md` only after Stage 6 is complete. Preserve scratch packets by default.
 
