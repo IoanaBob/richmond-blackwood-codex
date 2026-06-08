@@ -1,7 +1,7 @@
 ---
 title: Accounting Team Updates Triage
 status: provisional
-source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02; Meetings database source instruction from user on 2026-06-02
+source: user instruction in Codex chat; Team Updates Notion database schema fetched 2026-05-19; Slack closeout instruction from user on 2026-05-21; Slack context channels and packet-plan instruction from user on 2026-05-26; packetization implementation instruction from user on 2026-05-26; packet gap-hardening instruction from user on 2026-05-26; source-entity URL routing instruction from user on 2026-05-27; human-readable packet approval-surface instruction from user on 2026-06-02; meeting transcript existence-check instruction from user on 2026-06-02; Meetings database source instruction from user on 2026-06-02; operator-approved internal Slack DM/MPIM source correction from user on 2026-06-08
 imported: 2026-05-21
 review: Validate clean-git Stage 1 gating, Stage 3 atomic routing/project/schema output, unresolved-row guards, Slack context reads, ChatGPT/Codex filtering, verified Slack mention blocking, and closeout wording on the next weekday automation run.
 ---
@@ -38,16 +38,17 @@ Meeting transcript / notes:
 - If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
 - If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Absence alone is not a blocker.
 
-Slack context channels:
+Slack context:
 
 - `#rb-client-updates` (`C0B1UTJJDLJ`, private)
 - `#rb-operations` (`C0AMJHHHAKY`, private)
 - `#rb-structuring` (`C0AMDDTNSFL`, private)
 - `#all-richmond-blackwood` (`C0ALBMSLL5A`, public)
+- Operator-approved internal DMs/group DMs are in scope only when the operator explicitly names a Richmond Blackwood team member or says they messaged that person about a current Team Updates/meeting topic. Resolve the named DM/MPIM through targeted Slack search/read inside the bounded source window; do not broadly scan unrelated private conversations.
 
-For the same working-day/run window, read human-authored messages in these channels and read new message threads where the parent message or any reply falls in the window. If an in-window reply needs the parent message for context, read the parent even if it predates the window. Do not read broad older channel history beyond what is needed for thread context.
+For the same working-day/run window, read human-authored messages in these approved Slack source locations and read new message threads where the parent message or any reply falls in the window. Use the actual Stage 2 Slack-read timestamp as the end bound unless the operator supplied a narrower end time. If an in-window reply needs the parent message for context, read the parent even if it predates the window. Do not read broad older history beyond what is needed for thread context.
 
-Exclude messages authored by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Slack is supporting context for blockers, action points, owner corrections, completion signals, duplicate/superseded work, and review routing; it is not a replacement source for Team Updates and must not be used here to process `New client inbounds`.
+Exclude messages authored by ChatGPT, Codex, OpenAI, automation bots, or prior automation closeout posts. Slack is supporting context for blockers, action points, owner corrections, completion signals, duplicate/superseded work, and review routing; it is not a replacement source for Team Updates and must not be used here to process `New client inbounds`. The Stage 2 packet must record per-source Slack coverage, including channel/DM/MPIM IDs, query bounds, targeted participant or keyword searches used for operator-referenced context, and degraded/unread approved source locations.
 
 ## Sections To Process
 

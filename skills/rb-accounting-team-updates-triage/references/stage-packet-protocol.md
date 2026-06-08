@@ -109,17 +109,19 @@ Execution:
 6. If the relevant meeting transcript/notes are found, read them and preserve the task-relevant context in `stage-02-source-context.md` or a linked meeting-context appendix in the run folder.
 7. If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
 8. If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Missing transcript/notes alone is not a blocker.
-9. Read bounded human-authored Slack context from the approved channels and new in-window threads. Use current working day `00:00 Europe/Dublin` through the Stage 1 preflight timestamp unless the operator supplied a narrower source window.
+9. Read bounded human-authored Slack context from the approved channels, new in-window threads, and any operator-approved internal DM/MPIM named as source context for the current run. Use current working day `00:00 Europe/Dublin` through the actual Stage 2 Slack-read timestamp unless the operator supplied a narrower source window.
 10. Exclude ChatGPT/Codex/OpenAI/bot-authored messages.
-11. Write and print `stage-02-source-context.md`.
+11. Record targeted participant or keyword searches used to recover operator-referenced Slack context, especially when that context is in a named DM/MPIM rather than one of the standing channels.
+12. Write and print `stage-02-source-context.md`.
 
 Required packet fields:
 
 - Team Updates page URL, properties, and section rows;
 - Meetings database/view/data source checked, candidate meeting rows considered, transcript/approved-notes result, selected meeting source link when found/read, and saved meeting-context path or `none found`;
-- exact Notion and per-channel Slack query bounds, including timezone and preflight timestamp;
+- exact Notion and per-source Slack query bounds, including timezone and Stage 2 Slack-read timestamp;
 - `New client inbounds observed / out of scope` count and a short note that inbound routing belongs to `rb-common-tasks-follow-through`;
-- relevant human-authored Slack messages and new thread context by channel;
+- relevant human-authored Slack messages and new thread context by channel/DM/MPIM, with source IDs and links;
+- targeted Slack searches used for operator-referenced context and any approved Slack source locations that were not read because of connector degradation;
 - excluded ChatGPT/Codex/OpenAI/bot-authored messages when material;
 - degraded reads or connector gaps;
 - approval status: `auto-approved for read-only continuation` when no routing decision is made;
