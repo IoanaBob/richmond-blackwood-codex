@@ -1954,6 +1954,23 @@ Unresolved:
 
 - PR closeout pending.
 
+## 2026-06-08 - ROS Filing Closeout Link Rule
+
+Imported:
+
+- User correction in Codex chat on 2026-06-08 that ROS filing-proof closeouts must share the actual Notion filing rows with proof, not only Drive proof links.
+- Existing repo process `processes/ie-ros-filing-logging.md` and skill `skills/log-ie-ros-filing/SKILL.md`.
+- Internal Knowledge Base page `Ireland Filings and Filing Dates` (`https://app.notion.com/p/177e4130131480e0bf3cffb003021025`).
+
+Actions:
+
+- Updated the ROS filing logging skill and process so final closeouts must include the Notion filing row URL, proof URL or attachment location, filed status/date, payment amount or explicit payment uncertainty, and any Tax payment row URL for every processed filing.
+- Mirrored the closeout requirement to the Internal Knowledge Base page and set `Last updated` to 2026-06-08.
+
+Unresolved:
+
+- None for the process change. Individual filing payment balances still require separate ROS Charges & Payments, bank, direct-debit, or statement evidence when the proof page does not show a balance.
+
 ## 2026-06-05 - EIP Company Context Import
 
 Imported:

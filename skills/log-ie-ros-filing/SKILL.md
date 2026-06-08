@@ -28,7 +28,7 @@ If the filing is not present in ROS or matching is uncertain, do not update Noti
 
 ## Workflow
 
-1. Fetch the Notion filing row and linked filing registration/company records. Capture the title, company, filing registration, type, period, due date, existing `Submission`, `Filed on`, `Payment Due`, and any payment reference or bank-transfer rollups.
+1. Fetch the Notion filing row and linked filing registration/company records. Capture the filing row URL, title, company, filing registration, type, period, due date, existing `Submission`, `Filed on`, `Payment Due`, and any payment reference or bank-transfer rollups.
 2. Open ROS and let the operator log in. Navigate using visible ROS UI, not guessed URLs, and search by registration, company, tax type, period, due date, or evidence number from the filing comments.
    - If the ROS login page says no certificate is loaded, click `Manage My Certificates`, let the operator browse/upload the `.p12` certificate and enter the certificate password, then use `Return to Login`.
    - After login, ROS opens on `TAIN Services` for the agent. Search for the client by registration/name, or use `Last 10 Clients Accessed` when the exact client is visible.
@@ -60,7 +60,7 @@ If the filing is not present in ROS or matching is uncertain, do not update Noti
    - `Submission`: verified proof attachment.
 9. Fetch the filing and any created Tax payments row again. Confirm the proof, `Filed on`, `Status`, `Payment Due`, relation, due date, amount, and assignee are visible.
 10. Add a concise Notion page comment on the filing with the ROS path, registration used, period, totals, proof location, payment calculation, and linked Tax payment.
-11. Report exactly what changed and what remains uncertain. For a pilot/backlog run, stop after one filing for operator review.
+11. Report exactly what changed and what remains uncertain. The operator-facing closeout must include the Notion filing row URL, proof URL or attachment location, filed status/date, payment amount or explicit payment uncertainty, and any Tax payment row URL for every processed filing. For a pilot/backlog run, stop after one filing for operator review.
 
 ## Guardrails
 

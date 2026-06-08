@@ -23,7 +23,7 @@ Use this process for a single filing in the Filings database. Backlog work is a 
 
 ## Process
 
-1. Fetch the target Filings row and its linked company and filing registration.
+1. Fetch the target Filings row and its linked company and filing registration, including the filing row URL that must be returned in the final closeout.
 2. Confirm the row is IE jurisdiction and, for backlog work, due before the current run date.
 3. Open ROS and let the operator complete login.
    - If no certificate is loaded in the browser, open `Manage My Certificates`, have the operator upload/load the `.p12` certificate and enter the password, then return to login.
@@ -44,7 +44,8 @@ Use this process for a single filing in the Filings database. Backlog work is a 
 10. When proof and payment handling are complete, set Filings `Filed on` to the logging date and `Status` to `Filed`.
 11. Add a filing page comment with the ROS path, registration used, period, totals, proof file, payment calculation, and Tax payment row.
 12. Fetch the updated filing and any created Tax payments row to verify all written fields.
-13. Stop after the first pilot filing for operator review before continuing through the backlog.
+13. Report the Notion filing row URL, proof URL or attachment location, filed status/date, payment amount or explicit payment uncertainty, and any Tax payment row URL for every processed filing. Do not close out a backlog pass with only Drive proof links.
+14. Stop after the first pilot filing for operator review before continuing through the backlog.
 
 ## Review Notes
 
