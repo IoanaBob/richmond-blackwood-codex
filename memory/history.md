@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-07 - MONO Company Context Import
+
+- User request: Populate Monochromatic/MONO company memory and treat it as part of the group because it is partly owned by EIP Ventures.
+- Context read: Notion company `MONOCHROMATIC LIMITED`, MONO client project, linked Andrei/Eran/EIP/NACV records, active MONO/Konvi and NACV/MONO contracts, filing registrations, annual-return and VAT communication records, the Monochromatic coloring-book project, Drive folder search/listing, WhatsApp group route and narrow recent message window, Gmail operational messages, EIP/NACV/Andrei repo memory, and RB client-file/source skills.
+- Actions taken: Created canonical `clients/Companies/MONO/` from Notion `Reference = MONO`, populated company overview, linked individuals, group structure, contracts, tax/VAT/filings, accounting/payroll, invoices/payments/expenses, communications, client/product projects, Drive, Notion backup, open questions, source register, and history. Updated EIP and Andrei cross-links plus durable memory/source logs.
+- Decisions made: Treat MONO as Irish and part of the EIP/group context, but keep operating detail in MONO's own folder. Store WhatsApp group JID as a route/source pointer only; no transcript/media/monitoring approval. Keep payment credentials, bank details, portal tokens, payment profile IDs, Gmail attachment IDs, Notion attachment URLs, and personal identifiers out of git.
+- Verification: Source discovery completed through Notion, Drive, WhatsApp, and Gmail connectors. Repo verification is tracked in PR closeout.
+- Limitations or gaps: Reconcile MONO filing status conflicts, VIES `VEIS` typo, annual VAT task omission, Drive external-root placement, MONO project company-relation mismatch, old Client Notes path, and future external invoice recipient rules.
+
 ## 2026-06-07 - EIP Review Corrections And Live Notion Updates
 
 - User request: Apply EIP review answers after the initial EIP context import, including internal communication routing, annual-return registration cleanup, VIES typo correction, Drive search assumptions, BOI data handling, and a group-structure diagram task.

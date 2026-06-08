@@ -1,8 +1,8 @@
 # Linked Companies
 
 Status: provisional.
-Source: Notion individual and company records reviewed on 2026-05-19.
-Imported: 2026-05-19.
+Source: Notion individual and company records reviewed on 2026-05-19; MONO company import on 2026-06-07.
+Imported: 2026-05-19; updated 2026-06-07.
 Review: Keep company-operational and personal-tax facts separated by owner.
 
 ## NA CAPITAL VENTURES LIMITED
@@ -15,8 +15,10 @@ Review: Keep company-operational and personal-tax facts separated by owner.
 
 ## Monochromatic
 
+- Company folder: `../../Companies/MONO/`
 - Notion company relation on Andrei's individual record: `https://www.notion.so/7d2d1876a3024ee0a3e5a3d1825485e0`
-- Role links in Notion: director and UBO.
+- Notion reference: MONO.
+- Role links in Notion: director, UBO, and individual shareholder.
 - NACV relevance: Notion says NACV's first client is Monochromatic Limited and the active NACV contract is with Monochromatic.
 
 ## Routing Rule

@@ -27,6 +27,7 @@ Current implementation includes:
 - Reference-based AKS company client folder under `clients/Companies/AKS/`, loaded on 2026-05-19 from Notion, Drive, Gmail, WhatsApp, Slack, Google Sheets, and user clarification.
 - Reference-based TPL company client folder under `clients/Companies/TPL/`, loaded on 2026-05-22 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - Reference-based RBL company folder under `clients/Companies/RBL/`, refreshed on 2026-06-03 from Notion, CRO Open Data, internal RB memory, and user instruction; updated on 2026-06-05 after user review, live Notion status cleanup, and Drive search.
+- Reference-based MONO company folder under `clients/Companies/MONO/`, loaded on 2026-06-07 from Notion, Drive, WhatsApp, Gmail, EIP/NACV/Andrei repo memory, and user instruction that Monochromatic is partly EIP-owned and part of the group.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
@@ -289,6 +290,17 @@ EIP / EIP VENTURES LIMITED context import:
 - User clarified on 2026-06-07 that 2023 was Ireland for the tax year, while EIP still traded in Germany for less than 180 days. Annual Returns registration was updated/read back as Registered; the linked annual-return filing row is due 2026-08-06 and still needs filing-status review. VIES title was corrected/read back from `VEIS` to `VIES`, with status still Overdue.
 - Drive search on 2026-06-07 found strongest folder candidate `04. EIP Ventures Limited` / `https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`; confirm before new uploads or reorganization.
 - Boundary: keep subsidiary operating detail in each subsidiary folder/live Notion record. Do not copy individual identifiers, bank details, VBG PINs, payroll credential material, raw attachments, or private-channel transcripts into git.
+
+MONO / MONOCHROMATIC LIMITED context import:
+
+- Company folder: `clients/Companies/MONO/`.
+- Notion company: `https://www.notion.so/7d2d1876a3024ee0a3e5a3d1825485e0`; `Reference` is `MONO`.
+- Notion client project: `https://app.notion.com/p/32fe41301314808f9e21c973b262e925`.
+- User says MONO is partly owned by EIP Ventures and part of the group. Notion also lists NACV and Andrei Nasonov in the shareholder context; Andrei and Eran are listed as directors/UBOs.
+- WhatsApp route: `Monochromatic | Richmond Blackwood` / `120363405249757858@g.us`. This is a route/source pointer only, not monitoring, media-download, or send approval.
+- Drive search on 2026-06-07 found strongest folder candidate `01. Monochromatic Limited (MONO)` / `https://drive.google.com/drive/folders/11LwHCgff0Cb-yDpQnC07WYQGGmINBXPY`; it is currently under `02. RB Client Companies` / external-client root, so confirm before moving or reorganizing.
+- High-signal current checks: VAT/VIES/RTD/Annual Returns status conflicts, VIES `VEIS` title typo, MONO annual VAT task omission from the consolidated checklist, project company-relation mismatch, old Client Notes page pointing to lowercase `clients/monochromatic/`, Google Workspace/EIP/MONO cost allocation, and future external invoice-recipient rules.
+- Boundary: keep MONO operating detail in `clients/Companies/MONO/`, EIP holding-company detail in `clients/Companies/EIP/`, NACV service-provider detail in `clients/Companies/NACV/`, and Andrei personal-tax detail in `clients/Individuals/Andrei Nasonov/`. Do not copy bank details, payment credentials, portal tokens, payment profile IDs, Gmail attachment IDs, Notion attachment URLs, raw WhatsApp transcripts/media, or personal identifiers into git.
 
 Communication workflow update:
 

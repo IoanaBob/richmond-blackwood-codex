@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-06-07 - MONO Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-07 that Monochromatic should be populated and is partly owned by EIP Ventures, so it is part of the group.
+- Notion company `MONOCHROMATIC LIMITED` (`https://www.notion.so/7d2d1876a3024ee0a3e5a3d1825485e0`) with canonical `Reference` `MONO`.
+- MONO client project, coloring-book product project, linked Andrei/Eran individual records, EIP and NACV company relations, active MONO/Konvi and NACV/MONO contract rows, filing registrations, annual-return filing row, VAT/Revenue communication, WhatsApp communication row, existing Client Notes page, Drive folder candidate, WhatsApp route, and Gmail operational messages.
+
+Actions:
+
+- Created `clients/Companies/MONO/` and populated company overview, linked individuals, group structure, contracts/authority, accounting/bookkeeping/payroll, tax/VAT/filings, invoices/payments/expenses, communications, client project, Drive, Notion backup, open questions, source register, history, and product/operations.
+- Updated EIP subsidiary pointer and Andrei linked-company pointer.
+- Updated durable source, history, current-state, handoff, skill-run, and open-question memory.
+
+Unresolved:
+
+- Reconcile MONO filing status conflicts, VIES title typo, annual VAT task omission, Drive root placement, project company-relation mismatch, old Client Notes path, and future invoice-recipient rules.
+
 ## 2026-06-07 - EIP Review Corrections
 
 Applied:
