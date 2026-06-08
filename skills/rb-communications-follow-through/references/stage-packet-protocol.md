@@ -315,7 +315,7 @@ Packet columns:
 - approved action;
 - command/tool used, summarized without secrets;
 - write/send result;
-- returned Notion URL, message ID, thread ID, Slack timestamp, or WhatsApp message ID;
+- returned Notion page/comment/file URL as a Markdown link, message ID, thread ID, Slack timestamp, or WhatsApp message ID;
 - skipped actions and reasons;
 - failed actions and retry/blocker decision.
 
@@ -342,10 +342,13 @@ Closeout packet must include:
 - replies sent, snoozed, skipped, or blocked;
 - evidence attached or blocked;
 - task/operational updates;
+- linked Notion records table with Markdown links for every updated Communication, task, operational row, comment, evidence file, and source row where a URL is available;
 - durable memory updates, if any;
 - remaining blockers;
 - run folder path;
 - lock release result.
+
+Do not leave updated Notion pages, comments, or files as bare IDs in Stage 5 or Stage 6 result packets when a URL is available. Include the actual Notion links in the result table so the operator can click through from the packet without reconstructing URLs.
 
 Release `LOCK.md` only after Stage 6 is complete. Preserve scratch packets by default.
 
