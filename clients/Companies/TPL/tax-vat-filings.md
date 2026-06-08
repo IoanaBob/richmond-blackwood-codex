@@ -27,6 +27,20 @@ WhatsApp on 2026-05-19 records RB telling Pradeep that Germany accepts the tax n
 | Local business registration / Gewerbeanmeldung | Registered | `https://www.notion.so/1e9e41301314810e8b28f89e47631893` | Required for the car transaction and requested by the dealer/lender. |
 | Accident insurance / VBG | Registered | `https://www.notion.so/1e9e4130131481b2b788cf97d61be56c` | Do not copy PIN/password material into git. |
 
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: user follow-up in Codex chat on 2026-06-08; live Notion company, Filing Registration, and Filings read-backs.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker when processed.
+
+TPL now has a dedicated eBilanz Filing Registration in Notion:
+
+- eBilanz registration: `https://www.notion.so/379e41301314814db496e4fbe15b6f91`
+- 2025 eBilanz placeholder filing: `https://www.notion.so/379e413013148170902df6640ace8aae`; period 2025-04-16 to 2025-12-31; due 2027-03-01; status Pending.
+
+No 2024 eBilanz row was created because TPL was registered on 2025-04-16.
+
 ## Current Follow-Up
 
 Open call/task `https://www.notion.so/368e4130131481d48a11e42782fc533e` is prepared to follow up the 2026-05-19 ELSTER message and confirm VAT number/status, employer registration, employee-registration status, and correspondence address. JP-owned task `https://www.notion.so/36be413013148127893fcb3fc99958c8` now tracks submitting the remaining USt-IdNr. questions and confirming the VAT number.

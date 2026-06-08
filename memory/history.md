@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-08 - German eBilanz Follow-Up For 2025 Companies
+
+- User request: Check other companies such as AKS, TPL, VUN, and SLV/SVL after the first eBilanz setup only covered the initial checklist companies.
+- Context read: Live Notion Companies records for AKS, TPL, VUN, SVL, and AMC; Filing Registrations searches for existing eBilanz rows; local German filing process/client records.
+- Actions taken: Created live Notion eBilanz Filing Registrations and 2025 Filings rows for AKS, TPL, VUN, and AMC. Added the result to the consolidated eBilanz task and repo client/process/source records.
+- Decisions made: Do not create 2024 rows for AKS, TPL, VUN, or AMC because each company was incorporated in 2025. Do not create 2024/2025 rows for SVL because SOLINOVA LIMITED was registered on 2026-01-27.
+- Verification: Notion read-backs confirmed company relations, eBilanz registration relations, Filing Task relation, `date:Filing Period:start`, `date:Filing Period:end`, and due date on all four new 2025 filing rows.
+- Limitations or gaps: Attach eBilanz proof/protocol or blocker when processing the actual filings. SVL first eBilanz setup belongs to a later 2026 filing cycle once in scope.
+
 ## 2026-06-08 - German Filing Period Backfill
 
 - User request: Ensure the Notion entries created for German annual VAT, payroll-tax, and CM/ZM filing setup include the `Filing Period` field.

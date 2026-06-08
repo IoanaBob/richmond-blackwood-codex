@@ -44,6 +44,20 @@ Review: Confirm live filing status through the separate VAT review.
 | VAT prepayments due in 2026 | `https://www.notion.so/330e4130131481919f34c9b4b684ed8a` | Marked Done in Notion; comments say related payments were paid. |
 | 2025 unpaid VAT letter task | `https://www.notion.so/330e4130131481b5be0adcb98a8d5b80` | In Progress in Notion; use the live record for exact balances. |
 
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: user follow-up in Codex chat on 2026-06-08; live Notion company, Filing Registration, and Filings read-backs.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker when processed.
+
+AMC now has a dedicated eBilanz Filing Registration in Notion:
+
+- eBilanz registration: `https://www.notion.so/379e41301314817d9fe1c25e8406a519`
+- 2025 eBilanz placeholder filing: `https://www.notion.so/379e41301314818b86ebd3b2aaf4291e`; period 2025-02-11 to 2025-12-31; due 2027-03-01; status Pending.
+
+No 2024 eBilanz row was created because AMC was registered on 2025-02-11.
+
 ## Payroll And ZM/VIES Audit Pass 2026-06-06
 
 Status: provisional.

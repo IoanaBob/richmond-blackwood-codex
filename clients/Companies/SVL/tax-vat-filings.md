@@ -13,6 +13,15 @@ Gmail has an ELSTER transmission confirmation from 2026-02-23, but this import d
 
 The Notion company page has credential/certificate-related attachment context. Raw credential/certificate files and attachment identifiers are not copied into git.
 
+## eBilanz Scope Check
+
+Status: provisional.
+Source: user follow-up in Codex chat on 2026-06-08 and live Notion company read-back.
+Imported: 2026-06-08.
+Review: Create the first SVL company eBilanz row only when 2026 annual German filing setup is in scope and the tax-registration blocker is resolved.
+
+No 2024 or 2025 SVL eBilanz Filing Registration/Filings rows were created. The live company record shows SOLINOVA LIMITED / SVL was registered on 2026-01-27, so 2024/2025 company eBilanz rows would be pre-incorporation rows.
+
 ## Registration Records
 
 | Registration | Jurisdiction | Status in Notion | Filing cadence | Source | Notes |

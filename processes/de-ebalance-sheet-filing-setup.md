@@ -107,3 +107,21 @@ Initial setup created or clarified eBilanz registrations and 2024/2025 filing pl
 | PCL | `https://www.notion.so/ff6eb2a312ce43beb9e0928a3077f9ff` | 2024-05-09 to 2024-12-31 | 2025-01-01 to 2025-12-31 |
 
 PCL reused its existing `Annual Tax (Bilanz)` registration, renamed/clarified as `E-Balance Sheet / eBilanz DE`. CBMAX 2025 remains a review row because the live company context still records unresolved IE-vs-DE tax-position treatment.
+
+## 2026-06-08 Follow-Up Setup Result
+
+Status: provisional.
+Source: user follow-up in Codex chat on 2026-06-08 and live Notion company/create/read-back on 2026-06-08.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker to the created filing rows when processed. Confirm the first 2026 eBilanz row for SVL once the 2026 filing setup is in scope and the German tax-registration blocker is resolved.
+
+The follow-up setup added the German-tax-resident companies that were not in the first checklist pass. Because all four were incorporated in 2025, only 2025 eBilanz rows were created.
+
+| Company | Registration | 2025 Filing Period |
+| --- | --- | --- |
+| AKS | `https://www.notion.so/379e413013148178b260d8fd9995928b` | 2025-01-15 to 2025-12-31 |
+| TPL | `https://www.notion.so/379e41301314814db496e4fbe15b6f91` | 2025-04-16 to 2025-12-31 |
+| VUN | `https://www.notion.so/379e4130131481dfb72df285562565ca` | 2025-03-21 to 2025-12-31 |
+| AMC | `https://www.notion.so/379e41301314817d9fe1c25e8406a519` | 2025-02-11 to 2025-12-31 |
+
+SVL / SOLINOVA LIMITED was checked and no 2024/2025 company eBilanz rows were created because the live company record shows `Registered on` 2026-01-27. The first potential company eBilanz period is therefore no earlier than 2026.
