@@ -28,7 +28,7 @@ If the filing is not present in ROS or matching is uncertain, do not update Noti
 
 ## Workflow
 
-1. Fetch the Notion filing row and linked filing registration/company records. Capture the title, company, filing registration, type, period, due date, existing `Submission`, `Filed on`, `Payment Due`, and any payment reference or bank-transfer rollups.
+1. Fetch the Notion filing row and linked filing registration/company records. Capture the filing row URL, title, company, filing registration, type, period, due date, existing `Submission`, `Filed on`, `Payment Due`, and any payment reference or bank-transfer rollups.
 2. Open ROS and let the operator log in. Navigate using visible ROS UI, not guessed URLs, and search by registration, company, tax type, period, due date, or evidence number from the filing comments.
    - If the ROS login page says no certificate is loaded, click `Manage My Certificates`, let the operator browse/upload the `.p12` certificate and enter the certificate password, then use `Return to Login`.
    - After login, ROS opens on `TAIN Services` for the agent. Search for the client by registration/name, or use `Last 10 Clients Accessed` when the exact client is visible.
@@ -40,9 +40,10 @@ If the filing is not present in ROS or matching is uncertain, do not update Noti
    - Amount payable to Revenue: set Filings `Payment Due` to `-abs(amount)` per the 2026-05-18 operator instruction, then create a Tax payments row with `Payment` as `abs(amount)`.
    - Refund/repayment due back: set Filings `Payment Due` to `abs(amount)` and do not create a Tax payments row unless the operator asks.
    - Nil or no visible balance: set `Payment Due` to `0` only when ROS explicitly confirms nil/no payment; otherwise leave it unchanged and record the uncertainty.
-6. Attach the proof to the Filings `Submission` file property. If direct Notion local-file upload is unavailable, upload the proof into the verified client Drive folder and set the Notion file property with the Drive URL string. Do not imply the file is attached until read-back verifies it.
+6. Attach proof to the correct Filings file property. Filing/submission proof goes in `Submission`; payment, balance, refund, nil-balance, or ROS Charges & Payments evidence goes in `Proof of Payment`. If the operator is repairing a missing `Payment Due` or payment proof field, do not overwrite an existing `Submission` proof; add the new evidence to `Proof of Payment`.
+   - If direct Notion local-file upload is unavailable, upload the proof into the verified client Drive folder and set the Notion file property with the Drive URL string. Do not imply the file is attached until read-back verifies it.
    - The 2026-05-18 pilot confirmed the Notion connector can populate a file property from a URL string but does not expose a direct local-file upload parameter. Use the Drive-backed route unless a future connector exposes native upload.
-   - For Drive-backed filing proof, store the file under `[year] / [filing type folder] / Filing evidence`; for example `2024 / Payroll / Filing evidence`.
+   - For Drive-backed filing or payment proof, store the file under `[year] / [filing type folder] / Filing evidence`; for example `2024 / Payroll / Filing evidence`.
 7. If an amount is payable, create one related Tax payments row:
    - `Name`: include company/reference, filing title, and tax type/period.
    - `Payment`: positive amount payable.
@@ -57,14 +58,15 @@ If the filing is not present in ROS or matching is uncertain, do not update Noti
    - `date:Filed on:is_datetime`: `0`.
    - `Status`: `Filed`.
    - `Payment Due`: signed amount from step 5.
-   - `Submission`: verified proof attachment.
+   - `Submission`: verified filing proof attachment when filing proof is new.
+   - `Proof of Payment`: verified payment/balance/refund evidence attachment when payment handling is new or repaired.
 9. Fetch the filing and any created Tax payments row again. Confirm the proof, `Filed on`, `Status`, `Payment Due`, relation, due date, amount, and assignee are visible.
-10. Add a concise Notion page comment on the filing with the ROS path, registration used, period, totals, proof location, payment calculation, and linked Tax payment.
-11. Report exactly what changed and what remains uncertain. For a pilot/backlog run, stop after one filing for operator review.
+10. Add a concise Notion page comment on the filing with the ROS path, registration used, period, totals, `Submission` proof location, `Proof of Payment` location when applicable, payment calculation, and linked Tax payment.
+11. Report exactly what changed and what remains uncertain. The operator-facing closeout must include the Notion filing row URL, `Submission` proof URL when changed, `Proof of Payment` URL when changed, filed status/date, payment amount or explicit payment uncertainty, and any Tax payment row URL for every processed filing. For a pilot/backlog run, stop after one filing for operator review.
 
 ## Guardrails
 
-- Current schema note: the Filings `Payment Due` property description says positive means payable and negative means refund, but the 2026-05-18 operator instruction for this ROS workflow says the opposite. Follow the operator instruction for this workflow and surface the schema mismatch in review.
+- Current schema note: the Filings `Payment Due` property description, read on 2026-06-08, says negative means the client has to pay and positive means the client needs a refund. This matches the ROS workflow rule: payable to Revenue is negative, refund/repayment due back is positive. If a future schema description diverges, follow explicit operator instruction and surface the mismatch in review.
 - The current Filings schema has `Filed on` as a date and `Status` as the filed/completion marker. Treat "mark filed on as true" as: set `Filed on` to the logging date and set `Status` to `Filed`.
 - Do not mark `Status` as `Filed` from tax-clearance inference alone; use ROS proof or explicit operator approval.
 - Do not create duplicate Tax payments rows. Search/fetch existing relations first when the filing already has a `Tax Payment` relation or an obvious matching payment row.

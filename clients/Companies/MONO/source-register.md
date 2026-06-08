@@ -1,9 +1,9 @@
 # Source Register
 
 Status: provisional.
-Source: Notion, Drive, WhatsApp, Gmail, local repo memory, and user instruction from the 2026-06-07 MONO import.
+Source: Notion, Drive, WhatsApp, Gmail, ROS, local repo memory, and user instruction from the 2026-06-07 MONO import and 2026-06-08 VAT proof repair.
 Notion backup: `notion-backup.md`.
-Imported: 2026-06-07.
+Imported: 2026-06-07; updated 2026-06-08.
 Review: Keep this file to source pointers and route IDs only; do not paste credentials, bank details, personal identifiers, raw private-channel transcripts, card details, portal tokens, attachment IDs, or payment credentials.
 
 | Source | Date imported | Detail |
@@ -22,10 +22,12 @@ Review: Keep this file to source pointers and route IDs only; do not paste crede
 | Notion Communication `Monochromatic - EIP/Arutur invoice payment processing confirmation - 2026-05-20` | 2026-06-07 | `https://app.notion.com/p/367e4130131481a59ccae87c32270fae`; source WhatsApp, linked tasks and Drive evidence. |
 | Notion Client Notes & Updates page | 2026-06-07 | `https://app.notion.com/p/356e4130131481ae908df5ad201b9082`; old provisional import from 2026-05-04 pointing to lowercase path. |
 | Google Drive search/list-folder | 2026-06-07 | Strongest folder candidate `01. Monochromatic Limited (MONO)` / `https://drive.google.com/drive/folders/11LwHCgff0Cb-yDpQnC07WYQGGmINBXPY`; parent folder `02. RB Client Companies`; subfolders listed in `drive-locations.md`. |
+| ROS/Drive/Notion VAT3 proof repair | 2026-06-08 | ROS Returns VAT proof for filing `https://app.notion.com/p/311e4130131481b4b081cdba46e149da`; Drive proof `https://drive.google.com/file/d/1JuHN8I6Bfs0HnQrXWxnlm0f3y-EmDiaT/view?usp=drivesdk`; Notion filing read back as `Filed` with `Submission` populated. |
 | WhatsApp route and narrow recent read | 2026-06-07 | `Monochromatic \| Richmond Blackwood`, JID `120363405249757858@g.us`; read recent May 2026 messages for routing/process context only. No media downloaded, no messages sent, no transcript stored. |
 | Gmail connector search/read | 2026-06-07 | Search query `(\"Monochromatic\" OR \"MONO\") newer_than:18m -in:spam -in:trash`; read first ten matching message threads for operational patterns only. No attachments downloaded and no drafts/sends/labels changed. |
 
 ## Boundary Notes
 
-- No live Notion, Drive, Gmail, Slack, or WhatsApp writes were performed in this pass.
+- The 2026-06-07 context pass made no live Notion, Drive, Gmail, Slack, or WhatsApp writes.
+- The 2026-06-08 VAT proof repair made Drive and Notion filing/comment writes only; no Gmail, Slack, or WhatsApp messages, drafts, sends, or labels were changed.
 - Notion-hosted S3/image links, Gmail attachment IDs, Workhub portal tokens, payment profile IDs, payment method fragments, and WhatsApp message bodies were not copied into git.
