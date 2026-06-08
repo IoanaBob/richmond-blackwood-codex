@@ -162,6 +162,7 @@ These routes were resolved during the `2026-05-21-1006-daily-0800-window` correc
 - Contract-backed payables/receivables belong on the matching Invoicing row when a matching invoice/contract route exists.
 - Non-contract receipts/finance items belong on Expenses.
 - Payment notifications, payment receipts, invoice receipts, cashback notices, card/account notifications, and similar finance-source messages must not create standalone Central Tasks just to decide ownership/routing. If a finance-source item is business-scoped and no contract/Invoicing match exists, create or update an Expense row with a review-required status. If the source does not support business scope, skip/no-scope it.
+- Google Cloud payment receipts are business-scoped finance receipts. If no active contract or matching Invoicing row applies, route them directly to Expenses with receipt evidence and use a review-required status when the exact company, ownership, or bookkeeping category needs finance review. Do not create a standalone review task for Google Cloud receipt ownership/routing.
 - Operational work that is not an invoice or expense belongs on Communications plus a Central Task when action is needed.
 - Dependent tables are filled opportunistically after the primary route is chosen, when the inbound affects that specific entity.
 - Create central Tasks for action work, especially when a dependent table receives a draft/update.
@@ -176,6 +177,7 @@ These routes were resolved during the `2026-05-21-1006-daily-0800-window` correc
 
 - Legal contract/counterparty/VAT-route decisions belong to Johnpaul Okolie unless the operator explicitly assigns a different legal owner.
 - TK/private-health-insurance/social-insurance transition work belongs to Johnpaul Okolie when Simoneta is not onboarded on that task. Merge duplicate TK backlog tasks into one active task before owner follow-up.
+- Revenue MyEnquiries contact notices that do not identify the client or matter in the email body should create/update an internal follow-up task assigned to Johnpaul Okolie, keep Company/Individual empty until Revenue portal or related context identifies the matter, and appear in the approved `#rb-client-updates` closeout. The missing client/matter subject should not by itself block the next stage.
 
 ## Closeout
 
