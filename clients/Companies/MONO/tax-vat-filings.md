@@ -1,9 +1,9 @@
 # Tax, VAT, And Filings
 
 Status: provisional.
-Source: Notion company record and filing registration/filing/task records fetched on 2026-06-07; Notion Communication `Revenue Letter - VAT Repayment EUR 853.00`; Drive `VAT DOCS` folder list.
-Imported: 2026-06-07.
-Review: Reconcile overdue/stale status conflicts before treating filings as complete or overdue.
+Source: Notion company record and filing registration/filing/task records fetched on 2026-06-07; Notion Communication `Revenue Letter - VAT Repayment EUR 853.00`; Drive `VAT DOCS` folder list; ROS Returns proof, Google Drive upload/read-back, and Notion filing read-back on 2026-06-08.
+Imported: 2026-06-07; updated 2026-06-08.
+Review: Reconcile overdue/stale status conflicts before treating filings as complete or overdue. Payment/refund balance for the Mar/Apr 2026 VAT3 filing still needs ROS Charges & Payments, bank, direct-debit, or statement evidence.
 
 ## Tax Position
 
@@ -25,6 +25,7 @@ MONO is recorded in Notion as incorporated in Ireland and tax resident in Irelan
 
 | Record | Status / detail | Source | Review |
 | --- | --- | --- | --- |
+| MONO VAT3 Mar/Apr 2026 filing | `Filed`; filed on logging date 2026-06-08; ROS Date Filed 2026-05-25 | Filing `https://app.notion.com/p/311e4130131481b4b081cdba46e149da`; Drive proof `https://drive.google.com/file/d/1JuHN8I6Bfs0HnQrXWxnlm0f3y-EmDiaT/view?usp=drivesdk` | ROS Revenue Record > Returns > VAT showed registration `4222495IH`, VAT3 period 01/03/2026-30/04/2026, due 19/05/2026, issue 10/04/2026, Date Filed 25/05/2026. Notion `Submission`, `Status`, and `Filed on` read back populated. Payment Due was left unchanged and no Tax payment row was created because the proof page did not show a balance and Charges & Payments was unavailable during the run. Local proof capture was JPEG data in `/private/tmp/mono-ros-vat3-2026-03-01_2026-04-30-proof.png`, 145169 bytes, SHA-256 `76a2bc709328e1d389b1aa20425874f0a6a9e3e8def69e1b89c55006241bc35d`. |
 | MONO-2025/07/20-Annual Returns | Filed on 2026-01-26; filing period 2024-01-01 to 2024-12-31; payment due EUR 519 | `https://app.notion.com/p/1c8e4130131480ea95d8cebfd7b153fe` | Reconcile with Annual Returns registration row still marked Overdue. |
 | Revenue Letter - VAT Repayment EUR 853.00 | Incoming, long-living, Done; sent/received 2025-12-11; document title says Notice of returns outstanding and current estimates | `https://app.notion.com/p/2c6e4130131480b3bc4bd8f6ebc62b08` | Keep the Revenue letter available when reviewing VAT/RTD/VIES overdue rows. |
 | MONO - add annual VAT filing rows for 2023 and 2024 corp-tax years | Archived duplicate; comment says superseded by consolidated RB Clients VAT task | `https://app.notion.com/p/373e4130131481b1ad0bdc26d0024d12` | The consolidated task checklist does not include MONO, even though the duplicate was for MONO. Confirm whether MONO annual VAT filing rows remain in scope. |

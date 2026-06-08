@@ -28,6 +28,7 @@ Review: Keep this file to source pointers and route IDs only; do not paste crede
 | Notion task `EIP Return of allotments rejected` | 2026-06-05 | `https://www.notion.so/335e41301314815aacaec1f4bb5a4a80`; Done historical corporate-secretarial task. |
 | Local process memory | 2026-06-05 | `processes/ie-ros-filing-logging.md`; flags EIP ROS payroll/payment-reference mismatch with Notion payroll registration metadata. |
 | Google Drive search/list-folder | 2026-06-07 | Strongest folder candidate is `04. EIP Ventures Limited` / `https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`; contains EIP-specific year folders, CRO filings, German Taxes, Finance, Loans, and contract/employment files. |
+| ROS/Drive/Notion VAT3 proof repair | 2026-06-08 | ROS Returns VAT proof for filing `https://app.notion.com/p/311e41301314817fba62fff1e417f8e5`; Drive proof `https://drive.google.com/file/d/1l8EaX45SsUSXrUhk3aRqGgwSxppQw6gf/view?usp=drivesdk`; Notion filing read back as `Filed` with `Submission` populated. |
 
 ## Boundary Notes
 

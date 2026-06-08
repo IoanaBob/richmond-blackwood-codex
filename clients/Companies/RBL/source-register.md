@@ -23,6 +23,7 @@ Review: Keep this file to source pointers and route IDs only; do not paste crede
 | Notion task `File annual VAT for affected RB clients` | 2026-06-03 | `https://www.notion.so/373e4130131481e495f1e2d22008e4ed`; consolidated task final checklist includes NACV, CLV, AGL, CBMAX, WEW, and PCL, not RBL. |
 | Notion document `RB Porting to Sage Exploration` | 2026-06-03 | `https://www.notion.so/33de41301314805ca8c5c4b429df2858`; practice-wide accounting-system strategy and Sage migration questions. |
 | Notion Client Notes & Updates `Adam topics to discuss 14.11.2025` | 2026-06-03 | `https://www.notion.so/2aae41301314804b95aedbffb196bfe0`; internal/legal/accounting agenda context, not current RBL filing status. |
+| ROS/Drive/Notion VAT3 proof repair | 2026-06-08 | ROS Returns VAT proof for filing `https://app.notion.com/p/311e4130131481468a88dd6e928d92ba`; Drive proof `https://drive.google.com/file/d/1UDR_MVlVW1bR3xkXZPI1VuIMyECMdnQq/view?usp=drivesdk`; Notion filing read back as `Filed` with `Submission` populated. |
 | User review in Codex thread | 2026-05-11 | Workhub invoice validation belongs in RBL invoices/payments/expenses rather than an edge-case file. |
 | User instruction in Codex thread | 2026-05-10 | Per-client edge-case file structure for RBL invoice exceptions; superseded by 2026-05-11 review. |
 | User instruction in Codex thread | 2026-05-08 | Workhub addressee and plan schedule rule for RBL expense triage. |

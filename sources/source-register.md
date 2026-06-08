@@ -149,15 +149,21 @@ Konvi company sources are routed to `clients/Companies/KONVI/source-register.md`
 
 RBL company sources are routed to `clients/Companies/RBL/source-register.md`. The 2026-06-03 refresh used the Notion company record `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804`, project `https://www.notion.so/32fe4130131480779ce6cb2a311c51e4`, parent project, filing registrations, selected filing/payment rows, finance tasks, Client Notes/Document records, internal RB memory, and CRO Open Data for company number 735818. The 2026-06-05 user-review update used live Notion property updates/read-backs for registered office, PAYE payment, Payroll/VIES/Corporation Tax registrations, and future VAT title; it also used Google Drive search/list-folder read-back to find folder candidate `06. Richmond Blackwood Limited` (`https://drive.google.com/drive/folders/1A9nWQRuknj8bgk-6R41Vs7TktnUr-KRy`). No WhatsApp route was used or stored for RBL. No Gmail, Slack, WhatsApp, or Drive writes were made.
 
+The 2026-06-08 VAT proof repair used ROS Returns, Drive upload/read-back, and Notion filing/comment/read-back to log RBL VAT3 Mar-Apr 2026 proof. Detailed pointers are in `clients/Companies/RBL/source-register.md` and `clients/Companies/RBL/tax-vat-filings.md`.
+
 ## EIP Sources
 
 EIP company sources are routed to `clients/Companies/EIP/source-register.md`. The 2026-06-05 import used the Notion company record `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`, client project `https://www.notion.so/32fe41301314804a8e09c51b11350b46`, parent project, linked Ioana and Eran individual records, direct subsidiary/company relation records for MONO, EVG, and RBL, active/inactive contract rows, filing registrations, filing/payment rows, the internal `Internal Companies Tax Statuses` document, BOI lending/debt-register tasks, intercompany tool-charge task, BOI communication record, and local ROS payroll logging memory. User instruction on 2026-06-05 describes EIP as the venture-builder holding company. No WhatsApp route was used or stored, and no Drive, Gmail, Slack, WhatsApp, or live Notion writes were made.
 
 The 2026-06-07 EIP review update used user review answers, live Notion updates/read-backs, Google Drive search/list-folder, and a focused fetch of the active EIP/Konvi contract. Live Notion changes: company communication preference to Slack, Annual Returns registration to Registered, VIES title corrected from `VEIS` to `VIES`, and task `Create EIP group structure diagram` created at `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0`. Drive candidate: `04. EIP Ventures Limited` / `https://drive.google.com/drive/folders/13kUApp4sAVDjMwE_NFtKljqM8GQ_eex4`. No Gmail, Slack, WhatsApp, or Drive writes were made.
 
+The 2026-06-08 VAT proof repair used ROS Returns, Drive upload/read-back, and Notion filing/comment/read-back to log EIP VAT3 Mar-Apr 2026 proof. Detailed pointers are in `clients/Companies/EIP/source-register.md` and `clients/Companies/EIP/tax-vat-filings.md`.
+
 ## MONO / Monochromatic Sources
 
 MONO company sources are routed to `clients/Companies/MONO/source-register.md`. The 2026-06-07 import used the Notion company record `https://www.notion.so/7d2d1876a3024ee0a3e5a3d1825485e0`, client project `https://app.notion.com/p/32fe41301314808f9e21c973b262e925`, coloring-book product project `https://app.notion.com/p/373e413013148095b29ed5d55cb28dfa`, linked Andrei/Eran individual records, EIP and NACV company relation records, active MONO/Konvi and NACV/MONO contract rows, filing registrations, annual-return and VAT communication rows, Drive folder `01. Monochromatic Limited (MONO)` (`https://drive.google.com/drive/folders/11LwHCgff0Cb-yDpQnC07WYQGGmINBXPY`), WhatsApp group `Monochromatic | Richmond Blackwood` / `120363405249757858@g.us`, and recent Gmail operational patterns. User instruction on 2026-06-07 says MONO is partly owned by EIP Ventures and remains part of the group. No live Notion, Drive, Gmail, Slack, or WhatsApp writes were made.
+
+The 2026-06-08 VAT proof repair used ROS Returns, Drive upload/read-back, and Notion filing/comment/read-back to log MONO VAT3 Mar-Apr 2026 proof. Detailed pointers are in `clients/Companies/MONO/source-register.md` and `clients/Companies/MONO/tax-vat-filings.md`.
 
 ## AKS / Anastasia Sources
 
