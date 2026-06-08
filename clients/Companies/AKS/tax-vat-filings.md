@@ -36,6 +36,20 @@ User instruction on 2026-05-19:
 | AKS - 10/4/2026 - VAT DE | Due | Due 2026-04-10; period shown as 2025-01-01 to 2026-03-31 | `https://www.notion.so/2e1e41301314801f9a57dc93e87c3416` | User says VAT is the overdue area. Assume not filed unless the user confirms otherwise. Confirm whether Q1 2026 bookkeeping review now allows filing. |
 | File VAT for AKS - H1 2025 | Done | H1 2025 | `https://www.notion.so/330e4130131481d7b70fcbeb93b21dd7` | Task says H1 had no transactions, filing should be zero, and Q2 based on bookkeeping. |
 
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: user follow-up in Codex chat on 2026-06-08; live Notion company, Filing Registration, and Filings read-backs.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker when processed.
+
+AKS now has a dedicated eBilanz Filing Registration in Notion:
+
+- eBilanz registration: `https://www.notion.so/379e413013148178b260d8fd9995928b`
+- 2025 eBilanz placeholder filing: `https://www.notion.so/379e4130131481188b9adf3e381a185b`; period 2025-01-15 to 2025-12-31; due 2027-03-01; status Pending.
+
+No 2024 eBilanz row was created because AKS was registered on 2025-01-15.
+
 ## VAT Backlog / Extension
 
 - Slack on 2026-05-12 flagged that Q4 2025 appeared not filed for AMC, AKS, NACV, and PCL in the shared status sheet. Lorento replied on 2026-05-15 that NACV/PCL were definitely done for 2025 and he would confirm AKS/AMC. Per user instruction, assume AKS Q4 2025 VAT is not filed unless the user confirms otherwise.

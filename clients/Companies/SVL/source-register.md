@@ -24,6 +24,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Employment | `https://www.notion.so/306e4130131480888582de5a01224bc1` | Kristjan employment and payroll run links. |
 | Active contract | `https://www.notion.so/313e4130131480cd836ccdfcd8177c83` | Mediainvesting monthly hourly contract. |
 | Registration records | See `notion-backup.md` | RBO, annual returns, German corporation/trade/VAT/payroll/Unternehmensnummer/business registration. |
+| eBilanz scope check | `https://www.notion.so/2cde4130131480b89185d9ba4487a3b3` | Checked on 2026-06-08 after user follow-up. No 2024/2025 eBilanz rows were created because SVL was registered on 2026-01-27. |
 | Real estate Client Notes & Updates | `https://www.notion.so/32ee4130131480a5b1c9e9d2398ab53e` | Apartment purchase/loan/company-ownership structuring notes. |
 
 ## Google Drive

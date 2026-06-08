@@ -27,6 +27,8 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Contract comments added on 2026-05-18 | Riot `https://www.notion.so/1a1e4130131480b9859de06e1ffc98e9`; Echo Sports `https://www.notion.so/246e4130131480aa9b05cb0b9adb2f96`; UVS `https://www.notion.so/349e41301314809a805ad295f9ad2e05` | Added invoice workflow/message-template comments to the live contract pages. |
 | Business Partner routing fields updated on 2026-05-18 | Riot `https://www.notion.so/208e41301314805c8591f9b2576720be`; Echo Sports `https://www.notion.so/360e4130131480b09475e824f7e4bac1` | Updated `Invoicing Email`, `Invoicing Email Cc`, and `Notes`; Riot notes preserve the extra Nicole recipient because the schema is single-email. |
 | Filing registrations and VAT tasks | See `tax-vat-filings.md` | German corporation, trade tax, VAT, VAT prepayment, VAT filing extension, and unpaid VAT task context. |
+| Annual German VAT setup run | `https://www.notion.so/377e413013148169b64bf17b8f3206e3` | Yearly DE VAT Filing Registration created on 2026-06-06; existing annual VAT filing row renamed and linked. |
+| German eBilanz setup run | `https://www.notion.so/379e41301314817d9fe1c25e8406a519` | eBilanz Filing Registration created on 2026-06-08; 2025 eBilanz filing row `https://www.notion.so/379e41301314818b86ebd3b2aaf4291e` created with period 2025-02-11 to 2025-12-31. No 2024 row because AMC was registered on 2025-02-11. |
 | Personal tax/garnishment records | See `../../Individuals/Aaron Richard Chamberlain/source-register.md` | 2023/2024/2025 filings, garnishment meeting, payment-plan tasks, P&L/balance-sheet task. |
 
 ## Google Drive

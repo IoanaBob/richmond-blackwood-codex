@@ -31,6 +31,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | VAT cadence task | `https://www.notion.so/35fe413013148134a46ae7e1bab9b897` | Open task to reduce monthly German VAT cadence. |
 | VAT deregistration appeal task | `https://www.notion.so/359e4130131480858625d56338c18971` | Appeal submission done; response pending. |
 | Company tax filing task | `https://www.notion.so/34fe4130131480d8ba78e43cececfc42` | Marked Done; filing uploaded, electronic balance-sheet review remains. |
+| Annual German VAT setup run | `https://www.notion.so/377e41301314819998b7d3cbcf661186` | Yearly DE VAT Filing Registration created on 2026-06-06; 2024 and 2025 pending annual VAT placeholder filings created and linked. |
 
 ## Google Drive
 
@@ -59,6 +60,12 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Chat | JID | Scope |
 | --- | --- | --- |
 | NA Capital Ventures \| RB | `120363399321589278@g.us` | Selected client group route confirmed by user. Used for NACV operations, Finanzamt/address topics, Andrei personal-tax evidence, payroll/TK/VBG follow-up. Raw transcript/media not copied. |
+
+## Notion Filing Setup Runs
+
+| Source | Scope |
+| --- | --- |
+| Codex eBilanz setup run on 2026-06-08 | Created NACV yearly DE eBilanz Filing Registration row `https://www.notion.so/379e41301314816596f7f9face52a010` and 2024/2025 eBilanz filing rows with Filing Period populated. |
 
 ## Boundary
 

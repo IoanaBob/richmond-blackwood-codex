@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-03.
+Updated: 2026-06-06.
 
 ## Repo State
 
@@ -38,6 +38,7 @@ Current implementation includes:
 - Repo-local skills for RB source research, memory capture, process maintenance, file uploads, shared global Google persona auth, Gmail drafts, generic signing helpers, signature status sync, task PR, and handoff.
 - Optional WhatsApp MCP setup with a pinned `third_party/whatsapp-mcp` submodule, background bridge helper, setup guide, and `rb-whatsapp-comms` skill.
 - Communications rule: draft outbound communication in chat, always show sender identity, always show `Subject` and source/reply thread for email, prefer replying in existing email threads, send directly after approval, and log to canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`).
+- German annual VAT filing setup rule: annual German VAT returns use separate `VAT` / `DE` / `Yearly` Filing Registration rows, and each annual VAT Filing row links to that annual registration rather than to quarterly/monthly VAT or corporation-tax registrations. Reusable process: `processes/de-annual-vat-filing-setup.md`.
 - Workspace actor rule: use ignored `.env.local` key `RB_WORKSPACE_ACTOR="<human name>"`, with `RB_CODEX_ACTOR` as a legacy alias, for operator-specific approval, authorship, source-access attribution, Notion assignment, Slack/WhatsApp routing attribution, or closeout context. Valid actor names live in `internal/people-roles.md`. A shared mailbox such as `accounting@richmondblackwood.com` and a Google auth persona are not actors.
 - Common tasks follow-through rule: use `skills/rb-common-tasks-follow-through/SKILL.md` for Gmail/WhatsApp-triggered task follow-through. Inventory open task-capable rows across RB Client Databases first, then discover/read communications, ledger them in canonical Communications, route finance and operational items to the owning task-capable data source, close or advance open work, handle reply plans, and prepare Slack closeout only after task closeout. Stage 1 starts by running `git pull origin main` from the active repo/worktree. Stages 1, 2, 10, and 11 are standing auto-approved within normal scope; after the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved. Ioana-authored or Ioana-approved Slack templates are final; for client follow-through, use the latest available Ioana `#rb-client-updates` template exactly, currently `New Correspondence`, `Received invoices`, and `Updated tasks`, and stop if the template or required links/mentions cannot be resolved.
 - Common tasks WhatsApp coverage: Stage 3 must use the roster in `skills/rb-common-tasks-follow-through/references/whatsapp-source-roster.md`. The next run must include unresolved/missed Monochromatic, Aaron Chamberlain, PCL/Ricardo, CLV/Celine, and AKS/Ana routes, and must not advance checkpoints for them until they are discovered, read, and backed by approved persistent checkpoint storage.

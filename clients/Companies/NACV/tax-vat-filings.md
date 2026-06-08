@@ -80,3 +80,42 @@ NACV was asked to file German VAT monthly last year because of lack of responses
 Open Notion task:
 
 - `NACV - Request lower German VAT filing cadence`: `https://www.notion.so/35fe413013148134a46ae7e1bab9b897`
+
+## Annual German VAT Filing Setup
+
+Status: provisional.
+Source: live Notion annual VAT setup run on 2026-06-06; consolidated task `File annual VAT for affected RB clients`.
+Imported: 2026-06-06.
+Review: Keep the annual VAT placeholders pending until submission proof and payment/refund handling are verified.
+
+Annual German VAT tracking now has its own yearly VAT Filing Registration row:
+
+- Annual VAT registration: `https://www.notion.so/377e41301314819998b7d3cbcf661186`
+- 2024 annual VAT placeholder filing: `https://www.notion.so/377e41301314815483fcefcc3866ce35`; due 2026-04-30.
+- 2025 annual VAT placeholder filing: `https://www.notion.so/377e41301314818c9688e0d22059c0a9`; due 2027-03-01.
+
+## Annual German E-Balance Sheet / eBilanz Filing Setup
+
+Status: provisional.
+Source: live Notion eBilanz setup run on 2026-06-08; consolidated task `Transmit eBilanz for affected RB clients`.
+Imported: 2026-06-08.
+Review: Attach eBilanz transmission proof/protocol or blocker to each filing row when processed. Confirm whether Notion should add a dedicated eBilanz registration `Type`; current schema uses `Annual Tax Filing`.
+
+Annual German eBilanz tracking now has its own yearly Filing Registration row:
+
+- eBilanz registration: `https://www.notion.so/379e41301314816596f7f9face52a010`
+- 2024 eBilanz placeholder filing: `https://www.notion.so/379e4130131481eba5d3e73ba239dce7`; period 2024-01-01 to 2024-12-31; due 2026-04-30; status Overdue.
+- 2025 eBilanz placeholder filing: `https://www.notion.so/379e4130131481499e19d52ac8cbfa16`; period 2025-01-01 to 2025-12-31; due 2027-03-01; status Pending.
+
+NACV was registered before 2024, so the first eBilanz filing period uses the full 2024 calendar year.
+
+## Payroll And ZM/VIES Audit Pass 2026-06-06
+
+Status: provisional.
+Source: live Notion company/business-partner review and repo memory on 2026-06-06.
+Imported: 2026-06-06.
+Review: Recheck invoice-level customer VAT data if NACV has VAT-numbered EU business customers for any filing period.
+
+Payroll Tax: no payroll-tax filing rows were created in this pass because the records reviewed did not support an active German payroll-tax obligation for NACV.
+
+ZM/VIES: no German ZM/VIES rows were created. The Monochromatic business-partner evidence reviewed in this pass points to Ireland but was not marked VAT registered and had no VAT number in the fetched record, so it does not support a German ZM row.

@@ -2,6 +2,24 @@
 
 Status: active.
 
+## 2026-06-08 - German eBilanz Follow-Up For 2025 Companies
+
+- User request: Check other companies such as AKS, TPL, VUN, and SLV/SVL after the first eBilanz setup only covered the initial checklist companies.
+- Context read: Live Notion Companies records for AKS, TPL, VUN, SVL, and AMC; Filing Registrations searches for existing eBilanz rows; local German filing process/client records.
+- Actions taken: Created live Notion eBilanz Filing Registrations and 2025 Filings rows for AKS, TPL, VUN, and AMC. Added the result to the consolidated eBilanz task and repo client/process/source records.
+- Decisions made: Do not create 2024 rows for AKS, TPL, VUN, or AMC because each company was incorporated in 2025. Do not create 2024/2025 rows for SVL because SOLINOVA LIMITED was registered on 2026-01-27.
+- Verification: Notion read-backs confirmed company relations, eBilanz registration relations, Filing Task relation, `date:Filing Period:start`, `date:Filing Period:end`, and due date on all four new 2025 filing rows.
+- Limitations or gaps: Attach eBilanz proof/protocol or blocker when processing the actual filings. SVL first eBilanz setup belongs to a later 2026 filing cycle once in scope.
+
+## 2026-06-08 - German Filing Period Backfill
+
+- User request: Ensure the Notion entries created for German annual VAT, payroll-tax, and CM/ZM filing setup include the `Filing Period` field.
+- Context read: Live Notion Filings schema, the annual VAT/payroll/ZM rows created or relinked in the 2026-06-06 setup, incorporation-date correction notes, and representative Notion read-backs.
+- Actions taken: Updated the `Filing Period` property on the current company annual VAT rows, WEW/VUN payroll-tax rows, and VUN/CBMAX ZM/VIES rows. Added a correction comment to the consolidated Notion task and tightened repo process closeout checks.
+- Decisions made: Use the relevant filing periods already established in the audit; first-year company annual periods start on incorporation / `Registered on` date.
+- Verification: Notion read-backs confirmed AGL 2025 annual VAT, PCL 2024 first-year annual VAT, WEW 2025 payroll tax, CBMAX Q3 2024 ZM/VIES, and VUN 2025 annual VAT now expose `date:Filing Period:start` and `date:Filing Period:end`.
+- Limitations or gaps: Filing values, submission proof, and payment/refund handling remain separate evidence steps before marking placeholder rows filed or complete.
+
 ## 2026-06-07 - MONO Company Context Import
 
 - User request: Populate Monochromatic/MONO company memory and treat it as part of the group because it is partly owned by EIP Ventures.
@@ -19,6 +37,33 @@ Status: active.
 - Decisions made: Treat EIP as internal with Slack routing and no WhatsApp JID; treat 2023 as Ireland for the tax year with German trading under 180 days; treat VAT/PAYE payments as unknown with direct-debit assumption pending evidence; keep BOI data under organize/missing-data review before external submission.
 - Verification: Notion read-backs confirmed the live updates/task; Drive list-folder confirmed EIP-specific contents in the folder candidate. Repo verification is tracked in PR closeout.
 - Limitations or gaps: Confirm annual-return filing-row status, VAT/PAYE direct-debit evidence, RTD/VIES backlog, BOI missing support, project/company relation mismatch, and whether the Drive candidate is approved for writes.
+
+## 2026-06-06 - German Filing Incorporation-Date Correction
+
+- User request: Future filing setup should add only company-relevant rows and check the company's incorporation date first; a company incorporated in 2025 should not receive 2023 or 2024 company filing rows.
+- Context read: Live Notion company records and repo client files for VUN, WEW, PCL, CBMAX, AMC, AGL, NACV, and CLV; live Notion annual VAT and ZM/VIES rows.
+- Actions taken: Corrected VUN live Notion annual VAT/ZM records to start in 2025 only, created VUN 2025 annual VAT row, detached VUN 2023/2024 VAT and ZM rows as Nathan/pre-incorporation review artifacts, corrected first-year annual VAT period starts for CBMAX, WEW, PCL, and AMC, and added incorporation-date gate rules to the German filing processes.
+- Decisions made: Filing rows must be screened against `Registered on` / incorporation date before creation or relinking. First-year company periods start on incorporation date unless an authority source requires otherwise. Pre-incorporation rows should be preserved as review artifacts but not linked to the company registration.
+- Verification: Notion read-back confirmed VUN annual VAT now links only the 2025 row and VUN ZM/VIES now links only Q4 2025; repo verification is tracked in PR closeout.
+- Limitations or gaps: 2023/2024 VUN VAT/ZM rows may still matter to Nathan or a predecessor business and need separate filer review before deletion or personal routing.
+
+## 2026-06-06 - German Filing Deadlines, Payroll, And ZM/VIES Rows
+
+- User request: Add due dates to the annual VAT registrations/filings, check business activity and client locations, identify missing payroll-tax equivalents, and create needed CM/ZM filing rows with deadlines.
+- Context read: Live Notion annual VAT, payroll-tax, ZM/VIES, Companies, Employment, Contracts, and Business Partner records; repo client folders and process memory; official German deadline sources.
+- Actions taken: Updated annual VAT registration/filing due dates in Notion, created WEW 2025 payroll-tax and VUN monthly payroll-tax Filings rows, created VUN ZM/VIES rows and CBMAX pending ZM/VIES review rows, and added the result to the consolidated Notion task. Updated repo process/client/source memory and created the PCL folder after confirming the Notion `Reference`.
+- Decisions made: Treat "CM" as German ZM/VIES in this filing-audit context; create ZM rows only where supported by EU VAT-numbered B2B or reverse-charge evidence; do not duplicate payroll rows where equivalent linked Filings rows already exist.
+- Verification: Notion read-backs confirmed representative relation/date writes; repo closeout verification is tracked in the PR closeout.
+- Limitations or gaps: Complete Notion inventory remains targeted/search-backed because the complete data-source query route was unavailable and no local Notion REST token was present. Later same-day correction added incorporation-date screening; filing values, submissions, and payment/refund handling still need evidence before completion.
+
+## 2026-06-06 - German Annual VAT Filing Registration Layer
+
+- User request: Create Notion annual VAT registration/filing structure for German-tax-resident clients so annual VAT returns can be attached like quarterly VAT returns, and store the pattern in the repo for future use.
+- Context read: Live Notion schemas for Filing Registrations, Filings, Companies, and the consolidated task `File annual VAT for affected RB clients`; existing manual annual VAT filing rows; repo process/memory standards.
+- Actions taken: Created yearly German VAT Filing Registration rows, linked existing manual annual VAT filing rows to the annual registrations, created pending placeholder annual VAT filings where missing, and added a Notion task comment summarizing created/updated rows and blockers. Added the reusable process `processes/de-annual-vat-filing-setup.md` and updated repo memory/source logs.
+- Decisions made: Annual German VAT returns should use a separate `VAT` / `DE` / `Yearly` Filing Registration, not the periodic VAT registration or corporation-tax registration. Existing manual rows should be preserved and relinked rather than recreated when they already hold submission/payment context.
+- Verification: Notion read-backs confirmed annual registration relations for representative AGL, NACV, CLV, PCL, and CBMAX rows; final repo verification is tracked in the PR closeout.
+- Limitations or gaps: Notion SQL data-source query and local REST pagination were unavailable in this session, so the live inventory is targeted/search-backed rather than exhaustive. Later 2026-06-06 follow-up added due dates; placeholder annual filings still need submission/payment evidence and filed-status review.
 
 ## 2026-06-05 - RBL Review Corrections And Drive Search
 
@@ -973,3 +1018,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Internal Notion, Communications, repo, and audit logs can still keep exact software/source names when needed for source context and safe storage.
 - Verification: `git diff --check` passed.
 - Limitations or gaps: The Ricardo WhatsApp message was not sent; the user said WhatsApp is unavailable and they will send it manually.
+
+## 2026-06-08 - German eBilanz Filing Registration Setup
+
+- User request: Create missing e-balance sheet / eBilanz Filing Registrations and linked Filings for affected clients, starting from relevant years beginning 2024, respecting incorporation dates and ensuring `Filing Period` is populated.
+- Context read: Notion Filing Registrations and Filings schemas, NACV/CLV/AGL/CBMAX/WEW/PCL company records, existing annual VAT and German tax-return rows, consolidated eBilanz task `https://www.notion.so/36ee413013148170b032fe9f451df367`, client-specific eBilanz task context, and BMF AO/AEAO deadline sources.
+- Actions taken: Created or clarified eBilanz Filing Registrations and created 2024/2025 Filings rows for NACV, CLV, AGL, CBMAX, WEW, and PCL. The 2024 first-year periods are NACV and CLV full 2024, CBMAX 2024-01-04 to 2024-12-31, AGL 2024-01-10 to 2024-12-31, PCL 2024-05-09 to 2024-12-31, and WEW 2024-05-13 to 2024-12-31. The 2025 periods are full calendar year. Added `processes/de-ebalance-sheet-filing-setup.md`, backed it up to Internal Knowledge Base page `https://www.notion.so/379e4130131481a386c3c335252d6384`, and updated company records/source registers.
+- Decisions made: Use `Type = Annual Tax Filing` for eBilanz registrations because the live Notion schema has no dedicated eBilanz option. Titles and comments explicitly identify the obligation as e-balance sheet / eBilanz.
+- Verification: Notion read-backs confirmed each created Filings row has `Filing Period`, due date, company relation, registration relation, and filing-task relation populated; registration read-backs confirmed linked filings for all six companies.
+- Limitations or gaps: eBilanz proof/protocols or blockers still need to be attached when the filings are actually processed. Schema review is needed if RB wants a dedicated eBilanz type.

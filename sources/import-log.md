@@ -2,6 +2,43 @@
 
 Status: active.
 
+## 2026-06-08 - German eBilanz Follow-Up For 2025 Companies
+
+Applied:
+
+- Created eBilanz Filing Registrations and 2025 Filings rows in live Notion for AKS, TPL, VUN, and AMC after user flagged that other German-tax-resident companies were missing.
+- Used incorporation-date starts for first-year filing periods: AKS 2025-01-15, AMC 2025-02-11, VUN 2025-03-21, and TPL 2025-04-16.
+- Checked SVL/SOLINOVA LIMITED and did not create 2024/2025 rows because the company was registered on 2026-01-27.
+- Added a follow-up section to consolidated task `Transmit eBilanz for affected RB clients`: `https://www.notion.so/36ee413013148170b032fe9f451df367`.
+- Updated `processes/de-ebalance-sheet-filing-setup.md` and the affected client filing/source records.
+
+Verification:
+
+- Notion read-backs confirmed `Company`, `Filing Registration`, `Filing Task`, `Filing Period`, due date, and status for AKS, TPL, VUN, and AMC 2025 eBilanz filing rows.
+
+Follow-up:
+
+- Attach proof/protocol or blocker when each eBilanz is processed.
+- Create SVL's first eBilanz row only when the 2026 annual filing cycle is in scope and the tax-registration blocker has been resolved.
+
+## 2026-06-08 - German Filing Period Backfill
+
+Applied:
+
+- Filled the Notion Filings `Filing Period` property on the current annual VAT, payroll-tax, and ZM/VIES rows created or relinked during the German filing setup.
+- Used the already established company-relevant filing periods, including incorporation-date starts for first-year rows: CBMAX 2024-01-04, PCL 2024-05-09, WEW 2024-05-13, AMC 2025-02-11, and VUN 2025-03-21.
+- Added a correction comment to consolidated task `File annual VAT for affected RB clients`: `https://www.notion.so/373e4130131481e495f1e2d22008e4ed`.
+- Updated the German annual VAT and payroll/ZM process docs so closeout must read back `Filing Period` on every created or relinked Filings row.
+
+Verification:
+
+- Notion read-backs confirmed `Filing Period` on representative rows: AGL 2025 annual VAT, PCL 2024 annual VAT, WEW 2025 payroll tax, CBMAX Q3 2024 ZM/VIES, and VUN 2025 annual VAT.
+
+Follow-up:
+
+- Continue treating filing values, submission proof, and payment/refund handling as separate evidence checks before marking placeholder rows filed or complete.
+- Treat detached 2023/2024 VUN VAT/ZM rows as Nathan/pre-incorporation review artifacts unless a filer confirms a separate route.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:
@@ -42,6 +79,78 @@ Follow-up:
 - Review RTD/VIES filing backlog before status updates.
 - Organize BOI debt data and identify missing support before external bank submission.
 - Confirm whether `04. EIP Ventures Limited` is the approved canonical upload destination before Drive writes.
+
+## 2026-06-06 - German Filing Incorporation-Date Correction
+
+Applied:
+
+- Added the user correction that company filing rows must be screened against the company incorporation / `Registered on` date before creation or relinking.
+- Corrected VUN live Notion records because VANDY UN LIMITED was registered on 2025-03-21:
+  - Created a VUN 2025 annual VAT row for 2025-03-21 to 2025-12-31.
+  - Updated the VUN annual VAT registration to start with 2025 only.
+  - Detached the 2023 and 2024 VAT rows from the VUN company and annual VAT registration, preserving them as Nathan/pre-incorporation review rows.
+  - Updated VUN ZM/VIES to keep only Q4 2025 linked to VUN and detached the 2023/2024 ZM rows as Nathan/pre-incorporation review rows.
+- Corrected first-year annual VAT periods in live Notion for companies incorporated during the first filing year:
+  - CBMAX 2024 annual periods now start 2024-01-04.
+  - WEW 2024 annual period now starts 2024-05-13.
+  - PCL 2024 annual period now starts 2024-05-09.
+  - AMC 2025 annual period now starts 2025-02-11.
+- Added incorporation-date gate rules to the German annual VAT and German payroll/ZM setup processes.
+- Added a correction note to the consolidated Notion task `File annual VAT for affected RB clients`.
+
+Verification:
+
+- Notion read-back confirmed VUN annual VAT registration now links only the 2025 annual row and VUN ZM/VIES now links only Q4 2025.
+- Notion read-back confirmed the detached 2023 VAT row no longer has VUN company or annual VAT registration relation.
+
+Follow-up:
+
+- Treat 2023/2024 VUN VAT/ZM rows only as Nathan/pre-incorporation review artifacts unless a filer confirms a predecessor-business route.
+- For future filing setup, block row creation when incorporation date is unavailable or contradicts the requested period.
+
+## 2026-06-06 - German Filing Deadlines, Payroll, And ZM/VIES Audit
+
+Applied:
+
+- Added due dates to the annual German VAT Filing Registrations and annual VAT Filings created or relinked in the earlier 2026-06-06 Notion run. Later same-day correction screened rows against incorporation dates.
+- Added the German deadline rule to the reusable annual VAT process: 2023 due 2025-06-02, 2024 due 2026-04-30, and 2025 due 2027-03-01 unless a live notice gives a more specific date.
+- Checked payroll-tax registrations against equivalent Filings rows. Existing equivalent payroll rows were found for AGL, AMC, CLV, and PCL. WEW received a dedicated 2025 payroll-tax Filing row, and VUN received monthly payroll-tax rows for July 2025 through March 2026.
+- Interpreted the user's "CM" filing request as German ZM/VIES for this audit. Created German ZM/VIES rows for VUN and pending review rows for CBMAX. No ZM rows were created for AGL, NACV, WEW, PCL, AMC, or CLV from the current evidence.
+- Confirmed PCL's Notion Companies `Reference` as `PCL` and created a minimal local PCL company folder with filing pointers.
+- Updated the consolidated Notion task `File annual VAT for affected RB clients` with the deadline/payroll/ZM results.
+
+Verification:
+
+- Live Notion read-backs confirmed representative annual VAT, WEW/VUN payroll-tax, and VUN/CBMAX ZM/VIES relation/date writes.
+- Official deadline sources were checked for annual tax-advised return dates, payroll-tax filing deadlines, and ZM/VIES filing deadlines.
+
+Follow-up:
+
+- Confirm filing values, submission proof, and payment/refund handling before marking placeholder rows filed or complete.
+- Recheck ZM/VIES if invoice-level evidence later shows VAT-numbered EU B2B customers for companies where no row was created.
+- Re-run an authoritative Notion inventory when data-source export/query or REST pagination is available; this run used targeted search/fetch/read-back.
+
+## 2026-06-06 - German Annual VAT Filing Setup
+
+Applied:
+
+- Created a reusable repo process for German annual VAT tracking: annual VAT returns get their own `VAT` / `DE` / `Yearly` Filing Registration and annual Filings rows link to that registration.
+- In live Notion, created yearly annual VAT Filing Registration rows for the checklist companies where supported by the consolidated task, and for existing manual annual VAT rows discovered during targeted search.
+- Relinked existing manual annual VAT Filing rows away from periodic VAT or corporation-tax registrations where applicable, preserving existing submissions, filed dates, payment values, and comments.
+- Created pending annual VAT placeholder Filing rows for missing annual periods on the consolidated task checklist where the company/period context was clear.
+- Added a page comment to the consolidated task `File annual VAT for affected RB clients` summarizing created registrations, linked filings, placeholder filings, and unresolved blockers.
+
+Verification:
+
+- Notion read-backs confirmed representative annual Filing Registration relations and filing relations after the writes.
+- The connector exposed the direct `Filing Registration` relation on read-back even where some rollup fields remained omitted immediately after update.
+
+Follow-up:
+
+- Later 2026-06-06 follow-up added due dates. Still confirm payment/refund handling and final filing status for the placeholder annual VAT rows.
+- Resolve CBMAX Hamburg tax-number ownership/status before treating the Hamburg nil annual VAT registration as confirmed.
+- PCL's Notion Companies `Reference` was later confirmed as `PCL`; a local PCL client folder was created during the 2026-06-06 deadline/payroll/ZM pass.
+- Re-run an authoritative Notion inventory when data-source SQL/query or REST pagination is available; this run used targeted search/fetch because those complete-inventory routes were unavailable.
 
 ## 2026-06-05 - RBL Review Corrections
 
@@ -2007,3 +2116,25 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-08 - German eBilanz Filing Registration Setup
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-08 to create missing e-balance sheet / eBilanz Filing Registrations and Filings for affected clients, starting from relevant years beginning 2024, respecting incorporation dates and not missing `Filing Period`.
+- Live Notion company records for NACV, CLV, AGL, CBMAX, WEW, and PCL, including registration/incorporation dates.
+- Live Notion Filing Registrations and Filings schemas and read-backs.
+- Consolidated eBilanz task `https://www.notion.so/36ee413013148170b032fe9f451df367` and client-specific eBilanz context tasks/filings.
+
+Actions:
+
+- Created or clarified eBilanz Filing Registrations for NACV, CLV, AGL, CBMAX, WEW, and PCL using `Type = Annual Tax Filing` because the live schema has no dedicated eBilanz type.
+- Created 2024 and 2025 eBilanz Filings rows for each affected company with `Filing Period`, `Due Date`, status, company relation, filing-registration relation, and consolidated eBilanz task relation populated.
+- Applied the incorporation-date gate: NACV and CLV 2024 start 2024-01-01; CBMAX starts 2024-01-04; AGL starts 2024-01-10; PCL starts 2024-05-09; WEW starts 2024-05-13.
+- Added the reusable German eBilanz filing setup process and updated NACV, CLV, AGL, CBMAX, WEW, and PCL company source/filing records.
+- Backed up the reusable process to Internal Knowledge Base page `https://www.notion.so/379e4130131481a386c3c335252d6384`.
+
+Unresolved:
+
+- eBilanz transmission proof/protocols or blockers still need to be attached to the created filing rows when processed.
+- Consider adding a dedicated eBilanz `Type` option to the Filing Registrations schema instead of using `Annual Tax Filing`.

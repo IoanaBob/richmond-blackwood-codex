@@ -18,3 +18,4 @@ Review: Resolve WhatsApp JID and confirm Drive canonical status.
 | 2026-05-19 | Gmail search | ELSTER activation/failure signals, Wamo payment notices, Stripe RB subscription receipts, and AKS 2025 bank-statement send. Raw ELSTER secrets and attachment identifiers not copied. |
 | 2026-05-19 | WhatsApp search | Chat name `Kova, Ana | Richmond Blackwood` and recent bookkeeping/payment messages. JID unresolved because `list_chats` failed with `Unexpected response type`. |
 | 2026-05-19 | Slack search | Q4 2025 VAT backlog concern for AKS/AMC/NACV/PCL and Lorento follow-up saying AKS/AMC still needed confirmation. |
+| 2026-06-08 | Codex eBilanz setup run | Created AKS eBilanz Filing Registration `https://www.notion.so/379e413013148178b260d8fd9995928b` and 2025 filing row `https://www.notion.so/379e4130131481188b9adf3e381a185b`; no 2024 row because AKS was registered on 2025-01-15. |
