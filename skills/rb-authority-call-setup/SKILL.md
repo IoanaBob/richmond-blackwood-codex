@@ -150,7 +150,9 @@ Keep a clear boundary: creating a contact is usually low risk; creating or mater
 
 Before creating a new call, query or search the Calls data source for open calls with the same Company, Individual, Contact, or similar `Short reason`. If a likely duplicate exists, show it in the review packet and ask whether to update that record or create a new one.
 
-Never place a live phone call from this skill. This skill creates the request record only. Calling is controlled later by the n8n and ElevenLabs workflows.
+Never place a live phone call from this skill. This skill creates or updates the request record only. Calling is controlled later by the Notion Calls board plus the n8n and ElevenLabs workflows.
+
+Do not use local OS phone handlers, `open tel:`, FaceTime, browser click-to-call, personal mobile handoff, or any equivalent local/manual dial path for RB authority calls. If the user asks to initiate an RB authority call, queue or reset the relevant Notion Calls row so it is live-callable through the Calls board. If n8n/ElevenLabs direct execution is unavailable, leave the Calls row eligible for the active scheduler and report that limitation instead of dialing locally.
 
 Do not store API keys, webhook secrets, recordings, full transcripts, or private credential material in the repo or in the call record.
 
