@@ -3,7 +3,7 @@
 Status: provisional.
 Source: EVG Notion company record, active contract `https://www.notion.so/309e41301314802584dddfb3f54f61c7`, SignNow task records, and EVG process pages fetched on 2026-06-08.
 Imported: 2026-06-08.
-Review: Confirm current EVG approved-signatory authority, clean up duplicate/superseded signature tasks, and reconcile the May loan invoice company relation.
+Review: Confirm current EVG approved-signatory authority and clean up duplicate/superseded signature tasks if needed. May loan invoice company relation was corrected in live Notion on 2026-06-09.
 
 ## Authority And Governance
 
@@ -32,5 +32,5 @@ EVG process documents distinguish director/signatory roles:
 
 ## Contract Data QA
 
-- The May 2026 loan invoice `https://app.notion.com/p/360e4130131481c78f6ceb1d23056c7a` is linked to the EVG contract but its `Company` relation points to KONVI in the fetched Notion row. Treat as a data-quality issue until reconciled.
+- The May 2026 loan invoice `https://app.notion.com/p/360e4130131481c78f6ceb1d23056c7a` is linked to the EVG contract and its `Company` relation was corrected from KONVI to EVG in live Notion on 2026-06-09.
 - EVG process docs require contract data QA before client contracts: legal entity, jurisdiction, company/register number, registered office, authorized signatory, signing authority, and no stale placeholders.

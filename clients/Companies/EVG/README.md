@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion company record `https://www.notion.so/15fe4130131480079a95fd029aef3511`, linked Notion project/contract/filing/task/process records, Drive search/list-folder, EIP repo memory, and user instruction on 2026-06-08.
 Imported: 2026-06-08.
-Review: Reconcile stale Notion statuses, name-change/account-route cleanup, project relation mismatch, and the legal business-purpose mismatch.
+Review: CT/Annual Tax registration status, bank account-name change readback, M&A Arts review completion, offering research, and Phillips payment verification remain open.
 
 Notion backup: `notion-backup.md`.
 Drive evidence: `drive-locations.md`.
@@ -38,10 +38,10 @@ Keep EIP holding-company context in `../EIP/`. Store EVG operating, tax, filings
 ## Operating Summary
 
 - EVG is an Irish group company, formerly Everguard Properties Limited, now named Everguard Research Limited.
-- The Companies row still has a real-estate/property business purpose, while linked operational records describe Everguard Research as running physical-asset research, auction representation/liquidity-support work, and a fixed-income bond product. This mismatch needs review before relying on the Companies row for external descriptions.
+- User confirmed on 2026-06-09 that EVG keeps the real-estate/property purpose while also operating Everguard Research activities. The live Companies `Business Purpose in Detail` field was updated to include both retained real-estate scope and current asset research, bond, auction representation, and liquidity-support operations.
 - Active financial-instrument context includes a Fixed Income Bond - 3 Month Buyback product and active subscriber/cashflow rows, including Techpacito's EUR 30,000 subscription marked settled from user confirmation effective 2026-05-31.
 - Current physical-asset operating context includes art/auction onboarding, Phillips/TGB/Konvi/Banksy flow examples, M&A Arts sell-side prospect work, and physical-asset research rows such as the Ford Escort RS Cosworth valuation.
-- Current company-administration work includes name-change filings, bank/account-name change handling, director-change filings, and stale registration/status cleanup.
+- Current company-administration work includes name-change filings, bank/account-name change handling, director-change filings, and targeted registration/status cleanup. The BOI account-name change package was submitted but the bank profile has not yet changed.
 
 ## Boundaries
 

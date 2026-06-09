@@ -19,7 +19,12 @@ Actions:
 
 Unresolved:
 
-- Reconcile EVG business-purpose/name/email mismatch, project/company relation mismatch, stale tax registration statuses, VIES typo, May EVG loan invoice company relation pointing to KONVI, BOI name-change verification, Drive duplicate cleanup, M&A Arts unreviewed submissions, Techpacito register/coupon/referral schedule review, Everguard offering research, and Phillips payable/payment verification.
+- 2026-06-09 user review/live cleanup resolved business-purpose nuance, accounting-email retention, project relation intent, Annual Returns registration, VIES typo/status, RTD status, May EVG loan invoice company relation, canonical Drive folder, and Techpacito downstream review.
+- Still open: CT/Annual Tax status, BOI name-change readback, M&A Arts analysis owned by Eran, Everguard offering research, and Phillips payable/payment verification owned by Eran.
+
+Follow-up:
+
+- Live Notion updates/read-backs on 2026-06-09 changed EVG `Business Purpose in Detail`, Annual Returns registration, VIES title/status, RTD status, and the May EVG/Luiza invoice `Company` relation.
 
 ## 2026-06-07 - MONO Company Context Import
 

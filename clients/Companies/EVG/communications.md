@@ -3,13 +3,13 @@
 Status: provisional.
 Source: EVG company record, RB Communications records, Everguard operational Communications records, tasks, and EVG process pages fetched on 2026-06-08.
 Imported: 2026-06-08.
-Review: Confirm the live communication preference for EVG company-side RB operations and whether `contact+everguardproperties@eip.ventures` should be replaced in the Companies row.
+Review: Confirm live communication preference if EVG later gets an external/client chat route. The Companies-row accounting email should stay as-is per user review on 2026-06-09.
 
 ## Communication Routes
 
 | Route | Status | Source | Notes |
 | --- | --- | --- | --- |
-| EVG company email in Notion | `contact+everguardproperties@eip.ventures` | Company record `https://www.notion.so/15fe4130131480079a95fd029aef3511` | Likely stale after name change from Everguard Properties to Everguard Research. |
+| EVG company email in Notion | `contact+everguardproperties@eip.ventures` | Company record `https://www.notion.so/15fe4130131480079a95fd029aef3511`; user review 2026-06-09 | Keep for accounting purposes. |
 | Everguard client-facing desk email | `desk@everguardresearch.com` | EVG process page `https://app.notion.com/p/355e41301314819390fee994637bf63b` | Process docs say EVG client-facing email should come from Ioana Surdu-Bob using this desk address unless a business-specific rule says otherwise. |
 | Internal coordination | Slack / Gmail / Notion tasks | Multiple fetched tasks and communications | No WhatsApp route was used or stored in this EVG import. |
 

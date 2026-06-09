@@ -3,7 +3,7 @@
 Status: provisional.
 Source: EVG product/subscription/cashflow records, process pages, research rows, client rows, and task records fetched on 2026-06-08.
 Imported: 2026-06-08.
-Review: Confirm product/regulatory treatment, active client pipeline statuses, and pending analysis before external responses or stage movement.
+Review: Confirm product/regulatory treatment, active client pipeline statuses, and pending analysis before external responses or stage movement. Techpacito downstream schedule review was confirmed complete by user on 2026-06-09.
 
 ## Financial Instruments
 
@@ -11,7 +11,7 @@ Review: Confirm product/regulatory treatment, active client pipeline statuses, a
 | --- | --- | --- | --- |
 | Fixed Income Bond - 3 Month Buyback | Active | `https://app.notion.com/p/355e4130131481bcb269df94405a2eb5` | Fetched product terms: fixed-income bond, 3-month buyback, 8% p.a. coupon paid monthly, EUR/USD currencies, active liquidity-provisioning income source. |
 | Research the Everguard Offering | To Do | `https://app.notion.com/p/34be41301314803b968af3cfa927f542` | Needs deeper legal/finance research on offering exemptions, reverse solicitation, prospectus thresholds, qualified investors, fewer-than-150-person exemptions, minimum denominations, and distribution authorization constraints. Do not treat as final advice. |
-| Techpacito bond subscription | Active | `https://app.notion.com/p/357e4130131481588cfbf94786e3c497` | Settlement complete from user confirmation; register/coupon/referral schedule review remains. Bank details and signing IDs excluded. |
+| Techpacito bond subscription | Active | `https://app.notion.com/p/357e4130131481588cfbf94786e3c497` | Settlement complete from user confirmation; user confirmed on 2026-06-09 that register/coupon/referral schedule review is complete. Bank details and signing IDs excluded. |
 
 ## Physical Auction / Research Operations
 
@@ -33,8 +33,8 @@ Representative operating row:
 
 | Issue | Status | Source | Notes |
 | --- | --- | --- | --- |
-| M&A Arts submissions | Prospect / not reviewed yet | `https://app.notion.com/p/36be41301314813cb2b4fb601a77fab1` | 2026-06-08 note says Everguard has not reviewed the updated submissions yet; do not tell M&A Arts they were reviewed until deeper analysis is complete. |
-| Phillips invoice/payment and asset/payable booking | To Do | `https://app.notion.com/p/36ce413013148166a211c2af21542d29` | Verify payment status before payable/asset booking. |
+| M&A Arts submissions | Prospect / not reviewed yet | `https://app.notion.com/p/36be41301314813cb2b4fb601a77fab1` | 2026-06-08 note says Everguard has not reviewed the updated submissions yet; Eran owns the next review. Do not tell M&A Arts they were reviewed until deeper analysis is complete. |
+| Phillips invoice/payment and asset/payable booking | To Do | `https://app.notion.com/p/36ce413013148166a211c2af21542d29` | Assigned to Eran Peer in Notion. Verify payment status before payable/asset booking. |
 | London Phillips booking evidence/access closeout | In Progress | `https://app.notion.com/p/371e4130131481339d12deb5c98ab855` | Travel/auction visit support task; keep booking references, personal contacts, and payment evidence out of git. |
 
 ## External Sharing Boundary

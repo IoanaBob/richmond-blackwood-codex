@@ -3,15 +3,15 @@
 Status: provisional.
 Source: Google Drive search/list-folder and Notion file pointers on 2026-06-08.
 Imported: 2026-06-08.
-Review: Confirm canonical Drive folder and decide whether duplicate Everguard folders should be linked, moved, or left as source-specific folders.
+Review: User confirmed on 2026-06-09 that the internal `08. Everguard Research` folder is canonical. Duplicate Everguard folders should still be reviewed before moving or deleting anything.
 
-## Likely Canonical Folder
+## Canonical Folder
 
 | Folder | URL | Parent | Status | Notes |
 | --- | --- | --- | --- | --- |
-| 08. Everguard Research | `https://drive.google.com/drive/folders/1DTsSxkmjpdA-ZykGCr88nX8iHp82W2hj` | `01. Internal Companies` / `https://drive.google.com/drive/folders/1Qwjwz9ZdRGm9z-gRHTkCgldhwXUBMI55` | Likely canonical | Folder is under the internal-companies tree and contains EVG loan-agreement Google Docs. |
+| 08. Everguard Research | `https://drive.google.com/drive/folders/1DTsSxkmjpdA-ZykGCr88nX8iHp82W2hj` | `01. Internal Companies` / `https://drive.google.com/drive/folders/1Qwjwz9ZdRGm9z-gRHTkCgldhwXUBMI55` | Canonical | User confirmed on 2026-06-09. Folder exists under the internal-companies tree and contains EVG loan-agreement Google Docs. |
 
-Listed files in the likely canonical folder:
+Listed files in the canonical folder:
 
 | File | URL | Notes |
 | --- | --- | --- |

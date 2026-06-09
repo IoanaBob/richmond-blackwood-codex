@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-06-03.
+Updated: 2026-06-09.
 
 ## Notion Backup Questions
 
@@ -165,18 +165,11 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## EVG / Everguard Questions
 
-- Confirm whether EVG's Companies `Business Purpose in Detail` should be changed from property/rental activity to Everguard Research's current bond, physical-asset research, auction representation, and liquidity-support operations.
-- Confirm whether EVG's company email should remain `contact+everguardproperties@eip.ventures` or be updated to a research/desk route.
-- Reconcile EVG primary project `Companies` relation, which points to a Project Management Richmond Blackwood page instead of the Client Databases EVG company record.
-- Reconcile EVG filing-registration statuses: CT, Annual Tax, RTD, VIES, and Annual Returns are marked overdue/pending, while some linked filing rows are filed or future-dated.
-- Correct EVG VIES title typo `Pending - VEIS` if still present.
-- Reconcile the May 2026 EVG/Luiza loan invoice where the fetched `Company` relation points to KONVI despite the EVG contract link.
-- Confirm whether the BOI name-change package fully updated the bank account and Business On Line profile, or only sent the request.
-- Confirm canonical EVG Drive folder and cleanup/role of duplicate Everguard folders; strongest candidate is `08. Everguard Research` under internal companies.
-- Complete deeper M&A Arts submission analysis before any external statement that Everguard reviewed the candidates.
-- Complete Techpacito EVG subscription downstream register/coupon/referral schedule review after settlement was marked complete.
+- Confirm EVG CT and Annual Tax Filing registration/status before changing their overdue/pending states. User said on 2026-06-09 that CT is not sure.
+- Confirm whether the BOI name-change package fully updated the bank account and Business On Line profile. User said on 2026-06-09 that it was submitted but the bank profile has not yet changed.
+- Complete deeper M&A Arts submission analysis before any external statement that Everguard reviewed the candidates. Eran owns the next review.
 - Complete Everguard offering research and confirm regulatory/distribution constraints before treating the bond exemption analysis as final.
-- Verify Phillips invoice payment status before booking payable/asset records.
+- Verify Phillips invoice payment status before booking payable/asset records. The task is assigned to Eran Peer and user said Eran owns it.
 
 ## KONVI Questions
 

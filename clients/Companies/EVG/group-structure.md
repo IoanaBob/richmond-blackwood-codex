@@ -18,7 +18,7 @@ EIP group context: `../EIP/subsidiaries-and-group-structure.md`.
 | EIP VENTURES LIMITED | EIP | Shareholder company / group holding context | `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d` | EIP is the venture-builder holding company per user instruction. |
 | TECHPACITO LIMITED | TPL | Bond subscriber / investor context | `https://www.notion.so/1afe41301314801ba185cabd85971769`; bond subscription `https://app.notion.com/p/357e4130131481588cfbf94786e3c497` | Keep EVG subscription/payment/register context here; TPL repo files should only point to the boundary. |
 | AGILE LINCS LIMITED | AGL | Bond subscription / payment package context appears in EVG/Agile Lincs SignNow task | `https://app.notion.com/p/360e4130131481b59b89ebc52cd08b63` | The fetched duplicate task was archived/done; confirm surviving AGL bond/payment rows before acting. |
-| KONVI LIMITED | KONVI | Physical-auction buyer/liquidity-provider examples; May EVG loan invoice relation appears incorrectly linked to KONVI | Process pages and invoice `https://app.notion.com/p/360e4130131481c78f6ceb1d23056c7a` | Treat the May invoice company relation as a data-quality issue unless corrected in Notion. |
+| KONVI LIMITED | KONVI | Physical-auction buyer/liquidity-provider examples | Process pages and invoice `https://app.notion.com/p/360e4130131481c78f6ceb1d23056c7a` | The May EVG/Luiza invoice relation previously pointed to KONVI, but was corrected to EVG in live Notion on 2026-06-09. |
 
 ## Group-Structure Open Point
 

@@ -982,3 +982,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: No WhatsApp route was used or stored for EVG. EVG remains part of the EIP/internal group context, with likely canonical Drive storage under internal companies.
 - Verification: Pending branch closeout.
 - Limitations or gaps: Notion SQL/data-source query tool returned unavailable, so the import used Notion search and direct page fetches rather than an all-row data-source query. No live Notion, Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-09 - EVG Review Corrections
+
+- User request: Apply EVG open-question answers, commit, push, open/update the PR, and merge it.
+- Context read: EVG repo memory, live Notion company/filing/invoice/task readbacks, Notion data-source schemas for filing registrations and invoices, and current PR status.
+- Actions taken: Updated/read back live Notion company `Business Purpose in Detail`, Annual Returns registration `Registered`, VIES title/status, RTD status, and May EVG/Luiza invoice `Company` relation to EVG. Updated EVG repo memory and durable source/open-question/current-state logs.
+- Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
+- Verification: Pending branch closeout.
+- Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
