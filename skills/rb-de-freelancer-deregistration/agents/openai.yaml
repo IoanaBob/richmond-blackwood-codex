@@ -1,0 +1,4 @@
+interface:
+  display_name: "RB DE Freelancer Deregistration"
+  short_description: "Prepare German freelancer tax deregistrations."
+  default_prompt: "Use $rb-de-freelancer-deregistration to prepare and log one German freelancer tax deregistration."
