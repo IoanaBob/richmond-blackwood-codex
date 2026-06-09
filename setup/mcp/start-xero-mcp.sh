@@ -35,11 +35,18 @@ fi
 
 CLIENT_KEY="$(printf '%s' "${CLIENT_REFERENCE}" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')"
 TOKEN_FILE_VAR="RB_XERO_${CLIENT_KEY}_TOKEN_FILE"
+TENANT_ID_VAR="RB_XERO_${CLIENT_KEY}_TENANT_ID"
 TOKEN_FILE="${!TOKEN_FILE_VAR:-}"
+TENANT_ID="${!TENANT_ID_VAR:-}"
 
 if [[ -n "${TOKEN_FILE}" || -f "${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY}/oauth-token.json" ]]; then
+  if [[ -z "${TENANT_ID}" ]]; then
+    echo "Missing Xero tenant pin for ${CLIENT_KEY}. Set ${TENANT_ID_VAR} in ${ENV_FILE} from the intended Xero OAuth connection before starting MCP." >&2
+    exit 1
+  fi
   ACCESS_TOKEN="$(node "${SCRIPT_DIR}/xero-oauth.mjs" access-token "${CLIENT_KEY}")"
   export XERO_CLIENT_BEARER_TOKEN="${ACCESS_TOKEN}"
+  export XERO_TENANT_ID="${TENANT_ID}"
   unset XERO_CLIENT_ID
   unset XERO_CLIENT_SECRET
 else
@@ -48,4 +55,6 @@ else
 fi
 
 NPX_BIN="${RB_XERO_NPX_BIN:-npx}"
-exec "${NPX_BIN}" -y "${PACKAGE}"
+MCP_BIN="$("${NPX_BIN}" -y -p "${PACKAGE}" sh -c 'command -v xero-mcp-server')"
+node "${SCRIPT_DIR}/patch-xero-mcp-tenant.mjs" "${MCP_BIN}"
+exec "${MCP_BIN}"
