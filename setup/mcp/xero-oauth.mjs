@@ -37,23 +37,22 @@ if (!clientKey) {
   );
 }
 
-const clientId = env[`RB_XERO_${clientKey}_CLIENT_ID`] || env.RB_XERO_CLIENT_ID;
-const clientSecret =
-  env[`RB_XERO_${clientKey}_CLIENT_SECRET`] || env.RB_XERO_SECRET;
+const clientId = env.RB_XERO_CLIENT_ID;
+const clientSecret = env.RB_XERO_SECRET || env.RB_XERO_CLIENT_SECRET;
 
 if (!clientId || !clientSecret) {
   throw new Error(
-    `Missing OAuth client credentials for ${clientKey}. Expected RB_XERO_${clientKey}_CLIENT_ID and RB_XERO_${clientKey}_CLIENT_SECRET in ${envFile}.`,
+    `Missing RB Xero OAuth app credentials. Expected RB_XERO_CLIENT_ID and RB_XERO_SECRET in ${envFile}.`,
   );
 }
 
 const redirectUri =
-  env[`RB_XERO_${clientKey}_REDIRECT_URI`] ||
   env.RB_XERO_REDIRECT_URI ||
+  env[`RB_XERO_${clientKey}_REDIRECT_URI`] ||
   "http://localhost:36777/callback";
 const scopes =
-  env[`RB_XERO_${clientKey}_OAUTH_SCOPES`] ||
   env.RB_XERO_OAUTH_SCOPES ||
+  env[`RB_XERO_${clientKey}_OAUTH_SCOPES`] ||
   "offline_access accounting.settings accounting.contacts accounting.transactions.read accounting.reports.read";
 const tokenFile =
   env[`RB_XERO_${clientKey}_TOKEN_FILE`] ||
@@ -125,7 +124,15 @@ async function login() {
     server.listen(Number(callback.port || 80), callback.hostname, resolve);
   });
 
-  console.log(`XERO_AUTH_URL=${authUrl.toString()}`);
+  if (process.env.RB_XERO_AUTH_URL_FILE) {
+    fs.writeFileSync(process.env.RB_XERO_AUTH_URL_FILE, `${authUrl.toString()}\n`, {
+      mode: 0o600,
+    });
+    fs.chmodSync(process.env.RB_XERO_AUTH_URL_FILE, 0o600);
+    console.log(`XERO_AUTH_URL_FILE=${process.env.RB_XERO_AUTH_URL_FILE}`);
+  } else {
+    console.log(`XERO_AUTH_URL=${authUrl.toString()}`);
+  }
   console.log(`Waiting for Xero OAuth callback on ${redirectUri}`);
 
   const code = await codePromise;

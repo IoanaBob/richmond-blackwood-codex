@@ -14,6 +14,7 @@ Use this skill for any Richmond Blackwood work that touches Xero through MCP.
 - Single MCP server name: `xero`
 - Active-client selector: `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>`
 - OAuth login helper: `setup/mcp/xero-oauth.mjs login <CLIENT_REFERENCE>`
+- OAuth app credentials: shared RB Xero OAuth app values `RB_XERO_CLIENT_ID` and `RB_XERO_SECRET` in the base checkout `.env`
 
 ## Required Client Reference
 
@@ -30,6 +31,7 @@ Do not infer a client reference from a company name unless the user explicitly p
 3. If the active client is missing or different from the requested client reference, stop before using Xero and ask the user to run `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>` and reload Codex.
 4. Use only the single `xero` MCP server.
 5. Do not use another client's OAuth token or credentials as a fallback.
+6. Do not treat the client reference as the OAuth app identity; it selects the local login token and target Xero organisation only.
 
 ## First Call Verification
 

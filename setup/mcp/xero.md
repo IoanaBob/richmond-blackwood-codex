@@ -9,7 +9,7 @@ This guide sets up local Codex access to Xero through the official `@xeroapi/xer
 
 RB uses one Codex MCP server entry named `xero`. The repo wrapper starts the official Xero MCP server with the currently selected client reference, so operators do not need one `~/.codex/config.toml` block per client.
 
-Each Xero organisation/client still needs its own Xero Developer OAuth app credentials and local token storage. The default credential file is the base checkout `.env`, not a transient Codex worktree `.env`; `RB_XERO_ENV_FILE` may override this only for deliberate local testing. OAuth access and refresh tokens live under the ignored base checkout `.codex-local/xero/`. Client isolation is enforced by selecting an active client before Codex starts the `xero` MCP server, then verifying the returned Xero organisation before any substantive work.
+RB uses one Xero Developer OAuth app for local Codex access, with its credentials stored in the base checkout `.env`. Each Xero organisation/client still gets its own local OAuth login token under the ignored base checkout `.codex-local/xero/<CLIENT_REFERENCE>/`. The default credential file is the base checkout `.env`, not a transient Codex worktree `.env`; `RB_XERO_ENV_FILE` may override this only for deliberate local testing. Client isolation is enforced by selecting an active client before Codex starts the `xero` MCP server, then verifying the returned Xero organisation before any substantive work.
 
 ## What This Enables
 
@@ -49,7 +49,7 @@ which npx
 
 The official Xero MCP package requires Node.js 18 or higher. This repository currently targets Node.js `18.7.0`.
 
-Each Xero organisation/client needs Xero OAuth access through the shared Xero login that has access to the relevant organisation. Add the local redirect URI to the Xero app before login. The redirect URI must match exactly:
+The RB Xero OAuth app needs the local redirect URI before login. The redirect URI must match exactly:
 
 ```text
 http://localhost:36777/callback
@@ -65,26 +65,27 @@ cp .env.example .env
 
 Run that from the base checkout, for example `/Users/eranpeer/richmond-blackwood-codex`. Codex worktrees use that base `.env` by default.
 
-For each client, repeat the placeholder block with the exact RB client reference:
+Configure the RB OAuth app once, then use the active client reference to choose which Xero organisation login token is used:
 
 ```bash
 RB_XERO_SHARED_LOGIN_EMAIL=PUT_SHARED_XERO_LOGIN_EMAIL_HERE
 RB_XERO_ACTIVE_CLIENT_REFERENCE=KONVI
-RB_XERO_KONVI_CLIENT_ID=PUT_CLIENT_ID_HERE
-RB_XERO_KONVI_CLIENT_SECRET=PUT_CLIENT_SECRET_HERE
+RB_XERO_CLIENT_ID=PUT_RB_OAUTH_APP_CLIENT_ID_HERE
+RB_XERO_SECRET=PUT_RB_OAUTH_APP_CLIENT_SECRET_HERE
+RB_XERO_REDIRECT_URI=http://localhost:36777/callback
+RB_XERO_OAUTH_SCOPES="offline_access accounting.settings accounting.contacts accounting.transactions.read accounting.reports.read"
 ```
 
 Set `RB_XERO_SHARED_LOGIN_EMAIL` once as a non-secret operator setup pointer. It does not get passed to the MCP server.
 
-Use uppercase client references in variable names. If a secret contains shell-special characters, quote it in `.env`.
+Use uppercase client references for the active-client selector and token folders. If a secret contains shell-special characters, quote it in `.env`.
 
 Optional local overrides:
 
 ```bash
 RB_XERO_NPX_BIN=/absolute/path/to/npx
 RB_XERO_MCP_PACKAGE=@xeroapi/xero-mcp-server@0.0.17
-RB_XERO_EIP_REDIRECT_URI=http://localhost:36777/callback
-RB_XERO_EIP_OAUTH_SCOPES="offline_access accounting.settings accounting.contacts accounting.transactions.read accounting.reports.read"
+RB_XERO_EIP_TOKEN_FILE=/absolute/path/to/local/eip-oauth-token.json
 ```
 
 Use `RB_XERO_MCP_PACKAGE` only when a production workflow needs package pinning after review.
@@ -123,11 +124,11 @@ Run the OAuth login helper from any worktree:
 setup/mcp/xero-oauth.mjs login EIP
 ```
 
-Open the printed `XERO_AUTH_URL`, complete the Xero login/consent flow, and choose the intended Xero organisation. The helper stores the returned refresh token in the ignored base checkout `.codex-local/xero/EIP/oauth-token.json`.
+Open the printed `XERO_AUTH_URL`, complete the Xero login/consent flow using the shared Xero login, and choose the intended Xero organisation. The helper uses the RB OAuth app credentials from `.env` and stores the returned refresh token in the ignored base checkout `.codex-local/xero/EIP/oauth-token.json`.
 
 The MCP launcher refreshes that token automatically and exports only the short-lived access token to the official Xero MCP server process.
 
-If Xero shows `invalid_request` / `Invalid redirect_uri`, update the Xero Developer app to allow the exact `RB_XERO_<CLIENT_REFERENCE>_REDIRECT_URI` value from the base checkout `.env`, then run the login helper again. Do not keep retrying an authorization URL after a redirect URI mismatch; generate a fresh URL from the helper after the app setting is saved.
+If Xero shows `invalid_request` / `Invalid redirect_uri`, update the RB Xero OAuth app to allow the exact `RB_XERO_REDIRECT_URI` value from the base checkout `.env`, then run the login helper again. Do not keep retrying an authorization URL after a redirect URI mismatch; generate a fresh URL from the helper after the app setting is saved.
 
 ## Richmond Blackwood Operating Rules
 
@@ -154,7 +155,7 @@ git check-ignore .env
 2. Confirm the configured client references are present without printing secrets:
 
 ```bash
-rg -n "^RB_XERO_.*_CLIENT_ID=|^RB_XERO_ACTIVE_CLIENT_REFERENCE=" .env
+rg -n "^RB_XERO_CLIENT_ID=|^RB_XERO_ACTIVE_CLIENT_REFERENCE=|^RB_XERO_REDIRECT_URI=" .env
 ```
 
 3. Select the test client:
@@ -176,8 +177,8 @@ setup/mcp/xero-oauth.mjs login KONVI
 
 ## Known Limits
 
-- The official Xero MCP README describes bearer-token mode for multi-account runtime auth. RB uses that mode after a per-client OAuth login helper refreshes the selected client's short-lived bearer token.
-- OAuth login must be completed per Xero organisation/client, but `~/.codex/config.toml` needs only one `xero` MCP server entry.
+- The official Xero MCP README describes bearer-token mode for multi-account runtime auth. RB uses that mode after the RB OAuth app login helper refreshes the selected client's short-lived bearer token.
+- OAuth login must be completed per Xero organisation/client, but the RB OAuth app credentials and `~/.codex/config.toml` MCP entry are shared.
 - Switching clients requires selecting the active client and restarting or reloading Codex so the MCP server process restarts with that client's credentials.
 - The upstream Xero MCP server is young and may not cover every Xero API endpoint or accounting edge case.
 - Some older Xero scopes are being replaced by more granular scopes. If reads fail with authorization errors, compare the app's scopes against Xero's current OAuth scopes and update the local app registration rather than widening scopes blindly.

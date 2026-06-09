@@ -30,7 +30,7 @@ Imported: 2026-05-04.
 
 | Source | URL | Status |
 | --- | --- | --- |
-| Xero MCP server | `https://github.com/XeroAPI/xero-mcp-server` | Used for optional Xero MCP setup guidance with one local active-client wrapper; provisional until RB verifies each client-specific OAuth login |
+| Xero MCP server | `https://github.com/XeroAPI/xero-mcp-server` | Used for optional Xero MCP setup guidance with one local active-client wrapper and the RB OAuth app login path; provisional until RB verifies each client-specific OAuth login |
 | Xero AI Toolkit | `https://developer.xero.com/ai`; `https://developer.xero.com/faq/AI-Toolkit` | Used to confirm Xero MCP availability and setup source; provisional until live RB setup is verified |
 
 ## Slack Sources

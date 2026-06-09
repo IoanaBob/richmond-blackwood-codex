@@ -60,7 +60,7 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 - Sender-matched Richmond Blackwood OAuth client files should use `~/.codex/google-oauth-client.richmondblackwood.json`.
 - Do not use Gmail IMAP, app passwords, or stored mailbox passwords for repo-local helpers.
 - SignNow helpers use `.env` only for local SignNow API credentials. Never commit or print those values.
-- Xero MCP setup uses the base checkout `.env` only for local per-client OAuth app credentials. OAuth tokens stay ignored under `.codex-local/xero/`. Never commit or print those values.
+- Xero MCP setup uses the base checkout `.env` only for the RB OAuth app credentials. Per-client OAuth tokens stay ignored under `.codex-local/xero/`. Never commit or print those values.
 - Gmail client-facing drafts must save from `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`.
 
 ## Optional Local MCP Servers
@@ -98,7 +98,7 @@ cp .env.example .env
 which npx
 ```
 
-Add the single `xero` MCP entry from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`. Fill one `RB_XERO_<CLIENT_REFERENCE>_CLIENT_ID` / `RB_XERO_<CLIENT_REFERENCE>_CLIENT_SECRET` block per client in the base checkout `.env`, select the active client with `setup/mcp/select-xero-client.sh KONVI`, then run `setup/mcp/xero-oauth.mjs login KONVI` to authorize the client connection. Restart or reload Codex afterwards. Codex worktrees use the base checkout `.env` by default. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
+Add the single `xero` MCP entry from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`. Fill the RB OAuth app values `RB_XERO_CLIENT_ID`, `RB_XERO_SECRET`, and `RB_XERO_REDIRECT_URI` once in the base checkout `.env`, select the active client with `setup/mcp/select-xero-client.sh KONVI`, then run `setup/mcp/xero-oauth.mjs login KONVI` to authorize that Xero organisation through the RB OAuth app. Restart or reload Codex afterwards. Codex worktrees use the base checkout `.env` by default. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
 
 For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. ElevenLabs SIP trunking through Twilio Elastic SIP Trunking is the default outbound path: import the SIP number in ElevenLabs and set `ELEVENLABS_AGENT_PHONE_NUMBER_ID` to that SIP phone-number ID. Set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to the older Twilio Native endpoint. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 

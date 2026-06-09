@@ -34,11 +34,7 @@ if [[ -z "${CLIENT_REFERENCE}" ]]; then
 fi
 
 CLIENT_KEY="$(printf '%s' "${CLIENT_REFERENCE}" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')"
-CLIENT_ID_VAR="RB_XERO_${CLIENT_KEY}_CLIENT_ID"
-CLIENT_SECRET_VAR="RB_XERO_${CLIENT_KEY}_CLIENT_SECRET"
 TOKEN_FILE_VAR="RB_XERO_${CLIENT_KEY}_TOKEN_FILE"
-CLIENT_ID="${!CLIENT_ID_VAR:-}"
-CLIENT_SECRET="${!CLIENT_SECRET_VAR:-}"
 TOKEN_FILE="${!TOKEN_FILE_VAR:-}"
 
 if [[ -n "${TOKEN_FILE}" || -f "${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY}/oauth-token.json" ]]; then
@@ -46,11 +42,8 @@ if [[ -n "${TOKEN_FILE}" || -f "${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY
   export XERO_CLIENT_BEARER_TOKEN="${ACCESS_TOKEN}"
   unset XERO_CLIENT_ID
   unset XERO_CLIENT_SECRET
-elif [[ -n "${CLIENT_ID}" && -n "${CLIENT_SECRET}" ]]; then
-  export XERO_CLIENT_ID="${CLIENT_ID}"
-  export XERO_CLIENT_SECRET="${CLIENT_SECRET}"
 else
-  echo "Missing Xero credentials for ${CLIENT_KEY}. Expected OAuth login token under ${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY}/oauth-token.json, or ${CLIENT_ID_VAR} and ${CLIENT_SECRET_VAR} in ${ENV_FILE}." >&2
+  echo "Missing Xero OAuth token for ${CLIENT_KEY}. Run setup/mcp/xero-oauth.mjs login ${CLIENT_KEY} using the RB OAuth app credentials in ${ENV_FILE}; expected token under ${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY}/oauth-token.json." >&2
   exit 1
 fi
 
