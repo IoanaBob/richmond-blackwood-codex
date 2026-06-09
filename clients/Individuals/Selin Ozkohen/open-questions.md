@@ -31,13 +31,14 @@ Review: Resolve before finalising the 2024 German personal tax workbook.
 ## 2025 ELSTER Draft Review Questions
 
 Status: provisional.
-Source: Live ELSTER draft and validation screens on 2026-06-09; local Selin bank-account memory; connector errors from Notion and Google Sheets.
+Source: Live ELSTER draft and validation screens on 2026-06-09; local Selin bank-account memory; Notion follow-up read-back on 2026-06-09.
 Imported: 2026-06-09.
 Review: Resolve before final 2025 submission.
 
 - Correct or approve the 2025 ELSTER legal-name spelling. The saved draft currently uses `Selin Oezkohen Abuav` because the browser input path could not generate `Ö`; 2024 ELSTER context showed `Selin Özkohen Abuav`.
 - Confirm whether the official ELSTER private health/care prefill for 2025, EUR 3,430 health plus EUR 672 care, should be retained as filed evidence.
 - Confirm no 2025 self-employment/freelance income before submission. The 2025 draft does not include `Anlage S`.
-- Reauthorize or repair the Google Sheets and Notion connectors before live workbook/readback/task writeback; both returned revoked-token errors during this run.
+- Reauthorize or verify Google Sheets if live workbook read-back is needed before final filing; the Notion follow-up read-back succeeded, but Sheets was not repeated in that Notion-only recheck.
 
 Resolved 2026-06-09: User provided a refund IBAN for both years. It is recorded in `bank-accounts.md`; the 2025 draft validates after entry, and 2024 already had the same IBAN selected with Person A as account holder.
+Resolved 2026-06-09: User said the Notion key was available again. Live Notion read-back confirmed the 2025 analysis task is `Done`, marked complete on 2026-05-11, the filing task remains `To Do`, and the 2025 filing record remains `In Progress`.

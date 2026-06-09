@@ -69,7 +69,7 @@ Updated: 2026-06-03.
 - Review deductible and tax-credit applicability for Selin 2025 before marking any optional rows as claimed, including the days-based home-office allowance, commuting, equipment/training, health/care insurance, pension/retirement, donations, childcare, household services, and foreign/investment withholding credits.
 - Tie the 2025 opening balance sheet to the 2024 workbook closing balances or add an explicit provisional opening baseline note.
 - Review the saved 2024 ELSTER draft before submission: official ELSTER private health/care prefill is EUR 3,430 health plus EUR 672 care, while the workbook includes a client-reported EUR 9,785.30 health/care claim pending insurer bill/payment evidence.
-- Reauthorize the Google Sheets and Notion connectors before Selin live workbook/readback/task writeback; both returned revoked-token errors on 2026-06-09.
+- Verify Google Sheets live read-back before final Selin filing if workbook freshness is material; Notion follow-up read-back on 2026-06-09 succeeded and confirmed the 2025 analysis task is Done, while the filing task remains To Do.
 
 ## Mark / WEW Personal Tax Questions
 

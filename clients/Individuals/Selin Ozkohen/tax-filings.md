@@ -21,7 +21,7 @@ The 2025 personal tax filing record now has the expected task relations:
 
 | Task | Notion URL | Assignee | Status | Relation |
 | --- | --- | --- | --- | --- |
-| 2025 Personal Tax Analysis - Selin Ozkohen | `https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f` | Ioana Surdu-Bob | In Progress | Linked in `Preparation Task`; blocks the filing task |
+| 2025 Personal Tax Analysis - Selin Ozkohen | `https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f` | Ioana Surdu-Bob | Done | Linked in `Preparation Task`; marked complete in Notion on 2026-05-11 and still listed as a dependency of the filing task |
 | 2025 Personal Tax Filing - Selin Ozkohen | `https://www.notion.so/359e4130131481d88a99df5939bbe6ed` | Johnpaul Okolie | To Do | Linked in `Filing Task`; `Dependent on` the analysis task |
 
 The filing task has an actual Notion page comment pointing the filer to the analysis workbook, filing record, Drive folder, and remaining review flags: `https://www.notion.so/359e4130131481d88a99df5939bbe6ed?d=359e41301314819fb777001c835b517c&pvs=42`.
@@ -38,4 +38,4 @@ Review: Drafts are saved for review only; neither return was submitted.
 | 2024 - Personal Tax - Selin | Saved draft `ESt unbeschränkt (ESt 1 A) 2024, Selin Özkohen Abuav`; saved about 13:50 IST | ELSTER check passed; preliminary refund EUR 58. Review 2024 health/care evidence discrepancy before submission. |
 | 2025 - Personal Tax - Selin - Germany | Saved draft `ESt unbeschränkt (ESt 1 A) 2025, Selin Oezkohen Abuav`; saved about 14:01 IST and reopened/validated after IBAN entry | ELSTER check passed after the user-provided IBAN was entered; preliminary refund EUR 591. Confirm legal-name spelling before final submission. |
 
-Live Notion filing rows and filing tasks were not updated during this run because the Notion connector returned a revoked OAuth token error.
+Follow-up live Notion read-back on 2026-06-09 after the user's token-repair note confirmed that the 2025 analysis task is `Done`, marked complete on 2026-05-11, the filing task remains `To Do`, and the 2025 filing record remains `In Progress`. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.

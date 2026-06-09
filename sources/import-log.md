@@ -2027,4 +2027,4 @@ Actions:
 Unresolved:
 
 - Neither return was submitted.
-- Google Sheets and Notion connector calls returned revoked-token errors, so live workbook/readback/task writeback was not completed.
+- Google Sheets and Notion connector calls initially returned revoked-token errors. Follow-up Notion read-back on 2026-06-09 after the user's token-repair note succeeded and confirmed the 2025 analysis task is Done, marked complete on 2026-05-11, while the filing task remains To Do and the filing record remains In Progress. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.

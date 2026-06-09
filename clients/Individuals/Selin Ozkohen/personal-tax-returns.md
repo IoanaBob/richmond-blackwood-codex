@@ -196,4 +196,4 @@ Draft data entered/reviewed:
 | Private health/care insurance | Official ELSTER prefill retained: private health EUR 3,430 and care EUR 672 | Workbook setup did not have equivalent 2025 evidence review cleared; keep official prefill under filer review. |
 | ELSTER check/calculation | Passed validation after the IBAN was entered; preliminary calculation showed refund EUR 591 | Preliminary only; not submitted. |
 
-Connector gap during draft preparation: Google Sheets and Notion connector calls returned `token_revoked` / invalidated OAuth token errors on 2026-06-09. Live workbook/Notion re-read and Notion status/task writeback were therefore not completed in this run.
+Connector gap during draft preparation: Google Sheets and Notion connector calls initially returned `token_revoked` / invalidated OAuth token errors on 2026-06-09. Follow-up live Notion read-back later the same day succeeded and confirmed the 2025 analysis task is `Done`, marked complete on 2026-05-11, while the filing task remains `To Do` and the 2025 filing record remains `In Progress`. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.
