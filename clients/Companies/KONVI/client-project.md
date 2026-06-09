@@ -25,6 +25,7 @@ Parent project / project-management view: `https://www.notion.so/327e4130131480e
 | Dracoon EUR 500/week evidence | To Do | `https://www.notion.so/35fe4130131481608ce6fbdc43ff167e` | Attach/link invoice lines to the contract and reconcile with inactive Dracoon contract record. |
 | Passive-income payout process | To Do | `https://www.notion.so/360e41301314814a9a5ee11cf29858f1` | Document the current process with Eran and make reusable wording/template available. |
 | XVault / MiCA / CASP risk review | In Progress | `https://www.notion.so/2b1e4130131480df9b26fe24faec0862` | Legal/regulatory risk remains active; task suggests considering a fresh entity. |
+| Launch first XVAULT Vault | In Progress | `https://www.notion.so/25be4130131480c68b61c372a560230b` | Product project for the first Exotic Vaults/XVAULT vault; EXV company administration is routed to `../EXV/`. |
 | Konvi tax-support RB landing page | In Progress, high priority | `https://www.notion.so/365e41301314802e8477c56f5c7f73f5` | Confirm annual limit basis, eligibility verification, and booking/intake method before publishing. |
 | Respond to Konvi shareholder query | In Review | `https://www.notion.so/33ce41301314806b875ac75412ad4b38` | Due date was 2026-04-08 and marked complete date exists, but status remains In Review with empty requirements. |
 
