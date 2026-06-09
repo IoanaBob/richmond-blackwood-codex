@@ -34,7 +34,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
 - Do not write new RB communication logs to the old `RB Communications` database `https://www.notion.so/c931b1b88ff6412a96c74bd9933da19c`.
 - Default to the Notion MCP connector for schema fetches, known page/data-source readbacks, ordinary connector-supported updates, and search-based candidate discovery.
-- Do not use MCP search as proof of a complete Stage 2 inventory. For authoritative all-row inventory, page data sources through the Notion REST API with an approved non-browser Notion API credential stored outside git.
+- Do not use MCP search, MCP SQL, or MCP data-source query tools as proof of a complete Stage 2 inventory. For authoritative all-row inventory, page data sources through the Notion REST API with an approved non-browser Notion API credential stored outside git.
 - For REST inventory, first run the plain request and save page 1. If page 1 has `has_more: false`, the query is complete. If `has_more: true`, continue with the exact same query URL, query parameters, filters, sorts, and `page_size`; add only `start_cursor` from the previous response until `has_more` is false.
 - Keep Notion pagination loops run-local under `/private/tmp` unless repeated production use proves a repo helper is needed. Do not add or retain repo-local Notion helper code just for a one-off query.
 - Use the Notion REST API for Notion-hosted file/image downloads and Notion-native file/image uploads. Do not treat MCP `file://...attachment...` references as downloadable URLs.
