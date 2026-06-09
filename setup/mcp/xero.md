@@ -9,7 +9,7 @@ This guide sets up local Codex access to Xero through the official `@xeroapi/xer
 
 RB uses one Codex MCP server entry named `xero`. The repo wrapper starts the official Xero MCP server with the currently selected client reference, so operators do not need one `~/.codex/config.toml` block per client.
 
-Each Xero organisation/client still needs its own Xero Developer custom connection and local `.env` credentials. Client isolation is enforced by selecting an active client before Codex starts the `xero` MCP server, then verifying the returned Xero organisation before any substantive work.
+Each Xero organisation/client still needs its own Xero Developer custom connection and local `.env` credentials. The default credential file is the base checkout `.env`, not a transient Codex worktree `.env`; `RB_XERO_ENV_FILE` may override this only for deliberate local testing. Client isolation is enforced by selecting an active client before Codex starts the `xero` MCP server, then verifying the returned Xero organisation before any substantive work.
 
 ## What This Enables
 
@@ -59,6 +59,8 @@ Copy the repo template locally:
 cp .env.example .env
 ```
 
+Run that from the base checkout, for example `/Users/eranpeer/richmond-blackwood-codex`. Codex worktrees use that base `.env` by default.
+
 For each client, repeat the placeholder block with the exact RB client reference:
 
 ```bash
@@ -96,8 +98,8 @@ default_tools_approval_mode = "prompt"
 The `xero` server starts with the active client reference from:
 
 1. `RB_XERO_CLIENT_REFERENCE` if set in the MCP process environment.
-2. `.codex-local/xero-active-client` if created by the selector script.
-3. `RB_XERO_ACTIVE_CLIENT_REFERENCE` in `.env`.
+2. Base checkout `.codex-local/xero-active-client` if created by the selector script.
+3. Base checkout `.env` value `RB_XERO_ACTIVE_CLIENT_REFERENCE`.
 
 To switch the active client without editing `~/.codex/config.toml`:
 

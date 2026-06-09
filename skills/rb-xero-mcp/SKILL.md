@@ -10,7 +10,7 @@ Use this skill for any Richmond Blackwood work that touches Xero through MCP.
 ## Setup Source
 
 - Setup guide: `setup/mcp/xero.md`
-- Local credentials template: `.env.example`, copied to ignored `.env`
+- Local credentials template: `.env.example`, copied to the ignored base checkout `.env`
 - Single MCP server name: `xero`
 - Active-client selector: `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>`
 
@@ -25,7 +25,7 @@ Do not infer a client reference from a company name unless the user explicitly p
 ## Active Client Check
 
 1. Convert the provided client reference to uppercase for `.env` lookup, for example `AGL`.
-2. Check the active local Xero client from `.codex-local/xero-active-client` or `RB_XERO_ACTIVE_CLIENT_REFERENCE` in `.env`.
+2. Check the active local Xero client from the base checkout `.codex-local/xero-active-client` or `RB_XERO_ACTIVE_CLIENT_REFERENCE` in the base checkout `.env`.
 3. If the active client is missing or different from the requested client reference, stop before using Xero and ask the user to run `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>` and reload Codex.
 4. Use only the single `xero` MCP server.
 5. Do not use bearer-token mode or another client's credentials as a fallback.

@@ -98,7 +98,7 @@ cp .env.example .env
 which npx
 ```
 
-Add the single `xero` MCP entry from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`. Fill one `RB_XERO_<CLIENT_REFERENCE>_CLIENT_ID` / `RB_XERO_<CLIENT_REFERENCE>_CLIENT_SECRET` block per client in `.env`, select the active client with `setup/mcp/select-xero-client.sh KONVI`, then restart or reload Codex. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
+Add the single `xero` MCP entry from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`. Fill one `RB_XERO_<CLIENT_REFERENCE>_CLIENT_ID` / `RB_XERO_<CLIENT_REFERENCE>_CLIENT_SECRET` block per client in the base checkout `.env`, select the active client with `setup/mcp/select-xero-client.sh KONVI`, then restart or reload Codex. Codex worktrees use the base checkout `.env` by default. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
 
 For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. ElevenLabs SIP trunking through Twilio Elastic SIP Trunking is the default outbound path: import the SIP number in ElevenLabs and set `ELEVENLABS_AGENT_PHONE_NUMBER_ID` to that SIP phone-number ID. Set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to the older Twilio Native endpoint. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 

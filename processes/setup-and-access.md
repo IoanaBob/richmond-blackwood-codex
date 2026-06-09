@@ -28,9 +28,9 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 - `~/.codex/google-personas/<persona-slug>/gcloud/` for shared global persona gcloud caches.
 - `~/.codex/google-oauth-client.richmondblackwood.json` for Richmond Blackwood sender-context OAuth client recovery/reconnect.
 - `.codex-local/whatsapp-bridge.*` for optional WhatsApp bridge PID, log, compiled binary, and LaunchAgent plist.
-- `.codex-local/xero-active-client` for the optional Xero MCP active client reference.
+- Base checkout `.codex-local/xero-active-client` for the optional Xero MCP active client reference.
 - `.env` for local SignNow helper credentials if SignNow helpers are used.
-- `.env` for local per-client Xero custom connection credentials if Xero MCP is used.
+- Base checkout `.env` for local per-client Xero custom connection credentials if Xero MCP is used. Codex worktrees use the base checkout `.env` by default.
 - `~/.codex/config.toml` for personal MCP server configuration, including optional Xero, ElevenLabs, and n8n MCP entries. This file is outside the repo and must not be copied into git.
 
 Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts. Do not print or copy Google OAuth vault files or token responses into repo memory.

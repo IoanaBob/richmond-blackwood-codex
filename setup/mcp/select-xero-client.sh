@@ -7,9 +7,15 @@ if [[ $# -ne 1 || -z "${1:-}" ]]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
-ENV_FILE="${RB_XERO_ENV_FILE:-${REPO_ROOT}/.env}"
-ACTIVE_FILE="${RB_XERO_ACTIVE_CLIENT_FILE:-${REPO_ROOT}/.codex-local/xero-active-client}"
+WORKTREE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+if COMMON_GIT_DIR="$(git -C "${WORKTREE_ROOT}" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"; then
+  BASE_REPO_ROOT="$(dirname "${COMMON_GIT_DIR}")"
+else
+  BASE_REPO_ROOT="${WORKTREE_ROOT}"
+fi
+
+ENV_FILE="${RB_XERO_ENV_FILE:-${BASE_REPO_ROOT}/.env}"
+ACTIVE_FILE="${RB_XERO_ACTIVE_CLIENT_FILE:-${BASE_REPO_ROOT}/.codex-local/xero-active-client}"
 CLIENT_KEY="$(printf '%s' "$1" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')"
 
 if [[ -f "${ENV_FILE}" ]]; then

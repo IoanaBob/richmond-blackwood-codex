@@ -2,9 +2,15 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
-ENV_FILE="${RB_XERO_ENV_FILE:-${REPO_ROOT}/.env}"
-ACTIVE_FILE="${RB_XERO_ACTIVE_CLIENT_FILE:-${REPO_ROOT}/.codex-local/xero-active-client}"
+WORKTREE_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+if COMMON_GIT_DIR="$(git -C "${WORKTREE_ROOT}" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"; then
+  BASE_REPO_ROOT="$(dirname "${COMMON_GIT_DIR}")"
+else
+  BASE_REPO_ROOT="${WORKTREE_ROOT}"
+fi
+
+ENV_FILE="${RB_XERO_ENV_FILE:-${BASE_REPO_ROOT}/.env}"
+ACTIVE_FILE="${RB_XERO_ACTIVE_CLIENT_FILE:-${BASE_REPO_ROOT}/.codex-local/xero-active-client}"
 PACKAGE="${RB_XERO_MCP_PACKAGE:-@xeroapi/xero-mcp-server@latest}"
 
 if [[ -f "${ENV_FILE}" ]]; then
