@@ -2007,3 +2007,21 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-09 - Notion Complete-Inventory Routing Correction
+
+Imported:
+
+- User correction in Codex chat on 2026-06-09 that attempting `notion-query-data-sources` contradicted RB docs because complete inventory must not use that route.
+
+Actions:
+
+- Updated `processes/notion-operations.md` to explicitly prohibit MCP search, MCP SQL, and MCP data-source query tools as authoritative complete-inventory paths.
+- Updated `skills/rb-communications-follow-through/references/stage-packet-protocol.md` so complete Communications inventory must use Notion REST data-source pagination or a user-provided full export, otherwise stop with a coverage blocker.
+- Updated `skills/rb-common-tasks-follow-through/SKILL.md` to mirror the same complete-inventory boundary.
+- Updated durable memory and the automation memory for `rb-personal-communications-follow-through`.
+- Mirrored the correction to Internal Knowledge Base page `https://www.notion.so/356e41301314811383fff7212a56a0cd` (`RB Codex Repository Operating Rules`) and verified `Last updated = 2026-06-09`.
+
+Unresolved:
+
+- The Johnpaul Communications queue was not rerun because `NOTION_ACCESS_TOKEN` was unavailable in this environment.

@@ -131,6 +131,7 @@ collection://1b5e4130-1314-8183-afd8-000b6f4da982
 Inventory method:
 
 - For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, follow `processes/notion-operations.md`. Keep up-to-date Notion inventory/query/export rules there, not in this communications protocol.
+- For complete Communications inventory, the approved default path is Notion REST data-source pagination with the run-local filter body and cursor loop described in `processes/notion-operations.md`. Do not call MCP SQL, MCP data-source query tools, or Notion search for authoritative complete inventory, even if those tools are exposed in the current runtime.
 - For operator assignment scopes, resolve the active human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` and `internal/people-roles.md`, or from an explicit actor supplied in the current run/chat if both env keys are missing, then filter by the Notion user ID stored in `Assigned To`.
 - Google personas are auth routes only. Do not use a Google persona, Gmail mailbox, or sender identity as the active human workspace actor.
 - If using a user-provided CSV/export, record the file path, export timestamp if known, source view/database URL, row count, and exact filter/sort that produced it.
@@ -138,7 +139,7 @@ Inventory method:
 Inventory fallback:
 
 - Do not rely on historical connector behavior alone. Follow `processes/notion-operations.md` for current authoritative inventory, connector-limit, file-transfer, and degraded-candidate rules.
-- If every authoritative inventory path is unavailable for a complete-scope run, stop with a coverage blocker unless the operator provides a full export, enables an approved inventory path, or explicitly approves a degraded candidate-only run.
+- If REST pagination and any user-provided full export are unavailable for a complete-scope run, stop with a coverage blocker unless the operator enables an approved authoritative path or explicitly approves a degraded candidate-only run.
 - Any degraded candidate-only packet must say `coverage: degraded candidate discovery` and must not use words like "all", "complete", or "since inception" for the resulting row set.
 
 Packet columns:

@@ -59,7 +59,7 @@ Use the owning task-capable RB Client Databases row first for Richmond Blackwood
 - Page-property groups may require manual Notion UI work.
 - Native task conversion is a UI handoff.
 - Some file display names may need verification after URL-based attachment.
-- MCP search is not a reliable exhaustive list of all accessible rows.
+- MCP search and MCP data-source query tools are not reliable exhaustive inventory paths.
 - Notion-hosted file downloads and Notion-native file/image uploads require the Notion REST API or an approved connector path with a Notion API credential stored outside git.
 
 ## MCP Default And API Exceptions
@@ -74,6 +74,7 @@ Review: Keep provisional until the RB Notion API connection is confirmed shared 
   - exhaustive table/data-source queries and filters that may need pagination;
   - downloading Notion-hosted files/images from a `files` property or media block;
   - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
+- Do not use MCP SQL, MCP data-source query tools, or Notion search as the authoritative path for any complete inventory, including "all rows", "all assigned to X", "since inception", or any run that must prove every matching row was considered.
 - Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
 - Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
 - Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.

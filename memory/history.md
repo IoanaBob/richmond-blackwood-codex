@@ -973,3 +973,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Internal Notion, Communications, repo, and audit logs can still keep exact software/source names when needed for source context and safe storage.
 - Verification: `git diff --check` passed.
 - Limitations or gaps: The Ricardo WhatsApp message was not sent; the user said WhatsApp is unavailable and they will send it manually.
+
+## 2026-06-09 - Notion Complete-Inventory Routing Correction
+
+- User request: Correct the Communications follow-through process after an attempted `notion-query-data-sources` call contradicted RB Notion inventory rules.
+- Context read: `processes/notion-operations.md`, `skills/rb-communications-follow-through/references/stage-packet-protocol.md`, `skills/rb-common-tasks-follow-through/SKILL.md`, `memory/handoff.md`, and the automation memory.
+- Actions taken: Made the complete-inventory rule explicit in Notion operations, Communications follow-through, and common-tasks follow-through: MCP search, MCP SQL, and MCP data-source query tools are candidate/readback surfaces only and are not approved authoritative complete-inventory paths. Complete inventory must use REST data-source pagination or a user-provided full export, otherwise stop with a coverage blocker. Mirrored the correction to Internal Knowledge Base page `RB Codex Repository Operating Rules`.
+- Decisions made: Future `all assigned` Communications runs should not probe for MCP data-source query tools, even if they appear available in a runtime.
+- Verification: `git diff --check` passed. Notion read-back confirmed the mirror section and `Last updated = 2026-06-09`.
+- Limitations or gaps: The Johnpaul Communications queue was not rerun because `NOTION_ACCESS_TOKEN` is unavailable in this environment.
