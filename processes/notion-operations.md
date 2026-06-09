@@ -21,6 +21,7 @@ Do not create client-specific Notion pages when the company relation or target d
 
 - Default to the Notion MCP connector for schemas, known page/data-source fetches, readbacks, ordinary supported page updates, and candidate discovery.
 - Use the Notion REST API, not MCP search, for complete table inventory that must prove all matching rows were considered.
+- Do not use or probe connector-advertised SQL/data-source query tools in RB runs. They are not an approved execution path. Use the Notion REST API with `NOTION_ACCESS_TOKEN` for filtered data-source queries that need reliable coverage.
 - Keep page/database titles plain.
 - Use icon metadata where supported.
 - `Notes` fields describe the record itself, not connector/debug history.
@@ -76,6 +77,7 @@ Review: Keep provisional until the RB Notion API connection is confirmed shared 
   - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
 - Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
 - Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
+- Never try connector SQL/data-source query tools before REST. If a run needs a filtered data-source query and `NOTION_ACCESS_TOKEN` is available, go directly to REST. If the token is unavailable, report the blocker or use connector search/fetch only as explicitly degraded candidate discovery.
 - Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.
 
 ### Data Source Query

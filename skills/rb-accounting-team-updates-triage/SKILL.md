@@ -15,7 +15,7 @@ Use this skill only for the separate Accounting Team Updates automation. It is n
 4. Read `references/stage-packet-protocol.md` and run the automation through packet stages. Packet mode is mandatory.
 5. During Stage 3, read and apply `skills/rb-accounting-team-updates-routing/SKILL.md` to produce the routing plan. That skill is planning-only and must not perform live writes.
 6. Use the Slack connector to read only the bounded source channels listed below and to send the standard completion notice. Exclude ChatGPT/Codex/bot-authored messages from source analysis.
-7. Use the Notion connector for Team Updates and Tasks reads/writes. If the needed Notion query, page edit/comment, or task write is unavailable, stop and report the exact blocker.
+7. Use the Notion connector for page/data-source fetches, task/page readbacks, page comments, and supported writes. Use the Notion REST API with `NOTION_ACCESS_TOKEN` for exact filtered data-source queries. Never use connector SQL/data-source query tools; if REST is unavailable, report the blocker or use connector search/fetch only as degraded candidate discovery.
 8. Any non-standard Slack wording must follow `processes/communications.md` and `skills/rb-communications/SKILL.md`.
 
 ## Packet Workflow
@@ -43,7 +43,7 @@ Meetings context:
 
 - Meetings database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
 - Meetings data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
-- Use the relevant current-working-day Meetings row for RB/Accounting/Operations daily context before falling back to generic linked notes. If the operator provides a Meetings database/view URL, use it to identify the database/data source, but do not rely only on a filtered company view if it excludes the relevant RB daily meeting; search/query the broader Meetings data source or All view as needed.
+- Use the relevant current-working-day Meetings row for RB/Accounting/Operations daily context before falling back to generic linked notes. If the operator provides a Meetings database/view URL, use it to identify the database/data source, but do not rely only on a filtered company view if it excludes the relevant RB daily meeting; use REST data-source filtering or connector search/fetch against the broader Meetings data source or All view as needed. Do not use connector SQL/data-source query tools.
 
 Slack context:
 
@@ -60,7 +60,8 @@ Auto-approval:
 
 Source reads:
 
-- If the connector cannot query the data source directly, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting.
+- For exact Team Updates lookup, use the Notion REST API with `NOTION_ACCESS_TOKEN` to filter the Team Updates data source by current date and `Accounting`, then fetch the selected page through the connector for content/readback.
+- Do not try connector SQL/data-source query tools. If REST is unavailable, search the Team Updates database/view for the current date and `Accounting`, then fetch candidate pages and verify properties before acting; record that as degraded candidate discovery.
 - Check the Meetings database for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on current working day, RB/Accounting/Operations/Daily naming, Teams/Companies relations when present, and proximity to the Team Updates run. Fetch the selected meeting with transcript included when the connector supports it. Save the relevant task-context excerpts or summary in the Stage 2 packet or a linked meeting-context appendix in the run folder.
 - If no relevant Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or other approved source location named by the run context for transcript/approved notes. If no transcript or notes are found after these checks, record `Transcript check: none found` and continue; absence alone is not a blocker.
 - Read current-working-day messages in those channels for the same source window as the Team Updates run. Also read new message threads in those channels when the parent message or a reply is in the source window; include the parent message when needed to understand an in-window reply.
