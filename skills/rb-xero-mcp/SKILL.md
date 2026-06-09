@@ -13,6 +13,7 @@ Use this skill for any Richmond Blackwood work that touches Xero through MCP.
 - Local credentials template: `.env.example`, copied to the ignored base checkout `.env`
 - Single MCP server name: `xero`
 - Active-client selector: `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>`
+- OAuth login helper: `setup/mcp/xero-oauth.mjs login <CLIENT_REFERENCE>`
 
 ## Required Client Reference
 
@@ -28,7 +29,7 @@ Do not infer a client reference from a company name unless the user explicitly p
 2. Check the active local Xero client from the base checkout `.codex-local/xero-active-client` or `RB_XERO_ACTIVE_CLIENT_REFERENCE` in the base checkout `.env`.
 3. If the active client is missing or different from the requested client reference, stop before using Xero and ask the user to run `setup/mcp/select-xero-client.sh <CLIENT_REFERENCE>` and reload Codex.
 4. Use only the single `xero` MCP server.
-5. Do not use bearer-token mode or another client's credentials as a fallback.
+5. Do not use another client's OAuth token or credentials as a fallback.
 
 ## First Call Verification
 
@@ -49,4 +50,4 @@ Before any substantive Xero read or write:
 
 ## Failure Handling
 
-If Xero MCP fails because authentication is missing, credentials are wrong, or the custom connection is not authorized, report the blocker and ask for local setup or review. Do not work around the failure with direct Xero API calls unless the user explicitly approves a separate implementation plan.
+If Xero MCP fails because authentication is missing, credentials are wrong, the OAuth login is incomplete, or the selected Xero organisation is not authorized, report the blocker and ask for local setup or review. Do not work around the failure with direct Xero API calls unless the user explicitly approves a separate implementation plan.

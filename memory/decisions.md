@@ -93,13 +93,13 @@ Consequence:
 - Every Xero request must include the exact RB client reference, such as `AGL`.
 - The first Xero MCP call for a task must verify the Xero organisation through a read-only organisation details check.
 - Operators should not add one `~/.codex/config.toml` MCP block per client.
-- Each Xero organisation/client still needs its own Xero Developer custom connection and local `.env` credentials.
+- Each Xero organisation/client still needs its own Xero Developer OAuth app credentials in the base checkout `.env` plus a separate local OAuth login token under `.codex-local/xero/<CLIENT_REFERENCE>/`.
 - The active client is selected with `.codex-local/xero-active-client`, `RB_XERO_ACTIVE_CLIENT_REFERENCE`, or an explicit local process environment override before Codex reload.
 - The shared Xero email login is an operator setup fact only, not a credential to store or a reason to collapse tenant boundaries.
 - Xero client IDs, client secrets, bearer tokens, OAuth tokens, MFA codes, and personal Codex config remain local-only and out of git.
 
 Source: user instruction on 2026-05-25 and official Xero MCP setup guidance.
-Review: create and verify each client-specific Xero custom connection before production use.
+Review: complete and verify each client-specific OAuth login before production use.
 
 ## 2026-05-06 - Chat Draft, Direct Send, Communications Log
 

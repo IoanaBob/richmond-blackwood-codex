@@ -36,16 +36,23 @@ fi
 CLIENT_KEY="$(printf '%s' "${CLIENT_REFERENCE}" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9' '_')"
 CLIENT_ID_VAR="RB_XERO_${CLIENT_KEY}_CLIENT_ID"
 CLIENT_SECRET_VAR="RB_XERO_${CLIENT_KEY}_CLIENT_SECRET"
+TOKEN_FILE_VAR="RB_XERO_${CLIENT_KEY}_TOKEN_FILE"
 CLIENT_ID="${!CLIENT_ID_VAR:-}"
 CLIENT_SECRET="${!CLIENT_SECRET_VAR:-}"
+TOKEN_FILE="${!TOKEN_FILE_VAR:-}"
 
-if [[ -z "${CLIENT_ID}" || -z "${CLIENT_SECRET}" ]]; then
-  echo "Missing Xero credentials for ${CLIENT_KEY}. Expected ${CLIENT_ID_VAR} and ${CLIENT_SECRET_VAR} in ${ENV_FILE}." >&2
+if [[ -n "${TOKEN_FILE}" || -f "${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY}/oauth-token.json" ]]; then
+  ACCESS_TOKEN="$(node "${SCRIPT_DIR}/xero-oauth.mjs" access-token "${CLIENT_KEY}")"
+  export XERO_CLIENT_BEARER_TOKEN="${ACCESS_TOKEN}"
+  unset XERO_CLIENT_ID
+  unset XERO_CLIENT_SECRET
+elif [[ -n "${CLIENT_ID}" && -n "${CLIENT_SECRET}" ]]; then
+  export XERO_CLIENT_ID="${CLIENT_ID}"
+  export XERO_CLIENT_SECRET="${CLIENT_SECRET}"
+else
+  echo "Missing Xero credentials for ${CLIENT_KEY}. Expected OAuth login token under ${BASE_REPO_ROOT}/.codex-local/xero/${CLIENT_KEY}/oauth-token.json, or ${CLIENT_ID_VAR} and ${CLIENT_SECRET_VAR} in ${ENV_FILE}." >&2
   exit 1
 fi
-
-export XERO_CLIENT_ID="${CLIENT_ID}"
-export XERO_CLIENT_SECRET="${CLIENT_SECRET}"
 
 NPX_BIN="${RB_XERO_NPX_BIN:-npx}"
 exec "${NPX_BIN}" -y "${PACKAGE}"
