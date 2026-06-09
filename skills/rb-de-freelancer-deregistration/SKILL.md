@@ -6,7 +6,7 @@ description: Use when preparing, reviewing, submitting, or logging a German free
 # RB DE Freelancer Deregistration
 
 Status: provisional.
-Source: RB Notion SOP `https://www.notion.so/27ee413013148065b563ce0c0ba7138b`, Berlin service page `https://service.berlin.de/dienstleistung/325405/`, Berlin tax deregistration PDF `https://www.berlin.de/sen/finanzen/steuern/downloads/betriebseroeffnung-betriebseinstellung/vorl__ufige_endg__ltige_steuerliche_abmeldung_ummeldung.pdf`, AO section 138 `https://www.gesetze-im-internet.de/ao_1977/__138.html`, and ELSTER `Sonstige Nachricht an das Finanzamt` `https://www.elster.de/eportal/formulare-leistungen/alleformulare/eingsonstnachr`.
+Source: RB Notion SOP `https://www.notion.so/27ee413013148065b563ce0c0ba7138b`, Berlin service page `https://service.berlin.de/dienstleistung/325405/`, Berlin tax deregistration PDF `https://www.berlin.de/sen/finanzen/steuern/downloads/betriebseroeffnung-betriebseinstellung/vorl__ufige_endg__ltige_steuerliche_abmeldung_ummeldung.pdf`, AO section 138 `https://www.gesetze-im-internet.de/ao_1977/__138.html`, ELSTER `Sonstige Nachricht an das Finanzamt` `https://www.elster.de/eportal/formulare-leistungen/alleformulare/eingsonstnachr`, and ELSTER `Antrag auf Anpassung von Vorauszahlungen` `https://www.elster.de/eportal/formulare-leistungen/alleformulare/eingvorauszlg`.
 Imported: 2026-06-09.
 Review: Re-check the live Finanzamt/ELSTER form and the client's state-specific requirements before any submission because labels and available online forms can change.
 
@@ -78,9 +78,83 @@ If unsure whether the entire VAT enterprise ended, stop and ask. This affects fi
 ## Prepayment And VAT Handling
 
 - If the client paid prepayments, ask for bank statements or Finanzamt notices before calculating refund/stop amounts.
+- Use `Antrag auf Anpassung von Vorauszahlungen` for income-tax prepayments when active/future prepayments should be reduced because the freelance/self-employed activity ended.
+- Do not use the prepayment adjustment form as the core freelancer deregistration. Submit the deregistration notice first or together with the same packet where a more specific combined route exists.
+- For a freelancer without a registered trade/Gewerbe, normally select `Einkommensteuer` only. Do not select `Gewerbesteuer` unless source records show an actual Gewerbe/trade-tax context.
+- Do not add `Kirchensteuer`, `Körperschaftsteuer`, or `Gewerbesteuermessbetrag` unless a source notice or reviewer specifically asks for those taxes.
+- The `Jahr` and `Quartal` should match the first affected prepayment period. When the freelance activity ended before or during Q1 and the goal is to reduce the current year's prepayments, `2026 / ab 1. Quartal` is the pattern observed for a 2026 cessation case. Adjust this to the real year and first affected quarter.
+- If exact payments are unknown, the justification can ask for review, reduction, refund, or offset. Do not invent paid amounts.
 - If the entire VAT enterprise ends, the final VAT return is due after all legal relationships connected to the activity are wound up; the Berlin form references the one-month timing for the final VAT declaration after complete business cessation.
 - If only a partial activity ended, do not promise a final VAT return or prepayment cancellation without reviewer approval.
 - If payments are unclear, draft the Finanzamt request as a reconciliation request rather than an exact refund demand.
+
+## ELSTER `Sonstige Nachricht` Fallback Flow
+
+Use this only when the live portal does not expose a more specific freelancer deregistration form for the jurisdiction.
+
+1. Open `Sonstige Nachricht an das Finanzamt`.
+2. Choose the federal state and enter the tax number so ELSTER resolves the Finanzamt. Confirm the resolved Finanzamt matches the source record.
+3. Enter the taxpayer as the individual, not the later employer.
+4. Leave spouse/joint-assessment and different-sender sections blank unless sources require them.
+5. Subject pattern: `Steuerliche Abmeldung der selbständigen/freiberuflichen Tätigkeit`.
+6. Message body should state:
+   - the prior self-employed/freelance activity ended on the exact source-backed date;
+   - any later employment is the reason/context, not the ended activity;
+   - request confirmation of deregistration;
+   - request review/adjustment/refund/offset of prepayments if applicable.
+7. Attach approved PDF/letter only if available and useful. If the message text contains the full request and no supporting evidence is ready, no attachment is acceptable when ELSTER validation permits it.
+8. Validate, review the final page, then get action-time approval before `Absenden`.
+
+## ELSTER `Antrag auf Anpassung von Vorauszahlungen` Flow
+
+Observed ELSTER structure as of 2026-06-09:
+
+1. Open `https://www.elster.de/eportal/formulare-leistungen/alleformulare/eingvorauszlg`.
+2. If ELSTER says the form is unavailable in the selected language, proceed with `Weiter`; the German form opens.
+3. Start page:
+   - select `Land`;
+   - enter `Steuernummer`;
+   - confirm ELSTER resolves the expected Finanzamt.
+4. Section 1 `Steuerpflichtige Person`:
+   - `Art der Person`: `natürliche Person`;
+   - enter tax ID, first name, surname/company-name field, and verified domestic address;
+   - leave phone blank if no verified phone number exists. ELSTER may show a non-blocking hint.
+5. Section 2 spouse/person B: leave blank unless a joint assessment is source-backed.
+6. Section 3 different sender: leave blank when filing from the individual's own ELSTER account.
+7. Section 4 request table:
+   - add one row for `Einkommensteuer`;
+   - choose the affected assessment year;
+   - choose the first affected quarter, for example `ab 1. Quartal`;
+   - click `Eintrag übernehmen` after the row fields are complete.
+8. Section 5 justification:
+   - ask for adjustment/herabsetzung of income-tax prepayments from the selected quarter;
+   - state the self-employed/freelance activity end date;
+   - state the later wage employment start and first payroll date if source-backed;
+   - state wage tax is withheld by the employer if source-backed;
+   - ask for refund or offset of post-cessation prepayments without inventing exact payment amounts.
+9. Section 6 attachments:
+   - attach bank statements/notices only if already approved and useful;
+   - no attachment is required if ELSTER validation passes and the justification is complete.
+10. Run `Alles prüfen`.
+11. If validation says `Es sind keine Fehler vorhanden`, continue to review. Hints may be non-blocking; record them.
+12. Stop at the final `Formular absenden` page and get action-time approval before clicking `Absenden`.
+
+### Prepayment Justification Skeleton
+
+```text
+Sehr geehrte Damen und Herren,
+
+hiermit beantrage ich die Anpassung bzw. Herabsetzung der Einkommensteuer-Vorauszahlungen für <Jahr> ab dem <Quartal>.
+
+Meine bisherige selbständige/freiberufliche Tätigkeit im Bereich <Tätigkeit> wurde zum <Enddatum> beendet. Seit dem <Beschäftigungsbeginn> besteht ein Arbeitsverhältnis; die erste Gehaltszahlung erfolgte am <erste Gehaltszahlung>. Die Lohnsteuer wird seitdem über den Arbeitgeber einbehalten.
+
+Fortlaufende Einkünfte aus dieser selbständigen/freiberuflichen Tätigkeit werden seit dem <Folgedatum> nicht mehr erzielt. Ich bitte daher, die festgesetzten Einkommensteuer-Vorauszahlungen für <Jahr> ab dem <Quartal> auf 0 EUR herabzusetzen bzw. an die geänderten Besteuerungsgrundlagen anzupassen. Bereits nach Beendigung der Tätigkeit geleistete Vorauszahlungen bitte ich zu erstatten oder mit offenen Steuerbeträgen zu verrechnen.
+
+Die steuerliche Abmeldung der selbständigen/freiberuflichen Tätigkeit wurde am <Datum> separat über <Route> übermittelt.
+
+Mit freundlichen Grüßen
+<Name>
+```
 
 ## Field Evidence Log
 
