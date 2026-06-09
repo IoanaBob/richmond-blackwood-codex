@@ -2,6 +2,28 @@
 
 Status: active.
 
+## 2026-06-09 - Selin 2025 ELSTER Draft Correction
+
+Imported:
+
+- Live Mein ELSTER 2025 draft and draft-list read-back for Selin/Celine.
+- User-pasted ELSTER review list and existing Selin personal-tax files.
+- Live Notion 2025 Personal Tax Filing row, linked preparation task, linked filing task, and Selin individual record.
+
+Actions:
+
+- Corrected the 2025 ELSTER draft name from `Selin Oezkohen Abuav` to `Selin Özkohen Abuav`.
+- Verified `Anlage Vorsorgeaufwand` private health/care fields remained at the official ELSTER prefill values of EUR 3,430 private basic health and EUR 672 mandatory care.
+- Ran ELSTER validation; it reported no errors and preliminary refund EUR 591.
+- Saved and exited the 2025 draft; the Mein ELSTER draft list showed the corrected 2025 draft saved at 15:25 on 2026-06-09.
+- Added and read back a Notion filing-task comment recording the saved draft status, no submission, and remaining review flags.
+- Updated Selin repo tax files, open questions, source register, and durable memory.
+
+Unresolved:
+
+- Final submission remains blocked on operator/filer review of the health/care evidence position, investment/no-investment confirmation, extra expense/tax-credit confirmations, and direct Finanzamt payment/prepayment confirmation.
+- Google Sheets live workbook read-back was not repeated during this Notion/ELSTER correction pass.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:
@@ -2007,3 +2029,43 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-09 - Selin German Personal Tax ELSTER Drafts
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-09 to prepare Celine/Selin German personal taxes through ELSTER and save drafts for review.
+- Live Mein ELSTER draft and validation context after user login.
+- Selin local personal-tax memory and workbook/source-register pointers for 2024 and 2025.
+- Official ELSTER 2025 help for Anlage N home-office daily allowance.
+
+Actions:
+
+- Saved 2024 and 2025 ELSTER ESt 1 A drafts for review.
+- Entered the user-provided refund IBAN in the 2025 ELSTER draft and confirmed the 2024 draft already had the same IBAN with Person A as account holder.
+- Recorded draft state, validation results, source discrepancies, and remaining blockers in Selin individual memory.
+- Updated durable skill-run, history, and open-question memory.
+
+Unresolved:
+
+- Neither return was submitted.
+- Google Sheets and Notion connector calls initially returned revoked-token errors. Follow-up Notion read-back on 2026-06-09 after the user's token-repair note succeeded and confirmed the 2025 analysis task is Done, marked complete on 2026-05-11, while the filing task remains To Do and the filing record remains In Progress. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.
+
+## 2026-06-09 - Selin ELSTER Review Packet
+
+Sources:
+
+- User-pasted review text at `/Users/jp/.codex/attachments/054585f7-6dc3-4433-8d94-0a2c3194ff4a/pasted-text.txt`.
+- Selin 2024 workbook `https://docs.google.com/spreadsheets/d/1rmk2AMsVe1cpoBBJfTrvTEQ9XLyTIGQuosGk4FF_ITU/edit`.
+- Selin 2025 workbook `https://docs.google.com/spreadsheets/d/1Y54G6pHrWvkF13EzDe_n05ATarGpM20vxyqAIDiWN2c/edit`.
+- Official BMF EStH 2025 Vorsorgeaufwendungen `https://esth.bundesfinanzministerium.de/esth/2025/tabellarische-Uebersicht/Vorsorgeaufwendunge.html` and ELSTER home-office daily allowance help `https://www.elster.de/eportal/helpGlobal?themaGlobal=help_elevermaessigung_2025`.
+
+Actions:
+
+- Re-read bounded workbook ranges for `Summary`, `Tax Analysis`, `Deductibles`, `Revenue`, `Checks`, and `Missing Info`.
+- Recorded the ready-to-apply ELSTER correction packet in Selin personal-tax records.
+
+Unresolved:
+
+- Await health/care insurer evidence or operator decision before changing `Anlage Vorsorgeaufwand`.
+- Await Celine/Selin ELSTER login before applying any draft changes.

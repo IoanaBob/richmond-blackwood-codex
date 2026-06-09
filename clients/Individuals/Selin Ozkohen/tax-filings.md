@@ -21,7 +21,21 @@ The 2025 personal tax filing record now has the expected task relations:
 
 | Task | Notion URL | Assignee | Status | Relation |
 | --- | --- | --- | --- | --- |
-| 2025 Personal Tax Analysis - Selin Ozkohen | `https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f` | Ioana Surdu-Bob | In Progress | Linked in `Preparation Task`; blocks the filing task |
+| 2025 Personal Tax Analysis - Selin Ozkohen | `https://www.notion.so/359e4130131481dbbb2cecfdf5534d4f` | Ioana Surdu-Bob | Done | Linked in `Preparation Task`; marked complete in Notion on 2026-05-11 and still listed as a dependency of the filing task |
 | 2025 Personal Tax Filing - Selin Ozkohen | `https://www.notion.so/359e4130131481d88a99df5939bbe6ed` | Johnpaul Okolie | To Do | Linked in `Filing Task`; `Dependent on` the analysis task |
 
 The filing task has an actual Notion page comment pointing the filer to the analysis workbook, filing record, Drive folder, and remaining review flags: `https://www.notion.so/359e4130131481d88a99df5939bbe6ed?d=359e41301314819fb777001c835b517c&pvs=42`.
+
+## 2026-06-09 ELSTER Draft Status
+
+Status: provisional.
+Source: Live Mein ELSTER draft list and validation screens on 2026-06-09.
+Imported: 2026-06-09.
+Review: Drafts are saved for review only; neither return was submitted.
+
+| Filing | ELSTER draft state | Validation / blocker |
+| --- | --- | --- |
+| 2024 - Personal Tax - Selin | Saved draft `ESt unbeschränkt (ESt 1 A) 2024, Selin Özkohen Abuav`; saved about 13:50 IST | ELSTER check passed; preliminary refund EUR 58. Review 2024 health/care evidence discrepancy before submission. |
+| 2025 - Personal Tax - Selin - Germany | Saved draft `ESt unbeschränkt (ESt 1 A) 2025, Selin Özkohen Abuav`; corrected from `Oezkohen Abuav` and saved at 15:25 on 2026-06-09 | ELSTER check passed with no errors after the name correction and unchanged health/care review; preliminary refund EUR 591. Review 2025 health/care evidence/workbook discrepancy before submission. |
+
+Follow-up live Notion read-back on 2026-06-09 after the user's token-repair note confirmed that the 2025 analysis task is `Done`, marked complete on 2026-05-11, the filing task remains `To Do`, and the 2025 filing record remains `In Progress`. A 2026-06-09 Notion filing-task comment records the saved 2025 ELSTER draft, clean validation, EUR 591 preliminary refund, no submission, and remaining health/care/evidence review flags. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.
