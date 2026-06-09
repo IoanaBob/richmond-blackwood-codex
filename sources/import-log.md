@@ -2007,3 +2007,24 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-09 - Selin German Personal Tax ELSTER Drafts
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-09 to prepare Celine/Selin German personal taxes through ELSTER and save drafts for review.
+- Live Mein ELSTER draft and validation context after user login.
+- Selin local personal-tax memory and workbook/source-register pointers for 2024 and 2025.
+- Official ELSTER 2025 help for Anlage N home-office daily allowance.
+
+Actions:
+
+- Saved 2024 and 2025 ELSTER ESt 1 A drafts for review.
+- Recorded draft state, validation results, source discrepancies, and remaining blockers in Selin individual memory.
+- Updated durable skill-run, history, and open-question memory.
+
+Unresolved:
+
+- Neither return was submitted.
+- 2025 remains blocked on `Bankverbindung` until a confirmed refund bank account is available.
+- Google Sheets and Notion connector calls returned revoked-token errors, so live workbook/readback/task writeback was not completed.

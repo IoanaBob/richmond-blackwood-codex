@@ -25,3 +25,17 @@ The 2025 personal tax filing record now has the expected task relations:
 | 2025 Personal Tax Filing - Selin Ozkohen | `https://www.notion.so/359e4130131481d88a99df5939bbe6ed` | Johnpaul Okolie | To Do | Linked in `Filing Task`; `Dependent on` the analysis task |
 
 The filing task has an actual Notion page comment pointing the filer to the analysis workbook, filing record, Drive folder, and remaining review flags: `https://www.notion.so/359e4130131481d88a99df5939bbe6ed?d=359e41301314819fb777001c835b517c&pvs=42`.
+
+## 2026-06-09 ELSTER Draft Status
+
+Status: provisional.
+Source: Live Mein ELSTER draft list and validation screens on 2026-06-09.
+Imported: 2026-06-09.
+Review: Drafts are saved for review only; neither return was submitted.
+
+| Filing | ELSTER draft state | Validation / blocker |
+| --- | --- | --- |
+| 2024 - Personal Tax - Selin | Saved draft `ESt unbeschränkt (ESt 1 A) 2024, Selin Özkohen Abuav`; saved about 13:50 IST | ELSTER check passed; preliminary refund EUR 58. Review 2024 health/care evidence discrepancy before submission. |
+| 2025 - Personal Tax - Selin - Germany | Saved draft `ESt unbeschränkt (ESt 1 A) 2025, Selin Oezkohen Abuav`; saved about 14:01 IST | ELSTER check has an unresolved `Bankverbindung` error. Confirm refund bank details and legal-name spelling before final validation/submission. |
+
+Live Notion filing rows and filing tasks were not updated during this run because the Notion connector returned a revoked OAuth token error.

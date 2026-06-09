@@ -25,3 +25,18 @@ Review: Resolve before finalising the 2024 German personal tax workbook.
   - Did Selin have childcare costs, donations, church tax, maintenance/support payments, medical costs, or other extraordinary burdens in 2024?
   - Did Selin have household services, handyman services, political donations, foreign tax/withholding, broker withholding tax, or energetic renovation credits in 2024?
   - If any answer is yes, confirm where the evidence is stored or whether the client should be asked for it.
+- Review 2024 ELSTER draft before submission: official ELSTER private health/care prefill is EUR 3,430 health plus EUR 672 care, while the workbook includes a client-reported EUR 9,785.30 health/care deduction pending insurer bill and personal payment evidence.
+- Review 2024 ELSTER draft before submission: stale transferred `Anlage S` self-employment profit was removed because the workbook has no current 2024 self-employment source. Confirm no 2024 freelance/business income before submitting.
+
+## 2025 ELSTER Draft Review Questions
+
+Status: provisional.
+Source: Live ELSTER draft and validation screens on 2026-06-09; local Selin bank-account memory; connector errors from Notion and Google Sheets.
+Imported: 2026-06-09.
+Review: Resolve before final 2025 validation/submission.
+
+- Confirm Selin's refund bank details for ELSTER 2025. The local `bank-accounts.md` file has no IBAN, and no bank details were entered into the 2025 draft.
+- Correct or approve the 2025 ELSTER legal-name spelling. The saved draft currently uses `Selin Oezkohen Abuav` because the browser input path could not generate `Ö`; 2024 ELSTER context showed `Selin Özkohen Abuav`.
+- Confirm whether the official ELSTER private health/care prefill for 2025, EUR 3,430 health plus EUR 672 care, should be retained as filed evidence.
+- Confirm no 2025 self-employment/freelance income before submission. The 2025 draft does not include `Anlage S`.
+- Reauthorize or repair the Google Sheets and Notion connectors before live workbook/readback/task writeback; both returned revoked-token errors during this run.
