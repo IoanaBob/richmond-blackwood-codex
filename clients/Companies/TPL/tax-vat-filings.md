@@ -30,3 +30,14 @@ WhatsApp on 2026-05-19 records RB telling Pradeep that Germany accepts the tax n
 ## Current Follow-Up
 
 Open call/task `https://www.notion.so/368e4130131481d48a11e42782fc533e` is prepared to follow up the 2026-05-19 ELSTER message and confirm VAT number/status, employer registration, employee-registration status, and correspondence address. JP-owned task `https://www.notion.so/36be413013148127893fcb3fc99958c8` now tracks submitting the remaining USt-IdNr. questions and confirming the VAT number.
+
+## Tax Standing And Prepayment Follow-Up Calls
+
+Status: provisional.
+Source: Notion Calls read-back and user instruction on 2026-06-09.
+Imported: 2026-06-09.
+Review: Update after the call outcome is written back to Notion.
+
+| Date | Call | Status | Purpose |
+| --- | --- | --- | --- |
+| 2026-06-09 | `https://www.notion.so/36fe4130131481539b04f2eef73a0b1b` (`RBCALL-38`) | Requeued / Reviewed / Approved | Reset after technical startup failure. Requeued the same Calls row at `2026-06-09T11:20:00Z` while Finanzamt Muenchen IV Tuesday phone support was open; stale runtime IDs/errors were cleared and `Retry Count` remained `1` for the next scheduler claim. The call asks for current tax standing, open amounts, Q1 VAT position, and prepayment amounts/dates/references. |

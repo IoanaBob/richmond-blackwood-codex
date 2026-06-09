@@ -51,6 +51,7 @@ Review: Update after the call outcome is written back to Notion.
 | --- | --- | --- | --- |
 | 2026-06-08 | `https://www.notion.so/379e4130131481c9b5f7d9cd05e6b09e` (`RBCALL-42`) | Queued / Reviewed / Approved | Follow up with Finanzamt fuer Koerperschaften III ZENA on whether the 2026-05-29 ELSTER response about Unternehmereigenschaft / Umsatzsteuersignal / USt-ID was received and processed, what is still missing, and when the VAT signal or VAT ID can be issued. |
 | 2026-06-08 | `https://www.notion.so/379e4130131481c9b5f7d9cd05e6b09e` (`RBCALL-42`) | Requeued / Reviewed / Approved | First attempt did not reach a human conversation. Requeued the same Calls row at `2026-06-08T10:29:00Z` while the Monday Finanzamt phone-support window was still open; stale runtime IDs/errors were cleared and `Retry Count` remained `1` for the next scheduler claim. |
+| 2026-06-09 | `https://www.notion.so/379e4130131481c9b5f7d9cd05e6b09e` (`RBCALL-42`) | Requeued / Reviewed / Approved | The prior retry also did not reach a human conversation. Requeued the same Calls row at `2026-06-09T11:24:00Z` while the Tuesday ZENA phone-support window was still open; stale runtime IDs/errors were cleared and `Retry Count` remained `2` for the next scheduler claim. |
 
 ## SteuerGo / Personal Tax Signal
 
