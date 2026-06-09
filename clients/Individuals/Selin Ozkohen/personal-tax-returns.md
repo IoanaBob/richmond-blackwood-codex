@@ -162,7 +162,7 @@ Open workbook checks after setup:
 Status: provisional.
 Source: User instruction on 2026-06-09; live Mein ELSTER drafts and validation screens; Selin 2024 and 2025 workbooks listed above; official ELSTER help for 2025 Anlage N home-office daily allowance.
 Imported: 2026-06-09.
-Review: Drafts are saved for filer/operator review only. Neither year has been submitted. Final submission needs review of the workbook flags, ELSTER prefill values, and 2025 name spelling.
+Review: Drafts are saved for filer/operator review only. Neither year has been submitted. Final submission needs review of the workbook flags, ELSTER prefill values, and health/care evidence decisions.
 
 ### 2024 Draft
 
@@ -182,21 +182,21 @@ Draft data entered/reviewed:
 
 ### 2025 Draft
 
-Saved ELSTER draft: `ESt unbeschränkt (ESt 1 A) 2025, Selin Oezkohen Abuav`, saved in Mein ELSTER on 2026-06-09 at about 14:01 IST.
+Saved ELSTER draft: `ESt unbeschränkt (ESt 1 A) 2025, Selin Özkohen Abuav`, saved in Mein ELSTER on 2026-06-09 at 15:25.
 
 Draft data entered/reviewed:
 
 | Item | Draft treatment | Review |
 | --- | --- | --- |
-| Taxpayer identity | Person A entered as Selin `Oezkohen Abuav`, tax ID `16528647096`, tax number `13/460/03405` | ELSTER/browser input could not generate `Ö`; reviewer should correct to `Özkohen Abuav` if ELSTER permits before final submission. |
+| Taxpayer identity | Person A entered as Selin `Özkohen Abuav`, tax ID `16528647096`, tax number `13/460/03405` | Corrected from the earlier ASCII/transliterated `Oezkohen Abuav` draft after ELSTER accepted the `Ö` character. |
 | Selected Anlagen | Main form, Anlage N, Anlage Vorsorgeaufwand, Anlage Sonderausgaben | `Anlage Sonderausgaben` is present because the workbook carries the EUR 36 statutory baseline; no manual EUR 36 expense line was entered. |
 | Wage-tax certificate | Official ELSTER prefill retained: tax class 1, gross EUR 28,800, wage tax EUR 3,096.96, SolZ EUR 0 | Matches the 2025 workbook payroll totals. |
 | Home-office daily allowance | Entered 210 days in `Anlage N`, `Tagespauschale`, no-permanent-other-workplace day field | Per operator instruction and workbook. Confirm the no-external-office/workplace assumption before submission if needed. |
 | Bankverbindung | User-provided domestic IBAN entered; account holder set to Person A | Entered on 2026-06-09 after the user's IBAN instruction. |
 | Private health/care insurance | Official ELSTER prefill retained: private health EUR 3,430 and care EUR 672 | Workbook setup did not have equivalent 2025 evidence review cleared; keep official prefill under filer review. |
-| ELSTER check/calculation | Passed validation after the IBAN was entered; preliminary calculation showed refund EUR 591 | Preliminary only; not submitted. |
+| ELSTER check/calculation | Passed validation after the name correction and unchanged health/care review; ELSTER reported no errors and preliminary refund EUR 591 | Preliminary only; not submitted. |
 
-Connector gap during draft preparation: Google Sheets and Notion connector calls initially returned `token_revoked` / invalidated OAuth token errors on 2026-06-09. Follow-up live Notion read-back later the same day succeeded and confirmed the 2025 analysis task is `Done`, marked complete on 2026-05-11, while the filing task remains `To Do` and the 2025 filing record remains `In Progress`. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.
+Connector gap during draft preparation: Google Sheets and Notion connector calls initially returned `token_revoked` / invalidated OAuth token errors on 2026-06-09. Follow-up live Notion read-back later the same day succeeded and confirmed the 2025 analysis task is `Done`, marked complete on 2026-05-11, while the filing task remains `To Do` and the 2025 filing record remains `In Progress`. After the 2025 ELSTER name correction, a page-level Notion comment was added to the filing task and read back; it records the saved 2025 draft, clean validation, EUR 591 preliminary refund, no submission, and the remaining health/care and review confirmations. Google Sheets live workbook read-back was not repeated in that Notion-only recheck.
 
 ## 2026-06-09 ELSTER Review Packet
 
@@ -214,7 +214,7 @@ The pasted review is substantially in order. It does not require an immediate pa
 | 2024 payroll | ELSTER and workbook both use gross EUR 28,800, wage tax EUR 2,656, SolZ EUR 0. Workbook flags Jan/Feb zero wage-tax withholding. | No ELSTER change if the annual wage-tax certificate supports these totals. | Keep ELSTER payroll totals; record/confirm the Jan/Feb zero-withholding explanation internally. |
 | 2025 payroll | ELSTER and workbook both use gross EUR 28,800, wage tax EUR 3,096.96, SolZ EUR 0. | No ELSTER change if the 2025 certificate supports these totals. | Keep as drafted. |
 | Home-office daily allowance | Both drafts claim 210 days; workbook uses EUR 1,260 daily allowance, no dedicated-room route. | Defensible if the 210-day/no-other-workplace assumption is accepted. | Keep 210 days; do not add a separate home-office room claim. |
-| Name spelling | 2024 draft uses `Selin Özkohen Abuav`; 2025 draft uses `Selin Oezkohen Abuav`. | The reviewer is right that filed name should match the Finanzamt/Steuer-ID record. | If ELSTER accepts copy/paste with `Ö`, change 2025 to `Özkohen Abuav`; if ELSTER requires ASCII, leave `Oezkohen Abuav` and document the transliteration. |
+| Name spelling | 2024 and 2025 drafts now use `Selin Özkohen Abuav`. | The reviewer was right that filed name should match the Finanzamt/Steuer-ID record; ELSTER accepted the `Ö` spelling for 2025 on 2026-06-09. | No further ELSTER name action pending unless the Finanzamt/Steuer-ID record requires a different spelling or ASCII transliteration. |
 | Investment / Anlage KAP / Anlage SO | Workbooks show zero investment income/gains but still require no-investment confirmation. | No ELSTER change unless investment, broker, crypto, interest, dividend, or withholding evidence exists. | Leave Anlage KAP/SO absent/zero if no-investment confirmation is obtained. Add relevant Anlage only if evidence appears. |
 | Expenses and tax credits | Workbooks still ask for expense and tax-credit applicability review; drafts currently claim only home-office employment expenses. | No ELSTER change unless additional facts/evidence exist. | Keep current home-office-only position unless commuting, equipment, training, travel, household services, handyman, foreign tax, donation, or other evidence is approved. |
 | Direct Finanzamt payments/prepayments | Workbooks flag missing confirmation; drafts only include payroll withholding. | Usually not a manual ELSTER field change unless a prepayment/payment entry is expected from notices or bank review. | Confirm none or document payments/notices for final assessment review. |

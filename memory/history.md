@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-09 - Selin ELSTER Draft Correction And Notion Readback
+
+- User request: After logging Codex into Celine/Selin's ELSTER account, proceed with any needed ELSTER corrections and save drafts for review.
+- Context read: Live Mein ELSTER 2025 draft, pasted ELSTER review list, Selin local tax files, live Notion Personal Tax Filing row, linked 2025 preparation task, linked 2025 filing task, and Notion individual record.
+- Actions taken: Corrected the 2025 ELSTER taxpayer surname from `Oezkohen Abuav` to `Özkohen Abuav`, verified the official ELSTER private health/care prefill remained EUR 3,430 plus EUR 672, ran ELSTER validation, saved the draft, verified the draft list, and added/read back a Notion filing-task comment.
+- Decisions made: Do not alter health/care insurance amounts without insurer/prefill/payment evidence and a correct private basic health versus mandatory care split. Keep the 2025 filing task open and the return unsubmitted while health/care, investment, extra expense, tax-credit, and direct-payment confirmations remain open.
+- Verification: ELSTER reported no errors and preliminary refund EUR 591 for 2025; the draft list showed `ESt unbeschränkt (ESt 1 A) 2025, Selin Özkohen Abuav` saved on 2026-06-09 at 15:25; Notion read-back confirmed the new filing-task comment. No return was submitted.
+- Limitations or gaps: Google Sheets live workbook read-back was not repeated during this Notion/ELSTER correction pass; final filing still requires operator/filer review of the open evidence questions.
+
 ## 2026-06-07 - MONO Company Context Import
 
 - User request: Populate Monochromatic/MONO company memory and treat it as part of the group because it is partly owned by EIP Ventures.
@@ -982,7 +991,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Do not overwrite official ELSTER private health/care prefill with workbook values lacking evidence, do not enter a manual EUR 36 Sonderausgaben line because it is the statutory baseline, and do not enter bank details without a confirmed IBAN source.
 - Follow-up: User provided a refund IBAN on 2026-06-09 and instructed Codex to use it for both years. 2024 already had the same IBAN selected with Person A as account holder; 2025 was updated and revalidated.
 - Verification: Mein ELSTER showed two drafts after the run. The 2024 draft passed validation with preliminary refund EUR 58. The 2025 draft passed validation after IBAN entry with preliminary refund EUR 591.
-- Limitations or gaps: Neither return was submitted. Initial Google Sheets and Notion connector calls returned revoked OAuth token errors. Follow-up Notion read-back on 2026-06-09 succeeded and confirmed Ioana's 2025 analysis task is Done, marked complete on 2026-05-11, while the filing task remains To Do and the filing record remains In Progress. Google Sheets live workbook read-back was not repeated in that Notion-only recheck. The 2025 draft uses `Oezkohen` transliteration pending reviewer correction to `Özkohen` if ELSTER allows it.
+- Limitations or gaps: Neither return was submitted. Initial Google Sheets and Notion connector calls returned revoked OAuth token errors. Follow-up Notion read-back on 2026-06-09 succeeded and confirmed Ioana's 2025 analysis task is Done, marked complete on 2026-05-11, while the filing task remains To Do and the filing record remains In Progress. Google Sheets live workbook read-back was not repeated in that Notion-only recheck. A later 2026-06-09 ELSTER correction pass resolved the 2025 `Oezkohen` transliteration by saving the draft as `Selin Özkohen Abuav`.
 
 ## 2026-06-09 - Selin ELSTER Review Packet
 

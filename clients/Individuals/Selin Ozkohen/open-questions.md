@@ -35,11 +35,11 @@ Source: Live ELSTER draft and validation screens on 2026-06-09; local Selin bank
 Imported: 2026-06-09.
 Review: Resolve before final 2025 submission.
 
-- Correct or approve the 2025 ELSTER legal-name spelling. The saved draft currently uses `Selin Oezkohen Abuav` because the browser input path could not generate `Ö`; 2024 ELSTER context showed `Selin Özkohen Abuav`.
 - Confirm whether the official ELSTER private health/care prefill for 2025, EUR 3,430 health plus EUR 672 care, should be retained as filed evidence.
 - Confirm no 2025 self-employment/freelance income before submission. The 2025 draft does not include `Anlage S`.
 - Reauthorize or verify Google Sheets if live workbook read-back is needed before final filing; the Notion follow-up read-back succeeded, but Sheets was not repeated in that Notion-only recheck.
 
+Resolved 2026-06-09: The 2025 ELSTER legal-name spelling was corrected from `Selin Oezkohen Abuav` to `Selin Özkohen Abuav`, saved at 15:25, and verified in the Mein ELSTER draft list.
 Resolved 2026-06-09: User provided a refund IBAN for both years. It is recorded in `bank-accounts.md`; the 2025 draft validates after entry, and 2024 already had the same IBAN selected with Person A as account holder.
 Resolved 2026-06-09: User said the Notion key was available again. Live Notion read-back confirmed the 2025 analysis task is `Done`, marked complete on 2026-05-11, the filing task remains `To Do`, and the 2025 filing record remains `In Progress`.
 
@@ -52,7 +52,6 @@ Review: Resolve before final submission; ELSTER changes should wait until the op
 
 - Decide the 2024 `Anlage Vorsorgeaufwand` health/care filing position: keep official ELSTER prefill EUR 3,430 health plus EUR 672 care, or enter the workbook's client-reported EUR 9,785.30 only after obtaining insurer bill/payment evidence and the split between basic private health insurance and mandatory care insurance.
 - Decide the 2025 `Anlage Vorsorgeaufwand` health/care filing position: keep official ELSTER prefill EUR 3,430 health plus EUR 672 care and update the workbook/review notes to match, or remove/change it if unsupported.
-- If 2025 name editing is possible, change `Oezkohen Abuav` to `Özkohen Abuav`; otherwise document `Oezkohen` as the ASCII transliteration.
 - Confirm no 2024/2025 investment, broker, crypto, interest, dividend, staking, disposal, or foreign-withholding items before leaving Anlage KAP / Anlage SO absent or zero.
 - Confirm no additional 2024/2025 employment expenses or tax credits beyond the home-office daily allowance before leaving the drafts as home-office-only for Werbungskosten and zero for tax credits.
 - Confirm no direct Einkommensteuer payments/prepayments outside payroll withholding, or document any notices/payments for final assessment review.

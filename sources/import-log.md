@@ -2,6 +2,28 @@
 
 Status: active.
 
+## 2026-06-09 - Selin 2025 ELSTER Draft Correction
+
+Imported:
+
+- Live Mein ELSTER 2025 draft and draft-list read-back for Selin/Celine.
+- User-pasted ELSTER review list and existing Selin personal-tax files.
+- Live Notion 2025 Personal Tax Filing row, linked preparation task, linked filing task, and Selin individual record.
+
+Actions:
+
+- Corrected the 2025 ELSTER draft name from `Selin Oezkohen Abuav` to `Selin Özkohen Abuav`.
+- Verified `Anlage Vorsorgeaufwand` private health/care fields remained at the official ELSTER prefill values of EUR 3,430 private basic health and EUR 672 mandatory care.
+- Ran ELSTER validation; it reported no errors and preliminary refund EUR 591.
+- Saved and exited the 2025 draft; the Mein ELSTER draft list showed the corrected 2025 draft saved at 15:25 on 2026-06-09.
+- Added and read back a Notion filing-task comment recording the saved draft status, no submission, and remaining review flags.
+- Updated Selin repo tax files, open questions, source register, and durable memory.
+
+Unresolved:
+
+- Final submission remains blocked on operator/filer review of the health/care evidence position, investment/no-investment confirmation, extra expense/tax-credit confirmations, and direct Finanzamt payment/prepayment confirmation.
+- Google Sheets live workbook read-back was not repeated during this Notion/ELSTER correction pass.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:
