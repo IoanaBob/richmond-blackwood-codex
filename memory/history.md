@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-09 - HardSoft Call Availability Correction And Reset
+
+- User request: Correct the wrong HardSoft contact timing and reset the call so it calls again after the first attempt reached an office-closed message.
+- Context read: `rb-authority-call-setup`, `rb-task-pr`, live `RBCALL-43`, Calls and Contact Availabilities schemas, the five HardSoft availability rows, EIP company memory, and prior HardSoft setup/source notes.
+- Actions taken: Updated the five HardSoft Contact Availabilities from the provisional third-party 10:00-18:00 routing window to Monday-Friday 09:00-17:30 Europe/Dublin, stored as 08:00-16:30 UTC during Dublin summer time. Appended correction notes to the availability rows and `RBCALL-43`. Reset `RBCALL-43` to `Call Status = Reviewed`, `Approved = yes`, `Retry Count = 0`, and cleared prior ElevenLabs/Twilio/outcome/runtime fields while preserving the historical Call Notes relation.
+- Decisions made: Treat the first call's office-closed response as the better availability source than the earlier third-party directory hours. Do not place a manual live call from Codex; leave calling to the existing reviewed/approved call runner.
+- Verification: Notion read-backs confirmed `RBCALL-43` is reviewed/approved with retry count 0 and cleared runtime fields, and confirmed all five availability rows have 08:00-16:30 UTC windows plus the correction note.
+- Limitations or gaps: The call outcome itself is still pending the next runner attempt; monitor `RBCALL-43` for the quote/order contact, pricing route, and written-order steps.
+
 ## 2026-06-08 - HardSoft EIP Mac Order Call Setup
 
 - User request: Set up the HardSoft follow-up call through the Richmond Blackwood Codex repo skill so it is added directly in Notion, rather than placing the call directly from the chat.

@@ -1,9 +1,13 @@
 # EIP History
 
 Status: provisional.
-Source: Notion company, linked records, internal Notion documents, local repo process memory, and user instruction on 2026-06-05.
-Imported: 2026-06-05.
+Source: Notion company, linked records, internal Notion documents, local repo process memory, and user instructions through 2026-06-09.
+Imported: 2026-06-05; updated 2026-06-09.
 Review: Keep history entries factual and source-routed; update when user approves or Notion live statuses are corrected.
+
+## 2026-06-09 - HardSoft Availability Correction And Call Reset
+
+The first `RBCALL-43` attempt reached HardSoft's office-closed message, which stated office hours as Monday-Friday 09:00-17:30. User approved correcting the contact timing and resetting the call. The five HardSoft weekday Contact Availabilities were updated from the provisional third-party 10:00-18:00 routing window to 09:00-17:30 Europe/Dublin, stored as 08:00-16:30 UTC during Dublin summer time. `RBCALL-43` was reset to `Call Status = Reviewed`, `Approved = yes`, `Retry Count = 0`, with prior ElevenLabs/Twilio/outcome/runtime fields cleared and the historical Call Notes relation preserved. No manual live phone call was placed; the existing call runner should pick up the reviewed/approved row.
 
 ## 2026-06-08 - HardSoft Mac Quote Call Setup
 

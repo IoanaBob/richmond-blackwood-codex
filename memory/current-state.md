@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-03.
+Updated: 2026-06-09.
 
 ## Repo State
 
@@ -285,7 +285,7 @@ EIP / EIP VENTURES LIMITED context import:
 - Notion company: `https://www.notion.so/b394acc6efaa48d3904cd0bad638e64d`; `Reference` is `EIP`.
 - Notion client project: `https://www.notion.so/32fe41301314804a8e09c51b11350b46`.
 - No WhatsApp route is recorded for EIP. User confirmed EIP is internal on 2026-06-07, and the live Notion company communication preference was updated/read back as Slack.
-- HardSoft Mac order follow-up: Notion Calls record `RBCALL-43` (`https://app.notion.com/p/379e4130131481abab9df3def6a54d4d`) was created/read back on 2026-06-08 with `Call Status = Not started`, `Approved = no`, first call date 2026-06-09, EIP/Eran relations, and Front Office Contact `HardSoft Ireland sales` (`https://app.notion.com/p/379e4130131481c4b377d961dded94d3`) with five linked weekday availability rows. No live phone call was placed.
+- HardSoft Mac order follow-up: Notion Calls record `RBCALL-43` (`https://app.notion.com/p/379e4130131481abab9df3def6a54d4d`) was created/read back on 2026-06-08 for the EIP custom iMac/MacBook Pro order route. The first call reached HardSoft's office-closed message, which stated hours Monday-Friday 09:00-17:30. On 2026-06-09, the five linked HardSoft weekday availability rows were corrected to 09:00-17:30 Europe/Dublin, and `RBCALL-43` was reset/read back as `Call Status = Reviewed`, `Approved = yes`, `Retry Count = 0`, with prior runtime voice metadata cleared and Call Notes preserved. No manual live phone call was placed.
 - User describes EIP as the venture-builder holding company. Direct Notion subsidiary/shareholder-of relations fetched on 2026-06-05 show MONO, EVG, and RBL; user confirmed this direct treatment for the current pass on 2026-06-07. Live task `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0` tracks the fuller group-structure diagram and direct/indirect/portfolio/separately owned classification.
 - High-signal current checks: BOI lending facility and debt-register template, intercompany tool-charge task, active intercompany contracts to Konvi/RBL/Mono, historical DE/IE tax cleanup, annual-return filing-row status, RTD/VIES overdue rows, Irish payroll-registration identifier mismatch, VAT3 Jan/Feb 2026 direct-debit/payment evidence, April 2026 PAYE direct-debit/payment evidence, AIB BYD Seal hire purchase, and mortgage/debt contract.
 - User clarified on 2026-06-07 that 2023 was Ireland for the tax year, while EIP still traded in Germany for less than 180 days. Annual Returns registration was updated/read back as Registered; the linked annual-return filing row is due 2026-08-06 and still needs filing-status review. VIES title was corrected/read back from `VEIS` to `VIES`, with status still Overdue.
