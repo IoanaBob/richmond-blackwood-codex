@@ -53,7 +53,7 @@ const redirectUri =
 const scopes =
   env.RB_XERO_OAUTH_SCOPES ||
   env[`RB_XERO_${clientKey}_OAUTH_SCOPES`] ||
-  "offline_access accounting.settings accounting.contacts accounting.transactions.read accounting.reports.read";
+  "offline_access accounting.settings.read";
 const tokenFile =
   env[`RB_XERO_${clientKey}_TOKEN_FILE`] ||
   path.join(baseRepoRoot, ".codex-local/xero", clientKey, "oauth-token.json");

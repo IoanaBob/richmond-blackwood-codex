@@ -73,7 +73,7 @@ RB_XERO_ACTIVE_CLIENT_REFERENCE=KONVI
 RB_XERO_CLIENT_ID=PUT_RB_OAUTH_APP_CLIENT_ID_HERE
 RB_XERO_SECRET=PUT_RB_OAUTH_APP_CLIENT_SECRET_HERE
 RB_XERO_REDIRECT_URI=http://localhost:36777/callback
-RB_XERO_OAUTH_SCOPES="offline_access accounting.settings accounting.contacts accounting.transactions.read accounting.reports.read"
+RB_XERO_OAUTH_SCOPES="offline_access accounting.settings.read"
 ```
 
 Set `RB_XERO_SHARED_LOGIN_EMAIL` once as a non-secret operator setup pointer. It does not get passed to the MCP server.
@@ -86,6 +86,7 @@ Optional local overrides:
 RB_XERO_NPX_BIN=/absolute/path/to/npx
 RB_XERO_MCP_PACKAGE=@xeroapi/xero-mcp-server@0.0.17
 RB_XERO_EIP_TOKEN_FILE=/absolute/path/to/local/eip-oauth-token.json
+RB_XERO_OAUTH_SCOPES="offline_access accounting.settings.read accounting.contacts.read accounting.invoices.read"
 ```
 
 Use `RB_XERO_MCP_PACKAGE` only when a production workflow needs package pinning after review.
@@ -127,6 +128,8 @@ setup/mcp/xero-oauth.mjs login EIP
 Open the printed `XERO_AUTH_URL`, complete the Xero login/consent flow using the shared Xero login, and choose the intended Xero organisation. The helper uses the RB OAuth app credentials from `.env` and stores the returned refresh token in the ignored base checkout `.codex-local/xero/EIP/oauth-token.json`.
 
 The MCP launcher refreshes that token automatically and exports only the short-lived access token to the official Xero MCP server process.
+
+Start with `offline_access accounting.settings.read` for initial organisation verification. Add only scopes that are enabled on the RB OAuth app and needed for the approved Xero task. Xero rejects deprecated or unenabled scopes before consent.
 
 If Xero shows `invalid_request` / `Invalid redirect_uri`, update the RB Xero OAuth app to allow the exact `RB_XERO_REDIRECT_URI` value from the base checkout `.env`, then run the login helper again. Do not keep retrying an authorization URL after a redirect URI mismatch; generate a fresh URL from the helper after the app setting is saved.
 
