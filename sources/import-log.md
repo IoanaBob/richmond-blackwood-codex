@@ -2020,11 +2020,11 @@ Imported:
 Actions:
 
 - Saved 2024 and 2025 ELSTER ESt 1 A drafts for review.
+- Entered the user-provided refund IBAN in the 2025 ELSTER draft and confirmed the 2024 draft already had the same IBAN with Person A as account holder.
 - Recorded draft state, validation results, source discrepancies, and remaining blockers in Selin individual memory.
 - Updated durable skill-run, history, and open-question memory.
 
 Unresolved:
 
 - Neither return was submitted.
-- 2025 remains blocked on `Bankverbindung` until a confirmed refund bank account is available.
 - Google Sheets and Notion connector calls returned revoked-token errors, so live workbook/readback/task writeback was not completed.

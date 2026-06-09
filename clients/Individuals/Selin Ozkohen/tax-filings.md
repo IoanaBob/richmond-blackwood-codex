@@ -36,6 +36,6 @@ Review: Drafts are saved for review only; neither return was submitted.
 | Filing | ELSTER draft state | Validation / blocker |
 | --- | --- | --- |
 | 2024 - Personal Tax - Selin | Saved draft `ESt unbeschränkt (ESt 1 A) 2024, Selin Özkohen Abuav`; saved about 13:50 IST | ELSTER check passed; preliminary refund EUR 58. Review 2024 health/care evidence discrepancy before submission. |
-| 2025 - Personal Tax - Selin - Germany | Saved draft `ESt unbeschränkt (ESt 1 A) 2025, Selin Oezkohen Abuav`; saved about 14:01 IST | ELSTER check has an unresolved `Bankverbindung` error. Confirm refund bank details and legal-name spelling before final validation/submission. |
+| 2025 - Personal Tax - Selin - Germany | Saved draft `ESt unbeschränkt (ESt 1 A) 2025, Selin Oezkohen Abuav`; saved about 14:01 IST and reopened/validated after IBAN entry | ELSTER check passed after the user-provided IBAN was entered; preliminary refund EUR 591. Confirm legal-name spelling before final submission. |
 
 Live Notion filing rows and filing tasks were not updated during this run because the Notion connector returned a revoked OAuth token error.

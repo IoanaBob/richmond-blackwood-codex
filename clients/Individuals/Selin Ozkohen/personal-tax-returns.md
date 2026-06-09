@@ -162,7 +162,7 @@ Open workbook checks after setup:
 Status: provisional.
 Source: User instruction on 2026-06-09; live Mein ELSTER drafts and validation screens; Selin 2024 and 2025 workbooks listed above; official ELSTER help for 2025 Anlage N home-office daily allowance.
 Imported: 2026-06-09.
-Review: Drafts are saved for filer/operator review only. Neither year has been submitted. Final submission needs review of the workbook flags, ELSTER prefill values, name spelling, and 2025 bank details.
+Review: Drafts are saved for filer/operator review only. Neither year has been submitted. Final submission needs review of the workbook flags, ELSTER prefill values, and 2025 name spelling.
 
 ### 2024 Draft
 
@@ -175,6 +175,7 @@ Draft data entered/reviewed:
 | Tax number | `13/460/03405`, Finanzamt Charlottenburg | Matches current Notion tax number and prior ELSTER transfer context. |
 | Wage-tax certificate | Official ELSTER prefill retained: tax class 1, gross EUR 28,800, wage tax EUR 2,656, SolZ EUR 0 | Matches the 2024 workbook payroll totals. |
 | Home-office daily allowance | Entered 210 days in `Anlage N`, `Tagespauschale`, no-permanent-other-workplace day field | Per operator instruction and workbook. Confirm the no-external-office/workplace assumption before submission if needed. |
+| Bankverbindung | User-provided domestic IBAN present; account holder set to Person A | Rechecked on 2026-06-09 after the user's IBAN instruction. |
 | Private health/care insurance | Official ELSTER prefill retained: private health EUR 3,430 and care EUR 672 | This conflicts with the workbook's client-reported EUR 9,785.30 claim, which still lacks insurer bill/payment evidence. Resolve before final submission. |
 | Self-employment schedule | Removed transferred stale `Anlage S` entry for `Translator` profit EUR 20,607 | Workbook has no current self-employment income source for 2024. |
 | ELSTER check/calculation | Passed validation; preliminary calculation showed refund EUR 58 | Preliminary only; not submitted. |
@@ -191,7 +192,8 @@ Draft data entered/reviewed:
 | Selected Anlagen | Main form, Anlage N, Anlage Vorsorgeaufwand, Anlage Sonderausgaben | `Anlage Sonderausgaben` is present because the workbook carries the EUR 36 statutory baseline; no manual EUR 36 expense line was entered. |
 | Wage-tax certificate | Official ELSTER prefill retained: tax class 1, gross EUR 28,800, wage tax EUR 3,096.96, SolZ EUR 0 | Matches the 2025 workbook payroll totals. |
 | Home-office daily allowance | Entered 210 days in `Anlage N`, `Tagespauschale`, no-permanent-other-workplace day field | Per operator instruction and workbook. Confirm the no-external-office/workplace assumption before submission if needed. |
+| Bankverbindung | User-provided domestic IBAN entered; account holder set to Person A | Entered on 2026-06-09 after the user's IBAN instruction. |
 | Private health/care insurance | Official ELSTER prefill retained: private health EUR 3,430 and care EUR 672 | Workbook setup did not have equivalent 2025 evidence review cleared; keep official prefill under filer review. |
-| ELSTER check/calculation | Validation still has an error on `Hauptvordruck > 4 - Bankverbindung`; no preliminary calculation was available | Local Selin bank-account memory has no IBAN and the Notion/Sheets connectors returned revoked-token errors, so no bank details were entered. |
+| ELSTER check/calculation | Passed validation after the IBAN was entered; preliminary calculation showed refund EUR 591 | Preliminary only; not submitted. |
 
 Connector gap during draft preparation: Google Sheets and Notion connector calls returned `token_revoked` / invalidated OAuth token errors on 2026-06-09. Live workbook/Notion re-read and Notion status/task writeback were therefore not completed in this run.
