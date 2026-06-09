@@ -2,6 +2,30 @@
 
 Status: active.
 
+## 2026-06-08 - EVG Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-08 to populate Everguard, described as the newest company, from Notion.
+- Notion company `EVERGUARD RESEARCH LIMITED` (`https://www.notion.so/15fe4130131480079a95fd029aef3511`) with canonical `Reference` `EVG`.
+- EVG primary project, operational project, linked Ioana/Eran role records, EIP group relation, active EVG/Luiza loan contract and invoices, filing registrations, annual-return/RBO/company-change filing rows, bank/name-change communications and tasks, EVG process pages, Techpacito bond subscription/cashflow rows, M&A Arts active prospect row, Phillips payable task, and Drive folder candidates.
+
+Actions:
+
+- Created `clients/Companies/EVG/` and populated company overview, linked individuals, group structure, contracts/authority, accounting/bookkeeping/payroll, tax/VAT/filings, invoices/payments/cashflows, communications, client project, Drive, Notion backup, open questions, source register, history, and financial-instruments/operations.
+- Updated the EIP subsidiary pointer to link to `../EVG/`.
+- Updated durable source, history, current-state, handoff, skill-run, and open-question memory.
+- Kept signing-system IDs/action links, private DocSend links, bank details, payment proof details, Gmail attachment IDs, raw transcripts, Notion attachment URLs, and personal identifiers out of git.
+
+Unresolved:
+
+- 2026-06-09 user review/live cleanup resolved business-purpose nuance, accounting-email retention, project relation intent, Annual Returns registration, VIES typo/status, RTD status, May EVG loan invoice company relation, canonical Drive folder, and Techpacito downstream review.
+- Still open: CT/Annual Tax status, BOI name-change readback, M&A Arts analysis owned by Eran, Everguard offering research, and Phillips payable/payment verification owned by Eran.
+
+Follow-up:
+
+- Live Notion updates/read-backs on 2026-06-09 changed EVG `Business Purpose in Detail`, Annual Returns registration, VIES title/status, RTD status, and the May EVG/Luiza invoice `Company` relation.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:

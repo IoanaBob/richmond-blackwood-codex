@@ -12,7 +12,7 @@ User instruction on 2026-06-05 describes EIP as the holding company of the ventu
 | Related company | Reference | Source | Relationship observed | Notes |
 | --- | --- | --- | --- | --- |
 | MONOCHROMATIC LIMITED | MONO | `https://www.notion.so/7d2d1876a3024ee0a3e5a3d1825485e0` | Listed in EIP `Shareholder of / Subsidiaries` | Do not duplicate MONO operating detail in EIP. Use `../MONO/`. |
-| EVERGUARD RESEARCH LIMITED | EVG | `https://www.notion.so/15fe4130131480079a95fd029aef3511` | Listed in EIP `Shareholder of / Subsidiaries` | Notion business purpose reads as real-estate activity despite legal name. Keep EVG detail in EVG records when populated. |
+| EVERGUARD RESEARCH LIMITED | EVG | `https://www.notion.so/15fe4130131480079a95fd029aef3511` | Listed in EIP `Shareholder of / Subsidiaries` | Notion business purpose reads as real-estate activity despite legal name and active research/bond/auction operations. Use `../EVG/`. |
 | RICHMOND BLACKWOOD LIMITED | RBL | `https://www.notion.so/60b3d344d0734dc5a2e30d012be50804` | Listed in EIP `Shareholder of / Subsidiaries` | Existing repo folder: `clients/Companies/RBL/`. |
 
 ## Adjacent Companies

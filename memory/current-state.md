@@ -28,6 +28,7 @@ Current implementation includes:
 - Reference-based TPL company client folder under `clients/Companies/TPL/`, loaded on 2026-05-22 from Notion, Drive, Gmail, WhatsApp, and user clarification.
 - Reference-based RBL company folder under `clients/Companies/RBL/`, refreshed on 2026-06-03 from Notion, CRO Open Data, internal RB memory, and user instruction; updated on 2026-06-05 after user review, live Notion status cleanup, and Drive search.
 - Reference-based MONO company folder under `clients/Companies/MONO/`, loaded on 2026-06-07 from Notion, Drive, WhatsApp, Gmail, EIP/NACV/Andrei repo memory, and user instruction that Monochromatic is partly EIP-owned and part of the group.
+- Reference-based EVG company folder under `clients/Companies/EVG/`, loaded on 2026-06-08 from Notion, Drive, EIP/TPL repo memory, and user instruction that Everguard is the newest company.
 - VUN/Nathan evidence pointer structure; downloaded/exported client evidence should live in Drive, not git.
 - Individual client root pilot under `clients/Individuals/Nathan Mawali A Vandy/`.
 - Individual client root for Claudio Brivio under `clients/Individuals/Claudio Brivio/`, loaded on 2026-05-13 from Notion, Drive, WhatsApp, and Gmail search pointers for German personal-tax routing.
@@ -301,6 +302,17 @@ MONO / MONOCHROMATIC LIMITED context import:
 - Drive search on 2026-06-07 found strongest folder candidate `01. Monochromatic Limited (MONO)` / `https://drive.google.com/drive/folders/11LwHCgff0Cb-yDpQnC07WYQGGmINBXPY`; it is currently under `02. RB Client Companies` / external-client root, so confirm before moving or reorganizing.
 - High-signal current checks: VAT/VIES/RTD/Annual Returns status conflicts, VIES `VEIS` title typo, MONO annual VAT task omission from the consolidated checklist, project company-relation mismatch, old Client Notes page pointing to lowercase `clients/monochromatic/`, Google Workspace/EIP/MONO cost allocation, and future external invoice-recipient rules.
 - Boundary: keep MONO operating detail in `clients/Companies/MONO/`, EIP holding-company detail in `clients/Companies/EIP/`, NACV service-provider detail in `clients/Companies/NACV/`, and Andrei personal-tax detail in `clients/Individuals/Andrei Nasonov/`. Do not copy bank details, payment credentials, portal tokens, payment profile IDs, Gmail attachment IDs, Notion attachment URLs, raw WhatsApp transcripts/media, or personal identifiers into git.
+
+EVG / EVERGUARD RESEARCH LIMITED context import:
+
+- Company folder: `clients/Companies/EVG/`.
+- Notion company: `https://www.notion.so/15fe4130131480079a95fd029aef3511`; `Reference` is `EVG`.
+- Notion projects: primary client project `https://app.notion.com/p/32fe413013148089b1ffce315e1eb38f`; operational project `https://app.notion.com/p/372e4130131480e082dbe27d971a51d3`.
+- EVG is part of the EIP/internal group context. EIP is listed as shareholder company; Ioana Surdu-Bob and Eran Peer appear in shareholder/role context, with Ioana as director/UBO and Eran as approved-signatory context for EVG financial documents.
+- Drive search on 2026-06-08 found strongest folder candidate `08. Everguard Research` / `https://drive.google.com/drive/folders/1DTsSxkmjpdA-ZykGCr88nX8iHp82W2hj` under `01. Internal Companies`; user confirmed it is canonical on 2026-06-09. Related EVG loan-register and duplicate/legacy folders are recorded in `drive-locations.md`.
+- User review/live cleanup on 2026-06-09 resolved mixed business-purpose wording, accounting-email retention, intentional project relation structure, Annual Returns registration, no-VAT VIES/RTD status, VIES title typo, May EVG/Luiza invoice company relation, canonical Drive folder, and Techpacito downstream review.
+- High-signal current checks: CT/Annual Tax registration status, BOI account-name verification because the package was submitted but not yet changed, M&A Arts submissions not yet reviewed with Eran as owner, Everguard offering research, and Phillips payable/payment verification assigned to Eran.
+- Boundary: keep EVG investor/payment/register/bond/research/auction detail in `clients/Companies/EVG/` and live EVG Notion/Drive sources, not in RB client files such as TPL. Do not copy bank details, SignNow action links or IDs, private DocSend links, Gmail attachment IDs, Notion attachment URLs, raw transcripts, payment proof details, or personal identifiers into git.
 
 Communication workflow update:
 
