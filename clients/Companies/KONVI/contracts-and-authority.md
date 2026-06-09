@@ -40,5 +40,6 @@ KHL placeholder correspondence/email fields were cleaned on 2026-05-26: correspo
 | Issue | Source | Review needed |
 | --- | --- | --- |
 | XVault / MiCA / CASP risk review | `https://www.notion.so/2b1e4130131480df9b26fe24faec0862` | Task is In Progress. It records concern that adding a tokenisation/XVault line under existing Konvi Limited could affect the current license, and that CBI suggested liaising with the CASP team. |
+| EXOTIC VAULTS FOUNDATION CLG / `$XVAULT` company route | `../EXV/README.md` | EXV has its own company folder for CLG administration, filings, Workhub address compliance, and EXV-specific protocol pointers. Keep Konvi licensing/current-business risk here. |
 | LuxTrust Scan order pack | `https://www.notion.so/364e4130131481aba141fbf1f79f679a` | High-priority To Do task for order-pack completion; confirm entity, signer authority, and submission route before sending documents externally. |
 | Banksy buy-side liquidity support package | `https://www.notion.so/360e413013148130b3d3ef6b667f2703` | Marked Done with Ioana correction on 2026-05-14; keep as closed context, not an active blocker. |

@@ -323,6 +323,18 @@ EVG / EVERGUARD RESEARCH LIMITED context import:
 - High-signal current checks: CT/Annual Tax registration status, BOI account-name verification because the package was submitted but not yet changed, M&A Arts submissions not yet reviewed with Eran as owner, Everguard offering research, and Phillips payable/payment verification assigned to Eran.
 - Boundary: keep EVG investor/payment/register/bond/research/auction detail in `clients/Companies/EVG/` and live EVG Notion/Drive sources, not in RB client files such as TPL. Do not copy bank details, SignNow action links or IDs, private DocSend links, Gmail attachment IDs, Notion attachment URLs, raw transcripts, payment proof details, or personal identifiers into git.
 
+EXV / EXOTIC VAULTS FOUNDATION CLG context import:
+
+- Company folder: `clients/Companies/EXV/`.
+- Notion company: `https://www.notion.so/18ce41301314807ca520f40825c36054`; `Reference` is `EXV`.
+- Notion company facts: Irish CLG, register number 781069, registered 2025-02-06, tax residence Ireland, registered/correspondence address at Workhub Camden Street, monthly fee to RB EUR 0, secretary Richmond Blackwood Limited, communication preference Email and WhatsApp.
+- Group context: KONVI HOLDINGS LIMITED is shareholder company; Eran and Ioana are directors and UBOs. Treat EXV as Konvi/KHL internal group context until the EIP/group-structure task clarifies direct/indirect treatment.
+- Product/regulatory context: EXV governs Exotic Vaults Protocol/DEX and `$XVAULT`; the product project is `Launch first XVAULT Vault`, and the Konvi XVault/MiCA/CASP risk review remains In Progress.
+- Filing state: CT, RBO, and Annual Returns are registered; VAT and VIES are Not Applicable; RTD is still marked Overdue and likely needs cleanup if VAT remains Not Applicable. VIES title has typo `VEIS`.
+- High-signal open issue: Workhub Camden address compliance / Plus Plan decision remains To Do; verify/remedy website address use and decide plan-charge treatment before replying.
+- Drive/WhatsApp: no canonical EXV Drive folder found under internal companies or KHL; WhatsApp searches for `Exotic`, `EXV`, and `XVault` found no chat, so no JID is stored.
+- Boundary: keep EXV company administration, filings, Workhub issue, and EXV protocol pointers in `clients/Companies/EXV/`; keep product specs in Notion and Konvi licensing/current-business impact in `clients/Companies/KONVI/`. Do not copy bank details, private identifiers, Notion attachment URLs, raw transcripts/media, signing links, or credentials into git.
+
 Communication workflow update:
 
 - Browser/API/MCP boundary from 2026-06-01 user instruction: reject browser use for live workspace or business-system workflows when an API, app connector, MCP tool, or repo-approved helper could support the current plan. Before using browser automation, check whether the current plan can use one of those routes; if unclear, ask the responsible RB team member whether an API/MCP path exists. If possible access is blocked by missing credentials, stop and ask the responsible team member to provision the right keys or credentials through approved secret storage. Do not use browser as a workaround for missing API/MCP access.

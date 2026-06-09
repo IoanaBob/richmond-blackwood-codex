@@ -176,6 +176,18 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Complete Everguard offering research and confirm regulatory/distribution constraints before treating the bond exemption analysis as final.
 - Verify Phillips invoice payment status before booking payable/asset records. The task is assigned to Eran Peer and user said Eran owns it.
 
+## EXV / Exotic Vaults Questions
+
+- Confirm the canonical Drive folder for EXV raw evidence; no EXV folder was found under the internal-companies root or KHL folder on 2026-06-09.
+- Confirm whether EXV should use Email, WhatsApp, Slack, or a Konvi internal route for future operational communication; Notion says Email and WhatsApp, but WhatsApp searches for `Exotic`, `EXV`, and `XVault` found no chat.
+- Resolve the Workhub Camden address compliance / Plus Plan decision: verify/remedy Exotic Vaults website address use, decide Plus Plan charge treatment, and prepare reply.
+- Confirm whether RTD should be set to Not Applicable because EXV VAT is Not Applicable.
+- Correct VIES title typo `Pending - VEIS` if live cleanup is in scope.
+- Confirm whether the 2026 annual-return row title should be normalized; the row title references 2025-07-31 while the due date is 2026-08-08.
+- Confirm whether the Konvi Group internal project relation is the intended project route for EXV.
+- Confirm how shared Workhub invoices should be allocated between VUN/CLV/EXV.
+- Confirm how EXV changes or resolves the Konvi XVault/MiCA/CASP risk path before relying on entity-routing assumptions.
+
 ## KONVI Questions
 
 - Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.

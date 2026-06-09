@@ -2106,3 +2106,24 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-09 - EXV Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-09 to pull latest main and populate EXV.
+- Notion company `EXOTIC VAULTS FOUNDATION CLG` (`https://www.notion.so/18ce41301314807ca520f40825c36054`) with canonical `Reference` `EXV`.
+- EXV linked filing registrations/filing rows, communications/document pointers, Workhub task, KHL shareholder record, Eran/Ioana director-UBO role pointers, the XVAULT launch project, and the XVault/MiCA/CASP risk task.
+- Google Drive searches and internal/KHL folder listings for canonical-folder discovery.
+- WhatsApp MCP chat searches for `Exotic`, `EXV`, and `XVault`.
+
+Actions:
+
+- Created `clients/Companies/EXV/` and populated source-backed overview, linked individuals, group structure, authority/contracts, tax/filings, accounting, invoices/expenses, communications, project, Drive, Notion backup, product/protocol, open questions, source register, and history.
+- Added cross-links from Konvi, EIP, and VUN where existing memory already mentioned XVault/EXV or shared Workhub evidence.
+- Updated durable current-state, open-question, history, handoff, and skill-run memory.
+- Excluded bank details, private individual identifiers, Notion-hosted attachment URLs, raw transcripts/media, attachment IDs, signing links, and credential material from git.
+
+Unresolved:
+
+- Confirm canonical Drive folder, communication route/WhatsApp status, Workhub Camden address/Plus Plan decision, RTD/VIES cleanup, 2026 annual-return title normalization, project-route intent, shared Workhub allocation, and the EXV/Konvi regulatory risk path.

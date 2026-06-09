@@ -1019,3 +1019,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-09 - EXV Company Context Import
+
+- User request: Pull latest main and populate company memory for EXV.
+- Context read: Notion EXV company, KHL shareholder record, Eran/Ioana role records, filing registrations/filings, Workhub task and communication, CT/advisory/Avalanche/BOI/Dracoon communication rows, XVAULT launch project, XVault/MiCA/CASP risk task, Drive search/list-folder results, WhatsApp chat searches, and existing Konvi/EIP/VUN repo memory.
+- Actions taken: Created `clients/Companies/EXV/`, saved company overview, linked individuals, group structure, authority/document pointers, tax/filing map, accounting setup, Workhub expense/address context, communication routes, project/product pointers, Drive state, source register, open questions, and history. Added Konvi/EIP/VUN cross-links and durable memory/source updates.
+- Decisions made: Treat EXV as internal Konvi/KHL group context; store only EXV operating pointers and compliance dependencies in repo; keep product specs in Notion and Konvi licensing risk in Konvi memory.
+- Verification: Pending branch closeout.
+- Limitations or gaps: No live Notion, Drive, Gmail, Slack, or WhatsApp writes were made. No canonical Drive folder or WhatsApp JID was found. RTD/VIES cleanup, Workhub decision, project-route confirmation, and regulatory-risk path remain open.

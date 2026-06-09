@@ -32,7 +32,7 @@ Konvi is an internal group company. User instruction on 2026-05-26 says there is
 
 The main active accounting/tax pressure points found in Notion are the April 2026 Irish VAT filing/ROS demand, the related Revenue VAT-refund support request, a VIES filing marked overdue, and stale or inconsistent filing metadata. User confirmed on 2026-05-26 that the April books/VAT/ROS issue and the VIES/title-mismatch issues are real problems. Konvi also has UK VAT registered, historical/deregistered German VAT context, and payroll tax registration in Ireland.
 
-Operationally, Konvi has internal legal/admin issues in Notion that should stay visible: LuxTrust Scan order-pack completion, `luigi@konvi.app` mailbox/send-as repair, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, and the XVault/MiCA/CASP risk question.
+Operationally, Konvi has internal legal/admin issues in Notion that should stay visible: LuxTrust Scan order-pack completion, `luigi@konvi.app` mailbox/send-as repair, Dracoon EUR 500/week invoice evidence, passive-income payout process documentation, and the XVault/MiCA/CASP risk question. EXOTIC VAULTS FOUNDATION CLG now has its own company memory folder at `../EXV/`; keep EXV company administration there while keeping Konvi operating/licensing impact here.
 
 ## Record Routing
 

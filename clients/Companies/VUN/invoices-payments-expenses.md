@@ -78,4 +78,4 @@ Backed-up invoice/receipt attachments should live in the VUN Drive backup/export
 
 - Fetch invoice and expense records before writing payment status.
 - Confirm whether dashboard-filtered views should be used as the operating source for invoice/payment status.
-- Confirm how to allocate shared Workhub renewal invoice `CC-INV-18238` between VUN and Exotic Vaults.
+- Confirm how to allocate shared Workhub renewal invoice `CC-INV-18238` between VUN and Exotic Vaults. EXV operating context is now tracked in `../EXV/invoices-payments-expenses.md`.
