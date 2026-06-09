@@ -2,7 +2,7 @@
 
 Status: active.
 Imported: 2026-05-04.
-Updated: 2026-06-03.
+Updated: 2026-06-09.
 
 ## Notion Backup Questions
 
@@ -162,6 +162,14 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Reconcile the MONO client project's `Companies` relation, which points to a Project Management `Richmond Blackwood` page instead of the Client Databases MONO company record.
 - Decide whether the old Client Notes page `https://app.notion.com/p/356e4130131481ae908df5ad201b9082` should be updated to the canonical `clients/Companies/MONO/` path.
 - Confirm current business-partner/contract invoice-recipient fields before future external MONO invoice sends to Motley/Yann, Dalton/FirstMate, or other counterparties.
+
+## EVG / Everguard Questions
+
+- Confirm EVG CT and Annual Tax Filing registration/status before changing their overdue/pending states. User said on 2026-06-09 that CT is not sure.
+- Confirm whether the BOI name-change package fully updated the bank account and Business On Line profile. User said on 2026-06-09 that it was submitted but the bank profile has not yet changed.
+- Complete deeper M&A Arts submission analysis before any external statement that Everguard reviewed the candidates. Eran owns the next review.
+- Complete Everguard offering research and confirm regulatory/distribution constraints before treating the bond exemption analysis as final.
+- Verify Phillips invoice payment status before booking payable/asset records. The task is assigned to Eran Peer and user said Eran owns it.
 
 ## KONVI Questions
 
