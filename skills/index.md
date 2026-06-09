@@ -13,6 +13,7 @@ Repo-local skills for Richmond Blackwood work.
 - `prd-writing`: write narrative-first PRDs and implementation handoff specs for any project or company from discovery context, examples, and approved scope.
 - `rb-handoff`: prepare next-session handoff.
 - `rb-google-auth`: authenticate Drive/Gmail helper access through the shared global Codex persona/OAuth store without committing credentials.
+- `rb-xero`: read, reconcile, report, create, or update Xero accounting records through the optional local Xero MCP server.
 - `rb-file-uploads`: upload, export, attach, and catalog Drive/Notion-backed files.
 - `rb-form-fill-assist`: read inbound forms/questionnaires, draft field-level answers from RB context, and route only unresolved questions to a human owner.
 - `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and verified Gmail draft fallback rules for `accounting@richmondblackwood.com` using shared global Codex auth storage.

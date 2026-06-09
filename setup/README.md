@@ -12,6 +12,7 @@ Status: provisional.
 - WhatsApp MCP: optional local MCP support for user-controlled WhatsApp access.
 - ElevenLabs MCP: optional local MCP support for voice/audio/agent work.
 - n8n MCP: optional remote MCP support for inspecting, testing, and building exposed n8n workflows.
+- Xero MCP: optional local MCP support for Xero accounting data and approved accounting writes.
 - GitHub or local git: required for repo sync if publishing changes.
 
 ## Confirmed On 2026-05-04
@@ -66,6 +67,7 @@ Optional repo-pinned MCP setup guides live under `setup/mcp/`.
 
 - WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
 - ElevenLabs and n8n MCP: [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md). This enables local Codex access to the official ElevenLabs MCP server and remote n8n instance-level MCP. API keys, MCP tokens, webhook secrets, live instance URLs if private, client call transcripts, and personal Codex config stay local and ignored.
+- Xero MCP: [setup/mcp/xero.md](mcp/xero.md). This enables local Codex access to the official XeroAPI MCP server through a repo launcher that reads credentials from `~/.codex/xero-mcp.env`. Xero client IDs, client secrets, bearer tokens, tenant IDs if private, report payloads, and personal Codex config stay local and ignored.
 - ElevenLabs API fallback: use only when the current MCP tools cannot perform a required live edit, and only after explicit user approval for the exact production change.
 
 Quick WhatsApp MCP install path:
@@ -86,6 +88,18 @@ which uvx
 ```
 
 Add the placeholder snippets from [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md) to `~/.codex/config.toml`, replace the placeholders locally with the ElevenLabs API key and n8n MCP URL/token, enable MCP on the relevant n8n workflows, then restart or reload Codex.
+
+Quick Xero MCP setup path:
+
+```sh
+node --version
+npm --version
+npx --version
+touch ~/.codex/xero-mcp.env
+chmod 600 ~/.codex/xero-mcp.env
+```
+
+Add the local Xero Custom Connection credentials or bearer token to `~/.codex/xero-mcp.env`, add the MCP server snippet from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`, then restart or reload Codex. Keep Xero MCP tools in prompt approval mode and run a read-only Demo Company test before any production write.
 
 For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. ElevenLabs SIP trunking through Twilio Elastic SIP Trunking is the default outbound path: import the SIP number in ElevenLabs and set `ELEVENLABS_AGENT_PHONE_NUMBER_ID` to that SIP phone-number ID. Set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to the older Twilio Native endpoint. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 
