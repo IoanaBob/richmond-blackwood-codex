@@ -130,7 +130,8 @@ collection://1b5e4130-1314-8183-afd8-000b6f4da982
 
 Inventory method:
 
-- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, follow `processes/notion-operations.md`. Keep up-to-date Notion inventory/query/export rules there, not in this communications protocol.
+- For broad scopes such as "all rows", "since inception", "all assigned to X", or any other complete inventory, follow the REST pagination path in `processes/notion-operations.md`. Keep up-to-date Notion inventory/query/export rules there, not in this communications protocol.
+- Do not use the Notion connector `query_data_sources` / `notion-query-data-sources` tool for Communications inventory, even if tool discovery advertises it.
 - For operator assignment scopes, resolve the active human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` and `internal/people-roles.md`, or from an explicit actor supplied in the current run/chat if both env keys are missing, then filter by the Notion user ID stored in `Assigned To`.
 - Google personas are auth routes only. Do not use a Google persona, Gmail mailbox, or sender identity as the active human workspace actor.
 - If using a user-provided CSV/export, record the file path, export timestamp if known, source view/database URL, row count, and exact filter/sort that produced it.

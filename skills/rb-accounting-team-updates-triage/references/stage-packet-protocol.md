@@ -86,7 +86,7 @@ Required packet fields:
 - branch, `git status --short --branch`, and `git pull origin main` result;
 - clean/dirty/conflicted worktree assessment and whether Stage 1 may auto-continue;
 - run date/window in `Europe/Dublin`;
-- Team Updates data source query or fallback search strategy;
+- Team Updates REST data-source query path or explicitly degraded fallback search strategy;
 - Slack source channels and IDs;
 - ChatGPT/Codex/OpenAI/bot-authored message exclusion rule;
 - Notion and Slack connector availability;

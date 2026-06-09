@@ -27,7 +27,7 @@ Team Updates:
 - Relevant properties observed on 2026-05-19: `Name`, `Team`, `Owner`, `Date`, `Company`.
 - Filter: `Team = Accounting`; prefer `Company = Richmond Blackwood` when present.
 
-If a data source query tool is available, query by `Team = Accounting` and `Date = current working day`. If not, use Notion search/fetch on the Accounting view/current-date candidates and verify properties after fetch.
+For authoritative lookup, use the Notion REST data-source query with `NOTION_ACCESS_TOKEN` and filter by `Team = Accounting` and `Date = current working day`. Do not use the Notion connector `query_data_sources` / `notion-query-data-sources` tool. If REST is unavailable, use Notion search/fetch only as an explicitly degraded candidate path and verify properties after fetch.
 
 Meeting transcript / notes:
 

@@ -74,11 +74,12 @@ Review: Keep provisional until the RB Notion API connection is confirmed shared 
   - exhaustive table/data-source queries and filters that may need pagination;
   - downloading Notion-hosted files/images from a `files` property or media block;
   - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
+- Do not use the Notion connector `query_data_sources` / `notion-query-data-sources` tool for authoritative RB inventory. It is not an approved RB inventory path; use REST pagination with `NOTION_ACCESS_TOKEN` instead.
 - Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
 - Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
 - Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.
 
-### Data Source Query
+### REST Data Source Query
 
 - Use `POST /v1/data_sources/{data_source_id}/query` with cursor pagination. `page_size` is at most `100`; there is no one-call all-rows endpoint.
 - Put URL query parameters such as `filter_properties[]` on the request URL. Put filters, sorts, and `page_size` in the JSON body.
