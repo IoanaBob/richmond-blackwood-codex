@@ -27,13 +27,13 @@ Team Updates:
 - Relevant properties observed on 2026-05-19: `Name`, `Team`, `Owner`, `Date`, `Company`.
 - Filter: `Team = Accounting`; prefer `Company = Richmond Blackwood` when present.
 
-If a data source query tool is available, query by `Team = Accounting` and `Date = current working day`. If not, use Notion search/fetch on the Accounting view/current-date candidates and verify properties after fetch.
+Do not use connector SQL/data-source query tools. For an exact current-day lookup, use the Notion REST API with `NOTION_ACCESS_TOKEN` to query the Team Updates data source by `Team = Accounting` and `Date = current working day`, then fetch the selected page through the connector for content/readback. If REST access is unavailable, use Notion connector search/fetch only as degraded candidate discovery and verify `Team`, `Date`, and `Company` properties before acting.
 
 Meeting transcript / notes:
 
 - Meetings database: `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8`
 - Meetings data source: `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72`
-- During Stage 2, check the Meetings database first for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on date, meeting name, Teams/Companies relations when present, and proximity to the Team Updates run. If a supplied Meetings view is too narrow, use the broader Meetings data source or All view rather than treating that as no transcript.
+- During Stage 2, check the Meetings database first for the relevant current-working-day RB/Accounting/Operations daily meeting. Match on date, meeting name, Teams/Companies relations when present, and proximity to the Team Updates run. If a supplied Meetings view is too narrow, use the broader Meetings data source through REST or connector search/fetch rather than treating that as no transcript. Do not use connector SQL/data-source query tools.
 - If the relevant meeting is found, fetch it with transcript included when supported and save task-relevant context in the Stage 2 packet or a linked transcript-context appendix/handover file in the run folder. Stage 3 task descriptions and contextual comments should use that saved context.
 - If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
 - If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Absence alone is not a blocker.

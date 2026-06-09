@@ -86,7 +86,7 @@ Required packet fields:
 - branch, `git status --short --branch`, and `git pull origin main` result;
 - clean/dirty/conflicted worktree assessment and whether Stage 1 may auto-continue;
 - run date/window in `Europe/Dublin`;
-- Team Updates data source query or fallback search strategy;
+- Team Updates REST data-source query or degraded connector search/fetch strategy;
 - Slack source channels and IDs;
 - ChatGPT/Codex/OpenAI/bot-authored message exclusion rule;
 - Notion and Slack connector availability;
@@ -105,7 +105,7 @@ Execution:
 2. Split rows by section.
 3. Count `New client inbounds` as observed / out of scope.
 4. Check the Meetings database `https://www.notion.so/bdf48e974ca84a5d99f3b12ffc3498f8` / data source `collection://4e30eb7f-e5b3-47c7-bd8f-fad3d0f26b72` for the relevant current-day RB/Accounting/Operations daily meeting. Match on current working day, meeting name, Teams/Companies relations when present, and proximity to the Team Updates run.
-5. If the supplied Meetings view is too narrow or returns an irrelevant row, query/search the broader Meetings data source or All view before concluding no meeting exists.
+5. If the supplied Meetings view is too narrow or returns an irrelevant row, use REST data-source filtering or connector search/fetch against the broader Meetings data source or All view before concluding no meeting exists. Do not use connector SQL/data-source query tools.
 6. If the relevant meeting transcript/notes are found, read them and preserve the task-relevant context in `stage-02-source-context.md` or a linked meeting-context appendix in the run folder.
 7. If no Meetings row is found, then check the Team Updates page, linked Notion pages, approved Slack threads, or another approved source location named by the run context.
 8. If no transcript/notes are found after the check, record `Transcript check: none found` and continue. Missing transcript/notes alone is not a blocker.
