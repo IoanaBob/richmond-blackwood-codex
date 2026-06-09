@@ -13,7 +13,6 @@ Repo-local skills for Richmond Blackwood work.
 - `prd-writing`: write narrative-first PRDs and implementation handoff specs for any project or company from discovery context, examples, and approved scope.
 - `rb-handoff`: prepare next-session handoff.
 - `rb-google-auth`: authenticate Drive/Gmail helper access through the shared global Codex persona/OAuth store without committing credentials.
-- `rb-xero`: read, reconcile, report, create, or update Xero accounting records through the optional local Xero MCP server.
 - `rb-file-uploads`: upload, export, attach, and catalog Drive/Notion-backed files.
 - `rb-form-fill-assist`: read inbound forms/questionnaires, draft field-level answers from RB context, and route only unresolved questions to a human owner.
 - `rb-gmail-drafts`: email-specific sender, thread, signoff, direct-send preview, and verified Gmail draft fallback rules for `accounting@richmondblackwood.com` using shared global Codex auth storage.
@@ -24,6 +23,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-signature-status-sync`: check SignNow signature status and require signed-file evidence before completion.
 - `rb-whatsapp-comms`: read, search, summarize, draft, send, and route WhatsApp communications through the optional local WhatsApp MCP server.
 - `rb-whatsapp-inbound-monitor`: manually check saved client WhatsApp chats for new inbound messages, process Communications attachments, create or update task-capable Notion rows, notify Slack after approval, and update checkpoints.
+- `rb-xero-mcp`: use the local Xero MCP server for Xero reads and approved writes, always requiring the exact RB client reference and active-client match first.
 - `rb-task-pr`: isolate repository work on a branch and publish it as a PR when requested/appropriate.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
 - `rb-de-vbg-accident-insurance`: prepare, submit, and log German VBG accident-insurance / Unternehmensnummer registrations for RB company clients.

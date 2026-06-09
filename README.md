@@ -105,8 +105,6 @@ Outbound communications are drafted in chat with Codex, not as software drafts. 
 
 WhatsApp MCP setup is documented in [setup/mcp/whatsapp.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/whatsapp.md). It is optional and local-only: QR/session state, SQLite databases, downloaded media, transcripts, and personal Codex config must not be committed.
 
-Xero MCP setup is documented in [setup/mcp/xero.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/xero.md). It is optional and local-only: Xero client IDs, client secrets, bearer tokens, tenant IDs if private, report payloads, and personal Codex config must not be committed. Xero writes require explicit user approval for the exact organisation, record, amount, date, and action.
-
 Normal WhatsApp work should use the `whatsapp` MCP tools after the bridge is running. The bridge can be started with:
 
 ```sh
@@ -114,6 +112,8 @@ setup/mcp/start-whatsapp-bridge.sh start
 ```
 
 Do not create a new RB Communications database or send WhatsApp messages/files without explicit user approval.
+
+Xero MCP setup is documented in [setup/mcp/xero.md](/Users/ioana/Documents/Codebases/richmond-blackwood-codex/setup/mcp/xero.md). It is optional and local-only: use one Codex MCP server entry named `xero`, switch the active client locally, keep Xero credentials in ignored local files, and provide the exact RB client reference such as `AGL` before any Xero MCP work. Xero writes require explicit user approval for the exact client, verified Xero organisation, and operation.
 
 ## Notion Backup Status
 

@@ -18,6 +18,7 @@ Keep setup documentation limited to human setup: local tools, connector authenti
 - Poppler PDF tools when PDF inspection/rendering is needed.
 - Go, `uv`, and `ffmpeg` when optional WhatsApp MCP is enabled.
 - `uvx` when optional ElevenLabs MCP is enabled.
+- `npx` when optional Xero MCP is enabled.
 
 ## Local Files
 
@@ -27,11 +28,14 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 - `~/.codex/google-personas/<persona-slug>/gcloud/` for shared global persona gcloud caches.
 - `~/.codex/google-oauth-client.richmondblackwood.json` for Richmond Blackwood sender-context OAuth client recovery/reconnect.
 - `.codex-local/whatsapp-bridge.*` for optional WhatsApp bridge PID, log, compiled binary, and LaunchAgent plist.
+- `.codex-local/xero-active-client` for the optional Xero MCP active client reference.
 - `.env` for local SignNow helper credentials if SignNow helpers are used.
-- `~/.codex/config.toml` for personal MCP server configuration, including optional ElevenLabs and n8n MCP entries. This file is outside the repo and must not be copied into git.
+- `.env` for local per-client Xero custom connection credentials if Xero MCP is used.
+- `~/.codex/config.toml` for personal MCP server configuration, including optional Xero, ElevenLabs, and n8n MCP entries. This file is outside the repo and must not be copied into git.
 
 Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts. Do not print or copy Google OAuth vault files or token responses into repo memory.
 Never commit ElevenLabs API keys, n8n MCP tokens, n8n API keys, webhook secrets, call recordings, or full call transcripts.
+Never commit Xero client IDs, Xero client secrets, bearer tokens, OAuth tokens, MFA codes, recovery codes, or screenshots of Xero credentials.
 
 ## Health Checks
 
@@ -61,6 +65,17 @@ rg -n "PUT_ELEVENLABS|PUT_N8N" ~/.codex/config.toml
 ```
 
 After replacing placeholders locally, restart or reload Codex and verify the `elevenlabs` and `n8n` MCP servers are available before asking Codex to inspect or modify live resources.
+
+Optional Xero MCP checks:
+
+```bash
+which npx
+git check-ignore .env
+rg -n "^RB_XERO_.*_CLIENT_ID=|^RB_XERO_ACTIVE_CLIENT_REFERENCE=" .env
+setup/mcp/select-xero-client.sh KONVI
+```
+
+After replacing placeholders locally, add the single `xero` MCP server entry from `setup/mcp/xero.md` to `~/.codex/config.toml`, select the active client, restart or reload Codex, and verify the `xero` MCP server is available. Every Xero request must include the exact client reference such as `AGL`, and the first Xero MCP call must verify the Xero organisation through a read-only organisation details check.
 
 For the RB calling bot, MCP setup is not enough for runtime calls. n8n also needs a selected ElevenLabs credential on `RB Calls Voice Execution` -> `Make ElevenLabs Outbound Call` and `RB Calls ElevenLabs Events` -> `Get ElevenLabs Conversation`, plus the variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. The current workflows use n8n's predefined `ElevenLabs API` credential type; if using an HTTP Header Auth fallback, the header name must be `xi-api-key`. Store credentials and variable values in n8n only, never in git. Preserve the source-level `newCredential('ElevenLabs account 2')` binding on both ElevenLabs HTTP Request nodes; n8n read-backs can omit credential details, but runtime calls fail if the binding is removed or not resolved.
 
