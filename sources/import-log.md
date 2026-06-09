@@ -2,6 +2,23 @@
 
 Status: active.
 
+## 2026-06-09 - HardSoft Call Availability Correction And Reset
+
+Applied:
+
+- Used the first `RBCALL-43` office-closed outcome as the updated source for HardSoft hours: Monday-Friday 09:00-17:30 Europe/Dublin.
+- Updated/read back five live Notion Contact Availabilities linked to `HardSoft Ireland sales`, changing the routing windows from the provisional third-party 10:00-18:00 source to 09:00-17:30 Europe/Dublin, stored as 08:00-16:30 UTC during Dublin summer time.
+- Reset/read back live Notion Calls row `RBCALL-43` (`https://app.notion.com/p/379e4130131481abab9df3def6a54d4d`) as `Call Status = Reviewed`, `Approved = yes`, `Retry Count = 0`, with prior voice runtime fields cleared and Call Notes preserved.
+- Updated `clients/Companies/EIP/`, `memory/current-state.md`, `memory/handoff.md`, `memory/history.md`, `memory/skill-runs.md`, and `memory/tasks.md`.
+
+Verification:
+
+- Notion read-backs confirmed `RBCALL-43` scheduler-facing fields and all five corrected availability windows.
+
+Follow-up:
+
+- Monitor `RBCALL-43` for the next call attempt and update the EIP computer-order trail once HardSoft provides the correct quote/order contact and process.
+
 ## 2026-06-07 - MONO Company Context Import
 
 Imported:
