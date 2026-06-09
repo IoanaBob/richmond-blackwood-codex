@@ -42,3 +42,17 @@ Review: Resolve before final 2025 submission.
 
 Resolved 2026-06-09: User provided a refund IBAN for both years. It is recorded in `bank-accounts.md`; the 2025 draft validates after entry, and 2024 already had the same IBAN selected with Person A as account holder.
 Resolved 2026-06-09: User said the Notion key was available again. Live Notion read-back confirmed the 2025 analysis task is `Done`, marked complete on 2026-05-11, the filing task remains `To Do`, and the 2025 filing record remains `In Progress`.
+
+## 2026-06-09 Ready-To-Apply ELSTER Review Questions
+
+Status: provisional.
+Source: User-pasted ELSTER review text and live workbook read-back on 2026-06-09.
+Imported: 2026-06-09.
+Review: Resolve before final submission; ELSTER changes should wait until the operator confirms Celine/Selin's login is active.
+
+- Decide the 2024 `Anlage Vorsorgeaufwand` health/care filing position: keep official ELSTER prefill EUR 3,430 health plus EUR 672 care, or enter the workbook's client-reported EUR 9,785.30 only after obtaining insurer bill/payment evidence and the split between basic private health insurance and mandatory care insurance.
+- Decide the 2025 `Anlage Vorsorgeaufwand` health/care filing position: keep official ELSTER prefill EUR 3,430 health plus EUR 672 care and update the workbook/review notes to match, or remove/change it if unsupported.
+- If 2025 name editing is possible, change `Oezkohen Abuav` to `Özkohen Abuav`; otherwise document `Oezkohen` as the ASCII transliteration.
+- Confirm no 2024/2025 investment, broker, crypto, interest, dividend, staking, disposal, or foreign-withholding items before leaving Anlage KAP / Anlage SO absent or zero.
+- Confirm no additional 2024/2025 employment expenses or tax credits beyond the home-office daily allowance before leaving the drafts as home-office-only for Werbungskosten and zero for tax credits.
+- Confirm no direct Einkommensteuer payments/prepayments outside payroll withholding, or document any notices/payments for final assessment review.
