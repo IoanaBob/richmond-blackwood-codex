@@ -12,12 +12,15 @@ Use this skill for Richmond Blackwood decks, pitch packets, and Figma/Slides cre
 1. Gather product, audience, and proof context before drafting. Register source context separately.
 2. Draft a slide-by-slide packet before creating or changing the live deck.
 3. Map every slide to an exact source template slide, page, or node before Figma work.
-4. Create in Figma by copying the matching template slide and editing existing elements.
-5. Verify the live deck with screenshots or Figma readback before closeout.
+4. Create or duplicate into a separate working deck before producing a client-review deck.
+5. Create in Figma by copying the matching template slide and editing existing elements.
+6. Verify the live deck with screenshots or Figma readback before closeout.
 
 ## Template Rules
 
 - Treat the template as the design authority.
+- Treat the source template as read-only unless the user explicitly asks to edit it.
+- Do not use the source template file as the delivery deck.
 - Copy the matching template slide first. Edit text, existing shapes, and existing component slots in place.
 - Preserve template typography, color treatment, and component styling.
 - Preserve spacing and layout unless the user explicitly asks for a redesign.
