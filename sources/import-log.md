@@ -2106,3 +2106,20 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-10 - MHL Notary Invoice And Payment Evidence
+
+Imported:
+
+- User-provided local invoice PDF `/Users/jp/Downloads/RE26_00334 (1).pdf` and Wamo payment-evidence PDF `/Users/jp/Downloads/efde0930-8801-4291-8879-893a0d8fb6e7.pdf` for Pichler Finke Michelsburg invoice `RE26/00334`.
+
+Actions:
+
+- Uploaded the invoice to Drive as `https://drive.google.com/file/d/1yNUwLJ7EAiqvwUWwvF8bI7suH9K7qg2x/view?usp=drivesdk`.
+- Uploaded the payment evidence to Drive as `https://drive.google.com/file/d/1DmGvvmtMAxFUax4cL3d0ClDB_kCd9QNf/view?usp=drivesdk`.
+- Created/read back MHL Notion Expense `https://www.notion.so/37be413013148175984ddf9d1dab8f2d` with `Status = Paid`, `Type = Paid`, payment date 2026-06-10, MHL relation, Simoneta assigned, and both Drive files attached.
+- Recorded source-safe pointers in `clients/Companies/MHL/`.
+
+Unresolved:
+
+- `.env.local` was not present, so `Submitted by` was left blank.
