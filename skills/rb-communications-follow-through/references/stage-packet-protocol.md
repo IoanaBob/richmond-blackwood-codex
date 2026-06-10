@@ -310,12 +310,20 @@ Gmail execution rules:
 - Verify returned `message_id`, `thread_id`, sent `From`, and destination details where the send path exposes them.
 - If direct send is unavailable, stop with a connector/API blocker unless the operator explicitly approves a draft fallback.
 
+Packet shape:
+
+- Use one result-table row per logical entry, not one row per individual property/content/comment mutation.
+- A logical entry is one updated Communication, task, operational row, evidence file, source row, outgoing message, or other target object.
+- Group all approved actions for the same entry inside that entry's row, for example property updates, appended page content, relation changes, comments, and attachments.
+- If one queue item updates both a Communication and a linked task, use one row for the Communication and one row for the task.
+
 Packet columns:
 
-- approved action;
+- entry, using a Markdown link whose text is the actual Notion page/file name when the entry is a Notion object;
+- approved actions grouped;
 - command/tool used, summarized without secrets;
 - write/send result;
-- returned Notion URL, message ID, thread ID, Slack timestamp, or WhatsApp message ID;
+- returned Notion page/comment/file URL as a Markdown link whose link text is the actual Notion page/file name, or for comments the actual target page name prefixed by the comment purpose, plus message ID, thread ID, Slack timestamp, or WhatsApp message ID;
 - skipped actions and reasons;
 - failed actions and retry/blocker decision.
 
@@ -342,10 +350,13 @@ Closeout packet must include:
 - replies sent, snoozed, skipped, or blocked;
 - evidence attached or blocked;
 - task/operational updates;
+- linked Notion records table with Markdown links for every updated Communication, task, operational row, comment, evidence file, and source row where a URL is available; link text must be the actual Notion page/file name, or for comments the actual target page name prefixed by the comment purpose;
 - durable memory updates, if any;
 - remaining blockers;
 - run folder path;
 - lock release result.
+
+Do not split a single entry's property update, page-content update, relation update, comment, and attachment into separate result rows. Do not leave updated Notion pages, comments, or files as bare IDs or generic labels such as `Communication page`, `linked task`, or `comment` in Stage 5 or Stage 6 result packets when a URL is available. Include the actual Notion links with human-readable page/file names in the result table so the operator can see what each link points to without reconstructing context.
 
 Release `LOCK.md` only after Stage 6 is complete. Preserve scratch packets by default.
 
