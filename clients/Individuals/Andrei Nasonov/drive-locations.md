@@ -14,6 +14,7 @@ Review: Complete the existing Notion task to split misrouted 2024 evidence from 
 | 2025 - Personal Tax Filing | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents to review, including 2024 items placed there by mistake. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current workbook in the 2024 folder. |
 | 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Fresh Drive-native copy of the maintained template created in the 2025 filing folder on 2026-05-27. |
+| NACV 2025 wage-tax certificate correction | `https://drive.google.com/file/d/18otFpQW8n0sUzjcEREMrdSA1zHVsNQ-9/view?usp=drivesdk` | Uploaded to the 2025 filing folder on 2026-06-10; used for NACV Sep-Dec 2025 gross, wage tax, pension/social, and health/care figures in the workbook. Local source SHA-256: `f9c1a36684087f6f735e848fd492658694a38e8721c894a20c529ed5003438f9`. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
 ## 2024 Folder Contents Observed
@@ -31,7 +32,7 @@ Source: Drive folder listing and workbook creation on 2026-05-27.
 Imported: 2026-05-27.
 Review: Preserve raw evidence in Drive; the repo stores source pointers only.
 
-2025 filing evidence observed includes Andrei MRM Jan-May payslips, MRM June and August bank-transfer PDFs, spouse `Lohnsteuer_Lena.pdf`, Vodafone invoices, Vattenfall energy bill, `Deutsch_Kurse.pdf`, and `BVG_Lena_24-25.pdf`. The 2025 workbook records exact URLs for the source rows and flags final MRM payroll evidence as missing.
+2025 filing evidence observed includes Andrei MRM Jan-May payslips, MRM bank-transfer PDFs for 2025-06 and 2025-08, spouse `Lohnsteuer_Lena.pdf`, the uploaded NACV 2025 wage-tax certificate correction, Vodafone invoices, Vattenfall energy bill, `Deutsch_Kurse.pdf`, and `BVG_Lena_24-25.pdf`. The 2025 workbook records exact URLs for the source rows and flags final MRM payroll evidence as missing. The file titled `MRM_July.pdf` was reviewed on 2026-06-10 and its PDF text shows a 2025-06-24 transfer for salary period `202506`, so no separate July payroll row was added from that file.
 
 ## Company Folder Pointer
 

@@ -8,10 +8,10 @@ Review: Close only after the live workbook, Notion records, or user instruction 
 ## Personal Tax
 
 - Confirm spouse-related evidence completeness for the joint return.
-- Confirm final 2025 MRM payroll evidence for Andrei: June payslip, August/final payslip, severance treatment, or the 2025 Lohnsteuerbescheinigung.
+- Confirm final 2025 MRM payroll evidence for Andrei: June salary gross/tax/social treatment, August/final payslip, severance treatment, or the 2025 MRM Lohnsteuerbescheinigung. The file titled `MRM_July.pdf` was reviewed on 2026-06-10 and appears to be the 2025-06 salary transfer for period `202506`, not separate July payroll evidence.
 - Confirm billing mechanics for normal-fee treatment from 2025 onward.
 - Complete/sync the evidence split from the mistaken 2025 folder into the correct 2024 filing folder.
-- Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload them from Lexoffice.
+- Confirm whether the filer still needs individual NACV Sep-Dec monthly payslip PDFs after the NACV 2025 wage-tax certificate correction was uploaded and entered in the workbook on 2026-06-10.
 - Confirm phone/Vodafone recurring cost support for 2024 and 2025 after Andrei provides filtered transaction extracts.
 - Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
 - Confirm 2025 WFH qualifying days before any home-office daily allowance claim; do not overlap the WFH/employee-lump-sum route with Vodafone/telephone or utility actual-cost claims unless the operator explicitly approves it.

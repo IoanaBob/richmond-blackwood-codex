@@ -2,6 +2,31 @@
 
 Status: active.
 
+## 2026-06-10 - Andrei Nasonov 2025 NACV Wage-Tax Certificate Update
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-10 to upload the local NACV 2025 correction PDF, correct the 2025 workbook Revenue gaps, check the apparent MRM July payment, and verify the employee lump-sum handling.
+- Local PDF `Andrei_Nasonov_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf`, uploaded to Drive as `https://drive.google.com/file/d/18otFpQW8n0sUzjcEREMrdSA1zHVsNQ-9/view?usp=drivesdk`.
+- 2025 workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`.
+
+Actions:
+
+- Uploaded the NACV 2025 wage-tax certificate correction PDF into Andrei's 2025 filing folder.
+- Updated the workbook to use one NACV Sep-Dec 2025 aggregate Revenue row from the uploaded certificate, filled NACV pension and health/care deductible rows, kept NACV unemployment evidenced but under operator/filer review, and clarified that the two employee lump-sum baselines are counted as one aggregate Summary/Tax Analysis line.
+- Reviewed the Drive file titled `MRM_July.pdf`; extracted text showed a 2025-06-24 transfer for salary period `202506`, so no separate July Revenue row was added from that evidence.
+- Updated Andrei repo pointers and open questions without copying private identifiers from the PDF.
+
+Verification:
+
+- Drive metadata read-back confirmed the uploaded PDF in the 2025 filing folder.
+- Sheets read-back confirmed `Checks` journal balance is OK, Revenue review count is 2, failed checks are 5, missing-info count is 30, wage tax withheld is EUR 8,808.30, pension included is EUR 6,833.66, health/care included is EUR 10,539.02, and employee lump-sum baseline is EUR 2,460.00.
+
+Unresolved:
+
+- Final MRM June/August/final-pay gross, tax, social, and severance treatment still needs the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
+- Prior-year opening links, investment confirmation, deductible review, and tax-credit review remain open in the workbook.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:
