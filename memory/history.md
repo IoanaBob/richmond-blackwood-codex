@@ -11,6 +11,15 @@ Status: active.
 - Verification: Merge verification is tracked in the branch closeout.
 - Limitations or gaps: Live LinkedIn/Reddit sends remain exact-approval and immediate Ioana-session gated; growth records remain provisional unless user-approved or read back from live Notion.
 
+## 2026-06-10 - Ioana RB Gmail Signature Rule
+
+- User request: Always use the saved signature named `ioana general` for Ioana's RB email signature.
+- Context read: `skills/rb-gmail-drafts/SKILL.md`, `processes/signature-and-gmail.md`, Google persona memory, and Gmail settings read-back for `ioana@richmondblackwood.com`.
+- Actions taken: Added the general rule that approved outbound email from `ioana@richmondblackwood.com` should use saved Gmail signature `ioana general` instead of a manual `Best, Ioana` or typed-name-only signoff. Updated the Gmail skill, process mirror, persona memory, current-state memory, and the MHL/Tim Duffy task context.
+- Decisions made: The default client-facing sender remains `Richmond Blackwood Accounting Team <accounting@richmondblackwood.com>` unless the user explicitly approves another sender; the `ioana general` rule applies when `ioana@richmondblackwood.com` is the approved exact sender.
+- Verification: Gmail settings read-back confirmed the plain-text content of the saved signature. Repo verification is tracked in the branch closeout.
+- Limitations or gaps: If the saved Gmail signature changes later, re-read Gmail settings before relying on the stored plain-text equivalent.
+
 ## 2026-06-03 - Germany Growth Outbound Copy Style
 
 - User request: Remove list-style stacked wording from growth outbound copy unless absolutely necessary.
@@ -29,6 +38,16 @@ Status: active.
 - Decisions made: Partnership prospects route immediately to Business Partners; non-partner LinkedIn individuals, Reddit communities/posts, and direct research targets stay in Growth Targets; pre-lead growth messages use Growth Messages; Ioana remains the only sender persona for send-ready work.
 - Verification: Live Notion read-back verified the Business Partners icon and growth fields, the old partnership source was trashed, operating databases were under `RB Client Databases`, and the Germany Growth project page had no child database blocks.
 - Limitations or gaps: Daily automation and live account setup were handled in later runs; the user's original `Refund` item remained out of scope pending clarification.
+
+## 2026-06-08 - MHL/Grey Desk Tim Duffy Legal Route
+
+- User request: Start a communication with Tim Duffy (`tduffy@tduffylaw.com`), Gabriel's US lawyer handling Grey Desk, and make the legal-agreement task with Ioana/compliance copied on the communication.
+- Context read: MHL/Gabriel repo memory, Notion task `New contract for Greydesk + Mindharbour & amend old one`, MHL company/project records, related GreyDesk/Mindharbour/Gabriel contract rows, and Contracts/Tasks schemas.
+- Actions taken: Created provisional Contract row `MHL - non-Gabriel-directed entity agreement (TBD Tim Duffy)` at `https://www.notion.so/379e413013148119a3eeddae67f30b89`; updated existing task `https://www.notion.so/332e413013148141971acd357ca964ed` to `In Progress`, reviewed by Ioana, with Tim outreach/compliance copy instructions and the new contract row linked.
+- Follow-up correction: On 2026-06-09, user clarified that the email subject should be `Gabriel: Foreign entity to lend/contract with Mindharbour`; the first email should ask Tim only to recommend candidate entity/entities, not recommend an agreement and not provide the full ownership/control/signing detail set yet. RB ideally needs an entity independent from Grey Desk, not connected to Grey Desk, and where Gabriel is not a director; if there are connections, a sister company from the same group is preferable to a subsidiary. If Tim says there are no candidates, route back to Ioana/RB rather than asking fallback director-change details now. The email should come from Ioana Richmond Blackwood `<ioana@richmondblackwood.com>` rather than the accounting/general sender or an EIP Ventures sender. On 2026-06-10, user added the opening line `I hope you are well.` and clarified that the email should use Ioana's saved Gmail signature `ioana general` rather than a manual name signoff. Live task and Contract row were corrected and read back.
+- Decisions made: Kept the entity, ownership/control details, contract/debt/investment instrument, tax treatment, and signing authority provisional. Ownership/control/signing details will be requested only after Tim identifies a candidate. Drafted the email in chat only; no Gmail draft or send was created.
+- Verification: Targeted Notion readbacks confirmed the Contract row and task updates, then the 2026-06-09 and 2026-06-10 corrections.
+- Limitations or gaps: No email has been sent or drafted.
 
 ## 2026-06-07 - MONO Company Context Import
 

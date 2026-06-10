@@ -2,6 +2,21 @@
 
 Status: active.
 
+## 2026-06-10 - Ioana RB Gmail Signature Rule
+
+Imported:
+
+- User instruction in Codex chat that Ioana's standard saved Gmail signature is named `ioana general` and should always be used.
+- Gmail settings read-back for `ioana@richmondblackwood.com`, showing the saved signature plain-text equivalent as Ioana Surdu-Bob / Partner / Richmond Blackwood Limited / Office 2, 12a Lower Main Street, Lucan Co Dublin, K78 X5P8, Ireland / +353 1 230 8051 / `ioana@richmondblackwood.com` / `www.richmondblackwood.com`.
+
+Actions:
+
+- Updated the RB Gmail skill, Gmail/signature process mirror, Google persona memory, current-state memory, and MHL Tim Duffy context so approved outbound email from `ioana@richmondblackwood.com` uses saved Gmail signature `ioana general` instead of a manual name signoff.
+
+Unresolved:
+
+- Re-read Gmail settings if the saved signature changes.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:
@@ -25,6 +40,26 @@ Unresolved:
 Follow-up:
 
 - Live Notion updates/read-backs on 2026-06-09 changed EVG `Business Purpose in Detail`, Annual Returns registration, VIES title/status, RTD status, and the May EVG/Luiza invoice `Company` relation.
+
+## 2026-06-08 - MHL/Grey Desk Tim Duffy Legal Route
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-08 to start communication with Tim Duffy (`tduffy@tduffylaw.com`), described as Gabriel's US lawyer handling Grey Desk.
+- Live Notion task `New contract for Greydesk + Mindharbour & amend old one` (`https://www.notion.so/332e413013148141971acd357ca964ed`), MHL company/project records, and related GreyDesk/Mindharbour/Gabriel contract rows.
+
+Actions:
+
+- Created/read back provisional Contract row `MHL - non-Gabriel-directed entity agreement (TBD Tim Duffy)` at `https://www.notion.so/379e413013148119a3eeddae67f30b89`.
+- Updated/read back the existing legal task to `In Progress`, with Johnpaul as owner, Ioana as reviewer, email/compliance copy instructions, and links to the new Contract row and related contracts.
+- Corrected/read back both live rows on 2026-06-09 after user clarified that the subject should be `Gabriel: Foreign entity to lend/contract with Mindharbour`, Tim should first recommend candidate entity/entities rather than provide the full detail set, RB ideally needs an entity independent from Grey Desk and where Gabriel is not a director, and a sister company from the same group is preferable to a subsidiary if there are connections. The email should come from Ioana Richmond Blackwood `<ioana@richmondblackwood.com>` rather than the accounting/general sender or an EIP Ventures sender.
+- Corrected/read back both live rows on 2026-06-10 after user added the opening line `I hope you are well.` and clarified that the email should use Ioana's saved Gmail signature `ioana general` rather than a manual name signoff.
+- Updated `clients/Companies/MHL/` and durable memory/source logs.
+
+Unresolved:
+
+- Tim must first recommend candidate entity/entities. If Tim identifies a candidate, RB should then ask for ownership/control/signing details; if there are no candidates, route back to Ioana/RB to decide the next approach.
+- The email remains unsent pending user approval.
 
 ## 2026-06-07 - MONO Company Context Import
 

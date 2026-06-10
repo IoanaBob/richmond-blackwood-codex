@@ -61,6 +61,15 @@ Gmail source mailbox and Gmail sending identity are per-job fields, not actor fi
 
 Do not assume all Gmail reads come from accounting. A day can include jobs reading `accounting@richmondblackwood.com` and jobs reading personal/operator mailboxes, provided each source is explicitly scoped and labelled. Do not infer the `From` sender from the operator; confirm or use the workflow default.
 
+Ioana RB send-as signature:
+
+- Status: approved.
+- Source: user instruction in Codex chat on 2026-06-10 and Gmail settings read-back for `ioana@richmondblackwood.com`.
+- Imported: 2026-06-10.
+- Review: re-read Gmail settings if the user says the saved signature changed.
+
+When the exact approved Gmail sender is `ioana@richmondblackwood.com`, use Ioana's saved Gmail signature `ioana general`, not a manual `Best, Ioana` or typed-name-only signoff. Plain-text equivalent for review: Ioana Surdu-Bob / Partner / Richmond Blackwood Limited / Office 2, 12a Lower Main Street, Lucan Co Dublin, K78 X5P8, Ireland / +353 1 230 8051 / `ioana@richmondblackwood.com` / `www.richmondblackwood.com`.
+
 ## Google Auth And Personas
 
 Status: provisional.
