@@ -84,6 +84,23 @@ Consequence:
 Source: user instruction on 2026-05-05 and local source repo inspection.
 Review: confirm the RB WhatsApp account and whether WhatsApp should be enabled for all operators.
 
+## 2026-05-25 - Optional Xero MCP Uses One Active Client
+
+Decision: RB Xero MCP access should use one Codex MCP server entry named `xero`, with the active client selected locally before Codex starts the MCP server.
+
+Consequence:
+
+- Every Xero request must include the exact RB client reference, such as `AGL`.
+- The first Xero MCP call for a task must verify the Xero organisation through a read-only organisation details check.
+- Operators should not add one `~/.codex/config.toml` MCP block per client.
+- RB uses one Xero Developer OAuth app credential set in the base checkout `.env`; each Xero organisation/client gets a separate local OAuth login token under `.codex-local/xero/<CLIENT_REFERENCE>/`.
+- The active client is selected with `.codex-local/xero-active-client`, `RB_XERO_ACTIVE_CLIENT_REFERENCE`, or an explicit local process environment override before Codex reload.
+- The shared Xero email login is an operator setup fact only, not a credential to store or a reason to collapse tenant boundaries.
+- Xero client IDs, client secrets, bearer tokens, OAuth tokens, MFA codes, and personal Codex config remain local-only and out of git.
+
+Source: user instruction on 2026-05-25 and official Xero MCP setup guidance.
+Review: complete and verify each client-specific OAuth login through the RB OAuth app before production use.
+
 ## 2026-05-06 - Chat Draft, Direct Send, Communications Log
 
 Decision: All Richmond Blackwood communication drafting should happen in chat with Codex, not as software drafts for the user to manually send.

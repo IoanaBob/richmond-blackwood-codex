@@ -10,8 +10,10 @@ Status: provisional.
 - Gmail: required for accounting, invoice, and client communication context.
 - SignNow: optional/generic helper support for document upload, review links, and status checks where RB uses SignNow.
 - WhatsApp MCP: optional local MCP support for user-controlled WhatsApp access.
+- Xero MCP: optional local MCP support for per-client Xero accounting access.
 - ElevenLabs MCP: optional local MCP support for voice/audio/agent work.
 - n8n MCP: optional remote MCP support for inspecting, testing, and building exposed n8n workflows.
+- Xero MCP: optional local MCP support for Xero accounting data and approved accounting writes.
 - GitHub or local git: required for repo sync if publishing changes.
 
 ## Confirmed On 2026-05-04
@@ -58,6 +60,7 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 - Sender-matched Richmond Blackwood OAuth client files should use `~/.codex/google-oauth-client.richmondblackwood.json`.
 - Do not use Gmail IMAP, app passwords, or stored mailbox passwords for repo-local helpers.
 - SignNow helpers use `.env` only for local SignNow API credentials. Never commit or print those values.
+- Xero MCP setup uses the base checkout `.env` only for the RB OAuth app credentials. Per-client OAuth tokens stay ignored under `.codex-local/xero/`. Never commit or print those values.
 - Gmail client-facing drafts must save from `accounting@richmondblackwood.com` as `Richmond Blackwood Accounting Team`.
 
 ## Optional Local MCP Servers
@@ -65,6 +68,7 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 Optional repo-pinned MCP setup guides live under `setup/mcp/`.
 
 - WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
+- Xero MCP: [setup/mcp/xero.md](mcp/xero.md). This enables local Codex access to Xero through one static MCP server entry named `xero`, with the active client selected locally before reload. Xero client IDs, client secrets, bearer tokens, OAuth tokens, tenant IDs if private, report payloads, and personal Codex config stay local and ignored.
 - ElevenLabs and n8n MCP: [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md). This enables local Codex access to the official ElevenLabs MCP server and remote n8n instance-level MCP. API keys, MCP tokens, webhook secrets, live instance URLs if private, client call transcripts, and personal Codex config stay local and ignored.
 - ElevenLabs API fallback: use only when the current MCP tools cannot perform a required live edit, and only after explicit user approval for the exact production change.
 
@@ -86,6 +90,15 @@ which uvx
 ```
 
 Add the placeholder snippets from [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md) to `~/.codex/config.toml`, replace the placeholders locally with the ElevenLabs API key and n8n MCP URL/token, enable MCP on the relevant n8n workflows, then restart or reload Codex.
+
+Quick Xero MCP setup path:
+
+```sh
+cp .env.example .env
+which npx
+```
+
+Add the single `xero` MCP entry from [setup/mcp/xero.md](mcp/xero.md) to `~/.codex/config.toml`. Fill the RB OAuth app values `RB_XERO_CLIENT_ID`, `RB_XERO_SECRET`, and `RB_XERO_REDIRECT_URI` once in the base checkout `.env`, select the active client with `setup/mcp/select-xero-client.sh KONVI`, then run `setup/mcp/xero-oauth.mjs login KONVI` to authorize that Xero organisation through the RB OAuth app. Set `RB_XERO_<CLIENT_REFERENCE>_TENANT_ID` from the intended connection before MCP startup. Restart or reload Codex afterwards. Codex worktrees use the base checkout `.env` by default. Every Xero request must name the exact client reference, such as `AGL`, before any Xero MCP tool is used.
 
 For the RB calling bot runtime, select an ElevenLabs credential on n8n nodes `Make ElevenLabs Outbound Call` and `Get ElevenLabs Conversation`, then set n8n variable `ELEVENLABS_AGENT_PHONE_NUMBER_ID`. ElevenLabs SIP trunking through Twilio Elastic SIP Trunking is the default outbound path: import the SIP number in ElevenLabs and set `ELEVENLABS_AGENT_PHONE_NUMBER_ID` to that SIP phone-number ID. Set n8n variable `ELEVENLABS_OUTBOUND_CALL_PROVIDER=twilio` only for rollback to the older Twilio Native endpoint. Keep candidate Calls unapproved unless deliberately running controlled synthetic tests.
 
