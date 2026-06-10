@@ -28,6 +28,8 @@ Drive helpers default to the same no-login behavior and accept `--auth-source au
 
 Use `--auth-login auto` or `--auth-login always` only after explicit user approval for the exact Google auth action.
 
+If auth appears to be requested again, first verify the repo helper path, intended persona slug, `CLOUDSDK_CONFIG`, stale `GOOGLE_APPLICATION_CREDENTIALS` / `CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE` overrides, available vault/ADC credentials, and outside-sandbox token-refresh writes before asking the user to approve reauth.
+
 Recovery and verification commands:
 
 ```bash

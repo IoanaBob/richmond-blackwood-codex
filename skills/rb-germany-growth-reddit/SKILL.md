@@ -11,6 +11,8 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 
 - Sender persona is always Ioana.
 - Any Reddit post, comment, reply, or DM blocks unless the active Reddit account/session is verified as Ioana immediately before sending.
+- If a prior Reddit account used by this skill is banned, suspended, deleted, or otherwise unusable, treat that account as historical-only. Start a new Reddit sender flow only after verifying the new active Reddit account belongs to Ioana. Do not continue old Reddit chats, reply chains, DMs, or follow-ups from the new account unless the user explicitly approves that exact exception after seeing the old source context and the new-account risk.
+- A new Reddit sender flow must invalidate previous Reddit tasks and Growth Messages from the banned account as active work before proposing new sends: close or mark them historical/no-follow-up, preserve the original records, and add a note naming the banned account and reset date. Do not delete historical evidence.
 - No overt promotional posts, cold/proactive DMs, moderator outreach, modmail, sponsorship asks, paid posts, or commercial-counterparty work in the Reddit channel for now.
 - For any public Reddit draft where Ioana or RB can seriously help with the specific problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful and does not feel forced. Label it as a promotion-rule risk in the packet and remove it if subreddit rules or thread style make it unsafe.
 - Never copy, lightly paraphrase, or structurally mirror another Reddit user's comment. Existing comments are style/context input only; drafts must be original to the post facts and Ioana's specific view.
@@ -24,8 +26,10 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - Public Reddit engagement must be very recent. Every candidate must show the post created date and latest meaningful activity date before drafting. Default to posts active in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older threads are research-only unless the user explicitly approves that exact dated exception.
 - Threads older than 7 days are research-only unless they are current recurring megathreads, pinned/current weekly threads, or the user explicitly approves the exact dated exception after seeing the dates.
 - Threads older than 14 days are never direct engagement targets by default; use them only for audience research, wording patterns, subreddit fit, and rules/context.
-- Daily Reddit commenting target is 10 approved top-level comments on 10 distinct recent posts for the active audience. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and engagement with existing RB/Ioana comments do not count toward this target.
-- Source enough recent relevant posts, normally at least 15-20 candidates, to produce 10 safe top-level comment drafts. If fewer than 10 safe recent comment-ready posts are available, report the comment-target gap and do not fill it with stale, weak-fit, or unsafe threads.
+- Daily Reddit public posting/commenting cap is 3 approved public outbound actions total for the active account. This includes top-level posts and top-level comments. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and passive scrolling do not count toward the 3-action cap, but still require the normal approval and Ioana-session gates when they send anything.
+- Treat 3/day as a maximum, not a quota to force. If fewer than 3 high-quality, very recent, rule-safe opportunities exist, stop at the smaller number and report why.
+- Public Reddit posts/comments must be spaced at least 15 minutes apart. The 15-minute gap starts after the last successful public post/comment. During the gap, only passive scrolling, subreddit style reading, rules reading, candidate review, or non-sending prep is allowed. If the elapsed time cannot be verified from Growth Messages and the browser/session timeline, block the next public post/comment.
+- Source enough recent relevant posts, normally 5-8 candidates, to produce up to 3 safe public post/comment drafts. Do not fill the cap with stale, weak-fit, low-budget, or unsafe threads.
 - Treat high-intent tax, freelance, company setup, false-self-employment, US/EU expat tax, EOR/payroll, banking/KYC, and cross-border remote-work posts as high-likelihood business targets when the person has a real, specific problem Ioana can solve. The goal for these targets is to win the business: give enough useful public advice to earn trust, state Ioana's specialist relevance plainly, and move the conversation to DM or a call when that is rule-safe and contextually justified.
 - Do not send/post/comment/DM during daily automation.
 - Preview outbound text in chat. Do not save Reddit drafts.
@@ -57,6 +61,8 @@ Shared gates:
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
    - Load active Audience Target, Growth Targets schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
+   - Verify whether this is a new Reddit sender flow. If the previous Reddit account was banned or unusable, identify the old account name, the new active account name, and the reset date in the run packet.
+   - Before proposing any new Reddit send, create an invalidation packet for prior Reddit Growth Messages and Tasks tied to the banned account: records to close/historical-only, records to preserve as sent historical evidence, records needing user review, and any active follow-ups that must be stopped. Print the packet before write-back.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Confirm no Reddit work is routed to Business Partners, modmail, cold DMs, sponsorship, paid posts, or commercial counterparties.
 
@@ -68,8 +74,8 @@ Shared gates:
    - Deprioritize generic relocation, tourism, student, visa-only, language-learning, housing-only, and low-context job-search posts unless they include a concrete freelance, consulting, company, tax, pension, payroll, banking, or high-earner setup problem.
    - Useful query themes include `Germany freelance tax`, `Freiberufler Germany`, `consultant Germany taxes`, `remote US job Germany`, `US client Germany`, `German pension contributions`, `Rentenversicherung freelancer`, `GmbH vs freelancer`, `UG Germany taxes`, `private health insurance self-employed`, `VAT Germany freelancer`, `EOR Germany`, and `Scheinselbständigkeit`.
    - Target very recent Reddit activity, not stale archive threads. For top-level comment opportunities, default to threads created or meaningfully active within the last 72 hours. Threads active 3-7 days ago are allowed only when the topic is strong and visibly still live.
-   - Source enough recent relevant posts to prepare at least 10 top-level comment drafts per day for the active audience. Use 15-20 sourced candidates as the normal buffer when the subreddit quality is uneven.
-   - Track the daily top-level comment target state in the packet: target 10, safe comment drafts, high-risk/provisional drafts, approved comments posted today, replies/DMs excluded from count, and remaining gap.
+   - Source enough recent relevant posts to prepare up to 3 public post/comment drafts per day for the active Reddit account. Use 5-8 sourced candidates as the normal buffer when the subreddit quality is uneven.
+   - Track the daily public Reddit cap state in the packet: cap 3, public posts/comments already sent today, timestamp of last public post/comment, earliest next allowed post/comment time, safe drafts, high-risk/provisional drafts, replies/DMs excluded from the cap, and remaining allowed capacity.
    - Keep research reusable for future Germany growth audience targets.
 
 3. Discovery And Growth Target Upsert
@@ -93,7 +99,7 @@ Shared gates:
    - Treat rule, approved-claim, and Ioana-session checks as in-run gates. Store rule evidence on the Growth Target and blockers/follow-ups in Growth Messages or Tasks, not in a compliance-check database.
 
 5. Helpful Participation Packet
-   - Draft helpful, non-promotional top-level comments or posts in chat when rules allow. Default Reddit daily output is 10 top-level comment drafts on 10 distinct posts.
+   - Draft helpful, non-promotional top-level comments or posts in chat when rules allow. Default Reddit daily output is up to 3 public post/comment drafts on distinct recent posts, subject to the daily cap and 15-minute spacing rule.
    - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
    - If the source thread is not in English, translate the relevant source context for the user review packet, then draft the outbound Reddit text in English.
    - For each draft, show the Germany growth fit: problem category, explicit high-earner/budget signal if any, the concrete tax/admin/company/freelance/pension issue, and the immediate advice Ioana can give without turning the comment into a pitch.
@@ -118,11 +124,12 @@ Shared gates:
    - Block the packet if the target thread is stale: no meaningful activity in the last 72 hours by default, or no clear live-thread reason for activity 3-7 days ago. Threads older than 7 days need exact user approval for that dated exception.
    - Avoid unapproved claims and sales language.
    - Show sender identity as Ioana and Reddit account/session verification requirement.
-   - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, follow-up date, and whether the draft counts toward the 10/day top-level comment target.
+   - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, follow-up date, whether the draft counts toward the 3/day public Reddit cap, and the earliest allowed posting time after the last successful public post/comment.
 
 6. Community Engagement Readiness
    - Confirm the proposed action is a direct community post/top-level comment, a reply, or an allowed reactive DM.
-   - For daily target accounting, confirm whether the item is a top-level comment on a distinct post. Replies, DMs, follow-ups, and second comments on the same post do not count toward the 10/day Reddit comment target.
+   - For daily cap accounting, confirm whether the item is a public top-level post/comment. Replies, DMs, follow-ups, and second comments on the same post do not count toward the 3/day public Reddit cap, but they still require approval and sender verification.
+   - For any public post/comment, confirm fewer than 3 public posts/comments have been sent today from the active Reddit account, and at least 15 minutes have elapsed since the last public post/comment. If the last sent timestamp is unclear, block.
    - For DMs, confirm the exact trigger: the person engaged with our public post/comment, or the person sent an inbound DM first.
    - For DMs, confirm the trigger is recent: inbound DM or engagement with our content within the last 14 days. Older triggers block by default unless the user explicitly approves the exact exception.
    - Confirm public post/comment/reply targets have meaningful activity within the last 72 hours by default, or 3-7 days ago with a clear live-thread reason. Older public targets block unless the user explicitly approves the exact dated exception.
@@ -135,8 +142,9 @@ Shared gates:
    - Run only after explicit approval.
    - Re-check the Reddit session is Ioana.
    - If not Ioana, log a blocker in Growth Messages and stop.
+   - For public posts/comments, re-check the 3/day cap and 15-minute spacing immediately before each send. If the prior public post/comment was less than 15 minutes ago, keep scrolling/reading/prepping until the gap is complete, then re-check Ioana and the exact approved text before sending.
    - Send/post/comment/DM only the approved text.
-   - Count only approved top-level comments on distinct posts toward the daily 10-comment target. Do not count replies, reactive DMs, follow-ups, modmail, votes, saves, or any second comment on the same post.
+   - Count only approved public posts/comments toward the daily 3-action cap. Do not count replies, reactive DMs, follow-ups, modmail, votes, saves, passive scrolling, or any second comment on the same post.
    - For DMs, send only when the approved packet includes the valid trigger and source URL/message context.
    - Log the URL/message ID, rule basis, result, `Message Kind = Post`, `Comment`, `Reply`, or `DM`, `Status = Sent/Posted`, `Growth Event At`, and next follow-up in Growth Messages.
    - Set Growth Target `Outreach Active At`, `Stage Updated At`, and `Last Activity At` when participation starts.
@@ -171,7 +179,7 @@ Shared gates:
 
 10. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, recent relevant candidates sourced, top-level comment drafts, approved top-level comments posted, 10/day top-level comment target met or missed, rule checks, replies, reactive DMs, helpful engagements, blockers, and follow-ups.
+   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, recent relevant candidates sourced, public post/comment drafts, approved public posts/comments posted, 3/day cap remaining, last public post/comment timestamp, next allowed public post/comment time, rule checks, replies, reactive DMs, helpful engagements, blockers, and follow-ups.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet
@@ -182,4 +190,5 @@ Return:
 - Rule/compliance findings.
 - Growth Messages created/updated.
 - Post/comment previews, reply drafts, reactive DM drafts, follow-up drafts, blockers, and reporting counts.
-- Daily Reddit comment target state: target 10 top-level comments on distinct recent posts, sourced candidates, safe comment drafts, high-risk/provisional drafts, approved comments posted, replies/DMs excluded from count, rejected, and remaining comment-target gap.
+- Reddit account reset state when applicable: old banned/unusable account, new active account, invalidated prior tasks/comms, preserved historical records, and any user-review exceptions.
+- Daily Reddit public cap state: cap 3 public posts/comments, sourced candidates, safe drafts, high-risk/provisional drafts, approved public posts/comments posted, last post/comment timestamp, earliest next allowed post/comment time, replies/DMs excluded from count, rejected, and remaining allowed capacity.
