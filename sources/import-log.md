@@ -2,6 +2,21 @@
 
 Status: active.
 
+## 2026-06-10 - Notion API Local Env Rule
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-10 that the Notion MCP is fixed and `NOTION_ACCESS_TOKEN` is always available through the main-branch `.env.local` route.
+
+Actions:
+
+- Updated repository-wide instructions and Notion operations guidance so Notion REST/API runs check the main Richmond Blackwood checkout's ignored `.env.local` for `NOTION_ACCESS_TOKEN` before reporting missing credentials.
+- Kept the secret-handling boundary explicit: read only the needed key, never print token values, never dump env files, and never commit env files.
+
+Unresolved:
+
+- No Notion Internal Knowledge Base mirror was written in this pass; this was a repository-rule update only.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:

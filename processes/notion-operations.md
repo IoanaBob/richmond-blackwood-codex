@@ -78,6 +78,7 @@ Review: Keep provisional until the RB Notion API connection is confirmed shared 
   - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
 - Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
 - Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
+- For RB local runs, expect `NOTION_ACCESS_TOKEN` to live in the ignored `.env.local` of the main Richmond Blackwood checkout when it is not present in the process environment or active worktree. Load only that key from the approved local env route; do not dump env files, print token values, or classify credentials as missing before checking that route.
 - Never try connector SQL/data-source query tools before REST. If a run needs a filtered data-source query and `NOTION_ACCESS_TOKEN` is available, go directly to REST. If the token is unavailable, report the blocker or use connector search/fetch only as explicitly degraded candidate discovery.
 - Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.
 
