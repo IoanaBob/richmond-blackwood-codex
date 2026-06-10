@@ -3,14 +3,14 @@
 Status: provisional.
 Source: Local import on 2026-05-06; cleanup instruction on 2026-05-08.
 Imported: 2026-05-06.
-Review: Native ELSTER PDF download was unavailable during filing; retained the captured ELSTER protocol in Notion/Drive evidence documents.
+Review: Native ELSTER PDFs were later provided by the operator and verified locally; actual native-PDF upload to Notion/Drive remains blocked until a supported PDF upload route is available.
 
 ## German Annual VAT Returns
 
 Status: provisional.
 Source: ELSTER transmitted forms for CLV; Lexoffice UStVA review during live filing session; user instruction to ship both returns.
 Imported: 2026-06-10.
-Review: If native ELSTER PDFs become available outside the in-app browser, replace or supplement the protocol-capture evidence.
+Review: Attach the native PDFs to the Notion `Submission` property once Notion File Upload API credentials or raw Drive PDF upload support are available.
 
 | Year | ELSTER status | Tax number | Transfer ticket | Server receipt time | Key filing result | Local protocol note |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -22,12 +22,19 @@ Review: If native ELSTER PDFs become available outside the in-app browser, repla
 Status: provisional.
 Source: Notion filing rows and Google Drive evidence documents updated on 2026-06-10.
 Imported: 2026-06-10.
-Review: Connector import placed the evidence documents in Drive as Google Docs and attached their URLs to the Notion `Submission` property; the canonical CLV folder upload helper was blocked by missing Google ADC in this environment.
+Review: Connector import placed the evidence documents in Drive as Google Docs and attached their URLs to the Notion `Submission` property; direct local PDF attachment was rejected by the Notion connector, Google Drive connector rejected PDF import, and the approved Notion REST upload token was unavailable in this environment.
 
 | Year | Notion filing row | Drive evidence document | Notion status |
 | --- | --- | --- | --- |
 | 2024 | `https://app.notion.com/p/377e41301314814a8876d30d28fd246d` | `https://docs.google.com/document/d/1K29wdLWyveMVxTsxo8WWSJniRMQAHUVfaep75oLX2Yk` | Filed; filed on 2026-06-10; payment due `0` |
 | 2025 | `https://app.notion.com/p/377e41301314813d9347d2795143ac13` | `https://docs.google.com/document/d/1puZePo8kFIQFZ3Tu08KWxar8-3-JoONnfpBPgEjLXpM` | Filed; filed on 2026-06-10; payment due `-190` |
+
+Native ELSTER PDF files later provided by the operator:
+
+| Year | Local filename | SHA-256 | Verification |
+| --- | --- | --- | --- |
+| 2024 | `/Users/jp/Downloads/clv 2024 annual vat.pdf` | `b4603db3ca3fcbe0fd7bf2690c7b0f7e8f956b56ee229a9ae413b2fa67424615` | Matches CLV tax number, transfer ticket, server receipt, line 75 `39.311`, and final balance `0,00`. |
+| 2025 | `/Users/jp/Downloads/clv 2025 annual vat.pdf` | `f80194938e23587ac36e3ea00c373340e61264b2d4d280d234031d66a34bbceb` | Matches CLV tax number, transfer ticket, server receipt, line 75 `34.887`, and final payable `190,00`. |
 
 ### 2025 Annual VAT True-Up
 
