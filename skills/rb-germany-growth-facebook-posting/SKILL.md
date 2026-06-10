@@ -16,7 +16,9 @@ Use this skill for Facebook group rule review, public post/comment planning, act
 - Preview outbound text in chat. Do not save Facebook drafts.
 - Post/comment/reply only after explicit user approval for the exact text.
 - Log every pre-lead post, comment, reply, blocker, approval basis, and follow-up in Growth Messages.
+- Daily operating target: prepare and, after exact approval, post 3 relevant Facebook group comments/replies per day across usable groups for the active audience. Do not fill the target with weak, stale, low-budget, job-seeker, or rule-unsafe posts.
 - Public reply/comment targets must be very recent. Every candidate must show the post created date and latest meaningful activity date before drafting. Default to posts active in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older threads are research-only unless the user explicitly approves that exact dated exception.
+- Public reply/comment targets must also be commercially qualified. A recent post is not enough: it should clearly signal meaningful income, business ownership, freelance/contractor revenue, company setup, high-value tax/admin pain, professional immigration tied to earning, RSUs/equity, or willingness to pay for specialist support. Reject ordinary housing, driving license, moving, job-seeker, unemployed, bargain-seeking, student, and generic relocation/admin posts unless a separate strong money signal is present.
 - A partnership/admin blocker does not automatically block ordinary public participation. If group rules allow helpful non-promotional participation, interact through this posting skill while keeping sponsor/admin asks in the partnership skill.
 
 ## Data Routing
@@ -54,7 +56,10 @@ Shared gates:
 2. Audience And Group Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Search for groups and threads where the audience naturally asks about German setup, relocation, taxes, company setup, employment, tech careers, startup/founder life, or expat administration.
+   - For daily sourcing, find enough candidates to support 3 relevant Facebook group comments/replies. Use a buffer of at least 6 recent candidates when available, then select the best 3 for the approval packet.
    - Prioritize groups with visible rules, recent activity, a natural helpful participation angle, and members likely to have meaningful budget for Germany setup/admin support.
+   - For daily public comments, apply a strict money-fit screen before drafting. Strong signals include remote US/foreign-company income, freelance/contractor work, consulting, a GmbH/UG/LLC/Ltd question, invoicing, VAT/Umsatzsteuer, tax advisor/accountant need, RSUs/equity, founder/operator context, high salary numbers, business visa questions, or professional support urgency.
+   - Do not use low-budget or low-commercial posts to hit the daily target. If the available recent posts are only housing, license, moving, general visa stress, job search, student topics, or unemployed support questions, report the gap instead of drafting.
    - For public comment/reply opportunities, prioritize threads created or meaningfully active in the last 72 hours. Threads active 3-7 days ago are allowed only when the topic is strong and visibly still live.
    - Prefer established expat communities, founder/operator groups, senior tech/professional communities, affluent international clubs, and relocation-adjacent communities.
    - Exclude broad job-seeker groups unless a specific thread is clearly senior, founder/operator, executive, high-income tech, or otherwise budget-qualified. General English-speaking job-search groups are not a good fit by default.
@@ -82,6 +87,7 @@ Shared gates:
 5. Helpful Posting Packet
    - Draft useful, non-promotional group posts or comments in chat when rules allow.
    - Before each draft, show the initial group question/topic, post created date, latest meaningful activity date, relevant post/thread context, group rule/admin basis, and why this response is useful for that specific group/thread. If the source context or date evidence is missing, block the draft.
+   - Before each draft, show the commercial qualification signal. If the post does not look like a person with meaningful money, business income, or a paid professional problem, block it even when it is recent and easy to answer.
    - Block drafts for public reply/comment targets older than 7 days unless the user explicitly approves that exact dated exception. Do not fill daily target gaps with stale threads.
    - Read recent posts/comments in the same group first and match the group's normal style. Keep the style human, short, and specific to the original post.
    - Keep content valuable without relying on RB promotion.
@@ -94,6 +100,7 @@ Shared gates:
    - Avoid comma-chain lists. Outbound sentences should normally have at most two commas and never more than three.
    - Show sender identity as Ioana, Facebook account/session verification requirement, group URL, rule basis, and follow-up date.
    - For an interaction packet, include the exact target count for that run, the selected post/thread URLs, drafts awaiting approval, blocked candidates, and why each draft fits the group.
+   - If fewer than 3 safe, relevant, recent opportunities exist, report the gap clearly and do not substitute stale or poor-fit threads.
 
 6. Posting Readiness
    - Confirm the proposed action is a public group post, comment, or reply.
