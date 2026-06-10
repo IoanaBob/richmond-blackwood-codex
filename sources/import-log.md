@@ -2,6 +2,23 @@
 
 Status: active.
 
+## 2026-06-10 - CLV German Annual VAT Transmission Evidence
+
+Imported:
+
+- ELSTER transmitted-form modals for CLV USt 2024 and USt 2025 after live submission under tax number `29/648/30002`.
+- Lexoffice UStVA support reviewed during filing: 2024 UStVA refunds totaling `-89,20`; 2025 UStVA VAT totaling `950,00`.
+
+Actions:
+
+- Saved ELSTER protocol text captures under `clients/Companies/CLV/`.
+- Updated `clients/Companies/CLV/tax-vat-filings.md` with transmitted status, transfer tickets, filing result, 2025 true-up calculation, and expected payment timing.
+- Updated `clients/Companies/CLV/source-register.md` with the two ELSTER protocol sources.
+
+Unresolved:
+
+- Native ELSTER PDF downloads were unavailable in the in-app browser. Protocol text was captured from the ELSTER transmitted-form modal; upload/native PDF retention can be completed later if another browser route is available.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:
