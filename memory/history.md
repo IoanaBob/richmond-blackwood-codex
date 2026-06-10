@@ -1019,3 +1019,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-10 - MHL Notary Invoice And Payment Evidence Upload
+
+- User request: Upload the MHL notary invoice and evidence of payment.
+- Context read: Local PDFs `RE26_00334 (1).pdf` and `efde0930-8801-4291-8879-893a0d8fb6e7.pdf`, MHL finance memory, MHL Drive root, Notion Expenses schema, and RB file-upload/common-follow-through/google-auth rules.
+- Actions taken: Uploaded the invoice to Drive as `MHL - Pichler Finke Michelsburg notary invoice RE26-00334 - 2026-02-26.pdf` (`https://drive.google.com/file/d/1yNUwLJ7EAiqvwUWwvF8bI7suH9K7qg2x/view?usp=drivesdk`) and uploaded the Wamo transfer confirmation as `MHL - Payment evidence - Pichler Finke Michelsburg invoice RE26-00334 - 2026-06-10.pdf` (`https://drive.google.com/file/d/1DmGvvmtMAxFUax4cL3d0ClDB_kCd9QNf/view?usp=drivesdk`). Created Notion Expense `https://www.notion.so/37be413013148175984ddf9d1dab8f2d` for EUR 168.68 with `Status = Paid`, `Type = Paid`, payment date 2026-06-10, MHL company relation, Simoneta assigned, and both Drive files attached.
+- Decisions made: Route as an MHL Co-KG registration / German notary expense because the invoice is addressed to MINDHARBOUR IMMOBILIEN Ltd. & Co. KG and matches existing MHL Co-KG context. Do not create a Communication row because the source was user-provided local PDFs rather than an email or WhatsApp thread. Keep exact bank/payment account identifiers in the source PDFs only.
+- Verification: Drive metadata read-back confirmed both PDFs in folder `17gpcVLGtX3dhwSaLYelvw6m-dSVCHiQs`; Notion read-back confirmed amount, status/type, MHL company relation, Simoneta assignee, payment date, and both file attachments.
+- Limitations or gaps: `.env.local` was not present in this checkout, so `Submitted by` was left blank rather than inventing an actor.

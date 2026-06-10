@@ -26,4 +26,11 @@ Top-level contents found:
 | `Personal Tax Filings/Gabriel Louis Manuel` | `https://drive.google.com/drive/folders/1mSwuXw_rpYFwXhwlzmQjpzs4NWvVntJ-` | Found inside MHL Drive folder. |
 | `2024 - Personal Tax Filing` | `https://drive.google.com/drive/folders/1gKw3uLdvXcqkXAz9L2U9Y6Hc0ix188YF` | Linked from Notion 2024 personal-tax filing. Drive listing returned no child files on 2026-05-15; Notion still has a submission attachment. |
 
+## Uploaded Finance Evidence
+
+| File | URL | Notes |
+| --- | --- | --- |
+| `MHL - Pichler Finke Michelsburg notary invoice RE26-00334 - 2026-02-26.pdf` | `https://drive.google.com/file/d/1yNUwLJ7EAiqvwUWwvF8bI7suH9K7qg2x/view?usp=drivesdk` | Uploaded 2026-06-10 from user-provided invoice PDF; Notion Expense `https://www.notion.so/37be413013148175984ddf9d1dab8f2d`. |
+| `MHL - Payment evidence - Pichler Finke Michelsburg invoice RE26-00334 - 2026-06-10.pdf` | `https://drive.google.com/file/d/1DmGvvmtMAxFUax4cL3d0ClDB_kCd9QNf/view?usp=drivesdk` | Uploaded 2026-06-10 from user-provided Wamo transfer-confirmation PDF; Notion Expense `https://www.notion.so/37be413013148175984ddf9d1dab8f2d`. |
+
 Raw evidence remains in Drive and Notion. Do not copy client documents, Notion attachment files, certificates, or credential bundles into git.
