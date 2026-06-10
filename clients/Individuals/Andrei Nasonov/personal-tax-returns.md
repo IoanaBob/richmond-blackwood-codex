@@ -84,7 +84,7 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 Status: provisional.
 Source: Fresh Google Sheets workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`, Notion filing row `https://www.notion.so/342e4130131480139e81d7f94450de8b`, Drive folder `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`, and user instruction on 2026-05-27.
 Imported: 2026-05-27.
-Review: Final filing must wait for Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung, especially the June/August/severance treatment. NACV Sep-Dec 2025 wage-tax, pension/social, and health/care figures were updated from the uploaded NACV 2025 wage-tax certificate correction on 2026-06-10.
+Review: Final filing must wait for Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung, especially the July-labelled net row, August/final-pay, severance treatment, and any June/202506 period mismatch. NACV Sep-Dec 2025 wage-tax, pension/social, and health/care figures were updated from the uploaded NACV 2025 wage-tax certificate correction on 2026-06-10.
 
 Live task links:
 
@@ -93,7 +93,7 @@ Live task links:
 
 Current workbook figures entered from source rows after the 2026-06-10 NACV wage-tax-certificate correction:
 
-- Gross employment income in the workbook: EUR 73,480.85. This includes Andrei MRM Jan-May, spouse employment, and NACV Sep-Dec gross salary from the uploaded NACV 2025 wage-tax certificate correction; it still excludes missing gross/tax treatment for the MRM June/August bank-only rows.
+- Gross employment income in the workbook: EUR 73,480.85. This includes Andrei MRM Jan-May, spouse employment, and NACV Sep-Dec gross salary from the uploaded NACV 2025 wage-tax certificate correction; it still excludes missing gross/tax treatment for the MRM July/August bank-only rows.
 - Wage tax withheld currently extracted: EUR 8,808.30. This includes MRM Jan-May, spouse certificate, and NACV Sep-Dec wage tax from the uploaded NACV 2025 wage-tax certificate correction; MRM final-payroll withholding remains pending.
 - Employment work expenses used: EUR 2,460.00 after adding separate Andrei and Elena employee lump-sum baselines, supported by 2025 employment income and the BMF §9a source in the workbook.
 - Andrei MRM Jan-May cumulative gross: EUR 30,624.85.
@@ -104,7 +104,7 @@ Current workbook figures entered from source rows after the 2026-06-10 NACV wage
 - NACV Sep-Dec health/care bridge entered in `Revenue`: EUR 1,813.56, made up of employee health EUR 1,415.16 plus care EUR 398.40.
 - Pension/retirement contributions included in `Summary`: EUR 6,833.66, including NACV employee pension EUR 1,543.80 from the uploaded correction.
 - Health/care insurance included in `Summary`: EUR 10,539.02, including NACV employee health/care EUR 1,813.56 from the uploaded correction.
-- Known June and August MRM bank receipts with missing payroll extraction: EUR 19,651.64 net, flagged in `Revenue` and excluded from gross/tax totals until the final MRM payslip or 2025 wage-tax certificate is available. The Drive file titled `MRM_July.pdf` was reviewed on 2026-06-10 and its text shows a 2025-06-24 salary transfer for period `202506`, so no separate July revenue row was added.
+- Known July and August MRM bank receipts with missing payroll extraction: EUR 19,651.64 net, flagged in `Revenue` and excluded from gross/tax totals until the final MRM payslip or 2025 wage-tax certificate is available. The July row uses the Drive file titled `MRM_July.pdf`; that file was reviewed on 2026-06-10 and its text shows a 2025-06-24 transfer for salary period `202506`, so the date/period still needs reconciliation against early statements and final payroll evidence.
 - Workbook read-back on 2026-06-10 showed journal checks balanced to zero, failed workbook checks reduced to 5, and open missing-info count reduced to 30.
 
 Workbook exclusions and flags:
@@ -124,7 +124,7 @@ Workbook exclusions and flags:
 - Confirm phone/Vodafone recurring cost support for 2024 and 2025 after the WhatsApp request for filtered extracts.
 - Confirm TK/private-health-insurance outcome before final insurance/social-insurance treatment.
 - Confirm whether the filer still wants individual NACV Sep-Dec 2025 monthly payslip PDFs, because the annual NACV wage-tax certificate correction has been uploaded and entered for the filing figures.
-- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung covering June/August and severance/final payment.
+- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung covering the July-labelled net row, August/final payment, severance treatment, and any June/202506 period mismatch.
 - Confirm whether any 2025 direct Finanzamt payments/prepayments exist outside payroll withholding; no evidence was found in the supplied folder.
 - Confirm 2025 WFH qualifying day count before claiming the home-office daily allowance, and do not overlap it with phone/utility actual-cost claims without explicit operator approval.
 - Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.

@@ -14,7 +14,7 @@ Actions:
 
 - Uploaded the NACV 2025 wage-tax certificate correction PDF into Andrei's 2025 filing folder.
 - Updated the workbook to use one NACV Sep-Dec 2025 aggregate Revenue row from the uploaded certificate, filled NACV pension and health/care deductible rows, kept NACV unemployment evidenced but under operator/filer review, and clarified that the two employee lump-sum baselines are counted as one aggregate Summary/Tax Analysis line.
-- Reviewed the Drive file titled `MRM_July.pdf`; extracted text showed a 2025-06-24 transfer for salary period `202506`, so no separate July Revenue row was added from that evidence.
+- Updated the MRM net-only Revenue row to show July after the user's follow-up that July was still missing. The underlying Drive file is titled `MRM_July.pdf`, but extracted text showed a 2025-06-24 transfer for salary period `202506`, so the row remains provisional pending early statements and final payroll evidence.
 - Updated Andrei repo pointers and open questions without copying private identifiers from the PDF.
 
 Verification:
@@ -24,7 +24,7 @@ Verification:
 
 Unresolved:
 
-- Final MRM June/August/final-pay gross, tax, social, and severance treatment still needs the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
+- Final MRM July-labelled/August/final-pay gross, tax, social, severance treatment, and any June/202506 period mismatch still need the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
 - Prior-year opening links, investment confirmation, deductible review, and tax-credit review remain open in the workbook.
 
 ## 2026-06-08 - EVG Company Context Import
