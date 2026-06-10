@@ -43,15 +43,18 @@ Decision rules:
 4. Use Richmond Blackwood Backlog only for truly RB-internal work. If a client-related item has no readable company project, choose `unresolved`.
 5. Search for existing tasks by Team Updates page URL, linked page URL, exact or near-exact line text, owner, current date, company, project, and subject.
 6. Reuse the owning task/page/operational row when a source line already links to the correct work item.
-7. Do not choose `unresolved` solely because no matching active task or operational row was found. If the owner, responsible company/project, source action, and Tasks schema are clear, propose `create_task` with source caveats instead.
-8. Do not create duplicate approval tasks. Treat approval wording as review by adding the approver to `Review By` on the owning task or recurring workflow.
-9. For invoice, contractor, expense, or payment approvals, route to the weekly invoice-payables/payables task when it owns the workflow.
-10. Keep assignment on the operational doer. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should default to Simoneta unless the source or user identifies another doer.
-11. Do not assign routine operational work to Ioana by default.
-12. Include `Status = To Do` for active Central Task creates unless the source supports another status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
-13. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
-14. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
-15. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task. For every `unresolved` row, explicitly state why creating a new task is unsafe.
+7. When search results include a task whose title/content identifies it as a duplicate bookkeeping/VAT context task, or whose comments say not to create/use a duplicate task, do not route fresh comments there. Treat it as a stale duplicate: route the source context to the owning recurring bookkeeping task, active VAT/source-review task, filing-dependent bookkeeping row, Communication, or operational row, and propose archiving the stale duplicate if it is still active.
+8. Do not choose `unresolved` solely because no matching active task or operational row was found. If the owner, responsible company/project, source action, and Tasks schema are clear, propose `create_task` with source caveats instead.
+9. Do not create duplicate approval tasks. Treat approval wording as review by adding the approver to `Review By` on the owning task or recurring workflow.
+10. For invoice, contractor, expense, or payment approvals, route to the weekly invoice-payables/payables task when it owns the workflow.
+11. Keep assignment on the operational doer. Routine operations, bookkeeping, payment movement, subscription administration, and general operational follow-up should default to Simoneta unless the source or user identifies another doer.
+12. Do not assign routine operational work to Ioana by default.
+13. If a source line contains multiple companies or unrelated actions, split them. Do not nest one company's filing, VAT, contract, or bookkeeping work under another company's task merely because both appear in the same source row or transcript excerpt.
+14. Treat repeated known-status lines as `skip_already_handled` when the source adds no new action, owner change, due date, blocker, or evidence.
+15. Include `Status = To Do` for active Central Task creates unless the source supports another status. Include a due date when the source, linked page, recurring workflow, or process gives one; otherwise leave it blank with `due_date_source = none`.
+16. Verify the target Notion schema and exact property names for every proposed write, including `Assigned To`, `Review By`, `Project`, `Status`, due/deadline fields, and page comments when applicable.
+17. Any proposed task comment, operational-row update, Team Updates write-back, Slack closeout text, or packet text that tells a person an item was routed must include the URL of the source entity being routed from. For Accounting Team Updates, use the Team Updates page URL by default; if a block/row URL is available, use it, and otherwise pair the Team Updates page URL with the source section and exact line.
+18. If the owner, project, source meaning, owning record, target schema, or Team Updates write-back method is unclear, choose `unresolved`. Do not propose an unowned or unsafely writable task. For every `unresolved` row, explicitly state why creating a new task is unsafe.
 
 ## Human Approval Surface
 
