@@ -9,6 +9,7 @@ These instructions apply to every Codex session in this repository.
 - Treat this repo as the working memory and source-controlled operating layer for Richmond Blackwood.
 - Keep all RB-specific facts provisional until the user explicitly approves them.
 - Preserve unsanitised context, but never store live credentials, tokens, private keys, certificate bundles, or credential dumps in git.
+- In narrative, pitch, marketing, and client-facing writing, do not enumerate more than three items in one sentence or clause. Group longer lists into categories, bullets, tables, or appendices instead.
 - Use existing RB Notion and Drive structures. Do not create replacement structures unless the user approves.
 - When the destination is unclear, stop, record the uncertainty, and ask for review.
 - Local workspace actor identity is read from ignored `.env.local` as `RB_WORKSPACE_ACTOR="<human name>"`, with legacy `RB_CODEX_ACTOR` accepted only as a compatibility alias. Valid names are recorded in `internal/people-roles.md`. Read only those keys when operator-specific approval, authorship, source-access attribution, Notion assignment, Slack/WhatsApp routing attribution, or per-operator closeout matters; never print or dump full env files.
