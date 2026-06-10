@@ -14,17 +14,17 @@ Actions:
 
 - Uploaded the NACV 2025 wage-tax certificate correction PDF into Andrei's 2025 filing folder.
 - Updated the workbook to use one NACV Sep-Dec 2025 aggregate Revenue row from the uploaded certificate, filled NACV pension and health/care deductible rows, kept NACV unemployment evidenced but under operator/filer review, and clarified that the two employee lump-sum baselines are counted as one aggregate Summary/Tax Analysis line.
-- Updated the MRM net-only Revenue row to show July after the user's follow-up that July was still missing. The underlying Drive file is titled `MRM_July.pdf`, but extracted text showed a 2025-06-24 transfer for salary period `202506`, so the row remains provisional pending early statements and final payroll evidence.
+- Updated MRM Revenue so June, July, and August are all visible. June uses the `MRM_July.pdf` transfer file because its text shows 2025-06-24 / salary period `202506`; July is separately estimated from user instruction and the same Jan-May MRM monthly net pattern; August remains net-only/final-pay candidate.
 - Updated Andrei repo pointers and open questions without copying private identifiers from the PDF.
 
 Verification:
 
 - Drive metadata read-back confirmed the uploaded PDF in the 2025 filing folder.
-- Sheets read-back confirmed `Checks` journal balance is OK, Revenue review count is 2, failed checks are 5, missing-info count is 30, wage tax withheld is EUR 8,808.30, pension included is EUR 6,833.66, health/care included is EUR 10,539.02, and employee lump-sum baseline is EUR 2,460.00.
+- Sheets read-back confirmed `Checks` journal balance is OK, Revenue review count is 3, failed checks are 5, missing-info count is 31, gross employment income is EUR 85,730.79, wage tax withheld is EUR 10,165.62, pension included is EUR 7,972.90, health/care included is EUR 12,881.86, and employee lump-sum baseline is EUR 2,460.00.
 
 Unresolved:
 
-- Final MRM July-labelled/August/final-pay gross, tax, social, severance treatment, and any June/202506 period mismatch still need the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
+- Final MRM June/202506, July, August/final-pay gross, tax, social, health/care, and severance treatment still need the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
 - Prior-year opening links, investment confirmation, deductible review, and tax-credit review remain open in the workbook.
 
 ## 2026-06-08 - EVG Company Context Import

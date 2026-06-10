@@ -32,7 +32,7 @@ Source: Drive folder listing and workbook creation on 2026-05-27.
 Imported: 2026-05-27.
 Review: Preserve raw evidence in Drive; the repo stores source pointers only.
 
-2025 filing evidence observed includes Andrei MRM Jan-May payslips, MRM bank-transfer PDFs for the July-labelled net-only row and 2025-08, spouse `Lohnsteuer_Lena.pdf`, the uploaded NACV 2025 wage-tax certificate correction, Vodafone invoices, Vattenfall energy bill, `Deutsch_Kurse.pdf`, and `BVG_Lena_24-25.pdf`. The 2025 workbook records exact URLs for the source rows and flags final MRM payroll evidence as missing. The file titled `MRM_July.pdf` was reviewed on 2026-06-10 and is now listed as July in the Revenue tab, but its PDF text shows a 2025-06-24 transfer for salary period `202506`; reconcile the date/period against early statements and final payroll evidence.
+2025 filing evidence observed includes Andrei MRM Jan-May payslips, the `MRM_July.pdf` transfer PDF used as June/202506 evidence, a July salary estimate pending early statement, the MRM August transfer PDF, spouse `Lohnsteuer_Lena.pdf`, the uploaded NACV 2025 wage-tax certificate correction, Vodafone invoices, Vattenfall energy bill, `Deutsch_Kurse.pdf`, and `BVG_Lena_24-25.pdf`. The 2025 workbook records exact URLs for the source rows and flags final MRM payroll evidence as missing. `MRM_July.pdf` was reviewed on 2026-06-10; its PDF text shows a 2025-06-24 transfer for salary period `202506`, so July remains estimated from user instruction until the early statement/final payroll evidence is available.
 
 ## Company Folder Pointer
 

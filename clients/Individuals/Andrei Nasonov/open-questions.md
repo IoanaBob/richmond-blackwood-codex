@@ -8,7 +8,7 @@ Review: Close only after the live workbook, Notion records, or user instruction 
 ## Personal Tax
 
 - Confirm spouse-related evidence completeness for the joint return.
-- Confirm final 2025 MRM payroll evidence for Andrei: the July-labelled net-only row, August/final payslip, severance treatment, any June/202506 period mismatch, or the 2025 MRM Lohnsteuerbescheinigung. The file titled `MRM_July.pdf` was reviewed on 2026-06-10 and is now listed as the July Revenue row, but its text shows 2025-06-24 / salary period `202506`, so the date/period needs reconciliation against early statements.
+- Confirm final 2025 MRM payroll evidence for Andrei: June/202506, July, August/final payslip, severance treatment, or the 2025 MRM Lohnsteuerbescheinigung. The file titled `MRM_July.pdf` was reviewed on 2026-06-10 and is now used as the June/202506 Revenue evidence because its text shows 2025-06-24 / salary period `202506`; July is separately estimated from user instruction and needs early-statement/payroll confirmation.
 - Confirm billing mechanics for normal-fee treatment from 2025 onward.
 - Complete/sync the evidence split from the mistaken 2025 folder into the correct 2024 filing folder.
 - Confirm whether the filer still needs individual NACV Sep-Dec monthly payslip PDFs after the NACV 2025 wage-tax certificate correction was uploaded and entered in the workbook on 2026-06-10.
