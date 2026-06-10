@@ -20,6 +20,8 @@ Use this skill for any Richmond Blackwood outbound communication.
 - After sending, store the sent communication in the canonical Communications database.
 - For outgoing Communications, set `Snooze Until` to one week after the row `Created At` date unless a more specific follow-up date is approved. After any follow-up is sent, reset `Snooze Until` to one week after the follow-up send date by default.
 - Do not create a Gmail, Slack, WhatsApp, Notion, or other software draft for the user to manually hit send unless the user explicitly asks for that exception.
+- Germany growth pre-lead outreach, posting, replies, blockers, approvals, and follow-ups use `RB DE Growth Messages`, not canonical Communications.
+- Germany growth partnership prospects use existing Business Partners for prospect state. Canonical Communications is used only after a growth thread becomes a lead/client/business communication or when a Growth Messages record is intentionally promoted and linked through `Promoted Communication`.
 - For Slack closeouts or other Slack messages that need user review, use the Codex approval prompt/notification when the runtime exposes it. The prompt must identify the exact destination and exact message already shown in chat, and must offer a clear approve/send choice and a do-not-send choice.
 - The Slack message shown in chat for approval must be a rendered, readable Codex preview, not a fenced raw Markdown/code block. Use normal text, headings or labels where useful, Slack mention syntax, and named Markdown links so the operator can click each link in Codex before approving. Keep the raw Slack payload internal unless the operator explicitly asks to inspect it.
 - When a Slack message assigns, routes, or updates work owned by a person, the final Slack payload must use resolved Slack mentions (`<@USERID>`) for those responsible people. Bare names are acceptable only when the operator explicitly approves a no-notification fallback for the exact person and message.
@@ -88,6 +90,13 @@ Record enough detail to reconstruct the business action without dumping unnecess
 - Follow-up owner, action, deadline, and priority when needed.
 - `Snooze Until` for outgoing messages and follow-ups that need reply monitoring.
 - For letters attached to or forwarded inside an email, record that the communication contains a letter, save/link the letter document, and record the actual letter source/originator separately from the email forwarder.
+
+Germany growth pre-lead messaging has its own Notion database:
+
+- Growth Messages: `https://www.notion.so/ca339af617e5497483970cac110abc03`
+- Data source: `collection://0eb425a4-f739-412c-acc6-3fee8cc825df`
+
+Use Growth Messages for pre-lead growth drafts, sends/posts, replies, blockers, approvals, DMs, public comments, and follow-ups. Set `Audience Target`, `Growth Channel`, `Sender Identity`, `Message Kind`, `Status`, `Growth Event At`, and the applicable sent/posted/received/follow-up timestamp when available. If the thread later becomes a lead/client/business communication, create or update the canonical Communications handoff record and link it from Growth Messages through `Promoted Communication`. Send-ready growth work must use `Sender Identity = Ioana`; if Ioana identity cannot be verified, block the send in Growth Messages instead of sending from another account.
 
 Client-specific communication facts must still follow the `clients/<client-reference>/` routing rule when repo storage is needed.
 

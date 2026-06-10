@@ -23,7 +23,7 @@ The workspace actor is separate from task assignment, source mailbox access, and
 
 | Operator name | Notion user ID | Known work email address | Status | Notes |
 | --- | --- | --- | --- | --- |
-| Ioana Surdu-Bob | `3a46f87a-9bc2-408f-baff-b4c23326e0f2` | Needs confirmation | provisional | Valid active operator. Also default owner for sales, software/product, technical, structuring, and strategic client requests. |
+| Ioana Surdu-Bob | `3a46f87a-9bc2-408f-baff-b4c23326e0f2` | `ioana@richmondblackwood.com` | approved email; role/title provisional | Valid active operator. RB Google email approved by user instruction on 2026-06-02. Also default owner for sales, software/product, technical, structuring, and strategic client requests. |
 | Johnpaul Okolie | `b85bb822-968a-4f79-809a-5ee2f3e6d828` | `johnpaul.okolie@richmondblackwood.com` | provisional | Valid active operator. Email appears in prior Gmail-search memory and should be confirmed before treating it as an approved sender. |
 | Simoneta Vicente | `b5e3ee56-b550-4959-8ec2-301d6e69e111` | Needs confirmation | provisional | Valid active operator. Default owner for bookkeeping, routine document requests, and general operational follow-up. |
 

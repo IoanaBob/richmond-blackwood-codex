@@ -23,7 +23,8 @@ Do not create client-specific Notion pages when the company relation or target d
 - Use the Notion REST API, not MCP search, for complete table inventory that must prove all matching rows were considered.
 - Do not use or probe connector-advertised SQL/data-source query tools in RB runs. They are not an approved execution path. Use the Notion REST API with `NOTION_ACCESS_TOKEN` for filtered data-source queries that need reliable coverage.
 - Keep page/database titles plain.
-- Use icon metadata where supported.
+- Every database must have an icon. Set it at creation time where supported, or immediately after creation through the page/database update tool before marking the database complete.
+- Keep emoji out of titles; use icon metadata for visual identity.
 - `Notes` fields describe the record itself, not connector/debug history.
 - When a database page has actual Notion comments and the work is a comment/update note, write into the page's comments section rather than a database text field such as `Comments`. If the connector cannot create the actual page comment, stop and report the blocker instead of falling back to the database field.
 - Use file/files properties for Drive-backed documents where possible.

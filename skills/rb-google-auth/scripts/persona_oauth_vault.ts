@@ -102,7 +102,9 @@ export const GOOGLE_PERSONAS: GooglePersonaDefinition[] = [
   {
     slug: "ioana-richmond-blackwood",
     label: "Ioana Richmond Blackwood",
-    configured: false,
+    expectedEmail: "ioana@richmondblackwood.com",
+    accountEmail: "ioana@richmondblackwood.com",
+    configured: true,
     services: ["gmail", "drive", "calendar"],
   },
   {
@@ -133,7 +135,7 @@ export const GOOGLE_PERSONAS: GooglePersonaDefinition[] = [
     label: "Ioana EIP",
     expectedEmail: "ioana@eip.ventures",
     accountEmail: "ioana@eip.ventures",
-    configured: false,
+    configured: true,
     services: ["gmail", "drive", "calendar"],
   },
   {

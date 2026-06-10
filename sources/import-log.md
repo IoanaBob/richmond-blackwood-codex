@@ -154,6 +154,81 @@ Follow-up:
 
 - Confirm the canonical Drive folder.
 - Check live status and owner for April 2026 Irish VAT/ROS demand, Revenue VAT refund request, VIES overdue row, 2026 annual-return row, and UK VAT task title cleanup.
+## 2026-06-02 - Ioana Google Persona Setup
+
+Applied:
+
+- User approved the exact `ioana-richmond-blackwood` and `ioana-eip` Google helper persona setup.
+- Confirmed `ioana@richmondblackwood.com` as Ioana's Richmond Blackwood Google email for helper auth routing.
+- Marked `ioana-richmond-blackwood` and `ioana-eip` as configured in the safe helper registry.
+- Completed interactive OAuth reconnects for both personas into ignored global Codex storage under `~/.codex/google-personas/`.
+- Updated safe repo memory and source pointers. No tokens, client secrets, or credential payloads were stored in git.
+
+Verification:
+
+- `ioana-richmond-blackwood` verified as `ioana@richmondblackwood.com` for refresh, identity, Gmail, Drive, and Calendar.
+- `ioana-eip` verified as `ioana@eip.ventures` for refresh, identity, Gmail, Drive, and Calendar.
+- The same `google-auth:verify-oauth-vault` run reported `accounting-richmond-blackwood` and `jp-richmond-blackwood` as missing from this local global store; reconnect those only after exact approval if needed.
+
+## 2026-06-01 - Germany Growth Notion Operating System
+
+Applied:
+
+- Created central Notion project `RB Germany Growth System`: `https://www.notion.so/372e41301314817bb344fbb0a11d9ae8`.
+- Created live operating databases for the campaign: Audiences, Channels, Targets, and Compliance Checks. The initially-created separate growth outreach database was deleted by the user and temporarily superseded by canonical Communications, then replaced by the new Growth Messages source for pre-lead growth messaging. The initially-created summary table was later superseded by timestamp-based reporting and trashed. Compliance Checks was later superseded by one-time in-run skill gates and trashed.
+- Seeded the first audience target, initially `Americans in Germany / relocating to Germany`, while keeping the overall system broader than that audience.
+- Refined the first active audience target on 2026-06-01 to `American tech workers in Germany / relocating to Germany` and updated its Notion row with tech-worker qualification signals.
+- Added `Audience Target` relations to Channels, Targets, and the then-active Compliance Checks source so each item could target a specific group.
+- Added optional Germany growth fields to existing Business Partners - Original (`https://www.notion.so/a179e21f0e014f4db65bbe59135c9d0f`): `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate`.
+- Trashed the superseded `RB DE Growth Partnerships` data source after search found no existing rows to migrate.
+- Removed the stale Growth Partnerships relation from Audiences and updated the project page to point partnership prospects to Business Partners.
+- Wired canonical Communications (`https://www.notion.so/1b5e4130131480ab84f3cca356736807`) into the growth system with optional `Audience Target`, `Growth Channel`, and `Sender Identity` fields; this was later narrowed to promoted lead/client/business handoffs after Growth Messages was added.
+- Removed the stale growth-audience relation to the deleted outreach database; Audiences now has a relation back to canonical Communications for promoted handoffs.
+- Added `RB DE Growth Messages` (`https://www.notion.so/ca339af617e5497483970cac110abc03`) under `RB Client Databases` with icon `💬` as the Communications-like pre-lead growth message/post/comment/DM log, related to Audiences, Channels, Growth Targets, Business Partners, Communications, and Tasks.
+- Linked the initial channel and then-active compliance seed rows to the Americans audience target.
+- Seeded channel rows for master orchestration, LinkedIn direct connect/message flow, Facebook group sponsorships, relocation-agent partnerships, and Reddit community presence for the first audience target.
+- Split the Facebook group channel into separate live channel rows and skills for Facebook group partnerships/sponsorships and Facebook group posting/commenting after user clarified partnership acquisition and posting should not be mixed.
+- Seeded compliance checks for Ioana identity verification across LinkedIn, Facebook, Reddit, and personal email, plus approved public-claim review; these were later superseded because compliance is now handled inside skill stages.
+- Created linked Tasks database rows for identity registry setup, multi-stage skill creation, daily run setup, and first research batches for LinkedIn, Facebook partnerships/posting, relocation agents, and Reddit.
+- Added repo-local Germany growth skills for the master daily run, LinkedIn, Facebook partnerships, Facebook posting, relocation partners, and Reddit.
+- Updated Reddit to direct community engagement after user removed moderator/sponsorship/commercial-counterparty Reddit routing; Reddit now uses Growth Targets and Growth Messages only unless explicitly re-enabled.
+- Added a limited Reddit DM route after user clarified DMs should be allowed when someone engages with our public post/comment or sends an inbound DM first. Cold/proactive DMs, modmail, sponsorships, paid posts, commercial counterparties, and Business Partner routing remain blocked.
+- Recorded the hard outbound rule that send-ready stages must use Ioana and must block if the active connector or browser session is not verified as Ioana.
+- Added icons to the live Germany growth operating databases after user clarified that databases should always include icons; canonical Communications already has the `📬` icon.
+- Moved the five Germany growth operating databases out of the Germany Growth task project and into `RB Client Databases` (`https://www.notion.so/f272baa16c3b45069cbd896624e04b5c`) after user clarified the project should be for tasks only.
+- Added the LinkedIn internal operating target for the first audience: 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days, with a normal send range of 15-20 blank requests/business day. This supersedes the earlier conservative 80/month quota.
+- Added LinkedIn intra-day run modes for invite batches, acceptance checks, first-message packets, follow-up sweeps, reply triage, and reporting-only closeout.
+- Added explicit reply-drafting and follow-up-drafting packet stages across the growth channel skills.
+- Rewrote LinkedIn first-message, reply, and follow-up guidance so outreach is about who the person is and what they do, not RB services, tax/admin offerings, savings claims, sales paths, or booking a call. The Germany tax/admin pain opener is allowed only as shared human context before pivoting to the person's work.
+- Tightened LinkedIn examples so founder outreach must sound natural and specific: name the company/product/work and a real public detail, avoid "saw the founder angle" and generic "what are you focused on" prompts, and ask a targeted question that proves the sender is actually connected into the person's work.
+- Replaced self-labeling phrases like "as a fellow tech founder" and "I am a tech founder too" with a US-vs-Germany contrast pattern: tax/admin as one shared difference, plus one topic-specific difference tied to the prospect's work.
+- Tightened the contrast pattern again so admin/taxes appears only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", and broad prompts like "How are you thinking about that?" are blocked in favor of highly pointed decision/tradeoff questions.
+- Blocked the broad opener "saw your work"; LinkedIn drafts must name a specific project, system, product, post, launch, or other concrete public signal instead.
+- Added the relocation partner daily target: at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Replies and follow-ups are tracked separately and do not count toward the target; first-time emails still require exact approval and immediate Ioana sender-session verification.
+- Replaced the dedicated summary table with timestamp-based reporting: added timestamp fields to Audiences, Channels, Targets, Business Partners, Communications, and the then-active Compliance Checks source; removed the stale Audiences relation to the summary table; and trashed `RB DE Growth Metrics` (`https://www.notion.so/0fa79723d1e74fb7a7eb2c491e517a53`).
+- Trashed the superseded `RB DE Growth Compliance Checks` data source (`https://www.notion.so/cc0561be66e44aa0a5296271a376917d`) after user clarified compliance checks are a one-time skill action, not a database. Compliance blockers and follow-ups now go to Growth Messages or Tasks.
+- Tightened outbound growth copy rules after user clarified that list-style stacked examples, alternatives, caveats, or issue lists should be removed unless the message truly breaks without them.
+
+Verification:
+
+- Live Notion connector returned project, database, seed-row, task, and view URLs during create/read-back operations.
+- Live Notion connector accepted icon updates for the growth operating databases and read-back verified canonical Communications has growth fields and the `📬` icon.
+- Live Notion connector read-back verified the project page and linked Tasks rows no longer refer to a separate growth outreach database.
+- Live Notion connector read-back verified Business Partners retained icon `🤝` and has the new optional growth fields.
+- Live Notion connector move/read-back verified the five Germany growth operating databases now sit under `RB Client Databases`, while the Germany Growth project page has task-only scope copy and no child database blocks.
+- Live Notion connector read-back verified the first audience row title is `American tech workers in Germany / relocating to Germany` and its messaging notes include the 320/month blank LinkedIn invite target, intra-day LinkedIn run modes, and first-message guidance.
+- Live Notion connector read-back verified timestamp fields exist on Audiences, Channels, Growth Targets, Business Partners, and Communications, and the old summary table and Compliance Checks source are trashed.
+- Live Notion connector read-back verified Growth Messages has icon `💬`, lives under `RB Client Databases`, and has relations to Audiences, Channels, Growth Targets, Business Partners, Communications, and Tasks.
+- Live Notion connector read-back verified the Reddit channel and Reddit identity check now allow reactive DMs only after public engagement or inbound DMs.
+- Search of the superseded Growth Partnerships data source returned no rows before it was trashed, so no row migration was needed.
+- Prospect PII was not imported into git; the repo stores operating pointers and provisional process notes only.
+
+Open:
+
+- Confirm whether the task project, teamspace-hosted growth databases, Business Partners growth fields, Growth Messages, and promoted canonical Communications handoff fields are the canonical operating surface before enabling daily automation.
+- Confirm future Germany growth audience targets beyond the first American tech workers audience.
+- Confirm Ioana identity/session verification routes per channel before any send-capable stage runs.
+- Clarify whether the user's "Refund" item is a separate channel, a campaign angle, or out of scope.
 
 ## 2026-05-22 - TPL / Techpacito Context Import
 

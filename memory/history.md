@@ -2,6 +2,34 @@
 
 Status: active.
 
+## 2026-06-10 - Germany Growth LinkedIn And Reddit Operating Rules
+
+- User request: Merge the in-progress Germany growth operating branch as-is after several live growth runs and rule corrections.
+- Context read: Germany growth master/channel skills, live growth run context, Notion Growth Targets/Growth Messages schemas, LinkedIn/Reddit run corrections, current `main` memory, and branch-local history.
+- Actions taken: Preserved the Germany growth operating skills and memory rules on top of current `main`, including LinkedIn foreigner-status hard gate, OpenToWork exclusion, reply/call-ask strategy gates, Ioana persona claims, Reddit new-account reset, and 3/day public Reddit cap with 15-minute spacing.
+- Decisions made: For the first LinkedIn audience, Germany-based foreigner/came-from-abroad evidence is mandatory and cannot be inferred from name, appearance, language, or accent. Reddit work from the banned account is historical/no-follow-up unless specifically excepted.
+- Verification: Merge verification is tracked in the branch closeout.
+- Limitations or gaps: Live LinkedIn/Reddit sends remain exact-approval and immediate Ioana-session gated; growth records remain provisional unless user-approved or read back from live Notion.
+
+## 2026-06-03 - Germany Growth Outbound Copy Style
+
+- User request: Remove list-style stacked wording from growth outbound copy unless absolutely necessary.
+- Context read: `skills/index.md`, skill-creator guidance, Germany growth master/channel skills, current-state memory, handoff, and import log.
+- Actions taken: Tightened `rb-germany-growth`, LinkedIn, Reddit, Facebook posting, Facebook partnerships, and relocation partner skills so outward-facing drafts do not stack examples, alternatives, caveats, or issue lists. Added the same rule to current-state memory, handoff, import log, and skill-run ledger.
+- Decisions made: Structured packets may still use internal metadata, but outbound text should use one concrete point, or two only when the message truly needs both.
+- Verification: Repo verification is recorded in the branch closeout.
+- Limitations or gaps: No live Notion records, posts, messages, comments, DMs, or emails were changed by the repo-only style update.
+
+## 2026-06-01 - Germany Growth Business Partners Routing And Skills
+
+- User request: Implement the Germany Growth System plan by removing the dedicated Growth Partnerships source, routing all partnership prospects through existing Business Partners, and creating master/channel multi-stage skills without running them.
+- Context read: `AGENTS.md`, `skills/index.md`, skill-creator guidance, Germany growth memory/source files, Business Partners, Audiences, project page, and the superseded growth partnership data source.
+- Actions taken: Created branch `codex/germany-growth-business-partners`, added optional `Audience Target`, `Growth Channel`, `Growth Stage`, and `Ioana Gate` fields to Business Partners, removed the old audience relation to the legacy partnership source, trashed that legacy source after no rows were found to migrate, updated the Germany Growth project page, and added repo-local master, LinkedIn, Facebook, relocation partners, and Reddit skills.
+- User follow-ups: Kept Growth Targets, moved growth operating databases under the Richmond Blackwood teamspace, made the Germany Growth project task-only, split Facebook partnerships from Facebook posting, removed dedicated metrics and compliance-check databases, made Reddit direct community engagement only, added reactive Reddit DMs only after engagement/inbound DM, and set relocation outreach to 5 first-time email conversations per business day.
+- Decisions made: Partnership prospects route immediately to Business Partners; non-partner LinkedIn individuals, Reddit communities/posts, and direct research targets stay in Growth Targets; pre-lead growth messages use Growth Messages; Ioana remains the only sender persona for send-ready work.
+- Verification: Live Notion read-back verified the Business Partners icon and growth fields, the old partnership source was trashed, operating databases were under `RB Client Databases`, and the Germany Growth project page had no child database blocks.
+- Limitations or gaps: Daily automation and live account setup were handled in later runs; the user's original `Refund` item remained out of scope pending clarification.
+
 ## 2026-06-07 - MONO Company Context Import
 
 - User request: Populate Monochromatic/MONO company memory and treat it as part of the group because it is partly owned by EIP Ventures.
