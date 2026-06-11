@@ -54,6 +54,12 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | --- | --- | --- |
 | NA Capital Ventures \| RB | `120363399321589278@g.us` | Shared NACV/Andrei route; confirmed by user; raw transcript/media not copied. |
 
+WhatsApp evidence:
+
+| Date | Chat | Source | Scope |
+| --- | --- | --- | --- |
+| 2026-05-21 | NA Capital Ventures \| RB | Image reply to JP's marriage-date request, message `3BC7C350C7E4040BBC3D` | Marriage date for joint German personal-tax filing: 10.03.2022. Raw image not copied to git. |
+
 ## Gmail
 
 | Source | Scope |

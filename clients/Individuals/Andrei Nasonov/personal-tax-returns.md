@@ -12,6 +12,7 @@ Andrei Nasonov:
 - Individual record: `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`
 - Tax residence: Germany.
 - Married: yes.
+- Marriage date for German joint-return filing: 10.03.2022.
 - Linked company: `../../Companies/NACV/`.
 
 ## Service / Fee Position
@@ -84,6 +85,18 @@ Workbook review flags at start:
 - ELSTER retry status: the older auto-recovered 2024 draft state was saved on 2026-06-11 before starting 2025. ELSTER then blocked the 2025 form start at `Formulardaten aus frueherer Abgabe laden` with a certificate-file reload error, so Codex logged out and reopened certificate login for a fresh user login.
 - After the fresh user login, the normal `Haushalt Nasonov` path, the manual/new-household path, and the dashboard one-click 2025 route were checked. Both household paths hit the same disabled-submit certificate-file reload error before a 2025 draft opened. The dashboard still showed only the restored 2024 draft; the one-click route was not suitable because ELSTER describes it as app-based from 2026-07-01 and for simpler no-spouse cases.
 
+ELSTER live filing status:
+
+- Status: provisional.
+- Source: in-app ELSTER session on 2026-06-11 and WhatsApp `NA Capital Ventures | RB` image reply on 2026-05-21.
+- Imported: 2026-06-11.
+- Review: Do not submit until final filer/client approval is explicit.
+- The standard 2025 ESt 1 A draft was opened in ELSTER and advanced to the send/review page; no final submission has been made.
+- Marriage date entered in ELSTER: 10.03.2022.
+- ELSTER validation after entry showed no errors.
+- Provisional ELSTER calculation: Nachzahlung 1.346,00 EUR.
+- Stale prior-year entries removed from the 2025 draft before validation: Anlage KAP foreign capital income of 2,000 EUR and Anlage S `Vermittlungsprovision` of 1,164 EUR.
+
 ## Evidence Split
 
 Status: provisional.
@@ -119,4 +132,4 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 - Confirm investment evidence or no-investment position for 2025.
 - Resolve or explicitly decide deductible and tax-credit applicability rows before final submission.
 - Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.
-- Resolve the ELSTER certificate/session blocker before 2025 data entry can begin in the portal.
+- Get explicit approval before submitting the validated 2025 ELSTER draft.
