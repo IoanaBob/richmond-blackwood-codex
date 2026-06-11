@@ -142,9 +142,9 @@ LinkedIn operating quota:
 - Source: user instruction on 2026-06-01; LinkedIn Help pages `https://www.linkedin.com/help/linkedin/answer/a550555`, `https://www.linkedin.com/help/linkedin/answer/a563153/`, and `https://www.linkedin.com/help/linkedin/answer/a6264256` fetched on 2026-06-01.
 - Imported: 2026-06-01.
 - Review: confirm live LinkedIn warning/restriction state before any send-capable run.
-- Goal math: target 4 customers/month. Planning assumption is about 1.5 meetings/business day, or about 30-32 meetings/month. At about 10% invite-to-meeting conversion, plan about 320 blank invite requests/month.
-- Calculation: 320 blank connection requests/month / 20 business days = 16 requests/business day.
-- Daily operating range: 15-20 blank connection requests/business day after approval and immediate current LinkedIn sender-session verification. Current LinkedIn sender is Eran Richmond Blackwood unless the user explicitly switches it again.
+- Current approved daily LinkedIn target: 10 blank connection requests per quota day after approval and immediate current LinkedIn sender-session verification. The old 15-20/day and 320/month planning rule is superseded for the active Eran LinkedIn account unless the user explicitly changes it again.
+- Current monthly planning baseline: 200 blank connection requests/month across a 20-business-day month.
+- Current LinkedIn sender is Eran Richmond Blackwood unless the user explicitly switches it again.
 - LinkedIn queue state is account-scoped. The 2026-06-11 switch to Eran Richmond Blackwood resets/clears the active LinkedIn queue for the new account: old account pending requests, acceptances, first-message queues, replies, follow-ups, and quota counts are historical-only unless the user approves a named carry-forward exception.
 - Current LinkedIn priority segment within the first audience: people living in Germany who work in tech for foreign employers, ideally US-headquartered or US-market employers, with visible US background. Use public career-stage signals for the user's younger-profile preference; do not infer, estimate, store, or mention age.
 - Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for the active sender account.
@@ -174,8 +174,14 @@ Required channel skills:
 - LinkedIn direct connect followed by message after approval.
 - Facebook group partnerships/sponsorships for the active audience target.
 - Facebook group posting/commenting for the active audience target.
-- Relocation-agent partnership outreach.
+- Relocation-agent partnership outreach, including the relocation partner email/Gmail sub-run.
 - Reddit community presence for the active audience target.
+
+Master-run completion rule:
+
+- A Germany growth master run is incomplete until it has attempted every required active channel row in read/plan mode: LinkedIn, Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit.
+- A channel approval gate or blocker does not stop the master run. Record that channel as `Waiting Approval` or `Blocked` in the master Channel Ledger, then continue to the next unswept channel unless the user explicitly pauses the master run.
+- Final wrap-up must merge all child channel packets into one master closeout packet with per-channel status, unresolved approvals/blockers, sends/posts completed, drafts prepared, follow-ups advanced, and the next prompt.
 
 Operational gates:
 
