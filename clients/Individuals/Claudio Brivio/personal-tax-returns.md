@@ -118,8 +118,8 @@ Current evidence shape:
 
 | Area | Status | Source | Review |
 | --- | --- | --- | --- |
-| Employment | Evidence present | Notion payroll rows, Drive payslips for all 12 CBMAX months, and annual Lohnsteuerbescheinigung uploaded on 2026-06-11 | December monthly PDF did not text-extract through the connector. Annual certificate is linked on the December revenue row and December Notion payroll page comment; visually reconcile certificate totals before final filing. |
-| Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Meal allowance/coworking-day treatment needs filer review, including first-workplace and 3-month-rule treatment. |
+| Employment | Evidence present | Notion payroll rows, Drive payslips for all 12 CBMAX months, and annual Lohnsteuerbescheinigung uploaded on 2026-06-11 | December monthly PDF did not text-extract through the connector. Annual certificate is linked on the December revenue row, attached to the December Notion payroll `Payslip` property, and noted on the December payroll page; visually reconcile certificate totals before final filing. |
+| Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Meal allowance/coworking-day treatment needs filer review, including first-workplace and 3-month-rule treatment. The allowance is material: other actual employment work expenses are EUR 1,773.58, already above the EUR 1,230 employee allowance, so rejecting the meal allowance would reduce claimed work expenses by EUR 1,092.00. |
 | BVG and phone/internet | Evidence present | N26 deductions ledger plus exact invoice/source URLs in workbook rows | BVG uses the bank-ledger/source URL because no separate BVG receipt files were found. Phone/internet claim uses exact invoice URLs in the workbook. |
 | Health insurance | Evidence present | Hallesche 2025 certificate | Basic health/care included; optional/non-basic component excluded. |
 | Investments | Evidence present, operator treatment approved | N26 2025 tax statement and tracker figures | Operator approved treatment on 2026-06-11: EUR 1,150.81 is N26 interest/capital income received, and EUR 303.48 is tax already withheld by N26. |
@@ -136,6 +136,6 @@ Exclusions and non-claims:
 Open review themes:
 
 - Visually reconcile the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung against the monthly workbook rows before final filing.
-- Review coworking meal allowance treatment.
+- Review coworking meal allowance treatment. This matters because other actual employment work expenses are EUR 1,773.58, already above the EUR 1,230 employee allowance; the EUR 1,092.00 coworking meal allowance changes the claimed deduction if accepted or rejected.
 - Review Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian.
 - Decide whether the prior-year opening-link workbook check can be accepted as non-filing-critical for this source-only preparation workbook.

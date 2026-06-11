@@ -225,6 +225,10 @@ Gabriel personal sources are routed to `clients/Individuals/GABRIEL LOUIS MANUEL
 
 User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pays EUR 1k/month by Stripe for the European entity; Grey Desk pays approximately USD 10.5k/month for international support; the Co-KG service is requested but no notary appointment was booked and the current blockers are Byron signing availability plus Gabriel's signature route; the Kastanienallee apartment is intended to move under MHL/Co-KG on a flexible timeline; Zoll remains an open task; future-dated `Overdue` filing statuses are errors; and the MMG investment account is 100% personal and untouched since Gabriel moved to Germany.
 
+## Claudio Brivio Personal Sources
+
+Claudio personal sources are routed to `clients/Individuals/Claudio Brivio/source-register.md`. The 2026-06-11 follow-up updated the December 2025 Notion payroll row `https://app.notion.com/p/2bae41301314810aa1f3cab2fb583545` so its `Payslip` property contains both the original December monthly payslip and the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`. The same follow-up recorded that the EUR 1,092.00 coworking meal allowance is material because other actual employment work expenses are EUR 1,773.58, above the EUR 1,230 employee allowance.
+
 ## Public Sources
 
 | Source | Status |
