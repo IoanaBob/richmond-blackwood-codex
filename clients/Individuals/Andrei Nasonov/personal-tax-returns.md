@@ -30,7 +30,7 @@ Andrei is married, so the personal-tax filing should be prepared as a joint retu
 | Period | Record | Jurisdiction | Status | Document gathering | Due date | Drive docs |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | In progress | 2026-04-30 | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` |
-| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Not provided | 2026-07-31 | blank in Notion |
+| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | In Progress | In progress | 2026-07-31 | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` |
 
 User review on 2026-05-19 confirmed the structure should stay as one filing record for each year.
 
@@ -75,14 +75,58 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 | 2024 personal-tax folder | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` | Notion filing folder; contains current workbook and evidence. |
 | 2025 personal-tax folder | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents, including items to review/split for 2024. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current Google Sheets workbook. |
+| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Fresh copy of the maintained native template, populated with source/input rows only on 2026-05-27. |
+| NACV 2025 wage-tax certificate correction | `https://drive.google.com/file/d/18otFpQW8n0sUzjcEREMrdSA1zHVsNQ-9/view?usp=drivesdk` | Uploaded to the 2025 filing folder on 2026-06-10 and entered as the controlling NACV Sep-Dec 2025 payroll source. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
+
+## 2025 Analysis
+
+Status: provisional.
+Source: Fresh Google Sheets workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`, Notion filing row `https://www.notion.so/342e4130131480139e81d7f94450de8b`, Drive folder `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`, and user instruction on 2026-05-27.
+Imported: 2026-05-27.
+Review: Final filing must wait for Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung, especially the June/202506 evidence, July estimate, August/final-pay, and severance treatment. NACV Sep-Dec 2025 wage-tax, pension/social, and health/care figures were updated from the uploaded NACV 2025 wage-tax certificate correction on 2026-06-10.
+
+Live task links:
+
+- Preparation task: `https://www.notion.so/36de4130131481229597f18922528158`
+- Filing task: `https://www.notion.so/36de413013148126adb9ea22f31e604c`
+
+Current workbook figures entered from source rows after the 2026-06-10 NACV wage-tax-certificate correction:
+
+- Gross employment income in the workbook: EUR 85,730.79. This includes Andrei MRM Jan-May, estimated MRM June and July salary gross based on the Jan-May payslip pattern, spouse employment, and NACV Sep-Dec gross salary from the uploaded NACV 2025 wage-tax certificate correction; it still excludes missing gross/tax treatment for the MRM August bank-only/final-pay row.
+- Wage tax withheld currently extracted/estimated: EUR 10,165.62. This includes MRM Jan-May, estimated MRM June and July wage tax based on the same monthly net pattern, spouse certificate, and NACV Sep-Dec wage tax from the uploaded NACV 2025 wage-tax certificate correction; MRM final-payroll withholding remains pending.
+- Employment work expenses used: EUR 2,460.00 after adding separate Andrei and Elena employee lump-sum baselines, supported by 2025 employment income and the BMF §9a source in the workbook.
+- Andrei MRM Jan-May cumulative gross: EUR 30,624.85.
+- Spouse 2025 wage-tax certificate gross: EUR 26,256.00.
+- NACV Sep-Dec gross salary entered from the uploaded 2025 wage-tax certificate correction: EUR 16,600.00.
+- NACV Sep-Dec wage tax entered from the uploaded correction: EUR 978.00.
+- NACV Sep-Dec pension/social bridge entered in `Revenue`: EUR 1,759.60, made up of employee pension EUR 1,543.80 plus unemployment EUR 215.80.
+- NACV Sep-Dec health/care bridge entered in `Revenue`: EUR 1,813.56, made up of employee health EUR 1,415.16 plus care EUR 398.40.
+- Pension/retirement contributions included in `Summary`: EUR 7,972.90, including estimated MRM June/July pension and NACV employee pension EUR 1,543.80 from the uploaded correction.
+- Health/care insurance included in `Summary`: EUR 12,881.86, including estimated MRM June/July health/care and NACV employee health/care EUR 1,813.56 from the uploaded correction.
+- Known MRM June, July, and August rows needing final payroll reconciliation: EUR 23,846.46 net. June is evidenced by the Drive file titled `MRM_July.pdf`, whose text shows a 2025-06-24 transfer for salary period `202506`; July is estimated from user instruction/early statement expectation using the same Jan-May monthly net pattern; August remains net-only/final-pay candidate. June and July gross/tax/social/health are estimated in `Revenue` and `Deductibles`; August remains excluded from gross/tax totals until final payroll evidence is available.
+- Workbook read-back on 2026-06-11 showed journal checks balanced to zero, failed workbook checks remain 5, Revenue rows needing review remain 3, deductible rows needing review reduced to 12, tax-credit rows needing review reduced to 6, and open missing-info count reduced to 27 after marking no childcare costs, no donations, no church tax, and no political-party donation credit.
+
+Workbook exclusions and flags:
+
+- Vodafone/telephone and Vattenfall utility evidence is recorded as not claimed to avoid overlap with the employee lump-sum and possible WFH daily allowance route unless the operator approves separate treatment.
+- `Deutsch_Kurse.pdf` and `BVG_Lena_24-25.pdf` are recorded as not claimed pending OCR/readability, amount, and tax relevance review.
+- MRM May payslip was rechecked on 2026-05-27: no `Abfindung`, `Einmalzahlung`, or severance line is visible and `Austritt` is blank. The MRM August bank transfer remains the final/severance candidate pending final payroll evidence.
+- NACV payroll-run records for September, October, November, and December 2025 remain linked in the workbook as payroll pointers. The uploaded NACV 2025 wage-tax certificate correction is now the controlling source for Sep-Dec gross, wage tax, pension/social, and health/care figures.
+- The MRM August bank transfer is treated as a severance/final-payment candidate only; it is not filing-ready without the final payslip or 2025 Lohnsteuerbescheinigung.
+- The special-expense lump sum row still needs filer review for joint-assessment treatment because the maintained template baseline is single-person.
+- The former Drive file `MRM_June.pdf` was renamed on 2026-06-11 to `RB_Commission_2024-06-20_not_2025_MRM_payroll.pdf` and remains excluded from the 2025 workbook Revenue tab because its text shows a 2024 Richmond Blackwood commission transfer, not 2025 MRM payroll.
+- User confirmed on 2026-06-11 that there are no childcare costs, donations, or church tax for 2025; the workbook marks those rows as not claimed and also marks the political-party donation credit as not claimed. Employee lump-sum treatment covers the baseline employment-work-expense comparator only and does not itself replace separate Sonderausgaben or tax-credit checks where facts exist.
 
 ## Current Missing / Open Items
 
 - Confirm all 2024 NACV payslips and wage-tax evidence are present or retrieve/upload from Lexoffice.
 - Complete the split of misrouted 2024 evidence from the 2025 folder.
-- Confirm spouse-related evidence needed for the joint returns; no spouse individual folder is needed because she is not a company shareholder.
+- Confirm spouse-related evidence completeness for the joint returns; Elena's 2025 wage-tax certificate supports the second employee lump-sum baseline added on 2026-05-27, and no spouse individual folder is needed because she is not a company shareholder.
 - Confirm phone/Vodafone recurring cost support for 2024 and 2025 after the WhatsApp request for filtered extracts.
 - Confirm TK/private-health-insurance outcome before final insurance/social-insurance treatment.
-- Link 2025 Drive docs into the 2025 Notion filing when 2025 work starts, if the current 2025 folder is confirmed as canonical.
+- Confirm whether the filer still wants individual NACV Sep-Dec 2025 monthly payslip PDFs, because the annual NACV wage-tax certificate correction has been uploaded and entered for the filing figures.
+- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung covering the June/202506 row, July estimate, August/final payment, and severance treatment.
+- Confirm whether any 2025 direct Finanzamt payments/prepayments exist outside payroll withholding; no evidence was found in the supplied folder.
+- Confirm 2025 WFH qualifying day count before claiming the home-office daily allowance, and do not overlap it with phone/utility actual-cost claims without explicit operator approval.
 - Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.

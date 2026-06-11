@@ -2,6 +2,57 @@
 
 Status: active.
 
+## 2026-06-11 - Andrei 2025 Workbook Deduction Cleanup
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-11 to rename the misleading `MRM_June.pdf` file and confirm there are no childcare costs, donations, or church tax for the 2025 filing.
+- Drive file `https://drive.google.com/file/d/1kmbiz0sUeF_2WUUWkW261IuFG4o7JueI/view?usp=drivesdk`.
+- 2025 workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`.
+
+Actions:
+
+- Renamed the misleading Drive file from `MRM_June.pdf` to `RB_Commission_2024-06-20_not_2025_MRM_payroll.pdf`.
+- Confirmed the 2025 workbook Revenue tab does not use that file; `Sources` records it as excluded 2024 Richmond Blackwood commission evidence.
+- Marked childcare, charitable donations, church tax, and political-party donation credit as not claimed in the workbook.
+- Repaired `Tax Credits` tax-year cells to read from `Setup` instead of showing 2024 in the 2025 workbook.
+
+Verification:
+
+- Drive metadata read-back confirmed the renamed file.
+- Sheets read-back confirmed the excluded source row, not-claimed deductible/credit rows, `Checks` journal balance OK, Revenue review count 3, deductible review count 12, tax-credit review count 6, failed checks 5, and open missing-info count 27.
+- Targeted formula scans found no `#REF!`, `#VALUE!`, or `#NAME?` errors in the touched workbook tabs.
+
+Unresolved:
+
+- Final MRM June/202506, July, August/final-pay gross, tax, social, health/care, and severance treatment still need the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
+- Prior-year opening links, investment confirmation, remaining deductible review, and remaining tax-credit review remain open in the workbook.
+
+## 2026-06-10 - Andrei Nasonov 2025 NACV Wage-Tax Certificate Update
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-10 to upload the local NACV 2025 correction PDF, correct the 2025 workbook Revenue gaps, check the apparent MRM July payment, and verify the employee lump-sum handling.
+- Local PDF `Andrei_Nasonov_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf`, uploaded to Drive as `https://drive.google.com/file/d/18otFpQW8n0sUzjcEREMrdSA1zHVsNQ-9/view?usp=drivesdk`.
+- 2025 workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`.
+
+Actions:
+
+- Uploaded the NACV 2025 wage-tax certificate correction PDF into Andrei's 2025 filing folder.
+- Updated the workbook to use one NACV Sep-Dec 2025 aggregate Revenue row from the uploaded certificate, filled NACV pension and health/care deductible rows, kept NACV unemployment evidenced but under operator/filer review, and clarified that the two employee lump-sum baselines are counted as one aggregate Summary/Tax Analysis line.
+- Updated MRM Revenue so June, July, and August are all visible. June uses the `MRM_July.pdf` transfer file because its text shows 2025-06-24 / salary period `202506`; July is separately estimated from user instruction and the same Jan-May MRM monthly net pattern; August remains net-only/final-pay candidate.
+- Updated Andrei repo pointers and open questions without copying private identifiers from the PDF.
+
+Verification:
+
+- Drive metadata read-back confirmed the uploaded PDF in the 2025 filing folder.
+- Sheets read-back confirmed `Checks` journal balance is OK, Revenue review count is 3, failed checks are 5, missing-info count is 31, gross employment income is EUR 85,730.79, wage tax withheld is EUR 10,165.62, pension included is EUR 7,972.90, health/care included is EUR 12,881.86, and employee lump-sum baseline is EUR 2,460.00.
+
+Unresolved:
+
+- Final MRM June/202506, July, August/final-pay gross, tax, social, health/care, and severance treatment still need the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
+- Prior-year opening links, investment confirmation, deductible review, and tax-credit review remain open in the workbook.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:
@@ -2106,3 +2157,46 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+## 2026-05-27 - Andrei Nasonov 2025 German Personal Tax Analysis
+
+Imported:
+
+- User instruction in Codex chat on 2026-05-27 to prepare Andrei Nasonov's 2025 German personal-tax analysis from the repo-local workflow.
+- Notion individual `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`.
+- Notion filing row `https://www.notion.so/342e4130131480139e81d7f94450de8b`.
+- Drive folder `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`.
+
+Actions:
+
+- Copied the maintained native German personal-tax template to `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`.
+- Populated workbook input/source tabs only: `Setup`, `Revenue`, `Expenses`, `Deductibles`, and `Sources`.
+- Created preparation task `https://www.notion.so/36de4130131481229597f18922528158` and filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c`, linked them to the 2025 filing row, and set the filing task dependency.
+- Updated Andrei's repo-local personal-tax, Drive, source-register, and open-question records with source pointers and review flags.
+
+Unresolved:
+
+- Obtain Andrei's final 2025 MRM payslip or 2025 Lohnsteuerbescheinigung to reconcile June/August payroll and severance.
+- Confirm WFH day count and avoid overlap with phone/utility actual-cost claims unless explicitly approved.
+- Final filer should review the workbook's remaining failed checks/open missing-info rows before filing; read-back on 2026-05-27 showed these are expected from missing final payroll evidence and unresolved optional deductions/credits.
+
+## 2026-05-27 - Andrei 2025 Payroll And Spouse Allowance Correction
+
+Imported:
+
+- User correction in Codex chat on 2026-05-27 questioning whether the MRM May payslip included severance, pointing out NACV employment from September/October 2025 with healthcare and pension in payslips, and asking whether Elena's allowance can be applied.
+- MRM May payslip `https://drive.google.com/file/d/11rPZcRgXZF-wLHlDIQCRCF5LqYYU69CQ/view?usp=drivesdk`.
+- NACV employment record `https://www.notion.so/25fe4130131480649c1afeba93b44af8`.
+- NACV payroll runs `https://www.notion.so/25fe41301314803e8106f2ef4ae23c23`, `https://www.notion.so/27ee41301314817ab64bc205d0b603b1`, `https://www.notion.so/29de41301314813baa32ce50a8e943b0`, and `https://www.notion.so/2bae413013148152b268e178a053a1a8`.
+
+Actions:
+
+- Rechecked the MRM May payslip and recorded that no `Abfindung`, `Einmalzahlung`, or severance line is visible and `Austritt` is blank; the August MRM bank transfer remains the final/severance candidate pending final payroll evidence.
+- Added NACV Sep-Dec 2025 payroll rows to the 2025 workbook, using Notion page fields where exposed and marking all NACV rows as needing payroll tax/social extraction.
+- Added separate pending NACV pension, health/care, and other-insurance deductible rows so the missing NACV deductions are explicit and not inferred from net pay or separate-insurance page fields.
+- Added Elena's second employee lump-sum baseline to the workbook because her 2025 wage-tax certificate shows employment income.
+- Added Notion correction comments to the 2025 filing row, preparation task, and filing task.
+
+Unresolved:
+
+- Extract the NACV payslip PDF contents or upload the PDFs to Drive so the workbook can populate exact wage tax, pension/social, health/care, and other-insurance figures for Sep-Dec 2025.
+- Obtain Andrei's 2025 final MRM payslip or Lohnsteuerbescheinigung for June/August and severance/final-payment treatment.
