@@ -17,7 +17,7 @@ Keep setup documentation limited to human setup: local tools, connector authenti
 - Python 3 when document or validation tooling needs it.
 - Poppler PDF tools when PDF inspection/rendering is needed.
 - Go, `uv`, and `ffmpeg` when optional WhatsApp MCP is enabled.
-- `uvx` when optional ElevenLabs MCP is enabled.
+- `uvx` when optional LinkedIn or ElevenLabs MCP is enabled.
 
 ## Local Files
 
@@ -27,11 +27,13 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 - `~/.codex/google-personas/<persona-slug>/gcloud/` for shared global persona gcloud caches.
 - `~/.codex/google-oauth-client.richmondblackwood.json` for Richmond Blackwood sender-context OAuth client recovery/reconnect.
 - `.codex-local/whatsapp-bridge.*` for optional WhatsApp bridge PID, log, compiled binary, and LaunchAgent plist.
+- `~/.linkedin-mcp/` for optional LinkedIn MCP browser profiles, cookies, Patchright browser cache, and local session state.
 - `.env` for local SignNow helper credentials if SignNow helpers are used.
-- `~/.codex/config.toml` for personal MCP server configuration, including optional ElevenLabs and n8n MCP entries. This file is outside the repo and must not be copied into git.
+- `~/.codex/config.toml` for personal MCP server configuration, including optional LinkedIn, ElevenLabs, and n8n MCP entries. This file is outside the repo and must not be copied into git.
 
 Never commit credentials, tokens, OAuth JSON files, certificate bundles, private keys, local service secrets, WhatsApp QR/session state, WhatsApp SQLite databases, downloaded WhatsApp media, or transcription artifacts. Do not print or copy Google OAuth vault files or token responses into repo memory.
 Never commit ElevenLabs API keys, n8n MCP tokens, n8n API keys, webhook secrets, call recordings, or full call transcripts.
+Never commit LinkedIn browser profiles, cookies, session state, screenshots, or raw exported LinkedIn message/profile data.
 
 ## Health Checks
 
@@ -52,6 +54,16 @@ Optional WhatsApp MCP checks:
 git submodule status third_party/whatsapp-mcp
 setup/mcp/start-whatsapp-bridge.sh status
 ```
+
+Optional LinkedIn MCP checks:
+
+```bash
+node --check setup/mcp/linkedin-guard-proxy.mjs
+setup/mcp/linkedin-login.sh status
+rg -n "mcp_servers.linkedin|RB_LINKEDIN_MCP_MODE" ~/.codex/config.toml
+```
+
+Keep the LinkedIn MCP in guarded `read_only` mode by default. Write tools must remain blocked unless a time-bounded approved send run deliberately enables them and the relevant growth skill gates have passed.
 
 Optional ElevenLabs and n8n MCP checks:
 

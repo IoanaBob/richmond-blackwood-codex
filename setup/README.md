@@ -10,6 +10,7 @@ Status: provisional.
 - Gmail: required for accounting, invoice, and client communication context.
 - SignNow: optional/generic helper support for document upload, review links, and status checks where RB uses SignNow.
 - WhatsApp MCP: optional local MCP support for user-controlled WhatsApp access.
+- LinkedIn MCP: optional guarded local MCP support for Ioana-controlled LinkedIn reads.
 - ElevenLabs MCP: optional local MCP support for voice/audio/agent work.
 - n8n MCP: optional remote MCP support for inspecting, testing, and building exposed n8n workflows.
 - GitHub or local git: required for repo sync if publishing changes.
@@ -65,6 +66,7 @@ Local-only files belong under `.codex-local/`, `.env`, or shared global Codex st
 Optional repo-pinned MCP setup guides live under `setup/mcp/`.
 
 - WhatsApp MCP: [setup/mcp/whatsapp.md](mcp/whatsapp.md). This enables local WhatsApp Web access for reading messages, downloading media/voice notes, and sending messages/files through a user-controlled WhatsApp account. Its reusable source is pinned as a git submodule; QR login state, SQLite databases, media, and personal Codex config stay local and ignored.
+- LinkedIn MCP: [setup/mcp/linkedin.md](mcp/linkedin.md). This enables guarded local LinkedIn access through `stickerdaniel/linkedin-mcp-server` behind the repo-local read-only proxy. LinkedIn browser profiles, cookies, session state, and personal Codex config stay local and ignored.
 - ElevenLabs and n8n MCP: [setup/mcp/elevenlabs-n8n.md](mcp/elevenlabs-n8n.md). This enables local Codex access to the official ElevenLabs MCP server and remote n8n instance-level MCP. API keys, MCP tokens, webhook secrets, live instance URLs if private, client call transcripts, and personal Codex config stay local and ignored.
 - ElevenLabs API fallback: use only when the current MCP tools cannot perform a required live edit, and only after explicit user approval for the exact production change.
 
@@ -78,6 +80,16 @@ setup/mcp/start-whatsapp-bridge.sh start
 ```
 
 Scan the QR code from WhatsApp Linked Devices if prompted, add the MCP server snippet from [setup/mcp/whatsapp.md](mcp/whatsapp.md) to `~/.codex/config.toml`, then restart or reload Codex. The background bridge log and PID are stored under `.codex-local/`.
+
+Quick LinkedIn MCP setup path:
+
+```sh
+which uvx
+node --check setup/mcp/linkedin-guard-proxy.mjs
+setup/mcp/linkedin-login.sh status
+```
+
+Add the guarded read-only snippet from [setup/mcp/linkedin.md](mcp/linkedin.md) to `~/.codex/config.toml`, then restart or reload Codex. Use `setup/mcp/linkedin-login.sh login` only for Ioana's LinkedIn session. Keep `RB_LINKEDIN_MCP_MODE=read_only` unless a time-bounded approved send run deliberately enables write tools.
 
 Quick ElevenLabs and n8n MCP setup path:
 

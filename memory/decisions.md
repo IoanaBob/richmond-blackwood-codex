@@ -160,6 +160,22 @@ Consequence:
 Source: user instruction in Codex chat on 2026-06-03.
 Review: approved as a general client communication rule; refine exceptions if future edge cases require it.
 
+## 2026-06-11 - Guarded LinkedIn MCP Is Read-Only By Default
+
+Decision: RB LinkedIn MCP access should use the repo-local guard proxy `setup/mcp/linkedin-guard-proxy.mjs`, not the upstream server directly.
+
+Consequence:
+
+- Upstream: `stickerdaniel/linkedin-mcp-server`, selected as the most popular open-source result found by GitHub stars search for `linkedin mcp server`.
+- Default mode: `RB_LINKEDIN_MCP_MODE=read_only`.
+- Session route: Ioana-specific browser profile under `~/.linkedin-mcp/ioana-richmond-blackwood/profile`.
+- Write tools such as `send_message` and `connect_with_person` must be hidden and blocked by default.
+- LinkedIn sends still require the LinkedIn growth skill's exact packet approval, daily quota gate, immediate Ioana session verification, and Growth Messages logging.
+- Raw LinkedIn browser profile/cookie/session data must never be committed.
+
+Source: user instruction in Codex chat on 2026-06-11; GitHub search/repo inspection for `stickerdaniel/linkedin-mcp-server`.
+Review: after Codex reload, verify the `linkedin` MCP exposes `rb_linkedin_guard_status` and does not expose `send_message` or `connect_with_person` while in read-only mode.
+
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 
 Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.
