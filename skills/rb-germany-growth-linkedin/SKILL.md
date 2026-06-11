@@ -43,6 +43,7 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Current LinkedIn outreach sender is Eran Richmond Blackwood.
 - Booked-call handoff uses Ioana: when the prospect is ready for a call, scheduling and meeting ownership switch to Ioana, using Ioana's calendar and invite sender.
 - Eran-authored LinkedIn copy must not borrow Ioana's personal biography, shared nationality/language hooks, or past personal claims unless the user explicitly says that thread has switched to Ioana.
+- The 2026-06-11 switch to Eran is a new LinkedIn account queue reset. Treat prior LinkedIn queues from Ioana or any older account as historical-only for this run/account. Do not count old account pending requests, acceptances, first-message queues, replies, follow-ups, daily sends, or monthly sends toward Eran's queue unless the user explicitly approves a named carry-forward exception.
 
 ## Superseded Ioana Persona Claims
 
@@ -78,6 +79,13 @@ Suggested operating rhythm:
 - End of day: reporting-only closeout and next-day queue preparation.
 
 Do not duplicate sends across intra-day runs. Every run must read current Growth Messages and Growth Targets before proposing a send.
+
+Account-scope rule:
+
+- Before queue loading, identify the active LinkedIn sender account and account-start/reset date if known.
+- Queue items are valid only when they belong to the active sender account or were explicitly carried forward by the user.
+- Old account Growth Messages/Targets remain historical evidence and should not be deleted, but they do not create action requirements for the new account.
+- If a Growth Message/Target does not clearly state which account sent or owns it, treat it as old-account or ambiguous until proven current. Exclude it from Eran's send counts and queues, and list it under exclusions.
 
 Date-boundary rule:
 
