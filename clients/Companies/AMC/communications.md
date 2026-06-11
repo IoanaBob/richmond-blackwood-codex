@@ -22,6 +22,7 @@ Review: Keep sender identity aligned with RB outbound process; use updated Busin
 - WhatsApp on 2026-05-14 confirms Aaron wants 2025 onward joint personal tax filing support for him and his wife; detailed routing is in the individual folder.
 - Gmail sent messages on 2026-05-08 and 2026-05-11 provide the current invoice-send style for Riot and Echo.
 - Slack on 2026-05-18 raised an internal question that Q4 2025 VAT appeared not filed for several clients, including AMC. User clarified this may need checking and should be left for a separate VAT skill.
+- Gmail `19eb1af949b0d4b8` from Eran on 2026-06-10 forwarded AMD's Finanzamt letter for AMC. The rendered PDF is a 2026-06-03 changed Q1 2026 VAT assessment showing EUR 2,496.22 still to pay as of the 2026-05-27 account date. The PDF was preserved in the AMC Drive folder: `https://drive.google.com/file/d/16-JpGjpjaqeM169HG2FJDptfsXzogT7Q/view?usp=drivesdk`.
 
 ## Communication Boundary
 

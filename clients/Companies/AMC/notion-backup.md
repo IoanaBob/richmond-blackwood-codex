@@ -45,6 +45,9 @@ Review: This is a source pointer register, not a full Notion export.
 | VAT filing extension task | `https://www.notion.so/330e4130131481b2b798e9b97f8111d5` | To Do in Notion read. |
 | VAT prepayments due in 2026 task | `https://www.notion.so/330e4130131481919f34c9b4b684ed8a` | Done in Notion read. |
 | 2025 unpaid VAT letter task | `https://www.notion.so/330e4130131481b5be0adcb98a8d5b80` | In Progress in Notion read. |
+| AMC Q1/26 VAT APPEAL | `https://www.notion.so/36be41301314807b99aece12e0a16204` | Done; June 10 comment points to the separate changed-assessment follow-up. |
+| AMC - verify June 2026 changed Q1 VAT assessment and remaining payment | `https://www.notion.so/37be4130131481f7ad71e79f4b985db5` | Critical follow-up created for the June 2026 changed assessment; comment `37ce4130-1314-8162-b289-001d5426929d` records 2026-06-11 verification and Drive evidence. |
+| AMC - Finanzamt letter SD79-26002 - May 2026 | `https://www.notion.so/36be4130131481589b6fde724777ba54` | Existing Communication for the SD79-26002 source context; comment `37ce4130-1314-81ab-b599-001d8de2183c` records the June 2026 changed assessment and Drive evidence. |
 | P&L / balance sheet task | `https://www.notion.so/353e413013148070ad92d56880997fb6` | Critical task for 2023/2024 P&L and balance sheet; source dates are WhatsApp 2026-05-19 at latest and Notion before 2026-05-22. |
 
 ## Personal Tax Pointers

@@ -48,6 +48,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Gmail `19e172959b5fc9e5` | Echo invoice RE0029 sent from accounting email. |
 | Gmail `19d25d76d8b99a82` | Garnishment action-points email from Ioana to Aaron. |
 | Gmail tax/Finanzamt/ELSTER search | VAT extension, ELSTER submissions, Wamo/Finanzamt payment notices, and personal-tax crisis support; raw payment details not stored. |
+| Gmail `19eb1af949b0d4b8` and Drive `https://drive.google.com/file/d/16-JpGjpjaqeM169HG2FJDptfsXzogT7Q/view?usp=drivesdk` | June 2026 changed Q1 2026 VAT assessment; source attachment preserved in canonical AMC Drive folder on 2026-06-11. |
 
 ## WhatsApp
 
