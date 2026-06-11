@@ -93,7 +93,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Review fresh 2025 workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`; it was copied from the maintained native template and populated on source/input tabs only on 2026-06-11. Current read-back shows 1 failed check and 1 open missing-info item.
 - Resolved 2026-05-14: CBMAX February 2024 payroll is excluded from the workbook and should not be retroactively changed.
 - Obtain or verify the CBMAX 2024 Lohnsteuerbescheinigung.
-- Obtain or verify the CBMAX 2025 annual Lohnsteuerbescheinigung; monthly 2025 payslips are entered, but the annual certificate was not found in the reviewed package.
+- Visual-review the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk` against the monthly payroll rows before final filing; local PDF text extraction was unavailable.
 - Resolved 2026-05-14: Health/care EUR 5,470.32 is claimed; Hallesche non-basic/supplemental EUR 1,050.69 is excluded.
 - 2025 health/care EUR 5,597.63 is claimed from the Hallesche certificate; Hallesche optional/non-basic EUR 1,176.37 is excluded.
 - Resolved 2026-05-14: Home-office daily allowance, Pixel Buds, and mobile-phone professional share are claimed; commute and Telekom internet are excluded.

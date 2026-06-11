@@ -32,7 +32,7 @@ Summary figures:
 
 Unresolved:
 
-- CBMAX 2025 annual Lohnsteuerbescheinigung not found in the reviewed evidence.
+- CBMAX 2025 annual Lohnsteuerbescheinigung was later supplied by the user and uploaded to Drive; visual totals reconciliation remains because local PDF text extraction was unavailable.
 - N26 2025 tax statement needs visual filer confirmation because connector text extraction was empty.
 - Coworking meal allowance treatment needs filer review.
 - Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian need filing-position review.
@@ -43,6 +43,10 @@ Verification:
 - Sheets read-back confirmed summary figures, evidence URLs, and preserved formulas in formula/calculation tabs.
 - Notion read-back confirmed filing/task status updates, review links, dependencies, and comments.
 - Drive/Sheets source read-back confirmed the key trackers and evidence files used for claimed rows.
+
+Follow-up:
+
+- User supplied `Claudio_Brivio_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf` on 2026-06-11. Uploaded it to the 2025 CBMAX payslip folder as `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`, linked it on the workbook December revenue row and `Sources` tab, and added a Notion comment on the December payroll row `https://app.notion.com/p/2bae41301314810aa1f3cab2fb583545`.
 
 ## 2026-06-08 - EVG Company Context Import
 

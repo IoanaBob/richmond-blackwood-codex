@@ -93,6 +93,7 @@ Drive evidence:
 - Home-office/coworking tracker: `https://docs.google.com/spreadsheets/d/1G4Kf53QWuMUXxVZpTc6oMWdr8AeXrRex/edit`.
 - N26 deductions ledger: `https://docs.google.com/spreadsheets/d/1XpBzCMBU72gUxcA2cYek9BGorY2jzcVI/edit`.
 - Payslip folder: `https://drive.google.com/drive/folders/1yq0Y9eHVBAMk5sj7tRne1dPux3Gu2Ey0`.
+- CBMAX 2025 annual Lohnsteuerbescheinigung: `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`.
 - Hallesche 2025 tax certificate: `https://drive.google.com/file/d/1W8f_PwvKKTYyeNlLv68wbGDNUltpyPjW/view`.
 - N26 2025 tax statement: `https://drive.google.com/file/d/13WupwbvO7fbEBaGA1dODICrlD2ZXEo4V/view`.
 - Taxfix invoice: `https://drive.google.com/file/d/1pROw1CtT5k9YoOWdjJ2qjdgjBFDcU8sj/view`.
@@ -117,7 +118,7 @@ Current evidence shape:
 
 | Area | Status | Source | Review |
 | --- | --- | --- | --- |
-| Employment | Evidence present | Notion payroll rows and Drive payslips for all 12 CBMAX months | Annual CBMAX Lohnsteuerbescheinigung not found in the reviewed 2025 package; December PDF did not text-extract through the connector. |
+| Employment | Evidence present | Notion payroll rows, Drive payslips for all 12 CBMAX months, and annual Lohnsteuerbescheinigung uploaded on 2026-06-11 | December monthly PDF did not text-extract through the connector. Annual certificate is linked on the December revenue row and December Notion payroll page comment; visually reconcile certificate totals before final filing. |
 | Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Meal allowance/coworking-day treatment needs filer review, including first-workplace and 3-month-rule treatment. |
 | BVG and phone/internet | Evidence present | N26 deductions ledger plus exact invoice/source URLs in workbook rows | BVG uses the bank-ledger/source URL because no separate BVG receipt files were found. Phone/internet claim uses exact invoice URLs in the workbook. |
 | Health insurance | Evidence present | Hallesche 2025 certificate | Basic health/care included; optional/non-basic component excluded. |
@@ -134,7 +135,7 @@ Exclusions and non-claims:
 
 Open review themes:
 
-- Obtain or document unavailability of the CBMAX 2025 annual Lohnsteuerbescheinigung.
+- Visually reconcile the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung against the monthly workbook rows before final filing.
 - Visually confirm the N26 2025 tax statement figures before filing.
 - Review coworking meal allowance treatment.
 - Review Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian.

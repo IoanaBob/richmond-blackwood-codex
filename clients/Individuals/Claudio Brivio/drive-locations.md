@@ -92,6 +92,7 @@ Review: Exact evidence URLs for claimed rows were entered in the 2025 workbook. 
 | --- | --- | --- |
 | 2025 source package | `https://drive.google.com/drive/folders/1Mj6ZqOLXKOvKRnjDDjOgqDriLodkBEiY` | User-shared evidence package named `_2025-tax-filings`. |
 | 2025 CBMAX payslip folder | `https://drive.google.com/drive/folders/1yq0Y9eHVBAMk5sj7tRne1dPux3Gu2Ey0` | Monthly payslip evidence for all 12 months; workbook revenue rows link exact payroll records and payslip URLs. |
+| CBMAX 2025 annual Lohnsteuerbescheinigung | `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk` | User-provided PDF uploaded on 2026-06-11 to the 2025 payslip folder and linked on the December workbook revenue row and December Notion payroll page comment. |
 | Hallesche tax certificate 2025 | `https://drive.google.com/file/d/1W8f_PwvKKTYyeNlLv68wbGDNUltpyPjW/view` | Exact certificate URL used for the health/care claim; optional/non-basic amount is excluded. |
 | N26 tax statement 2025 | `https://drive.google.com/file/d/13WupwbvO7fbEBaGA1dODICrlD2ZXEo4V/view` | Source for 2025 N26 interest and withholding; connector did not text-extract the PDF, so visual filer confirmation remains flagged. |
 | Taxfix invoice 2025 | `https://drive.google.com/file/d/1pROw1CtT5k9YoOWdjJ2qjdgjBFDcU8sj/view` | Exact invoice URL used for the EUR 35 work-related tax-preparation share. |

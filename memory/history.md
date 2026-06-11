@@ -1028,3 +1028,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Claudio was treated as RB-employed for the full year; investments were treated as personal for the full year; N26 interest/withholding was entered as personal investment income; optional Hallesche and dental costs were excluded; filing remains blocked until review flags are resolved.
 - Verification: Sheets read-back confirmed summary figures, formula preservation, and evidence URLs; Notion read-back confirmed status/link/comment updates; Drive/Sheets source read-back confirmed the key source trackers and evidence files.
 - Limitations or gaps: CBMAX 2025 annual Lohnsteuerbescheinigung not found; N26 tax statement needs visual filer confirmation; coworking meal allowance and Section 138/AUS holdings framing need final review; workbook still has a prior-year opening-link check.
+
+## 2026-06-11 - Claudio 2025 Annual Lohnsteuerbescheinigung Follow-Up
+
+- User request: Explain the EUR 918 home-office figure, add Claudio's supplied 2025 annual wage-tax statement to the December payslip entry, and provide evidence links behind investment interest, investment withholding, and known withholding/payments.
+- Context read: Fresh 2025 workbook revenue, deductibles, investment, summary, and sources tabs; December Notion payroll row; Drive payslip folder; local supplied PDF.
+- Actions taken: Uploaded `Claudio_Brivio_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf` to the 2025 CBMAX payslip folder at `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`, linked it on the December workbook revenue row and `Sources` tab, and added a Notion page comment to the December payroll row.
+- Decisions made: Did not overwrite the Notion `Payslip` file property because it already holds Notion-hosted monthly payslip attachments; used a page comment and workbook evidence cell for the annual certificate link.
+- Verification: Workbook read-back confirmed the December evidence cell links both the monthly payslip and annual certificate. Notion comment read-back confirmed the evidence link. Drive metadata confirmed the uploaded PDF and parent folder. Home-office EUR 918 traces to 153 days x EUR 6 from the home-office/coworking tracker.
+- Limitations or gaps: `pdftotext`/PDF extraction tooling was unavailable locally, so annual certificate totals still need visual reconciliation against monthly workbook rows.
