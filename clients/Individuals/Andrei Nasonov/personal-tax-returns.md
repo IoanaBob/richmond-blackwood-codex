@@ -1,9 +1,9 @@
 # Personal Tax Returns
 
 Status: provisional.
-Source: Notion individual and Personal Tax Filings records, Notion tasks, Drive folder listing, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
-Imported: 2026-05-19.
-Review: Complete evidence/document split, spouse evidence, billing mechanics, address confirmation, and TK/private-insurance treatment before filing.
+Source: Notion individual and Personal Tax Filings records, Notion tasks, Drive folder listing, Slack DM from Ioana on 2026-06-11, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
+Imported: 2026-05-19; refreshed 2026-06-11.
+Review: Complete evidence/document split, spouse evidence, billing mechanics, address confirmation, TK/private-insurance treatment, final MRM 2025 payroll evidence, investment confirmation, and ELSTER income cross-check before final filing.
 
 ## Linked Person
 
@@ -30,7 +30,7 @@ Andrei is married, so the personal-tax filing should be prepared as a joint retu
 | Period | Record | Jurisdiction | Status | Document gathering | Due date | Drive docs |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | In progress | 2026-04-30 | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` |
-| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | Pending | Not provided | 2026-07-31 | blank in Notion |
+| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | In Progress | Attached in Drive | 2026-06-30 | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` |
 
 User review on 2026-05-19 confirmed the structure should stay as one filing record for each year.
 
@@ -54,6 +54,35 @@ Open analysis notes from Notion:
 - User comment says NACV payslips are in the company's Lexoffice.
 - The workbook/task needs relevant links in the task description, and comments were left on the spreadsheet.
 
+## 2025 Filing Review
+
+Status: provisional.
+Source: Slack DM from Ioana on 2026-06-11, Notion filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c`, Notion preparation task `https://www.notion.so/36de4130131481229597f18922528158`, filing record `https://www.notion.so/342e4130131480139e81d7f94450de8b`, and workbook review on 2026-06-11.
+Imported: 2026-06-11.
+Review: Use ELSTER income figures as controlling if they differ from the workbook estimate; do not submit until final filer review and submission approval.
+
+Current filing task:
+
+- `Andrei 2025 German personal tax filing`: `https://www.notion.so/36de413013148126adb9ea22f31e604c`
+- Status at read/start: moved from `To Do` to `In Progress` on 2026-06-11.
+- Review workbook: `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`
+- Linked preparation task: `https://www.notion.so/36de4130131481229597f18922528158`
+
+Preparation task:
+
+- `Andrei 2025 personal tax analysis`: `https://www.notion.so/36de4130131481229597f18922528158`
+- Status at read: `Done`, marked complete on 2026-06-11.
+- Main handoff note: workbook and Drive folder reflect the best information available to Ioana's knowledge; if ELSTER shows a different income figure during filing, trust ELSTER over the workbook estimate.
+
+Workbook review flags at start:
+
+- MRM June and July payroll rows are estimated from the Jan-May payslip pattern.
+- MRM August bank transfer is net-only and may be final salary/severance; final MRM 2025 wage-tax certificate or payslip is still the preferred source.
+- Investment evidence/confirmation remains open.
+- Deductible and tax-credit applicability rows remain for filer/operator review; currently not all potential rows are claimed.
+- Prior-year opening-link checks fail in the workbook but appear bookkeeping-oriented rather than directly blocking the employment-income ELSTER entry.
+- ELSTER retry status: the older auto-recovered 2024 draft state was saved on 2026-06-11 before starting 2025. ELSTER then blocked the 2025 form start with a certificate-file reload error, so Codex logged out and reopened certificate login for a fresh user login.
+
 ## Evidence Split
 
 Status: provisional.
@@ -75,6 +104,7 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 | 2024 personal-tax folder | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` | Notion filing folder; contains current workbook and evidence. |
 | 2025 personal-tax folder | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents, including items to review/split for 2024. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current Google Sheets workbook. |
+| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current 2025 filing-review workbook. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
 ## Current Missing / Open Items
@@ -84,5 +114,7 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 - Confirm spouse-related evidence needed for the joint returns; no spouse individual folder is needed because she is not a company shareholder.
 - Confirm phone/Vodafone recurring cost support for 2024 and 2025 after the WhatsApp request for filtered extracts.
 - Confirm TK/private-health-insurance outcome before final insurance/social-insurance treatment.
-- Link 2025 Drive docs into the 2025 Notion filing when 2025 work starts, if the current 2025 folder is confirmed as canonical.
+- Replace MRM 2025 estimated June/July/August payroll rows with final MRM 2025 wage-tax certificate or final payslip evidence if ELSTER/Drive provides it.
+- Confirm investment evidence or no-investment position for 2025.
+- Resolve or explicitly decide deductible and tax-credit applicability rows before final submission.
 - Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.

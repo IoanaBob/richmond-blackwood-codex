@@ -1,9 +1,9 @@
 # Andrei Nasonov
 
 Status: provisional.
-Source: Notion individual record `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`, Notion personal-tax filing records, Drive folder listing, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
-Imported: 2026-05-19.
-Review: Confirm spouse evidence completeness, TK/private-insurance final treatment, billing mechanics from 2025 onward, the 2025 Drive-folder link, and Andrei's official personal/director address.
+Source: Notion individual record `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072`, Notion personal-tax filing records, Drive folder listing, Slack DM from Ioana on 2026-06-11, WhatsApp `NA Capital Ventures | RB`, and user instruction on 2026-05-19.
+Imported: 2026-05-19; refreshed 2026-06-11.
+Review: Confirm spouse evidence completeness, TK/private-insurance final treatment, billing mechanics from 2025 onward, final MRM 2025 payroll evidence, investment confirmation, and Andrei's official personal/director address.
 
 Legal name for folder routing: Andrei Nasonov.
 
@@ -24,9 +24,9 @@ Andrei is married, so the German personal tax filings should be joint returns. T
 Notion currently shows:
 
 - 2024 personal-tax filing in progress with Drive folder linked.
-- 2025 personal-tax filing pending with no Drive folder linked.
+- 2025 personal-tax filing in progress with Drive folder linked and a filing workbook prepared.
 - A 2024 analysis task in review, with a current Google Sheets workbook.
-- Open tasks for TK/private-insurance follow-up and splitting misrouted 2024 documents from the 2025 folder.
+- Open tasks/flags for TK/private-insurance follow-up, splitting misrouted 2024 documents from the 2025 folder, and final 2025 filing review in ELSTER.
 
 ## Boundary
 
