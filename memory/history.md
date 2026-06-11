@@ -1037,3 +1037,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Did not overwrite the Notion `Payslip` file property because it already holds Notion-hosted monthly payslip attachments; used a page comment and workbook evidence cell for the annual certificate link.
 - Verification: Workbook read-back confirmed the December evidence cell links both the monthly payslip and annual certificate. Notion comment read-back confirmed the evidence link. Drive metadata confirmed the uploaded PDF and parent folder. Home-office EUR 918 traces to 153 days x EUR 6 from the home-office/coworking tracker.
 - Limitations or gaps: `pdftotext`/PDF extraction tooling was unavailable locally, so annual certificate totals still need visual reconciliation against monthly workbook rows.
+
+## 2026-06-11 - Claudio 2025 N26 Treatment Approved
+
+- User request: Confirmed approval that N26 investment figures should be treated as income received and tax already withheld, then asked for any remaining warnings.
+- Context read: Workbook investment row, N26 evidence pointer, Notion filing page, and current Claudio warning records.
+- Actions taken: Updated the workbook investment row note, added a Notion filing comment, and updated Claudio/source/current-state/open-question memory to remove the N26 item from remaining warnings.
+- Decisions made: EUR 1,150.81 is treated as N26 interest/capital income received; EUR 303.48 is treated as N26 tax already withheld, not an additional payment due now.
+- Verification: Workbook write succeeded; Notion comment create succeeded. Repo verification pending closeout.
+- Limitations or gaps: Remaining warnings are annual certificate visual reconciliation, coworking meal-allowance treatment, Section 138/AUS holdings framing, prior-year opening-link check, and payroll payment reconciliation/source extraction notes.

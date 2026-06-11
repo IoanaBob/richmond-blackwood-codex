@@ -102,7 +102,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Resolved 2026-05-14: CBMAX and Job Guardian Section 138 AO notifications should be included in the 2024 filing package.
 - Review how Section 138 AO late/proactive filing should be framed for CBMAX and Job Guardian.
 - Verify the N26 file in the investment folder is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS.
-- Visually confirm the 2025 N26 tax statement before filing; tracker/workbook figures show EUR 1,150.81 interest, EUR 287.72 capital-income tax, and EUR 15.76 solidarity surcharge, but the connector did not text-extract the PDF.
+- Resolved 2026-06-11: N26 treatment approved. EUR 1,150.81 is interest/capital income received, and EUR 303.48 is tax already withheld by N26 rather than an additional payment due now.
 - Review 2025 Section 138 AO / Anlage AUS / continued-holdings framing for CBMAX and Job Guardian; user instructed that investments should have been personal for the full year.
 - Decide whether the 2025 workbook's prior-year opening-link check can be accepted as non-filing-critical for this source-only preparation workbook.
 

@@ -122,7 +122,7 @@ Current evidence shape:
 | Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Meal allowance/coworking-day treatment needs filer review, including first-workplace and 3-month-rule treatment. |
 | BVG and phone/internet | Evidence present | N26 deductions ledger plus exact invoice/source URLs in workbook rows | BVG uses the bank-ledger/source URL because no separate BVG receipt files were found. Phone/internet claim uses exact invoice URLs in the workbook. |
 | Health insurance | Evidence present | Hallesche 2025 certificate | Basic health/care included; optional/non-basic component excluded. |
-| Investments | Evidence present, visual confirmation flagged | N26 2025 tax statement and tracker figures | Connector did not text-extract the N26 PDF; filer should visually confirm before filing Anlage KAP. |
+| Investments | Evidence present, operator treatment approved | N26 2025 tax statement and tracker figures | Operator approved treatment on 2026-06-11: EUR 1,150.81 is N26 interest/capital income received, and EUR 303.48 is tax already withheld by N26. |
 | Foreign-company context | Prior context plus user instruction | 2024 foreign-company package and 2026-06-11 user instruction | Review Section 138 AO / Anlage AUS / continued-holdings framing for personal holdings in CBMAX and Job Guardian. |
 
 Exclusions and non-claims:
@@ -136,7 +136,6 @@ Exclusions and non-claims:
 Open review themes:
 
 - Visually reconcile the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung against the monthly workbook rows before final filing.
-- Visually confirm the N26 2025 tax statement figures before filing.
 - Review coworking meal allowance treatment.
 - Review Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian.
 - Decide whether the prior-year opening-link workbook check can be accepted as non-filing-critical for this source-only preparation workbook.

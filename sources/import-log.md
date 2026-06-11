@@ -33,7 +33,7 @@ Summary figures:
 Unresolved:
 
 - CBMAX 2025 annual Lohnsteuerbescheinigung was later supplied by the user and uploaded to Drive; visual totals reconciliation remains because local PDF text extraction was unavailable.
-- N26 2025 tax statement needs visual filer confirmation because connector text extraction was empty.
+- N26 treatment was approved by the operator on 2026-06-11: EUR 1,150.81 is interest/capital income received, and EUR 303.48 is tax already withheld by N26.
 - Coworking meal allowance treatment needs filer review.
 - Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian need filing-position review.
 - Workbook still reports one failed check for prior-year opening links.
@@ -47,6 +47,7 @@ Verification:
 Follow-up:
 
 - User supplied `Claudio_Brivio_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf` on 2026-06-11. Uploaded it to the 2025 CBMAX payslip folder as `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`, linked it on the workbook December revenue row and `Sources` tab, and added a Notion comment on the December payroll row `https://app.notion.com/p/2bae41301314810aa1f3cab2fb583545`.
+- Operator approved the N26 interpretation on 2026-06-11; the workbook investment row and Notion filing comments were updated to show N26 withholding as tax already withheld rather than an additional payment due now.
 
 ## 2026-06-08 - EVG Company Context Import
 
