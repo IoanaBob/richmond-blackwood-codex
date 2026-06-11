@@ -8,6 +8,8 @@ bridge_patch="$repo_root/setup/mcp/patches/whatsapp-mcp-localhost-bridge.patch"
 state_dir="$repo_root/.codex-local"
 pid_file="$state_dir/whatsapp-bridge.pid"
 log_file="$state_dir/whatsapp-bridge.log"
+qr_code_file="$state_dir/whatsapp-qr-code.txt"
+qr_png_file="$state_dir/whatsapp-qr.png"
 binary_file="$state_dir/whatsapp-bridge-bin"
 plist_file="$state_dir/com.richmondblackwood.whatsapp-bridge.plist"
 go_cache_dir="$state_dir/go-build-cache"
@@ -72,7 +74,7 @@ start_with_launchd() {
   <array>
     <string>/bin/zsh</string>
     <string>-lc</string>
-    <string>cd "$bridge_dir" &amp;&amp; WHATSAPP_BRIDGE_HOST="$bridge_host" WHATSAPP_BRIDGE_PORT="$port" exec "$binary_file"</string>
+    <string>cd "$bridge_dir" &amp;&amp; WHATSAPP_BRIDGE_HOST="$bridge_host" WHATSAPP_BRIDGE_PORT="$port" WHATSAPP_QR_CODE_FILE="$qr_code_file" WHATSAPP_QR_PNG_FILE="$qr_png_file" WHATSAPP_QR_TERMINAL=false exec "$binary_file"</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
@@ -87,15 +89,19 @@ start_with_launchd() {
 PLIST
 
   launchctl bootout "gui/$user_id" "$plist_file" >/dev/null 2>&1 || true
-  launchctl bootstrap "gui/$user_id" "$plist_file"
-  launchctl kickstart -k "gui/$user_id/$launch_label" >/dev/null 2>&1 || true
-  echo "Started WhatsApp bridge LaunchAgent $launch_label."
+  if launchctl bootstrap "gui/$user_id" "$plist_file"; then
+    launchctl kickstart -k "gui/$user_id/$launch_label" >/dev/null 2>&1 || true
+    echo "Started WhatsApp bridge LaunchAgent $launch_label."
+  else
+    echo "LaunchAgent bootstrap failed; falling back to a background process."
+    start_with_nohup
+  fi
 }
 
 start_with_nohup() {
   (
     cd "$bridge_dir"
-    WHATSAPP_BRIDGE_HOST="$bridge_host" WHATSAPP_BRIDGE_PORT="$port" nohup "$binary_file" >> "$log_file" 2>&1 < /dev/null &
+    WHATSAPP_BRIDGE_HOST="$bridge_host" WHATSAPP_BRIDGE_PORT="$port" WHATSAPP_QR_CODE_FILE="$qr_code_file" WHATSAPP_QR_PNG_FILE="$qr_png_file" WHATSAPP_QR_TERMINAL=false nohup "$binary_file" >> "$log_file" 2>&1 < /dev/null &
     echo "$!" > "$pid_file"
   )
   echo "Started WhatsApp bridge process $(cat "$pid_file")."
