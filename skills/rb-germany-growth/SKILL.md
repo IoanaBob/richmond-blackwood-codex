@@ -1,6 +1,6 @@
 ---
 name: rb-germany-growth
-description: Master daily orchestration for the Richmond Blackwood Germany growth system across audience targets and channel skills, with Ioana-only send gates and Growth Messages logging.
+description: Master daily orchestration for the Richmond Blackwood Germany growth system across audience targets and channel skills, with channel-specific send gates and Growth Messages logging.
 ---
 
 # RB Germany Growth
@@ -9,16 +9,16 @@ Use this skill for the master Germany growth daily run or any coordinated German
 
 ## Hard Gates
 
-- Sender persona is always Ioana.
-- Any send-ready action blocks unless the active connector/browser/account session is verified as Ioana immediately before the send.
-- Do not infer Ioana from the local operator, mailbox, or workspace user.
+- Sender persona is channel-specific. Current LinkedIn sender is Eran Richmond Blackwood; booked-call scheduling from LinkedIn hands off to Ioana. Reddit, Facebook, relocation partner email, and other existing growth channels remain Ioana unless the user explicitly switches that channel.
+- Any send-ready action blocks unless the active connector/browser/account session is verified as the required channel sender immediately before the send.
+- Do not infer the channel sender from the local operator, mailbox, or workspace user.
 - Outbound content is previewed in chat, not saved as an app draft.
 - Sends only happen after explicit user approval for the exact message(s).
 - Every pre-lead growth send, post, comment, DM, reply, blocker, approval, follow-up, and material state change is recorded in `RB DE Growth Messages`.
 - Promote/link to canonical Communications only when the growth thread becomes a lead, client, or business communication that belongs in the main RB communications ledger.
 - Daily automation advances queues, blockers, tasks, and timestamped state. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
-- LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
+- LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Eran-session verification.
 - Daily target math must declare an exact quota date and timezone before counting any daily sends. Do not treat prior run packets, channel notes, browser-visible pending state, or rows outside the declared quota-day window as today's activity. If the quota date is ambiguous because the run crosses midnight or user/operator/browser timezones differ, block the count and ask for the quota date before deciding whether the daily target is met.
 - LinkedIn daily invite closeout is blocked until the packet shows a Daily Invite Gate with quota date, timezone, current time, included blank connection-request rows, excluded prior/next-day rows, remaining count to the 15-request minimum, and remaining capacity to the 20-request normal cap.
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
@@ -31,7 +31,7 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Reddit help-call, scheduling, or deeper-support packets must include the full source chain before drafting: initial thread title/URL/date, exact initial problem facts, Ioana's prior public response, the other person's public response, all visible DM/private-message text, timestamps where available, known unknowns, and why each detail matters. Broad summaries block the packet.
 - If a prior Reddit account used by the skill is banned, suspended, deleted, or otherwise unusable, start a new Reddit sender flow only after verifying the new active Reddit account belongs to Ioana. Prior Reddit tasks, Growth Messages, chats, and follow-ups from the banned account become historical-only/no-follow-up unless the user explicitly approves a specific exception after seeing the old source context and new-account risk.
 - Reddit scheduling replies ask for the prospect's email when an invite is needed. If proposing a time, explicitly say it is a call or meeting; do not use vague availability phrasing such as `I can do Friday` without naming the call. Do not disclose Ioana's, RB's, or EIP's email address in Reddit.
-- Calendar holds and invites must use the sender persona calendar. For Ioana/RB growth work, use `ioana@richmondblackwood.com`. Calendar access must come from the approved OAuth vault / shared Google persona store only; do not start browser OAuth, connector reauth, or a new consent flow during a growth run. If vault-backed persona calendar access is unavailable, record a blocker and stop rather than falling back to another persona calendar.
+- Calendar holds and invites must use the meeting persona calendar. For LinkedIn call handoffs and Ioana/RB growth calls, use `ioana@richmondblackwood.com`. Calendar access must come from the approved OAuth vault / shared Google persona store only; do not start browser OAuth, connector reauth, or a new consent flow during a growth run. If vault-backed persona calendar access is unavailable, record a blocker and stop rather than falling back to another persona calendar.
 
 ## Operating Sources
 
@@ -72,7 +72,7 @@ Shared gates:
 - No public community reply/comment may be drafted or counted toward a daily target without explicit recency evidence. Stale public threads do not fill target gaps.
 - No schema migration or database replacement happens from this skill; schema changes require a separate explicit instruction.
 - No channel skill may be run in send mode from the daily automation.
-- Stop if the worktree becomes conflicted, the legacy partnership source appears active, a new destination is introduced, Ioana identity cannot be verified for a send-ready item, or connector access is degraded in a way that would make state tracking unsafe.
+- Stop if the worktree becomes conflicted, the legacy partnership source appears active, a new destination is introduced, the required channel sender identity cannot be verified for a send-ready item, or connector access is degraded in a way that would make state tracking unsafe.
 
 ## Routing Rules
 
@@ -142,10 +142,10 @@ Shared gates:
    - For Reddit, include the computed public Reddit ramp cap state, last post/comment timestamp, earliest next allowed public post/comment time, and any sourcing/drafting gap. Do not fill the cap with weak or stale threads.
    - After every channel packet, update the master packet or explicitly mark the child result as pending parent reconciliation.
 
-5. Compliance And Ioana Gate
+5. Compliance And Sender Gate
    - Verify platform rules, approved claims, commercial approval needs, and sender-session status as an in-run checklist, not as database rows.
-   - Set or preserve Business Partner `Ioana Gate`.
-   - Send-ready items with unverified or non-Ioana sessions become blockers, not sends.
+   - Set or preserve Business Partner `Ioana Gate` where the existing Notion schema still uses that name.
+   - Send-ready items with unverified or wrong active sender sessions become blockers, not sends.
    - Record blockers in Growth Messages and, only when extra action is needed, Tasks.
    - Promotional posts or sponsorship asks block without a rules basis, admin/moderator approval, or explicit user approval.
    - Facebook posting work that requires admin sponsorship, payment, or commercial placement must be routed to the Facebook partnerships skill, not handled inside the posting skill.
@@ -154,7 +154,7 @@ Shared gates:
 
 6. Draft Packet
    - Prepare exact outbound message previews in chat.
-   - Show sender identity as Ioana and the channel/account context.
+   - Show sender identity as the required channel sender and the channel/account context. For LinkedIn, show Eran Richmond Blackwood; for a LinkedIn call handoff, show Ioana as meeting persona.
    - If any outbound draft is in a language other than English, show an English translation directly under the original text before asking for approval. Do this for every approval packet, even when the user and sender both understand the language.
    - Every draft preview must include a short source-context block before the text: initial question/topic, relevant source context, why this draft is being proposed, and the target/thread/person/company URL. If the source context is missing or unclear, block the draft instead of guessing.
    - For public community channels such as Reddit and Facebook groups, include a style-basis block from recent posts/comments in that same community before drafting. Match the local style unless doing so would violate RB gates, platform rules, professionalism, or accuracy.
@@ -180,7 +180,7 @@ Shared gates:
 7. Approved Send Stage
    - Only run when the user explicitly asks to send approved messages.
    - Re-check the active session immediately before each send.
-   - Block any send where Ioana is not verified.
+   - Block any send where the required channel sender is not verified.
    - Send directly through the supported connector/MCP/browser route after approval.
    - Log the result, URL/message ID, status, and next follow-up in Growth Messages.
    - If the result makes the thread a lead/client/business communication, create or update the canonical Communications handoff record and link it through `Promoted Communication`.
@@ -212,6 +212,6 @@ Shared gates:
 - Communications remains available for promoted lead/client/business handoffs and is not the pre-lead growth queue.
 - The legacy Compliance Checks source remains superseded/trashed; no skill creates or updates compliance-check rows.
 - Facebook partnership acquisition and Facebook posting are separate repo-local skills and are not mixed in a single workflow.
-- No send happened unless the exact send stage was approved and Ioana was verified.
+- No send happened unless the exact send stage was approved and the required channel sender was verified.
 - The legacy growth partnership data source remains superseded/deleted.
 - The final response names the completed stage, the next stage, and the exact next prompt instead of making the user ask for continuation.
