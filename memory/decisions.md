@@ -178,6 +178,19 @@ Consequence:
 Source: user instructions in Codex chat on 2026-06-11; GitHub search/repo inspection for `stickerdaniel/linkedin-mcp-server`.
 Review: after Codex reload, verify the `linkedin` MCP exposes `rb_linkedin_guard_status`, does not expose `send_message` or `connect_with_person` while in read-only mode, and exposes write tools only when the local config is deliberately set to `approved_write`.
 
+## 2026-06-11 - LinkedIn Invite Batch Target Is 10
+
+Decision: Germany growth LinkedIn invite-batch runs target 10 blank connection requests for the declared quota day. The older 15-request and 15-20/day rules are superseded and must not be used unless the user explicitly changes the quota again.
+
+Consequence:
+
+- Every LinkedIn run must print the Daily Invite Gate against a 10-request target.
+- If fewer than 10 blank invites have been sent for the declared quota day, the next stage should prompt the invite-batch gap unless the user explicitly pauses LinkedIn invites.
+- Do not exceed 10 blank invites in the quota day without explicit same-day exception approval, current warning/restriction readback, and exact target-list approval.
+
+Source: user instruction in Codex chat on 2026-06-11.
+Review: approved until the user changes the LinkedIn quota again.
+
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 
 Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.
