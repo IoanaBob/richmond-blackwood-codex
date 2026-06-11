@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-04.
+Updated: 2026-06-11.
 Sources: local RB memory files, local landing repo, Slack search summaries, user review instruction, Figma marketing creatives metadata, `product-offerings.md`, Notion connector create/read-back on 2026-06-01, LinkedIn Help pages fetched on 2026-06-01.
 
 ## Growth Context
@@ -93,7 +93,7 @@ Provisional:
 Status: provisional.
 Source: user instruction in Codex thread on 2026-06-01 and live Notion connector create/read-back.
 Imported: 2026-06-01.
-Review: confirm approved public claims, current offer framing, Ioana sender identity routes, future audience targets, and whether the user's "Refund" item is a separate channel or out of scope.
+Review: confirm approved public claims, current offer framing, channel sender identity routes, future audience targets, and whether the user's "Refund" item is a separate channel or out of scope.
 
 Task project:
 
@@ -144,15 +144,15 @@ LinkedIn operating quota:
 - Review: confirm live LinkedIn warning/restriction state before any send-capable run.
 - Goal math: target 4 customers/month. Planning assumption is about 1.5 meetings/business day, or about 30-32 meetings/month. At about 10% invite-to-meeting conversion, plan about 320 blank invite requests/month.
 - Calculation: 320 blank connection requests/month / 20 business days = 16 requests/business day.
-- Daily operating range: 15-20 blank connection requests/business day after approval and immediate Ioana-session verification.
+- Daily operating range: 15-20 blank connection requests/business day after approval and immediate current LinkedIn sender-session verification. Current LinkedIn sender is Eran Richmond Blackwood unless the user explicitly switches it again.
 - Current LinkedIn priority segment within the first audience: people living in Germany who work in tech for foreign employers, ideally US-headquartered or US-market employers, with visible US background. Use public career-stage signals for the user's younger-profile preference; do not infer, estimate, store, or mention age.
-- Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for Ioana's account.
+- Personalized invite notes are off by default. If the user requests an exception, use a separate approval gate and respect the current LinkedIn personalized-note limit for the active sender account.
 - The LinkedIn skill may run several times per business day for invite batches, acceptance checks, first-message packets, explicit reply drafting, follow-up drafting, and reporting-only closeout.
 - First messages, replies, and follow-ups are sent only after acceptance or thread context warrants them. They must be short, relevant to the visible profile signal, and about who the person is and what they do.
 - LinkedIn message drafts must be highly specific and targeted: name the company, product, project, shipped system, post, launch, or real public detail such as a feature, market, customer segment, technical problem, or founder decision. Generic phrasing like "saw the founder angle", "saw your work", or "what are you focused on" is blocked.
 - LinkedIn copy should bring up US-vs-Germany differences when relevant: use admin/taxes only as a passing joke, preferably "Admin and taxes I'm sure were much easier in the States", plus one second contrast tied to the prospect's topic, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, or developer adoption. Avoid self-labels like "as a fellow tech founder" or "I am a tech founder too."
 - Questions must be highly pointed and tied to a named detail. Broad prompts like "How are you thinking about that?" are blocked; prefer decision/tradeoff questions like "Did X push you toward Y instead of Z?"
-- Outreach copy must not mention RB services, tax/admin offerings, savings claims, sales funnels, or booking a call. Ioana's tone should be natural, specific, and curious about the person's work; the sale happens later, outside the outreach copy.
+- Cold first outreach copy must not mention RB services, tax/admin offerings, savings claims, sales funnels, or booking a call. LinkedIn tone should be natural, specific, and curious about the person's work; the sale happens later after the thread has context.
 - The Germany move/tax/admin line may be used only as a light aside before pivoting to the person's work, not as a service hook.
 - If LinkedIn shows a warning, restriction, checkpoint, or degraded acceptance pattern, pause sending and log the blocker in Growth Messages.
 
@@ -189,8 +189,8 @@ Operational gates:
 - Reddit public posting/commenting uses a ramping daily cap for the active account. Anchor date is 2026-06-10 Europe/Dublin at 1 approved public post/comment, increasing by 1 every 2 calendar days, capped at 10/day: `daily_cap = min(10, 1 + floor(days_since_2026-06-10 / 2))`. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, and second comments on the same post do not count. Daily automation prepares the source/draft packet only; posting still requires exact approval and immediate Ioana Reddit-session verification.
 - Reddit sourcing should prioritize slightly desperate Germany freelancer/support posts from the last 3 days: consulting, freelance/self-employed setup, contractor status, invoicing, VAT, income tax, social security, private/public health insurance, pension contributions, false self-employment, GmbH/UG/company setup, EOR/payroll, banking/KYC, or foreign-client remote work. Source at least 3-5 candidates when the cap is 1-2 and 2x the cap as the normal buffer once the cap is 3 or higher. If fewer safe recent comment-ready posts exist than the computed cap, report the gap and do not fill it with stale, weak-fit, low-budget, or unsafe threads.
 - Business Partner `Invoicing Email` is only for genuine invoicing/commercial emails; casual/admin/contact routes stay in `Notes` and Growth Messages.
-- All outbound send-ready stages must use Ioana as the sender persona.
-- Any send-ready action must block if the active connector or browser session is not verified as Ioana.
+- All outbound send-ready stages must use the channel-specific sender persona. Current LinkedIn outreach and replies use Eran Richmond Blackwood. LinkedIn booked-call scheduling hands off to Ioana. Reddit, Facebook, relocation partner email, and other non-LinkedIn Germany growth channels remain Ioana unless the user explicitly switches that channel.
+- Any send-ready action must block if the active connector, MCP, or approved session is not verified as the required channel sender.
 - Drafts, sends, posts, comments, DMs, replies, blockers, approvals, and follow-ups for pre-lead growth use Growth Messages.
 - Every growth draft preview must show the source context before the draft text: initial question/topic, relevant source context, why the response is being proposed, and the target/thread/person/company URL. If that context is missing or unclear, block the draft until the source is read.
 - Reddit draft previews must also show a style basis from recent posts/comments in the same subreddit, and preferably the target thread: observed tone, typical length/specificity, terminology, and what style to avoid. Match the local subreddit style without violating RB gates, platform rules, professionalism, or accuracy.
@@ -219,6 +219,6 @@ Operational gates:
   - "No hidden costs / full service, zero add-ons or surcharges."
   - "We protect your liability and your bottom line."
   - Investment compounding examples based on tax savings.
-- Verify Ioana identity/session checks for LinkedIn, Facebook, Reddit, and personal email before enabling send-capable growth skills.
+- Verify channel sender identity/session checks for LinkedIn, Facebook, Reddit, and personal email before enabling send-capable growth skills.
 - Confirm whether the user's 2026-06-01 "Refund" item is a separate channel, a campaign angle, or intentionally out of scope.
 - Confirm which older tax-savings claims should be retired, reworded, or retained when marketing Authority Calling and the newer service model.
