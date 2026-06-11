@@ -22,6 +22,17 @@ review: Confirm whether Workhub plan amounts are VAT-exclusive and verify the RB
 | Connect RBL debit card for SimplePay payroll billing | To Do; due 2026-05-28 | `https://www.notion.so/36ee4130131481028f58f198b235e43c` | Do not store card/security details. Confirm SimplePay billing route and outstanding amount before action. |
 | Ask Wamo about RBL payment approval | To Do; due 2026-06-01 | `https://www.notion.so/36fe413013148181baf9dd56021d3d97` | Task explicitly says not to send until sender, recipient, and body are approved. |
 
+## Submitted Expense Evidence
+
+- Status: provisional.
+- Source: user-provided local receipt PDF, Drive upload/read-back, and Notion Expense read-back on 2026-06-11.
+- Imported: 2026-06-11.
+- Review: Finance should confirm the exact Department of Foreign Affairs service/purpose and final business/personal bookkeeping treatment.
+
+| Item | Amount | Source | Notes |
+| --- | --- | --- | --- |
+| Department of Foreign Affairs receipt `022369` | EUR 80.00 | Drive `https://drive.google.com/file/d/1yBI1eqEfKFq7U2AKctWiHItk5FIxGIVH/view?usp=drivesdk`; Notion Expense `https://www.notion.so/37ce41301314815f9acdeff55a2ffb1f` | User said the receipt was paid for by RB. Created as RBL, `Type = Paid`, `Status = Review Required`, assigned to Simoneta. Receipt date 2026-06-11; exact service/purpose not visible on the receipt. Card details visible on the receipt were not copied into git. |
+
 ## Workhub Invoice Validation
 
 - Status: provisional.
