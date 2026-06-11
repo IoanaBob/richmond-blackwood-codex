@@ -18,6 +18,12 @@ Search evidence on 2026-06-05:
 
 Raw evidence, signed documents, payroll submissions, card/bank setup evidence, filing attachments, TCSP licence files, and large exports should be stored in Drive or the owning live source, not in git. This repo should keep only Drive URLs, source filenames, and routing notes once the canonical folder is confirmed.
 
+Because the RBL folder remains unconfirmed for new uploads, the 2026-06-11 Department of Foreign Affairs receipt was uploaded to the approved general archive pending any later move decision:
+
+| File | Drive URL | Notes |
+| --- | --- | --- |
+| `2026-06-11_Department_of_Foreign_Affairs_receipt_022369.pdf` | `https://drive.google.com/file/d/1yBI1eqEfKFq7U2AKctWiHItk5FIxGIVH/view?usp=drivesdk` | User-provided PDF `/Users/jp/Downloads/IMG_1173.pdf`; linked to Notion Expense `https://www.notion.so/37ce41301314815f9acdeff55a2ffb1f`; uploaded to the general archive folder because the RBL folder candidate still needs confirmation. |
+
 ## Known Document / Evidence Pointers From Notion
 
 | Pointer | Source | Notes |

@@ -1019,3 +1019,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-11 - RBL Department Of Foreign Affairs Receipt Submission
+
+- User request: Submit local receipt PDF `/Users/jp/Downloads/IMG_1173.pdf`; user stated it was paid for by RB.
+- Context read: Receipt image/PDF, RBL finance memory, Expenses data-source schema, RBL Notion company record, approved Drive general archive, and RB file-upload/google-auth rules.
+- Actions taken: Uploaded the PDF to Drive as `2026-06-11_Department_of_Foreign_Affairs_receipt_022369.pdf` (`https://drive.google.com/file/d/1yBI1eqEfKFq7U2AKctWiHItk5FIxGIVH/view?usp=drivesdk`). Created Notion Expense `https://www.notion.so/37ce41301314815f9acdeff55a2ffb1f` for RBL with amount EUR 80.00, `Type = Paid`, `Status = Review Required`, Drive evidence attached, and Simoneta assigned.
+- Decisions made: Route the receipt to RBL because the user said RB paid it. Use the approved general archive rather than the RBL folder candidate because the RBL folder is still unconfirmed for new uploads. Do not create a Communication row because the source was a local user-provided PDF rather than email/WhatsApp. Do not copy payment-card details visible on the receipt into git.
+- Verification: Drive metadata/list-folder read-back confirmed file ID `1yBI1eqEfKFq7U2AKctWiHItk5FIxGIVH`, size 861,548 bytes, in the general archive. Notion read-back confirmed the Expense row fields, receipt attachment, RBL company relation, and Simoneta assignee after a targeted correction.
+- Limitations or gaps: Final business/personal treatment and exact Department of Foreign Affairs service/purpose need finance review. `RB_WORKSPACE_ACTOR` / legacy actor key was not present in this checkout, so `Submitted by` was not populated.
