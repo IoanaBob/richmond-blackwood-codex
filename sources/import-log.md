@@ -2,6 +2,48 @@
 
 Status: active.
 
+## 2026-06-11 - Claudio Brivio 2025 German Personal Tax Analysis
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-11 to prepare Claudio Brivio's 2025 German personal-tax analysis using `skills/rb-personal-tax-analysis-de/SKILL.md` and `processes/personal-tax-return-prompt.md`.
+- Notion filing `2025 - Personal Tax - Claudio - Germany` (`https://www.notion.so/342e41301314803eb579c68638fb3fb0`), preparation task `https://www.notion.so/37ae4130131481e382c0c3424a69db3d`, and filing task `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b`.
+- User-shared Drive package `https://drive.google.com/drive/folders/1Mj6ZqOLXKOvKRnjDDjOgqDriLodkBEiY`, fresh 2025 filing workspace `https://drive.google.com/drive/folders/1OVx_u0u8dpGZ6sm_vhc20ItMrnMXz0GJ`, and maintained native German personal-tax template `https://docs.google.com/spreadsheets/d/1IYPZEdaigNLuEya2aPGBZwxVGX_eWr4LuHfUlmPdOJc/edit`.
+- Source trackers and evidence for CBMAX payroll, home-office/coworking days, BVG and phone/internet transactions, Hallesche health/care, N26 interest/withholding, Taxfix, and dental costs.
+
+Actions:
+
+- Created fresh Drive-native workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit` from the maintained template.
+- Populated only source/input tabs: `Setup`, `Revenue`, `Deductibles`, `Tax Credits`, `Tax Payments`, `Investment - Account 1`, `Bank - Account 1`, `Sources`, and `Category Rules`.
+- Preserved formula/calculation tabs, including `Summary`, `Tax Analysis`, `Checks`, `PNL`, and `Balance Sheet`.
+- Updated live Notion filing status and Drive link, linked the existing 2025 preparation and filing tasks, set the preparation task to `In Review`, kept the filing task `Blocked`, and added page/task comments with the workbook, summary figures, and remaining flags.
+- Updated Claudio repo records, durable source logs, open questions, current state, and skill-run memory.
+
+Summary figures:
+
+- Gross employment income EUR 30,000.00.
+- Wage tax withheld EUR 3,420.96.
+- Employment work expenses EUR 2,865.58.
+- Health/care included EUR 5,597.63.
+- Investment interest income EUR 1,150.81 and investment withholding EUR 303.48.
+- Known payments/withholding EUR 3,724.44.
+- Business/freelance net PNL EUR 0.00.
+- Workbook support figure for income after deductions before tax-rate calculation EUR 22,651.60.
+
+Unresolved:
+
+- CBMAX 2025 annual Lohnsteuerbescheinigung not found in the reviewed evidence.
+- N26 2025 tax statement needs visual filer confirmation because connector text extraction was empty.
+- Coworking meal allowance treatment needs filer review.
+- Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian need filing-position review.
+- Workbook still reports one failed check for prior-year opening links.
+
+Verification:
+
+- Sheets read-back confirmed summary figures, evidence URLs, and preserved formulas in formula/calculation tabs.
+- Notion read-back confirmed filing/task status updates, review links, dependencies, and comments.
+- Drive/Sheets source read-back confirmed the key trackers and evidence files used for claimed rows.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:

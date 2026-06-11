@@ -1019,3 +1019,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-11 - Claudio Brivio 2025 German Personal Tax Analysis
+
+- User request: Prepare Claudio Brivio's 2025 German personal-tax analysis using the repo-local German workflow and process prompt, with a fresh Drive-native maintained-template copy, exact evidence URLs, and Notion task linkage.
+- Context read: Claudio individual repo records, live Notion individual/filing/tasks, the user-shared 2025 Drive package, Notion payroll/payslip records, Drive trackers, and prior Claudio 2024 workbook/source context.
+- Actions taken: Created fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`, populated source/input tabs only, updated the live 2025 Notion filing and existing prep/filing tasks, and recorded workbook/source/task pointers in Claudio repo records and durable memory.
+- Decisions made: Claudio was treated as RB-employed for the full year; investments were treated as personal for the full year; N26 interest/withholding was entered as personal investment income; optional Hallesche and dental costs were excluded; filing remains blocked until review flags are resolved.
+- Verification: Sheets read-back confirmed summary figures, formula preservation, and evidence URLs; Notion read-back confirmed status/link/comment updates; Drive/Sheets source read-back confirmed the key source trackers and evidence files.
+- Limitations or gaps: CBMAX 2025 annual Lohnsteuerbescheinigung not found; N26 tax statement needs visual filer confirmation; coworking meal allowance and Section 138/AUS holdings framing need final review; workbook still has a prior-year opening-link check.
