@@ -16,6 +16,7 @@ Review: Confirm final destination for P&L/electronic balance-sheet outputs after
 | AMC Liquidity 2025 | `https://docs.google.com/spreadsheets/d/1kV0HAwSxEArS0JZ_d0lgJvwmbiZJ22vE_F8zuAUsm-Q/edit` | Company liquidity support. |
 | AMC Bank Statements - 2025.1 | `https://docs.google.com/spreadsheets/d/1YFf5PvPx7Ls2gVpg7WcV0mX03egxJ9PasT3eyNQhh3s/edit` | Company bank statement spreadsheet. |
 | AMC Bank Statements - 2025.2 | `https://docs.google.com/spreadsheets/d/1zlludbCchvktmmvdtybNTNvyPE5wuIQgzPmILGZ5XbA/edit` | Company bank statement spreadsheet. |
+| AMC Finanzamt Q1 2026 changed VAT assessment 2026-06-03.pdf | `https://drive.google.com/file/d/16-JpGjpjaqeM169HG2FJDptfsXzogT7Q/view?usp=drivesdk` | Uploaded 2026-06-11 from accounting Gmail `19eb1af949b0d4b8`; source attachment filename `SD79-26002 AARON MEDIC CHAMBERLAIN LIMITED 信件1-税单.pdf`; MD5 `8e00cfdfce4318b061280f1417e39721`; size 96,693 bytes. |
 
 ## Personal Tax / Aaron Folder Pointers
 

@@ -201,6 +201,8 @@ Anastasia personal sources are routed to `clients/Individuals/Anastasia Evgenyev
 
 AMC company sources are routed to `clients/Companies/AMC/source-register.md`. The 2026-05-18 load used the Notion company record `https://www.notion.so/165e41301314804baeead148b54263de`, project `https://www.notion.so/328e41301314802993b3f5136bf74a2c`, Aaron individual record, employment record, contracts, filing registrations, VAT tasks, tax prepayment records, Google Drive folder `https://drive.google.com/drive/folders/1a_m5ASzsGDnaViTjeSvawroRVr6cQ-oG`, Gmail invoice/Finanzamt/ELSTER threads, WhatsApp `Chamberlain, Aaron | Richmond Blackwood`, and Slack internal context. Live Notion comments were added to the Riot, Echo Sports, and UVS contract pages with the captured variable-invoice workflow and message-template notes.
 
+The 2026-06-11 AMC update used Notion task `https://www.notion.so/37be4130131481f7ad71e79f4b985db5`, accounting Gmail `19eb1af949b0d4b8`, and Drive evidence `https://drive.google.com/file/d/16-JpGjpjaqeM169HG2FJDptfsXzogT7Q/view?usp=drivesdk` to verify the June 2026 changed Q1 VAT assessment and record the remaining payment/offset gap.
+
 Aaron personal sources are routed to `clients/Individuals/Aaron Richard Chamberlain/source-register.md`. The import uses Aaron's Notion individual record, 2023/2024/2025 personal-tax filings, garnishment meeting notes, payment-plan/P&L tasks, Drive personal-tax and previous-accountant folders, Gmail action-points email, and WhatsApp garnishment/P-Konto/joint-filing context.
 
 ## SVL / Kristjan Sources
