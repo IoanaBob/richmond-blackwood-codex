@@ -3,7 +3,7 @@
 Status: provisional.
 Source: User instruction on 2026-05-13; user review correction on 2026-05-13; Notion filing records; Gmail ELSTER confirmations.
 Imported: 2026-05-13.
-Review: Await Finanzamt feedback and final IE filing timing. Live Notion company `Tax Residence` was updated to Ireland on 2026-05-13 while the German PE/filings remain active through registrations and filing records.
+Review: Await Finanzamt feedback on German PE/allocation matters and final IE filing timing. The May 2024-April 2025 payroll-tax query submission work was verified on 2026-06-11.
 
 ## Tax Residence And Profit Attribution
 
@@ -50,7 +50,7 @@ Superseded/stale source note: Notion task `https://www.notion.so/332e41301314818
 | Item | Status | Source | Notes |
 | --- | --- | --- | --- |
 | PE declaration / response to Finanzamt | Done; awaiting response | `https://www.notion.so/337e413013148037bf1bfe76ccf6f3c5` | Page comment says this was submitted to the Finanzamt and is awaiting response; user confirmed no feedback yet on 2026-05-13. |
-| Payroll-tax query May 2024-April 2025 | In Review | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Berlin Finanzamt says no payroll tax returns were submitted for May 2024-April 2025 while payments were received; see `accounting-bookkeeping-payroll.md`. |
+| Payroll-tax query May 2024-April 2025 | Done for RB submission; monitor outcome only | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | ELSTER log and accounting Gmail confirmations verified on 2026-06-11: all 12 Lohnsteuer-Anmeldungen for 2024-05 through 2025-04 were successfully transmitted on 2026-05-25, and one Belegnachreichung was successfully transmitted on 2026-05-26. The June 10 no-surcharge letter relates to March 2026 and is context, not the core catch-up proof; see `accounting-bookkeeping-payroll.md`. |
 
 ## Board Meetings For Irish Tax Residence
 
