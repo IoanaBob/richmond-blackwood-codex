@@ -2,6 +2,32 @@
 
 Status: active.
 
+## 2026-06-11 - Andrei 2025 Workbook Deduction Cleanup
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-11 to rename the misleading `MRM_June.pdf` file and confirm there are no childcare costs, donations, or church tax for the 2025 filing.
+- Drive file `https://drive.google.com/file/d/1kmbiz0sUeF_2WUUWkW261IuFG4o7JueI/view?usp=drivesdk`.
+- 2025 workbook `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw`.
+
+Actions:
+
+- Renamed the misleading Drive file from `MRM_June.pdf` to `RB_Commission_2024-06-20_not_2025_MRM_payroll.pdf`.
+- Confirmed the 2025 workbook Revenue tab does not use that file; `Sources` records it as excluded 2024 Richmond Blackwood commission evidence.
+- Marked childcare, charitable donations, church tax, and political-party donation credit as not claimed in the workbook.
+- Repaired `Tax Credits` tax-year cells to read from `Setup` instead of showing 2024 in the 2025 workbook.
+
+Verification:
+
+- Drive metadata read-back confirmed the renamed file.
+- Sheets read-back confirmed the excluded source row, not-claimed deductible/credit rows, `Checks` journal balance OK, Revenue review count 3, deductible review count 12, tax-credit review count 6, failed checks 5, and open missing-info count 27.
+- Targeted formula scans found no `#REF!`, `#VALUE!`, or `#NAME?` errors in the touched workbook tabs.
+
+Unresolved:
+
+- Final MRM June/202506, July, August/final-pay gross, tax, social, health/care, and severance treatment still need the final MRM payslip or 2025 MRM Lohnsteuerbescheinigung.
+- Prior-year opening links, investment confirmation, remaining deductible review, and remaining tax-credit review remain open in the workbook.
+
 ## 2026-06-10 - Andrei Nasonov 2025 NACV Wage-Tax Certificate Update
 
 Imported:

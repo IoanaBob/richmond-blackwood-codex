@@ -105,7 +105,7 @@ Current workbook figures entered from source rows after the 2026-06-10 NACV wage
 - Pension/retirement contributions included in `Summary`: EUR 7,972.90, including estimated MRM June/July pension and NACV employee pension EUR 1,543.80 from the uploaded correction.
 - Health/care insurance included in `Summary`: EUR 12,881.86, including estimated MRM June/July health/care and NACV employee health/care EUR 1,813.56 from the uploaded correction.
 - Known MRM June, July, and August rows needing final payroll reconciliation: EUR 23,846.46 net. June is evidenced by the Drive file titled `MRM_July.pdf`, whose text shows a 2025-06-24 transfer for salary period `202506`; July is estimated from user instruction/early statement expectation using the same Jan-May monthly net pattern; August remains net-only/final-pay candidate. June and July gross/tax/social/health are estimated in `Revenue` and `Deductibles`; August remains excluded from gross/tax totals until final payroll evidence is available.
-- Workbook read-back on 2026-06-10 showed journal checks balanced to zero, failed workbook checks remain 5, Revenue rows needing review increased to 3, and open missing-info count increased to 31 after adding the June/July estimates.
+- Workbook read-back on 2026-06-11 showed journal checks balanced to zero, failed workbook checks remain 5, Revenue rows needing review remain 3, deductible rows needing review reduced to 12, tax-credit rows needing review reduced to 6, and open missing-info count reduced to 27 after marking no childcare costs, no donations, no church tax, and no political-party donation credit.
 
 Workbook exclusions and flags:
 
@@ -115,6 +115,8 @@ Workbook exclusions and flags:
 - NACV payroll-run records for September, October, November, and December 2025 remain linked in the workbook as payroll pointers. The uploaded NACV 2025 wage-tax certificate correction is now the controlling source for Sep-Dec gross, wage tax, pension/social, and health/care figures.
 - The MRM August bank transfer is treated as a severance/final-payment candidate only; it is not filing-ready without the final payslip or 2025 Lohnsteuerbescheinigung.
 - The special-expense lump sum row still needs filer review for joint-assessment treatment because the maintained template baseline is single-person.
+- The former Drive file `MRM_June.pdf` was renamed on 2026-06-11 to `RB_Commission_2024-06-20_not_2025_MRM_payroll.pdf` and remains excluded from the 2025 workbook Revenue tab because its text shows a 2024 Richmond Blackwood commission transfer, not 2025 MRM payroll.
+- User confirmed on 2026-06-11 that there are no childcare costs, donations, or church tax for 2025; the workbook marks those rows as not claimed and also marks the political-party donation credit as not claimed. Employee lump-sum treatment covers the baseline employment-work-expense comparator only and does not itself replace separate Sonderausgaben or tax-credit checks where facts exist.
 
 ## Current Missing / Open Items
 
