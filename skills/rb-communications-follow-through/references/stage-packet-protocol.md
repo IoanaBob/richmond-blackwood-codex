@@ -56,6 +56,13 @@ Each packet must include:
 - blockers;
 - next stage.
 
+Packet table shape invariant:
+
+- Tables keyed by queue or Communication entries must have exactly one row per Communication entry.
+- Linked tasks, operational rows, task comments, task property readbacks, send IDs, and blockers are details inside that Communication row, not separate sibling rows in the main table.
+- Use compact linked labels for tasks inside table cells, for example `[PCL Lexware task](...)`, so task links stay clickable without making the table unreadable.
+- If task-only audit detail is necessary, put it in a clearly labelled secondary list or table outside the main queue/readback table. Do not make the primary packet table alternate between Communication rows and task rows.
+
 Print the same packet in chat after writing it. Stop for approval before any live write or send unless the packet is read-only and the protocol explicitly permits continuing.
 
 ## Mutation Rule
@@ -336,6 +343,7 @@ Required readbacks:
 
 Closeout packet must include:
 
+- a primary readback summary table with one row per Communication entry, folding linked task/operational-row readback details into the same row;
 - rows logged;
 - rows left in progress;
 - queue rows closed, future-snoozed, blocked, or carried forward;
