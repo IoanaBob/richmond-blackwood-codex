@@ -81,7 +81,8 @@ Workbook review flags at start:
 - Investment evidence/confirmation remains open.
 - Deductible and tax-credit applicability rows remain for filer/operator review; currently not all potential rows are claimed.
 - Prior-year opening-link checks fail in the workbook but appear bookkeeping-oriented rather than directly blocking the employment-income ELSTER entry.
-- ELSTER retry status: the older auto-recovered 2024 draft state was saved on 2026-06-11 before starting 2025. ELSTER then blocked the 2025 form start with a certificate-file reload error, so Codex logged out and reopened certificate login for a fresh user login.
+- ELSTER retry status: the older auto-recovered 2024 draft state was saved on 2026-06-11 before starting 2025. ELSTER then blocked the 2025 form start at `Formulardaten aus frueherer Abgabe laden` with a certificate-file reload error, so Codex logged out and reopened certificate login for a fresh user login.
+- After the fresh user login, the normal `Haushalt Nasonov` path, the manual/new-household path, and the dashboard one-click 2025 route were checked. Both household paths hit the same disabled-submit certificate-file reload error before a 2025 draft opened. The dashboard still showed only the restored 2024 draft; the one-click route was not suitable because ELSTER describes it as app-based from 2026-07-01 and for simpler no-spouse cases.
 
 ## Evidence Split
 
@@ -118,3 +119,4 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 - Confirm investment evidence or no-investment position for 2025.
 - Resolve or explicitly decide deductible and tax-credit applicability rows before final submission.
 - Confirm Andrei's official personal/director address with him; user review says it is not 100 percent clear.
+- Resolve the ELSTER certificate/session blocker before 2025 data entry can begin in the portal.

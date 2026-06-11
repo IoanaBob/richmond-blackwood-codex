@@ -10,7 +10,7 @@ Review: Use `personal-tax-returns.md` for detailed filing workflow; this file is
 | Period | Notion record | Jurisdiction | Status | Notes |
 | --- | --- | --- | --- | --- |
 | 2024 | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | Germany | In progress | Free 2024 return per user instruction; joint filing; analysis workbook exists. |
-| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | In progress | Filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c` started on 2026-06-11 after Ioana's Slack unlock; Drive/workbook linked; remaining review flags include final MRM payroll evidence, investment confirmation, deductible/credit applicability, and ELSTER income cross-check. |
+| 2025 | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | Germany | In progress | Filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c` started on 2026-06-11 after Ioana's Slack unlock; Drive/workbook linked; remaining review flags include final MRM payroll evidence, investment confirmation, deductible/credit applicability, and ELSTER income cross-check. Portal data entry is currently blocked by ELSTER's certificate-file reload error before a 2025 draft opens. |
 
 ## Boundary
 

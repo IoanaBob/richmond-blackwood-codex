@@ -42,6 +42,12 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current 2025 filing-review workbook. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
+## ELSTER Portal
+
+| Date | Source | Scope |
+| --- | --- | --- |
+| 2026-06-11 | In-app ELSTER session after user certificate login | Saved the auto-recovered older 2024 draft state before attempting 2025; 2025 ESt 1 A normal household and manual/new-household paths both blocked at the earlier-submission-data step by ELSTER's certificate-file reload error before a 2025 draft opened. Dashboard one-click 2025 route checked and found unsuitable for this joint-return case. |
+
 ## WhatsApp
 
 | Chat | JID | Scope |
