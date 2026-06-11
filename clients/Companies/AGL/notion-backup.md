@@ -3,7 +3,7 @@
 Status: provisional.
 Source: Notion fetches on 2026-05-13.
 Imported: 2026-05-13.
-Review: Notion company `Tax Residence` and two task records were updated on 2026-05-13 from user review; remaining Notion status sync should wait for Finanzamt feedback and filing timing.
+Review: Notion company `Tax Residence` and two task records were updated on 2026-05-13 from user review; payroll-tax query submission status was verified on 2026-06-11; remaining Notion status sync should wait for later Finanzamt outcome feedback and filing timing.
 
 ## Core Records
 
@@ -25,7 +25,7 @@ Review: Notion company `Tax Residence` and two task records were updated on 2026
 | German VAT | AGL - DE451021099 - VAT DE | `https://www.notion.so/1c7e4130131480df8f38ff9ce3e4e03a` | Registered quarterly DE VAT. |
 | German payroll tax | AGL - 73070183 - Payroll Tax | `https://www.notion.so/175e413013148084b982d3bb2a66d745` | Registered monthly DE payroll tax. |
 | German PE task | Respond to the Finanzamt on the PE | `https://www.notion.so/337e413013148037bf1bfe76ccf6f3c5` | Done; page comment says submitted to Finanzamt and awaiting response. |
-| Payroll-tax query task | AGL: Resolve Finanzamt payroll tax query for May 2024-April 2025 | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | In Review as of fetch; linked to incoming letter record. |
+| Payroll-tax query task | AGL: Resolve Finanzamt payroll tax query for May 2024-April 2025 | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Notion status read as Done on 2026-06-11. ELSTER and accounting Gmail verification support Done for RB submission work: 12 Lohnsteuer-Anmeldungen for 2024-05 through 2025-04 submitted on 2026-05-25 and Belegnachreichung submitted on 2026-05-26. |
 | Incoming letter | AGL - Letter received - Apr 2026 | `https://www.notion.so/35ce41301314811c81a0eeeb67d4d32b` | Berlin Finanzamt payroll-tax query dated 2026-04-17, filed to Drive. |
 | Tax decision task | Decide if AGL should be tax resident in IE or DE | `https://www.notion.so/332e413013148134b27bc69bb9771bc1` | Done on 2026-04-13; superseded by user instruction on 2026-05-13: mainly IE tax resident with German PE, 80/20 profit attribution. |
 | Superseded payroll-only tax task | AGL tax registration issues + setup | `https://www.notion.so/332e41301314818d8e09ea455a3d61b2` | Archived on 2026-05-13 because user confirmed AGL should file in both IE and DE; comment `35fe4130-1314-81d5-aec0-001d104bfd2c`. |
