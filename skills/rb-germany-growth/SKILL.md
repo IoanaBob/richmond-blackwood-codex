@@ -186,7 +186,10 @@ Shared gates:
    - For ongoing reply threads after three substantive messages, include the admin/tax bridge assessment before drafting. The outbound text may use the bridge only when it is tied to the person's actual thread, role, company setup, country move, freelance work, or remote-employment facts.
    - For outbound growth copy, avoid the word "path," slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
    - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must either answer the person, ask a pointed question, provide a concrete check, or move the thread forward.
+   - Say the thing directly. Do not add setup phrases, framing, explanation around the point, or filler to soften a simple answer.
    - Avoid analysis-intro phrases that announce the point before saying it. Say the actual point directly.
+   - Avoid AI-style conditional openings such as `If X is Y`, `If this is the case`, or `If property is part of the plan`. State the concrete point directly.
+   - Do not use `sanity check` or `sanity-check` in outbound copy. Use a concrete verb such as `look at`, `check`, `review`, or `tell you whether the questions are useful`.
    - Keep copy human without turning it into a gimmick. Normal sentence capitalization is fine and should be the default; an occasional uncapitalized sentence, rough punctuation, or tiny typo is allowed only when it makes the message feel more like a real DM. Do not force lowercase, do not add `lol` to every message, and do not add mistakes mechanically.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
