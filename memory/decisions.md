@@ -160,6 +160,37 @@ Consequence:
 Source: user instruction in Codex chat on 2026-06-03.
 Review: approved as a general client communication rule; refine exceptions if future edge cases require it.
 
+## 2026-06-11 - Guarded LinkedIn MCP Is Read-Only By Default
+
+Decision: RB LinkedIn MCP access should use the repo-local guard proxy `setup/mcp/linkedin-guard-proxy.mjs`, not the upstream server directly.
+
+Consequence:
+
+- Upstream: `stickerdaniel/linkedin-mcp-server`, selected as the most popular open-source result found by GitHub stars search for `linkedin mcp server`.
+- Default mode: `RB_LINKEDIN_MCP_MODE=read_only`.
+- Session route: Eran Richmond Blackwood-specific browser profile under `~/.linkedin-mcp/eran-richmond-blackwood/profile`.
+- Write tools such as `send_message` and `connect_with_person` must be hidden and blocked by default.
+- Approved LinkedIn writes are allowed with permission by temporarily switching to `RB_LINKEDIN_MCP_MODE=approved_write` for the send stage, then reverting to `read_only`.
+- LinkedIn sends still require the LinkedIn growth skill's exact packet approval, daily quota gate, pacing, immediate Eran session verification, warning/restriction stop rules, and Growth Messages logging.
+- Call booking from LinkedIn hands off to Ioana: use Ioana's calendar and meeting invite sender once the prospect reaches the booking stage.
+- Raw LinkedIn browser profile/cookie/session data must never be committed.
+
+Source: user instructions in Codex chat on 2026-06-11; GitHub search/repo inspection for `stickerdaniel/linkedin-mcp-server`.
+Review: after Codex reload, verify the `linkedin` MCP exposes `rb_linkedin_guard_status`, does not expose `send_message` or `connect_with_person` while in read-only mode, and exposes write tools only when the local config is deliberately set to `approved_write`.
+
+## 2026-06-11 - LinkedIn Invite Batch Target Is 10
+
+Decision: Germany growth LinkedIn invite-batch runs target 10 blank connection requests for the declared quota day. The older 15-request and 15-20/day rules are superseded and must not be used unless the user explicitly changes the quota again.
+
+Consequence:
+
+- Every LinkedIn run must print the Daily Invite Gate against a 10-request target.
+- If fewer than 10 blank invites have been sent for the declared quota day, the next stage should prompt the invite-batch gap unless the user explicitly pauses LinkedIn invites.
+- Do not exceed 10 blank invites in the quota day without explicit same-day exception approval, current warning/restriction readback, and exact target-list approval.
+
+Source: user instruction in Codex chat on 2026-06-11.
+Review: approved until the user changes the LinkedIn quota again.
+
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 
 Decision: RB Google helper auth uses the shared global Codex persona/OAuth model under `~/.codex`, including `~/.codex/google-personas/`, instead of worktree-local `.codex-local` OAuth defaults.

@@ -1,37 +1,39 @@
 ---
 name: rb-germany-growth
-description: Master daily orchestration for the Richmond Blackwood Germany growth system across audience targets and channel skills, with Ioana-only send gates and Growth Messages logging.
+description: Master daily orchestration for the Richmond Blackwood Germany growth system across audience targets, LinkedIn, Facebook, relocation email/Gmail, Reddit, channel skills, send gates, wrap-up ledger, and Growth Messages logging.
 ---
 
 # RB Germany Growth
 
-Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook partnerships, Facebook posting, relocation partners, Reddit, Business Partners, Growth Targets, Growth Messages, Communications handoffs, Tasks, and ephemeral compliance gates.
+Use this skill for the master Germany growth daily run or any coordinated Germany growth work across LinkedIn, Facebook partnerships, Facebook posting, relocation partner email/Gmail, Reddit, Business Partners, Growth Targets, Growth Messages, Communications handoffs, Tasks, and ephemeral compliance gates.
 
 ## Hard Gates
 
-- Sender persona is always Ioana.
-- Any send-ready action blocks unless the active connector/browser/account session is verified as Ioana immediately before the send.
-- Do not infer Ioana from the local operator, mailbox, or workspace user.
+- Sender persona is channel-specific. Current LinkedIn sender is Eran Richmond Blackwood; booked-call scheduling from LinkedIn hands off to Ioana. Current Reddit sender is Eran Richmond Blackwood through the active Eran Reddit account, currently `Ornery-Service3272`. Facebook, relocation partner email, and other existing growth channels remain Ioana unless the user explicitly switches that channel.
+- Any send-ready action blocks unless the active connector/browser/account session is verified as the required channel sender immediately before the send.
+- Do not infer the channel sender from the local operator, mailbox, or workspace user.
 - Outbound content is previewed in chat, not saved as an app draft.
 - Sends only happen after explicit user approval for the exact message(s).
 - Every pre-lead growth send, post, comment, DM, reply, blocker, approval, follow-up, and material state change is recorded in `RB DE Growth Messages`.
 - Promote/link to canonical Communications only when the growth thread becomes a lead, client, or business communication that belongs in the main RB communications ledger.
 - Daily automation advances queues, blockers, tasks, and timestamped state. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
-- LinkedIn invite planning for the first active audience uses an internal target of 320 blank connection requests/month, calculated as a 16-request planning baseline across 20 business days. Normal send range is 15-20 blank requests/business day. Sends still require explicit approval and immediate Ioana-session verification.
+- LinkedIn invite planning for the first active audience uses an internal target of 200 blank connection requests/month, calculated as a 10-request planning baseline across 20 business days. The old 15-20/day and 320/month rule is superseded. Sends still require explicit approval and immediate Eran-session verification.
+- LinkedIn queue state is account-scoped. If the active LinkedIn sender account changes, old account requests, acceptances, first-message queues, replies, and follow-ups become historical-only unless the user explicitly approves carrying a specific thread forward under the new account. For the 2026-06-11 switch to Eran Richmond Blackwood, the LinkedIn queue is reset/cleared for the new account.
 - Daily target math must declare an exact quota date and timezone before counting any daily sends. Do not treat prior run packets, channel notes, browser-visible pending state, or rows outside the declared quota-day window as today's activity. If the quota date is ambiguous because the run crosses midnight or user/operator/browser timezones differ, block the count and ask for the quota date before deciding whether the daily target is met.
-- LinkedIn daily invite closeout is blocked until the packet shows a Daily Invite Gate with quota date, timezone, current time, included blank connection-request rows, excluded prior/next-day rows, remaining count to the 15-request minimum, and remaining capacity to the 20-request normal cap.
+- LinkedIn daily invite closeout is blocked until the packet shows a Daily Invite Gate with quota date, timezone, current time, included blank connection-request rows, excluded prior/next-day rows, and remaining count to the 10-request daily target.
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
-- Accepted LinkedIn connections awaiting first messages are not optional follow-up work. If the browser, Growth Targets, or Growth Messages show accepted connections without a first message, the master run must surface a LinkedIn first-message packet before moving to another channel or closeout, unless the user explicitly pauses LinkedIn first messages for that exact run.
+- Accepted LinkedIn connections awaiting first messages are not optional follow-up work. If the browser, Growth Targets, or Growth Messages show accepted connections without a first message, the master run must surface and ledger a LinkedIn first-message packet before closeout unless the user explicitly pauses LinkedIn first messages for that exact run. Once that packet is printed and LinkedIn is marked `Waiting Approval` or `Blocked`, continue to the remaining required channels instead of stopping the master run there.
 - LinkedIn reply triage must not draft or send a reply until a prospect-specific overarching reply strategy has been agreed in chat, saved on that prospect's Growth Target page, and read back. This strategy must be a 3-4 message conversation arc toward a possible call about the prospect's situation in Germany, not only the next-message tactic.
 - Ongoing growth conversations use the three-message admin/tax bridge rule: after roughly three substantive messages in a thread, excluding connection requests, pure logistics, and acknowledgements, the next strategy packet must look for a natural way to move from the current topic into the person's Germany admin, tax, company, freelance, or remote-employment setup. If the bridge would be random or fake, block it, record the missing fact, and keep the thread on the real topic until a better signal appears.
 - Relocation partner planning uses a daily target of at least 5 new first-time email conversations with distinct Business Partner prospects per business day. Daily automation may prepare the packet and queue, but first-time emails still require exact approval and immediate Ioana email-session verification.
-- Reddit planning uses a ramping daily cap for approved public posts/comments from the active Reddit account, spaced at least 15 minutes apart. Anchor date is 2026-06-10 Europe/Dublin at 1 public post/comment; increase by 1 every 2 calendar days, capped at 10/day: `daily_cap = min(10, 1 + floor(days_since_2026-06-10 / 2))`. Treat this as a maximum, not a quota to force. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, passive scrolling, and second comments on the same post are excluded from the cap. Posting still requires exact approval and immediate Ioana Reddit-session verification.
+- Reddit planning uses a ramping daily cap for approved public posts/comments from the active Reddit account, spaced at least 15 minutes apart. Anchor date is 2026-06-10 Europe/Dublin at 1 public post/comment; increase by 1 every 2 calendar days, capped at 10/day: `daily_cap = min(10, 1 + floor(days_since_2026-06-10 / 2))`. Treat this as a maximum, not a quota to force. Replies, reply-thread follow-ups, DMs, reactive DMs, modmail, votes, saves, passive scrolling, and second comments on the same post are excluded from the cap. Posting still requires exact approval and immediate Eran Reddit-session verification.
+- Reddit candidate fit is a closeout gate. If the only available Reddit posts are adjacent, stale, low-intent, low-budget, or missing a concrete Germany/freelance/company/tax/admin/banking problem, mark Reddit `Complete` with `no safe draft today` instead of drafting or forcing a daily cap item.
 - Public community replies/comments across Reddit, Facebook groups, and similar channels must check dates before drafting. Every packet must show post created date and latest meaningful activity date. Default to activity in the last 72 hours; allow 3-7 days only when the thread is still clearly live. Older public targets are research-only unless the user explicitly approves that exact dated exception.
-- Reddit help-call, scheduling, or deeper-support packets must include the full source chain before drafting: initial thread title/URL/date, exact initial problem facts, Ioana's prior public response, the other person's public response, all visible DM/private-message text, timestamps where available, known unknowns, and why each detail matters. Broad summaries block the packet.
-- If a prior Reddit account used by the skill is banned, suspended, deleted, or otherwise unusable, start a new Reddit sender flow only after verifying the new active Reddit account belongs to Ioana. Prior Reddit tasks, Growth Messages, chats, and follow-ups from the banned account become historical-only/no-follow-up unless the user explicitly approves a specific exception after seeing the old source context and new-account risk.
+- Reddit help-call, scheduling, or deeper-support packets must include the full source chain before drafting: initial thread title/URL/date, exact initial problem facts, our prior public response, the other person's public response, all visible DM/private-message text, timestamps where available, known unknowns, and why each detail matters. Broad summaries block the packet.
+- If a prior Reddit account used by the skill is banned, suspended, deleted, or otherwise unusable, start a new Reddit sender flow only after verifying the new active Reddit account belongs to the required Reddit sender. Current Reddit sender is Eran through `Ornery-Service3272`. Prior Reddit tasks, Growth Messages, chats, and follow-ups from the banned account become historical-only/no-follow-up unless the user explicitly approves a specific exception after seeing the old source context and new-account risk.
 - Reddit scheduling replies ask for the prospect's email when an invite is needed. If proposing a time, explicitly say it is a call or meeting; do not use vague availability phrasing such as `I can do Friday` without naming the call. Do not disclose Ioana's, RB's, or EIP's email address in Reddit.
-- Calendar holds and invites must use the sender persona calendar. For Ioana/RB growth work, use `ioana@richmondblackwood.com`. Calendar access must come from the approved OAuth vault / shared Google persona store only; do not start browser OAuth, connector reauth, or a new consent flow during a growth run. If vault-backed persona calendar access is unavailable, record a blocker and stop rather than falling back to another persona calendar.
+- Calendar holds and invites must use the meeting persona calendar. For LinkedIn call handoffs and Ioana/RB growth calls, use `ioana@richmondblackwood.com`. Calendar access must come from the approved OAuth vault / shared Google persona store only; do not start browser OAuth, connector reauth, or a new consent flow during a growth run. If vault-backed persona calendar access is unavailable, record a blocker and stop rather than falling back to another persona calendar.
 
 ## Operating Sources
 
@@ -52,10 +54,20 @@ For live daily runs, use packet stages like the other RB multi-stage skills. Use
 Parent/child handoff rule:
 
 - When this master skill invokes a channel skill, the channel result is not complete until the matching master packet is written or updated.
+- A channel approval gate is not a master-run stop condition. If LinkedIn, Facebook, Reddit, relocation email/Gmail, or another channel reaches `Waiting Approval`, `Needs Conversation Read Approval`, `Needs Sender Verification`, or a similar gate, record that channel's exact status in the master ledger and continue to the next unswept active channel in read/plan mode unless the user explicitly says to stop and handle only that channel.
 - After any channel sub-skill Stage 7, Stage 8, Stage 9, send, post, comment, reply, DM, follow-up, blocker, or material Notion state change, immediately return to the master run and update the matching master Stage 7, Stage 8, Stage 9, and `RUN_STATE.md` cursor before closeout.
 - A final answer after channel work must name both the child channel stage completed and the master stage updated.
 - If child packets exist but the parent master packets or cursor are stale, the run is incomplete; do not report closeout until the parent state is reconciled.
 - Use this checklist after every sub-skill action: child packet completed; child sends/logs done if approved; master Stage 7 updated when applicable; master Stage 8 updated when applicable; master Stage 9 updated when applicable; `RUN_STATE.md` cursor updated; master packet printed.
+
+Mandatory channel ledger:
+
+- Every master run must create and keep current a `Channel Ledger` table in `RUN_STATE.md` and in the latest master packet.
+- Required rows for the active Germany growth system are: LinkedIn, Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit.
+- Each row must have one status: `Not Started`, `Read/Plan Running`, `Packet Printed`, `Waiting Approval`, `Blocked`, `Skipped`, `Sent/Logged`, or `Complete`.
+- `Skipped` is allowed only with an explicit reason such as `user paused channel`, `credentials unavailable`, `no active channel row`, or `out of scope for this run`.
+- The master run cannot enter Stage 9 closeout while any required row is `Not Started` or `Read/Plan Running`.
+- A channel in `Waiting Approval` or `Blocked` does not prevent the other channel rows from running. It remains in the ledger and the final wrap-up's `Next prompt` must return to the highest-value unresolved approval or blocker.
 
 Next-stage prompting rule:
 
@@ -72,7 +84,7 @@ Shared gates:
 - No public community reply/comment may be drafted or counted toward a daily target without explicit recency evidence. Stale public threads do not fill target gaps.
 - No schema migration or database replacement happens from this skill; schema changes require a separate explicit instruction.
 - No channel skill may be run in send mode from the daily automation.
-- Stop if the worktree becomes conflicted, the legacy partnership source appears active, a new destination is introduced, Ioana identity cannot be verified for a send-ready item, or connector access is degraded in a way that would make state tracking unsafe.
+- Stop if the worktree becomes conflicted, the legacy partnership source appears active, a new destination is introduced, the required channel sender identity cannot be verified for a send-ready item, or connector access is degraded in a way that would make state tracking unsafe.
 
 ## Routing Rules
 
@@ -114,8 +126,9 @@ Shared gates:
    - Pull due Tasks linked to `RB Germany Growth System`.
    - Pull Business Partners matching the active `Audience Target` and active `Growth Stage`.
    - Pull Growth Targets for non-partner LinkedIn, Reddit, and direct research targets.
+   - For LinkedIn, filter queue and due-work reads by the active sender account. Do not include historical rows from a prior LinkedIn account in the current account's pending invites, accepted-connection first messages, reply queue, follow-up queue, or daily/monthly quota counts unless a specific carry-forward exception was approved.
    - For LinkedIn, count only `Message Kind = Connection Request` rows whose `Sent/Posted At` or `Growth Event At` falls inside the declared quota-date window in the declared timezone. Exclude and list rows from the previous or next quota day even if they were created in the current run folder or are still pending.
-   - If LinkedIn daily blank invites counted for the declared quota day are below 15, Stage 4 must include an invite-batch packet to cover the gap before reporting/closeout. Acceptance checks, first messages, replies, and follow-ups do not count toward the blank-invite daily target.
+   - If LinkedIn daily blank invites counted for the declared quota day are below 10, Stage 4 must include an invite-batch packet to cover the gap before reporting/closeout. Acceptance checks, first messages, replies, and follow-ups do not count toward the blank-invite daily target.
    - If accepted LinkedIn connections are found without a visible first-message send or logged Growth Messages first-message event, Stage 4 must include an accepted-connection first-message packet. Do not defer this behind Facebook, Reddit, relocation partners, or reporting unless the user explicitly pauses it.
    - Count relocation-partner first-time email conversations opened today, approved-send queue, draft-ready queue, blockers, and remaining count against the 5/business-day target.
    - Compute the Reddit public ramp cap for the declared quota date and count public posts/comments posted today, safe public post/comment drafts, high-risk/provisional drafts, timestamp of the last public post/comment, earliest next allowed public post/comment time, and remaining capacity against that cap. Do not count replies, DMs, follow-ups, passive scrolling, or second comments on the same post.
@@ -123,12 +136,16 @@ Shared gates:
    - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
 
 4. Channel Work Packets
-   - Run each channel skill in read/plan mode:
+   - Run every active channel skill in read/plan mode before closeout. Use this fixed order unless the user explicitly changes it for the current run:
      - `rb-germany-growth-linkedin`
      - `rb-germany-growth-facebook-partnerships`
      - `rb-germany-growth-facebook-posting`
      - `rb-germany-growth-relocation-partners`
      - `rb-germany-growth-reddit`
+   - Treat relocation partner email/Gmail as a required channel row. Use `rb-germany-growth-relocation-partners` for prospect/business-partner state and the Gmail/email sender rules from `rb-gmail-drafts` when email thread, source mailbox, sender, or Gmail send/read context is needed.
+   - Do not stop the master run after LinkedIn, even if LinkedIn has a pending approval gate, duplicate-send conversation-read gate, first-message packet, or send result. Mark LinkedIn's ledger row and continue to Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit in read/plan mode.
+   - Do not skip Reddit, Facebook partnerships, Facebook posting, or relocation partner email/Gmail merely because another channel generated a send approval prompt. Their packets still need to run or be explicitly marked `Skipped`/`Blocked` with the reason.
+   - For every channel, write or update a child packet and immediately merge its summary into the master `Channel Ledger`: current status, created/updated records proposed or completed, sends/posts blocked or waiting approval, next follow-up, and next prompt for that channel.
    - Produce proposed creates/updates for Growth Targets, Business Partners, Growth Messages, and Tasks.
    - Include timestamp updates for each proposed state transition, milestone, send, reply, blocker, approval, post/comment, or follow-up.
    - Include explicit reply-drafting and follow-up-drafting packets when replies or due follow-ups exist.
@@ -140,27 +157,28 @@ Shared gates:
    - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
    - For Facebook posting, include the 3/day relevant public comment/reply target state, usable joined groups, candidate buffer, selected posts, and any sourcing gap. Do not fill the target with weak, stale, low-budget, job-seeker, or rule-unsafe posts.
    - For Reddit, include the computed public Reddit ramp cap state, last post/comment timestamp, earliest next allowed public post/comment time, and any sourcing/drafting gap. Do not fill the cap with weak or stale threads.
+   - If Reddit sourcing finds only weak or adjacent candidates, the Reddit channel packet must list the rejected candidates with the missing fit evidence and mark the Reddit row `Complete - no safe draft today` or `Read/Plan Running - continue sourcing`, rather than producing a draft.
    - After every channel packet, update the master packet or explicitly mark the child result as pending parent reconciliation.
 
-5. Compliance And Ioana Gate
+5. Compliance And Sender Gate
    - Verify platform rules, approved claims, commercial approval needs, and sender-session status as an in-run checklist, not as database rows.
-   - Set or preserve Business Partner `Ioana Gate`.
-   - Send-ready items with unverified or non-Ioana sessions become blockers, not sends.
+   - Set or preserve Business Partner `Ioana Gate` where the existing Notion schema still uses that name.
+   - Send-ready items with unverified or wrong active sender sessions become blockers, not sends.
    - Record blockers in Growth Messages and, only when extra action is needed, Tasks.
    - Promotional posts or sponsorship asks block without a rules basis, admin/moderator approval, or explicit user approval.
    - Facebook posting work that requires admin sponsorship, payment, or commercial placement must be routed to the Facebook partnerships skill, not handled inside the posting skill.
    - Facebook group interaction may proceed through the posting skill when the content is useful on its own, non-promotional, and backed by the specific group's rules/recent style. Do not mention RB, paid help, sponsorships, resource pages, DMs, calls, or external links unless explicitly approved and rule-supported.
-   - For Reddit, overt promotional, moderator, sponsorship, paid-post, cold/proactive DM, modmail, and commercial-counterparty routes are disabled for now and become blockers. When Ioana or RB can seriously help with the specific thread problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful, label it as a promotion-rule risk, and remove it if rules or thread style make it unsafe. Reactive DMs may proceed only after public engagement with our post/comment or an inbound DM, with exact approval and immediate Ioana Reddit-session verification. In Reddit DMs, answer the actual problem first with useful high-level advice, then offer a call only when text is no longer enough.
+   - For Reddit, overt promotional, moderator, sponsorship, paid-post, cold/proactive DM, modmail, and commercial-counterparty routes are disabled for now and become blockers. When Eran/RB can seriously help with the specific thread problem, assess whether a soft DM-help line fits naturally. Add it only when it makes the comment more useful, label it as a promotion-rule risk, and remove it if rules or thread style make it unsafe. Reactive DMs may proceed only after public engagement with our post/comment or an inbound DM, with exact approval and immediate Eran Reddit-session verification. In Reddit DMs, answer the actual problem first with useful high-level advice, then offer a call only when text is no longer enough.
 
 6. Draft Packet
    - Prepare exact outbound message previews in chat.
-   - Show sender identity as Ioana and the channel/account context.
+   - Show sender identity as the required channel sender and the channel/account context. For LinkedIn, show Eran Richmond Blackwood; for a LinkedIn call handoff, show Ioana as meeting persona.
    - If any outbound draft is in a language other than English, show an English translation directly under the original text before asking for approval. Do this for every approval packet, even when the user and sender both understand the language.
    - Every draft preview must include a short source-context block before the text: initial question/topic, relevant source context, why this draft is being proposed, and the target/thread/person/company URL. If the source context is missing or unclear, block the draft instead of guessing.
    - For public community channels such as Reddit and Facebook groups, include a style-basis block from recent posts/comments in that same community before drafting. Match the local style unless doing so would violate RB gates, platform rules, professionalism, or accuracy.
    - For public community channels, include the post created date, latest meaningful activity date, and recency basis before every draft. Block drafts when date evidence is missing or stale.
-   - For Reddit, include a DM-help assessment before the draft text. If Ioana or RB can seriously help with the specific problem, include a specific, low-pressure DM-help line only when it fits naturally; do not use generic CTAs, booking language, or service names.
-   - For Reddit help-call, scheduling, or deeper-support drafts, include the full source-chain brief and saved/help strategy before the text. The packet must show the initial thread, Ioana's prior response, their response, visible DMs, dates/timestamps where available, source URLs, exact facts, unknowns, and why each fact changes the next reply.
+   - For Reddit, include a DM-help assessment before the draft text. If Eran/RB can seriously help with the specific problem, include a specific, low-pressure DM-help line only when it fits naturally; do not use generic CTAs, booking language, or service names.
+   - For Reddit help-call, scheduling, or deeper-support drafts, include the full source-chain brief and saved/help strategy before the text. The packet must show the initial thread, our prior response, their response, visible DMs, dates/timestamps where available, source URLs, exact facts, unknowns, and why each fact changes the next reply.
    - For any growth scheduling draft, if a specific time is proposed, name the format explicitly as a call or meeting before asking for an email or invite details.
    - For any growth call hold or invite, use the sender persona calendar through the OAuth vault only. If the calendar tool asks for reauth or opens a consent URL, stop and log the missing OAuth-vault route as a blocker.
    - For Reddit banking/address/KYC drafts, separate internal strategy from outbound copy. Do not mention Irish setup, Irish company/banking, or strategic commercial positioning in Reddit messages unless the user explicitly approves that exact disclosure after seeing it.
@@ -168,7 +186,10 @@ Shared gates:
    - For ongoing reply threads after three substantive messages, include the admin/tax bridge assessment before drafting. The outbound text may use the bridge only when it is tied to the person's actual thread, role, company setup, country move, freelance work, or remote-employment facts.
    - For outbound growth copy, avoid the word "path," slash-heavy phrasing, list-style copy, and mechanical contrast sentences that read like a template.
    - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must either answer the person, ask a pointed question, provide a concrete check, or move the thread forward.
+   - Say the thing directly. Do not add setup phrases, framing, explanation around the point, or filler to soften a simple answer.
    - Avoid analysis-intro phrases that announce the point before saying it. Say the actual point directly.
+   - Avoid AI-style conditional openings such as `If X is Y`, `If this is the case`, or `If property is part of the plan`. State the concrete point directly.
+   - Do not use `sanity check` or `sanity-check` in outbound copy. Use a concrete verb such as `look at`, `check`, `review`, or `tell you whether the questions are useful`.
    - Keep copy human without turning it into a gimmick. Normal sentence capitalization is fine and should be the default; an occasional uncapitalized sentence, rough punctuation, or tiny typo is allowed only when it makes the message feel more like a real DM. Do not force lowercase, do not add `lol` to every message, and do not add mistakes mechanically.
    - Do not stack examples, alternatives, caveats, or issue lists in outward-facing text. Use one concrete point, or two only when the message truly needs both.
    - Keep outbound sentences short. Avoid comma-chain lists; any outbound sentence should normally have at most two commas and never more than three.
@@ -180,7 +201,7 @@ Shared gates:
 7. Approved Send Stage
    - Only run when the user explicitly asks to send approved messages.
    - Re-check the active session immediately before each send.
-   - Block any send where Ioana is not verified.
+   - Block any send where the required channel sender is not verified.
    - Send directly through the supported connector/MCP/browser route after approval.
    - Log the result, URL/message ID, status, and next follow-up in Growth Messages.
    - If the result makes the thread a lead/client/business communication, create or update the canonical Communications handoff record and link it through `Promoted Communication`.
@@ -193,6 +214,8 @@ Shared gates:
    - If a channel sub-skill performed reply, DM, or follow-up inspection, reconcile the child result into this master Stage 8 packet and update `RUN_STATE.md` before continuing.
 
 9. Reporting And Closeout
+   - Before reporting, merge all child channel packets into one master wrap-up packet. The wrap-up must include the `Channel Ledger`, unresolved approvals/blockers, sends/posts completed, drafts prepared, due follow-ups advanced, and the next prompt for each channel.
+   - Closeout is blocked until LinkedIn, Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit are each `Complete`, `Waiting Approval`, `Blocked`, `Skipped`, or `Sent/Logged`. If any row is still `Not Started` or `Read/Plan Running`, run or reconcile that channel before final answer.
    - Do not create or update summary reporting rows.
    - Reconstruct daily/weekly/monthly counts by querying timestamped records by audience and channel.
    - For LinkedIn, report monthly invite quota state from Growth Messages `Message Kind`/`Growth Event At`, Growth Target stage timestamps, and current pending/blocker state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available. Include the Daily Invite Gate table before saying the daily target is met or skipped.
@@ -202,7 +225,7 @@ Shared gates:
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
    - Confirm every material child channel packet has a matching master packet update before final answer. If any child result is not reconciled into the master packet/cursor, report the run as incomplete and reconcile it first.
-   - Closeout must include the current master/child stage and an active `Next prompt:` line whenever the run can continue.
+   - Closeout must include the current master/child stage, the ledger status for every channel, and an active `Next prompt:` line whenever the run can continue.
 
 ## Closeout Checklist
 
@@ -212,6 +235,6 @@ Shared gates:
 - Communications remains available for promoted lead/client/business handoffs and is not the pre-lead growth queue.
 - The legacy Compliance Checks source remains superseded/trashed; no skill creates or updates compliance-check rows.
 - Facebook partnership acquisition and Facebook posting are separate repo-local skills and are not mixed in a single workflow.
-- No send happened unless the exact send stage was approved and Ioana was verified.
+- No send happened unless the exact send stage was approved and the required channel sender was verified.
 - The legacy growth partnership data source remains superseded/deleted.
 - The final response names the completed stage, the next stage, and the exact next prompt instead of making the user ask for continuation.

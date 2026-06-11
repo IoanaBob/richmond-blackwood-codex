@@ -1,6 +1,6 @@
 ---
 name: rb-germany-growth-linkedin
-description: LinkedIn direct-connect, acceptance-check, first-message, reply, and follow-up flow for RB Germany growth, using Growth Targets for individuals and Ioana-only send gates.
+description: LinkedIn direct-connect, acceptance-check, first-message, reply, and follow-up flow for RB Germany growth, using Growth Targets for individuals, Eran sender gates, and Ioana call-booking handoff.
 ---
 
 # RB Germany Growth LinkedIn
@@ -9,32 +9,47 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 
 ## Hard Gates
 
-- Sender persona is always Ioana.
-- Connection requests and messages block unless the active LinkedIn account/session is verified as Ioana immediately before sending.
+- Current LinkedIn sender persona is Eran Richmond Blackwood unless the user explicitly switches the sender for a run.
+- Connection requests and messages block unless the active LinkedIn account/session is verified as Eran Richmond Blackwood immediately before sending.
+- When a prospect is ready to book a call, switch the scheduling/meeting persona to Ioana: use Ioana's calendar, Ioana's meeting invite sender, and state the handoff in the approval packet when it matters for the prospect-facing text.
+- Do not use Ioana-specific personal claims in Eran-authored LinkedIn messages unless the user explicitly switches that thread/run to Ioana or the message is a booked-call handoff.
+- Prefer the guarded local `linkedin` MCP server for LinkedIn reads when available. The guarded MCP must run through `setup/mcp/linkedin-guard-proxy.mjs` with `RB_LINKEDIN_MCP_MODE=read_only` for normal work; do not use the upstream LinkedIn MCP server raw inside Codex.
+- In read-only MCP mode, `send_message`, `connect_with_person`, and unknown write tools must be unavailable. If they appear, treat the MCP setup as unsafe, stop, and fix the local MCP config before using it.
+- Safeguards mean account-protection controls, not a permanent ban on writes. LinkedIn MCP writes are allowed with permission only inside an approved send stage.
+- Do not enable LinkedIn MCP `approved_write` mode except for a time-bounded approved send stage after the exact packet approval, daily quota gate, pacing plan, immediate Eran-session verification, warning/restriction stop rule, and Growth Messages logging plan are all in place.
+- Revert the LinkedIn MCP config to `RB_LINKEDIN_MCP_MODE=read_only` after the approved send stage ends.
 - Do not send during daily automation.
 - Preview outbound text in chat. Do not save LinkedIn drafts.
 - Send only after explicit user approval for the exact request or message.
 - A quota reminder, `continue`, `do it`, `approved`, or a general instruction to run the channel is not enough to send a LinkedIn invite batch. The user must approve the exact printed target list for the current stage, or name the exact targets to send. If that exact-list approval is missing or ambiguous, stop at the packet and ask for review.
 - Log every pre-lead request, first message, reply, blocker, and follow-up in Growth Messages.
 - LinkedIn replies block until an overarching reply strategy has been proposed in chat, explicitly agreed by the user, saved on the prospect's Growth Target page, and read back before drafting or sending the reply.
-- Default invite operating quota for the active first audience is 320 blank connection requests/month, calculated as a 16-request planning baseline across a 20-business-day month.
-- Daily send range is 15-20 blank connection requests/business day after explicit approval and immediate Ioana-session verification.
-- Daily invite counts are valid only for an explicitly declared quota date and timezone. Before deciding whether an invite batch is needed, build a Daily Invite Gate that shows the quota window, the current time, included connection-request sends, excluded previous/next-day sends, remaining count to 15, and remaining capacity to 20.
+- Default invite operating quota for the active first audience is 200 blank connection requests/month, calculated as a 10-request planning baseline across a 20-business-day month.
+- Daily invite-batch target is 10 blank connection requests per quota day after explicit approval and immediate Eran-session verification. The old 15-request rule is superseded and must not be used. Status: approved. Source: user instruction in chat. Imported: 2026-06-11. Review: revisit only if the user explicitly changes the quota again.
+- Daily invite counts are valid only for an explicitly declared quota date and timezone. Before deciding whether an invite batch is needed, build a Daily Invite Gate that shows the quota window, the current time, included connection-request sends, excluded previous/next-day sends, and remaining count to 10.
 - Do not count accepted connections, first messages, replies, follow-ups, pending invite state, channel notes, or prior run packet summaries toward the daily blank-invite target.
 - If the quota date is ambiguous because user, shell, browser, LinkedIn, or Notion timestamps fall on different calendar dates, block the invite count and ask for the quota date before reporting the target as met.
-- Treat LinkedIn platform limits as dynamic. Do not exceed the internal quota or 20/day without explicit user approval, current LinkedIn guidance review, and read-back of recent warnings, acceptance rate, pending-invite state, and meeting conversion.
-- Do not add personalized connection-request notes by default. If the user requests an exception, require separate approval and respect the current LinkedIn personalized-note limit for Ioana's account.
+- Treat LinkedIn platform limits as dynamic. Do not exceed the internal quota or 10/day without explicit user approval, current LinkedIn guidance review, and read-back of recent warnings, acceptance rate, pending-invite state, and meeting conversion.
+- Do not add personalized connection-request notes by default. If the user requests an exception, require separate approval and respect the current LinkedIn personalized-note limit for Eran's account.
 - Stop immediately if LinkedIn shows a warning, temporary restriction, or unusual checkpoint. Log the blocker; do not work around it.
 - If a sent batch later proves materially off-target, do not defend the batch or continue sending. Write a correction packet, mark the bad targeting reason in run state, and rebuild the next packet under stricter criteria.
 - `Open to Work` exclusion is a hard targeting gate. Do not invite, first-message, reply-follow-up, or start any further outreach with profiles showing LinkedIn `Open to Work`, `#OPEN_TO_WORK`, job-seeking, unemployed, career-transition, or recruiter-facing job-hunt signals unless the user explicitly approves that exact person as an exception.
 - If an `Open to Work` profile is already connected but has no substantive thread, block the first message and remove the person from the send list. If the person was already contacted before this rule, close or block further proactive outreach unless they reply with a business-relevant Germany setup, freelance, company, tax, admin, or remote-employment signal and the user explicitly approves the exact continuation.
 - For the first LinkedIn audience, `foreigner in Germany` is a hard invite gate, not a preference. Do not qualify German-local profiles just because they are freelancers, contractors, technical, or high quality. Every invite target must have visible evidence that the person came to Germany from abroad or has an explicit non-Germany background; if that evidence is missing, block the invite unless the user approves that exact person as an exception.
 
-## Ioana Persona Claims
+## Current Sender Persona
+
+- Status: approved. Source: user instruction in chat. Imported: 2026-06-11. Review: active until the user changes the LinkedIn sender again.
+- Current LinkedIn outreach sender is Eran Richmond Blackwood.
+- Booked-call handoff uses Ioana: when the prospect is ready for a call, scheduling and meeting ownership switch to Ioana, using Ioana's calendar and invite sender.
+- Eran-authored LinkedIn copy must not borrow Ioana's personal biography, shared nationality/language hooks, or past personal claims unless the user explicitly says that thread has switched to Ioana.
+- The 2026-06-11 switch to Eran is a new LinkedIn account queue reset. Treat prior LinkedIn queues from Ioana or any older account as historical-only for this run/account. Do not count old account pending requests, acceptances, first-message queues, replies, follow-ups, daily sends, or monthly sends toward Eran's queue unless the user explicitly approves a named carry-forward exception.
+
+## Superseded Ioana Persona Claims
 
 Approved persona claims for LinkedIn growth copy:
 
-- Status: approved. Source: user instruction in chat. Imported: 2026-06-08. Review: use only when it fits the prospect's thread and do not turn first-contact messages into a pitch.
+- Status: superseded for Eran-led LinkedIn sending. Source: user instruction in chat. Imported: 2026-06-08; superseded for current LinkedIn sender on 2026-06-11. Review: use only if the user explicitly switches the LinkedIn sender to Ioana for a run or the message is part of the Ioana call-booking handoff.
 - Ioana's background is in engineering and computer science.
 - Ioana has an engineering background in Berlin and can say it is possible she met someone at a Berlin event when the person says she looks familiar.
 - When relevant after engagement, Ioana can say she may have been talking a lot about tax optimizations because helping people in Germany save money on taxes is what she does full time, especially for freelancers and companies.
@@ -49,7 +64,7 @@ Approved persona claims for LinkedIn growth copy:
 
 This skill can run multiple times per business day because LinkedIn state changes throughout the day. Each run should choose one or more modes and only advance the matching queue:
 
-- `invite-batch`: prepare or send an approved block of blank connection requests inside the 15-20/day range.
+- `invite-batch`: prepare or send an approved block of 10 blank connection requests for the declared quota day.
 - `acceptance-check`: check pending requests for accepted connections and update Growth Messages/Growth Targets.
 - `first-message`: prepare first-message packets for newly accepted connections.
 - `follow-up-sweep`: inspect due follow-ups and prepare follow-up drafts for review.
@@ -65,12 +80,19 @@ Suggested operating rhythm:
 
 Do not duplicate sends across intra-day runs. Every run must read current Growth Messages and Growth Targets before proposing a send.
 
+Account-scope rule:
+
+- Before queue loading, identify the active LinkedIn sender account and account-start/reset date if known.
+- Queue items are valid only when they belong to the active sender account or were explicitly carried forward by the user.
+- Old account Growth Messages/Targets remain historical evidence and should not be deleted, but they do not create action requirements for the new account.
+- If a Growth Message/Target does not clearly state which account sent or owns it, treat it as old-account or ambiguous until proven current. Exclude it from Eran's send counts and queues, and list it under exclusions.
+
 Date-boundary rule:
 
 - Use `Sent/Posted At` first, then `Growth Event At`, to classify a connection request into the quota day.
 - The quota window is `[quota date 00:00, next date 00:00)` in the declared timezone.
 - A row created just after midnight in one timezone but still yesterday in the declared quota timezone is yesterday, not today.
-- If the daily count is below 15, an `acceptance-check`, `first-message`, `reply-triage`, or `follow-up-sweep` run must still prompt the next invite-batch gap unless the user explicitly pauses LinkedIn invites for that quota date.
+- If the daily count is below 10, an `acceptance-check`, `first-message`, `reply-triage`, or `follow-up-sweep` run must still prompt the next invite-batch gap unless the user explicitly pauses LinkedIn invites for that quota date.
 - Never say today's invite target is met from a prior-day batch. If that happens, write a correction packet and reopen the invite-batch stage.
 
 ## Data Routing
@@ -86,18 +108,18 @@ Date-boundary rule:
 - Three-message admin/tax bridge rule: after roughly three substantive messages in a LinkedIn thread, excluding connection requests, pure logistics, and acknowledgements, the saved strategy must include a concrete attempt to bridge from the current topic into the prospect's Germany admin, tax, company, freelance, or remote-employment setup. The bridge must be tied to a real signal in the thread or profile and phrased as one pointed question. If no natural bridge exists, record why it is not appropriate yet and what fact would make it appropriate; do not force a random tax/admin remark.
 - Go-for-the-kill rule: once a prospect has had a meaningful exchange and there is either a setup/friction signal, a freelance/company/remote-employment signal, a side-product/commercial signal, or the user says to go for the kill, stop drafting more curiosity questions. The strategy must switch to a direct help/call ask, still grounded in the profile/thread evidence and still approved by the user before sending.
 - Every reply-triage packet must include a `Call Ask Decision`: `not yet`, `bridge now`, `ask now`, or `close/no opportunity`. If the decision is not `ask now` after three substantive messages, the packet must say exactly what is missing.
-- Bridge-before-call rule: if the next outbound message asks the setup/friction question, do not also say Ioana does this professionally, offer help, or ask for a call in the same message. Wait for the prospect's answer. Classify this as `bridge now`, not `ask now`, unless the prospect has already disclosed relevant setup/friction or the user explicitly approves a direct call ask for the exact message.
-- Invited-in call rule: when a prospect says they are happy to learn, asks what Ioana has to share, or otherwise invites help after a Germany tax/admin/setup bridge, switch to `ask now`. Tell them Ioana thinks she can help, that she does this professionally for many people in Germany, and offer a short call this week. Before drafting, check the approved RB and EIP Ioana calendars through the OAuth vault or connector and offer three concrete near-term slots. Status: approved. Source: user instruction in chat. Imported: 2026-06-08. Review: still requires exact message approval and immediate Ioana LinkedIn-session verification before send.
+- Bridge-before-call rule: if the next outbound message asks the setup/friction question, do not also say RB does this professionally, offer help, or ask for a call in the same message. Wait for the prospect's answer. Classify this as `bridge now`, not `ask now`, unless the prospect has already disclosed relevant setup/friction or the user explicitly approves a direct call ask for the exact message.
+- Invited-in call rule: when a prospect says they are happy to learn, asks what RB has to share, or otherwise invites help after a Germany tax/admin/setup bridge, switch to `ask now`. In Eran-led threads, the ask should bridge to an Ioana call: say RB/Ioana can likely help, check the approved RB and EIP Ioana calendars through the OAuth vault or connector, offer three concrete near-term slots, and ask for the prospect's email when an invite is needed. Status: approved. Source: user instruction in chat. Imported: 2026-06-08; updated for Eran-to-Ioana handoff on 2026-06-11. Review: still requires exact message approval and immediate Eran LinkedIn-session verification before send.
 - No same-day call rule: do not offer same-day call slots in growth outreach, even when the calendar is free. Start from the next business day unless the user explicitly approves a same-day exception for that exact prospect and message. Status: approved. Source: user instruction in chat. Imported: 2026-06-08. Review: apply to LinkedIn call asks and reuse in other growth channels when scheduling from this skill.
-- Pushback recovery rule: when a prospect pushes back on motive or asks why Ioana is asking, do not keep probing or ask for a call. Answer plainly, de-escalate, name the specific reason the question is relevant, and give a useful solution direction if possible. Preserve the opportunity only if the prospect stays engaged.
+- Pushback recovery rule: when a prospect pushes back on motive or asks why the sender is asking, do not keep probing or ask for a call. Answer plainly, de-escalate, name the specific reason the question is relevant, and give a useful solution direction if possible. Preserve the opportunity only if the prospect stays engaged.
 - Freelancer setup-interest rule: for freelancers, contractors, self-employed people, EOR users, or solo-company operators, show interest in their current setup before making the company-setup/tax-saving offer. Use what they already disclosed, such as regular freelancer, Remote EOR, Dubai company, German clients, foreign clients, Toptal, UG, or current company. The first line should acknowledge or probe the setup itself, not jump straight to RB handling the solution. Status: approved. Source: user instruction in chat. Imported: 2026-06-10. Review: still keep first messages non-salesy and do not ask facts already visible.
-- Company-setup final reply rule: when a prospect has disclosed a real freelance, company, foreign-client, remote-employment, EOR, tax, or admin setup and the thread is being closed, stalled, or softly rejected, do not close silently. Draft one concise final reply that lets them know if they ever want to set up through a company to save more on tax, Ioana/RB can handle the full setup end to end. Keep it low pressure, do not ask another curiosity question, and do not promise a guaranteed saving. Status: approved. Source: user instruction in chat. Imported: 2026-06-10. Review: use only after a setup signal exists; first messages remain non-salesy.
+- Company-setup final reply rule: when a prospect has disclosed a real freelance, company, foreign-client, remote-employment, EOR, tax, or admin setup and the thread is being closed, stalled, or softly rejected, do not close silently. Draft one concise final reply that lets them know if they ever want to set up through a company to save more on tax, RB can handle the full setup end to end. Keep it low pressure, do not ask another curiosity question, and do not promise a guaranteed saving. Status: approved. Source: user instruction in chat. Imported: 2026-06-10; updated for Eran-led LinkedIn sender on 2026-06-11. Review: use only after a setup signal exists; first messages remain non-salesy.
 - Known-fact rule: do not ask the prospect to confirm a fact already visible in their profile, post, project page, or the thread. State the known fact briefly if needed, then ask the next unknown. For example, if a profile already shows a product is a side project, do not ask whether it is a side thing; ask whether it has a company/freelance setup behind it.
-- Source-answer brevity rule: when the prospect asks how Ioana found something, answer plainly and briefly. Do not re-explain the whole source detail, compliment the feature, or add unnecessary color such as why a theme/post was funny. Use only enough context to be truthful, then move to the next pointed question.
+- Source-answer brevity rule: when the prospect asks how the sender found something, answer plainly and briefly. Do not re-explain the whole source detail, compliment the feature, or add unnecessary color such as why a theme/post was funny. Use only enough context to be truthful, then move to the next pointed question.
 - The first reply in the arc should still answer the person's actual message and keep the topic alive. Do not dump the whole strategy into one reply.
 - A call ask is not automatic, but it must not be delayed past the earned moment. It belongs when the prospect has engaged on their own Germany setup, company structure, remote/freelance work, UG/company administration, side-product/commercial setup, or similar lived context, or when the user explicitly approves moving there. It still requires user approval of the exact text.
-- If the prospect shares a real language, nationality, education, or founder/company-structure hook with Ioana, the strategy can use it naturally. Example: if a prospect is Romanian like Ioana, a later or immediate reply may switch to Romanian and mention that Ioana did not initially realize they were Romanian too, as long as this is true from the approved context and the user approves the strategy.
-- Any non-English LinkedIn outbound draft must include an English translation in the chat approval packet directly under the original text. Do this even when Ioana and the prospect share the language. The translation is for user review and is not sent unless explicitly included in the approved outbound text.
+- If the prospect shares a real language, nationality, education, or founder/company-structure hook with the active sender, the strategy can use it naturally. Do not use Ioana-specific shared-language hooks in Eran-authored messages.
+- Any non-English LinkedIn outbound draft must include an English translation in the chat approval packet directly under the original text. Do this even when the sender and prospect share the language. The translation is for user review and is not sent unless explicitly included in the approved outbound text.
 - Promote/link to canonical Communications only when the thread becomes a lead, client, or business communication that belongs in the main RB communications ledger.
 
 ## Packet Workflow
@@ -110,7 +132,7 @@ Shared gates:
 
 - No connection request or message is sent before exact text approval.
 - No first message is drafted until connection acceptance is verified.
-- Stop if Ioana is not the verified active LinkedIn session at a send-ready step.
+- Stop if Eran Richmond Blackwood is not the verified active LinkedIn session at a send-ready step.
 
 ## Stages
 
@@ -166,11 +188,11 @@ Shared gates:
    - When a target becomes qualified, set `Qualified At`; when it becomes blocked, set `Blocked At`.
    - Block targets where the Germany, came-from-abroad, current-foreign-employer, or tech signal is too weak.
    - If the under-40 signal is part of qualification, use only explicit public evidence or user-provided confirmation. Never record estimated age. If age evidence is unknown, omit the signal and qualify on the hard gates.
-   - Treat LinkedIn rules, approved claims, and Ioana identity as in-run compliance gates. Do not create compliance-check rows.
+   - Treat LinkedIn rules, approved claims, and active sender identity as in-run compliance gates. Do not create compliance-check rows.
 
 5. Connection Request Packet
    - Prepare a blank-invite approval packet in chat. Do not draft or add a personalized note unless the user explicitly asks for a note exception.
-   - Show sender identity: Ioana, LinkedIn account/session pending verification.
+   - Show sender identity: Eran Richmond Blackwood, LinkedIn account/session pending verification.
    - Include target URL, qualification basis, and proposed follow-up date.
    - Qualification basis must name the visible Germany residence signal, explicit foreigner/came-from-abroad signal, current freelance/contractor/self-employed signal or current foreign employer/client signal, proof that the company has zero offices in Germany when relying on employer/client fit, tech-role signal, and explicit under-40 evidence when available.
    - Include a `Foreign Background Gate` field for every proposed invite. Allowed values are `Explicit came-from-abroad/relocation`, `Current Germany plus prior non-Germany work/study/residence`, `Explicit US/non-Germany nationality or residency signal`, or `User-confirmed foreigner`. If none of these is available, exclude the person even when they are a strong German freelancer.
@@ -178,16 +200,16 @@ Shared gates:
    - Include a `Founders excluded check` for every proposed invite. If the person is a founder, cofounder, or primarily promoting their own startup, exclude unless the user explicitly re-allows that exact profile.
    - Include an `OpenToWork Gate` for every proposed invite with one of these allowed values: `Clear` or `Blocked - OpenToWork`. Only `Clear` targets can appear in the invite list; `Blocked - OpenToWork` targets go to exclusions and do not count toward the daily invite quota.
    - Include current month counts: planned invites, sent blank invites, remaining invite quota, Daily Invite Gate daily count, excluded prior/next-day invite rows, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
-   - If the declared quota-day count is below 15, show the exact invite gap and prepare enough qualified targets to reach at least 15 unless the user explicitly pauses the daily LinkedIn invite target.
+   - If the declared quota-day count is below 10, show the exact invite gap and prepare enough qualified targets to reach 10 unless the user explicitly pauses the daily LinkedIn invite target.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
 
 6. Approved Connection Send
    - Run only after explicit approval of the exact current-stage target list. A generic continuation, quota reminder, broad approval, or approval from another stage does not authorize sends.
    - Before sending, restate the approved target count and first/last target names from the approved packet. If approval does not clearly apply to that exact packet, stop and ask for review.
-   - Re-check LinkedIn session is Ioana.
-   - If not Ioana, write a blocker in Growth Messages and stop.
-   - Recompute the Daily Invite Gate immediately before the first send. If the declared quota-day count changed, update the remaining gap and stop for re-approval unless the approved target count is still inside the remaining 15-20/day window.
-   - If monthly quota is exhausted, daily count would exceed 20, the quota date is ambiguous, or LinkedIn displays any warning/restriction, write a blocker in Growth Messages and stop.
+   - Re-check LinkedIn session is Eran Richmond Blackwood.
+   - If not Eran Richmond Blackwood, write a blocker in Growth Messages and stop.
+   - Recompute the Daily Invite Gate immediately before the first send. If the declared quota-day count changed, update the remaining gap and stop for re-approval unless the approved target count is still inside the remaining 10/day window.
+   - If monthly quota is exhausted, daily count would exceed 10 without an explicit same-day exception, the quota date is ambiguous, or LinkedIn displays any warning/restriction, write a blocker in Growth Messages and stop.
    - Send the approved blank request directly and log result in Growth Messages with `Message Kind = Connection Request`, `Status = Sent/Posted`, `Growth Event At`, `Sent/Posted At`, and next follow-up.
    - Move the Growth Target to `Outreach Active` only with `Outreach Active At`, `Stage Updated At`, and `Last Activity At`.
 
@@ -203,14 +225,14 @@ Shared gates:
    - Before drafting or marking a first message send-ready, run the `OpenToWork Gate`. If the person is `Open to Work`, block the draft and remove them from the current packet. Do not draft a softer message as a workaround.
    - Before drafting or marking a first message send-ready, run a duplicate-send gate: read Growth Messages and the visible LinkedIn thread for that exact prospect and prove no prior first message has already been sent. The packet must show the Growth Messages readback, LinkedIn thread readback, and conclusion.
    - If a prior first message exists, block the accepted-connection first-message draft and route the prospect to reply, follow-up, or no-action handling based on the latest thread state.
-   - Before each draft, show the initial topic/source context: who the person is, what public signal triggered the message, the exact company/product/post/project detail being referenced, and why it is relevant to Ioana.
+   - Before each draft, show the initial topic/source context: who the person is, what public signal triggered the message, the exact company/product/post/project detail being referenced, and why it is relevant to Eran/RB.
    - Use a helpful, low-pressure opener tailored to who the person is and what they do.
    - Cite at least one concrete public signal beyond the top card/headline: company/product name, specific feature, market, article, launch, role scope, technical area, shipped system, hiring post, technical post, conference talk, or founder decision.
    - Do not turn the opener into a recap of the person's profile. Block drafts that list several profile categories, industries, technologies, roles, or services and then ask a question. Use the profile list only as internal context, choose one meaningful angle, and ask the next useful unknown.
    - If the prospect is freelance, self-employed, a contractor, independent, working through a platform such as Toptal, remote-worker coded, or likely working for foreign clients from Germany, the first message should ask one pointed freelance/remote setup question. If their status is clear, default to the Germany market/client-base opener, such as whether their clients/work are mostly Germany-based now or still mainly abroad. If their status is unclear, first ask what the setup/status is. Do this before asking a generic technical curiosity question. Keep it non-salesy and do not mention tax/admin in the first message.
    - Block the draft if it could be sent unchanged to many people in the batch.
    - Block the draft if the available source context is only name, location, company, title, broad headline, generic tech stack, or generic founder/operator status. Gather deeper source context first.
-   - For very senior or unusually high-context profiles, do not manufacture a clever technical question just to have a question. If no honest pointed question is available, use a short honest opener that names the concrete profile areas Ioana genuinely understands or finds relevant, and leave the door open without pretending to need an answer. Do not include process/meta wording such as `no clever q here` in the prospect-facing text.
+   - For very senior or unusually high-context profiles, do not manufacture a clever technical question just to have a question. If no honest pointed question is available, use a short honest opener that names the concrete profile areas Eran/RB genuinely understands or finds relevant, and leave the door open without pretending to need an answer. Do not include process/meta wording such as `no clever q here` in the prospect-facing text.
    - Include approved claims only; public claims remain provisional unless approved.
    - Do not mention RB services, tax offerings, sales funnels, or booking a call.
    - Make the message short, highly specific, non-salesy, and designed to start a genuine conversation.
@@ -221,16 +243,16 @@ Shared gates:
    - Fetch the prospect's Growth Target page and prior Growth Messages before preparing any reply.
    - Run the `OpenToWork Gate` before any proactive reply or follow-up. If the profile is `Open to Work` and there is no business-relevant inbound setup signal, close or block the thread. If there is a business-relevant inbound signal, show the exception basis and get explicit user approval before drafting.
    - Before drafting reply text, produce a `Reply Strategy Packet` in chat for that prospect and ask the user to approve or revise the strategy.
-   - The strategy packet must show: prospect URL, Growth Target URL, initial topic/source context, prior Ioana messages, latest reply context, what the person actually appears to care about, the likely Germany setup hypothesis, and a 3-4 message arc toward a possible call about their situation in Germany.
+   - The strategy packet must show: prospect URL, Growth Target URL, initial topic/source context, prior RB LinkedIn messages, latest reply context, what the person actually appears to care about, the likely Germany setup hypothesis, and a 3-4 message arc toward a possible call about their situation in Germany.
    - Include a `Call Ask Decision` for every prospect: `not yet`, `bridge now`, `ask now`, or `close/no opportunity`. Base it on message count, prospect engagement, setup/friction signals, freelance/company/remote work evidence, side-product/commercial evidence, and user instruction.
-   - Do not confuse the strategy with the next reply. The packet must make clear what the next message does, what the second/third messages try to learn, and what has to be true before Ioana can ask for a call.
+   - Do not confuse the strategy with the next reply. The packet must make clear what the next message does, what the second/third messages try to learn, and what has to be true before a call ask is justified.
    - The arc should usually move from their topic, to one pointed bridge into Germany/remote/freelance/company admin only if it fits, to one direct question about their current setup or satisfaction with it, then to a soft call ask if there is real relevance.
    - By the third substantive message in the thread, the strategy must either propose the admin/tax/setup bridge or explicitly block it with the missing context. Do not wait for the user to ask for this assessment.
    - If `Call Ask Decision = ask now`, draft a direct help/call ask after answering any open question from the prospect. Do not add another technical or product curiosity question unless it is necessary to avoid sounding random.
    - If the exact next reply asks whether a setup exists, whether they are happy with it, or whether the problem is real for them, do not add a professional-help or call line yet. The next state is waiting for their answer.
    - Before drafting, check whether the intended question asks for something already visible in the profile, source post, or thread. If yes, rewrite it to use the known fact and ask only the next unknown.
    - For prospects with an entity or setup signal, such as a UG, the strategy may plan a later question about how they manage it and whether they are happy with the setup. Do not ask it before the thread has enough context.
-   - If a shared-language reply would make the exchange more human, include that in the strategy and state which language the next reply should use. Example: Romanian can be used with Romanian prospects when Ioana is the sender and the profile/reply context supports it.
+   - If a shared-language reply would make the exchange more human, include that in the strategy and state which language the next reply should use. Example: Romanian can be used with Romanian prospects only when Ioana is the active sender or the user explicitly approves an Ioana handoff message and the profile/reply context supports it.
    - For any non-English reply draft, show the original text first and then a plain English translation before asking for approval.
    - Do not draft the reply text until the user explicitly agrees the strategy.
    - After strategy approval, save the agreed strategy to the prospect's Growth Target page and read it back. If save or readback fails, log a blocker and do not draft or send.
@@ -250,7 +272,7 @@ Shared gates:
    - If no useful context exists, advance the follow-up date or close the thread instead of drafting filler.
 
 11. Approved Message Send And Follow-Up
-   - Re-check Ioana LinkedIn session before sending.
+   - Re-check Eran Richmond Blackwood LinkedIn session before sending.
    - Send only the approved text.
    - Log send URL/message ID if available, response state, `Message Kind`, `Status`, `Growth Event At`, `Sent/Posted At` or `Received At`, and next follow-up in Growth Messages.
    - Promote/link to canonical Communications only if the thread becomes a lead/client/business communication.
@@ -261,16 +283,16 @@ Shared gates:
 
 - Technical-thread bridge: answer the specific technical point first, ask one credible follow-up, then only later bridge into the person's Germany setup if they keep engaging. Do not make the first reply feel like a setup for tax/admin or a call.
 - Three-message admin/tax bridge: by the third substantive exchange, look for a natural move into German admin, tax, company setup, freelance registration, contractor status, payroll, or remote-employment structure. Use the specific topic already in the thread as the reason for the question. If it would sound random, save the blocker and ask the next real topic question instead.
-- Scope-clarification replies must choose a legitimate scope and show a reason for the question. If the prospect asks whether Ioana means architecture, implementation, product fit, or a specific use case, answer that directly and ask a precise question inside that scope. Avoid saying `no current implementation`, `no use case`, or similar unless it is necessary; it can make Ioana sound like she has no context and is wasting the prospect's time.
-- Shared-language hook: when Ioana genuinely shares language or nationality context with the prospect, the strategy may switch language and mention the shared context casually. It must still respond to the actual thread topic.
+- Scope-clarification replies must choose a legitimate scope and show a reason for the question. If the prospect asks whether the sender means architecture, implementation, product fit, or a specific use case, answer that directly and ask a precise question inside that scope. Avoid saying `no current implementation`, `no use case`, or similar unless it is necessary; it can make the sender sound like he has no context and is wasting the prospect's time.
+- Shared-language hook: when the active sender genuinely shares language or nationality context with the prospect, the strategy may switch language and mention the shared context casually. It must still respond to the actual thread topic.
 - Entity/setup hook: when the prospect has a UG, company, freelance, contractor, remote-employment, or similar setup signal, the later arc can ask how they manage it in Germany and whether they are happy with it.
 - Call bridge: a call ask belongs near the end of the arc only after the person discusses their Germany setup, friction, or uncertainty. The ask should be framed as comparing their current setup and possible cleaner options, not as an RB pitch in chat.
-- Go-for-the-kill bridge: if the user says the thread is ready, or the prospect has already engaged enough and has a real setup/commercial signal, stop asking unrelated curiosity questions. If the next needed move is still the setup/friction question, ask only that and wait. If they have already disclosed the setup/friction, answer their latest message first, then say Ioana does this professionally and can help on a short call if useful.
-- Invited-in call ask: if the prospect explicitly says they are happy to learn what Ioana has to share, or otherwise invites concrete help after discussing Germany tax/admin/setup, the next strategy should usually be `ask now`. The outbound message should be direct: Ioana thinks she can probably save them a lot of money when the setup signal is strong, she does this professionally for many people in Germany, and she can do a short call this week. Include three calendar-checked slots rather than a vague scheduling ask, but never same-day slots unless the user approved that exact exception.
-- Pushback solution turn: if a prospect asks what Ioana's motive is, says they do not understand why she is asking, or seems suspicious, stop the sales progression for that message. Explain plainly that Ioana works professionally with freelancers/foreign-client operators on admin and tax setup, make the relevance specific to their situation, and offer one useful solution direction without pressure.
+- Go-for-the-kill bridge: if the user says the thread is ready, or the prospect has already engaged enough and has a real setup/commercial signal, stop asking unrelated curiosity questions. If the next needed move is still the setup/friction question, ask only that and wait. If they have already disclosed the setup/friction, answer their latest message first, then say RB can help professionally and bridge to an Ioana call if useful.
+- Invited-in call ask: if the prospect explicitly says they are happy to learn what RB has to share, or otherwise invites concrete help after discussing Germany tax/admin/setup, the next strategy should usually be `ask now`. In Eran-led threads, the outbound message should be direct that RB/Ioana can likely help and can do a short call. Include three Ioana-calendar-checked slots rather than a vague scheduling ask, but never same-day slots unless the user approved that exact exception.
+- Pushback solution turn: if a prospect asks the sender's motive, says they do not understand why he is asking, or seems suspicious, stop the sales progression for that message. Explain plainly that RB works professionally with freelancers/foreign-client operators on admin and tax setup, make the relevance specific to their situation, and offer one useful solution direction without pressure.
 - Freelancer setup-interest turn: when replying to a freelancer or contractor, lead with their actual setup before the offer. Examples of acceptable structure: acknowledge that regular freelancer/Remote EOR/Dubai company setup is interesting; compare basic freelancing with a company setup; or ask one specific setup question if the setup is still unknown. Do not start directly with `we can help`, `we can handle`, or savings language.
-- Final company-setup offer: if the prospect has disclosed enough setup context and the thread is not worth pushing further, close with one useful final offer rather than no reply. The message should say that if they ever want to set up through a company to save more on tax, Ioana/RB can handle the full thing end to end. This is a final door-open message, not another question.
-- Iyad-style networking drift: if the prospect responds as if the thread is about general tech networking, referrals, hiring, or event familiarity, acknowledge that briefly. It is approved to say Ioana is well connected and can support if a real fit appears, but do not stay in that lane. The strategy must return to one concrete Germany setup question, usually freelance vs company vs employee setup, tax/admin friction, or whether they have optimized their current structure.
+- Final company-setup offer: if the prospect has disclosed enough setup context and the thread is not worth pushing further, close with one useful final offer rather than no reply. The message should say that if they ever want to set up through a company to save more on tax, RB can handle the full thing end to end. This is a final door-open message, not another question.
+- Networking drift: if the prospect responds as if the thread is about general tech networking, referrals, hiring, or event familiarity, acknowledge that briefly. Do not stay in that lane. The strategy must return to one concrete Germany setup question, usually freelance vs company vs employee setup, tax/admin friction, or whether they have optimized their current structure.
 - Save every reused pattern as a prospect-specific strategy on the Growth Target before drafting. The reusable pattern is a starting point, not a substitute for the saved strategy.
 
 ## First-Time Message Guidance
@@ -286,7 +308,7 @@ Copy style:
 - Avoid mechanical contrast sentences that read like a template.
 - Block ornamental wording that adds style without a specific purpose. No decorative metaphors, clever summary lines, or sentence structures that add vibe instead of information. Every sentence must ask a pointed question, name a concrete source detail, or move the thread forward.
 - Avoid comma-chain lists. Sentences should normally have at most two commas and never more than three.
-- Do not over-polish first messages into corporate prose. Ioana's LinkedIn copy should usually use normal sentence capitalization, but an occasional uncapitalized sentence, casual punctuation, sentence fragment, or tiny typo is allowed when it makes the message feel like a real DM. Do not force lowercase everywhere.
+- Do not over-polish first messages into corporate prose. Eran's LinkedIn copy should usually use normal sentence capitalization, but an occasional uncapitalized sentence, casual punctuation, sentence fragment, or tiny typo is allowed when it makes the message feel like a real DM. Do not force lowercase everywhere.
 - Less is more for first messages. Prefer one short `quick q` style message over a researched opener plus a question.
 - Do not fake enthusiasm or pretend personal fascination. Avoid filler such as `wild combo`, `pretty unusual`, `pretty specific`, `made me think`, `made me wonder`, `I imagine`, `probably`, `cursed`, `real annoyance`, or similar praise/reaction language unless the user explicitly approves that exact line.
 - Do not make the message prove research. Mention only the minimum concrete detail needed to make the question clear.
@@ -295,7 +317,7 @@ Copy style:
 - If the user asks for imperfect human copy, allow light typos or rough punctuation, but never add mistakes mechanically. The copy should still be clear, respectful, and competent.
 - Do not use hyphen separators in outbound LinkedIn copy. Write like a chat message, using short sentences or commas instead.
 - Avoid formulaic lines like `Germany probably makes...`, `admin and taxes here are...`, or any tax/admin aside in first messages.
-- Never use contrast-template copy or questions that only offer generic binary options. This sounds artificial in Ioana's outreach.
+- Never use contrast-template copy or questions that only offer generic binary options. This sounds artificial in Eran's outreach.
 - Do not make the question a binary-choice template unless the person's own post/source explicitly frames that exact tradeoff. Prefer one pointed question about a named workflow, product decision, technical constraint, customer type, or market behavior.
 - Avoid polished product-growth filler such as `different beast from an MVP`, broad `outcomes` questions, and generic launch-scale comparisons. Ask about a concrete behavior, workflow, constraint, user decision, or product tradeoff from the source context.
 - Do not use vague anchor phrases like `your X stood out`, `the X stood out`, `X caught my eye`, `I noticed X`, `I was looking at X`, or `I got curious about X`. Name the actual post, product, system, feature, workflow, hiring need, technical decision, or profile note directly.
@@ -325,13 +347,13 @@ Rules:
 
 - Keep it to 1-2 short sentences.
 - Open with a concrete, named profile signal: the company they founded, the product, feature, customer segment, market, article, launch, named project, shipped system, technical decision, or founder decision.
-- Ioana can reference operator/founder context only in natural wording. Avoid labels like "as a fellow tech founder" or "I am a tech founder too."
+- The active sender can reference operator/founder context only when true, approved, and phrased naturally. Avoid labels like "as a fellow tech founder" or "I am a tech founder too."
 - The message must prove real attention. It should contain a detail that came from the person's profile, company site, post, article, or other approved source.
 - A profile detail alone is not enough. The draft must identify a real operational detail in the person's work, then ask about that exact detail in a way that could not be reused for another person in the batch.
 - Block drafts that simply restate the profile, company tagline, funding news, job title, or a public feature and then add a generic question.
 - Prefer questions that are easy for the recipient to answer because they sit inside their daily work: what had to be hidden, constrained, sequenced, localized, simplified, made more conservative, or explained to a user/customer/doctor/buyer.
 - Generic founder or professional language is blocked. Do not say "saw the founder angle", "saw your work", "what are you focused on", "specific thing", or any phrasing that sounds templated.
-- "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that Ioana can honestly point to.
+- "I am a big fan of [company/product]" is allowed only when paired with a specific reason, feature, product decision, article, or market move that the active sender can honestly point to.
 - Bring up US-vs-Germany differences only when relevant to the person's actual source context, such as privacy, sales cycles, procurement, hiring, fundraising, fintech regulation, cloud/data constraints, consumer behavior, developer adoption, healthcare admin, payroll, or cross-border employment. For first messages, do not make the difference about tax/admin.
 - Ask one highly pointed, low-pressure question that is specific to the concrete signal. Good question shapes name one specific workflow, decision, audience, market, or technical constraint: "Where does [named constraint] show up first in [named workflow]?", "Was [specific source detail] mainly driven by [specific customer/user need]?", "Are German customers reacting differently to [specific feature] than US customers?", or "Did regulation/privacy/procurement change [specific part of the product]?"
 - Do not ask for a call in the first message.
@@ -416,6 +438,6 @@ Return:
 - Growth Targets created/updated.
 - Growth Messages created/updated.
 - LinkedIn reply strategies proposed, approved, saved, read back, or blocked.
-- Blockers and Ioana-gate status.
+- Blockers and sender-gate status, including legacy Ioana Gate fields where the Notion schema still uses that name.
 - Message previews awaiting approval.
 - Follow-ups and reporting counts to advance.
