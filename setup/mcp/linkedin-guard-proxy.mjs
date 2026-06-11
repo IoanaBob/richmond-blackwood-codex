@@ -9,7 +9,7 @@ const MODE = process.env.RB_LINKEDIN_MCP_MODE || "read_only";
 const UPSTREAM_COMMAND = process.env.RB_LINKEDIN_MCP_UPSTREAM_COMMAND || "uvx";
 const USER_DATA_DIR =
   process.env.RB_LINKEDIN_MCP_USER_DATA_DIR ||
-  path.join(os.homedir(), ".linkedin-mcp", "ioana-richmond-blackwood", "profile");
+  path.join(os.homedir(), ".linkedin-mcp", "eran-richmond-blackwood", "profile");
 const TIMEOUT_MS = process.env.RB_LINKEDIN_MCP_TIMEOUT_MS || process.env.TIMEOUT || "10000";
 const TOOL_TIMEOUT_SECONDS = process.env.RB_LINKEDIN_MCP_TOOL_TIMEOUT_SECONDS || process.env.TOOL_TIMEOUT || "300";
 
@@ -91,7 +91,8 @@ function guardStatusPayload() {
       default: "read-only",
       write_tools_blocked_unless_mode_is_unsafe_all: Array.from(KNOWN_WRITE_TOOLS).sort(),
       unknown_tools_blocked_in_read_only_mode: true,
-      linkedin_account_policy: "Ioana only; verify active account before any approved send outside read-only mode.",
+      linkedin_account_policy:
+        "Eran Richmond Blackwood for LinkedIn; when a call is booked, hand off scheduling to Ioana.",
     },
   };
 }

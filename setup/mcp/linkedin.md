@@ -3,7 +3,7 @@
 Status: provisional.
 Source: user instruction in Codex chat on 2026-06-11; GitHub repository `stickerdaniel/linkedin-mcp-server` inspected on 2026-06-11.
 Imported: 2026-06-11.
-Review: keep the guard in read-only mode until a separate approved send run explicitly needs write tools.
+Review: keep the guard in read-only mode until a separate approved send run explicitly needs write tools. Current LinkedIn persona is Eran Richmond Blackwood; call booking hands off to Ioana.
 
 This guide sets up a guarded local LinkedIn MCP server for Codex.
 
@@ -20,7 +20,7 @@ The upstream README says the project is independent and not affiliated with Link
 ## What Lives In Git
 
 - `setup/mcp/linkedin-guard-proxy.mjs`: local MCP stdio proxy that launches the upstream server and filters tools.
-- `setup/mcp/linkedin-login.sh`: local helper for status/login/logout against the dedicated Ioana browser profile.
+- `setup/mcp/linkedin-login.sh`: local helper for status/login/logout against the dedicated Eran Richmond Blackwood browser profile.
 - This setup guide and the Codex config snippet below.
 
 Do not vendor the upstream source into this repository. The default launcher uses `uvx mcp-server-linkedin@latest` so the upstream package can be updated independently.
@@ -37,10 +37,12 @@ Do not commit:
 The default dedicated profile path is:
 
 ```text
-~/.linkedin-mcp/ioana-richmond-blackwood/profile
+~/.linkedin-mcp/eran-richmond-blackwood/profile
 ```
 
-Use only Ioana's LinkedIn session for RB Germany growth.
+Use only Eran Richmond Blackwood's LinkedIn session for RB Germany growth unless the user explicitly switches the LinkedIn sender for a run.
+
+When a prospect is ready to book a call, switch scheduling to Ioana. Use Ioana's calendar and meeting invite sender for that booking handoff.
 
 ## Guard Policy
 
@@ -51,7 +53,7 @@ In `read_only` mode, the proxy:
 - Hides and blocks known write tools such as `send_message` and `connect_with_person`.
 - Blocks unknown tools unless they are on the read-only allowlist.
 - Adds `rb_linkedin_guard_status` so the active guard mode can be checked from the MCP client.
-- Keeps upstream browser/session state isolated to the Ioana-specific profile path.
+- Keeps upstream browser/session state isolated to the Eran-specific profile path.
 
 Read-only tools currently allowed:
 
@@ -78,7 +80,7 @@ Write mode exists only as a deliberate local override:
 RB_LINKEDIN_MCP_MODE=unsafe_all
 ```
 
-Do not enable `unsafe_all` for normal operation. Use it only for a time-bounded approved send run after the LinkedIn growth skill has printed the exact target/message packet, the user has approved that exact packet, and the active account has been verified as Ioana immediately before each send.
+Do not enable `unsafe_all` for normal operation. Use it only for a time-bounded approved send run after the LinkedIn growth skill has printed the exact target/message packet, the user has approved that exact packet, and the active account has been verified as Eran Richmond Blackwood immediately before each send.
 
 ## Install Prerequisites
 
@@ -106,7 +108,7 @@ default_tools_approval_mode = "approve"
 [mcp_servers.linkedin.env]
 RB_LINKEDIN_MCP_MODE = "read_only"
 RB_LINKEDIN_MCP_UPSTREAM_COMMAND = "/Users/eranpeer/.local/bin/uvx"
-RB_LINKEDIN_MCP_USER_DATA_DIR = "/Users/eranpeer/.linkedin-mcp/ioana-richmond-blackwood/profile"
+RB_LINKEDIN_MCP_USER_DATA_DIR = "/Users/eranpeer/.linkedin-mcp/eran-richmond-blackwood/profile"
 RB_LINKEDIN_MCP_TIMEOUT_MS = "10000"
 RB_LINKEDIN_MCP_TOOL_TIMEOUT_SECONDS = "300"
 UV_HTTP_TIMEOUT = "300"
@@ -118,7 +120,7 @@ After changing `~/.codex/config.toml`, restart or reload Codex so it discovers t
 
 ## Login And Session Checks
 
-Check whether the Ioana profile is already logged in:
+Check whether the Eran profile is already logged in:
 
 ```sh
 setup/mcp/linkedin-login.sh status
@@ -130,7 +132,7 @@ Create or refresh the session:
 setup/mcp/linkedin-login.sh login
 ```
 
-This opens a browser controlled by the upstream MCP package. Log in only as Ioana. Complete any LinkedIn mobile confirmation or captcha manually.
+This opens a browser controlled by the upstream MCP package. Log in only as Eran Richmond Blackwood. Complete any LinkedIn mobile confirmation or captcha manually.
 
 Clear the local LinkedIn profile:
 
@@ -144,7 +146,8 @@ setup/mcp/linkedin-login.sh logout
 - Do not use browser automation as the default LinkedIn route once the guarded MCP read path works.
 - Do not use raw upstream `mcp-server-linkedin` in Codex config unless deliberately debugging the guard.
 - Do not send connection requests or messages through LinkedIn MCP while `RB_LINKEDIN_MCP_MODE=read_only`; the guard should block those tools.
-- Every LinkedIn send still follows `skills/rb-germany-growth-linkedin/SKILL.md`: exact packet approval, Ioana session verification, daily quota gate, and Growth Messages logging.
+- Every LinkedIn send still follows `skills/rb-germany-growth-linkedin/SKILL.md`: exact packet approval, Eran session verification, daily quota gate, and Growth Messages logging.
+- When a call is booked from a LinkedIn thread, use Ioana's calendar/persona for the meeting handoff.
 
 ## Verification
 

@@ -10,7 +10,7 @@ Status: provisional.
 - Gmail: required for accounting, invoice, and client communication context.
 - SignNow: optional/generic helper support for document upload, review links, and status checks where RB uses SignNow.
 - WhatsApp MCP: optional local MCP support for user-controlled WhatsApp access.
-- LinkedIn MCP: optional guarded local MCP support for Ioana-controlled LinkedIn reads.
+- LinkedIn MCP: optional guarded local MCP support for Eran-controlled LinkedIn reads, with call-booking handoff to Ioana.
 - ElevenLabs MCP: optional local MCP support for voice/audio/agent work.
 - n8n MCP: optional remote MCP support for inspecting, testing, and building exposed n8n workflows.
 - GitHub or local git: required for repo sync if publishing changes.
@@ -89,7 +89,7 @@ node --check setup/mcp/linkedin-guard-proxy.mjs
 setup/mcp/linkedin-login.sh status
 ```
 
-Add the guarded read-only snippet from [setup/mcp/linkedin.md](mcp/linkedin.md) to `~/.codex/config.toml`, then restart or reload Codex. Use `setup/mcp/linkedin-login.sh login` only for Ioana's LinkedIn session. Keep `RB_LINKEDIN_MCP_MODE=read_only` unless a time-bounded approved send run deliberately enables write tools.
+Add the guarded read-only snippet from [setup/mcp/linkedin.md](mcp/linkedin.md) to `~/.codex/config.toml`, then restart or reload Codex. Use `setup/mcp/linkedin-login.sh login` only for Eran Richmond Blackwood's LinkedIn session. Keep `RB_LINKEDIN_MCP_MODE=read_only` unless a time-bounded approved send run deliberately enables write tools.
 
 Quick ElevenLabs and n8n MCP setup path:
 

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 COMMAND="${RB_LINKEDIN_MCP_UPSTREAM_COMMAND:-uvx}"
-USER_DATA_DIR="${RB_LINKEDIN_MCP_USER_DATA_DIR:-$HOME/.linkedin-mcp/ioana-richmond-blackwood/profile}"
+USER_DATA_DIR="${RB_LINKEDIN_MCP_USER_DATA_DIR:-$HOME/.linkedin-mcp/eran-richmond-blackwood/profile}"
 TIMEOUT_MS="${RB_LINKEDIN_MCP_TIMEOUT_MS:-10000}"
 TOOL_TIMEOUT_SECONDS="${RB_LINKEDIN_MCP_TOOL_TIMEOUT_SECONDS:-300}"
 
