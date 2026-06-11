@@ -34,6 +34,7 @@ Load only when needed:
 - Stage 1 must fetch the live Communications schema/status options. Use only live fields returned by that fetch, and do not change the schema inside this skill.
 - Current complete statuses are `Done` and `Archived`. Open statuses are `Captured`, `Needs Triage`, `Drafting`, `Follow-Up`, and `Needs Reply`; if live schema differs, record the live mapping in the packet before any write.
 - Keep runs row-led. Do not run broad Gmail, Slack, WhatsApp, Drive, or Notion discovery outside selected Communications rows.
+- Keep packet tables one row per Communication entry. Linked tasks, operational rows, task comments, and task readbacks must be folded into that Communication row, not rendered as extra sibling rows in the main queue/readback table.
 - No live Notion write, file upload/attachment, task update, Gmail/Slack/WhatsApp send, source marker, or status change happens until the operator approves the exact Stage 5 action packet.
 - Complete Notion inventory rules live in `processes/notion-operations.md`; do not duplicate current connector names, backend-error advice, or pagination recipes here.
 - Resolve the human workspace actor from `RB_WORKSPACE_ACTOR`, legacy `RB_CODEX_ACTOR`, or explicit run instruction plus `internal/people-roles.md`. Google personas, Gmail mailboxes, and sender identities are auth/source/send routes only, not the active actor.
