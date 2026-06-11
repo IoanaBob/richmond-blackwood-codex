@@ -89,7 +89,7 @@ node --check setup/mcp/linkedin-guard-proxy.mjs
 setup/mcp/linkedin-login.sh status
 ```
 
-Add the guarded read-only snippet from [setup/mcp/linkedin.md](mcp/linkedin.md) to `~/.codex/config.toml`, then restart or reload Codex. Use `setup/mcp/linkedin-login.sh login` only for Eran Richmond Blackwood's LinkedIn session. Keep `RB_LINKEDIN_MCP_MODE=read_only` unless a time-bounded approved send run deliberately enables write tools.
+Add the guarded read-only snippet from [setup/mcp/linkedin.md](mcp/linkedin.md) to `~/.codex/config.toml`, then restart or reload Codex. Use `setup/mcp/linkedin-login.sh login` only for Eran Richmond Blackwood's LinkedIn session. Keep `RB_LINKEDIN_MCP_MODE=read_only` unless a time-bounded approved send run deliberately switches to `approved_write`.
 
 Quick ElevenLabs and n8n MCP setup path:
 

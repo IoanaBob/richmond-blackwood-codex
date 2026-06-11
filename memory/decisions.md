@@ -170,12 +170,13 @@ Consequence:
 - Default mode: `RB_LINKEDIN_MCP_MODE=read_only`.
 - Session route: Eran Richmond Blackwood-specific browser profile under `~/.linkedin-mcp/eran-richmond-blackwood/profile`.
 - Write tools such as `send_message` and `connect_with_person` must be hidden and blocked by default.
-- LinkedIn sends still require the LinkedIn growth skill's exact packet approval, daily quota gate, immediate Eran session verification, and Growth Messages logging.
+- Approved LinkedIn writes are allowed with permission by temporarily switching to `RB_LINKEDIN_MCP_MODE=approved_write` for the send stage, then reverting to `read_only`.
+- LinkedIn sends still require the LinkedIn growth skill's exact packet approval, daily quota gate, pacing, immediate Eran session verification, warning/restriction stop rules, and Growth Messages logging.
 - Call booking from LinkedIn hands off to Ioana: use Ioana's calendar and meeting invite sender once the prospect reaches the booking stage.
 - Raw LinkedIn browser profile/cookie/session data must never be committed.
 
 Source: user instructions in Codex chat on 2026-06-11; GitHub search/repo inspection for `stickerdaniel/linkedin-mcp-server`.
-Review: after Codex reload, verify the `linkedin` MCP exposes `rb_linkedin_guard_status` and does not expose `send_message` or `connect_with_person` while in read-only mode.
+Review: after Codex reload, verify the `linkedin` MCP exposes `rb_linkedin_guard_status`, does not expose `send_message` or `connect_with_person` while in read-only mode, and exposes write tools only when the local config is deliberately set to `approved_write`.
 
 ## 2026-05-25 - Use Shared Global Google Persona Auth
 

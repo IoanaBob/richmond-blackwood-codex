@@ -12,6 +12,7 @@ const USER_DATA_DIR =
   path.join(os.homedir(), ".linkedin-mcp", "eran-richmond-blackwood", "profile");
 const TIMEOUT_MS = process.env.RB_LINKEDIN_MCP_TIMEOUT_MS || process.env.TIMEOUT || "10000";
 const TOOL_TIMEOUT_SECONDS = process.env.RB_LINKEDIN_MCP_TOOL_TIMEOUT_SECONDS || process.env.TOOL_TIMEOUT || "300";
+const WRITE_ENABLED_MODES = new Set(["approved_write", "unsafe_all"]);
 
 const READ_ONLY_TOOLS = new Set([
   "rb_linkedin_guard_status",
@@ -59,7 +60,7 @@ function defaultUpstreamArgs() {
 }
 
 function modeAllowsTool(toolName) {
-  if (MODE === "unsafe_all") {
+  if (WRITE_ENABLED_MODES.has(MODE)) {
     return true;
   }
   if (MODE !== "read_only") {
@@ -89,8 +90,12 @@ function guardStatusPayload() {
     },
     safeguards: {
       default: "read-only",
-      write_tools_blocked_unless_mode_is_unsafe_all: Array.from(KNOWN_WRITE_TOOLS).sort(),
+      write_tools_blocked_unless_mode_is_approved_write: Array.from(KNOWN_WRITE_TOOLS).sort(),
       unknown_tools_blocked_in_read_only_mode: true,
+      approved_write_mode:
+        "Write tools are exposed only when RB_LINKEDIN_MCP_MODE=approved_write for an approved, time-bounded send run.",
+      anti_ban_controls:
+        "Enforced by the LinkedIn growth skill: exact packet approval, daily quota gate, pacing, warning stop, active-account verification, and Growth Messages logging.",
       linkedin_account_policy:
         "Eran Richmond Blackwood for LinkedIn; when a call is booked, hand off scheduling to Ioana.",
     },
@@ -112,7 +117,7 @@ function blockedResponse(id, toolName) {
         tool: toolName,
         mode: MODE,
         remediation:
-          "Use read-only tools, or deliberately switch RB_LINKEDIN_MCP_MODE=unsafe_all only for an approved, time-bounded send run.",
+          "Use read-only tools, or deliberately switch RB_LINKEDIN_MCP_MODE=approved_write only for an approved, time-bounded send run.",
       },
     },
   };
@@ -140,7 +145,7 @@ function filterToolsResponse(message) {
   }
 
   const filteredTools =
-    MODE === "unsafe_all"
+    WRITE_ENABLED_MODES.has(MODE)
       ? message.result.tools
       : message.result.tools.filter((tool) => {
           const name = String(tool?.name || "");
@@ -149,7 +154,7 @@ function filterToolsResponse(message) {
 
   const annotatedTools = filteredTools.map((tool) => ({
     ...tool,
-    description: `${tool.description || ""}\n\nRB LinkedIn MCP guard: ${MODE === "unsafe_all" ? "unsafe_all mode; Codex tool approval still applies." : "read-only mode; LinkedIn write tools are hidden and blocked."}`.trim(),
+    description: `${tool.description || ""}\n\nRB LinkedIn MCP guard: ${WRITE_ENABLED_MODES.has(MODE) ? "approved-write mode; Codex tool approval and growth-skill send gates still apply." : "read-only mode; LinkedIn write tools are hidden and blocked."}`.trim(),
   }));
 
   if (!annotatedTools.some((tool) => tool.name === "rb_linkedin_guard_status")) {
@@ -221,7 +226,7 @@ clientLines.on("line", (line) => {
       return;
     }
 
-    if (!modeAllowsTool(toolName) || (MODE !== "unsafe_all" && isClearlyWriteTool(toolName))) {
+    if (!modeAllowsTool(toolName) || (!WRITE_ENABLED_MODES.has(MODE) && isClearlyWriteTool(toolName))) {
       if (message.id !== undefined) {
         writeMessage(blockedResponse(message.id, toolName || "<missing tool name>"));
       }

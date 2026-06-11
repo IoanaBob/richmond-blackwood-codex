@@ -3,7 +3,7 @@
 Status: provisional.
 Source: user instruction in Codex chat on 2026-06-11; GitHub repository `stickerdaniel/linkedin-mcp-server` inspected on 2026-06-11.
 Imported: 2026-06-11.
-Review: keep the guard in read-only mode until a separate approved send run explicitly needs write tools. Current LinkedIn persona is Eran Richmond Blackwood; call booking hands off to Ioana.
+Review: keep the guard in read-only mode for research. Use approved-write mode only for a separate, time-bounded send run after the user approves the exact packet. Current LinkedIn persona is Eran Richmond Blackwood; call booking hands off to Ioana.
 
 This guide sets up a guarded local LinkedIn MCP server for Codex.
 
@@ -74,13 +74,17 @@ Read-only tools currently allowed:
 - `close_session`
 - `rb_linkedin_guard_status`
 
-Write mode exists only as a deliberate local override:
+Write mode exists only as a deliberate local override for an approved send run:
 
 ```sh
-RB_LINKEDIN_MCP_MODE=unsafe_all
+RB_LINKEDIN_MCP_MODE=approved_write
 ```
 
-Do not enable `unsafe_all` for normal operation. Use it only for a time-bounded approved send run after the LinkedIn growth skill has printed the exact target/message packet, the user has approved that exact packet, and the active account has been verified as Eran Richmond Blackwood immediately before each send.
+Do not enable `approved_write` for normal research or daily planning. Use it only after the LinkedIn growth skill has printed the exact target/message packet, the user has approved that exact packet, and the active account has been verified as Eran Richmond Blackwood immediately before each send.
+
+In this setup, safeguards mean account-protection controls, not a permanent ban on writes. Approved writes are allowed only inside the skill's send stage, with daily quota checks, pacing, warning/restriction stop rules, explicit approval, and Growth Messages logging.
+
+Legacy mode value `unsafe_all` is still accepted by the proxy for backward compatibility, but new local config should use `approved_write`.
 
 ## Install Prerequisites
 
@@ -146,7 +150,8 @@ setup/mcp/linkedin-login.sh logout
 - Do not use browser automation as the default LinkedIn route once the guarded MCP read path works.
 - Do not use raw upstream `mcp-server-linkedin` in Codex config unless deliberately debugging the guard.
 - Do not send connection requests or messages through LinkedIn MCP while `RB_LINKEDIN_MCP_MODE=read_only`; the guard should block those tools.
-- Every LinkedIn send still follows `skills/rb-germany-growth-linkedin/SKILL.md`: exact packet approval, Eran session verification, daily quota gate, and Growth Messages logging.
+- For approved sends, temporarily use `RB_LINKEDIN_MCP_MODE=approved_write` and revert to `read_only` after the send run.
+- Every LinkedIn send still follows `skills/rb-germany-growth-linkedin/SKILL.md`: exact packet approval, Eran session verification, daily quota gate, pacing, warning/restriction stop rules, and Growth Messages logging.
 - When a call is booked from a LinkedIn thread, use Ioana's calendar/persona for the meeting handoff.
 
 ## Verification

@@ -15,7 +15,9 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Do not use Ioana-specific personal claims in Eran-authored LinkedIn messages unless the user explicitly switches that thread/run to Ioana or the message is a booked-call handoff.
 - Prefer the guarded local `linkedin` MCP server for LinkedIn reads when available. The guarded MCP must run through `setup/mcp/linkedin-guard-proxy.mjs` with `RB_LINKEDIN_MCP_MODE=read_only` for normal work; do not use the upstream LinkedIn MCP server raw inside Codex.
 - In read-only MCP mode, `send_message`, `connect_with_person`, and unknown write tools must be unavailable. If they appear, treat the MCP setup as unsafe, stop, and fix the local MCP config before using it.
-- Do not enable LinkedIn MCP write mode except for a time-bounded approved send stage after the exact packet approval, daily quota gate, immediate Eran-session verification, and Growth Messages logging plan are all in place.
+- Safeguards mean account-protection controls, not a permanent ban on writes. LinkedIn MCP writes are allowed with permission only inside an approved send stage.
+- Do not enable LinkedIn MCP `approved_write` mode except for a time-bounded approved send stage after the exact packet approval, daily quota gate, pacing plan, immediate Eran-session verification, warning/restriction stop rule, and Growth Messages logging plan are all in place.
+- Revert the LinkedIn MCP config to `RB_LINKEDIN_MCP_MODE=read_only` after the approved send stage ends.
 - Do not send during daily automation.
 - Preview outbound text in chat. Do not save LinkedIn drafts.
 - Send only after explicit user approval for the exact request or message.
