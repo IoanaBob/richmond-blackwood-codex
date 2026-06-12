@@ -24,6 +24,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Employment | `https://www.notion.so/306e4130131480888582de5a01224bc1` | Kristjan employment and payroll run links. |
 | Active contract | `https://www.notion.so/313e4130131480cd836ccdfcd8177c83` | Mediainvesting monthly hourly contract. |
 | Registration records | See `notion-backup.md` | RBO, annual returns, German corporation/trade/VAT/payroll/Unternehmensnummer/business registration. |
+| Call request `RBCALL-59` | `https://app.notion.com/p/37de41301314819c99a7e6981c916a6c` | Created 2026-06-12 to follow up with Finanzamt fuer Koerperschaften III Berlin on SOLINOVA company tax number/VAT status. Status: provisional; review: record is `Not started` and `Approved` unchecked pending normal RB Calls review. |
 | Real estate Client Notes & Updates | `https://www.notion.so/32ee4130131480a5b1c9e9d2398ab53e` | Apartment purchase/loan/company-ownership structuring notes. |
 
 ## Google Drive

@@ -16,6 +16,7 @@ Review: Direct Kristjan WhatsApp contact search returned no match; use the resol
 
 ## Recent Communication Context
 
+- 2026-06-12: Notion Calls record `RBCALL-59` / `SVL Finanzamt tax number follow-up` was created at `https://app.notion.com/p/37de41301314819c99a7e6981c916a6c` for Finanzamt fuer Koerperschaften III Berlin. Status: provisional. Source: user instruction and live Notion/WhatsApp context reviewed on 2026-06-12. Review: call is `Not started` and `Approved` is unchecked pending normal RB Calls review; public call brief treats WhatsApp personal/freelancer-looking identifiers as not confirmed SOLINOVA company identifiers.
 - WhatsApp on 2026-05-13 confirms SVL does not yet have a VAT number and that 806985 is the company registration number.
 - WhatsApp on 2026-05-07 to 2026-05-11 covers freelancer deregistration inputs and individual ELSTER access setup for Kristjan; route individual details to `../../Individuals/KRISTJAN MAR OLAFSSON/`.
 - WhatsApp on 2026-05-01 captured the Mediainvesting monthly invoicing input route: ask Kristjan for hours worked and all bonuses; he shared a Google Sheet for April hours/bonus support.
