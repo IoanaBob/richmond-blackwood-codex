@@ -18,6 +18,18 @@ Search evidence on 2026-06-05:
 
 Raw evidence, signed documents, payroll submissions, card/bank setup evidence, filing attachments, TCSP licence files, and large exports should be stored in Drive or the owning live source, not in git. This repo should keep only Drive URLs, source filenames, and routing notes once the canonical folder is confirmed.
 
+## Uploaded 2026 Expense Evidence
+
+- Status: provisional.
+- Source: user-provided local files, Google Drive upload/read-back, and Notion Expense read-back on 2026-06-12.
+- Imported: 2026-06-12.
+- Review: The RBL folder is still awaiting broad canonical-folder approval, but this upload used the existing RBL `2026` folder because the user asked to upload the paid RBL expense to RB.
+
+| File | Drive URL | Notes |
+| --- | --- | --- |
+| `RBL Bundesanzeiger invoice 66499954 - 2026-06-09.pdf` | `https://drive.google.com/file/d/1vNZB9GizDLPssLwr281WINi31ft-1b9R/view?usp=drivesdk` | Uploaded to `2026` folder `https://drive.google.com/drive/folders/1Jejc9q4Z0EbG_uvmtiTbyimtcZD67ObP`; source SHA-256 `16abf415d19433f72167925aadadf3482098d5ceb1692648c01ca5314daa99be`; linked to Notion Expense `https://www.notion.so/37de4130131481cfa24cda9af3a99765`. |
+| `RBL Bundesanzeiger Wise payment proof txn 3895849260 - 2026-06-08.png` | `https://drive.google.com/file/d/1PCP62Myn9RXmRABOj1H3CmrSuimdccLT/view?usp=drivesdk` | Uploaded to `2026` folder `https://drive.google.com/drive/folders/1Jejc9q4Z0EbG_uvmtiTbyimtcZD67ObP`; source SHA-256 `f105319b81dabd2922471fb6cfc796b52b6b9e3eb4ceeab3b93bca2f79c9a6ba`; linked to Notion Expense `https://www.notion.so/37de4130131481cfa24cda9af3a99765`. |
+
 ## Known Document / Evidence Pointers From Notion
 
 | Pointer | Source | Notes |
