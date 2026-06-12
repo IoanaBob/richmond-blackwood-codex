@@ -245,3 +245,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 - Confirm whether optional WhatsApp MCP should be enabled for all RB operators or only this local Codex setup.
 - Confirm which WhatsApp account or number should be linked for RB work.
+
+## Germany Growth Questions
+
+- Complete the live Notion Growth Targets owner backfill for LinkedIn contacts once exact row export is available. `NOTION_ACCESS_TOKEN` was not present in `.env.local` or the shell on 2026-06-12, and connector SQL failed with `notion-query-data-sources not found`; default-view readback showed the existing `Owner` property but is not reliable enough for an all-row bulk migration. Use Ioana Notion user `3a46f87a-9bc2-408f-baff-b4c23326e0f2` for Ioana-owned contacts and Eran Notion user `dba37471-5bc0-47b0-95cb-01a3074a5e75` for Eran-owned contacts. Known conflict to review: `ricardobasto` appears as both an Eran 2026-06-11 target and an Ioana 2026-06-10 target.

@@ -13,6 +13,8 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Connection requests and messages block unless the active LinkedIn account/session is verified as Eran Richmond Blackwood immediately before sending.
 - When a prospect is ready to book a call, switch the scheduling/meeting persona to Ioana: use Ioana's calendar, Ioana's meeting invite sender, and state the handoff in the approval packet when it matters for the prospect-facing text.
 - Do not use Ioana-specific personal claims in Eran-authored LinkedIn messages unless the user explicitly switches that thread/run to Ioana or the message is a booked-call handoff.
+- LinkedIn contacts are persona-owned in Growth Targets. Ioana contacts stay owned by Ioana; Eran contacts stay owned by Eran. Sender changes do not reset, hide, or close another persona's contacts.
+- Before any connection request, first message, reply, or follow-up packet, run the cross-persona conflict gate. If the same person is already owned by the other persona, block new outreach from the active sender and produce a handoff/reassignment packet.
 - Prefer the guarded local `linkedin` MCP server for LinkedIn reads when available. The guarded MCP must run through `setup/mcp/linkedin-guard-proxy.mjs` with `RB_LINKEDIN_MCP_MODE=read_only` for normal work; do not use the upstream LinkedIn MCP server raw inside Codex.
 - In read-only MCP mode, `send_message`, `connect_with_person`, and unknown write tools must be unavailable. If they appear, treat the MCP setup as unsafe, stop, and fix the local MCP config before using it.
 - Safeguards mean account-protection controls, not a permanent ban on writes. LinkedIn MCP writes are allowed with permission only inside an approved send stage.
@@ -43,7 +45,16 @@ Use this skill for LinkedIn prospect research, connection request planning, acce
 - Current LinkedIn outreach sender is Eran Richmond Blackwood.
 - Booked-call handoff uses Ioana: when the prospect is ready for a call, scheduling and meeting ownership switch to Ioana, using Ioana's calendar and invite sender.
 - Eran-authored LinkedIn copy must not borrow Ioana's personal biography, shared nationality/language hooks, or past personal claims unless the user explicitly says that thread has switched to Ioana.
-- The 2026-06-11 switch to Eran is a new LinkedIn account queue reset. Treat prior LinkedIn queues from Ioana or any older account as historical-only for this run/account. Do not count old account pending requests, acceptances, first-message queues, replies, follow-ups, daily sends, or monthly sends toward Eran's queue unless the user explicitly approves a named carry-forward exception.
+- The 2026-06-11 switch to Eran superseded Ioana as the default LinkedIn sender, but it did not delete Ioana-owned contacts. Keep all Ioana-owned Growth Targets active under Ioana's `Owner`, keep all Eran-owned Growth Targets active under Eran's `Owner`, and filter action queues by the active sender owner after running the global conflict check.
+
+## Contact Ownership And Conflict Gate
+
+- Growth Targets `Owner` is the contact owner. Set Ioana as `Owner` for contacts first requested, messaged, replied to, or managed by Ioana. Set Eran as `Owner` for contacts first requested, messaged, replied to, or managed by Eran.
+- If `Owner` is missing, infer it only from evidence: linked Growth Messages `Sender Identity = Ioana`, `Platform Account` containing Ioana/Eran, prior packet sender verification, or explicit user instruction. If no evidence exists, mark the item blocked for owner backfill before any send-ready step.
+- If evidence says Ioana and Eran both touched the same person, treat it as `Conflict - Cross Persona`. Do not send. Print a conflict packet with both records, source URLs, message/thread evidence, proposed surviving owner, proposed duplicate close/merge action, and ask for approval.
+- Normalize LinkedIn profile URLs before dedupe: strip query strings, locale parameters, trailing slashes, `/overlay/contact-info/`, and lower-case the `/in/<vanity>` key. Also compare visible thread URL, message URL, message IDs, target name plus current company/location, and any user-provided profile URL.
+- Queue reads are two-step: first read all LinkedIn Growth Targets/Growth Messages for global conflict detection; then filter the active queue by `Owner = active sender`. Other persona rows do not count toward the active sender's daily/monthly quota, but they do block duplicate outreach.
+- An Ioana call-booking handoff does not change the LinkedIn contact owner. Reassign the Growth Target `Owner` only when the user explicitly approves a handoff/reassignment packet.
 
 ## Superseded Ioana Persona Claims
 
@@ -80,12 +91,12 @@ Suggested operating rhythm:
 
 Do not duplicate sends across intra-day runs. Every run must read current Growth Messages and Growth Targets before proposing a send.
 
-Account-scope rule:
+Persona ownership rule:
 
-- Before queue loading, identify the active LinkedIn sender account and account-start/reset date if known.
-- Queue items are valid only when they belong to the active sender account or were explicitly carried forward by the user.
-- Old account Growth Messages/Targets remain historical evidence and should not be deleted, but they do not create action requirements for the new account.
-- If a Growth Message/Target does not clearly state which account sent or owns it, treat it as old-account or ambiguous until proven current. Exclude it from Eran's send counts and queues, and list it under exclusions.
+- Before queue loading, identify the active LinkedIn sender account/persona and the Notion user expected in Growth Targets `Owner`.
+- Queue items are valid for sending only when `Owner` matches the active sender or the user explicitly approves a named handoff/reassignment.
+- Other persona Growth Messages/Targets remain active evidence. They are not deleted and they do create conflict requirements for the active account.
+- If a Growth Message/Target does not clearly state which account sent or owns it, treat it as owner-unknown until proven. Exclude it from sends and quota counts, list it under owner-backfill exclusions, and do not contact that person until ownership is resolved.
 
 Date-boundary rule:
 
@@ -98,6 +109,7 @@ Date-boundary rule:
 ## Data Routing
 
 - Individual LinkedIn prospects go to Growth Targets, not Business Partners.
+- Growth Targets must carry the correct `Owner` before send-ready work. Ioana-owned targets have Ioana as owner; Eran-owned targets have Eran as owner. Missing owner, conflicting owner evidence, or cross-persona duplicate evidence blocks the send packet.
 - A company, agency, or commercial counterparty discovered through LinkedIn goes to Business Partners only if there is a partner/commercial relationship.
 - Connection requests are Growth Messages records tied to the Growth Target.
 - Accepted-connection messages are drafted only after acceptance is verified.
@@ -139,9 +151,11 @@ Shared gates:
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
    - Load active Audience Target, Growth Targets schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
+   - Verify Growth Targets has an `Owner` person property. If it is missing or unreadable, block LinkedIn send-ready work and print a schema blocker instead of using `Platform Account` alone as owner state.
    - Choose run mode(s): `invite-batch`, `acceptance-check`, `first-message`, `follow-up-sweep`, `reply-triage`, or `reporting-only`.
    - Declare quota date and timezone before loading daily counts. If the user says `today` or `yesterday`, resolve it to an exact date in the user's operating timezone and print the exact date.
    - Load current-day sent counts for the declared quota window, monthly sent counts, pending requests, accepted connections awaiting first message, due follow-ups, and open blockers before proposing any send.
+   - Load all LinkedIn Growth Targets and linked Growth Messages for cross-persona conflict detection before filtering the active sender queue.
    - Print a Daily Invite Gate in every LinkedIn run, even when the selected mode is acceptance-check, first-message, follow-up-sweep, reply-triage, or reporting-only.
    - Verify LinkedIn account identity only when approaching a send-ready step.
 
@@ -176,9 +190,10 @@ Shared gates:
 
 3. Discovery And Dedupe
    - Search approved sources or user-provided lists.
-   - Dedupe by LinkedIn URL, name, current company, and location.
-   - Create/update Growth Targets with profile URL, audience, channel, status, evidence notes, and next action.
+   - Dedupe globally by normalized LinkedIn URL, visible thread URL, message URL/ID, name, current company, and location before checking active-sender quota.
+   - Create/update Growth Targets with profile URL, audience, channel, `Owner`, status, evidence notes, and next action.
    - Set `Stage Updated At` and `Last Activity At` on Growth Targets whenever stage or material state changes.
+   - If a matching target exists under the same `Owner`, update that target instead of creating a duplicate. If a matching target exists under another `Owner`, block the candidate and include it in the conflict packet.
    - Do not store sensitive personal details in git.
    - Track each planned invite against the current monthly LinkedIn quota. Default every request to blank/no-note.
 
@@ -200,6 +215,7 @@ Shared gates:
    - Include a `Founders excluded check` for every proposed invite. If the person is a founder, cofounder, or primarily promoting their own startup, exclude unless the user explicitly re-allows that exact profile.
    - Include an `OpenToWork Gate` for every proposed invite with one of these allowed values: `Clear` or `Blocked - OpenToWork`. Only `Clear` targets can appear in the invite list; `Blocked - OpenToWork` targets go to exclusions and do not count toward the daily invite quota.
    - Include current month counts: planned invites, sent blank invites, remaining invite quota, Daily Invite Gate daily count, excluded prior/next-day invite rows, acceptance rate, meetings booked, and invite-to-meeting conversion where available.
+   - Include a `Persona Owner Gate` for every proposed invite: expected active sender, Growth Target `Owner`, owner evidence, and cross-persona conflict result. Only `Clear - Active Owner` can appear in the invite list.
    - If the declared quota-day count is below 10, show the exact invite gap and prepare enough qualified targets to reach 10 unless the user explicitly pauses the daily LinkedIn invite target.
    - Create/update a Growth Messages operating record only after the packet is accepted for tracking.
 
@@ -208,6 +224,7 @@ Shared gates:
    - Before sending, restate the approved target count and first/last target names from the approved packet. If approval does not clearly apply to that exact packet, stop and ask for review.
    - Re-check LinkedIn session is Eran Richmond Blackwood.
    - If not Eran Richmond Blackwood, write a blocker in Growth Messages and stop.
+   - Re-run the cross-persona conflict gate immediately before the first send. If any approved target now matches another persona's target/message/thread, stop that target and ask for approval on the conflict packet.
    - Recompute the Daily Invite Gate immediately before the first send. If the declared quota-day count changed, update the remaining gap and stop for re-approval unless the approved target count is still inside the remaining 10/day window.
    - If monthly quota is exhausted, daily count would exceed 10 without an explicit same-day exception, the quota date is ambiguous, or LinkedIn displays any warning/restriction, write a blocker in Growth Messages and stop.
    - Send the approved blank request directly and log result in Growth Messages with `Message Kind = Connection Request`, `Status = Sent/Posted`, `Growth Event At`, `Sent/Posted At`, and next follow-up.
@@ -218,12 +235,14 @@ Shared gates:
    - On later runs, check whether the connection was accepted.
    - If not accepted, advance follow-up dates without messaging.
    - If accepted and the visible profile or thread shows `Open to Work`, `#OPEN_TO_WORK`, active job-seeking, unemployed, career-transition, or recruiter-facing job-hunt signals, block the first-message item, remove the person from the send list, and record the blocker in Growth Targets/Growth Messages.
+   - If accepted but `Owner` is missing, mismatched, or conflicting with another persona's target/message/thread, block first-message drafting until owner backfill or reassignment is approved.
    - If accepted, update the Growth Target with `Last Activity At`, create/update a Growth Messages first-message item with `Message Kind = First Message`, `Status = Draft` or `Needs Approval`, and `Growth Event At`, and move to accepted-message drafting.
 
 8. Accepted-Connection Message Packet
    - Draft the first message only after acceptance is verified.
    - Before drafting or marking a first message send-ready, run the `OpenToWork Gate`. If the person is `Open to Work`, block the draft and remove them from the current packet. Do not draft a softer message as a workaround.
    - Before drafting or marking a first message send-ready, run a duplicate-send gate: read Growth Messages and the visible LinkedIn thread for that exact prospect and prove no prior first message has already been sent. The packet must show the Growth Messages readback, LinkedIn thread readback, and conclusion.
+   - The duplicate-send gate must check all personas, not only the active sender. Prior Ioana first messages block Eran first messages to the same person unless the user approves a handoff/reassignment packet, and prior Eran first messages block Ioana first messages in the same way.
    - If a prior first message exists, block the accepted-connection first-message draft and route the prospect to reply, follow-up, or no-action handling based on the latest thread state.
    - Before each draft, show the initial topic/source context: who the person is, what public signal triggered the message, the exact company/product/post/project detail being referenced, and why it is relevant to Eran/RB.
    - Use a helpful, low-pressure opener tailored to who the person is and what they do.
@@ -241,6 +260,7 @@ Shared gates:
 9. Reply Drafting Packet
    - Inspect new replies and summarize what the person actually said.
    - Fetch the prospect's Growth Target page and prior Growth Messages before preparing any reply.
+   - Confirm the Growth Target `Owner` matches the active LinkedIn sender or an explicitly approved handoff. If it belongs to another persona, block the reply and print a reassignment packet instead of replying from the wrong account.
    - Run the `OpenToWork Gate` before any proactive reply or follow-up. If the profile is `Open to Work` and there is no business-relevant inbound setup signal, close or block the thread. If there is a business-relevant inbound signal, show the exception basis and get explicit user approval before drafting.
    - Before drafting reply text, produce a `Reply Strategy Packet` in chat for that prospect and ask the user to approve or revise the strategy.
    - The strategy packet must show: prospect URL, Growth Target URL, initial topic/source context, prior RB LinkedIn messages, latest reply context, what the person actually appears to care about, the likely Germany setup hypothesis, and a 3-4 message arc toward a possible call about their situation in Germany.
@@ -265,6 +285,7 @@ Shared gates:
 
 10. Follow-Up Drafting Packet
    - Inspect due follow-ups for accepted connections, first messages, replies, and blockers.
+   - Filter follow-ups by active sender `Owner` after global conflict detection. Do not follow up from Eran on Ioana-owned contacts, or from Ioana on Eran-owned contacts, without explicit handoff approval.
    - Remove `Open to Work` people from follow-up packets unless the user explicitly approved continuing that exact thread after a business-relevant inbound signal.
    - Before each follow-up draft, show the initial topic/source context, previous message context, and the specific reason a follow-up adds value now.
    - Draft follow-ups only when there is a reason beyond "checking in": their work, product, founder context, relocation context, or a previous thread detail.
@@ -273,6 +294,7 @@ Shared gates:
 
 11. Approved Message Send And Follow-Up
    - Re-check Eran Richmond Blackwood LinkedIn session before sending.
+   - Re-check that the Growth Target `Owner` is Eran before an Eran send, unless an approved handoff packet says otherwise.
    - Send only the approved text.
    - Log send URL/message ID if available, response state, `Message Kind`, `Status`, `Growth Event At`, `Sent/Posted At` or `Received At`, and next follow-up in Growth Messages.
    - Promote/link to canonical Communications only if the thread becomes a lead/client/business communication.

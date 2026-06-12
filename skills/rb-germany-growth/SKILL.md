@@ -19,7 +19,8 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Daily automation advances queues, blockers, tasks, and timestamped state. It does not send messages.
 - Do not create, use, or resurrect the legacy growth partnership data source. If it is active, stop and report a migration blocker.
 - LinkedIn invite planning for the first active audience uses an internal target of 200 blank connection requests/month, calculated as a 10-request planning baseline across 20 business days. The old 15-20/day and 320/month rule is superseded. Sends still require explicit approval and immediate Eran-session verification.
-- LinkedIn queue state is account-scoped. If the active LinkedIn sender account changes, old account requests, acceptances, first-message queues, replies, and follow-ups become historical-only unless the user explicitly approves carrying a specific thread forward under the new account. For the 2026-06-11 switch to Eran Richmond Blackwood, the LinkedIn queue is reset/cleared for the new account.
+- LinkedIn contact state is persona-owned, not discarded on sender switches. Ioana-owned contacts remain owned by Ioana and Eran-owned contacts remain owned by Eran. A sender switch changes which owned queue is active for sends; it does not erase, close, or ignore the other persona's contacts.
+- Before any LinkedIn connection request, first message, reply, follow-up, or send-ready packet, run a cross-persona conflict check across Growth Targets and Growth Messages. Match by normalized LinkedIn profile URL/vanity, visible thread URL, message URL, target name plus current company/location where URL is missing, and any known message/thread identifiers. If the same person is already owned by a different persona with a request, connection, message, reply, active follow-up, or blocker, block the new outreach and produce a handoff/reassignment packet instead of contacting them from the second persona.
 - Daily target math must declare an exact quota date and timezone before counting any daily sends. Do not treat prior run packets, channel notes, browser-visible pending state, or rows outside the declared quota-day window as today's activity. If the quota date is ambiguous because the run crosses midnight or user/operator/browser timezones differ, block the count and ask for the quota date before deciding whether the daily target is met.
 - LinkedIn daily invite closeout is blocked until the packet shows a Daily Invite Gate with quota date, timezone, current time, included blank connection-request rows, excluded prior/next-day rows, and remaining count to the 10-request daily target.
 - The LinkedIn channel skill may run several times per day for invite batches, acceptance checks, first-message packets, reply triage, follow-up sweeps, and reporting. The master daily automation can call it in read/plan mode only; send-capable LinkedIn runs still require explicit user approval.
@@ -46,6 +47,12 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Growth Messages: `collection://0eb425a4-f739-412c-acc6-3fee8cc825df`
 - Communications: `collection://1b5e4130-1314-8183-afd8-000b6f4da982` for promoted lead/client/business communication records only.
 - Tasks: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
+
+LinkedIn ownership source of truth:
+
+- Use the Growth Targets `Owner` person property as the contact owner. Ioana-owned targets must have Ioana as `Owner`; Eran-owned targets must have Eran as `Owner`.
+- Infer missing owner only from evidence: Growth Messages `Sender Identity = Ioana`, `Platform Account` containing Ioana/Eran, verified sender in the packet, or explicit user instruction. If evidence conflicts or the owner is missing before a send-ready LinkedIn action, block and print the conflict/backfill packet.
+- Growth Messages must keep the sender evidence with `Sender Identity` when the select supports it and `Platform Account` for the exact account/persona, especially while the live sender select does not include Eran.
 
 ## Packet Workflow
 
@@ -126,7 +133,7 @@ Shared gates:
    - Pull due Tasks linked to `RB Germany Growth System`.
    - Pull Business Partners matching the active `Audience Target` and active `Growth Stage`.
    - Pull Growth Targets for non-partner LinkedIn, Reddit, and direct research targets.
-   - For LinkedIn, filter queue and due-work reads by the active sender account. Do not include historical rows from a prior LinkedIn account in the current account's pending invites, accepted-connection first messages, reply queue, follow-up queue, or daily/monthly quota counts unless a specific carry-forward exception was approved.
+   - For LinkedIn, load all active Growth Targets and Growth Messages globally for conflict detection first, then filter send queues by the active persona owner. Do not count another persona's owned rows toward the active sender's daily/monthly quota, but do use them to block duplicate outreach to the same person.
    - For LinkedIn, count only `Message Kind = Connection Request` rows whose `Sent/Posted At` or `Growth Event At` falls inside the declared quota-date window in the declared timezone. Exclude and list rows from the previous or next quota day even if they were created in the current run folder or are still pending.
    - If LinkedIn daily blank invites counted for the declared quota day are below 10, Stage 4 must include an invite-batch packet to cover the gap before reporting/closeout. Acceptance checks, first messages, replies, and follow-ups do not count toward the blank-invite daily target.
    - If accepted LinkedIn connections are found without a visible first-message send or logged Growth Messages first-message event, Stage 4 must include an accepted-connection first-message packet. Do not defer this behind Facebook, Reddit, relocation partners, or reporting unless the user explicitly pauses it.
