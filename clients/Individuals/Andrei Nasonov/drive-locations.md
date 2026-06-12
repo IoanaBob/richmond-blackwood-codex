@@ -13,7 +13,7 @@ Review: Complete the existing Notion task to split misrouted 2024 evidence from 
 | 2024 - Personal Tax Filing | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` | Linked from the 2024 Personal Tax Filing record in Notion. |
 | 2025 - Personal Tax Filing | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents to review, including 2024 items placed there by mistake. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current workbook in the 2024 folder. |
-| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current workbook in the 2025 folder. |
+| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current workbook in the 2025 folder; `ELSTER figures` tab added on 2026-06-12 for filing-review differences and provisional Nachzahlung. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
 ## 2024 Folder Contents Observed

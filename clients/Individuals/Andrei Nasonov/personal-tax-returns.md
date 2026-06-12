@@ -96,6 +96,7 @@ ELSTER live filing status:
 - ELSTER validation after entry showed no errors.
 - Provisional ELSTER calculation: Nachzahlung 1.346,00 EUR.
 - Stale prior-year entries removed from the 2025 draft before validation: Anlage KAP foreign capital income of 2,000 EUR and Anlage S `Vermittlungsprovision` of 1,164 EUR.
+- Workbook comparison update on 2026-06-12: added `ELSTER figures` tab to the 2025 workbook and commented on the filing task. The tab records the confirmed differences above, the provisional Nachzahlung of 1.346,00 EUR, and the decision not to overwrite payroll rows without a verified ELSTER payroll readback or final wage-tax certificate.
 
 ## Evidence Split
 
@@ -118,7 +119,7 @@ User/task context says Simoneta made a folder/evidence routing mistake and Andre
 | 2024 personal-tax folder | `https://drive.google.com/drive/folders/15UuDjh6pEEXy1oPmhazpaEET6OXS2rH_` | Notion filing folder; contains current workbook and evidence. |
 | 2025 personal-tax folder | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents, including items to review/split for 2024. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current Google Sheets workbook. |
-| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current 2025 filing-review workbook. |
+| 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current 2025 filing-review workbook; includes `ELSTER figures` tab added on 2026-06-12 with ELSTER/workbook differences and provisional Nachzahlung. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
 ## Current Missing / Open Items

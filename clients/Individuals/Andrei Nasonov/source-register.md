@@ -60,6 +60,12 @@ WhatsApp evidence:
 | --- | --- | --- | --- |
 | 2026-05-21 | NA Capital Ventures \| RB | Image reply to JP's marriage-date request, message `3BC7C350C7E4040BBC3D` | Marriage date for joint German personal-tax filing: 10.03.2022. Raw image not copied to git. |
 
+## Workbook Review Notes
+
+| Date | Source | Scope |
+| --- | --- | --- |
+| 2026-06-12 | Google Sheet `2025 German Personal Tax Analysis - Andrei Nasonov` and Notion filing task comment | Added `ELSTER figures` tab to the workbook and commented on filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c`. The tab records the confirmed ELSTER/workbook differences: stale Anlage KAP foreign capital income of 2,000 EUR and stale Anlage S `Vermittlungsprovision` of 1,164 EUR were present in ELSTER before cleanup while the workbook had 0 EUR for investment and business/freelance income. ELSTER provisional Nachzahlung after cleanup was 1.346,00 EUR. |
+
 ## Gmail
 
 | Source | Scope |
