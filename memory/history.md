@@ -1019,3 +1019,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-12 - Andrei 2025 German PIT Filed
+
+- User request: Upload the ELSTER filing evidence, update the filing records, and mark the task accordingly.
+- Context read: Local PDF `/Users/jp/Downloads/Andrei 2025 PIT.pdf`, 2025 Personal Tax Filing row, linked Notion filing task, Andrei 2025 Drive folder, workbook context, and RB personal-tax/file-upload rules.
+- Actions taken: Verified the PDF as a 4-page ELSTER export for 2025 ESt 1 A with a transfer ticket, uploaded it to the 2025 Drive folder as `Andrei 2025 PIT.pdf`, linked the Drive PDF in the Notion filing row's `Submission` property, set the filing row to `Filed`, set `Filed on` to 2026-06-12, set `Tax Due` to 1346, marked the linked filing task `Done`, added Notion comments to the filing row/task, and deleted the obsolete July ELSTER filing reminder.
+- Decisions made: The uploaded transfer-ticket PDF is treated as filing evidence. ELSTER's EUR 1,346.00 Nachzahlung remains provisional until the Finanzamt assessment and payment evidence exist.
+- Verification: Drive metadata and folder listing confirmed the uploaded PDF in folder `1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny`; Notion readback confirmed `Status = Filed`, `Filed on = 2026-06-12`, `Tax Due = 1346`, `Submission` linked, and task `Status = Done`.
+- Limitations or gaps: Final assessment/payment evidence is still pending. Exact tax identifiers and the raw PDF contents remain in Drive/Notion, not git.

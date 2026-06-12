@@ -1,9 +1,9 @@
 # Drive Locations
 
 Status: provisional.
-Source: Google Drive search and folder listing on 2026-05-19 and 2026-06-11.
-Imported: 2026-05-19; refreshed 2026-06-11.
-Review: Complete the existing Notion task to split misrouted 2024 evidence from the 2025 folder; keep 2025 filing-review workbook linked here.
+Source: Google Drive search and folder listing on 2026-05-19, 2026-06-11, and 2026-06-12.
+Imported: 2026-05-19; refreshed 2026-06-12.
+Review: Complete the existing Notion task to split misrouted 2024 evidence from the 2025 folder; track 2025 assessment/payment follow-up separately from filing evidence.
 
 ## Personal Tax Folders
 
@@ -14,6 +14,7 @@ Review: Complete the existing Notion task to split misrouted 2024 evidence from 
 | 2025 - Personal Tax Filing | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | Contains documents to review, including 2024 items placed there by mistake. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current workbook in the 2024 folder. |
 | 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current workbook in the 2025 folder; `ELSTER figures` tab added on 2026-06-12 for filing-review differences and provisional Nachzahlung. |
+| Andrei 2025 PIT.pdf | `https://drive.google.com/file/d/1uSKQV6d38Fq0DGIg-sXhrUU3qVJeUWkN/view?usp=drivesdk` | ELSTER submission evidence for the filed 2025 joint return; uploaded to the 2025 folder on 2026-06-12. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
 ## 2024 Folder Contents Observed
@@ -24,7 +25,7 @@ Do not copy raw file contents or private identifiers into git.
 
 ## 2025 Folder Contents Observed
 
-Drive listing for the 2025 folder showed the current 2025 workbook, MRM payslips/bank-transfer PDFs, spouse 2025 wage-tax certificate files, NACV 2025 wage-tax certificate correction, Vodafone folder, other supporting PDFs, and a subfolder named `Documents from client - 2024 - Andrei`. This aligns with the open Notion task to split 2024 evidence from the mistaken 2025 location.
+Drive listing for the 2025 folder showed the current 2025 workbook, uploaded ELSTER submission evidence `Andrei 2025 PIT.pdf`, MRM payslips/bank-transfer PDFs, spouse 2025 wage-tax certificate files, NACV 2025 wage-tax certificate correction, Vodafone folder, other supporting PDFs, and a subfolder named `Documents from client - 2024 - Andrei`. This aligns with the open Notion task to split 2024 evidence from the mistaken 2025 location.
 
 ## Company Folder Pointer
 

@@ -1,8 +1,8 @@
 # Source Register
 
 Status: provisional.
-Source: Andrei/NACV context import on 2026-05-19 and filing-review refresh on 2026-06-11.
-Imported: 2026-05-19; refreshed 2026-06-11.
+Source: Andrei/NACV context import on 2026-05-19 and filing-review refresh on 2026-06-11/2026-06-12.
+Imported: 2026-05-19; refreshed 2026-06-12.
 Review: This register stores source pointers and summaries only; raw evidence stays in the source system.
 
 ## User Instructions
@@ -22,7 +22,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Individual | `https://www.notion.so/e275d80810824aa7bcc7cf7b7b6fd072` | Andrei's individual record, linked company roles, and personal-tax filing relations. |
 | NACV company | `https://www.notion.so/d97abab7377f4d29b7fb11d4262906c8` | Linked company; company operational context. |
 | 2024 Personal Tax Filing | `https://www.notion.so/2cae4130131480358061f09398a4d71a` | 2024 German filing record; in progress; Drive folder linked. |
-| 2025 Personal Tax Filing | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | 2025 German filing record; in progress; Drive docs linked in Notion. |
+| 2025 Personal Tax Filing | `https://www.notion.so/342e4130131480139e81d7f94450de8b` | 2025 German filing record; filed on 2026-06-12; Drive docs and submission evidence linked in Notion. |
 | 2024 filing task | `https://www.notion.so/364e413013148174b03aefbc624e1e38` | Filing task linked from 2024 filing. |
 | 2024 analysis task | `https://www.notion.so/352e41301314804a9895db42f9cf07af` | In review; current workbook link. |
 | 2025 filing task | `https://www.notion.so/36de413013148126adb9ea22f31e604c` | Filing task linked from 2025 filing; started by JP/Codex on 2026-06-11. |
@@ -40,6 +40,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | 2025 personal-tax folder | `https://drive.google.com/drive/folders/1ipt8yms6ULNb3pmsvX_vypQt3tlg5-ny` | 2025 folder and current misrouting review source. |
 | 2024 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1MXFMamxILiqEE9tkVRCxx5dVSeC2-5yh-lIdbAzn-c0` | Current 2024 workbook. |
 | 2025 German Personal Tax Analysis - Andrei Nasonov | `https://docs.google.com/spreadsheets/d/1DHSmXlEq6qb_Kd1Uw0etnLq1MBn7rm5_-WEoDND6PEw` | Current 2025 filing-review workbook. |
+| Andrei 2025 PIT.pdf | `https://drive.google.com/file/d/1uSKQV6d38Fq0DGIg-sXhrUU3qVJeUWkN/view?usp=drivesdk` | ELSTER submission evidence for the filed 2025 joint return; uploaded from local file `/Users/jp/Downloads/Andrei 2025 PIT.pdf` on 2026-06-12; PDF, 242,840 bytes; SHA-256 `3cf618a17f69473c6379a25d848172a3fe0ce2f68d8deb71397fc8b75617885e`; MD5 `3a517b3c1388a60b5ccbba56a1a998c5`. |
 | NACV Payslips | `https://drive.google.com/drive/folders/1hUs5jWfkGlpiLNRXB0anpYfdH8x_5Lfn` | Payroll evidence folder. |
 
 ## ELSTER Portal
@@ -47,6 +48,7 @@ Review: This register stores source pointers and summaries only; raw evidence st
 | Date | Source | Scope |
 | --- | --- | --- |
 | 2026-06-11 | In-app ELSTER session after user certificate login | Saved the auto-recovered older 2024 draft state before attempting 2025; 2025 ESt 1 A normal household and manual/new-household paths both blocked at the earlier-submission-data step by ELSTER's certificate-file reload error before a 2025 draft opened. Dashboard one-click 2025 route checked and found unsuitable for this joint-return case. |
+| 2026-06-12 | In-app ELSTER session and uploaded ELSTER PDF export | Standard 2025 ESt 1 A route was completed for Andrei and Elena's joint return. Submission evidence `Andrei 2025 PIT.pdf` is stored in the 2025 Drive folder and linked on the Notion filing row. The export contains a transfer ticket; exact tax identifiers remain in Drive/Notion only. ELSTER provisional Nachzahlung / potential tax payable: EUR 1,346.00. |
 
 ## WhatsApp
 
@@ -65,6 +67,7 @@ WhatsApp evidence:
 | Date | Source | Scope |
 | --- | --- | --- |
 | 2026-06-12 | Google Sheet `2025 German Personal Tax Analysis - Andrei Nasonov` and Notion filing task comment | Added `ELSTER figures` tab to the workbook and commented on filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c`. The tab records the confirmed ELSTER/workbook differences: stale Anlage KAP foreign capital income of 2,000 EUR and stale Anlage S `Vermittlungsprovision` of 1,164 EUR were present in ELSTER before cleanup while the workbook had 0 EUR for investment and business/freelance income. ELSTER provisional Nachzahlung after cleanup was 1.346,00 EUR. |
+| 2026-06-12 | Notion filing record and task readback | Personal Tax Filing `https://www.notion.so/342e4130131480139e81d7f94450de8b` set to `Filed`, `Filed on` 2026-06-12, `Tax Due` 1346, and `Submission` linked to the Drive PDF. Filing task `https://www.notion.so/36de413013148126adb9ea22f31e604c` set to `Done` with completion timestamp on 2026-06-12. |
 
 ## Gmail
 
