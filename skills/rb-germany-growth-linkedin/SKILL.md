@@ -355,6 +355,7 @@ Copy style:
 - Avoid sales-coded words unless the person's source uses them: `buyer`, `prospect`, `pipeline`, `conversion`, `trust`, `proof`, `value`, `commercial`, `market motion`, `pain point`, and `product feature`.
 - Avoid over-proving research. One named detail is enough; do not turn the opener into a mini case study.
 - Avoid profile-regurgitation openers. Do not list someone's industries, stack, services, headline keywords, or profile sections back to them. If the sentence mainly proves that the profile was read rather than asking something worth answering, delete it.
+- Do not use abstract role/work framing such as `for the freelance tech lead work`, `for the AI consulting work`, or `for your X work`. It sounds written. Ask the real unknown directly: whether clients are mostly abroad or Germany-based, whether the person bills through a company, whether the employer setup is local or remote, or the one concrete setup point that matters. Status: approved. Source: user instruction in chat. Imported: 2026-06-12. Review: apply to first messages, replies, and follow-ups.
 - Prefer one compact chat message, usually 15-30 words after `thanks for connecting`. Short and slightly underwritten is better than polished.
 - Do not make every opener start with the same formula such as `I read your profile note`. Use normal chat phrasing.
 - Do not use `sounds like` or `sounds [adjective/reaction]` as the source anchor. It is a hedge and reads like sales/AI copy. Make a pointed claim or ask the pointed question directly.
