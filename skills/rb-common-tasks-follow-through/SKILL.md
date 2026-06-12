@@ -29,6 +29,7 @@ The goal is not just to clear a mailbox. The goal is to use communications to mo
 - Every stage writes a Markdown packet, prints the same packet in chat, and stops for approval or modifications.
 - Every packet that includes Gmail work must list `Operator`, `Source mailbox(es)`, `From`, and `Thread/source` separately. `Operator` is the human workspace actor from `RB_WORKSPACE_ACTOR` or legacy `RB_CODEX_ACTOR` when operator-specific context matters; `accounting@richmondblackwood.com` and personal/operator mailboxes are source or sender identities, not actors.
 - Auto-approval exceptions: Stages 1, 2, 10, and 11 still write and print packets, but continue without waiting for operator approval unless the packet contains an unexpected blocker or proposed action outside this skill. After the operator approves the exact Stage 12 Slack closeout text for sending, Stages 13 and 14 are auto-approved and should run immediately. Stage 15 is also auto-approved only for bounded media/evidence cleanup of blockers already listed in Stage 14, using already-read sources or already-resolved destinations, and must stop if it would introduce a new destination, new task, reply/send, source marker, checkpoint, or unresolved routing decision.
+- WhatsApp sends are never covered by generic stage approval, generic `proceed`, or any auto-approval exception. Before any WhatsApp message or file send, stop and obtain explicit operator approval that names WhatsApp, the recipient/chat, and the exact content to send. If approval is ambiguous, do not send.
 - For all other stages, do not continue to the next stage until the operator approves the exact printed packet.
 - Do not mutate Notion, Gmail, WhatsApp, Drive, Slack, or email until the packet for that exact action is approved by the operator or covered by the standing auto-approval exception for that stage.
 - Use canonical Communications: `https://www.notion.so/1b5e4130131480ab84f3cca356736807` / `collection://1b5e4130-1314-8183-afd8-000b6f4da982`.
@@ -273,11 +274,13 @@ For each communication, include reply handling:
 - if not time to reply, set `Reply Snoozed Until` and explain the trigger/date;
 - if no reply is needed, mark reply status as not required or complete.
 
+For WhatsApp replies, the Stage 8 packet may draft the exact text but must mark the send as blocked until a separate explicit WhatsApp send approval is received. A generic approval of the Stage 8 packet or a later `proceed` does not authorize the WhatsApp send.
+
 Stop before updates or sends.
 
 ### 9. Task Update And Reply Results
 
-Apply approved task/database updates. Send only approved exact replies.
+Apply approved task/database updates. Send only approved exact replies, except WhatsApp replies require a separate explicit WhatsApp send approval that names the recipient/chat and exact content.
 
 Use the approved rows in `draft-tasks.csv` and `draft-replies.csv` as the execution input. After each live write/send, perform only targeted readback of changed rows/messages, then update `live-write-results.csv`, `tasks-open.csv`, `draft-tasks.csv`, and `draft-replies.csv`.
 
