@@ -2,6 +2,23 @@
 
 Status: active.
 
+## 2026-06-12 - RBL Bundesanzeiger Paid Expense Upload
+
+Imported:
+
+- User-provided local invoice PDF `/Users/jp/Downloads/invoice (2).pdf`, parsed as Bundesanzeiger Verlag GmbH Rechnung `66499954`, customer `106727480`, dated 2026-06-09, amount EUR 234.00, reverse-charge, addressed to RICHMOND BLACKWOOD LIMITED.
+- User-provided Wise payment-proof screenshot showing the paid Bundesanzeiger/PayPal transaction for EUR 234.00 on 2026-06-08, transaction number `3895849260`.
+
+Actions:
+
+- Uploaded the invoice and proof screenshot to the RBL `2026` Drive folder as `https://drive.google.com/file/d/1vNZB9GizDLPssLwr281WINi31ft-1b9R/view?usp=drivesdk` and `https://drive.google.com/file/d/1PCP62Myn9RXmRABOj1H3CmrSuimdccLT/view?usp=drivesdk`.
+- Created/read back Notion Expense `https://www.notion.so/37de4130131481cfa24cda9af3a99765` with `Status = Review Required`, `Type = Paid`, amount EUR 234.00, RBL company relation, Simoneta assignee, and both Drive files attached.
+- Updated RBL repo pointers in `clients/Companies/RBL/`.
+
+Unresolved:
+
+- Finance still needs to reconcile/book the Wise feed line in Xero and confirm final reverse-charge/category treatment. The Wise attachment was not treated as proof that the invoice/proof transmitted to Xero.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:

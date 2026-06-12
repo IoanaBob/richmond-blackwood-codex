@@ -22,6 +22,17 @@ review: Confirm whether Workhub plan amounts are VAT-exclusive and verify the RB
 | Connect RBL debit card for SimplePay payroll billing | To Do; due 2026-05-28 | `https://www.notion.so/36ee4130131481028f58f198b235e43c` | Do not store card/security details. Confirm SimplePay billing route and outstanding amount before action. |
 | Ask Wamo about RBL payment approval | To Do; due 2026-06-01 | `https://www.notion.so/36fe413013148181baf9dd56021d3d97` | Task explicitly says not to send until sender, recipient, and body are approved. |
 
+## Paid Bundesanzeiger Expense
+
+- Status: provisional.
+- Source: user-provided invoice PDF and Wise payment-proof screenshot uploaded to Drive and logged in Notion on 2026-06-12.
+- Imported: 2026-06-12.
+- Review: Finance should reconcile/book the Wise feed transaction in Xero and confirm final reverse-charge/category treatment. Do not assume the Wise attachment itself transmitted into Xero.
+
+| Item | Amount | Source | Notes |
+| --- | --- | --- | --- |
+| Bundesanzeiger Verlag GmbH invoice `66499954` / customer `106727480` | EUR 234.00 | Notion Expense `https://www.notion.so/37de4130131481cfa24cda9af3a99765`; invoice `https://drive.google.com/file/d/1vNZB9GizDLPssLwr281WINi31ft-1b9R/view?usp=drivesdk`; Wise proof `https://drive.google.com/file/d/1PCP62Myn9RXmRABOj1H3CmrSuimdccLT/view?usp=drivesdk` | Invoice dated 2026-06-09, addressed to RICHMOND BLACKWOOD LIMITED, for 6 eBilanz Online credits/transactions; reverse-charge regime stated. User said it was already paid and the invoice was attached to the Wise transaction. Notion row is `Status = Review Required`, `Type = Paid`, assigned to Simoneta, and dated to the 2026-06-08 Wise payment proof. |
+
 ## Workhub Invoice Validation
 
 - Status: provisional.
