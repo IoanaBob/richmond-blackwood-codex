@@ -64,6 +64,8 @@ Do not treat shared mailboxes as actors. `accounting@richmondblackwood.com` is t
 
 No Notion write, source marker, file upload, reply, Slack send, or checkpoint update may happen without operator approval of the exact packet or a standing auto-approval exception for that stage/action.
 
+WhatsApp sends are stricter than ordinary packet approval: never send a WhatsApp message or file from a generic stage approval, generic `proceed`, or auto-approval exception. Stop until the operator explicitly approves a WhatsApp send naming the recipient/chat and exact content.
+
 Standing auto-approval exceptions:
 
 - Stages 1 and 2 are auto-approved after their packets are written and printed.
