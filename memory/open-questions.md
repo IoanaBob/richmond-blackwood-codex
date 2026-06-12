@@ -90,14 +90,21 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 ## Claudio Brivio Personal Tax Questions
 
 - Review fresh 2024 workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`; it was copied from the maintained native template and populated on 2026-05-13, then updated from operator review on 2026-05-14. Current read-back shows 8 failed checks and 27 open missing-info items.
+- 2025 filing review is now with JP: fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit` was copied from the maintained native template and populated on source/input tabs only on 2026-06-11; operator approved the conservative treatment on 2026-06-12. The preparation task is `Done`, the filing task is `In Review`, and current workbook read-back shows 1 failed check and 1 open missing-info item.
 - Resolved 2026-05-14: CBMAX February 2024 payroll is excluded from the workbook and should not be retroactively changed.
 - Obtain or verify the CBMAX 2024 Lohnsteuerbescheinigung.
+- Visual-review the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk` against the monthly payroll rows before final filing; it is now attached to the December 2025 Notion payroll `Payslip` property, but local PDF text extraction was unavailable.
 - Resolved 2026-05-14: Health/care EUR 5,470.32 is claimed; Hallesche non-basic/supplemental EUR 1,050.69 is excluded.
+- 2025 health/care EUR 5,597.63 is claimed from the Hallesche certificate; Hallesche optional/non-basic EUR 1,176.37 is excluded.
 - Resolved 2026-05-14: Home-office daily allowance, Pixel Buds, and mobile-phone professional share are claimed; commute and Telekom internet are excluded.
+- Resolved 2026-06-12: 2025 coworking meal allowance is not claimed because the coworking days were not external workdays; BVG is not claimed because 100% work use is not supportable against home-office overlap without day-level travel evidence. The workbook now uses the EUR 1,230 employee lump sum because supported itemized employment expenses are EUR 1,135.58.
 - Final-review point: Freenet mobile-phone support is the exact Drive ZIP plus tracker summary; extract individual invoice PDFs only if the filer wants invoice-level files separated.
 - Resolved 2026-05-14: CBMAX and Job Guardian Section 138 AO notifications should be included in the 2024 filing package.
 - Review how Section 138 AO late/proactive filing should be framed for CBMAX and Job Guardian.
 - Verify the N26 file in the investment folder is not a capital-income tax certificate before clearing Anlage KAP/KAP-AUS.
+- Resolved 2026-06-11: N26 treatment approved. EUR 1,150.81 is interest/capital income received, and EUR 303.48 is tax already withheld by N26 rather than an additional payment due now.
+- Review 2025 Section 138 AO / Anlage AUS / continued-holdings framing for CBMAX and Job Guardian; user instructed that investments should have been personal for the full year.
+- Decide whether the 2025 workbook's prior-year opening-link check can be accepted as non-filing-critical for this source-only preparation workbook.
 
 ## Byron Jarvis Frasier Personal Tax Questions
 

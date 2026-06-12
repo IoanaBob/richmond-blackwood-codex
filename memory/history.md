@@ -1019,3 +1019,57 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-11 - Claudio Brivio 2025 German Personal Tax Analysis
+
+- User request: Prepare Claudio Brivio's 2025 German personal-tax analysis using the repo-local German workflow and process prompt, with a fresh Drive-native maintained-template copy, exact evidence URLs, and Notion task linkage.
+- Context read: Claudio individual repo records, live Notion individual/filing/tasks, the user-shared 2025 Drive package, Notion payroll/payslip records, Drive trackers, and prior Claudio 2024 workbook/source context.
+- Actions taken: Created fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`, populated source/input tabs only, updated the live 2025 Notion filing and existing prep/filing tasks, and recorded workbook/source/task pointers in Claudio repo records and durable memory.
+- Decisions made: Claudio was treated as RB-employed for the full year; investments were treated as personal for the full year; N26 interest/withholding was entered as personal investment income; optional Hallesche and dental costs were excluded; filing remains blocked until review flags are resolved.
+- Verification: Sheets read-back confirmed summary figures, formula preservation, and evidence URLs; Notion read-back confirmed status/link/comment updates; Drive/Sheets source read-back confirmed the key source trackers and evidence files.
+- Limitations or gaps: CBMAX 2025 annual Lohnsteuerbescheinigung was later supplied and linked; N26 tax statement treatment was later approved by the operator; coworking meal allowance treatment was later superseded by the 2026-06-12 operator correction; Section 138/AUS holdings framing needs final review; workbook still has a prior-year opening-link check.
+
+## 2026-06-11 - Claudio 2025 Annual Lohnsteuerbescheinigung Follow-Up
+
+- User request: Explain the EUR 918 home-office figure, add Claudio's supplied 2025 annual wage-tax statement to the December payslip entry, and provide evidence links behind investment interest, investment withholding, and known withholding/payments.
+- Context read: Fresh 2025 workbook revenue, deductibles, investment, summary, and sources tabs; December Notion payroll row; Drive payslip folder; local supplied PDF.
+- Actions taken: Uploaded `Claudio_Brivio_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf` to the 2025 CBMAX payslip folder at `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`, linked it on the December workbook revenue row and `Sources` tab, updated the December Notion payroll `Payslip` property, and added a Notion page comment to the December payroll row.
+- Decisions made: Preserve the existing December monthly payslip attachment while adding the annual certificate as an additional `Payslip` file-property entry, and keep the workbook evidence cell and page comment as audit pointers.
+- Verification: Workbook read-back confirmed the December evidence cell links both the monthly payslip and annual certificate. Notion `Payslip` property read-back confirmed both the original monthly payslip attachment and annual certificate Drive URL. Notion comment read-back confirmed the evidence link. Drive metadata confirmed the uploaded PDF and parent folder. Home-office EUR 918 traces to 153 days x EUR 6 from the home-office/coworking tracker.
+- Limitations or gaps: `pdftotext`/PDF extraction tooling was unavailable locally, so annual certificate totals still need visual reconciliation against monthly workbook rows.
+
+## 2026-06-11 - Claudio 2025 N26 Treatment Approved
+
+- User request: Confirmed approval that N26 investment figures should be treated as income received and tax already withheld, then asked for any remaining warnings.
+- Context read: Workbook investment row, N26 evidence pointer, Notion filing page, and current Claudio warning records.
+- Actions taken: Updated the workbook investment row note, added a Notion filing comment, and updated Claudio/source/current-state/open-question memory to remove the N26 item from remaining warnings.
+- Decisions made: EUR 1,150.81 is treated as N26 interest/capital income received; EUR 303.48 is treated as N26 tax already withheld, not an additional payment due now.
+- Verification: Workbook write succeeded; Notion comment create succeeded. Repo verification pending closeout.
+- Limitations or gaps: Remaining warnings at that point were annual certificate visual reconciliation, coworking meal-allowance treatment, Section 138/AUS holdings framing, prior-year opening-link check, and payroll payment reconciliation/source extraction notes; coworking/BVG treatment was later superseded by the 2026-06-12 operator correction.
+
+## 2026-06-11 - Claudio Annual Certificate Payslip Update And Coworking Materiality
+
+- User request: Apply the annual Lohnsteuerbescheinigung directly to Claudio's December Notion payslip entry and clarify whether the coworking meal allowance matters despite the employee allowance.
+- Context read: December 2025 Notion payroll row, payroll schema, annual certificate Drive upload, workbook `Deductibles` and `Summary` tabs, and Claudio repo memory.
+- Actions taken: Updated the December payroll `Payslip` property to include both the original monthly payslip and the uploaded annual Lohnsteuerbescheinigung. Updated workbook/Notion notes and repo memory with the coworking materiality calculation.
+- Decisions made: Coworking was still treated as a material review point at this stage because other actual employment work expenses were EUR 1,773.58, above the EUR 1,230 employee allowance. This was superseded by the 2026-06-12 operator correction excluding the coworking meal allowance and BVG.
+- Verification: Notion payroll read-back confirmed both files in `Payslip`; workbook read-back confirmed the deductible note; Notion filing comment read-back confirmed the warning.
+- Limitations or gaps: Meal-allowance treatment was later decided by the 2026-06-12 operator correction; visual reconciliation of the annual certificate totals remains before final filing.
+
+## 2026-06-12 - Claudio 2025 Coworking And BVG Deduction Correction
+
+- User request: Clarified coworking days were not external workdays and questioned whether 100% BVG can be claimed when the same period includes home-office days.
+- Context read: Live workbook `Deductibles`, `Summary`, `Tax Analysis`, and `Checks` tabs; Notion filing comments; Claudio repo memory.
+- Actions taken: Updated the live workbook input/source rows only: coworking meal allowance is not claimed, BVG is not claimed pending day-level travel evidence, and notes record the operator correction. Added a Notion filing comment with the corrected figures.
+- Decisions made: Use the EUR 1,230 employee lump sum because supported itemized employment expenses are now EUR 1,135.58, below the lump sum.
+- Verification: Workbook read-back confirmed employment work expenses used EUR 1,230.00, actual itemized employment expenses EUR 1,135.58, and income after deductions before tax-rate calculation EUR 24,287.18. Formula cells in `Summary` and `Tax Analysis` remained formulas. Notion filing comment read-back confirmed the correction.
+- Limitations or gaps: Remaining 2025 review flags are annual Lohnsteuerbescheinigung visual reconciliation, Section 138 AO / Anlage AUS / continued-holdings framing, and the prior-year opening-link workbook check.
+
+## 2026-06-12 - Claudio 2025 Filing Review Handoff
+
+- User request: Approved the conservative Claudio 2025 treatment, asked to tell JP the filing review is ready, and asked to mark the operator task done.
+- Context read: Notion preparation task, filing task, and filing row; Slack user/channel resolution for JP and `#rb-client-updates`; latest workbook/read-back figures from the correction run.
+- Actions taken: Marked the preparation task `Done`, moved the filing task to `In Review`, set filing document gathering to `Attached in Drive`, added Notion comments with workbook figures/exclusions/flags and Slack links, sent JP a direct Slack DM, and posted the `#rb-client-updates` unblock notice.
+- Decisions made: This is a filing-review handoff, not a filed return. Filing status remains `In Progress`.
+- Verification: Notion read-back confirmed prep `Done`, filing task `In Review`, and filing row `Attached in Drive` / `In Progress`. Notion comments read-back confirmed the approval and Slack-link comments. Slack returned direct DM `https://eipventuresworkspace.slack.com/archives/D0ALLF2S0RH/p1781283179700609` and channel update `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1781283338705599`.
+- Limitations or gaps: Slack channel membership listing lacked scope, so JP was notified by direct DM and the channel update was posted without relying on a channel mention. Remaining filer review flags are annual Lohnsteuerbescheinigung visual reconciliation, Section 138/AUS continued-holdings framing, and the prior-year opening-link workbook check.

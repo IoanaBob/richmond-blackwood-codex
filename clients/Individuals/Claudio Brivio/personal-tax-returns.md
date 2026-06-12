@@ -69,15 +69,84 @@ Open review themes:
 ## 2025 German Personal Tax Filing
 
 Status: provisional.
-Source: Notion filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`.
-Imported: 2026-05-13.
-Review: No 2025 Drive evidence package was imported during this load.
+Source: Notion filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`; 2025 Drive filing workspace `https://drive.google.com/drive/folders/1OVx_u0u8dpGZ6sm_vhc20ItMrnMXz0GJ`; user-shared evidence package `https://drive.google.com/drive/folders/1Mj6ZqOLXKOvKRnjDDjOgqDriLodkBEiY`; fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`; Notion preparation task `https://www.notion.so/37ae4130131481e382c0c3424a69db3d`; Notion filing task `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b`; user instruction on 2026-06-11.
+Imported: 2026-06-11.
+Review: Preparation workbook is source-backed and approved for filing review, but not filed. Formula/calculation tabs were preserved and only source/input tabs were populated. Remaining flags need filer/professional review before filing.
 
 Filing page: `https://www.notion.so/342e41301314803eb579c68638fb3fb0`.
 Filing period: 2025-01-01 to 2025-12-31.
 Jurisdiction: Germany.
-Status in Notion: Pending.
-Due date in Notion: 2026-07-31.
-Drive docs in Notion: blank.
+Status in Notion: In Progress.
+Document gathering status in Notion: Attached in Drive.
+Due date in Notion: 2026-06-30.
+Drive docs in Notion: `https://drive.google.com/drive/folders/1OVx_u0u8dpGZ6sm_vhc20ItMrnMXz0GJ`.
+Preparation task: `https://www.notion.so/37ae4130131481e382c0c3424a69db3d` (`Done` on 2026-06-12).
+Filing task: `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b` (`In Review` for JP on 2026-06-12).
+Slack handoff: direct JP DM `https://eipventuresworkspace.slack.com/archives/D0ALLF2S0RH/p1781283179700609`; `#rb-client-updates` update `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1781283338705599`.
 
-Before starting 2025 analysis, follow `skills/rb-personal-tax-analysis-de/SKILL.md`: create/find the correct Drive folder, copy the maintained native machine-readable template, sync live Notion filing status/Drive fields, and check whether task relations already exist.
+Drive evidence:
+
+- Fresh 2025 filing workspace: `https://drive.google.com/drive/folders/1OVx_u0u8dpGZ6sm_vhc20ItMrnMXz0GJ`.
+- User-shared 2025 package: `https://drive.google.com/drive/folders/1Mj6ZqOLXKOvKRnjDDjOgqDriLodkBEiY`.
+- Submitted-documents wrapper: `https://drive.google.com/drive/folders/14-NlQyJYUjhOYoPDF_mBpCjqEnv8Fw5i`.
+- Fresh native analysis spreadsheet: `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`.
+- 2025 master tracker: `https://drive.google.com/file/d/1VB4NIthXp_-yg6Ksty8ttbeF_UlFnzkY/view`.
+- Home-office/coworking tracker: `https://docs.google.com/spreadsheets/d/1G4Kf53QWuMUXxVZpTc6oMWdr8AeXrRex/edit`.
+- N26 deductions ledger: `https://docs.google.com/spreadsheets/d/1XpBzCMBU72gUxcA2cYek9BGorY2jzcVI/edit`.
+- Payslip folder: `https://drive.google.com/drive/folders/1yq0Y9eHVBAMk5sj7tRne1dPux3Gu2Ey0`.
+- CBMAX 2025 annual Lohnsteuerbescheinigung: `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`.
+- Hallesche 2025 tax certificate: `https://drive.google.com/file/d/1W8f_PwvKKTYyeNlLv68wbGDNUltpyPjW/view`.
+- N26 2025 tax statement: `https://drive.google.com/file/d/13WupwbvO7fbEBaGA1dODICrlD2ZXEo4V/view`.
+- Taxfix invoice: `https://drive.google.com/file/d/1pROw1CtT5k9YoOWdjJ2qjdgjBFDcU8sj/view`.
+
+Analysis snapshot, 2026-06-11:
+
+| Figure | Amount / status | Review |
+| --- | --- | --- |
+| Gross employment income | EUR 30,000.00 | Twelve CBMAX salary rows entered from Notion payroll/payslip evidence; user confirmed Claudio was with RB the full year. |
+| Wage tax withheld | EUR 3,420.96 | EUR 285.08 per month from CBMAX payroll evidence. |
+| Employment work expenses used | EUR 1,230.00 | Workbook now uses the employee lump sum. Supported itemized employment expenses are EUR 1,135.58: home office EUR 918.00, phone/internet professional share EUR 166.58, Taxfix work share EUR 35.00, and bank-account flat EUR 16.00. Coworking meal allowance and BVG are excluded after operator correction. |
+| Health/care included | EUR 5,597.63 | Hallesche basic health plus care minus reimbursement. Hallesche optional/non-basic amount is excluded. |
+| Other personal deductions included | EUR 5,633.63 | Health/care EUR 5,597.63 plus automatic special-expense baseline EUR 36.00. |
+| Investment interest income | EUR 1,150.81 | N26 interest. User instructed investments should have been personal for the full year. |
+| Investment withholding | EUR 303.48 | N26 capital-income tax EUR 287.72 plus solidarity surcharge EUR 15.76. |
+| Known payments/withholding | EUR 3,724.44 | Wage tax withheld plus N26 investment withholding. |
+| Business/freelance net PNL | EUR 0.00 | No 2025 business/freelance activity was populated. |
+| Income after deductions before tax-rate calculation | EUR 24,287.18 | Workbook support figure only; not a final German tax-liability calculation. |
+| Workbook checks | 1 failed check; 1 open missing-info item | Remaining failed check is `Prior-year opening links missing`; formula/calculation tabs were preserved. |
+
+Current evidence shape:
+
+| Area | Status | Source | Review |
+| --- | --- | --- | --- |
+| Employment | Evidence present | Notion payroll rows, Drive payslips for all 12 CBMAX months, and annual Lohnsteuerbescheinigung uploaded on 2026-06-11 | December monthly PDF did not text-extract through the connector. Annual certificate is linked on the December revenue row, attached to the December Notion payroll `Payslip` property, and noted on the December payroll page; visually reconcile certificate totals before final filing. |
+| Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Home-office daily allowance remains claimed at EUR 918.00. Coworking meal allowance is not claimed after operator clarification on 2026-06-12 that those days were not external workdays. |
+| BVG and phone/internet | Evidence present | N26 deductions ledger plus exact invoice/source URLs in workbook rows | BVG is not claimed because full-year ticket cost overlaps home-office days and no day-level commute/coworking travel reconciliation supports 100% work use. Phone/internet claim uses exact invoice URLs in the workbook. |
+| Health insurance | Evidence present | Hallesche 2025 certificate | Basic health/care included; optional/non-basic component excluded. |
+| Investments | Evidence present, operator treatment approved | N26 2025 tax statement and tracker figures | Operator approved treatment on 2026-06-11: EUR 1,150.81 is N26 interest/capital income received, and EUR 303.48 is tax already withheld by N26. |
+| Foreign-company context | Prior context plus user instruction | 2024 foreign-company package and 2026-06-11 user instruction | Review Section 138 AO / Anlage AUS / continued-holdings framing for personal holdings in CBMAX and Job Guardian. |
+
+Exclusions and non-claims:
+
+- Hallesche optional/non-basic amount EUR 1,176.37.
+- Coworking meal allowance EUR 1,092.00, because the coworking days were not external workdays.
+- BVG / Deutschlandticket EUR 638.00, because 100% work use is not supportable against home-office overlap without day-level commute/travel evidence.
+- Dental/prophylaxis EUR 502.33, because the second invoice PDF was missing and the amount was below the likely reasonable-burden threshold.
+- Dedicated-room home-office route.
+- Work equipment, training, moving costs, double household, childcare, donations, church tax, maintenance, household/handyman credits, and business/freelance PNL.
+- No additional investment lots, disposals, foreign brokerage, or crypto activity was entered beyond N26 interest.
+
+Open review themes:
+
+- Visually reconcile the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung against the monthly workbook rows before final filing.
+- Review Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian.
+- Decide whether the prior-year opening-link workbook check can be accepted as non-filing-critical for this source-only preparation workbook.
+
+Handoff status, 2026-06-12:
+
+Status: provisional.
+Source: Notion task and filing read-backs; Slack send responses; user approval in Codex conversation on 2026-06-12.
+Imported: 2026-06-12.
+Review: Filing is unblocked for JP review but not filed.
+
+The operator approved the conservative workbook treatment. The preparation task was marked `Done`, the filing task was moved from `Blocked` to `In Review`, and the filing row's document-gathering status was set to `Attached in Drive` while filing status stayed `In Progress`. JP was notified by direct Slack DM and the filing-task unblock was posted to `#rb-client-updates`.
