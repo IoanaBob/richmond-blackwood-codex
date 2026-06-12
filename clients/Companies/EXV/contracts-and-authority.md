@@ -1,9 +1,9 @@
 # Contracts And Authority
 
 Status: provisional.
-Source: EXV Notion company record, communication/document rows, RBO records, and XVault risk/task records fetched on 2026-06-09.
-Imported: 2026-06-09.
-Review: Fetch the underlying contract/agreement records before treating any document pointer as an active contract or external authority position.
+Source: EXV Notion company record, communication/document rows, RBO records, XVault risk/task records, Notion legal analysis pages, and user review/live write-back through 2026-06-12.
+Imported: 2026-06-09; updated 2026-06-12.
+Review: Fetch the underlying contract/agreement records and latest external legal opinion before treating any document pointer as an active contract or external authority position.
 
 ## Authority And Governance
 
@@ -27,6 +27,9 @@ These records were fetched through EXV-linked Communications rows. They are poin
 
 | Issue | Source | Review needed |
 | --- | --- | --- |
-| XVault / MiCA / CASP risk review | `https://app.notion.com/p/2b1e4130131480df9b26fe24faec0862` | Task remains In Progress. It records concern that Konvi Limited being developer/custodian of XVault could affect the current license and that CBI suggested liaising with the CASP team. |
+| XVault / MiCA / CASP risk review | `https://app.notion.com/p/2b1e4130131480df9b26fe24faec0862` | Task remains In Progress. It records concern that Konvi Limited being developer/custodian of XVault could affect the current license and that CBI suggested liaising with the CASP team. A 2026-06-12 comment records that internal legal pages exist but no external/latest legal-opinion file was found in Drive. |
+| Legal & Compliance hub | `https://app.notion.com/p/2c6e4130131480738e1fde4816e23d71` | Points to internal MiCA and MiFID analysis pages. Treat as source context, not final external counsel advice. |
+| Compliance Under MiCA | `https://app.notion.com/p/2c6e4130131480c9a3f2dbe9630cf367` | Internal framework page says the analysis is not legal advice and is based on EU rules/guidance as of 2026-01-23. |
+| Applicability of MiFID II to Exotic Vaults | `https://app.notion.com/p/2c6e4130131480c3b4a1ca1482b690fd` | Internal analysis classifies the current design as MiCA Title II rather than MiFID II financial instruments, subject to design-dependent risk triggers. |
 | Launch first XVAULT Vault | `https://app.notion.com/p/25be4130131480c68b61c372a560230b` | Product project remains In Progress. Keep product build detail in Notion/Konvi project docs. |
-| Workhub Camden address compliance / Plus Plan decision | `https://app.notion.com/p/36fe413013148168ba61c8607fa237e6` | Open operational/legal follow-up: verify/remedy address use and decide Plus Plan treatment before reply. |
+| Workhub Camden address compliance / Plus Plan decision | `https://app.notion.com/p/36fe413013148168ba61c8607fa237e6` | Closed as Done on 2026-06-12 after user confirmed the address was removed, the plan change was rejected, and Workhub charges route to Richmond Blackwood. |

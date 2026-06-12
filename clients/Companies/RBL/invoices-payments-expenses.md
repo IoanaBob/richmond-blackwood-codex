@@ -25,8 +25,8 @@ review: Confirm whether Workhub plan amounts are VAT-exclusive and verify the RB
 ## Workhub Invoice Validation
 
 - Status: provisional.
-- Source: user instruction in Codex thread, 2026-05-08 and 2026-05-10; user review on 2026-06-05.
-- Imported: 2026-05-10; updated 2026-06-05.
+- Source: user instruction in Codex thread, 2026-05-08 and 2026-05-10; user reviews on 2026-06-05 and 2026-06-12.
+- Imported: 2026-05-10; updated 2026-06-12.
 - Review: Confirm whether Workhub plan amounts are VAT-exclusive and verify the RBL upgraded-plan amount from the relevant invoice.
 
 ### Trigger
@@ -50,6 +50,8 @@ Use this RBL invoice validation rule when an item is an invoice, renewal notice,
 ### Rule
 
 All Workhub / Stein Commercial / Camden Street invoices should be issued and addressed to **RICHMOND BLACKWOOD LIMITED**.
+
+User confirmed on 2026-06-12 that Workhub is always charged to Richmond Blackwood. Company names such as VUN, EXV, CLV, CBMAX, NACV, PCL, or Konvi may indicate the plan/user/address context, but the payable route remains RBL-side unless the user later changes this rule.
 
 Approved/provisional Workhub plan schedule:
 

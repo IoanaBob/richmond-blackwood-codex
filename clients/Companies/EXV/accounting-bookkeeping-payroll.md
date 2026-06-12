@@ -18,7 +18,7 @@ Review: Confirm accounting software/bookkeeping workflow and whether there is an
 
 ## Bookkeeping / Evidence Notes
 
-- Workhub address-plan costs and shared Workhub invoices may need allocation review between EXV and other companies. See `invoices-payments-expenses.md`.
+- Workhub costs are RB-side: user confirmed on 2026-06-12 that Workhub is always charged to Richmond Blackwood. Use `../RBL/invoices-payments-expenses.md` for Workhub invoice validation and keep EXV only as address/use context where needed.
 - Source documents for CT application, BOI, grant/advisory/SAFT material, and filings live in Notion or Drive. This repo stores pointers only.
 
 ## Boundary
