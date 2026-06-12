@@ -43,6 +43,8 @@ Superseded/stale source note: Notion task `https://www.notion.so/332e41301314818
 | German KSt 2024 | Submitted | n/a | ELSTER confirmations sent 2026-04-29 at 18:22 and 19:21 Berlin time | Gmail thread/message IDs `19dda0cf317f8c0d`, `19dda43686394fc3` | User says 2024 was filed with 80/20 IE/DE PE attribution; no Finanzamt feedback yet as of 2026-05-13, so leave open. |
 | German GewSt 2024 | Submitted | n/a | ELSTER confirmations sent 2026-04-29 at 18:22 and 19:29 Berlin time | Gmail thread/message IDs `19dda0cee0aed620`, `19dda49d67703a47` | No Finanzamt feedback yet as of 2026-05-13. |
 | German Belegnachreichung | Submitted | n/a | ELSTER confirmations sent 2026-04-30 at 16:10 and 16:17 Berlin time | Gmail message IDs `19ddeba3f078d6bd`, `19ddec11fa6527a5` | Supporting-document submissions for AGL ELSTER account `agl`. |
+| German Umsatzsteuer-Jahreserklärung 2024 | Submitted | n/a | ELSTER transfer shown as 2026-06-06 15:58:38; return shows no remaining VAT amount | Drive file `https://drive.google.com/file/d/1Q1kfKSyMseQgkjY8tljY6Os4oiq2d-TD/view?usp=drivesdk`; Notion communication `https://app.notion.com/p/37de41301314811289c9eae9e5acb75d` | Await Finanzamt processing and Steuerkonto update. |
+| German E-Bilanz 2024 | Submitted | n/a | ElsterBilanz protocol shows transfer on 2026-06-08 12:54:47 | E-Bilanz PDF `https://drive.google.com/file/d/1brtRZ75rfxGwtdPDeyrXfKJfjtQzjZDH/view?usp=drivesdk`; protocol `https://drive.google.com/file/d/1TmK2S2r9fewJzdV2CTQMmKb40eM014OM/view?usp=drivesdk`; Notion communication `https://app.notion.com/p/37de41301314811289c9eae9e5acb75d` | Await Finanzamt processing and alignment with declared 2024 figures. |
 | AGL - Corporation Tax -23 Sep 2026 | Open in Notion | 2026-09-23 | 2025-01-10 to 2025-12-31 | `https://www.notion.so/311e41301314810782b1c9d3c06727f1` | Notion status fetched as Overdue even though due date is 2026-09-23; likely needs Notion status review. |
 
 ## German PE / Finanzamt Status
@@ -51,6 +53,7 @@ Superseded/stale source note: Notion task `https://www.notion.so/332e41301314818
 | --- | --- | --- | --- |
 | PE declaration / response to Finanzamt | Done; awaiting response | `https://www.notion.so/337e413013148037bf1bfe76ccf6f3c5` | Page comment says this was submitted to the Finanzamt and is awaiting response; user confirmed no feedback yet on 2026-05-13. |
 | Payroll-tax query May 2024-April 2025 | In Review | `https://www.notion.so/35ce4130131481fbb755c6bce3ff7ef2` | Berlin Finanzamt says no payroll tax returns were submitted for May 2024-April 2025 while payments were received; see `accounting-bookkeeping-payroll.md`. |
+| Vollstreckungsankündigung dated 2026-06-10 | ELSTER response sent; awaiting response | Communication `https://app.notion.com/p/37de41301314811289c9eae9e5acb75d`; follow-up task `https://app.notion.com/p/37de41301314815d85e5e06bdb44f4c7`; Drive package `https://drive.google.com/drive/folders/1KIay8muZHBwTgWU5KXq7Cc7TytjDIKJC` | Status: provisional. Source: user confirmed the ELSTER message was shipped on 2026-06-12. Review: confirm Finanzamt holds enforcement and processes the 2024 filings before closing. |
 
 ## Board Meetings For Irish Tax Residence
 

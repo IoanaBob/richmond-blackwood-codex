@@ -23,6 +23,24 @@ Group/external classification: external client root, because the parent chain en
 | AGL Bank statement | `https://docs.google.com/spreadsheets/d/1Bv8QkuEt-mXR--1nBeqHSKMAQZFfLHD_hY6_3dnAtls/edit?usp=drivesdk` | Bank statement sheet. |
 | AGL Salary Estimation Discrepancies | `https://docs.google.com/spreadsheets/d/1LPnmWt6ri_MNZ00sQGZvFXgwDW0MsZmzx_iSnGWqT3o/edit?usp=drivesdk` | Retroactive payroll/salary discrepancy context. |
 
+## Correspondence Uploads
+
+Status: provisional.
+Source: Google Drive uploads and Notion readback on 2026-06-12.
+Imported: 2026-06-12.
+Review: Files were uploaded to the existing AGL Correspondence folder for the ELSTER Vollstreckungsankündigung response package; do not move without a separate instruction.
+
+| File | URL | SHA-256 |
+| --- | --- | --- |
+| Vollstreckungsankundigung vom 10.06.2026.pdf | `https://drive.google.com/file/d/1bLCCNd0Bo56D0hj2votc6dbi3rPFZl0R/view?usp=drivesdk` | `cb6ff73e98360f1ea829449ebdc348438c94aee59e71ada97de2aa3278d73a55` |
+| AGL 2024 KSt.pdf | `https://drive.google.com/file/d/1noJp3UQxGEkNJad5d11mI3PZdWLQp7ui/view?usp=drivesdk` | `c9dce09a18c625b5dd676c1dc511cf42da3e3d978e0fa3d44d6e7a9ce1626af9` |
+| AGL 2024 Gewst 1 A.pdf | `https://drive.google.com/file/d/1GDA92xm2CAELugM6m6i4udeTVHkiy7UM/view?usp=drivesdk` | `4a01077ab03a4dce6be2ddd7b96f01354e077e80d2f9079d74bb31118af2afa7` |
+| AGL 2024 EBilanz.pdf | `https://drive.google.com/file/d/1brtRZ75rfxGwtdPDeyrXfKJfjtQzjZDH/view?usp=drivesdk` | `fc33caa68681409137d758e045c8753ec216942f0f78553075a6119dbe67145b` |
+| AGL 2024 Annual VAT return.pdf | `https://drive.google.com/file/d/1Q1kfKSyMseQgkjY8tljY6Os4oiq2d-TD/view?usp=drivesdk` | `1153601aaeb393955d8f320baac0f6708630d4c1c3407b727a22bf097a8b2e4d` |
+| protocol-1781259549155.pdf | `https://drive.google.com/file/d/1TmK2S2r9fewJzdV2CTQMmKb40eM014OM/view?usp=drivesdk` | `7b545da08604dc738e8b686117277d01fec115f2af72ab731dbe907e187dfc62` |
+| AGL SONGI EN.pdf | `https://drive.google.com/file/d/1BRL-49PIYucdE8bVYJyQPo4VgyKlySwI/view?usp=drivesdk` | `cf0f0edb24f5978535079824c2a036bd9e67624792398aa5164cf982c671f243` |
+| AGL Songi.pdf | `https://drive.google.com/file/d/10gUcVdsZVjCa2FtJ8yROLi7wYEBmyQcU/view?usp=drivesdk` | `65765eca2130b9e9abe37aedf5740c090136f4c6d7e8a088291194427227a0f4` |
+
 ## 2024 Folder Highlights
 
 | Item | URL | Notes |
