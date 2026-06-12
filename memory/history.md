@@ -1064,3 +1064,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: Use the EUR 1,230 employee lump sum because supported itemized employment expenses are now EUR 1,135.58, below the lump sum.
 - Verification: Workbook read-back confirmed employment work expenses used EUR 1,230.00, actual itemized employment expenses EUR 1,135.58, and income after deductions before tax-rate calculation EUR 24,287.18. Formula cells in `Summary` and `Tax Analysis` remained formulas. Notion filing comment read-back confirmed the correction.
 - Limitations or gaps: Remaining 2025 review flags are annual Lohnsteuerbescheinigung visual reconciliation, Section 138 AO / Anlage AUS / continued-holdings framing, and the prior-year opening-link workbook check.
+
+## 2026-06-12 - Claudio 2025 Filing Review Handoff
+
+- User request: Approved the conservative Claudio 2025 treatment, asked to tell JP the filing review is ready, and asked to mark the operator task done.
+- Context read: Notion preparation task, filing task, and filing row; Slack user/channel resolution for JP and `#rb-client-updates`; latest workbook/read-back figures from the correction run.
+- Actions taken: Marked the preparation task `Done`, moved the filing task to `In Review`, set filing document gathering to `Attached in Drive`, added Notion comments with workbook figures/exclusions/flags and Slack links, sent JP a direct Slack DM, and posted the `#rb-client-updates` unblock notice.
+- Decisions made: This is a filing-review handoff, not a filed return. Filing status remains `In Progress`.
+- Verification: Notion read-back confirmed prep `Done`, filing task `In Review`, and filing row `Attached in Drive` / `In Progress`. Notion comments read-back confirmed the approval and Slack-link comments. Slack returned direct DM `https://eipventuresworkspace.slack.com/archives/D0ALLF2S0RH/p1781283179700609` and channel update `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1781283338705599`.
+- Limitations or gaps: Slack channel membership listing lacked scope, so JP was notified by direct DM and the channel update was posted without relying on a channel mention. Remaining filer review flags are annual Lohnsteuerbescheinigung visual reconciliation, Section 138/AUS continued-holdings framing, and the prior-year opening-link workbook check.

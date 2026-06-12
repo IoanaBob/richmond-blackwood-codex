@@ -2154,3 +2154,22 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-12 - Claudio 2025 Personal Tax Filing Review Handoff
+
+Imported:
+
+- User approval in Codex chat on 2026-06-12 to proceed with the conservative Claudio 2025 treatment, tell JP the filing review is ready, and mark the operator task done.
+- Notion read-backs for filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`, preparation task `https://www.notion.so/37ae4130131481e382c0c3424a69db3d`, and filing task `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b`.
+- Slack send responses for direct JP DM `https://eipventuresworkspace.slack.com/archives/D0ALLF2S0RH/p1781283179700609` and `#rb-client-updates` post `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1781283338705599`.
+
+Actions:
+
+- Marked the 2025 preparation task `Done`, moved the filing task from `Blocked` to `In Review`, and set filing document gathering to `Attached in Drive` while leaving filing status `In Progress`.
+- Added Notion comments with the approved workbook handoff, summary figures, exclusions, remaining flags, and Slack links.
+- Sent JP the direct Slack handoff and posted the required `#rb-client-updates` unblock notice.
+- Updated Claudio individual records and shared memory/source registers with the final handoff state.
+
+Unresolved:
+
+- Filing is not submitted. Remaining filer review flags are annual Lohnsteuerbescheinigung visual reconciliation, Section 138/AUS continued-holdings framing for CBMAX and Job Guardian, and the prior-year opening-link workbook check.

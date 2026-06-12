@@ -71,17 +71,18 @@ Open review themes:
 Status: provisional.
 Source: Notion filing `https://www.notion.so/342e41301314803eb579c68638fb3fb0`; 2025 Drive filing workspace `https://drive.google.com/drive/folders/1OVx_u0u8dpGZ6sm_vhc20ItMrnMXz0GJ`; user-shared evidence package `https://drive.google.com/drive/folders/1Mj6ZqOLXKOvKRnjDDjOgqDriLodkBEiY`; fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`; Notion preparation task `https://www.notion.so/37ae4130131481e382c0c3424a69db3d`; Notion filing task `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b`; user instruction on 2026-06-11.
 Imported: 2026-06-11.
-Review: Preparation workbook is source-backed but not filing-ready. Formula/calculation tabs were preserved and only source/input tabs were populated. Remaining flags need filer/professional review before filing.
+Review: Preparation workbook is source-backed and approved for filing review, but not filed. Formula/calculation tabs were preserved and only source/input tabs were populated. Remaining flags need filer/professional review before filing.
 
 Filing page: `https://www.notion.so/342e41301314803eb579c68638fb3fb0`.
 Filing period: 2025-01-01 to 2025-12-31.
 Jurisdiction: Germany.
 Status in Notion: In Progress.
-Document gathering status in Notion: In progress.
+Document gathering status in Notion: Attached in Drive.
 Due date in Notion: 2026-06-30.
 Drive docs in Notion: `https://drive.google.com/drive/folders/1OVx_u0u8dpGZ6sm_vhc20ItMrnMXz0GJ`.
-Preparation task: `https://www.notion.so/37ae4130131481e382c0c3424a69db3d`.
-Filing task: `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b`.
+Preparation task: `https://www.notion.so/37ae4130131481e382c0c3424a69db3d` (`Done` on 2026-06-12).
+Filing task: `https://www.notion.so/37ae4130131481228f5dd6e79267ee9b` (`In Review` for JP on 2026-06-12).
+Slack handoff: direct JP DM `https://eipventuresworkspace.slack.com/archives/D0ALLF2S0RH/p1781283179700609`; `#rb-client-updates` update `https://eipventuresworkspace.slack.com/archives/C0B1UTJJDLJ/p1781283338705599`.
 
 Drive evidence:
 
@@ -140,3 +141,12 @@ Open review themes:
 - Visually reconcile the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung against the monthly workbook rows before final filing.
 - Review Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian.
 - Decide whether the prior-year opening-link workbook check can be accepted as non-filing-critical for this source-only preparation workbook.
+
+Handoff status, 2026-06-12:
+
+Status: provisional.
+Source: Notion task and filing read-backs; Slack send responses; user approval in Codex conversation on 2026-06-12.
+Imported: 2026-06-12.
+Review: Filing is unblocked for JP review but not filed.
+
+The operator approved the conservative workbook treatment. The preparation task was marked `Done`, the filing task was moved from `Blocked` to `In Review`, and the filing row's document-gathering status was set to `Attached in Drive` while filing status stayed `In Progress`. JP was notified by direct Slack DM and the filing-task unblock was posted to `#rb-client-updates`.

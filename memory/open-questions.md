@@ -90,7 +90,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 ## Claudio Brivio Personal Tax Questions
 
 - Review fresh 2024 workbook `https://docs.google.com/spreadsheets/d/1ULWkB11f5ZiMzlEITOyEbJ_SQa_19aMsD8NXZmC-iHM/edit`; it was copied from the maintained native template and populated on 2026-05-13, then updated from operator review on 2026-05-14. Current read-back shows 8 failed checks and 27 open missing-info items.
-- Review fresh 2025 workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`; it was copied from the maintained native template and populated on source/input tabs only on 2026-06-11. Current read-back shows 1 failed check and 1 open missing-info item.
+- 2025 filing review is now with JP: fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit` was copied from the maintained native template and populated on source/input tabs only on 2026-06-11; operator approved the conservative treatment on 2026-06-12. The preparation task is `Done`, the filing task is `In Review`, and current workbook read-back shows 1 failed check and 1 open missing-info item.
 - Resolved 2026-05-14: CBMAX February 2024 payroll is excluded from the workbook and should not be retroactively changed.
 - Obtain or verify the CBMAX 2024 Lohnsteuerbescheinigung.
 - Visual-review the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk` against the monthly payroll rows before final filing; it is now attached to the December 2025 Notion payroll `Payslip` property, but local PDF text extraction was unavailable.
