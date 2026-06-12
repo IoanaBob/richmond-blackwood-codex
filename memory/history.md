@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-12 - EXV Review Corrections And Live Cleanup
+
+- User request: Apply EXV open-question answers, including Slack/internal routing, canonical Drive creation, Workhub resolution, registration cleanup, project routing, Workhub/RBL cost routing, and latest legal-opinion search.
+- Context read: EXV repo memory, user review answers, live Notion company/registration/filing/task records, Google Drive internal-company folders and searches, CRO Open Data, and internal Notion legal pages for XVault/MiCA/CASP.
+- Actions taken: Created and verified Drive folder `09. Exotic Vaults Foundation CLG`; updated/read back live Notion communication preference as Slack; set/read back RTD as Not Applicable; corrected/read back VIES title/status; normalized/read back the 2026 annual-return title and due date to `2026-08-06`; closed/read back the Workhub address/Plus Plan task as Done; commented the XVault/MiCA/CASP risk task with the legal-opinion search result.
+- Decisions made: EXV is internal/Konvi-routed with no WhatsApp JID; Konvi Group is the current project route; Workhub charges route to Richmond Blackwood; RTD/VIES remain Not Applicable; use CRO Open Data NARD as the annual-return date source.
+- Verification: Drive metadata/listing, live Notion read-backs, CRO Open Data query for company 781069, and task comments were checked. Repo verification is tracked in branch closeout.
+- Limitations or gaps: Latest external legal opinion or counsel position for XVault/MiCA/CASP was not found; internal legal pages are useful context but not final external counsel evidence.
+
 ## 2026-06-10 - Germany Growth LinkedIn And Reddit Operating Rules
 
 - User request: Merge the in-progress Germany growth operating branch as-is after several live growth runs and rule corrections.

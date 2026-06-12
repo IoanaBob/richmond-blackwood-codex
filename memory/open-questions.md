@@ -178,15 +178,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 
 ## EXV / Exotic Vaults Questions
 
-- Confirm the canonical Drive folder for EXV raw evidence; no EXV folder was found under the internal-companies root or KHL folder on 2026-06-09.
-- Confirm whether EXV should use Email, WhatsApp, Slack, or a Konvi internal route for future operational communication; Notion says Email and WhatsApp, but WhatsApp searches for `Exotic`, `EXV`, and `XVault` found no chat.
-- Resolve the Workhub Camden address compliance / Plus Plan decision: verify/remedy Exotic Vaults website address use, decide Plus Plan charge treatment, and prepare reply.
-- Confirm whether RTD should be set to Not Applicable because EXV VAT is Not Applicable.
-- Correct VIES title typo `Pending - VEIS` if live cleanup is in scope.
-- Confirm whether the 2026 annual-return row title should be normalized; the row title references 2025-07-31 while the due date is 2026-08-08.
-- Confirm whether the Konvi Group internal project relation is the intended project route for EXV.
-- Confirm how shared Workhub invoices should be allocated between VUN/CLV/EXV.
-- Confirm how EXV changes or resolves the Konvi XVault/MiCA/CASP risk path before relying on entity-routing assumptions.
+- Locate and review the latest external legal opinion or counsel position for XVault/MiCA/CASP before relying on the internal Notion legal analysis as final. Internal pages `Legal & Compliance`, `Compliance Under MiCA`, and `Applicability of MiFID II to Exotic Vaults` were found and linked on 2026-06-12, but Drive searches for `XVault legal opinion MiCA CASP Exotic Vaults`, `Exotic Vaults MiCA`, and `CASP legal opinion` did not locate an external/latest opinion. The live risk task remains `In Progress` with this blocker commented.
 
 ## KONVI Questions
 

@@ -1,13 +1,19 @@
 # Drive Locations
 
 Status: provisional.
-Source: Google Drive search/list-folder and Notion source pointers on 2026-06-09.
-Imported: 2026-06-09.
-Review: Confirm or create the canonical EXV Drive folder before uploading raw evidence or claiming all source files are present.
+Source: Google Drive search/list-folder on 2026-06-09, user review on 2026-06-12, Drive folder creation/read-back on 2026-06-12, and Notion source pointers.
+Imported: 2026-06-09; updated 2026-06-12.
+Review: Upload or move raw EXV evidence only when a concrete file/evidence task requires it.
 
 ## Current State
 
-No canonical EXV-specific Drive folder was found in this pass.
+Canonical EXV Drive folder was created and read back on 2026-06-12.
+
+| Folder | URL | Parent | Status |
+| --- | --- | --- | --- |
+| `09. Exotic Vaults Foundation CLG` | `https://drive.google.com/drive/folders/1KI3uzgaTGfmMUS0CPumaInUEcHIkqmsu` | `01. Internal Companies` / `https://drive.google.com/drive/folders/1Qwjwz9ZdRGm9z-gRHTkCgldhwXUBMI55` | Created via `ioana-eip` Drive route and verified by metadata plus parent listing. |
+
+No raw evidence was uploaded or moved during this review pass.
 
 Checked locations:
 
@@ -28,13 +34,6 @@ Checked locations:
 
 Notion rows for CT application, advisory agreement, Avalanche/grant/SAFT materials, BOI documents, Dracoon agreement, filings, and company incorporation documents contain attachments. Their Notion attachment URLs were intentionally not copied into git.
 
-## Pending
+## Open Handling Notes
 
-Confirm whether EXV should have:
-
-- a new EXV folder under `01. Internal Companies`;
-- a subfolder under KHL;
-- a different product/project folder for Exotic Vaults evidence;
-- or source files retained only in Notion/product project documents for now.
-
-Do not create or move Drive folders until the approved destination is clear.
+Use the canonical EXV folder above for future raw EXV evidence when the source document does not fit cleanly in Notion or needs Drive backup. Product-heavy Notion pages and Notion attachments were not copied during this pass.

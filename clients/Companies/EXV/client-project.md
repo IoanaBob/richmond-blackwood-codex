@@ -3,7 +3,7 @@
 Status: provisional.
 Source: EXV Notion company record, Konvi Group internal project, XVault launch project, linked tasks, and Workhub task fetched on 2026-06-09.
 Imported: 2026-06-09.
-Review: Confirm the EXV project route before creating new tasks. The company record currently links to the Konvi Group internal project.
+Review: Use the linked Konvi Group internal project for EXV tasks unless a more specific EXV project is later created/linked.
 
 ## Primary Project Route
 
@@ -17,6 +17,8 @@ Review: Confirm the EXV project route before creating new tasks. The company rec
 
 The project body says it is for task tracking and long-term data should live in prospective/client company records. Use this repo folder for durable EXV company memory and live Notion tasks/operational rows for follow-through.
 
+User confirmed on 2026-06-12 to use the Notion-linked Konvi project for now.
+
 ## Product Project Pointer
 
 | Project | Status | Source | Notes |
@@ -27,11 +29,8 @@ The project body says it is for task tracking and long-term data should live in 
 
 | Issue | Status | Source | Review needed |
 | --- | --- | --- | --- |
-| Workhub Camden address compliance / Plus Plan decision | To Do / High priority | `https://app.notion.com/p/36fe413013148168ba61c8607fa237e6` | Verify/remedy the Exotic Vaults website address use, decide Plus Plan charge treatment, and prepare Workhub/client reply. |
-| XVault / MiCA / CASP risk review | In Progress | `https://app.notion.com/p/2b1e4130131480df9b26fe24faec0862` | Task records concern about Konvi Limited being developer/custodian and CBI CASP guidance; confirm how EXV changes the risk path. |
-| RTD status cleanup | Open review | `https://app.notion.com/p/192e4130131481a88ea3efc61c09e5dd` | RTD is `Overdue` while VAT is `Not Applicable`; confirm before live cleanup. |
-| VIES title typo | Open review | `https://app.notion.com/p/192e41301314811aa1d7f56bc7191116` | Notion title says `VEIS`; status is Not Applicable. Correct only after approval/scope confirmation. |
-| 2026 annual-return title normalization | Open review | `https://app.notion.com/p/1c8e41301314802ca1b8e5f51abc9951` | Row title references 2025-07-31 but due date is 2026-08-08. Confirm whether to normalize. |
+| Workhub Camden address compliance / Plus Plan decision | Done | `https://app.notion.com/p/36fe413013148168ba61c8607fa237e6` | Closed on 2026-06-12 after user confirmed address removal, rejected plan change, and RB-side Workhub charge routing. |
+| XVault / MiCA / CASP risk review | In Progress | `https://app.notion.com/p/2b1e4130131480df9b26fe24faec0862` | Notion legal/compliance pages were found, but no external/latest legal-opinion file was found in Drive. Risk task was commented on 2026-06-12 and remains open. |
 
 ## Boundary
 
