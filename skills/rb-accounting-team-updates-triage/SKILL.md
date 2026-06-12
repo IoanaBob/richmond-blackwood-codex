@@ -93,6 +93,8 @@ Use Tasks data source `collection://25de4130-1314-8158-af69-000b6c9fb49e` only f
 
 Stage 3 must apply `skills/rb-accounting-team-updates-routing/SKILL.md` and produce the routing table before any write. If ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method is unclear, add an `unresolved` row to the Stage 3 packet with the proposed Team Updates note; do not write the note until Stage 4 executes an approved routing plan.
 
+Stage 3 must still be a full packet, not only the routing table. It must start with a top `## Summary`, and before `## Decision Summary` it must include the stage execution contract fields from `references/stage-packet-protocol.md`: `Inputs read`, `Decision method`, `Rows considered`, `Proposed action`, `Approval status`, `Blockers`, and `Next stage`. A table-only Stage 3 packet is invalid even when the visible tables match the routing skill. Stage 4 must stop and return to Stage 3 correction if the top summary or packet-shell fields are missing.
+
 ### Stage 4 - Notion Write Results
 
 Write-back and verification:

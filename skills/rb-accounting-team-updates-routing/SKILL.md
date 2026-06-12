@@ -68,19 +68,22 @@ Use one compact table per group. The visible table columns must be:
 
 - `Source row`
 - `Source line`
-- `Decision`
 - `Target`
 - `Owner`
 - `Due`
 - `Exact action`
 - `Team Updates write-back`
-- `Blocker / approval needed`
 
 Human-table rules:
 
 - Put the business decision first: what will be created, updated, skipped, or blocked.
-- Use readable names and links for targets, not raw Notion payloads.
+- Use readable Markdown links for targets, not raw Notion payloads or plain URLs.
 - Keep each row short enough to scan. Move schema details, dedupe notes, and exact payloads to the machine log.
+- Omit redundant columns. The group heading already supplies `create`, `update/comment`, `skip`, or `unresolved`; do not add a `Decision` column unless a group intentionally mixes multiple decision types. Do not add `Blocker / approval needed` when every row has no blocker or only the same generic approval gate.
+- Use `Source row`, `Source line`, `Target`, `Owner`, `Due`, `Exact action`, and `Team Updates write-back` for create/update tables by default.
+- Use `Source row`, `Source line`, and `Reason` for skip tables by default.
+- Use `Source row`, `Source line`, `Missing decision`, `Why creating a task is unsafe`, and `Proposed Team Updates note` for unresolved tables by default.
+- For empty groups, write `None.` instead of a one-row `none` table.
 - For `unresolved` rows, state the missing decision in plain language and explain why a new task would be unsafe.
 - If the packet contains a separate machine log or handover file, link it near the top and label it as a continuation/execution log, not the approval surface.
 
@@ -141,4 +144,6 @@ For `create_task`, `update_task`, or `comment_existing` rows:
 
 ## Stage Boundary
 
-The output of this skill is the Stage 3 Routing Plan packet plus any linked machine log. Stage 4 executes only the approved rows from the human approval surface, using the machine log for exact payload details, and then proves read-back. If the approved human table and machine log disagree, return to Stage 3 correction before writing.
+The output of this skill is the routing decision content for the Stage 3 Routing Plan packet plus any linked machine log. The parent `rb-accounting-team-updates-triage` skill must wrap this content in a top `## Summary` and the full Stage 3 packet shell before the `## Decision Summary` approval surface: `Inputs read`, `Decision method`, `Rows considered`, `Proposed action`, `Approval status`, `Blockers`, and `Next stage`. Do not treat the human approval tables as the whole packet.
+
+Stage 4 executes only the approved rows from a complete Stage 3 packet, using the machine log for exact payload details, and then proves read-back. If the approved human table and machine log disagree, or if the Stage 3 packet is table-only, lacks the top summary, or lacks the required packet shell, return to Stage 3 correction before writing.
