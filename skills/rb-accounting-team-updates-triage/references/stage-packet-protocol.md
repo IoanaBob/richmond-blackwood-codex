@@ -141,7 +141,19 @@ Execution:
 6. For unclear ownership, project, source meaning, owning operational record, target schema, or Team Updates write-back method, add an `unresolved` row with a proposed Team Updates note. Do not write that note in Stage 3.
 7. Do not leave a row unresolved only because no existing task or operational row was found. If owner, responsible company/project, source action, and Tasks schema are clear, propose a new task. Every unresolved row must explain why creating a new task is unsafe.
 8. Preserve the machine-complete routing fields after the human approval surface or in `stage-03-routing-log.md` / a handover file referenced from `stage-03-routing-plan.md`.
-9. Write `stage-03-routing-plan.md`, print only the human approval surface, then stop for approval.
+9. Write `stage-03-routing-plan.md` as a full packet, print only the human approval surface, then stop for approval.
+
+Required packet shell before the human approval surface:
+
+- `## Inputs Read`
+- `## Decision Method`
+- `## Rows Considered`
+- `## Proposed Action`
+- `## Approval Status`
+- `## Blockers`
+- `## Next Stage`
+
+The human approval surface must follow that shell and start with `## Decision Summary`. A Stage 3 packet that starts directly with `## Decision Summary`, or otherwise contains only the approval tables plus a machine-log link, is invalid and must be corrected before Stage 4.
 
 Human approval surface:
 
@@ -175,9 +187,11 @@ An unresolved decision must include a create-task safety analysis. If the only g
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
 The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing`.
+The packet must include the full Stage 3 packet shell before the approval tables; the routing skill's human approval surface is embedded inside the packet and does not replace the packet.
 The visible routing table must match that skill's `Human Approval Surface` contract. The later or separate machine log must preserve that skill's `Machine Routing Log` contract.
 No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit in the machine log or the row is marked `unresolved` with a concrete create-task unsafe reason.
 If the human table and machine log disagree, Stage 4 must stop and return to Stage 3 correction; the operator-approved human table controls the intended action.
+If the approved Stage 3 packet lacks the full packet shell, Stage 4 must stop and return to Stage 3 correction even if the operator approved the routing decisions.
 
 ## Stage 4 - Notion Write Results
 

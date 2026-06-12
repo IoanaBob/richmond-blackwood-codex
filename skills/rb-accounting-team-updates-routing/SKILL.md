@@ -141,4 +141,6 @@ For `create_task`, `update_task`, or `comment_existing` rows:
 
 ## Stage Boundary
 
-The output of this skill is the Stage 3 Routing Plan packet plus any linked machine log. Stage 4 executes only the approved rows from the human approval surface, using the machine log for exact payload details, and then proves read-back. If the approved human table and machine log disagree, return to Stage 3 correction before writing.
+The output of this skill is the routing decision content for the Stage 3 Routing Plan packet plus any linked machine log. The parent `rb-accounting-team-updates-triage` skill must wrap this content in the full Stage 3 packet shell before the `## Decision Summary` approval surface: `Inputs read`, `Decision method`, `Rows considered`, `Proposed action`, `Approval status`, `Blockers`, and `Next stage`. Do not treat the human approval tables as the whole packet.
+
+Stage 4 executes only the approved rows from a complete Stage 3 packet, using the machine log for exact payload details, and then proves read-back. If the approved human table and machine log disagree, or if the Stage 3 packet is table-only and lacks the required packet shell, return to Stage 3 correction before writing.
