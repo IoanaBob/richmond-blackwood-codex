@@ -34,6 +34,7 @@ Each packet must include:
 
 - run ID;
 - stage number and name;
+- a `## Summary` section immediately after the packet metadata, before logs, schemas, rows, or execution details;
 - exact source/query/window used;
 - rows or messages considered;
 - proposed or completed action;
@@ -45,6 +46,17 @@ Each packet must include:
 Print the packet content in chat after writing it. Then stop for approval unless the stage is explicitly auto-approved below.
 
 For stages with long machine logs, print only the human approval surface unless the operator explicitly asks to see the log. The disk packet must link any hidden or later log that Stage 4 or a resumed runner needs.
+
+## Human Approval Formatting
+
+All stages must be answer-first and reviewable:
+
+- Put `## Summary` at the top of every stage packet, immediately after the title/run metadata. Use 2-5 bullets that state the decision/status, counts, and next gate before any detailed table or log.
+- Hyperlink every human-facing Notion task/page, Drive file, Slack message, GitHub PR, or packet path when the target is known. In Markdown packets, use `[Readable title](URL)` instead of a raw URL or `Title (URL)`. Slack closeout text may use Slack link syntax.
+- Keep approval tables compact. Do not include a column when every value is identical to the section heading, mechanically repeated, empty, or `none`.
+- For Stage 3 routing tables, the section heading already supplies the action family. Do not include a `Decision` column in `Creates`, `Updates / comments`, or `Skips / no action` unless the section intentionally mixes multiple decision types. Do not include `Blocker / approval needed` when all rows only say routine approval is needed or have no blocker.
+- For empty groups, write a short sentence such as `None.` instead of a one-row `none` table.
+- If a table omits a repeated field for readability, preserve the complete machine value in the machine log.
 
 ## Stage Execution Contract
 
@@ -145,6 +157,7 @@ Execution:
 
 Required packet shell before the human approval surface:
 
+- `## Summary`
 - `## Inputs Read`
 - `## Decision Method`
 - `## Rows Considered`
@@ -153,14 +166,16 @@ Required packet shell before the human approval surface:
 - `## Blockers`
 - `## Next Stage`
 
-The human approval surface must follow that shell and start with `## Decision Summary`. A Stage 3 packet that starts directly with `## Decision Summary`, or otherwise contains only the approval tables plus a machine-log link, is invalid and must be corrected before Stage 4.
+The human approval surface must follow that shell and start with `## Decision Summary`. A Stage 3 packet that starts directly with `## Decision Summary`, omits the top `## Summary`, or otherwise contains only the approval tables plus a machine-log link, is invalid and must be corrected before Stage 4.
 
 Human approval surface:
 
 - Start with `## Decision Summary`.
 - Group rows under `Creates`, `Updates / comments`, `Skips / no action`, and `Unresolved / needs decision`.
 - Use a compact table, not one bullet per machine field.
-- Required columns: `Source row`, `Source line`, `Decision`, `Target`, `Owner`, `Due`, `Exact action`, `Team Updates write-back`, and `Blocker / approval needed`.
+- Default columns for create/update tables: `Source row`, `Source line`, `Target`, `Owner`, `Due`, `Exact action`, and `Team Updates write-back`.
+- For skip tables, use `Source row`, `Source line`, and `Reason` unless another column adds meaningful review value.
+- For unresolved tables, use `Source row`, `Source line`, `Missing decision`, `Why creating a task is unsafe`, and `Proposed Team Updates note`.
 - Keep raw Notion JSON, exact schema property names, dedupe search notes, Slack user IDs, and long source excerpts out of the visible table unless they are needed for approval.
 - Link the log/handover file when details are preserved outside the packet.
 
@@ -187,11 +202,11 @@ An unresolved decision must include a create-task safety analysis. If the only g
 Approval is required before any Notion task write, task comment, Team Updates write-back, or source checkbox update.
 
 The packet must explicitly state: `Applied skill: rb-accounting-team-updates-routing`.
-The packet must include the full Stage 3 packet shell before the approval tables; the routing skill's human approval surface is embedded inside the packet and does not replace the packet.
+The packet must include the top `## Summary` and full Stage 3 packet shell before the approval tables; the routing skill's human approval surface is embedded inside the packet and does not replace the packet.
 The visible routing table must match that skill's `Human Approval Surface` contract. The later or separate machine log must preserve that skill's `Machine Routing Log` contract.
 No row may be approved for Stage 4 execution unless its target schema, project source, owner/reviewer fields, and Team Updates write-back method are explicit in the machine log or the row is marked `unresolved` with a concrete create-task unsafe reason.
 If the human table and machine log disagree, Stage 4 must stop and return to Stage 3 correction; the operator-approved human table controls the intended action.
-If the approved Stage 3 packet lacks the full packet shell, Stage 4 must stop and return to Stage 3 correction even if the operator approved the routing decisions.
+If the approved Stage 3 packet lacks the top summary or full packet shell, Stage 4 must stop and return to Stage 3 correction even if the operator approved the routing decisions.
 
 ## Stage 4 - Notion Write Results
 
