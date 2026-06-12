@@ -227,7 +227,7 @@ User follow-up on 2026-05-15 resolved several MHL/Gabriel review points: MHL pay
 
 ## Claudio Brivio Personal Sources
 
-Claudio personal sources are routed to `clients/Individuals/Claudio Brivio/source-register.md`. The 2026-06-11 follow-up updated the December 2025 Notion payroll row `https://app.notion.com/p/2bae41301314810aa1f3cab2fb583545` so its `Payslip` property contains both the original December monthly payslip and the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`. The same follow-up recorded that the EUR 1,092.00 coworking meal allowance is material because other actual employment work expenses are EUR 1,773.58, above the EUR 1,230 employee allowance.
+Claudio personal sources are routed to `clients/Individuals/Claudio Brivio/source-register.md`. The 2026-06-11 follow-up updated the December 2025 Notion payroll row `https://app.notion.com/p/2bae41301314810aa1f3cab2fb583545` so its `Payslip` property contains both the original December monthly payslip and the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`. The 2026-06-12 operator correction excluded the EUR 1,092.00 coworking meal allowance because the days were not external workdays and excluded EUR 638.00 BVG because full work use is not supportable against home-office overlap without day-level travel evidence; the workbook now uses the EUR 1,230 employee lump sum.
 
 ## Public Sources
 

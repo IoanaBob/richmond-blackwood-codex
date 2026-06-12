@@ -23,18 +23,18 @@ Summary figures:
 
 - Gross employment income EUR 30,000.00.
 - Wage tax withheld EUR 3,420.96.
-- Employment work expenses EUR 2,865.58.
+- Employment work expenses EUR 1,230.00 after 2026-06-12 operator correction; actual itemized employment expenses read back at EUR 1,135.58.
 - Health/care included EUR 5,597.63.
 - Investment interest income EUR 1,150.81 and investment withholding EUR 303.48.
 - Known payments/withholding EUR 3,724.44.
 - Business/freelance net PNL EUR 0.00.
-- Workbook support figure for income after deductions before tax-rate calculation EUR 22,651.60.
+- Workbook support figure for income after deductions before tax-rate calculation EUR 24,287.18 after the 2026-06-12 operator correction.
 
 Unresolved:
 
 - CBMAX 2025 annual Lohnsteuerbescheinigung was later supplied by the user, uploaded to Drive, and attached to the December Notion payroll `Payslip` property; visual totals reconciliation remains because local PDF text extraction was unavailable.
 - N26 treatment was approved by the operator on 2026-06-11: EUR 1,150.81 is interest/capital income received, and EUR 303.48 is tax already withheld by N26.
-- Coworking meal allowance treatment needs filer review. It is material because other actual employment work expenses are EUR 1,773.58, already above the EUR 1,230 employee allowance, so accepting or rejecting the EUR 1,092.00 meal allowance changes the claimed deduction.
+- Resolved 2026-06-12: coworking meal allowance is not claimed because the coworking days were not external workdays; BVG is not claimed because 100% work use is not supportable against home-office overlap without day-level travel evidence. Workbook uses the EUR 1,230 employee lump sum.
 - Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian need filing-position review.
 - Workbook still reports one failed check for prior-year opening links.
 
@@ -48,7 +48,7 @@ Follow-up:
 
 - User supplied `Claudio_Brivio_Lohnsteuerbescheinigung_2025_Korrektur_aus_2026-06.pdf` on 2026-06-11. Uploaded it to the 2025 CBMAX payslip folder as `https://drive.google.com/file/d/1olIphOCNpIgBl_zPs1FqVz4_mIUGtFOb/view?usp=drivesdk`, linked it on the workbook December revenue row and `Sources` tab, attached it to the December Notion payroll `Payslip` property, and added a Notion comment on the December payroll row `https://app.notion.com/p/2bae41301314810aa1f3cab2fb583545`.
 - Operator approved the N26 interpretation on 2026-06-11; the workbook investment row and Notion filing comments were updated to show N26 withholding as tax already withheld rather than an additional payment due now.
-- Coworking materiality was recorded on 2026-06-11: other actual employment work expenses excluding the meal allowance are EUR 1,773.58, which is above the EUR 1,230 employee allowance, so the EUR 1,092.00 meal allowance affects the claimed deduction if accepted or rejected.
+- 2026-06-12 operator correction: coworking meal allowance EUR 1,092.00 and BVG EUR 638.00 are not claimed. Workbook read-back shows actual itemized employment expenses EUR 1,135.58 and employment work expenses used EUR 1,230.00 via the employee lump sum.
 
 ## 2026-06-08 - EVG Company Context Import
 

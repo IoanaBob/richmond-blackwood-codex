@@ -104,14 +104,14 @@ Analysis snapshot, 2026-06-11:
 | --- | --- | --- |
 | Gross employment income | EUR 30,000.00 | Twelve CBMAX salary rows entered from Notion payroll/payslip evidence; user confirmed Claudio was with RB the full year. |
 | Wage tax withheld | EUR 3,420.96 | EUR 285.08 per month from CBMAX payroll evidence. |
-| Employment work expenses used | EUR 2,865.58 | Actual deductions exceed the employee lump sum: home office EUR 918.00, meal allowance/coworking days EUR 1,092.00, BVG EUR 638.00, phone/internet professional share EUR 166.58, Taxfix work share EUR 35.00, and bank-account flat EUR 16.00. |
+| Employment work expenses used | EUR 1,230.00 | Workbook now uses the employee lump sum. Supported itemized employment expenses are EUR 1,135.58: home office EUR 918.00, phone/internet professional share EUR 166.58, Taxfix work share EUR 35.00, and bank-account flat EUR 16.00. Coworking meal allowance and BVG are excluded after operator correction. |
 | Health/care included | EUR 5,597.63 | Hallesche basic health plus care minus reimbursement. Hallesche optional/non-basic amount is excluded. |
 | Other personal deductions included | EUR 5,633.63 | Health/care EUR 5,597.63 plus automatic special-expense baseline EUR 36.00. |
 | Investment interest income | EUR 1,150.81 | N26 interest. User instructed investments should have been personal for the full year. |
 | Investment withholding | EUR 303.48 | N26 capital-income tax EUR 287.72 plus solidarity surcharge EUR 15.76. |
 | Known payments/withholding | EUR 3,724.44 | Wage tax withheld plus N26 investment withholding. |
 | Business/freelance net PNL | EUR 0.00 | No 2025 business/freelance activity was populated. |
-| Income after deductions before tax-rate calculation | EUR 22,651.60 | Workbook support figure only; not a final German tax-liability calculation. |
+| Income after deductions before tax-rate calculation | EUR 24,287.18 | Workbook support figure only; not a final German tax-liability calculation. |
 | Workbook checks | 1 failed check; 1 open missing-info item | Remaining failed check is `Prior-year opening links missing`; formula/calculation tabs were preserved. |
 
 Current evidence shape:
@@ -119,8 +119,8 @@ Current evidence shape:
 | Area | Status | Source | Review |
 | --- | --- | --- | --- |
 | Employment | Evidence present | Notion payroll rows, Drive payslips for all 12 CBMAX months, and annual Lohnsteuerbescheinigung uploaded on 2026-06-11 | December monthly PDF did not text-extract through the connector. Annual certificate is linked on the December revenue row, attached to the December Notion payroll `Payslip` property, and noted on the December payroll page; visually reconcile certificate totals before final filing. |
-| Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Meal allowance/coworking-day treatment needs filer review, including first-workplace and 3-month-rule treatment. The allowance is material: other actual employment work expenses are EUR 1,773.58, already above the EUR 1,230 employee allowance, so rejecting the meal allowance would reduce claimed work expenses by EUR 1,092.00. |
-| BVG and phone/internet | Evidence present | N26 deductions ledger plus exact invoice/source URLs in workbook rows | BVG uses the bank-ledger/source URL because no separate BVG receipt files were found. Phone/internet claim uses exact invoice URLs in the workbook. |
+| Home office / coworking | Evidence present | 2025 home-office/coworking tracker | Home-office daily allowance remains claimed at EUR 918.00. Coworking meal allowance is not claimed after operator clarification on 2026-06-12 that those days were not external workdays. |
+| BVG and phone/internet | Evidence present | N26 deductions ledger plus exact invoice/source URLs in workbook rows | BVG is not claimed because full-year ticket cost overlaps home-office days and no day-level commute/coworking travel reconciliation supports 100% work use. Phone/internet claim uses exact invoice URLs in the workbook. |
 | Health insurance | Evidence present | Hallesche 2025 certificate | Basic health/care included; optional/non-basic component excluded. |
 | Investments | Evidence present, operator treatment approved | N26 2025 tax statement and tracker figures | Operator approved treatment on 2026-06-11: EUR 1,150.81 is N26 interest/capital income received, and EUR 303.48 is tax already withheld by N26. |
 | Foreign-company context | Prior context plus user instruction | 2024 foreign-company package and 2026-06-11 user instruction | Review Section 138 AO / Anlage AUS / continued-holdings framing for personal holdings in CBMAX and Job Guardian. |
@@ -128,6 +128,8 @@ Current evidence shape:
 Exclusions and non-claims:
 
 - Hallesche optional/non-basic amount EUR 1,176.37.
+- Coworking meal allowance EUR 1,092.00, because the coworking days were not external workdays.
+- BVG / Deutschlandticket EUR 638.00, because 100% work use is not supportable against home-office overlap without day-level commute/travel evidence.
 - Dental/prophylaxis EUR 502.33, because the second invoice PDF was missing and the amount was below the likely reasonable-burden threshold.
 - Dedicated-room home-office route.
 - Work equipment, training, moving costs, double household, childcare, donations, church tax, maintenance, household/handyman credits, and business/freelance PNL.
@@ -136,6 +138,5 @@ Exclusions and non-claims:
 Open review themes:
 
 - Visually reconcile the uploaded CBMAX 2025 annual Lohnsteuerbescheinigung against the monthly workbook rows before final filing.
-- Review coworking meal allowance treatment. This matters because other actual employment work expenses are EUR 1,773.58, already above the EUR 1,230 employee allowance; the EUR 1,092.00 coworking meal allowance changes the claimed deduction if accepted or rejected.
 - Review Section 138 AO / Anlage AUS / continued holdings for CBMAX and Job Guardian.
 - Decide whether the prior-year opening-link workbook check can be accepted as non-filing-critical for this source-only preparation workbook.

@@ -97,7 +97,7 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Resolved 2026-05-14: Health/care EUR 5,470.32 is claimed; Hallesche non-basic/supplemental EUR 1,050.69 is excluded.
 - 2025 health/care EUR 5,597.63 is claimed from the Hallesche certificate; Hallesche optional/non-basic EUR 1,176.37 is excluded.
 - Resolved 2026-05-14: Home-office daily allowance, Pixel Buds, and mobile-phone professional share are claimed; commute and Telekom internet are excluded.
-- Review 2025 coworking meal allowance treatment, including first-workplace and 3-month-rule handling. This is material: other actual employment work expenses are EUR 1,773.58, above the EUR 1,230 employee allowance, so rejecting the EUR 1,092.00 meal allowance would reduce claimed work expenses by EUR 1,092.00.
+- Resolved 2026-06-12: 2025 coworking meal allowance is not claimed because the coworking days were not external workdays; BVG is not claimed because 100% work use is not supportable against home-office overlap without day-level travel evidence. The workbook now uses the EUR 1,230 employee lump sum because supported itemized employment expenses are EUR 1,135.58.
 - Final-review point: Freenet mobile-phone support is the exact Drive ZIP plus tracker summary; extract individual invoice PDFs only if the filer wants invoice-level files separated.
 - Resolved 2026-05-14: CBMAX and Job Guardian Section 138 AO notifications should be included in the 2024 filing package.
 - Review how Section 138 AO late/proactive filing should be framed for CBMAX and Job Guardian.

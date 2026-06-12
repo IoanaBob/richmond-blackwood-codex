@@ -1027,7 +1027,7 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Created fresh workbook `https://docs.google.com/spreadsheets/d/1-hmXCtlh3RMSKzd10oRtpK5CZvmCuxwnCJ6ZoijM_m8/edit`, populated source/input tabs only, updated the live 2025 Notion filing and existing prep/filing tasks, and recorded workbook/source/task pointers in Claudio repo records and durable memory.
 - Decisions made: Claudio was treated as RB-employed for the full year; investments were treated as personal for the full year; N26 interest/withholding was entered as personal investment income; optional Hallesche and dental costs were excluded; filing remains blocked until review flags are resolved.
 - Verification: Sheets read-back confirmed summary figures, formula preservation, and evidence URLs; Notion read-back confirmed status/link/comment updates; Drive/Sheets source read-back confirmed the key source trackers and evidence files.
-- Limitations or gaps: CBMAX 2025 annual Lohnsteuerbescheinigung was later supplied and linked; N26 tax statement treatment was later approved by the operator; coworking meal allowance and Section 138/AUS holdings framing need final review; workbook still has a prior-year opening-link check.
+- Limitations or gaps: CBMAX 2025 annual Lohnsteuerbescheinigung was later supplied and linked; N26 tax statement treatment was later approved by the operator; coworking meal allowance treatment was later superseded by the 2026-06-12 operator correction; Section 138/AUS holdings framing needs final review; workbook still has a prior-year opening-link check.
 
 ## 2026-06-11 - Claudio 2025 Annual Lohnsteuerbescheinigung Follow-Up
 
@@ -1045,13 +1045,22 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Actions taken: Updated the workbook investment row note, added a Notion filing comment, and updated Claudio/source/current-state/open-question memory to remove the N26 item from remaining warnings.
 - Decisions made: EUR 1,150.81 is treated as N26 interest/capital income received; EUR 303.48 is treated as N26 tax already withheld, not an additional payment due now.
 - Verification: Workbook write succeeded; Notion comment create succeeded. Repo verification pending closeout.
-- Limitations or gaps: Remaining warnings are annual certificate visual reconciliation, coworking meal-allowance treatment, Section 138/AUS holdings framing, prior-year opening-link check, and payroll payment reconciliation/source extraction notes.
+- Limitations or gaps: Remaining warnings at that point were annual certificate visual reconciliation, coworking meal-allowance treatment, Section 138/AUS holdings framing, prior-year opening-link check, and payroll payment reconciliation/source extraction notes; coworking/BVG treatment was later superseded by the 2026-06-12 operator correction.
 
 ## 2026-06-11 - Claudio Annual Certificate Payslip Update And Coworking Materiality
 
 - User request: Apply the annual Lohnsteuerbescheinigung directly to Claudio's December Notion payslip entry and clarify whether the coworking meal allowance matters despite the employee allowance.
 - Context read: December 2025 Notion payroll row, payroll schema, annual certificate Drive upload, workbook `Deductibles` and `Summary` tabs, and Claudio repo memory.
 - Actions taken: Updated the December payroll `Payslip` property to include both the original monthly payslip and the uploaded annual Lohnsteuerbescheinigung. Updated workbook/Notion notes and repo memory with the coworking materiality calculation.
-- Decisions made: Coworking is still a material review point because other actual employment work expenses are EUR 1,773.58, already above the EUR 1,230 employee allowance; accepting or rejecting the EUR 1,092.00 allowance changes the claimed deduction.
+- Decisions made: Coworking was still treated as a material review point at this stage because other actual employment work expenses were EUR 1,773.58, above the EUR 1,230 employee allowance. This was superseded by the 2026-06-12 operator correction excluding the coworking meal allowance and BVG.
 - Verification: Notion payroll read-back confirmed both files in `Payslip`; workbook read-back confirmed the deductible note; Notion filing comment read-back confirmed the warning.
-- Limitations or gaps: Filer still needs to decide the meal-allowance treatment and visually reconcile the annual certificate totals before final filing.
+- Limitations or gaps: Meal-allowance treatment was later decided by the 2026-06-12 operator correction; visual reconciliation of the annual certificate totals remains before final filing.
+
+## 2026-06-12 - Claudio 2025 Coworking And BVG Deduction Correction
+
+- User request: Clarified coworking days were not external workdays and questioned whether 100% BVG can be claimed when the same period includes home-office days.
+- Context read: Live workbook `Deductibles`, `Summary`, `Tax Analysis`, and `Checks` tabs; Notion filing comments; Claudio repo memory.
+- Actions taken: Updated the live workbook input/source rows only: coworking meal allowance is not claimed, BVG is not claimed pending day-level travel evidence, and notes record the operator correction. Added a Notion filing comment with the corrected figures.
+- Decisions made: Use the EUR 1,230 employee lump sum because supported itemized employment expenses are now EUR 1,135.58, below the lump sum.
+- Verification: Workbook read-back confirmed employment work expenses used EUR 1,230.00, actual itemized employment expenses EUR 1,135.58, and income after deductions before tax-rate calculation EUR 24,287.18. Formula cells in `Summary` and `Tax Analysis` remained formulas. Notion filing comment read-back confirmed the correction.
+- Limitations or gaps: Remaining 2025 review flags are annual Lohnsteuerbescheinigung visual reconciliation, Section 138 AO / Anlage AUS / continued-holdings framing, and the prior-year opening-link workbook check.
