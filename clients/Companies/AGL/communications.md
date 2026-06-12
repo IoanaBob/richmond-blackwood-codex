@@ -25,6 +25,7 @@ Review: No outbound communication was sent during this import.
 | Gmail `19ddec11fa6527a5`, `19ddeba3f078d6bd` | 2026-04-30 | ELSTER confirmations for AGL supporting-document submissions. |
 | Gmail `19dda43686394fc3`, `19dda49d67703a47` | 2026-04-29 | ELSTER confirmations for AGL 2024 KSt and GewSt. |
 | Gmail `19dcef9e06c9b05a` | 2026-04-27 | Berlin Finanzamt payroll-tax letter, filed to Drive and Notion correspondence. |
+| ELSTER / Notion Communications `https://app.notion.com/p/37de41301314811289c9eae9e5acb75d` | 2026-06-12 | Outgoing ELSTER response to the Vollstreckungsankündigung dated 2026-06-10 for Steuernummer `29/628/00250`, asking the Finanzamt to process the 2024 KSt, GewSt, USt annual return, and E-Bilanz submissions and to hold enforcement while reviewing. Follow-up task: `https://app.notion.com/p/37de41301314815d85e5e06bdb44f4c7`. |
 | WhatsApp chat `120363222065866778@g.us` | 2026-02-06 to 2026-05-12 window reviewed on 2026-05-13 | Confirmed recurring Syntentia day-count/expense workflow, late-expense behavior, monthly planned holiday checks, AGL bond approval flow, personal-tax document gathering, and Wamo-to-Wise salary payment notes. Passwords and raw transcripts were not copied into git. |
 
 ## Notes
