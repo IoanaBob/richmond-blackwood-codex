@@ -337,6 +337,7 @@ Copy style:
 - Do not fake enthusiasm or pretend personal fascination. Avoid filler such as `wild combo`, `pretty unusual`, `pretty specific`, `made me think`, `made me wonder`, `I imagine`, `probably`, `cursed`, `real annoyance`, or similar praise/reaction language unless the user explicitly approves that exact line.
 - Do not make the message prove research. Mention only the minimum concrete detail needed to make the question clear.
 - A good first message should feel like a real DM someone would send after meeting online: direct, a little informal, and specific enough that it could not be sent to another person.
+- Do not write like the sender already knows the recipient. For newly accepted connections, default to `Thanks for connecting.` without the person's first name, avoid chummy reactions such as `Nice`, and do not use inside-joke familiarity. Replies can match the recipient's warmth, but still stay like a first professional exchange unless the thread has earned more familiarity. Status: approved. Source: user instruction in chat. Imported: 2026-06-12. Review: apply to first messages, replies, and follow-ups.
 - Use `lol` sparingly and only where it clearly improves the line, for example when owning a small mix-up. If several drafts in a packet use `lol`, rewrite most of them without it.
 - If the user asks for imperfect human copy, allow light typos or rough punctuation, but never add mistakes mechanically. The copy should still be clear, respectful, and competent.
 - Do not use hyphen separators in outbound LinkedIn copy. Write like a chat message, using short sentences or commas instead.
@@ -389,19 +390,19 @@ Rules:
 Good message shape:
 
 ```text
-thanks for connecting [Name]. quick q on [specific product/post/system/workflow]: what happens when [pointed workflow/customer/technical constraint]?
+Thanks for connecting. Quick q on [specific product/post/system/workflow]: what happens when [pointed workflow/customer/technical constraint]?
 ```
 
 Founder/operator variant:
 
 ```text
-thanks for connecting [Name]. quick q on [specific product/launch/customer]: where do people usually get stuck?
+Thanks for connecting. Quick q on [specific product/launch/customer]: where do people usually get stuck?
 ```
 
 Technical-role variant:
 
 ```text
-thanks for connecting [Name]. quick q on [specific system] at [Company]: where does [specific component/workflow] get annoying?
+Thanks for connecting. Quick q on [specific system] at [Company]: where does [specific component/workflow] get annoying?
 ```
 
 Follow-up after no reply:
