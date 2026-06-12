@@ -2,6 +2,15 @@
 
 Status: active.
 
+## 2026-06-12 - EXV Review Corrections And Live Cleanup
+
+- User request: Apply EXV open-question answers, including Slack/internal routing, canonical Drive creation, Workhub resolution, registration cleanup, project routing, Workhub/RBL cost routing, and latest legal-opinion search.
+- Context read: EXV repo memory, user review answers, live Notion company/registration/filing/task records, Google Drive internal-company folders and searches, CRO Open Data, and internal Notion legal pages for XVault/MiCA/CASP.
+- Actions taken: Created and verified Drive folder `09. Exotic Vaults Foundation CLG`; updated/read back live Notion communication preference as Slack; set/read back RTD as Not Applicable; corrected/read back VIES title/status; normalized/read back the 2026 annual-return title and due date to `2026-08-06`; closed/read back the Workhub address/Plus Plan task as Done; commented the XVault/MiCA/CASP risk task with the legal-opinion search result.
+- Decisions made: EXV is internal/Konvi-routed with no WhatsApp JID; Konvi Group is the current project route; Workhub charges route to Richmond Blackwood; RTD/VIES remain Not Applicable; use CRO Open Data NARD as the annual-return date source.
+- Verification: Drive metadata/listing, live Notion read-backs, CRO Open Data query for company 781069, and task comments were checked. Repo verification is tracked in branch closeout.
+- Limitations or gaps: Latest external legal opinion or counsel position for XVault/MiCA/CASP was not found; internal legal pages are useful context but not final external counsel evidence.
+
 ## 2026-06-10 - Germany Growth LinkedIn And Reddit Operating Rules
 
 - User request: Merge the in-progress Germany growth operating branch as-is after several live growth runs and rule corrections.
@@ -1019,3 +1028,12 @@ This file is the append-only chronological ledger for meaningful Richmond Blackw
 - Decisions made: EVG keeps both real-estate/property purpose and Everguard Research operations; `contact+everguardproperties@eip.ventures` stays for accounting; the project relation structure is intentional; EVG has no VAT so VIES/RTD are Not Applicable; canonical Drive folder is `08. Everguard Research`; Techpacito downstream review is complete; Eran owns M&A Arts review and Phillips/payment follow-up.
 - Verification: Pending branch closeout.
 - Limitations or gaps: CT/Annual Tax remain open; BOI package is submitted but bank profile has not yet changed; no Drive, Gmail, Slack, or WhatsApp writes were made.
+
+## 2026-06-09 - EXV Company Context Import
+
+- User request: Pull latest main and populate company memory for EXV.
+- Context read: Notion EXV company, KHL shareholder record, Eran/Ioana role records, filing registrations/filings, Workhub task and communication, CT/advisory/Avalanche/BOI/Dracoon communication rows, XVAULT launch project, XVault/MiCA/CASP risk task, Drive search/list-folder results, WhatsApp chat searches, and existing Konvi/EIP/VUN repo memory.
+- Actions taken: Created `clients/Companies/EXV/`, saved company overview, linked individuals, group structure, authority/document pointers, tax/filing map, accounting setup, Workhub expense/address context, communication routes, project/product pointers, Drive state, source register, open questions, and history. Added Konvi/EIP/VUN cross-links and durable memory/source updates.
+- Decisions made: Treat EXV as internal Konvi/KHL group context; store only EXV operating pointers and compliance dependencies in repo; keep product specs in Notion and Konvi licensing risk in Konvi memory.
+- Verification: Pending branch closeout.
+- Limitations or gaps: No live Notion, Drive, Gmail, Slack, or WhatsApp writes were made. No canonical Drive folder or WhatsApp JID was found. RTD/VIES cleanup, Workhub decision, project-route confirmation, and regulatory-risk path remain open.

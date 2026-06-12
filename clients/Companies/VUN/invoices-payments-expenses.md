@@ -56,7 +56,7 @@ Gmail backfill on 2026-05-05 found payment/receipt evidence:
 | 2026-03-02 | Lexware | `Ihre Lexware Rechnung` | EUR 32.90 plus VAT | Recurring Lexware invoice notice to `accounts+vun@richmondblackwood.com`; no attachment. |
 | 2026-02-26 | Wamo | `You sent EUR 8000.00 to Nathan Vandy` | EUR 8,000.00 | Sender VANDY UN LIMITED; receiver Nathan Vandy; description: Sent from wamo. |
 | 2026-02-26 | Wamo | `You sent EUR 2031.90 to Nathan Vandy` | EUR 2,031.90 | Sender VANDY UN LIMITED; receiver Nathan Vandy; description: Lohn and Gehalt February 2026. |
-| 2026-02-05 | Workhub | `February renewals` | EUR 243.54 total invoice | Attachment `Invoice CC INV 18238   Richmond Blackwood Limited.pdf`; covers two Essential plan renewals for VANDY UN LIMITED and EXOTIC VAULTS FOUNDATION COMPANY LIMITED BY GUARANTEE, quantity 2 at EUR 99.00 plus 23% VAT. Full allocation by company needs review. |
+| 2026-02-05 | Workhub | `February renewals` | EUR 243.54 total invoice | Attachment `Invoice CC INV 18238   Richmond Blackwood Limited.pdf`; covers two Essential plan renewals for VANDY UN LIMITED and EXOTIC VAULTS FOUNDATION COMPANY LIMITED BY GUARANTEE, quantity 2 at EUR 99.00 plus 23% VAT. User confirmed on 2026-06-12 that Workhub is always charged to Richmond Blackwood, so treat this as RBL-side Workhub validation rather than a VUN/EXV payable allocation. |
 | 2026-02-02 | Lexware | `Ihre Lexware Rechnung` | EUR 32.90 plus VAT | Recurring Lexware invoice notice to `accounts+vun@richmondblackwood.com`; no attachment. |
 | 2026-01-28 | Wamo | `You sent EUR 2031.90 to Nathan Vandy` | EUR 2,031.90 | Sender VANDY UN LIMITED; receiver Nathan Vandy; description: Lohn and Gehalt Januar 2026. |
 | 2026-01-28 | Wamo | `You sent EUR 1000.00 to Nathan Vandy` | EUR 1,000.00 | Sender VANDY UN LIMITED; receiver Nathan Vandy; description: Sent from wamo. |
@@ -78,4 +78,4 @@ Backed-up invoice/receipt attachments should live in the VUN Drive backup/export
 
 - Fetch invoice and expense records before writing payment status.
 - Confirm whether dashboard-filtered views should be used as the operating source for invoice/payment status.
-- Confirm how to allocate shared Workhub renewal invoice `CC-INV-18238` between VUN and Exotic Vaults.
+- Resolved 2026-06-12: Workhub is always charged to Richmond Blackwood. Use `../RBL/invoices-payments-expenses.md` for Workhub invoice validation; EXV/VUN references are address/use context, not payable allocation.

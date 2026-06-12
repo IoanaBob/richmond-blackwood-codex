@@ -176,6 +176,10 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Complete Everguard offering research and confirm regulatory/distribution constraints before treating the bond exemption analysis as final.
 - Verify Phillips invoice payment status before booking payable/asset records. The task is assigned to Eran Peer and user said Eran owns it.
 
+## EXV / Exotic Vaults Questions
+
+- Locate and review the latest external legal opinion or counsel position for XVault/MiCA/CASP before relying on the internal Notion legal analysis as final. Internal pages `Legal & Compliance`, `Compliance Under MiCA`, and `Applicability of MiFID II to Exotic Vaults` were found and linked on 2026-06-12, but Drive searches for `XVault legal opinion MiCA CASP Exotic Vaults`, `Exotic Vaults MiCA`, and `CASP legal opinion` did not locate an external/latest opinion. The live risk task remains `In Progress` with this blocker commented.
+
 ## KONVI Questions
 
 - Confirm live status and next owner for April 2026 books, the Mar-Apr 2026 Irish VAT return, the ROS demand, and Revenue VAT refund support request; user confirmed on 2026-05-26 that these are real problems.

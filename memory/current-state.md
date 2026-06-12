@@ -2,7 +2,7 @@
 
 Status: provisional.
 Imported: 2026-05-04.
-Updated: 2026-06-03.
+Updated: 2026-06-12.
 
 ## Repo State
 
@@ -322,6 +322,18 @@ EVG / EVERGUARD RESEARCH LIMITED context import:
 - User review/live cleanup on 2026-06-09 resolved mixed business-purpose wording, accounting-email retention, intentional project relation structure, Annual Returns registration, no-VAT VIES/RTD status, VIES title typo, May EVG/Luiza invoice company relation, canonical Drive folder, and Techpacito downstream review.
 - High-signal current checks: CT/Annual Tax registration status, BOI account-name verification because the package was submitted but not yet changed, M&A Arts submissions not yet reviewed with Eran as owner, Everguard offering research, and Phillips payable/payment verification assigned to Eran.
 - Boundary: keep EVG investor/payment/register/bond/research/auction detail in `clients/Companies/EVG/` and live EVG Notion/Drive sources, not in RB client files such as TPL. Do not copy bank details, SignNow action links or IDs, private DocSend links, Gmail attachment IDs, Notion attachment URLs, raw transcripts, payment proof details, or personal identifiers into git.
+
+EXV / EXOTIC VAULTS FOUNDATION CLG context import:
+
+- Company folder: `clients/Companies/EXV/`.
+- Notion company: `https://www.notion.so/18ce41301314807ca520f40825c36054`; `Reference` is `EXV`.
+- Notion company facts: Irish CLG, register number 781069, registered 2025-02-06, tax residence Ireland, registered/correspondence address at Workhub Camden Street, monthly fee to RB EUR 0, secretary Richmond Blackwood Limited, communication preference Slack. Communication preference was updated/read back in live Notion on 2026-06-12 after user review confirmed EXV is internal/Konvi-routed rather than WhatsApp-routed.
+- Group context: KONVI HOLDINGS LIMITED is shareholder company; Eran and Ioana are directors and UBOs. Treat EXV as Konvi/KHL internal group context until the EIP/group-structure task clarifies direct/indirect treatment.
+- Product/regulatory context: EXV governs Exotic Vaults Protocol/DEX and `$XVAULT`; the product project is `Launch first XVAULT Vault`, and the Konvi XVault/MiCA/CASP risk review remains In Progress. Internal Notion pages `Legal & Compliance`, `Compliance Under MiCA`, and `Applicability of MiFID II to Exotic Vaults` were found on 2026-06-12, but the latest external legal opinion or counsel position was not located in Notion/Drive searches and remains open.
+- Filing state: CT, RBO, and Annual Returns are registered; VAT, VIES, and RTD are Not Applicable. VIES title was corrected/read back from `VEIS` to `VIES`; the 2026 annual-return row was normalized/read back as `781069 - Annual Returns-2026-08-06` with due date `2026-08-06`, using CRO Open Data NARD rather than the later provisional date.
+- Workhub state: Workhub address/Plus Plan task was closed/read back as Done on 2026-06-12 after user review confirmed the address was removed from the EXV website and the plan change was rejected. Workhub charges route to Richmond Blackwood, not EXV/VUN/CLV allocation.
+- Drive/WhatsApp: canonical EXV Drive folder `09. Exotic Vaults Foundation CLG` was created/verified under `01. Internal Companies` at `https://drive.google.com/drive/folders/1KI3uzgaTGfmMUS0CPumaInUEcHIkqmsu`. No WhatsApp route/JID is stored because EXV is internal and uses Slack/Konvi routing.
+- Boundary: keep EXV company administration, filings, Workhub issue, and EXV protocol pointers in `clients/Companies/EXV/`; keep product specs in Notion and Konvi licensing/current-business impact in `clients/Companies/KONVI/`. Do not copy bank details, private identifiers, Notion attachment URLs, raw transcripts/media, signing links, or credentials into git.
 
 Communication workflow update:
 

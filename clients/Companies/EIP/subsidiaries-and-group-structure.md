@@ -19,6 +19,8 @@ User instruction on 2026-06-05 describes EIP as the holding company of the ventu
 
 Konvi appears in active EIP intercompany contracts but was not listed as a direct EIP subsidiary in the fetched EIP company relation. Treat Konvi as an intercompany/counterparty context item here, not as a confirmed direct subsidiary, unless ownership source records are fetched and reviewed.
 
+EXOTIC VAULTS FOUNDATION CLG (`../EXV/`) is listed in Notion as held by KONVI HOLDINGS LIMITED, not as a direct EIP subsidiary in the fetched EIP relation. Treat EXV as broader Konvi/KHL internal group context until the group-structure task confirms direct/indirect classifications.
+
 The broader venture-builder structure needs a dedicated ownership pass if EIP's holding-company scope is used for legal, tax, banking, or external reporting.
 
 Live task: `Create EIP group structure diagram` / `https://app.notion.com/p/378e41301314811f8e8edbfaa69afca0`.

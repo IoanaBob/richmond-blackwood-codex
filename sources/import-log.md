@@ -2,6 +2,26 @@
 
 Status: active.
 
+## 2026-06-12 - EXV Review Corrections
+
+Applied:
+
+- Applied user review answers for EXV internal Slack/Konvi routing, canonical Drive folder creation, Workhub address/Plus Plan resolution, Notion project route, Workhub/RBL cost routing, RTD/VIES status, 2026 annual-return date source, and latest legal-opinion search.
+- Created/verified Google Drive folder `09. Exotic Vaults Foundation CLG` under `01. Internal Companies`: `https://drive.google.com/drive/folders/1KI3uzgaTGfmMUS0CPumaInUEcHIkqmsu`.
+- Updated/read back live Notion records: EXV company `Communication preference` to Slack; RTD registration to Not Applicable; VIES title from `VEIS` to `VIES` while status remains Not Applicable; 2026 annual-return filing title/due date to `781069 - Annual Returns-2026-08-06` / `2026-08-06`; Workhub address/Plus Plan task to Done.
+- Added a live Notion comment to the XVault/MiCA/CASP risk task noting that internal legal pages were found but no external/latest legal opinion surfaced in Drive searches.
+- Updated `clients/Companies/EXV/`, VUN and RBL Workhub pointers, `memory/current-state.md`, `memory/handoff.md`, `memory/open-questions.md`, `memory/history.md`, `memory/skill-runs.md`, and `sources/source-register.md`.
+
+Verification:
+
+- Drive metadata and parent-folder listing confirmed the new folder.
+- Live Notion read-backs confirmed all updated company, filing-registration, filing, and task fields/comments.
+- CRO Open Data for company number 781069 confirmed NARD `2026-08-06`.
+
+Follow-up:
+
+- Locate and review the latest external legal opinion or counsel position for XVault/MiCA/CASP before treating the internal Notion legal analysis as final.
+
 ## 2026-06-08 - EVG Company Context Import
 
 Imported:
@@ -2106,3 +2126,25 @@ Actions:
 Unresolved:
 
 - No WhatsApp send was performed because the user said WhatsApp is not working and they will send manually.
+
+## 2026-06-09 - EXV Company Context Import
+
+Imported:
+
+- User instruction in Codex chat on 2026-06-09 to pull latest main and populate EXV.
+- Notion company `EXOTIC VAULTS FOUNDATION CLG` (`https://www.notion.so/18ce41301314807ca520f40825c36054`) with canonical `Reference` `EXV`.
+- EXV linked filing registrations/filing rows, communications/document pointers, Workhub task, KHL shareholder record, Eran/Ioana director-UBO role pointers, the XVAULT launch project, and the XVault/MiCA/CASP risk task.
+- Google Drive searches and internal/KHL folder listings for canonical-folder discovery.
+- WhatsApp MCP chat searches for `Exotic`, `EXV`, and `XVault`.
+
+Actions:
+
+- Created `clients/Companies/EXV/` and populated source-backed overview, linked individuals, group structure, authority/contracts, tax/filings, accounting, invoices/expenses, communications, project, Drive, Notion backup, product/protocol, open questions, source register, and history.
+- Added cross-links from Konvi, EIP, and VUN where existing memory already mentioned XVault/EXV or shared Workhub evidence.
+- Updated durable current-state, open-question, history, handoff, and skill-run memory.
+- Excluded bank details, private individual identifiers, Notion-hosted attachment URLs, raw transcripts/media, attachment IDs, signing links, and credential material from git.
+
+Follow-up:
+
+- 2026-06-12 review resolved the canonical Drive folder, communication route, Workhub address/Plus Plan task, RTD/VIES cleanup, 2026 annual-return title/date normalization, project route, and shared Workhub allocation.
+- Remaining open point: locate and review the latest external legal opinion or counsel position for the EXV/Konvi XVault/MiCA/CASP risk path before treating internal Notion legal analysis as final.
