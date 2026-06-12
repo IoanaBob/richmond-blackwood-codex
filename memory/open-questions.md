@@ -192,11 +192,11 @@ No active Mark / WEW personal-tax questions remain after the 2026-05-13 operator
 - Request or confirm lower German VAT filing cadence after the VAT/compliance position is clear.
 - Confirm the additional information requested by Finanzamt for the filed NACV 2024/2025 company taxes and whether RB's response has been accepted.
 - Complete the split of misrouted 2024 personal-tax documents from Andrei's 2025 folder.
-- Confirm spouse-related evidence completeness for Andrei's joint returns.
+- Confirm spouse-related evidence completeness for Andrei's pending 2024 joint return.
 - Confirm billing mechanics for normal-fee treatment from Andrei's 2025 personal-tax filing onward.
 - Confirm Andrei's official personal/director address with him; user says it is not 100 percent clear.
 - Confirm all NACV payslips and wage-tax records are uploaded or retrieve/upload from Lexoffice.
-- Confirm TK/private-health-insurance outcome and final social-insurance treatment before filing.
+- Track final Finanzamt assessment/payment evidence for Andrei and Elena's filed 2025 German PIT return. ELSTER provisional Nachzahlung / potential tax payable is EUR 1,346.00.
 
 ## AKS / Anastasia Questions
 
