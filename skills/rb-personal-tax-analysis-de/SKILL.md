@@ -82,7 +82,14 @@ Note: the fuller process document is pending review and should not be treated as
    - Once the tax analysis spreadsheet is created and ready for the filer, add an actual Notion page comment on the filing task with the spreadsheet URL, filing row URL, Drive folder URL, review status, and any remaining flags so the assigned person can file.
 11. If Notion relation routing is wrong, fix the relation: link the correct individual/company first, then unlink the incorrect entity.
 12. Record missing data in `open-questions.md` and update source registers.
-13. Notify the requester when the analysis is ready for review:
+13. During ELSTER filing review, create or update a workbook tab named exactly `ELSTER figures` whenever ELSTER prefilled, carried-over, validation, review-page, or calculation figures differ from the workbook or materially affect the filing.
+   - Put the tab near the review/summary tabs, not as a hidden scratch tab.
+   - Record at least: ELSTER area/form, workbook figure, ELSTER figure, variance, action taken, source/readback time, and review note.
+   - Include ELSTER's provisional refund/payment calculation when visible, labelling it provisional until the final Finanzamt assessment.
+   - Do not overwrite source workbook rows only to match ELSTER. Update source rows only when the ELSTER figure has been verified as the better source and the rationale is recorded.
+   - Add a Notion filing-task comment summarising the ELSTER/workbook differences, the action taken, and the provisional payment/refund amount if shown.
+   - Read back the `ELSTER figures` range from the spreadsheet before treating the workbook update as done.
+14. Notify the requester when the analysis is ready for review:
    - Capture the triggering person's Slack user ID, channel ID, and thread/message URL at the start when the work is triggered from Slack or another integrated intake.
    - If the trigger came from Codex, Notion, Drive, or another source without a Slack identity, ask the operator for the Slack recipient before sending.
    - Put the exact Slack message text in the Codex chat first and wait for approval. After approval, send the approved text directly through Slack and log the notification in the relevant Notion task/comment or source register.
