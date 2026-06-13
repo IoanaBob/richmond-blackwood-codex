@@ -115,6 +115,8 @@ RB_LINKEDIN_MCP_UPSTREAM_COMMAND = "/Users/eranpeer/.local/bin/uvx"
 RB_LINKEDIN_MCP_USER_DATA_DIR = "/Users/eranpeer/.linkedin-mcp/eran-richmond-blackwood/profile"
 RB_LINKEDIN_MCP_TIMEOUT_MS = "10000"
 RB_LINKEDIN_MCP_TOOL_TIMEOUT_SECONDS = "300"
+RUSTC = "/Users/eranpeer/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rustc"
+CARGO = "/Users/eranpeer/.rustup/toolchains/stable-x86_64-apple-darwin/bin/cargo"
 UV_HTTP_TIMEOUT = "300"
 ```
 

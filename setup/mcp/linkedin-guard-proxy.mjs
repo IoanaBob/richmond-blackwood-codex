@@ -13,6 +13,11 @@ const USER_DATA_DIR =
 const TIMEOUT_MS = process.env.RB_LINKEDIN_MCP_TIMEOUT_MS || process.env.TIMEOUT || "10000";
 const TOOL_TIMEOUT_SECONDS = process.env.RB_LINKEDIN_MCP_TOOL_TIMEOUT_SECONDS || process.env.TOOL_TIMEOUT || "300";
 const WRITE_ENABLED_MODES = new Set(["approved_write", "unsafe_all"]);
+const RUSTUP_STABLE_DIR = path.join(os.homedir(), ".rustup", "toolchains", "stable-x86_64-apple-darwin", "bin");
+const CARGO_HOME_BIN = path.join(os.homedir(), ".cargo", "bin");
+const LOCAL_BIN = path.join(os.homedir(), ".local", "bin");
+const DEFAULT_RUSTC = path.join(RUSTUP_STABLE_DIR, "rustc");
+const DEFAULT_CARGO = path.join(RUSTUP_STABLE_DIR, "cargo");
 
 const READ_ONLY_TOOLS = new Set([
   "rb_linkedin_guard_status",
@@ -181,12 +186,17 @@ function filterToolsResponse(message) {
 let upstream;
 try {
   const upstreamArgs = defaultUpstreamArgs();
+  const upstreamEnv = {
+    ...process.env,
+    UV_HTTP_TIMEOUT: process.env.UV_HTTP_TIMEOUT || "300",
+    RUSTC: process.env.RUSTC || DEFAULT_RUSTC,
+    CARGO: process.env.CARGO || DEFAULT_CARGO,
+    PATH: [LOCAL_BIN, CARGO_HOME_BIN, RUSTUP_STABLE_DIR, process.env.PATH || ""].filter(Boolean).join(path.delimiter),
+  };
+
   upstream = spawn(UPSTREAM_COMMAND, upstreamArgs, {
     stdio: ["pipe", "pipe", "inherit"],
-    env: {
-      ...process.env,
-      UV_HTTP_TIMEOUT: process.env.UV_HTTP_TIMEOUT || "300",
-    },
+    env: upstreamEnv,
   });
 
   process.stderr.write(
