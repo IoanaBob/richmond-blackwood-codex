@@ -61,6 +61,8 @@ For live daily runs, use packet stages like the other RB multi-stage skills. Use
 Parent/child handoff rule:
 
 - When this master skill invokes a channel skill, the channel result is not complete until the matching master packet is written or updated.
+- Packet-before-advance rule: once a channel has started, do not do research, sourcing, drafting, sending, or live-state changes for any later channel until the current channel's packet has been written, printed in chat, and the `Channel Ledger` row has been updated. Connector failures, empty queues, and blockers still require a printed packet; they are not permission to silently continue to the next channel.
+- Current-channel correction rule: if the user asks about, challenges, or redirects the current channel, stop all later-channel work and return to the current channel packet. Do not justify later-channel work by saying the master order had already moved on.
 - A channel approval gate is not a master-run stop condition. If LinkedIn, Facebook, Reddit, relocation email/Gmail, or another channel reaches `Waiting Approval`, `Needs Conversation Read Approval`, `Needs Sender Verification`, or a similar gate, record that channel's exact status in the master ledger and continue to the next unswept active channel in read/plan mode unless the user explicitly says to stop and handle only that channel.
 - After any channel sub-skill Stage 7, Stage 8, Stage 9, send, post, comment, reply, DM, follow-up, blocker, or material Notion state change, immediately return to the master run and update the matching master Stage 7, Stage 8, Stage 9, and `RUN_STATE.md` cursor before closeout.
 - A final answer after channel work must name both the child channel stage completed and the master stage updated.
@@ -153,6 +155,7 @@ Shared gates:
    - Do not stop the master run after LinkedIn, even if LinkedIn has a pending approval gate, duplicate-send conversation-read gate, first-message packet, or send result. Mark LinkedIn's ledger row and continue to Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit in read/plan mode.
    - Do not skip Reddit, Facebook partnerships, Facebook posting, or relocation partner email/Gmail merely because another channel generated a send approval prompt. Their packets still need to run or be explicitly marked `Skipped`/`Blocked` with the reason.
    - For every channel, write or update a child packet and immediately merge its summary into the master `Channel Ledger`: current status, created/updated records proposed or completed, sends/posts blocked or waiting approval, next follow-up, and next prompt for that channel.
+   - Do not start the next channel until the current channel packet has been printed in chat. If the user interrupts with a question about the current channel, answer it and keep the cursor on that channel until the packet is accepted, revised, blocked, or explicitly skipped.
    - Produce proposed creates/updates for Growth Targets, Business Partners, Growth Messages, and Tasks.
    - Include timestamp updates for each proposed state transition, milestone, send, reply, blocker, approval, post/comment, or follow-up.
    - Include explicit reply-drafting and follow-up-drafting packets when replies or due follow-ups exist.
