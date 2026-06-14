@@ -38,6 +38,7 @@ Use this skill for Reddit community discovery, rule review, helpful community pa
 - Do not send/post/comment/DM during daily automation.
 - Preview outbound text in chat. Do not save Reddit drafts.
 - Send/post/comment/DM only after explicit user approval for the exact text.
+- A Reddit browser send is not complete just because a send button was clicked. Treat the send as unverified until the composer is empty and the newly sent message appears in the thread history from the verified Reddit account. If the approved text remains in the composer, it was not sent.
 - Log every pre-lead post, comment, reply, DM, blocker, and follow-up in Growth Messages.
 
 ## Data Routing
@@ -170,9 +171,16 @@ Shared gates:
    - If not Eran's required Reddit account, log a blocker in Growth Messages and stop.
    - For public posts/comments, re-check today's 1/day cap and 15-minute spacing immediately before each send. If the prior public post/comment was less than 15 minutes ago, keep scrolling/reading/prepping until the gap is complete, then re-check Eran and the exact approved text before sending.
    - Send/post/comment/DM only the approved text.
+   - For browser-based Reddit sends, use a strict post-send verification loop before logging:
+     - First confirm the approved text is in the intended composer for the intended thread or comment target.
+     - Click the visible Reddit send control or supported DOM send control once.
+     - Immediately re-read the live page. A successful send must show the approved text in the message/comment history attributed to the verified account, and the composer must be empty or reset to its placeholder with the send button disabled.
+     - If the approved text is still in the composer, do not log or report a send. Treat the click as a failed submit, keep the text in place, and try the keyboard send behavior by focusing the composer and pressing `Enter` only after confirming the text still matches the exact approved text.
+     - After a keyboard send, verify again that the message appears in history from the verified account and the composer is empty. If not, mark a blocker with screenshot/DOM evidence and ask the user to intervene rather than claiming a send.
+     - Record the actual send timestamp from the visible thread, such as `Today 2:05 PM`, not the timestamp of a failed button click or draft insertion.
    - Count only approved public posts/comments toward the computed daily public cap. Do not count replies, reactive DMs, follow-ups, modmail, votes, saves, passive scrolling, or any second comment on the same post.
    - For DMs, send only when the approved packet includes the valid trigger and source URL/message context.
-   - Log the URL/message ID, rule basis, result, `Message Kind = Post`, `Comment`, `Reply`, or `DM`, `Status = Sent/Posted`, `Growth Event At`, and next follow-up in Growth Messages.
+   - Log the URL/message ID, rule basis, result, `Message Kind = Post`, `Comment`, `Reply`, or `DM`, `Status = Sent/Posted`, and next follow-up in Growth Messages only after the post-send verification succeeds. Set `Growth Event At` and `Sent/Posted At` to the actual verified visible send time. If a Growth Message was created before verification and the send fails, correct it immediately to `Blocked` or update its notes with the failed-submit evidence.
    - Set Growth Target `Outreach Active At`, `Stage Updated At`, and `Last Activity At` when participation starts.
 
 9. Reply And DM Drafting Packet

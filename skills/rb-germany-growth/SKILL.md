@@ -249,7 +249,9 @@ Shared gates:
    - Re-check the active session immediately before each send.
    - Block any send where the required channel sender is not verified.
    - Send directly through the supported connector/MCP/browser route after approval.
-   - Log the result, URL/message ID, status, and next follow-up in Growth Messages.
+   - Do not treat a browser click, filled composer, saved draft, pending UI state, or helper return as a completed send by itself. Each channel must provide channel-appropriate proof that the message/post/comment actually left the composer and appears in sent history, thread history, or the provider's sent response. If the approved text remains in the composer or the sent-history proof is missing, mark the send as failed/blocked and do not create a `Sent/Posted` Growth Message.
+   - For Reddit browser sends specifically, require the Reddit skill's post-send verification loop: verified account immediately before send, exact approved text in the intended composer before the action, message visible afterward in the thread history from the verified account, composer empty or reset to placeholder, and actual visible send time captured. If clicking the send control leaves the text in the composer, retry with focused composer plus `Enter` only after rechecking the exact text, then verify again.
+   - Log the result, URL/message ID, status, actual verified send timestamp, and next follow-up in Growth Messages only after send verification succeeds.
    - If the result makes the thread a lead/client/business communication, create or update the canonical Communications handoff record and link it through `Promoted Communication`.
    - If a channel sub-skill performed the send/post/comment/DM, reconcile the result into this master Stage 7 packet and update `RUN_STATE.md` before continuing.
 
