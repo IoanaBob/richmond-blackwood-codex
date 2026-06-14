@@ -52,6 +52,14 @@ When invoked standalone for a live run, use `/private/tmp/rb-germany-growth-redd
 
 When invoked by `rb-germany-growth`, return a channel work packet instead of performing sends, posts, or comments. The master daily run may use this skill for read/plan work only.
 
+Master sub-run requirements:
+
+- Every invocation from `rb-germany-growth` must return a Reddit sub-run packet even when no public comment is available, the public cap is exhausted, or another channel has a waiting approval.
+- Every Reddit sub-run must include an inbound sweep. Check the active account's inbox, chat/DMs, comment replies, post/comment engagement triggers, removals/warnings, and due Reddit Growth Messages follow-ups. If any source cannot be checked, state the exact blocked source and why.
+- The inbound sweep is separate from the public 1/day post/comment cap. Replies, reactive DMs, and follow-up DMs do not consume the public cap, but they still require exact approval and Eran account verification before sending.
+- The Reddit sub-run packet must include a small tally: `Active account`, `Inbox/chat checked`, `Comment replies checked`, `Engagement triggers checked`, `Due follow-ups checked`, `Public cap checked`, `New inbound items`, `Reply/DM drafts`, `Public drafts`, `Rejected candidates`, `Blockers`, and `Next prompt`.
+- Do not mark the Reddit row `Complete` until both the inbound sweep and public-sourcing/cap lane have a result. `Complete - no safe draft today` is valid only when inbound is checked or explicitly blocked and sourcing found no safe recent high-fit public target.
+
 Shared gates:
 
 - No post, comment, reply, or DM is sent before exact text approval.
@@ -63,12 +71,21 @@ Shared gates:
 1. Preflight
    - Read `rb-germany-growth` and `rb-communications`.
    - Load active Audience Target, Growth Targets schema, Growth Messages schema, Communications handoff schema, and relevant Tasks.
+   - Start the Reddit sub-run by recording active account, quota date/timezone, public cap state, and required inbound sweep sources.
    - Verify whether this is a new Reddit sender flow. If the previous Reddit account was banned or unusable, identify the old account name, the new active account name, and the reset date in the run packet.
    - Before proposing any new Reddit send, create an invalidation packet for prior Reddit Growth Messages and Tasks tied to the banned account: records to close/historical-only, records to preserve as sent historical evidence, records needing user review, and any active follow-ups that must be stopped. Print the packet before write-back.
    - Confirm no work is routed to the deleted legacy partnership data source.
    - Confirm no Reddit work is routed to Business Partners, modmail, cold DMs, sponsorship, paid posts, or commercial counterparties.
+   - Do not advance to public sourcing until the packet has either completed or explicitly blocked the inbound sweep.
 
-2. Audience And Community Criteria
+2. Inbound Sweep
+   - Check Reddit inbox/messages, chat/DMs, comment replies, notifications/mentions, removals/warnings, and visible engagement with prior public posts/comments for the active Reddit account.
+   - Check due Reddit Growth Messages follow-ups and active Reddit Growth Targets for reply/DM/follow-up tasks.
+   - For every inbound item, record the source URL or message context, timestamp/date if visible, trigger type, whether it is a reply/DM/comment engagement/removal/warning, and whether a response is warranted.
+   - Draft no reply or DM until the source chain is complete enough for user review. For help-call, scheduling, or deeper-support cases, include the full source-chain brief required below.
+   - If the account, inbox, chat, notifications, or prior-thread context is inaccessible, mark the exact lane blocked and still continue to public sourcing/cap review unless the missing access makes sender identity unsafe.
+
+3. Audience And Community Criteria
    - Default audience is `American tech workers in Germany / relocating to Germany`.
    - Target communities where the audience naturally asks about German setup, relocation, taxes, company structure, visas, work, tech careers, startup/founder setup, remote work, or expat administration.
    - Primary sourcing priority is high-intent, urgent Germany admin/tax pain, especially posts from freelancers or soon-to-be freelancers who sound like they need practical support now with consulting, contractor status, invoicing, VAT, income tax, social security, private/public health insurance, pension contributions, GmbH/UG/company setup, EOR/payroll, false self-employment, banking/KYC, or remote work for foreign clients while Germany-based.
@@ -81,7 +98,7 @@ Shared gates:
    - Track the daily public Reddit cap state in the packet: quota date/timezone, current 1/day cap, whether 3 full safe single-comment days have passed, public posts/comments already sent today, timestamp of last public post/comment, earliest next allowed post/comment time, safe drafts, high-risk/provisional drafts, replies/DMs excluded from the cap, and remaining allowed capacity.
    - Keep research reusable for future Germany growth audience targets.
 
-3. Discovery And Growth Target Upsert
+4. Discovery And Growth Target Upsert
    - Dedupe by subreddit URL, post URL, and community name.
    - Create/update Growth Targets for subreddits, relevant posts, recurring threads, and non-commercial research targets.
    - Mark distinct recent posts that could receive a top-level comment as `Top-Level Comment Candidate` when the schema supports it.
@@ -93,7 +110,7 @@ Shared gates:
    - Do not create posts older than 14 days as direct engagement targets by default.
    - Set `Stage Updated At`, `Rules Checked At`, and `Last Activity At` when target state or rule state changes.
 
-4. Rule And Compliance Review
+5. Rule And Compliance Review
    - Read subreddit rules, wiki/sidebar, pinned posts, and recent visible moderator guidance when available.
    - Read recent posts and visible comments from the same subreddit, and when possible the target thread, to understand local style, level of directness, typical comment length, terminology, and how users frame helpful answers.
    - Treat existing comments as context only. Capture style and thread facts, not wording, ordering, examples, or reasoning structure from another user's comment.
@@ -101,7 +118,7 @@ Shared gates:
    - If rules require modmail, moderator approval, sponsorship, payment, or commercial permission before participation, mark the item blocked for now.
    - Treat rule, approved-claim, and required Reddit sender-session checks as in-run gates. Store rule evidence on the Growth Target and blockers/follow-ups in Growth Messages or Tasks, not in a compliance-check database.
 
-5. Helpful Participation Packet
+6. Helpful Participation Packet
    - Draft helpful, non-promotional top-level comments or posts in chat when rules allow. Default Reddit daily output is up to today's 1/day cap on distinct recent posts, subject to the daily cap and 15-minute spacing rule.
    - Before drafting, pass the candidate fit gate in writing: name the exact Germany/freelance/company/tax/admin/banking problem, the explicit intent or budget signal, and the reason Eran/RB can help without forcing a pitch. If any of those are missing, do not draft; print a rejection with the missing evidence and keep sourcing or close Reddit as `no safe draft today`.
    - Before each draft, show the initial Reddit question/topic, relevant post/comment context, subreddit rule basis, and why this response is useful for that specific thread. If the post body or thread context is missing, block the draft until context is read.
@@ -133,7 +150,7 @@ Shared gates:
    - Show sender identity as Eran and the exact Reddit account/session verification requirement.
    - Include target URL, post created date, last meaningful activity date, recency basis, rule basis, follow-up date, whether the draft counts toward today's computed public Reddit cap, and the earliest allowed posting time after the last successful public post/comment.
 
-6. Community Engagement Readiness
+7. Community Engagement Readiness
    - Confirm the proposed action is a direct community post/top-level comment, a reply, or an allowed reactive DM.
    - For daily cap accounting, confirm whether the item is a public top-level post/comment. Replies, DMs, follow-ups, and second comments on the same post do not count toward the public Reddit cap, but they still require approval and sender verification.
    - For any public post/comment, confirm today's active-account public post/comment count is below the current 1/day cap, and at least 15 minutes have elapsed since the last public post/comment. If the last sent timestamp is unclear, block.
@@ -145,7 +162,7 @@ Shared gates:
    - Confirm there is no request for moderator approval, commercial placement, sponsorship, paid posting, cold DM, or modmail.
    - If any commercial or moderator route is needed, block the item and record that Reddit commercial/moderator routing is disabled.
 
-7. Approved Send/Post/Comment/DM
+8. Approved Send/Post/Comment/DM
    - Run only after explicit approval.
    - Re-check the Reddit session is Eran's required Reddit account.
    - If not Eran's required Reddit account, log a blocker in Growth Messages and stop.
@@ -156,7 +173,7 @@ Shared gates:
    - Log the URL/message ID, rule basis, result, `Message Kind = Post`, `Comment`, `Reply`, or `DM`, `Status = Sent/Posted`, `Growth Event At`, and next follow-up in Growth Messages.
    - Set Growth Target `Outreach Active At`, `Stage Updated At`, and `Last Activity At` when participation starts.
 
-8. Reply And DM Drafting Packet
+9. Reply And DM Drafting Packet
    - Track replies, removals, bans/warnings, helpful engagements, and link clicks if available.
    - Track inbound Reddit DMs and people who engage with our public post/comment.
    - Before each reply or reactive DM draft, show the initial Reddit question/topic, the public engagement or inbound-DM trigger, the latest message/comment being answered, and why a reply or DM is justified.
@@ -175,7 +192,7 @@ Shared gates:
    - Do not pitch, ask for mod approval, suggest paid/commercial placement, or introduce RB services unless the person explicitly asked for help that makes RB directly relevant and the exact wording is user-approved.
    - Update Growth Target status only when evidence supports it.
 
-9. Follow-Up Drafting Packet
+10. Follow-Up Drafting Packet
    - Inspect due follow-ups for posts, comments, replies, DMs, removals, warnings, and recurring threads.
    - Before each follow-up draft, show the initial thread/topic context, prior RB/Reddit-sender interaction, latest thread state, and the specific reason a follow-up adds value.
    - Re-check the subreddit/thread style basis before follow-up drafting if more than 48 hours passed or the thread tone changed.
@@ -184,9 +201,9 @@ Shared gates:
    - If a follow-up would be promotional, repetitive, or contextless, do not draft it; advance the due date, close it, or mark it blocked.
    - Use Growth Messages follow-up dates for later checks.
 
-10. Reporting And Closeout
+11. Reporting And Closeout
    - Do not create or update summary reporting rows.
-   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, recent relevant candidates sourced, public post/comment drafts, approved public posts/comments posted, computed daily cap remaining, last public post/comment timestamp, next allowed public post/comment time, rule checks, replies, reactive DMs, helpful engagements, blockers, and follow-ups.
+   - Reconstruct channel reporting from timestamped Growth Targets and Growth Messages records for communities researched, inbound messages/replies checked, recent relevant candidates sourced, public post/comment drafts, approved public posts/comments posted, computed daily cap remaining, last public post/comment timestamp, next allowed public post/comment time, rule checks, replies, reactive DMs, helpful engagements, blockers, and follow-ups.
    - Report any community-specific constraints before future runs.
 
 ## Output Packet
@@ -198,4 +215,5 @@ Return:
 - Growth Messages created/updated.
 - Post/comment previews, reply drafts, reactive DM drafts, follow-up drafts, blockers, and reporting counts.
 - Reddit account reset state when applicable: old banned/unusable account, new active account, invalidated prior tasks/comms, preserved historical records, and any user-review exceptions.
+- Inbound sweep state: inbox/chat checked, comment replies checked, engagement triggers checked, removals/warnings checked, due Reddit follow-ups checked, new inbound items, reply/DM drafts, blockers, and items excluded from the public cap.
 - Daily Reddit public cap state: quota date/timezone, current 1/day cap, safe single-comment day count before any proposed cap increase, sourced candidates, safe drafts, high-risk/provisional drafts, approved public posts/comments posted, last post/comment timestamp, earliest next allowed post/comment time, replies/DMs excluded from count, rejected, and remaining allowed capacity.

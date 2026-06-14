@@ -58,6 +58,25 @@ LinkedIn ownership source of truth:
 
 For live daily runs, use packet stages like the other RB multi-stage skills. Use `/private/tmp/rb-germany-growth/<run-id>/` with `LOCK.md`, `RUN_STATE.md`, and one `stage-XX-<short-name>.md` packet per stage. Print each packet in chat before moving to the next stage.
 
+Required channel sub-runs:
+
+- Treat each channel as a sub-run inside the master run, not as an optional section of Stage 4.
+- Create or update `subruns/<order>-<channel>/SUBRUN_STATE.md` for every required channel, or, when keeping one-file packets, include the same fields in `stage-04-<channel>.md`. The sub-run state must show `Sub-run ID`, `Channel`, `Required sender`, `Started At`, `Ended At`, `Status`, `Packet path`, `Reads performed`, `Writes performed`, `Approvals waiting`, `Blockers`, and `Next prompt`.
+- Before touching a channel, write the sub-run start marker and mark the master `Channel Ledger` row `Read/Plan Running`.
+- Before advancing away from that channel, write the sub-run end marker, print the channel packet in chat, and update the master tally. A channel that hits an approval gate, sender gate, connector failure, or live-write blocker still gets an end marker with `Waiting Approval` or `Blocked`.
+- Do not ask for a final approval, send/log closeout, or master final response while any required channel remains `Not Started`, `Read/Plan Running`, or missing an end marker. If a channel has a waiting approval or logging blocker, mark it and continue to the next unattempted channel in read/plan mode unless the user explicitly says to stop on that channel.
+- If the user interrupts with an approval for one channel, perform the approved action, reconcile that child sub-run into Stage 7/8, then immediately resume the next unattempted channel rather than treating the master run as complete.
+
+Mandatory sub-run work lanes:
+
+- Every channel sub-run must explicitly check and tally: due follow-ups/tasks, inbound replies/messages/notifications where the channel supports them, send-ready or draft-ready queue, quota/cap state, blockers, and next action.
+- If a lane cannot be checked, write `Blocked` with the exact missing connector, permission, account, or source. Do not omit the lane.
+- For LinkedIn, the inbound lane includes new replies, accepted connections waiting first messages, unread/visible conversation context that is approved to read, and follow-up triggers.
+- For Facebook partnerships, the inbound lane includes group/admin replies, group-join or membership state, due sponsorship/admin follow-ups, and blocked admin routes.
+- For Facebook posting, the inbound lane includes replies to prior comments/posts, usable joined-group state, recent post candidates, and comments needing follow-up.
+- For relocation partner email/Gmail, the inbound lane includes Gmail replies in the Ioana source mailbox, due follow-ups, first-time partner quota, draft-ready partner prospects, and post-send logging blockers.
+- For Reddit, the inbound lane is mandatory even when the public posting cap is already used or no public comment target is found. It includes Reddit inbox, chat/DMs, comment replies, post/comment engagement triggers, removals/warnings, and due follow-ups for the active Reddit account.
+
 Parent/child handoff rule:
 
 - When this master skill invokes a channel skill, the channel result is not complete until the matching master packet is written or updated.
@@ -74,8 +93,11 @@ Mandatory channel ledger:
 - Every master run must create and keep current a `Channel Ledger` table in `RUN_STATE.md` and in the latest master packet.
 - Required rows for the active Germany growth system are: LinkedIn, Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit.
 - Each row must have one status: `Not Started`, `Read/Plan Running`, `Packet Printed`, `Waiting Approval`, `Blocked`, `Skipped`, `Sent/Logged`, or `Complete`.
+- Every master run must also keep a `Sub-Run Tally` table in `RUN_STATE.md` and in the latest master packet. Required columns are `Channel`, `Sub-run ID`, `Started At`, `Ended At`, `Packet`, `Inbound checked`, `Follow-ups checked`, `Quota/cap checked`, `Drafts/proposals`, `Sends/logs`, `Status`, and `Next prompt`.
+- `Inbound checked`, `Follow-ups checked`, and `Quota/cap checked` must be `yes`, `blocked`, or `n/a with reason`; blank cells block closeout.
 - `Skipped` is allowed only with an explicit reason such as `user paused channel`, `credentials unavailable`, `no active channel row`, or `out of scope for this run`.
 - The master run cannot enter Stage 9 closeout while any required row is `Not Started` or `Read/Plan Running`.
+- The master run cannot enter Stage 9 closeout while any required channel has no sub-run end marker or lacks the mandatory lane tallies.
 - A channel in `Waiting Approval` or `Blocked` does not prevent the other channel rows from running. It remains in the ledger and the final wrap-up's `Next prompt` must return to the highest-value unresolved approval or blocker.
 
 Next-stage prompting rule:
@@ -145,6 +167,8 @@ Shared gates:
    - Separate send-ready items from research, reply-drafting, follow-up-drafting, blocker, and follow-up advancement work.
 
 4. Channel Work Packets
+   - Start a separate sub-run for each required channel in the fixed order. Record the start marker before any reads, and record the end marker before advancing to the next channel.
+   - For every channel sub-run, complete the mandatory work lanes: inbound/reply/message check, due follow-up/task check, quota/cap check, blocker check, and draft/proposal check. If the channel does not support a lane, write `n/a` with a reason. If access is unavailable, write `blocked` with the exact missing route.
    - Run every active channel skill in read/plan mode before closeout. Use this fixed order unless the user explicitly changes it for the current run:
      - `rb-germany-growth-linkedin`
      - `rb-germany-growth-facebook-partnerships`
@@ -154,7 +178,9 @@ Shared gates:
    - Treat relocation partner email/Gmail as a required channel row. Use `rb-germany-growth-relocation-partners` for prospect/business-partner state and the Gmail/email sender rules from `rb-gmail-drafts` when email thread, source mailbox, sender, or Gmail send/read context is needed.
    - Do not stop the master run after LinkedIn, even if LinkedIn has a pending approval gate, duplicate-send conversation-read gate, first-message packet, or send result. Mark LinkedIn's ledger row and continue to Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit in read/plan mode.
    - Do not skip Reddit, Facebook partnerships, Facebook posting, or relocation partner email/Gmail merely because another channel generated a send approval prompt. Their packets still need to run or be explicitly marked `Skipped`/`Blocked` with the reason.
+   - Do not stop the master run after relocation partner email/Gmail, even if approved sends completed, Notion logging is waiting explicit approval, or a Gmail/Notion blocker exists. Mark relocation as `Waiting Approval`, `Blocked`, or `Sent/Logged` as appropriate and continue to Reddit read/plan mode unless the user explicitly says to stop before Reddit.
    - For every channel, write or update a child packet and immediately merge its summary into the master `Channel Ledger`: current status, created/updated records proposed or completed, sends/posts blocked or waiting approval, next follow-up, and next prompt for that channel.
+   - For every channel, also merge the sub-run lane tallies into the master `Sub-Run Tally`.
    - Do not start the next channel until the current channel packet has been printed in chat. If the user interrupts with a question about the current channel, answer it and keep the cursor on that channel until the packet is accepted, revised, blocked, or explicitly skipped.
    - Produce proposed creates/updates for Growth Targets, Business Partners, Growth Messages, and Tasks.
    - Include timestamp updates for each proposed state transition, milestone, send, reply, blocker, approval, post/comment, or follow-up.
@@ -167,6 +193,7 @@ Shared gates:
    - For relocation partners, include the 5/day first-time email target state and any sourcing queue gap needed to keep the daily target achievable.
    - For Facebook posting, include the 3/day relevant public comment/reply target state, usable joined groups, candidate buffer, selected posts, and any sourcing gap. Do not fill the target with weak, stale, low-budget, job-seeker, or rule-unsafe posts.
    - For Reddit, include the computed public Reddit daily cap state, last post/comment timestamp, earliest next allowed public post/comment time, and any sourcing/drafting gap. Current cap is 1/day; do not prepare a second same-day public post/comment. Do not fill the cap with weak or stale threads.
+   - For Reddit, always run the inbound message/reply/DM sweep before or alongside public sourcing. The Reddit sub-run packet must show `Reddit inbound checked`, the active account, source checked, inbound/reply/DM count or blocker, any reply/DM drafts, and whether those items are excluded from the public 1/day cap.
    - If Reddit sourcing finds only weak or adjacent candidates, the Reddit channel packet must list the rejected candidates with the missing fit evidence and mark the Reddit row `Complete - no safe draft today` or `Read/Plan Running - continue sourcing`, rather than producing a draft.
    - After every channel packet, update the master packet or explicitly mark the child result as pending parent reconciliation.
 
@@ -224,14 +251,16 @@ Shared gates:
    - If a channel sub-skill performed reply, DM, or follow-up inspection, reconcile the child result into this master Stage 8 packet and update `RUN_STATE.md` before continuing.
 
 9. Reporting And Closeout
-   - Before reporting, merge all child channel packets into one master wrap-up packet. The wrap-up must include the `Channel Ledger`, unresolved approvals/blockers, sends/posts completed, drafts prepared, due follow-ups advanced, and the next prompt for each channel.
+   - Before reporting, merge all child channel packets into one master wrap-up packet. The wrap-up must include the `Channel Ledger`, `Sub-Run Tally`, unresolved approvals/blockers, sends/posts completed, drafts prepared, due follow-ups advanced, and the next prompt for each channel.
    - Closeout is blocked until LinkedIn, Facebook partnerships, Facebook posting, relocation partner email/Gmail, and Reddit are each `Complete`, `Waiting Approval`, `Blocked`, `Skipped`, or `Sent/Logged`. If any row is still `Not Started` or `Read/Plan Running`, run or reconcile that channel before final answer.
+   - Closeout is blocked until each required channel has a sub-run end marker and mandatory lane tallies. `Waiting Approval` and `Blocked` are valid end states only when the packet states what was checked, what could not be checked, and what exact approval or fix is needed.
    - Do not create or update summary reporting rows.
    - Reconstruct daily/weekly/monthly counts by querying timestamped records by audience and channel.
    - For LinkedIn, report monthly invite quota state from Growth Messages `Message Kind`/`Growth Event At`, Growth Target stage timestamps, and current pending/blocker state: planned blank invites, sent blank invites, remaining invites, daily send count, warnings, acceptances, meetings booked, invite-to-meeting conversion, and acceptance rate where available. Include the Daily Invite Gate table before saying the daily target is met or skipped.
    - If the LinkedIn daily invite minimum is not met for the declared quota date, closeout must not say the channel is complete. Prompt the next stage as LinkedIn invite-batch sourcing or approval, and state the exact remaining invite gap.
    - For relocation partners, report first-time email conversations opened from Growth Messages `Message Kind = First Message` or `Partner Pitch`, Business Partner `First Contacted At`, daily 5/day target met or missed, remaining approved-send queue, replies, follow-ups drafted, and blockers.
    - For Reddit, report public posts/comments posted from Growth Messages `Message Kind = Post` or `Comment` plus `Growth Event At`, computed daily cap remaining, last public post/comment timestamp, earliest next allowed public post/comment time, safe drafts, high-risk/provisional drafts, replies/DMs excluded from the count, and blockers.
+   - For Reddit, also report the inbound sweep outcome: inbox/chat/comment replies checked, new messages/replies found, reply/DM drafts waiting approval, historical-only banned-account items, and unread/access blockers.
    - Report created/updated records, blockers, sends skipped, sends completed, and next follow-ups.
    - Record meaningful skill usage in `memory/skill-runs.md`.
    - Confirm every material child channel packet has a matching master packet update before final answer. If any child result is not reconciled into the master packet/cursor, report the run as incomplete and reconcile it first.
