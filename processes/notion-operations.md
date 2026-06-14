@@ -19,9 +19,10 @@ Do not create client-specific Notion pages when the company relation or target d
 
 ## Page And Database Rules
 
-- Default to the Notion MCP connector for schemas, known page/data-source fetches, readbacks, ordinary supported page updates, and candidate discovery.
-- Use the Notion REST API, not MCP search, for complete table inventory that must prove all matching rows were considered.
-- Do not use or probe connector-advertised SQL/data-source query tools in RB runs. They are not an approved execution path. Use the Notion REST API with `NOTION_ACCESS_TOKEN` for filtered data-source queries that need reliable coverage.
+- Default to the Notion MCP connector for schemas, known page/database fetches, readbacks, ordinary supported page updates, database-view row reads, and candidate discovery.
+- Use `notion_query_database_view` for row reads when a database view URL is available. Paginate as needed and record the view URL when it is used for a gate or audit.
+- Use the Notion REST API, not MCP search, for complete table inventory when no suitable database view is available and the run must prove all matching rows were considered.
+- Do not use or probe connector-advertised SQL/data-source query tools in RB runs. They are not an approved execution path. Use database-view reads first when available, or the Notion REST API with `NOTION_ACCESS_TOKEN` for filtered data-source queries that need reliable coverage.
 - Keep page/database titles plain.
 - Every database must have an icon. Set it at creation time where supported, or immediately after creation through the page/database update tool before marking the database complete.
 - Keep emoji out of titles; use icon metadata for visual identity.
@@ -62,6 +63,7 @@ Use the owning task-capable RB Client Databases row first for Richmond Blackwood
 - Native task conversion is a UI handoff.
 - Some file display names may need verification after URL-based attachment.
 - MCP search is not a reliable exhaustive list of all accessible rows.
+- A known `collection://...` fetch can return schema metadata for deleted or trashed Notion data sources. For active/deleted gates, fetch the database/page URL and inspect the deleted/trashed marker, then query the database view with `notion_query_database_view` when a view is available.
 - Notion-hosted file downloads and Notion-native file/image uploads require the Notion REST API or an approved connector path with a Notion API credential stored outside git.
 
 ## MCP Default And API Exceptions
@@ -71,14 +73,14 @@ Source: Notion developer documentation for data sources, file/media APIs, and re
 Imported: 2026-06-01.
 Review: Keep provisional until the RB Notion API connection is confirmed shared with every target database/page needed for production runs.
 
-- Default to MCP for normal Notion work: schema fetches, known page/data-source readback, ordinary connector-supported updates, and search-based candidate discovery.
+- Default to MCP for normal Notion work: schema fetches, known page/data-source readback, database-view row reads through `notion_query_database_view`, ordinary connector-supported updates, and search-based candidate discovery.
 - Use the REST API for these tested exceptions:
   - exhaustive table/data-source queries and filters that may need pagination;
   - downloading Notion-hosted files/images from a `files` property or media block;
   - uploading Notion-native files/images through the File Upload API when Drive-backed evidence is not the right target.
 - Do not treat MCP `file://...attachment...` references as downloadable URLs. They identify Notion attachments for the connector, but the tested download path is REST page/block fetch plus the returned temporary `file.url`.
 - Use an approved Notion API token stored outside git. The tested local key name is `NOTION_ACCESS_TOKEN`; never print the token or commit env files.
-- Never try connector SQL/data-source query tools before REST. If a run needs a filtered data-source query and `NOTION_ACCESS_TOKEN` is available, go directly to REST. If the token is unavailable, report the blocker or use connector search/fetch only as explicitly degraded candidate discovery.
+- Never try connector SQL/data-source query tools. If a database view URL exists, query it with `notion_query_database_view`. If a run needs a filtered data-source query with no suitable view and `NOTION_ACCESS_TOKEN` is available, go directly to REST. If the token is unavailable, report the blocker or use connector search/fetch only as explicitly degraded candidate discovery.
 - Do not add repo-local Notion helper code unless repeated production use proves it is needed. For one-off pagination or downloads, use direct `curl` plus run-local scripts under `/private/tmp`.
 
 ### Data Source Query

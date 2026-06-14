@@ -48,6 +48,14 @@ Use this skill for the master Germany growth daily run or any coordinated German
 - Communications: `collection://1b5e4130-1314-8183-afd8-000b6f4da982` for promoted lead/client/business communication records only.
 - Tasks: `collection://25de4130-1314-8158-af69-000b6c9fb49e`
 
+Notion read route:
+
+- Use Notion fetch/read tools for known schemas, pages, database metadata, and view discovery.
+- Use `notion_query_database_view` for row reads when a database view URL is available. Paginate it when needed, and record the view URL in the run packet when it is part of a gate.
+- Do not use or probe `notion-query-data-sources`, SQL-style Notion tools, or connector-advertised data-source query tools in Germany growth runs.
+- Do not treat a `collection://...` fetch returning a schema as proof that a legacy database is active. Deleted or trashed Notion data-source metadata can still be fetchable by ID.
+- For the legacy `RB DE Growth Partnerships` gate, fetch the database page URL (`https://app.notion.com/p/cb92130c782e439a81edb9da540d96c1`) and inspect whether it is marked deleted/trashed. Then query its returned default/all-rows view with `notion_query_database_view`. The gate is clear when the database page is deleted/trashed and the view returns zero active rows. Block only if the page is not deleted/trashed, active rows remain, or the view cannot be checked.
+
 LinkedIn ownership source of truth:
 
 - Use the Growth Targets `Owner` person property as the contact owner. Ioana-owned targets must have Ioana as `Owner`; Eran-owned targets must have Eran as `Owner`.
@@ -140,7 +148,7 @@ Shared gates:
    - Inspect `git status --short --branch` and pull latest `origin/main` before repo or live-state changes.
    - Read `skills/index.md`, `skills/rb-communications/SKILL.md`, this skill, channel skill files, and `internal/growth-sales-marketing.md`.
    - Fetch Notion schemas for Audiences, Channels, Growth Targets, Business Partners, Growth Messages, Communications, and Tasks.
-   - Check that the legacy growth partnership data source is deleted/trashed or unavailable. Block if it is active after migration should be complete.
+   - Check that the legacy growth partnership data source is deleted/trashed or unavailable. Use the Notion read route above: database page fetch plus `notion_query_database_view` on the returned default/all-rows view. Block if it is active after migration should be complete, but do not block merely because a `collection://...` schema fetch still returns deleted metadata.
    - Declare the quota date and timezone for daily target math. Use the user's current operating date when the user says `today`, `yesterday`, or similar; if that conflicts with local shell/browser/Notion timestamps, show the conflicting dates and block until the quota date is explicit.
 
 2. Audience Selection
