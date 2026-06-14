@@ -31,6 +31,7 @@ Repo-local skills for Richmond Blackwood work.
 - `rb-germany-growth-relocation-partners`: relocation-agent, expat coach, immigration-adjacent firm, and professional-firm partnership flow using Business Partners.
 - `rb-germany-growth-reddit`: Reddit community engagement flow; communities, posts, recurring threads, comments, replies, and allowed reactive DMs route to Growth Targets and Growth Messages only.
 - `rb-personal-tax-analysis-de`: prepare German personal tax analysis work for individual clients, including Drive setup, checklist routing, Notion cross-checks, and linked-entity filing.
+- `rb-steuergo-personal-tax-filing`: prepare, review, submit only after approval, and log German personal tax filings in SteuerGo, including Finanzamt source precedence and health/care insurance checks.
 - `rb-de-vbg-accident-insurance`: prepare, submit, and log German VBG accident-insurance / Unternehmensnummer registrations for RB company clients.
 - `log-ie-ros-filing`: log one completed Irish ROS filing into RB Notion with proof of filing, filed date/status, payment/refund amount, and any related Tax payments entry.
 - `log-ie-core-annual-return`: log one completed Irish CRO/CORE annual return into RB Notion with public CORE proof, filed date/status, payment handling, and next annual-return cross-check.
