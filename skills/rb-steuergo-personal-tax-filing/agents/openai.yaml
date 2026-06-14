@@ -1,0 +1,4 @@
+interface:
+  display_name: "RB SteuerGo Filing"
+  short_description: "File German personal tax returns in SteuerGo"
+  default_prompt: "Use $rb-steuergo-personal-tax-filing to prepare, review, and log a German personal tax filing in SteuerGo."
