@@ -7,6 +7,8 @@ Replace this with the company client legal/display name.
 Notion backup: `notion-backup.md`.
 Drive evidence: `drive-locations.md`.
 Detailed history: `history.md`.
+Savings calculation workbook: `savings-calculation-template.xlsx`.
+Google Sheets template: https://docs.google.com/spreadsheets/d/1cMn-vMgS4kp0X9rcUhlO-GXTpDaVM6jBUPD07xdejYE
 
 ## Record Routing
 
